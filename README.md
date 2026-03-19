@@ -45,5 +45,5 @@ Este portafolio utiliza un sistema de automatización basado en **IA Local (Qwen
 
 Perfil multidisciplinar combinando el sector sanitario (TES) y el tecnológico (DAM). Especializado en desarrollo backend y gestión operativa de datos.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](TU_LINK_DE_LINKEDIN)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/traffickerdigital-jokin/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Joaquinriosheredia)
