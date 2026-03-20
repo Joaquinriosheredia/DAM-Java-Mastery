@@ -1,5 +1,5 @@
 # DESIGN.md - Google Stitch v1.0
 
 Vibe: Professional Executive
-Último Tema: Zero Trust: La identidad como nuevo perímetro (enfoque en rendimiento)
+Último Tema: MLOps: Modelos de laboratorio a producción estable (optimización de recursos)
 Status: Active Deployment
