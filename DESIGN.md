@@ -1,5 +1,5 @@
 # DESIGN.md - Google Stitch v1.0
 
 Vibe: Professional Executive
-Último Tema: Post-Quantum Cryptography: El futuro post-RSA (optimización de recursos)
+Último Tema: TI: Orquestación de equipos de agentes IA (perspectiva de seguridad)
 Status: Active Deployment
