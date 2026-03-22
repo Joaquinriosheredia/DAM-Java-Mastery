@@ -1,5 +1,5 @@
 # DESIGN.md - Google Stitch v1.0
 
 Vibe: Professional Executive
-Último Tema: Claude Cowork Dispatch ya puede usar tu ordenador sin ti (análisis estratégico)
+Último Tema: Tu Apple Watch ahora te avisa cuando Claude Code termina (análisis estratégico)
 Status: Active Deployment
