@@ -1,5 +1,5 @@
 # DESIGN.md - Google Stitch v1.0
 
 Vibe: Professional Executive
-Último Tema: Claude Code Review: la IA que revisa tu código (perspectiva de seguridad)
+Último Tema: avap cambia como se desarrollan las APIs (análisis estratégico)
 Status: Active Deployment
