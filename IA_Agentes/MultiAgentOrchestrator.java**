@@ -1,0 +1,45 @@
+```java
+package com.example.multiagent.orchestration;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import langchain4j.agent.Agent;
+import langchain4j.agent.AgentFactory;
+import ollama.api.OllamaClient; // Asumiendo que existe un cliente de API para Ollama
+import ollama.model.OllamaResponse;
+
+@Component
+public class MultiAgentOrchestrator {
+
+    @Autowired
+    private AgentFactory agentFactory;
+
+    @Autowired
+    private OllamaClient ollamaClient;
+
+    public void orchestrateAgents(List<String> tasks) {
+        for (String task : tasks) {
+            Agent agent = agentFactory.create(task);
+            // Asumiendo que el agente necesita un modelo de lenguaje proporcionado por Ollama
+            String modelOutput = getModelOutputFromOllama(agent, task);
+            processModelOutput(modelOutput, agent);
+        }
+    }
+
+    private String getModelOutputFromOllama(Agent agent, String task) {
+        // Asumiendo que el flujo de trabajo requiere invocar una API en Ollama para obtener un modelo adecuado
+        OllamaResponse response = ollamaClient.invokeAPI(agent.getId(), task);
+        return response.getModelOutput();
+    }
+
+    private void processModelOutput(String modelOutput, Agent agent) {
+        // Procesa la salida del modelo proporcionada por Ollama en el contexto del agente
+        System.out.println("Procesando output: " + modelOutput);
+        agent.setTaskStatus(task -> task.setStatus(TaskStatus.COMPLETED));
+    }
+
+}
+```
+
+**
