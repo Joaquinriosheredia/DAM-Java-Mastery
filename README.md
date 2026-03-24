@@ -40,4 +40,4 @@ Infraestructura local sobre **Ryzen 7** utilizando **Ollama 14b** y validación 
 - [Vanguardia Tech 2026](./Vanguardia_Tech_2026)
 
 
-*Pipeline v10.1 | 2026-03-24 20:43:41*
+*Pipeline v10.1 | 2026-03-24 20:45:50*

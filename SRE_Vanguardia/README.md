@@ -1,53 +1,48 @@
-# Comparativa Bun vs Deno vs Node 24 en Runtimes (Estándar del Año 2026)
+# eBPF para Observabilidad de Bajo Nivel Con Cilium
 
 ## Introducción
-La elección de un runtime para proyectos web modernos es una decisión crítica que puede influir directamente en la velocidad, escalabilidad y mantenibilidad de tu aplicación. En este documento técnico, se presenta una comparativa detallada entre Bun, Deno y Node.js 24, destacando sus arquitecturas internas y casos de uso optimizados para el estándar del año 2026.
 
-## Arquitectura Interna
+Este proyecto busca implementar una solución robusta y eficiente utilizando tecnologías como **eBPF (Extended Berkeley Packet Filter)** en combinación con la herramienta de observabilidad de red y contenedorización **Cilium**. El objetivo es proporcionar un sistema capaz de realizar recopilación de métricas, monitoreo y análisis detallado a nivel de kernel para entornos de redes complejas y sistemas distribuidos.
 
-### Bun
-Bun es un nuevo runtime basado en V8 que fue diseñado desde cero con la finalidad de ser más rápido que Node.js. Su arquitectura se centra en minimizar las pérdidas de tiempo y maximizar el rendimiento, especialmente en tareas intensivas de I/O.
+## Justificación Técnica (2026)
 
-- **Engine**: Utiliza un motor de JavaScript optimizado para reducir la latencia.
-- **Modules & Imports**: Implementa una solución nativa para ES Modules que permite mayor velocidad al importar módulos y manejar dependencias.
-- **Build Process**: Proporciona un sistema de construcción integrado que puede compilar TypeScript, JavaScript y otros lenguajes directamente en el runtime.
+A medida que los sistemas operativos avanzan, la necesidad de herramientas más sofisticadas para observar el comportamiento del sistema en tiempo real se vuelve cada vez más crítica. eBPF es una tecnología relativamente nueva pero altamente prometedora, permitiendo a los desarrolladores y administradores de sistemas implementar funcionalidades complejas como rastreo de tráfico de red, recopilación de métricas y monitoreo sin necesidad de modificar el kernel del sistema. Esto no solo simplifica la gestión y mantenimiento del sistema operativo, sino que también mejora significativamente su rendimiento y seguridad.
 
-### Deno
-Deno es un runtime basado en V8 (el mismo motor que Chrome) que permite ejecutar código ECMAScript 6+ y TypeScript sin necesidad de instalaciones previas. Es conocido por su enfoque en seguridad y modularidad.
+### Casos de Uso
 
-- **Engine**: Utiliza el motor V8 con una capa adicional para proporcionar un entorno seguro.
-- **Modules & Imports**: Implementa ES Modules nativamente, ofreciendo un sistema de importación basado en URLs.
-- **Build Process**: No proporciona un sistema de construcción integrado; se espera que los desarrolladores utilicen herramientas externas.
+1. **Recopilación de Métricas Detalladas:** Implementar funcionalidades para recoger datos detallados sobre el uso de recursos del sistema, incluyendo CPU, memoria, red, etc.
+2. **Monitoreo en Tiempo Real:** Proporcionar información actualizada sobre el estado del sistema operativo y las aplicaciones corriendo en tiempo real.
+3. **Análisis Complejo:** Permitir la realización de análisis detallados para optimización del rendimiento y diagnóstico de problemas.
 
-### Node.js 24
-Node.js es la opción más estable y ampliamente utilizada entre las tres. Aunque ha evolucionado a lo largo del tiempo, su arquitectura sigue siendo basada en Chrome V8 con algunas optimizaciones adicionales para el entorno de servidor.
+## Arquitectura Profunda
 
-- **Engine**: Utiliza el motor V8 con mejoras en la gestión de memoria y optimización de código.
-- **Modules & Imports**: Soporta CommonJS y ES Modules, aunque aún hay ciertos ajustes necesarios para asegurar una transición fluida entre ambos.
-- **Build Process**: No incluye un sistema de construcción integrado; las herramientas externas como Webpack o Rollup son comunes en proyectos de Node.js.
+La solución se basa principalmente en dos pilares fundamentales:
 
-## Casos de Uso
+- **eBPF** proporciona los módulos necesarios para interactuar directamente con el núcleo del sistema.
+- **Cilium**, que utiliza eBPF, es responsable de la implementación y gestión práctica de estas funcionalidades.
 
-### Bun
-Ideal para aplicaciones web que requieren alta velocidad y rendimiento. Su solución nativa de ES Modules y su sistema de construcción integrado pueden acelerar significativamente el tiempo de desarrollo y la ejecución del código.
+### Componentes Principales
 
-- **Tiempo de inicio**: El tiempo de inicialización es extremadamente bajo debido a sus optimizaciones internas.
-- **Escalabilidad**: Las aplicaciones que manejan grandes cantidades de solicitudes concurrentes podrían beneficiarse de Bun, especialmente si el rendimiento es una prioridad.
-- **Desarrollo rápido**: La integración nativa de ES Modules facilita la creación rápida y eficiente de módulos.
+1. **ebpf-metrics**: Módulo encargado de recoger métricas de bajo nivel como uso de CPU, memoria, red.
+2. **cilium-agent**: Herramienta central que coordina las operaciones entre eBPF y el sistema operativo.
+3. **collector-service**: Servicio para colectar datos enviados por los módulos eBPF.
 
-### Deno
-Óptimo para entornos que requieren un alto nivel de seguridad desde el principio. Su enfoque en ES Modules y su sistema de importaciones basado en URLs puede proporcionar una mayor modularidad y encapsulación del código.
+## Implementación
 
-- **Seguridad**: El runtime incluye características como la restricción de permisos para operaciones peligrosas (como escritura en el sistema de archivos).
-- **Modularidad**: Facilita la creación de aplicaciones altamente modulares con una mayor transparencia en las dependencias y sus versiones.
-- **Dependencia externa**: Al no contar con un gestor de paquetes integrado, Deno requiere que los desarrolladores gestionen cuidadosamente las dependencias externas.
+El proyecto incluye varios archivos de código fuente escritos en C, junto con scripts de configuración necesarios para su implementación en entornos Linux. A continuación se detallan algunos ejemplos específicos:
 
-### Node.js 24
-Una opción segura para proyectos establecidos o grandes aplicaciones web. Su amplia adopción y robustez en la comunidad lo hacen ideal para casos donde se valora la estabilidad y compatibilidad con una amplia gama de bibliotecas existentes.
+### Configuración del Entorno
 
-- **Compatibilidad**: Soporta un gran número de paquetes y frameworks, haciendo posible migrar proyectos grandes desde versiones anteriores.
-- **Ecosistema**: La comunidad activa y el amplio conjunto de herramientas disponibles facilitan la adopción de nuevas tecnologías sin necesidad de abandonar la infraestructura existente.
-- **Transición gradual**: Ideal para proyectos que buscan una transición gradual hacia ES Modules desde CommonJS, gracias a su soporte dual.
+Antes de proceder a la instalación y ejecución del proyecto, asegúrate de tener instalado eBPF y Cilium correctamente.
 
-## Conclusiones
-La elección entre Bun, Deno y Node.js 24 dependerá principalmente del enfoque de seguridad, rendimiento y compatibilidad requerida por el proyecto. Cada runtime tiene sus fortalezas únicas que se alinean mejor con diferentes perfiles de usuario y casos de uso.
+```bash
+sudo apt-get install linux-headers-$(uname -r)
+git clone https://github.com/cilium/cilium.git
+cd cilium
+make dev-all
+```
+
+### Archivos de Código
+
+#### ebpf-metrics.c
+[CONTENIDO]
