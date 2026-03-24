@@ -1,98 +1,27 @@
-# Optimización de Prompts con DSPy en Google
+[Self-Reflection and Self-Improvement Agent (Reflexion Pattern)
 
-## Introducción
-DSPy es una biblioteca avanzada diseñada para la optimización y personalización de prompts en modelos de procesamiento del lenguaje natural (NLP). Este repositorio contiene código detallado para integrar y utilizar DSPy, enfocado especialmente en mejorar la eficiencia y flexibilidad en el manejo de prompts.
+This package aims to provide a flexible framework for software agents that engage in self-reflection based on predefined patterns. This is particularly useful for systems or applications where ongoing self-assessment can lead to continuous improvement.
 
-## Justificación Técnica 2026
-El año 2026 ha marcado un hito significativo en la evolución del procesamiento del lenguaje natural. A medida que los modelos NLP se vuelven más complejos y eficientes, surge una necesidad creciente por optimizar los prompts para mejorar el rendimiento y la precisión de las respuestas generadas.
+### Technical Justification 2026
 
-DSPy aborda esta necesidad proporcionando herramientas robustas para:
-- Optimización automática: Algoritmos internos que ajustan automáticamente los prompts basados en el contexto y requisitos específicos.
-- Personalización avanzada: Una API intuitiva permite a los desarrolladores personalizar aspectos detallados del comportamiento de los prompts según necesidades particulares del proyecto.
+By 2026, as AI and machine learning continue to evolve, there will be an increasing demand for software agents that can not only perform tasks autonomously but also assess their performance and suggest improvements. This library facilitates this process by allowing developers to define patterns of reflection that the agent can apply to its recorded activities.
 
-## Arquitectura
-La arquitectura de DSPy se basa en varios módulos interconectados:
+### Architecture Overview
 
-1. **PromptManager**: Gestiona la creación, manipulación y optimización de prompts.
-2. **OptimizationEngine**: Proporciona algoritmos avanzados para optimizar los prompts automáticamente.
-3. **Contextualizer**: Asegura que los prompts estén adecuadamente contextualizados en función del dominio específico o el entorno en el que se utilizarán.
+- **SelfReflectionAgent**: The main class that manages the self-reflection process.
+  - `reflect(pattern_id)`: Applies a specific pattern to previously logged activities and logs reflections.
+  - `_apply_reflection(pattern, activity)`: A method for applying rules from a given pattern to an individual activity. This method is asynchronous to allow complex reflection tasks to run concurrently with other operations.
+  - `add_reflection_pattern(pattern)`: Allows developers to add new patterns of self-reflection dynamically.
+  - `log_activity(activity_type, details)`: Enables recording activities that can later be reviewed based on defined reflection patterns.
 
-### Diagrama de Clases
-```mermaid
-classDiagram
-    class PromptManager{
-        +createPrompt(promptTemplate: str) : dict
-        +optimizePrompt(promptData: dict, optimizationLevel: int) : dict
-        +getContextualizedPrompt(promptData: dict) : dict
-    }
-    
-    class OptimizationEngine{
-        +optimize(promptData: dict, level: int) : dict
-        +applyTransformations(transforms: list, promptData: dict) : dict
-    }
+### Usage Cases
 
-    class Contextualizer{
-        +contextualize(promptData: dict, contextInfo: dict) : dict
-        +deContextualize(promptData: dict) : dict
-    }
-    
-    PromptManager "1" -- "1" OptimizationEngine : uses
-    PromptManager "0..*" -- "1" Contextualizer : interacts with
+- Continuous Integration Systems: Assess code quality and suggest improvements before merging into the main branch.
+- Personal Productivity Tools: Reflect on daily tasks to identify inefficiencies and provide personalized improvement suggestions.
+  
+This library is designed with a focus on extensibility, allowing developers to define new types of activities and reflection patterns as needed.
 
-```
+### Implementation Details
 
-## Casos de Uso
-### Optmización de Prompt Básica
-```python
-from dspy import PromptManager, OptimizationLevel
-
-# Crear un manejador de prompt.
-pm = PromptManager()
-
-# Definir el template del prompt y crearlo.
-prompt_template = "Eres un experto en {field}. Describe las características principales."
-prompt_data = pm.createPrompt(prompt_template.format(field="IA"))
-
-# Optimizar el prompt hasta un nivel dado
-optimized_prompt_data = pm.optimizePrompt(prompt_data, optimizationLevel=OptimizationLevel.FULL)
-```
-
-### Personalización Avanzada de Prompt
-```python
-from dspy import PromptManager, OptimizationEngine, Contextualizer
-
-pm = PromptManager()
-oe = OptimizationEngine()
-cxz = Contextualizer()
-
-# Definir y crear prompt inicial.
-prompt_template = "Describe las ventajas competitivas de {company} en el sector tecnológico."
-prompt_data = pm.createPrompt(prompt_template.format(company="Google"))
-
-# Aplicar transformaciones personalizadas
-custom_transforms = ["transform1", "transform2"]
-optimized_prompt_data = oe.applyTransformations(custom_transforms, prompt_data)
-
-# Contextualizar el prompt
-context_info = {"domain": "tech"}
-contextualized_data = cxz.contextualize(optimized_prompt_data, context_info)
-```
-
-### Generación de Informes y Análisis
-```python
-from dspy import PromptManager
-
-pm = PromptManager()
-
-prompt_template = "¿Cuáles son los impactos del uso generalizado de IA en la industria manufacturera?"
-report_prompt_data = pm.createPrompt(prompt_template)
-
-# Generar un informe detallado del proceso de optimización.
-analysis_report = pm.generateAnalysisReport(report_prompt_data)
-```
-
-## Instalación
-Para instalar DSPy, siga estos pasos:
-```bash
-pip install dspy
-```
+For simplicity in this example, `SelfReflectionAgent` uses dictionaries for storing patterns and activity logs. In production scenarios, these could be replaced by more robust data storage mechanisms such as databases or cloud-based solutions.
+]
