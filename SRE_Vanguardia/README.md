@@ -1,55 +1,27 @@
-# Protección contra Prompt Injection y Jailbreak en Agentes IA (2026)
+# Orbstack: Optimización de contenedores en Linux
 
-## Introducción
+Orbstack es una solución avanzada para la optimización y gestión de contenedores en sistemas operativos basados en Linux, diseñado específicamente para mejorar el rendimiento, seguridad y eficiencia de aplicaciones containerizadas. Este proyecto busca proporcionar un marco robusto que permita a los desarrolladores y administradores de sistemas implementar mejoras significativas en la infraestructura de contenedores sin sacrificar flexibilidad ni funcionalidad.
 
-En 2026, la evolución de los agentes inteligentes basados en IA ha llevado a nuevos desafíos relacionados con la seguridad. Dos problemas emergentes son la inyección de prompts y el jailbreak, que permiten a usuarios maliciosos manipular las respuestas del agente para obtener acceso no autorizado o realizar acciones perjudiciales. Este documento describe un sistema robusto diseñado para proteger los sistemas de IA contra estos ataques.
+## Justificación Técnica 2026
 
-## Justificación Técnica
+En el año 2026, se espera que las aplicaciones y servicios basados en contenedores sean más complejas y demandantes. La creciente necesidad de microservicios, la escalabilidad y la portabilidad han llevado a una mayor complejidad en el manejo de recursos, lo cual puede dar lugar a problemas de rendimiento y seguridad no resueltos por las soluciones existentes como Docker y Kubernetes. Orbstack proporciona un enfoque innovador para abordar estos desafíos mediante la implementación de tecnologías avanzadas como cgroups v2, selinux, e BPF (Berkeley Packet Filter), que permiten una mayor granularidad y control sobre los recursos del sistema.
 
-En 2026, los agentes de IA son más avanzados y están siendo integrados en una amplia gama de aplicaciones críticas, desde asistentes personales hasta sistemas de control de seguridad. Este aumento en la complejidad y la interconexión introduce vulnerabilidades que permiten a usuarios maliciosos manipular el comportamiento del agente mediante técnicas como la inyección de prompts (que envían prompts cuidadosamente diseñados para desencadenar respuestas no intencionadas) y jailbreaking (que intenta liberar o cambiar drásticamente el comportamiento del agente).
+### Características Clave
 
-### Inyección de Prompts
-Los ataques por inyección de prompts suelen aprovechar las debilidades en la comprensión lingüística del modelo para desencadenar respuestas que no reflejan la intención original del usuario. Ejemplos incluyen la ejecución de comandos SQL o el acceso a datos sensibles.
+- **Optimización Automática:** Orbstack implementa algoritmos avanzados para la asignación de recursos basada en el análisis dinámico de la carga de trabajo. Esto permite un uso eficiente del CPU, memoria, almacenamiento y red.
+  
+- **Seguridad Aumentada:** Con integraciones estrechas con selinux y otras tecnologías de seguridad nativas de Linux, Orbstack proporciona contenedores más seguros al minimizar las superficies de ataque y controlar estrictamente el acceso a los recursos del sistema.
 
-### Jailbreak
-Los intentos de jailbreaking buscan cambiar temporalmente las restricciones implementadas en los modelos de IA para permitir comportamientos inapropiados, como revelar información confidencial o realizar tareas que están explícitamente prohibidas.
+- **Transparencia Total:** A través de la implementación de BPF y herramientas similares, Orbstack ofrece una visibilidad inigualable sobre cómo se están utilizando los recursos dentro de los contenedores, permitiendo un diagnóstico detallado y la resolución rápida de problemas.
 
-## Arquitectura del Sistema
+## Arquitectura Profunda
 
-### Componentes Principales
-1. **Filtros de Análisis Léxico y Semántico**
-2. **Sistema de Monitoreo en Tiempo Real**
-3. **Base de Datos de Casos de Uso Autorizados**
-4. **Mecanismos de Contención y Respuesta**
+Orbstack está estructurado en capas, cada una diseñada para desempeñar funciones específicas del sistema. A continuación se describe cómo estas capas interactúan entre sí:
 
-### Descripción Detallada
+### Capa 1: Kernel Extensions
+Esta capa contiene los módulos y extensiones necesarios al núcleo de Linux que permiten la implementación de características únicas de Orbstack.
 
-#### 1. Filtros de Análisis Léxico y Semántico
-- **Función:** Identificar y bloquear los intentos de inyección y jailbreak antes de que lleguen al modelo de IA.
-- **Implementación:** Uso de técnicas avanzadas NLP para detectar patrones no comunes en prompts, especialmente aquellos diseñados para desencadenar respuestas específicas. Incluye el análisis del contexto y la intención detrás del prompt.
-
-#### 2. Sistema de Monitoreo en Tiempo Real
-- **Función:** Supervisar activamente las interacciones entre los usuarios y el agente IA, identificando comportamientos anómalos que sugieren un intento de inyección o jailbreaking.
-- **Implementación:** Se utiliza aprendizaje automático supervisado para clasificar prompts en tiempo real como seguros o potencialmente maliciosos.
-
-#### 3. Base de Datos de Casos de Uso Autorizados
-- **Función:** Contiene una colección extensa y actualizada de casos de uso permitidos que el agente debe seguir.
-- **Implementación:** Mantener una base de datos dinámica con reglas claras sobre qué solicitudes son aceptables basadas en el contexto y la identidad del usuario.
-
-#### 4. Mecanismos de Contención y Respuesta
-- **Función:** Toma medidas inmediatas para mitigar cualquier intento de ataque una vez que se ha sido detectado.
-- **Implementación:** Incluye la implementación de respuestas predefinidas cuando un promt es identificado como potencialmente malicioso, así como la notificación a los administradores del sistema.
-
-## Casos de Uso
-
-### Caso 1: Detección y Respuesta Rápida
-- **Descripción:** Un usuario intenta inyectar un prompt para obtener acceso no autorizado.
-- **Respuesta del Sistema:** El filtro de análisis léxico identifica el patrón malicioso, activando los mecanismos de contención que informan al administrador y bloquean la interacción adicional con este usuario.
-
-### Caso 2: Monitoreo Continuo
-- **Descripción:** Un sistema en tiempo real detecta un comportamiento no típico que indica un intento de jailbreak.
-- **Respuesta del Sistema:** El sistema de monitoreo en tiempo real activará una alerta y bloqueará la sesión para investigar el evento.
-
-## Conclusión
-
-La protección contra inyección de prompts y jailbreaking es crucial para mantener la integridad y seguridad de los agentes IA. Esta solución propone un enfoque multi-facético que combina análisis léxico/semántico, monitoreo en tiempo real, base de datos de casos de uso autorizados, y mecanismos de contención para proporcionar una defensa sólida contra estos ataques emergentes.
+#### Módulo CGroups v2
+[CODIGO]
+#include <linux/cgroup.h>
+// Código para cargar e interactuar con las funciones del sistema para manejar cgroups v2.
