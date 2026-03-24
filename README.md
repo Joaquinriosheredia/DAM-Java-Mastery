@@ -15,6 +15,7 @@
 | Interfaces_DI | [Interfaces_DI](./Interfaces_DI) | 2026-03-24 |
 | Interfaces_Movil | [Interfaces_Movil](./Interfaces_Movil) | 2026-03-24 |
 | PSP | [PSP](./PSP) | 2026-03-24 |
+| SRE_Resiliencia | [SRE_Resiliencia](./SRE_Resiliencia) | 2026-03-24 |
 | Sistemas_IPE | [Sistemas_IPE](./Sistemas_IPE) | 2026-03-24 |
 | Testing | [Testing](./Testing) | 2026-03-24 |
 | Utils | [Utils](./Utils) | 2026-03-24 |
