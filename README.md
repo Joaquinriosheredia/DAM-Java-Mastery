@@ -11,13 +11,13 @@ Infraestructura local sobre **Ryzen 7** utilizando **Ollama 14b** y validación 
 ## 💎 Especialización Técnica (Top Tier)
 | Módulo | Categoría | Actualización |
 |:---|:---|:---|
-| [BasesDatos](./BasesDatos) | **BasesDatos** | 2026-03-24 |
-| [BasesDatos AI](./BasesDatos_AI) | **BasesDatos** | 2026-03-24 |
-| [HealthTech](./HealthTech) | **HealthTech** | 2026-03-24 |
-| [IA Agentes](./IA_Agentes) | **IA** | 2026-03-24 |
-| [Java Elite](./Java_Elite) | **Java** | 2026-03-24 |
-| [SRE Resiliencia](./SRE_Resiliencia) | **SRE** | 2026-03-24 |
-| [SRE Vanguardia](./SRE_Vanguardia) | **SRE** | 2026-03-24 |
+| [BasesDatos](./BasesDatos) | **BasesDatos** | 2026-03-25 |
+| [BasesDatos AI](./BasesDatos_AI) | **BasesDatos** | 2026-03-25 |
+| [HealthTech](./HealthTech) | **HealthTech** | 2026-03-25 |
+| [IA Agentes](./IA_Agentes) | **IA** | 2026-03-25 |
+| [Java Elite](./Java_Elite) | **Java** | 2026-03-25 |
+| [SRE Resiliencia](./SRE_Resiliencia) | **SRE** | 2026-03-25 |
+| [SRE Vanguardia](./SRE_Vanguardia) | **SRE** | 2026-03-25 |
 
 ---
 ## 🎓 Fundamentos Académicos
@@ -40,4 +40,4 @@ Infraestructura local sobre **Ryzen 7** utilizando **Ollama 14b** y validación 
 - [Vanguardia Tech 2026](./Vanguardia_Tech_2026)
 
 
-*Pipeline v10.1 | 2026-03-24 20:45:50*
+*Pipeline v10.1 | 2026-03-25 07:31:25*
