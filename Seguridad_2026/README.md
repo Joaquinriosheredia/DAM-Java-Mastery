@@ -1,35 +1,53 @@
-```markdown
-# Sigstore + Cosign Container Signing Solution
+[CONTENIDO]
+# Falco: Runtime Security en Kubernetes
 
-## Overview
+## Introducción
+Falco es una herramienta de seguridad que permite la detección y respuesta a eventos en tiempo real (runtime) en entornos Kubernetes, proporcionando un alto nivel de visibilidad sobre los procesos y comportamientos de las aplicaciones en ejecución. Falco monitorea el sistema operativo del nodo y los contenedores para detectar actividades sospechosas o no autorizadas.
 
-This project showcases the use of Sigstore and Cosign for signing container images, ensuring integrity and authenticity in a robust DevSecOps environment. It aligns with industry best practices and aims to secure continuous delivery pipelines by reducing vulnerabilities and risks associated with image tampering.
+## Contexto Técnico 2026
+En un escenario futuro hipotético en el año 2026, las organizaciones enfrentan desafíos crecientes relacionados con la seguridad de los sistemas operativos y contenedores. La adopción generalizada de Kubernetes ha llevado a una mayor necesidad de soluciones que permitan un monitoreo eficiente y preciso del entorno en tiempo real, especialmente frente a amenazas avanzadas y emergentes.
 
-### Why Sigstore + Cosign?
+Falco está diseñado para cumplir con estas demandas ofreciendo funcionalidades robustas como:
 
-Sigstore is an open-source project that provides tools and infrastructure for software distribution security using transparency logs and the Web PKI model, while Cosign simplifies the process of signing and verifying container images. Together they provide a powerful solution to manage digital signatures for containers at scale.
+- **Monitoreo en Tiempo Real:** Falco utiliza eBPF (Extended Berkeley Packet Filters) para inspeccionar llamadas al sistema sin necesidad de modificar los binarios o cargar código adicional dentro de los contenedores.
+  
+- **Reglas de Seguridad:** Los usuarios pueden definir reglas personalizadas basadas en eventos y acciones específicas, proporcionando una capa adicional de seguridad y control.
 
-## Architecture
+- **Integración con Sistemas de Logueo:** Falco puede enviar notificaciones a plataformas populares como Prometheus o ElasticSearch para un análisis avanzado y respuesta rápida a incidentes.
 
-The architecture revolves around three key components:
-- **Sigstore**: Provides the Transparency Log (log.sigstore.dev) and an OIDC issuer service.
-- **Cosign**: A command-line utility to sign, verify, and publish image signatures using Sigstore.
-- **OSS-Fuzz**: An optional integration for fuzz testing and finding security bugs in the project.
+## Arquitectura
+Falco se compone principalmente de dos componentes: el agente (agent) que corre en los nodos Kubernetes y la parte del servidor que se comunica con estos agentes. A continuación, se describe cada componente:
 
-### Workflow
-1. Developers build container images.
-2. The CI/CD system signs these images with Cosign upon successful build.
-3. The signed images are pushed to a registry, alongside their signatures.
-4. Deployment systems pull both the image and its signature for verification before deploying to production environments.
+### Agente Falco
+El agente Falco utiliza eBPF para capturar eventos de sistema sin perturbar las cargas de trabajo de usuario. Utiliza una API específica para monitorear llamadas al sistema y operaciones específicas del kernel.
 
-## Usage
+#### Componentes Principales:
+- **Collector:** Recopila datos y eventos directamente desde el núcleo.
+- **Evaluator:** Analiza los eventos capturados contra un conjunto de reglas definidas por el usuario o predefinidas en Falco.
+- **Emitter:** Reporta los resultados del evaluador a través de varios emisores configurables (como syslog, stdout, etc.).
+  
+### Servidor Falco
+El servidor proporciona una interfaz para administrar y visualizar la actividad recopilada por el agente. Proporciona funcionalidades como:
 
-To use this setup:
-1. Ensure that `cosign` is installed in your CI/CD environment (`go install github.com/sigstore/cosign/cmd/cosign@latest`).
-2. Use a service account with appropriate permissions in the CI pipeline.
-3. Modify the entrypoint.sh script to specify whether to use an external certificate or not.
+- **Administrar reglas:** Permite a los usuarios crear, editar o eliminar reglas de seguridad.
+- **Visualización:** Ofrece paneles y gráficos para analizar eventos y patrones de uso.
 
-## Security Considerations
-- **Certificate Management**: Securely manage your signing keys and certificates, storing them in encrypted secrets management systems like Hashicorp Vault.
-- **Image Verification**: Always verify images before deployment to prevent supply chain attacks.
-```
+## Casos de Uso
+### Detención de Intrusión en Tiempo Real
+Falco puede detectar actividades sospechosas como la creación de procesos anómalos, el acceso a archivos sensibles o tráfico de red no autorizado. Esto permite una rápida respuesta ante amenazas emergentes.
+
+### Cumplimiento Regulatorio
+Falco facilita el monitoreo y la documentación del cumplimiento con estándares regulatorios como PCI-DSS o HIPAA, permitiendo a las organizaciones demostrar que están en conformidad con los requisitos de seguridad.
+
+### Optimización y Aprendizaje Continuo
+Al recopilar datos sobre cómo se utilizan los recursos dentro de un entorno Kubernetes, Falco puede proporcionar insights útiles para la optimización del rendimiento y el aprendizaje continuo.
+
+## Instalación
+Para instalar Falco en un clúster Kubernetes, sigue estos pasos:
+
+1. **Instala el controlador:** Usa Helm para instalar los recursos necesarios de Falco.
+2. **Configura las reglas:** Crea archivos YAML que definen tu conjunto de reglas personalizadas.
+3. **Inicia la monitorización:** Verifica que Falco esté funcionando correctamente y empieza a recibir alertas.
+
+## Contribución
+Para contribuir al desarrollo de Falco, sigue el proceso descrito en nuestro sitio web oficial bajo la sección "Contribuyendo".
