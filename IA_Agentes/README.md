@@ -1,27 +1,33 @@
-[Self-Reflection and Self-Improvement Agent (Reflexion Pattern)
+[CONTENIDO]
+# Qwen2.5 Tool Calling + Function Calling Integration Module
 
-This package aims to provide a flexible framework for software agents that engage in self-reflection based on predefined patterns. This is particularly useful for systems or applications where ongoing self-assessment can lead to continuous improvement.
+## Overview
+This Python module integrates two functionalities of Qwen 2.5 - tool calling and function calling - to provide a seamless user experience where the system first understands what the user intends through local tool analysis, then invokes appropriate backend functions based on the interpreted intention.
 
-### Technical Justification 2026
-
-By 2026, as AI and machine learning continue to evolve, there will be an increasing demand for software agents that can not only perform tasks autonomously but also assess their performance and suggest improvements. This library facilitates this process by allowing developers to define patterns of reflection that the agent can apply to its recorded activities.
-
-### Architecture Overview
-
-- **SelfReflectionAgent**: The main class that manages the self-reflection process.
-  - `reflect(pattern_id)`: Applies a specific pattern to previously logged activities and logs reflections.
-  - `_apply_reflection(pattern, activity)`: A method for applying rules from a given pattern to an individual activity. This method is asynchronous to allow complex reflection tasks to run concurrently with other operations.
-  - `add_reflection_pattern(pattern)`: Allows developers to add new patterns of self-reflection dynamically.
-  - `log_activity(activity_type, details)`: Enables recording activities that can later be reviewed based on defined reflection patterns.
-
-### Usage Cases
-
-- Continuous Integration Systems: Assess code quality and suggest improvements before merging into the main branch.
-- Personal Productivity Tools: Reflect on daily tasks to identify inefficiencies and provide personalized improvement suggestions.
+### Use Case Scenarios
+- **Query Interpretation & Execution:** The system intelligently interprets user queries and executes them by invoking relevant functions. For instance, when users ask about their account balances or update settings.
   
-This library is designed with a focus on extensibility, allowing developers to define new types of activities and reflection patterns as needed.
+## Technical Justification (2026)
+As web applications evolve towards more sophisticated interactions with users through conversational interfaces, the need for AI-driven middleware that can interpret natural language commands and execute corresponding application logic becomes critical. Qwen 2.5 introduces an advanced system where queries are first analyzed by a local tool to understand intent, after which specific functions are called based on this interpretation.
 
-### Implementation Details
+### Future Enhancements
+- Incorporate machine learning models trained specifically for recognizing user intents in various contexts.
+- Enable dynamic discovery of available backend functions without hardcoding them into the application logic.
 
-For simplicity in this example, `SelfReflectionAgent` uses dictionaries for storing patterns and activity logs. In production scenarios, these could be replaced by more robust data storage mechanisms such as databases or cloud-based solutions.
-]
+## Architecture Overview
+1. **QwenLocalTool** - A class responsible for processing and interpreting natural language queries to determine the intended action or information request from the user.
+2. **QwenFunctionCaller** - This component handles the invocation of backend functions based on the analysis provided by QwenLocalTool. It ensures parameters are correctly passed and can handle different data types as required.
+
+### Workflow
+1. User submits a query.
+2. The `process_query` method in `ToolAndFunctionIntegration` class is called with this user input.
+3. This method first uses an instance of `QwenLocalTool` to process the query, obtaining necessary information about which function should be invoked and what parameters it needs.
+4. Based on the parsed data from step 3, a function call is made using `QwenFunctionCaller`.
+5. The result or error message returned by the backend function is then presented back to the user.
+
+## Implementation Details
+- **Error Handling:** Comprehensive error handling strategies are implemented within each major component (`process_query`, `call_function`) to ensure smooth operation and provide useful feedback if any issue occurs.
+- **Configuration Management:** All required configurations for connecting with different backend services or APIs can be managed through environment variables or configuration files.
+
+### Example Usage
+Refer to the main block in tool_function_calling_integration.py for an illustrative example on how this integration module is utilized in practice, specifically showcasing query interpretation followed by function invocation.
