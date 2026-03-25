@@ -1,33 +1,41 @@
-[CONTENIDO]
-# Qwen2.5 Tool Calling + Function Calling Integration Module
+# Agente Autónomo de Commits (OpenClaw Style)
 
-## Overview
-This Python module integrates two functionalities of Qwen 2.5 - tool calling and function calling - to provide a seamless user experience where the system first understands what the user intends through local tool analysis, then invokes appropriate backend functions based on the interpreted intention.
+## Introducción
+El Agente Autónomo de Commits es un proyecto de software diseñado para automatizar y mejorar la experiencia del desarrollo mediante la generación y gestión de commits en repositorios Git. Inspirado por el estilo OpenClaw, este agente integra inteligencia artificial avanzada con mejores prácticas de control de versiones.
 
-### Use Case Scenarios
-- **Query Interpretation & Execution:** The system intelligently interprets user queries and executes them by invoking relevant functions. For instance, when users ask about their account balances or update settings.
-  
-## Technical Justification (2026)
-As web applications evolve towards more sophisticated interactions with users through conversational interfaces, the need for AI-driven middleware that can interpret natural language commands and execute corresponding application logic becomes critical. Qwen 2.5 introduces an advanced system where queries are first analyzed by a local tool to understand intent, after which specific functions are called based on this interpretation.
+## Justificación Técnica 2026
+En 2026, la gestión eficiente del código fuente se ha vuelto crítica para mantener un alto rendimiento en proyectos de software. El Agente Autónomo de Commits aprovecha el aprendizaje automático y las tecnologías de procesamiento del lenguaje natural (NLP) para simplificar la creación, revisión y documentación de commits.
 
-### Future Enhancements
-- Incorporate machine learning models trained specifically for recognizing user intents in various contexts.
-- Enable dynamic discovery of available backend functions without hardcoding them into the application logic.
+### Objetivos Principales:
+- Automatización completa de la generación de commits.
+- Aumento de la coherencia y calidad en el historial Git.
+- Mejora en la productividad del equipo de desarrollo al reducir tareas repetitivas.
+- Integración con herramientas existentes (GitHub, GitLab) para una experiencia fluida.
 
-## Architecture Overview
-1. **QwenLocalTool** - A class responsible for processing and interpreting natural language queries to determine the intended action or information request from the user.
-2. **QwenFunctionCaller** - This component handles the invocation of backend functions based on the analysis provided by QwenLocalTool. It ensures parameters are correctly passed and can handle different data types as required.
+## Arquitectura Profunda
 
-### Workflow
-1. User submits a query.
-2. The `process_query` method in `ToolAndFunctionIntegration` class is called with this user input.
-3. This method first uses an instance of `QwenLocalTool` to process the query, obtaining necessary information about which function should be invoked and what parameters it needs.
-4. Based on the parsed data from step 3, a function call is made using `QwenFunctionCaller`.
-5. The result or error message returned by the backend function is then presented back to the user.
+### Componentes Principales:
+1. **Gestor de Comunicaciones:** Facilita la interacción entre el usuario y el agente a través del shell o API REST.
+2. **Analizador de Código:** Procesa los cambios en el código para entender su contexto y propósito.
+3. **Generador Automático de Commits (AGC):** Utiliza modelos de lenguaje entrenados con datos históricos de Git para generar mensajes de commit precisos y coherentes.
+4. **Revisor Automático de Commits (ARC):** Revisa los commits generados y propuestos por el AGC para garantizar su calidad y cumplimiento con las políticas del equipo.
 
-## Implementation Details
-- **Error Handling:** Comprehensive error handling strategies are implemented within each major component (`process_query`, `call_function`) to ensure smooth operation and provide useful feedback if any issue occurs.
-- **Configuration Management:** All required configurations for connecting with different backend services or APIs can be managed through environment variables or configuration files.
+### Flujo General:
+1. El Gestor de Comunicaciones recibe instrucciones del usuario sobre qué cambios en el código deben ser documentados.
+2. El Analizador de Código procesa los cambios, identificando líneas afectadas, funciones modificadas y relaciones entre archivos.
+3. Con la información proporcionada por el Analizador de Código, el AGC genera un mensaje de commit basado en patrones históricos y mejores prácticas.
+4. El ARC revisa el commit generado para asegurar que cumple con los estándares del equipo y corrigiendo cualquier error gramatical o lógico.
 
-### Example Usage
-Refer to the main block in tool_function_calling_integration.py for an illustrative example on how this integration module is utilized in practice, specifically showcasing query interpretation followed by function invocation.
+## Casos de Uso
+
+### Ejemplo 1: Generación Automática de Commits
+**Descripción:** Un desarrollador ha hecho cambios en varias funciones de un archivo Python. En lugar de escribir el mensaje de commit manualmente, usa la interfaz del AGC.
+**Flujo:** El usuario ejecuta un comando que envía los cambios a AGC para generar un mensaje basado en la naturaleza y el contexto de los cambios.
+
+### Ejemplo 2: Revisión y Aprobación
+**Descripción:** La herramienta ha generado un commit, pero antes de ser aplicado, pasa por una verificación adicional.
+**Flujo:** El ARC revisa el commit para asegurarse de que cumple con las políticas del equipo. Si hay discrepancias, se sugieren correcciones.
+
+### Ejemplo 3: Integración Continua
+**Descripción:** Combinar la automatización de commits con un sistema CI/CD para garantizar que todos los cambios sigan el estándar antes de ser integrados.
+**Flujo:** Los cambios y mensajes de commit se validan automáticamente como parte del flujo CI, asegurando que solo commits válidos sean fusionados.
