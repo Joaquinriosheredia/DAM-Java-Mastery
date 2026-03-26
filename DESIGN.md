@@ -1,6 +1,6 @@
 # DESIGN.md - Google Stitch v1.0
 
 Vibe: Professional Executive
-Último Tema: Plantillas y Prompts para Claude Code Productividad x10
-Fecha: 2026-03-26 08:07:18.025655
+Último Tema: Interoperabilidad FHIR: Transformación de HL7 v2 a Bundles
+Fecha: 2026-03-26 09:01:02.271062
 Pipeline: Authority Engine v9.6-DEEPDIVE
