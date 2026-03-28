@@ -1,6 +1,6 @@
 # DESIGN.md - Google Stitch v1.0
 
 Vibe: Professional Executive
-Último Tema: Cloud: Orquestación de microservicios mediante Service Mesh (Istio)
-Fecha: 2026-03-28 07:18:38.732619
+Último Tema: DevSecOps: Automatización de escaneo de vulnerabilidades en CI/CD
+Fecha: 2026-03-28 07:19:26.010498
 Pipeline: Authority Engine v9.6-DEEPDIVE
