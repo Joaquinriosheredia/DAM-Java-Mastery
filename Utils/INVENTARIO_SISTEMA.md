@@ -258,7 +258,7 @@ from tavily import TavilyClient
 CONFIG = {
     "ollama_url": "http://localhost:11434/api/generate",
     "modelo": "qwen2.5:14b",
-    "tavily_key": "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",
+    "tavily_key": "tvly-dev-xxxxxxxxxxxxxxxxx",
     "skill_archivo": "skills/skill_informe_40pag.md",
     "palabras_minimas_por_seccion": 600,
     "security_score_minimo": 70
