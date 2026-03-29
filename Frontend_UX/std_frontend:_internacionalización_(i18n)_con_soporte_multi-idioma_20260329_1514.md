@@ -277,28 +277,21 @@ El siguiente diagrama muestra la estructura de componentes principales que compo
 
 ```mermaid
 flowchart TD
-    subgraph "App"
-        App["src/App.js"]
+    subgraph AppContainer["Contenedor Principal"]
+        AppNode["src/App.js"]
         LangSelector["LangSelector.vue"]
         Toggler["Toggler.vue"]
     end
     
-    subgraph "i18next"
-        I18Next["i18next"]
+    subgraph i18nEngine["Motor i18next"]
+        I18Next["i18next Core"]
         Translations["translations.json"]
     end
 
-    subgraph "Vue Components"
-        Home["Home.vue"]
-        About["About.vue"]
-    end
-
-    App -->|Uses| LangSelector
-    App -->|Uses| Toggler
-    LangSelector -->|Loads| I18Next
-    Toggler -->|Changes| I18Next
-    Home -->|Uses| I18Next
-    About -->|Uses| I18Next
+    AppNode -->|Utiliza| LangSelector
+    AppNode -->|Utiliza| Toggler
+    LangSelector -->|Carga| I18Next
+    Toggler -->|Cambia| I18Next
 ```
 
 #### Diagrama de Patrones
