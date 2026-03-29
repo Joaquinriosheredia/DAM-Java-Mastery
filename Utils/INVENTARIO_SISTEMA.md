@@ -1,6 +1,6 @@
 # 📊 INVENTARIO DEL SISTEMA — AuthorityEngine
 
-**Generado:** 2026-03-28 23:20:20
+**Generado:** 2026-03-29 01:40:01
 **Directorio Base:** `/home/usuariojoaquin/AuthorityEngine`
 
 ---
@@ -9,12 +9,14 @@
 
 ```
 📂 AuthorityEngine/
+│   📄 INVENTARIO_SISTEMA.md (30.1KB)
+│   📄 config.py (3.9KB)
 │   📄 engine.py (9.3KB)
 │   📄 engine.py.backup (6.3KB)
-│   📄 generar_inventario.py (5.3KB)
+│   📄 generar_inventario.py (7.0KB)
 │   📄 openclaw_v9.py (3.7KB)
-│   📄 racha.log (2.0KB)
-│   📄 racha.py (9.5KB)
+│   📄 racha.log (11.7KB)
+│   📄 racha.py (6.5KB)
 │   📄 repair_section.py (1.4KB)
 │   📂 skills/
 │   │   📄 skill_informe_40pag.md (6.8KB)
@@ -26,6 +28,116 @@
 ---
 
 ## 📄 Contenido de Archivos Python
+
+### `config.py` (3.9KB, 120 líneas, modificado: 2026-03-29 00:29)
+
+```python
+#!/usr/bin/env python3
+"""
+Configuración centralizada del Authority Engine.
+Todos los scripts importan de aquí — cero duplicación.
+"""
+
+import os
+from pathlib import Path
+
+CONFIG = {
+    # IA Local
+    "ollama_url": "http://localhost:11434/api/generate",
+    "modelo": "qwen2.5:14b",
+    
+    # Búsqueda Web
+    "tavily_key": os.environ.get("TAVILY_KEY"),
+    
+    # Rutas
+    "repo_base": Path.home() / ".openclaw" / "workspace" / "DAM-Java-Mastery",
+    "author_engine": Path.home() / "AuthorityEngine",
+    "skills": Path.home() / "AuthorityEngine" / "skills" / "skill_informe_40pag.md",
+    
+    # Umbrales de Calidad
+    "security_score_minimo": 75,
+    "min_palabras_seccion": 800,
+    
+    # Timeout (segundos)
+    "ollama_timeout": 900,
+    "tavily_timeout": 30,
+}
+
+# FOLDER_PRIORITIES con scoring
+# Formato: "keyword": ("carpeta_destino", prioridad)
+# Prioridad 10 = tecnologías específicas (evaluar primero)
+# Prioridad 5 = términos genéricos (evaluar después)
+# ⚠️ NOTA: NO incluir keywords de 2 letras como "ia" o "ai" (falsos positivos)
+# ⚠️ NOTA: "test" eliminado (genera falsos positivos con "testing", "latest", etc.)
+FOLDER_PRIORITIES = {
+    # Prioridad 10: Tecnologías específicas
+    "kafka": ("BigData_Streaming", 10),
+    "spark": ("BigData_Streaming", 10),
+    "flink": ("BigData_Streaming", 10),
+    "spring boot": ("Core_Backend", 10),
+    "springboot": ("Core_Backend", 10),
+    "kubernetes": ("SRE_Resiliencia", 10),
+    "k8s": ("SRE_Resiliencia", 10),
+    "ollama": ("IA_Agentes", 10),
+    "langchain": ("IA_Agentes", 10),
+    "postgresql": ("BasesDatos", 10),
+    "mongodb": ("BasesDatos", 10),
+    "oauth2": ("Seguridad", 10),
+    "jwt": ("Seguridad", 10),
+    "zero trust": ("Seguridad", 10),
+    "zerotrust": ("Seguridad", 10),
+    "data lake": ("BigData_Streaming", 10),
+    "datalake": ("BigData_Streaming", 10),
+    
+    # Prioridad 7: Términos semi-específicos
+    "streaming": ("BigData_Streaming", 7),
+    "bigdata": ("BigData_Streaming", 7),
+    "big data": ("BigData_Streaming", 7),
+    "microservicios": ("Core_Backend", 7),
+    "microservices": ("Core_Backend", 7),
+    "observability": ("SRE_Resiliencia", 7),
+    "resilience": ("SRE_Resiliencia", 7),
+    "chaos": ("SRE_Resiliencia", 7),
+    "docker": ("Cloud_DevOps", 7),
+    "terraform": ("Cloud_DevOps", 7),
+    "aws": ("Cloud_DevOps", 7),
+    "azure": ("Cloud_DevOps", 7),
+    "gcp": ("Cloud_DevOps", 7),
+    "redis": ("BasesDatos", 7),
+    "postgres": ("BasesDatos", 7),
+    "rag": ("IA_Agentes", 7),
+    "embeddings": ("IA_Agentes", 7),
+    "agentes": ("IA_Agentes", 7),
+    "pyspark": ("BigData_Streaming", 7),
+    "etl": ("BigData_Streaming", 7),
+    "plsql": ("BBDD_Acceso", 7),
+    "pl/sql": ("BBDD_Acceso", 7),
+    
+    # Prioridad 5: Términos genéricos + DAM Académico
+    "testing": ("Testing", 5),
+    # ❌ "test" ELIMINADO (falsos positivos)
+    "junit": ("Testing", 5),
+    "mockito": ("Testing", 5),
+    "selenium": ("Testing", 5),
+    "java": ("Core_Backend", 5),
+    "backend": ("Core_Backend", 5),
+    "spring": ("Core_Backend", 5),
+    "cloud": ("Cloud_DevOps", 5),
+    "devops": ("Cloud_DevOps", 5),
+    "security": ("Seguridad", 5),
+    "seguridad": ("Seguridad", 5),
+    "oauth": ("Seguridad", 5),
+    "sql": ("BasesDatos", 5),
+    "database": ("BasesDatos", 5),
+    "bbdd": ("BasesDatos", 5),
+    "fhir": ("HealthTech", 5),
+    "hl7": ("HealthTech", 5),
+
+
+... (20 líneas más)
+```
+
+---
 
 ### `engine.py` (9.3KB, 225 líneas, modificado: 2026-03-28 22:56)
 
@@ -137,7 +249,7 @@ def seleccionar_secciones_inteligentes(tema, num_secciones, todas_las_secciones)
 
 ---
 
-### `generar_inventario.py` (5.3KB, 156 líneas, modificado: 2026-03-28 23:10)
+### `generar_inventario.py` (7.0KB, 195 líneas, modificado: 2026-03-29 01:30)
 
 ```python
 #!/usr/bin/env python3
@@ -146,7 +258,9 @@ Genera un informe completo de la estructura de AuthorityEngine
 con metadatos y contenido de cada archivo.
 """
 
+
 import os
+import subprocess
 from pathlib import Path
 from datetime import datetime
 
@@ -238,16 +352,14 @@ def generate_report():
     report.append("## 📝 Otros Archivos de Interés")
     report.append("")
     
-    # Skills directory
-    skills_dir = BASE_DIR / "skills"
 
 
-... (56 líneas más)
+... (95 líneas más)
 ```
 
 ---
 
-### `openclaw_v9.py` (3.7KB, 86 líneas, modificado: 2026-03-28 15:59)
+### `openclaw_v9.py` (3.7KB, 86 líneas, modificado: 2026-03-28 23:49)
 
 ```python
 import os, sys, json, requests, subprocess, re
@@ -258,7 +370,7 @@ from tavily import TavilyClient
 CONFIG = {
     "ollama_url": "http://localhost:11434/api/generate",
     "modelo": "qwen2.5:14b",
-    "tavily_key": "tvly-dev-xxxxxxxxxxxxxxxxx",
+"tavily_key": os.environ.get("TAVILY_KEY"),
     "skill_archivo": "skills/skill_informe_40pag.md",
     "palabras_minimas_por_seccion": 600,
     "security_score_minimo": 70
@@ -341,112 +453,112 @@ if __name__ == "__main__":
 
 ---
 
-### `racha.py` (9.5KB, 312 líneas, modificado: 2026-03-28 22:29)
+### `racha.py` (6.5KB, 196 líneas, modificado: 2026-03-29 01:22)
 
 ```python
+#!/usr/bin/env python3
+"""
+racha.py v10.1 — Orquestador del Authority Engine
+Clasificación por scoring con prioridades.
+Importa configuración desde config.py — cero duplicación.
+"""
+
 import sys
 import os
 import subprocess
 import logging
-import re
 from pathlib import Path
 from datetime import datetime
 
-# --- CONFIGURACIÓN ESTRATÉGICA ---
-REPO_BASE = Path("/home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery")
-LOG_FILE = Path.home() / "AuthorityEngine" / "racha.log"
+# Importar configuración centralizada
+from config import CONFIG, FOLDER_PRIORITIES
 
-# FOLDER_MAP explícito (keywords más específicas PRIMERO — el orden importa)
-FOLDER_MAP = {
-    # IA (específicos)
-    "ollama": "IA_Agentes",
-    "langchain": "IA_Agentes",
-    "rag": "IA_Agentes",
-    "embeddings": "IA_Agentes",
-    "agentes": "IA_Agentes",
-    "ia": "IA_Agentes",
-    "ai": "IA_Agentes",
+# Setup logging
+LOG_FILE = CONFIG["author_engine"] / "racha.log"
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%H:%M:%S",
+    handlers=[
+        logging.FileHandler(LOG_FILE, encoding="utf-8"),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+log = logging.getLogger("racha")
+
+def sanitizar_tema(tema: str) -> str:
+    """
+    Elimina caracteres de control que corrompen logs.
+    Colapsa whitespace, elimina \n \t \r.
+    """
+    return " ".join(tema.split())
+
+def match_keyword(keyword: str, texto: str) -> bool:
+    """
+    Matching por substring normalizado (sin regex).
+    "kafka" matchea en "kafka streaming"
+    "test" NO matchea en "testing" (porque "test" fue eliminado del config)
+    """
+    return keyword.lower() in texto.lower()
+
+def clasificar_tema(tema: str) -> str:
+    """
+    Clasificación por scoring con max().
+    Score = (prioridad * 100) + (len(keyword) * 2)
+    Gana el score más alto — no el primero que aparece.
     
-    # BigData (específicos antes que genéricos)
-    "kafka": "BigData_Streaming",
-    "spark": "BigData_Streaming",
-    "flink": "BigData_Streaming",
-    "streaming": "BigData_Streaming",
-    "data lake": "BigData_Streaming",
-    "datalake": "BigData_Streaming",
-    "bigdata": "BigData_Streaming",
-    "big data": "BigData_Streaming",
+    Ejemplo: "Kafka streaming con testing y resiliencia"
+    - kafka: (10 * 100) + (5 * 2) = 1010 → BigData_Streaming
+    - streaming: (7 * 100) + (9 * 2) = 718 → BigData_Streaming
+    - testing: (5 * 100) + (7 * 2) = 514 → Testing
+    - resiliencia: (7 * 100) + (11 * 2) = 722 → SRE_Resiliencia
+    ✅ Gana: kafka (1010) → BigData_Streaming
     
-    # Backend (específicos)
-    "spring boot": "Core_Backend",
-    "springboot": "Core_Backend",
-    "spring": "Core_Backend",
-    "java": "Core_Backend",
-    "backend": "Core_Backend",
-    "microservicios": "Core_Backend",
-    "microservices": "Core_Backend",
+    SIN filtro de carpetas_reales — mkdir crea la carpeta si no existe.
+    """
+    tema_lower = tema.lower()
+    mejor_score = -1
+    mejor_folder = "Core_Backend"
+    mejor_keyword = None
+    todos_candidatos = []
     
-    # Bases de Datos (específicos)
-    "postgresql": "BasesDatos",
-    "postgres": "BasesDatos",
-    "mongodb": "BasesDatos",
-    "redis": "BasesDatos",
-    "sql": "BasesDatos",
-    "database": "BasesDatos",
-    "bbdd": "BasesDatos",
+    # Evaluar TODAS las keywords (SIN filtro de carpetas)
+    for keyword, (folder, prioridad) in FOLDER_PRIORITIES.items():
+        if match_keyword(keyword, tema_lower):
+            score = (prioridad * 100) + (len(keyword) * 2)
+            todos_candidatos.append({
+                "keyword": keyword,
+                "folder": folder,
+                "prioridad": prioridad,
+                "score": score
+            })
+            
+            if score > mejor_score:
+                mejor_score = score
+                mejor_folder = folder
+                mejor_keyword = keyword
     
-    # Security (específicos)
-    "oauth2": "Seguridad",
-    "oauth": "Seguridad",
-    "jwt": "Seguridad",
-    "security": "Seguridad",
-    "seguridad": "Seguridad",
-    "zero trust": "Seguridad",
-    "zerotrust": "Seguridad",
+    # Log de todos los candidatos (para debug)
+    if todos_candidatos:
+        todos_candidatos.sort(key=lambda x: x["score"], reverse=True)
+        for c in todos_candidatos[:5]:  # Top 5
+            log.info(f"🔍 Candidato: '{c['keyword']}' → {c['folder']} (prioridad={c['prioridad']}, len={len(c['keyword'])}, score={c['score']})")
+        
+        log.info(f"✅ MATCH FINAL: '{mejor_keyword}' → {mejor_folder} (score={mejor_score})")
+    else:
+        log.warning(f"⚠️ No match encontrado, usando default: Core_Backend")
     
-    # SRE (específicos)
-    "kubernetes": "SRE_Resiliencia",
-    "k8s": "SRE_Resiliencia",
-    "observability": "SRE_Resiliencia",
-    "resilience": "SRE_Resiliencia",
-    "sre": "SRE_Resiliencia",
-    "chaos": "SRE_Resiliencia",
-    
-    # Cloud (específicos)
-    "aws": "Cloud_DevOps",
-    "azure": "Cloud_DevOps",
-    "gcp": "Cloud_DevOps",
-    "docker": "Cloud_DevOps",
-    "terraform": "Cloud_DevOps",
-    "cloud": "Cloud_DevOps",
-    "devops": "Cloud_DevOps",
-    
-    # Testing (específicos)
-    "junit": "Testing",
-    "mockito": "Testing",
-    "selenium": "Testing",
-    "testing": "Testing",
-    "test": "Testing",
-    
-    # HealthTech (específicos)
-    "fhir": "HealthTech",
-    "hl7": "HealthTech",
-    "health": "HealthTech",
-    "clinico": "HealthTech",
-    
-    # Arquitectura (específicos)
-    "ddd": "Arquitectura",
-    "cqrs": "Arquitectura",
-    "event sourcing": "Arquitectura",
-    "eventsourcing": "Arquitectura",
-    "arquitectura": "Arquitectura",
-    "arch": "Arquitectura",
-    
-    # Frontend (específicos)
-    "react": "Frontend_UX",
+    return mejor_folder
+
+def ejecutar_engine(tema: str, ruta_destino: str, modo: str, secciones: int = None) -> bool:
+    """Ejecuta engine.py con subprocess seguro y streaming en tiempo real."""
+    script_motor = CONFIG["author_engine"] / "engine.py"
+
+    cmd = ["python3", str(script_motor), tema, str(ruta_destino), modo]
+    if secciones:
 
 
-... (212 líneas más)
+... (96 líneas más)
 ```
 
 ---
@@ -614,7 +726,7 @@ Generar informes técnicos de nivel Staff Engineer (20-40 páginas) que demuestr
 
 ---
 
-### `racha.log` (últimas 16 líneas)
+### `racha.log` (últimas 50 líneas)
 
 ```
 22:30:46 [INFO] ============================================================
@@ -633,7 +745,43 @@ Generar informes técnicos de nivel Staff Engineer (20-40 páginas) que demuestr
 22:40:31 [INFO] Keyword match: 'testing' → Testing
 22:40:31 [INFO] 🎯 Destino: Testing → /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/Testing
 22:40:31 [INFO] ✅ Dry-run completado exitosamente
+23:57:40 [INFO] ============================================================
+23:57:40 [INFO] Iniciando racha.py: BigData: Testing de pipelines Kafka deep --dry-run
+23:57:40 [INFO] ============================================================
+23:57:40 [INFO] Modo dry-run activado (solo clasificación, sin ejecución)
+23:57:40 [INFO] Carpetas disponibles: ['SRE_Vanguardia', 'BasesDatos_AI', 'BasesDatos', 'Android_PMDM', 'src', 'Core_Backend', 'target', 'PSP', 'BBDD_Acceso', 'Java_Elite', 'Testing', 'Ingenieria_DAM', 'Sistemas_IPE', 'Seguridad_2026', 'Core_Prog', 'Utils', 'SRE_Resiliencia', 'Core_Ingenieria', 'IA_Agentes', 'Vanguardia_Tech_2026', 'Vanguardia_Tech', 'Ingenieria_DAM_Academico', 'Interfaces_Movil', 'HealthTech', 'Interfaces_DI', 'Arquitectura_Vanguardia', 'BigData_LMSGI']
+23:57:40 [INFO] Keyword match (prioridad 5): 'testing' → Testing
+23:57:40 [INFO] 🎯 Destino: Testing → /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/Testing
+23:57:40 [INFO] ✅ Dry-run completado exitosamente
+00:18:33 [INFO] ============================================================
+00:18:33 [INFO] Iniciando racha.py: Kafka streaming con testing y resiliencia deep --dry-run
+00:18:33 [INFO] ============================================================
+00:18:33 [INFO] Modo dry-run activado (solo clasificación, sin ejecución)
+00:18:33 [INFO] Carpetas disponibles: ['SRE_Vanguardia', 'BasesDatos_AI', 'BasesDatos', 'Android_PMDM', 'src', 'Core_Backend', 'target', 'PSP', 'BBDD_Acceso', 'Java_Elite', 'Testing', 'Ingenieria_DAM', 'Sistemas_IPE', 'Seguridad_2026', 'Core_Prog', 'Utils', 'SRE_Resiliencia', 'Core_Ingenieria', 'IA_Agentes', 'Vanguardia_Tech_2026', 'Vanguardia_Tech', 'Ingenieria_DAM_Academico', 'Interfaces_Movil', 'HealthTech', 'Interfaces_DI', 'Arquitectura_Vanguardia', 'BigData_LMSGI']
+00:18:33 [INFO] Keyword match (prioridad 10): 'ia' → IA_Agentes
+00:18:33 [INFO] 🎯 Destino: IA_Agentes → /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/IA_Agentes
+00:18:33 [INFO] ✅ Dry-run completado exitosamente
+00:18:33 [INFO] ============================================================
+00:18:33 [INFO] Iniciando racha.py: Arquitectura hexagonal con Spring Boot deep --dry-run
+00:18:33 [INFO] ============================================================
+00:18:33 [INFO] Modo dry-run activado (solo clasificación, sin ejecución)
+00:18:33 [INFO] Carpetas disponibles: ['SRE_Vanguardia', 'BasesDatos_AI', 'BasesDatos', 'Android_PMDM', 'src', 'Core_Backend', 'target', 'PSP', 'BBDD_Acceso', 'Java_Elite', 'Testing', 'Ingenieria_DAM', 'Sistemas_IPE', 'Seguridad_2026', 'Core_Prog', 'Utils', 'SRE_Resiliencia', 'Core_Ingenieria', 'IA_Agentes', 'Vanguardia_Tech_2026', 'Vanguardia_Tech', 'Ingenieria_DAM_Academico', 'Interfaces_Movil', 'HealthTech', 'Interfaces_DI', 'Arquitectura_Vanguardia', 'BigData_LMSGI']
+00:18:33 [INFO] Keyword match (prioridad 9): 'spring boot' → Core_Backend
+00:18:33 [INFO] 🎯 Destino: Core_Backend → /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/Core_Backend
+00:18:33 [INFO] ✅ Dry-run completado exitosamente
+00:18:33 [INFO] ============================================================
+00:18:33 [INFO] Iniciando racha.py: RAG con embeddings locales en Java deep --dry-run
+00:18:33 [INFO] ============================================================
+00:18:33 [INFO] Modo dry-run activado (solo clasificación, sin ejecución)
+00:18:33 [INFO] Carpetas disponibles: ['SRE_Vanguardia', 'BasesDatos_AI', 'BasesDatos', 'Android_PMDM', 'src', 'Core_Backend', 'target', 'PSP', 'BBDD_Acceso', 'Java_Elite', 'Testing', 'Ingenieria_DAM', 'Sistemas_IPE', 'Seguridad_2026', 'Core_Prog', 'Utils', 'SRE_Resiliencia', 'Core_Ingenieria', 'IA_Agentes', 'Vanguardia_Tech_2026', 'Vanguardia_Tech', 'Ingenieria_DAM_Academico', 'Interfaces_Movil', 'HealthTech', 'Interfaces_DI', 'Arquitectura_Vanguardia', 'BigData_LMSGI']
+00:18:33 [INFO] Keyword match (prioridad 10): 'embeddings' → IA_Agentes
+00:18:33 [INFO] 🎯 Destino: IA_Agentes → /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/IA_Agentes
+00:18:33 [INFO] ✅ Dry-run completado exitosamente
+00:32:35 [INFO] ============================================================
+00:32:35 [INFO] Iniciando racha.py v10: Kafka streaming con testing y resiliencia deep --dry-run
 
+
+... (69 líneas más)
 ```
 
 ---
@@ -642,7 +790,7 @@ Generar informes técnicos de nivel Staff Engineer (20-40 páginas) que demuestr
 
 | Métrica | Valor |
 |---------|-------|
-| Total de archivos | 15 |
-| Archivos Python | 5 |
-| Tamaño total | 156.4KB |
-| Fecha de generación | 2026-03-28 23:20:20 |
+| Total de archivos | 17 |
+| Archivos Python | 6 |
+| Tamaño total | 190.4KB |
+| Fecha de generación | 2026-03-29 01:40:01 |
