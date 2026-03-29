@@ -859,30 +859,19 @@ La gestión financiera (FinOps) es crucial para optimizar los costos asociados c
 
 ```mermaid
 flowchart TD
-    subgraph System_Box["Sistema"]
-        KafkaStreams["Kafka Streams"]
-        Metrics["Métricas y Benchmarks"]
-        FinOps["FinOps y Costos"]
-        OpenTelemetry["OpenTelemetry"]
+    subgraph Observability_Box["Panel de Control"]
+        Grafana["Grafana Dashboards"]
+        Prometheus["Prometheus Server"]
+    end
 
-    subgraph Component_Box["Componentes"]
-        TracerProvider["SdkTracerProvider"]
-        SpanExporter["OtlpGrpcSpanExporter"]
-        MeterRegistry["PrometheusMeterRegistry"]
-        
-    KafkaStreams -->|Instrumentación| TracerProvider
-    Metrics -->|Gauges y Meters| MeterRegistry
-    FinOps -->|Costo Estimado| MeterRegistry
-    OpenTelemetry -->|Propagación de Contexto| SpanExporter
+    subgraph Cluster_Box["Kubernetes Cluster"]
+        K8s_Nodes["Worker Nodes"]
+        Otel_Collector["OpenTelemetry Collector"]
+    end
 
-    subgraph Deployment_Box["Despliegue"]
-        Kubernetes["Kubernetes"]
-        Prometheus["Prometheus"]
-        
-    KafkaStreams --> Kubernetes
-    Metrics --> Prometheus
-    FinOps --> Prometheus
-    OpenTelemetry --> Prometheus
+    K8s_Nodes -->|"Métricas"| Otel_Collector
+    Otel_Collector -->|"Exportar"| Prometheus
+    Prometheus -->|"Visualizar"| Grafana
 ```
 
 #### 5. Conclusión
