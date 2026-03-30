@@ -1,0 +1,29 @@
+2026-03-30 10:27:40,060 [INFO] MODO DEEP: 16 secciones en /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/Seguridad
+2026-03-30 10:27:40,060 [INFO] 🚀 Iniciando Factory de Autoridad v16.0 para: Estrategias de Hacking Ético en Microservicios 2026
+2026-03-30 10:27:40,061 [INFO] Investigando en la red: Estrategias de Hacking Ético en Microservicios 2026
+2026-03-30 10:31:26,196 [INFO] Desplegando 4 trabajadores para procesar 9 capítulos.
+2026-03-30 10:31:26,198 [INFO] Procesando capítulo: Visión Estratégica y ROI 2026
+2026-03-30 10:31:26,201 [INFO] Procesando capítulo: Análisis del Estado del Arte
+2026-03-30 10:31:26,201 [INFO] Procesando capítulo: Arquitectura de Componentes (Mermaid)
+2026-03-30 10:31:26,204 [INFO] Procesando capítulo: Seguridad Avanzada y Gestión de Secretos
+2026-03-30 10:48:24,046 [INFO] MODO DEEP: 16 secciones en /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/Seguridad
+2026-03-30 10:48:24,046 [INFO] 🚀 [FASE 1] Iniciando Factory v16.2: ESTRATEGIAS DE HACKING ÉTICO EN MICROSERVICIOS 2026
+2026-03-30 10:48:24,048 [INFO] 🔍 [FASE 2] Radar activado. Consultando la red (Tavily)...
+2026-03-30 10:48:24,050 [INFO]  📡 [FASE 3] Contexto recibido (7238 bytes). Mapeando hilos...
+2026-03-30 10:48:24,050 [INFO] 🧵 [FASE 4] Desplegando 4 trabajadores para 7 capítulos.
+2026-03-30 10:48:24,050 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Visión Estratégica y ROI 2026...
+2026-03-30 10:48:24,051 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Análisis del Estado del Arte...
+2026-03-30 10:48:24,052 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Arquitectura de Componentes (Mermaid)...
+2026-03-30 10:48:24,053 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Seguridad Avanzada y Gestión de Secretos...
+2026-03-30 10:51:20,184 [INFO]  ✅ [FINALIZADO] Análisis del Estado del Arte (Completado en 176.13s)
+2026-03-30 10:51:20,185 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Threat Modeling...
+2026-03-30 10:54:19,879 [INFO]  ✅ [FINALIZADO] Seguridad Avanzada y Gestión de Secretos (Completado en 355.82s)
+2026-03-30 10:54:19,879 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Arquitectura Zero Trust...
+2026-03-30 10:57:37,031 [WARNING] Error en el motor IA (Intento 1): HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=600)
+2026-03-30 10:57:37,034 [WARNING] Error en el motor IA (Intento 1): HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=600)
+2026-03-30 11:00:15,211 [INFO]  ✅ [FINALIZADO] Threat Modeling (Completado en 535.03s)
+2026-03-30 11:00:15,211 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Roadmap de Evolución y Conclusiones Senior...
+2026-03-30 11:03:04,787 [INFO]  ✅ [FINALIZADO] Arquitectura Zero Trust (Completado en 524.91s)
+2026-03-30 11:06:46,017 [INFO]  ✅ [FINALIZADO] Arquitectura de Componentes (Mermaid) (Completado en 1101.96s)
+2026-03-30 11:06:52,495 [WARNING] Error en el motor IA (Intento 2): HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=600)
+2026-03-30 11:09:28,159 [WARNING] Error en el motor IA (Intento 1): HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=600)

@@ -1,0 +1,16 @@
+{
+    "llm": {
+        "model_main": "qwen2.5:14b",
+        "model_auditor": "llama3:8b",
+        "ollama_url": "http://localhost:11434/api/generate"
+    },
+    "api": {
+        "tavily_key": "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"
+    },
+    "standards": {
+        "min_word_count": 400,
+        "require_code": true,
+        "require_mermaid": true,
+        "max_retries": 3
+    }
+}
