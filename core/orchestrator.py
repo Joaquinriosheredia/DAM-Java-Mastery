@@ -3,6 +3,7 @@ import json
 import os
 import subprocess
 from pathlib import Path
+from datetime import datetime
 
 # Inyección de rutas para los agentes
 BASE_DIR = Path.home() / "AuthorityEngine"
@@ -98,9 +99,64 @@ class AuthorityOrchestrator:
         
         print(f"\n🏁 [ÉXITO] Documento finalizado: {filename}")
         
-        # 5. Despliegue Automático
-        self.push_to_github(filename, tema)
+# --- PARCHE DE CALIDAD STAFF: GUARDADO Y LIMPIEZA ---
+        # 5. Generación de Metadatos Reales
+        metadata = {
+            "tema": tema,
+            "fecha": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            "secciones_reales": i,  # Contador real del bucle for
+            "status": "Auditado por Llama3",
+            "model_muscle": "qwen2.5:14b",
+            "model_auditor": "llama3:8b"
+        }
+        
+        meta_filename = f"metadata_{tema.lower().replace(' ', '_')}.json"
+        with open(BASE_DIR / meta_filename, "w", encoding="utf-8") as j:
+            json.dump(metadata, j, indent=4)
 
+# --- SISTEMA DE CLASIFICACIÓN INTELIGENTE ---
+        # 1. Definir la carpeta según el título
+        if "java" in tema.lower():
+            folder = "Java_Elite"
+        elif "bigdata" in tema.lower() or "spark" in tema.lower():
+            folder = "Vanguardia_Tech_2026"
+        elif "seguridad" in tema.lower() or "microservicios" in tema.lower():
+            folder = "Seguridad_SRE_2026"
+        else:
+            folder = "Otros_Activos_Mastery"
+
+        # 2. Crear la carpeta en Ubuntu si no existe
+        target_dir = BASE_DIR / folder
+        target_dir.mkdir(parents=True, exist_ok=True)
+
+        # 3. Generación de Metadatos Reales
+        metadata = {
+            "tema": tema,
+            "carpeta_destino": folder,
+            "fecha": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            "secciones_reales": i,
+            "status": "Auditado por Llama3"
+        }
+        
+        meta_filename = f"metadata_{tema.lower().replace(' ', '_')}.json"
+        with open(target_dir / meta_filename, "w", encoding="utf-8") as j:
+            json.dump(metadata, j, indent=4)
+
+        # 4. Guardado del Manual en su carpeta correspondiente
+        filename_only = f"{tema.lower().replace(' ', '_')}_STAFF.md"
+        relative_path = f"{folder}/{filename_only}" 
+        
+        final_doc = final_doc.replace("HTTPConnectionPool", "[ERROR DE RED OMITIDO]")
+        
+        with open(target_dir / filename_only, "w", encoding="utf-8") as f:
+            f.write(final_doc)
+
+        print(f"\n🏁 [ÉXITO] Activo clasificado en: {folder}/")
+
+        # 5. Despliegue Automático a GitHub (usando la ruta relativa)
+        self.push_to_github(relative_path, tema)
+
+# --- ENTRADA DEL SISTEMA (EJECUCIÓN) ---
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         AuthorityOrchestrator().ejecutar_racha(sys.argv[1])

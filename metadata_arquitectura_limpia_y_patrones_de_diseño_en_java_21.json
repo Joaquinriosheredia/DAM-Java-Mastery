@@ -1,0 +1,8 @@
+{
+    "tema": "Arquitectura Limpia y Patrones de Dise\u00f1o en Java 21",
+    "fecha": "2026-03-30 14:25:09",
+    "secciones_reales": 2,
+    "status": "Auditado por Llama3",
+    "model_muscle": "qwen2.5:14b",
+    "model_auditor": "llama3:8b"
+}
