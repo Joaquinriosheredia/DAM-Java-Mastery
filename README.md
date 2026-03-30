@@ -27,3 +27,4 @@ Sistema automatizado de generación de activos técnicos de nivel **Staff Engine
 
 * [✅ Arquitectura Hexagonal y Clean Code en Java 21](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/arquitectura_hexagonal_y_clean_code_en_java_21_STAFF.md) - *Publicado el 30/03/2026*
 * [✅ Seguridad Ofensiva y Auditoría de Microservicios con Java 21](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/seguridad_ofensiva_y_auditoría_de_microservicios_con_java_21_STAFF.md) - *Publicado el 30/03/2026*
+* [✅ Optimización de Rendimiento en JVM y Estrategias de Caché Distribuida con Redis y Java 21](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/optimización_de_rendimiento_en_jvm_y_estrategias_de_caché_distribuida_con_redis_y_java_21_STAFF.md) - *Publicado el 30/03/2026*
