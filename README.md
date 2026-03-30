@@ -24,3 +24,5 @@ Sistema automatizado de generación de activos técnicos de nivel **Staff Engine
 
 ---
 *Última actualización: Marzo 2026 | Production-Ready ✅* 
+
+* [✅ Arquitectura Hexagonal y Clean Code en Java 21](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/arquitectura_hexagonal_y_clean_code_en_java_21_STAFF.md) - *Publicado el 30/03/2026*
