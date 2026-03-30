@@ -1,6 +1,6 @@
 # 🚀 Joaquín Ríos Heredia | Autonomous Engineering Pipeline
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/joaquinriosheredia/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/joaquinrios-dev-strategist/)
 [![GitHub](https://img.shields.io/badge/GitHub-Portfolio-lightgrey?style=for-the-badge&logo=github)](https://github.com/Joaquinriosheredia)
 
 Bienvenido a mi ecosistema de alta especialización técnica. Este repositorio es un entorno de ingeniería gestionado por mi motor de IA: **AuthorityEngine v4.0**.
