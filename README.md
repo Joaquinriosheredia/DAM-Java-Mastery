@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Joaquín Ríos Heredia | Staff Software Engineer Portfolio
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/joaquinriosheredia/)
@@ -42,3 +43,45 @@ Infraestructura local sobre **Ryzen 7** utilizando **Ollama 14b** y validación 
 
 
 *Pipeline v10.1 | 2026-03-25 16:00:08*
+=======
+# 🚀 Authority Engine v10.1
+
+**Autor:** Joaquín Ríos Heredia — Staff Engineer  
+**Última Actualización:** 2026-03-29  
+**Estado:** ✅ Production-Ready
+
+---
+
+## 📖 ¿Qué Es Authority Engine?
+
+Sistema automatizado de generación de informes técnicos de nivel Staff Engineer (20-40 páginas) con:
+
+- ✅ Clasificación inteligente por scoring (keywords + prioridades)
+- ✅ Investigación web en tiempo real (Tavily API)
+- ✅ Generación con IA local (Ollama + qwen2.5:14b)
+- ✅ Auditoría SRE con Security Score (mínimo 75/100)
+- ✅ Publicación automática en GitHub
+- ✅ Streaming en tiempo real (ves el progreso sección por sección)
+
+---
+
+## 🛠️ Instalación
+
+### Requisitos
+
+```bash
+# 1. Python 3.10+
+python3 --version
+
+# 2. Ollama (IA local)
+ollama --version
+
+# 3. Modelo de IA
+ollama pull qwen2.5:14b
+
+# 4. Dependencias Python
+pip install requests tavily-python
+
+# 5. Variable de entorno (Tavily API Key)
+export TAVILY_KEY="tu-api-key-aqui"
+>>>>>>> 205b747 (feat: Manual Staff Level - Seguridad Avanzada en Microservicios 2026)
