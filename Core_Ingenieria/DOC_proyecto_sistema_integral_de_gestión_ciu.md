@@ -12,7 +12,7 @@ La implementación del Sistema Integral de Gestión Ciudadana (SIGC) 360 mejora 
 - Mejor satisfacción de los ciudadanos.
 - Mayor eficiencia en la gestión de recursos públicos.
 
-## Análisis Técnico
+## Análisis Técnico 
 
 ### Arquitectura del Sistema
 El sistema está diseñado con arquitectura microservicios para mejorar la escalabilidad y mantenibilidad. La lógica aplicada incluye:
