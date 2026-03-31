@@ -23,7 +23,7 @@ CREATE INDEX idx_nombres_apellidos ON empleados (nombre, apellido1);
 
 -- Consulta que utiliza el índice cubierto para obtener los datos de los empleados
 SELECT * 
-FROM empleados 
+FROM empleados  
 WHERE nombre = 'Juan' AND apellido1 = 'Perez';
 
 /*
