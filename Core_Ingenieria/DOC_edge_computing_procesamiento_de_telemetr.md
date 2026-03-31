@@ -11,7 +11,7 @@ La arquitectura de Edge Computing permite procesar estos datos directamente en l
 
 El ROI se logra al mejorar la eficiencia de las operaciones, aumentar la disponibilidad del sistema y reducir los costos asociados con la latencia y los problemas de seguridad. Además, al procesar los datos en el borde, se reduce la carga en los sistemas centrales, lo que permite un mejor uso de la infraestructura existente.
 
-## Análisis Técnico
+## Análisis Técnico 
 
 ### Detalles de la Arquitectura y Lógica Aplicada
 
