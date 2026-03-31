@@ -5,7 +5,7 @@
 
 ---
 
-## 1. Visión Estratégica y ROI 2026
+## 1. Visión Estratégica y ROI 2026 
 
 ### Visión Estratégica y ROI 2026: Frontend - Validación de Formularios en Tiempo Real con Expresiones Regulares
 
