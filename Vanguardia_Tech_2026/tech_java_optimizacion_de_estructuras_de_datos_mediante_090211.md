@@ -17,7 +17,7 @@ Un ejemplo de estructura de datos genérica es una lista doblemente enlazada:
 ```java
 public class DoublyLinkedList<T> {
     private Node<T> head;
-    private Node<T> tail;
+    private Node<T> tail; 
 
     // Clase interna para nodos
     private static class Node<T> {
