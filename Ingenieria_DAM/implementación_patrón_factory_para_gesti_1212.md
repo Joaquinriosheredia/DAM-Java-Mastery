@@ -12,7 +12,7 @@ El patrón Factory proporciona una estrategia flexible para crear objetos sin re
 
 #### Análisis Técnico (Arquitectura y por qué de la solución)
 
-**Arquitectura y Diseño:**
+**Arquitectura y Diseño:** 
 
 1. **Patrón Factory:** Se utilizará el patrón Factory para encapsular la lógica de creación de hilos, facilitando la adición o modificación de tareas en el futuro sin alterar el código cliente.
 
