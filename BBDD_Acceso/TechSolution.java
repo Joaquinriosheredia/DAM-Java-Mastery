@@ -16,7 +16,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.io.Serializable;
-import java.util.List;
+import java.util.List; 
 
 /**
  * @param <T> La clase de entidad generada
