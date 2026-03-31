@@ -7,7 +7,7 @@
 
 ## 1. Estrategias de Testing, QA y Calidad SRE
 
-### Estrategias de Testing, QA y Calidad SRE
+### Estrategias de Testing, QA y Calidad SRE 
 
 #### 1. Introducción a las Pruebas y Validaciones en Kafka Streaming
 
