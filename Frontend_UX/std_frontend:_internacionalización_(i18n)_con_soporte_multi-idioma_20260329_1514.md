@@ -7,7 +7,7 @@
 
 ## 1. Visión Estratégica y ROI 2026
 
-### Visión Estratégica y ROI 2026
+### Visión Estratégica y ROI 2026 
 
 #### Introducción
 
