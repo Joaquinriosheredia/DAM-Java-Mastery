@@ -11,11 +11,11 @@ En el futuro cercano, la gestión eficiente de clusters Kubernetes y la implemen
 La gestión de múltiples clusters Kubernetes se ha vuelto cada vez más compleja con la creciente demanda de aplicaciones globales. La herramienta **Cluster API** proporciona una forma elegante para provisionar y gestionar clusters a través de diferentes zonas o regiones, facilitando así un despliegue global de aplicaciones utilizando GitOps (ArgoCD ApplicationSets) con reglas de afinidad geográfica.
 
 ```mermaid
-graph LR;
-  A[Cluster API Provider] -->|Manages Clusters| B[ClusterSet];
-  B --> C[Kubernetes Cluster1];
-  B --> D[Kubernetes Cluster2];
-  E[GitOps (ArgoCD ApplicationSets)] --> F[Global Deployment];
+graph TD;
+    A["KEDA (Métricas Personalizadas)"] --> B["Gestión de Recursos"]
+    C["Pruebas bajo Carga"] --> D["Simulación de Condiciones"]
+    E["Experimentos Caóticos"] --> F["Validación de Resiliencia"]
+    F --> G["Recuperación ante Fallos"]
 ```
 
 #### Service Mesh para Gestión de Tráfico Global
@@ -457,33 +457,33 @@ Below is an example Mermaid diagram illustrating the multi-cluster architecture 
 ```mermaid
 graph TD;
     subgraph Region1
-        Cluster1
-        ServiceMesh1
+        Cluster1[Cluster 1]
+        ServiceMesh1[Service Mesh 1]
     end
     subgraph Region2
-        Cluster2
-        ServiceMesh2
+        Cluster2[Cluster 2]
+        ServiceMesh2[Service Mesh 2]
     end
     subgraph Region3
-        Cluster3
-        ServiceMesh3
+        Cluster3[Cluster 3]
+        ServiceMesh3[Service Mesh 3]
     end
 
-    Cluster1 -->|Ingress Traffic| ServiceMesh1
-    Cluster2 -->|Ingress Traffic| ServiceMesh2
-    Cluster3 -->|Ingress Traffic| ServiceMesh3
+    Cluster1 --> ServiceMesh1
+    Cluster2 --> ServiceMesh2
+    Cluster3 --> ServiceMesh3
 
-    ServiceMesh1 -- Local Load Balancing --> Cluster1
-    ServiceMesh2 -- Local Load Balancing --> Cluster2
-    ServiceMesh3 -- Local Load Balancing --> Cluster3
+    ServiceMesh1 -- "Local LB" --> Cluster1
+    ServiceMesh2 -- "Local LB" --> Cluster2
+    ServiceMesh3 -- "Local LB" --> Cluster3
 
     subgraph GlobalTrafficControl
-        IstioGlobal
+        IstioGlobal((Istio Global))
     end
     
-    ServiceMesh1 -- Cross-Cluster Routing -->|IstioGlobal|
-    ServiceMesh2 -- Cross-Cluster Routing -->|IstioGlobal|
-    ServiceMesh3 -- Cross-Cluster Routing -->|IstioGlobal|
+    ServiceMesh1 -. "Ruteo Cross-Cluster" .-> IstioGlobal
+    ServiceMesh2 -. "Ruteo Cross-Cluster" .-> IstioGlobal
+    ServiceMesh3 -. "Ruteo Cross-Cluster" .-> IstioGlobal
 ```
 
 This diagram visually represents the interaction between clusters and their respective service meshes, illustrating how traffic is managed both locally and globally to ensure optimal performance and availability.
