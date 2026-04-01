@@ -426,11 +426,28 @@ Para visualizar cómo se relacionan las entidades y agregados con los servicios 
 
 ```mermaid
 classDiagram
-    Event -->|has-a| EventId : "Identifies"
-    Event <|-- DomainEntity
-    EventAggregate *--|> List:Event
-    EventService o-- EventRepository : Uses
-    EventRepository ..|> ReactiveCrudRepository: Extends
+    class OrderAggregate {
+        <<Aggregate Root>>
+        -OrderId id
+        -CustomerData customer
+        -List~OrderLine~ lines
+        +calculateTotal() Money
+    }
+    class Money {
+        <<Record>>
+        +Double amount
+        +String currency
+    }
+    class OrderLine {
+        <<Entity>>
+        -ProductId product
+        -Integer quantity
+        -Money price
+    }
+
+    OrderAggregate *-- OrderLine : contains
+    OrderAggregate o-- Money : uses
+    OrderLine o-- Money : has
 ```
 
 ### Conclusión
