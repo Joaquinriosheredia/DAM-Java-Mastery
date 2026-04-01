@@ -2,703 +2,745 @@
 
 ## Introducción a la Arquitectura Hexagonal y DDD
 
-## Introducción a la Arquitectura Hexagonal y DDD
+### Introducción a la Arquitectura Hexagonal y DDD en Java 21
 
-En este manual exploraremos cómo combinar el Diseño Dirigido por Dominios (DDD) con la arquitectura hexagonal puede ayudarte a construir soluciones de software robustas, mantenibles y escalables. La combinación de estos dos enfoques permite crear sistemas que son altamente decouplados de las dependencias externas, lo cual mejora tanto su flexibilidad como su capacidad para evolucionar con el tiempo.
+La arquitectura Hexagonal (también conocida como puerto-adaptador) junto con el Diseño-Dirigido por Dominio (DDD) son paradigmas de diseño que ayudan a crear software más robusto, mantenible y escalable. En este manual, profundizaremos en cómo combinar estos dos en Java 21 para implementar una solución que utilice invariante de agregados, Value Objects con Records y persistencia desacoplada usando Spring Data R2DBC.
 
-### Hexagonal vs. Entity-Control-Boundary
+#### Arquitectura Hexagonal
 
-Si has oído hablar del patrón Entity-Control-Boundary antes, encontrarás la arquitectura hexagonal familiar. Se puede pensar en los agregados como entidades, los servicios de dominio y las fábricas como controladores, y los servicios de aplicación como límites.
+La arquitectura hexagonal se basa en la idea de separación entre el núcleo del sistema (dominio) y sus capas externas, tales como interfaces de usuario, base de datos y servicios web. Esta estructura permite que el dominio no dependa de ninguna tecnología específica para su persistencia o presentación, lo cual facilita pruebas unitarias más puras y la sustitución de componentes sin afectar al núcleo del sistema.
 
-### Stateless
+#### DDD
 
-Un servicio de aplicación no mantiene ningún estado interno que pueda ser cambiado por la interacción con clientes. Todo el información necesaria para realizar una operación debe estar disponible como parámetros de entrada al método del servicio de aplicación. Esto hará el sistema más simple y fácil de depurar y escalar.
+El Diseño-Dirigido por Dominio es un enfoque que se centra en el modelado de los problemas del negocio como parte integrante de la creación del software. Esto lleva a clases y métodos que reflejan exactamente cómo las personas involucradas con el problema perciben el dominio.
 
-## 1. Visión General
+### Entidades y Value Objects
 
-En este tutorial, implementaremos una aplicación Spring utilizando DDD. Además, organizaremos las capas con la ayuda de la Arquitectura Hexagonal.
+- **Entidad**: Representa un objeto dentro del sistema que puede ser identificado de forma inequívoca. En Java, esto se traduce a una clase marcada como `@Entity` (o en nuestro caso, sin anotaciones para mantener la independencia del dominio).
+  
+  ```java
+  public class Event {
+      private final String id;
+      private Date date;
 
-Con esta aproximación, podemos intercambiar fácilmente diferentes capas de la aplicación.
-
-### Arquitectura Hexagonal
-
-La arquitectura hexagonal es un modelo para diseñar aplicaciones de software alrededor de la lógica del dominio para aislarla de factores externos. La lógica del dominio se especifica en un núcleo empresarial, que llamaremos parte interna, con el resto siendo las partes externas. El acceso a la lógica del dominio desde el exterior es posible mediante puertos y adaptadores.
-
-### Principios
-
-Primero, debemos definir principios para dividir nuestro código. Como se explicó brevemente anteriormente, la arquitectura hexagonal define los siguientes:
-
-- **Dominio Central (Core Domain):** El núcleo de tu aplicación es el lugar donde reside la lógica del dominio más compleja y crítica. Debes concentrarte en este núcleo para mantenerlo limpio y mantenible.
-
-- **Subdominios:** Para dividir el código grande, puedes usar subdominios que son áreas temáticas dentro de tu sistema.
-
-### Implementación con Spring
-
-Con la arquitectura hexagonal, los módulos pueden ser reemplazados fácilmente por otros implementando el mismo puerto. En una aplicación Spring, esto significa que podemos definir puertos como interfaces y adaptadores como clases que implementan estas interfaces. Esto nos permite cambiar fácilmente las bases de datos o servicios externos sin afectar a la lógica del dominio.
-
-### Diagrama Arquitectónico
-
-```mermaid
-graph LR;
-    A[Cliente] --> B(PuertoEntrada);
-    B --> C(Dominio);
-    C --> D(PuertoSalida);
-    D --> E(AdaptadorExterno);
-
-subgraph Dominio
-    C;
-end
-    
-subgraph Puertos
-    B;
-    D;
-end
-
-subgraph AdaptadoresExternos
-    E;
-end
-```
-
-### Ejemplo Técnico: Invariantes en Agregados y Value Objects con Records
-
-Cuando implementas la lógica del dominio, puedes utilizar los agregados para encapsular tus entidades relacionadas y sus invariantes. Los objetos de valor (Value Objects) pueden ser utilizados para representar conceptos inmutables dentro de tu sistema.
-
-Aquí te muestro cómo puedes definir un agregado con un objeto de valor en Java 21, usando la nueva funcionalidad de `records`:
-
-```java
-public record Money(long amountInCents) { }
-
-public class Account {
-    private final List<Transaction> transactions;
-    private final long balance;
-
-    public Account(List<Transaction> transactions) {
-        this.transactions = transactions.stream()
-                .collect(Collectors.toUnmodifiableList());
-        this.balance = transactions.stream()
-                .map(Transaction::amount)
-                .reduce(0L, Long::sum);
-        validate();
-    }
-
-    private void validate() {
-        // Invariantes de negocio y lógica compleja
-        if (balance < 0) throw new NegativeBalanceException("Cuenta con saldo negativo.");
-    }
-}
-```
-
-### Persistencia Desacoplada con Spring Data R2DBC
-
-Para desacoplar la persistencia del dominio, puedes utilizar Spring Data R2DBC. Aquí te muestro cómo podrías definir un repositorio para tu clase `Account`:
-
-```java
-import org.springframework.data.r2dbc.repository.R2dbcRepository;
-
-public interface AccountR2dbcRepository extends R2dbcRepository<Account, Long> {
-    // Custom query methods can be defined here.
-}
-```
-
-### Conclusiones
-
-Al combinar la arquitectura hexagonal con DDD, te proporcionas una forma estructurada de organizar tu código para garantizar que esté bien separado y mantenible. La implementación utilizando Spring Data R2DBC añade un nivel adicional de desacoplamiento entre el dominio y los mecanismos de persistencia.
-
-```mermaid
-graph LR;
-    A[Account] --> B(AccountR2dbcRepository);
-    B --> C(DatosBD);
-
-subgraph Dominio
-    A;
-end
-    
-subgraph Repositorio
-    B;
-end
-
-subgraph Persistencia
-    C;
-end
-```
-
-Este enfoque no solo mejora la manteniabilidad y escalabilidad del software, sino que también facilita el desarrollo de pruebas unitarias y integrales, lo cual es crucial para aplicaciones empresariales complejas.
-
-Con esta introducción a la arquitectura hexagonal y DDD, estás bien equipado para comenzar a implementar estos principios en tus proyectos Java.
-
-## Invariantes en Agregados
-
-### Invariantes en Agregados
-
-En el diseño de sistemas basado en DDD (Desarrollo Guiado por Dominios) y arquitectura Hexagonal, los agregados juegan un papel crucial a la hora de mantener la consistencia de estado dentro del sistema. Un agregado es una colección de entidades y objetos valor que son tratados como una unidad atómica. Los invariantes en estos agregados son reglas clave que deben cumplirse para garantizar que el estado del agregado sea lógicamente correcto.
-
-#### Definición de Invariantes
-
-Invariantes son condiciones que se mantienen verdaderas durante toda la vida útil del agregado, desde su creación hasta su eliminación. Son esenciales porque aseguran que los objetos dentro del agregado estén siempre en un estado válido y coherente con el dominio del negocio.
-
-#### Implementación de Invariantes
-
-A continuación se muestra cómo implementar invariantes en Java 21, utilizando Spring Data R2DBC para la persistencia:
-
-```java
-import reactor.core.publisher.Mono;
-import java.math.BigDecimal;
-
-public class Account {
-    private final Long id;
-    private BigDecimal balance;
-
-    // Constructor privado
-    private Account(Long id, BigDecimal initialBalance) {
-        this.id = id;
-        setBalance(initialBalance);
-    }
-
-    public static Mono<Account> createAccount(Long id, BigDecimal initialBalance) {
-        return Mono.just(new Account(id, initialBalance))
-                .doOnNext(account -> account.ensureInvariant());
-    }
-
-    private void ensureInvariant() {
-        if (balance.compareTo(BigDecimal.ZERO) < 0)
-            throw new IllegalStateException("Balance cannot be negative");
-    }
-
-    public void deposit(BigDecimal amount) {
-        balance = balance.add(amount);
-        ensureInvariant();
-    }
-
-    public void withdraw(BigDecimal amount) {
-        balance = balance.subtract(amount);
-        ensureInvariant();
-    }
-    
-    // Método getter para el saldo
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    private void setBalance(BigDecimal newBalance) {
-        this.balance = newBalance;
-        ensureInvariant();
-    }
-}
-```
-
-#### Diagrama Mermaid
-
-A continuación, se muestra un diagrama de clase simple utilizando Mermaid para representar el agregado `Account` con sus métodos y campos:
-
-```mermaid
-classDiagram
-    class Account{
-        +Long id: Identificador único del cuenta
-        +BigDecimal balance: Saldo en la cuenta
-        -private Account(Long, BigDecimal): Constructor privado
-        +static Mono<Account> createAccount(Long, BigDecimal): Crea una nueva cuenta con un saldo inicial
-        +void deposit(BigDecimal): Deposita fondos en la cuenta
-        +void withdraw(BigDecimal): Retira fondos de la cuenta
-        +BigDecimal getBalance(): Retorna el saldo actual de la cuenta
-    }
-```
-
-#### Integración con Spring Data R2DBC
-
-Para asegurarnos de que los invariantes se mantengan incluso cuando interactuamos con bases de datos externas, utilizaremos Spring Data R2DBC. Esto nos permitirá mapear operaciones CRUD a consultas SQL sin necesidad de escribir código adicional.
-
-```java
-import io.r2dbc.spi.Connection;
-import reactor.core.publisher.Mono;
-
-public interface AccountRepository extends ReactiveCrudRepository<Account, Long> {
-    @Query("SELECT * FROM accounts WHERE id = :id")
-    Mono<Account> findById(Long id);
-}
-```
-
-Este repositorio permite realizar operaciones CRUD en la base de datos mientras mantiene los invariantes y estructura del dominio. Además, aseguramos que las transacciones se manejen correctamente para evitar inconsistencias.
-
-### Consideraciones Finales
-
-Asegurar invariants dentro de agregados es fundamental para el mantenimiento de sistemas basados en DDD. Esto no solo mejora la integridad de los datos y proporciona un buen encapsulamiento, sino que también facilita las pruebas unitarias al permitir que cada método se verifique en aislamiento.
-
-Utilizando hexagonal architecture con DDD, podemos aislar estos comportamientos del dominio del resto de la aplicación, facilitando su mantenimiento y escalabilidad.
-
-## Utilizando Value Objects con Records
-
-### Utilizando Value Objects con Records en Java 21
-
-En el desarrollo de aplicaciones basadas en DDD (Domain-Driven Design) y arquitectura Hexagonal, los Value Objects juegan un papel crucial al encapsular datos inmutables que representan conceptos valiosos del dominio. En este contexto, la introducción de Records en Java 21 proporciona una forma eficiente y segura de implementar estos Value Objects, mejorando significativamente su mantenibilidad y legibilidad.
-
-#### Introducción a los Value Objects
-
-Los Value Objects son objetos que representan conceptos del dominio con un valor intrínseco. Su principal característica es la inmutabilidad: una vez creados, no pueden ser modificados. Un ejemplo clásico es el objeto `Money`, donde lo que importa es cuánto dinero se representa en lugar de quién posee ese dinero.
-
-#### Records en Java 21
-
-Los Records son una nueva característica introducida en Java desde la versión 14 y mejorada en versiones posteriores, incluyendo la actualización a Java 21. Un Record es un tipo que ofrece una forma concisa de declarar clases inmutables con propiedades final.
-
-Un Record en Java se define mediante la palabra clave `record` seguida del nombre del record, paréntesis para listar las componentes (propiedades), y luego el cuerpo opcionalmente:
-
-```java
-public record Money(long amountInCents) {}
-```
-
-El código anterior declara un valor inmutable llamado `Money`, con una sola propiedad que es la cantidad en centavos. Esto proporciona una manera rápida de crear objetos para valores como fechas, coordenadas, identificadores o cualquier otro concepto del dominio que pueda ser representado por un conjunto fijo de datos.
-
-#### Implementación de Value Objects utilizando Records
-
-A continuación se presenta cómo implementar un Value Object `Money` en Java 21 usando Records:
-
-```java
-public record Money(long amountInCents) {
-
-    public static Money fromDollars(double dollars){
-        return new Money(Math.round(dollars * 100));
-    }
-
-    public double asDollars(){
-        return this.amountInCents / 100.0;
-    }
-}
-```
-
-Esta implementación de `Money` incluye métodos estáticos para facilitar la creación de instancias (como convertir dólares a centavos) y métodos de instancia que permiten manipular el valor del objeto sin modificar su estado (mostrar en dólares).
-
-#### Integrando Value Objects con Agregados
-
-En DDD, un Aggregate es una colección de objetos que forman un solo bloque de transacción. Los Value Objects se usan a menudo dentro de los agregados para representar conceptos que no pueden existir fuera del contexto del agregado.
-
-Por ejemplo, en el contexto de un pedido (Order), podríamos tener un `Money` como parte de la información del pedido:
-
-```java
-public class Order {
-    private final Money total;
-    
-    public Order(Money total) {
-        this.total = Objects.requireNonNull(total);
-    }
-    
-    // Otras operaciones y métodos relacionados con el Pedido.
-}
-```
-
-Aquí, `Order` es un agregado que contiene un `Money`, reflejando cómo los Value Objects se integran en la lógica del dominio.
-
-#### Diagrama Mermaid para Visualización
-
-Un diagrama simplificado puede ayudar a visualizar la integración de Records como Value Objects dentro de la arquitectura hexagonal:
-
-```mermaid
-classDiagram
-    class Domain {
-        +Money total
-    }
-
-    class Money {
-        -long amountInCents
-        +fromDollars(double): Money
-        +asDollars(): double
-    }
-    
-    Domain "1" -- "0..*" Money: contiene
-    
-    class Application {
-        +PlaceOrder(Order): void
-    }
-    
-    class Infrastructure {
-        +DatabaseAdapter
-    }
-
-    Application "1" -- "1" Domain : usa
-    Infrastructure --|> DatabaseAdapter : implementa
-
-    direction LR
-```
-
-En este diagrama, `Domain` representa la capa de dominio que contiene instancias de objetos como `Order`, mientras que `Money` es un Value Object usado en varios lugares del modelo.
-
-#### Conclusión
-
-La combinación de DDD y arquitectura hexagonal con el uso de Records para implementar Value Objects resulta en una solución robusta, mantenible y escalable. Al mantener la lógica del dominio separada de las tecnologías externas y empleando Records para Value Objects, los desarrolladores pueden construir software que no sólo es más fácil de entender y modificar sino también más resistente a cambios en el dominio.
-
-Este enfoque permite crear aplicaciones Spring donde cada capa puede ser intercambiada o reemplazada con facilidad, asegurando así una implementación de DDD y arquitectura hexagonal altamente modular.
-
-## Persistencia Desacoplada con Spring Data R2DBC
-
-### Persistencia Desacoplada con Spring Data R2DBC
-
-En este capítulo del manual 'Arquitectura Hexagonal y DDD en Java 21: Invariantes en Agregados, Value Objects con Records y Persistencia desacoplada con Spring Data R2DBC', exploraremos cómo implementar una persistencia desacoplada utilizando la biblioteca Spring Data R2DBC. Este enfoque es crucial para mantener la coherencia del diseño hexagonal y el desarrollo basado en dominios (DDD), separando claramente las responsabilidades de acceso a datos del núcleo lógico de negocios.
-
-#### 3.1 Introducción
-
-La persistencia desacoplada es un concepto central en la arquitectura hexagonal, permitiendo que el modelo de dominio y los servicios de aplicación estén libres de detalles específicos sobre cómo se almacenan o recuperan datos del sistema. Esto no solo hace que el código sea más mantenible y escalable, sino también más fácil de probar y refactorizar.
-
-Spring Data R2DBC proporciona un marco para interactuar con bases de datos relacionales utilizando las APIs reactivas de Project Reactor. Su uso permite una integración fluida entre la arquitectura hexagonal y el mundo del desarrollo reactivo, permitiendo a los desarrolladores trabajar en términos puramente asincrónicos y no bloqueantes.
-
-#### 3.2 Configuración Básica
-
-Para configurar Spring Data R2DBC en un proyecto basado en DDD e Hexagonal Architecture, primero debemos asegurar que tengamos el entorno de desarrollo apropiado:
-
-- **Maven o Gradle**: Necesitarás incluir las dependencias necesarias en tu archivo `pom.xml` o `build.gradle`. Por ejemplo, con Maven podrías agregar algo como esto:
-  ```xml
-  <dependency>
-      <groupId>io.r2dbc</groupId>
-      <artifactId>r2dbc-postgresql</artifactId>
-      <version>{r2dbc-postgresql-version}</version>
-      <scope>runtime</scope>
-  </dependency>
-
-  <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-r2dbc</artifactId>
-  </dependency>
+      // Constructores, getters y setters...
+  }
   ```
 
-- **Configuración del Contexto**: Asegúrate de que tu clase principal o `SpringApplication` esté anotada con `@EnableR2dbcRepositories`. Esto permitirá a Spring Data R2DBC configurar automáticamente los repositorios.
+- **Value Object**: Es un objeto que se identifica por su valor. No tiene una identidad única dentro del sistema.
 
-#### 3.3 Repositories y CRUD
+  ```java
+  public record Money(BigDecimal amount) {}
+  ```
 
-En DDD, los objetos de dominio (entities) son representados en el sistema por medio del patrón Repository. Los repositories ofrecen interfaces para crear, leer, actualizar y borrar entidades desde la base de datos sin necesidad de exponer detalles de implementación.
+### Agregados
 
-Con Spring Data R2DBC, puedes definir tus repositorios de la siguiente manera:
+Un agregado en DDD es la unidad lógica más grande que puede ser modificada de manera atómica, manteniendo siempre sus propias invariantes. Los cambios a los Value Objects y entidades internas del agregado se realizan dentro del propio método de la entidad raíz.
 
-```java
-public interface UserRepository extends ReactiveCrudRepository<User, UUID> {
-    Mono<User> findByEmail(String email);
-}
-```
+### Servicios
 
-Esto proporciona métodos CRUD estándar y personalizados para interactuar con las entidades.
-
-#### 3.4 Adapters
-
-En el contexto del diseño hexagonal, los adapters son los componentes que conectan al núcleo de la aplicación con el mundo exterior (por ejemplo, bases de datos). En este caso, Spring Data R2DBC actúa como un adaptador para proporcionar persistencia reactiva.
-
-Asegúrate de mantener una clara separación entre tu modelo de dominio y los detalles del adaptador. Los repositorios deben ser definidos en términos del núcleo lógico de negocios, no en términos específicos de la base de datos.
-
-#### 3.5 Ejemplos de Implementación
-
-Vamos a ver un ejemplo simple que demuestra cómo podríamos implementar una operación CRUD usando Spring Data R2DBC:
-
-```java
-@Service
-public class UserService {
-    private final UserRepository userRepository;
-
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    @Transactional
-    public Mono<User> createUser(String email, String password) {
-        User user = new User(email, password);
-        return userRepository.save(user).thenReturn(user);
-    }
-}
-```
-
-En este ejemplo, `UserService` es una implementación de un servicio de aplicación que interactúa con el repositorio para crear un nuevo usuario.
-
-#### 3.6 Diagramas
-
-```mermaid
-graph LR;
-    A[Service Layer] --> B(Repository Adapter)
-    B --> C[R2DBC Driver]
-    D[Database] --> C
-```
-
-Este diagrama Mermaid muestra cómo los servicios de la capa de aplicación interactúan con un adaptador que utiliza R2DBC para comunicarse directamente con una base de datos relacional.
-
----
-
-La persistencia desacoplada es crucial en cualquier arquitectura hexagonal, permitiendo a las partes internas del sistema (específicamente el modelo de dominio y los servicios de aplicación) concentrarse solo en lógica empresarial. Con Spring Data R2DBC, puedes implementar esta separación con facilidad mientras aprovechas las ventajas del desarrollo reactivo para interacciones asincrónicas.
-
-## Ejemplos Prácticos de Implementación
-
-### Ejemplos Prácticos de Implementación
-
-En este apartado se explorarán conceptos clave y ejemplos prácticos para entender cómo combinar Arquitectura Hexagonal con DDD (Domain-Driven Design) en proyectos Java utilizando Spring Data R2DBC, permitiendo la creación de soluciones robustas, mantenibles y escalables.
-
-#### 1. Configuración del Entorno
-
-Antes de empezar a implementar los patrones de diseño mencionados, asegúrate de tener configurado tu entorno con las dependencias necesarias:
-
-- **Spring Boot**: Versión `2.7.x` o superior.
-- **R2DBC y Postgres Driver**: Para el acceso a la base de datos PostgreSQL sin bloqueo (`r2dbc-postgresql`).
-- **DDD Pattern Libraries**: Como `ddd-jpa`, aunque en este caso utilizaremos R2DBC para evitar mapear objetos.
-
-#### 2. Diseño del Modelo de Dominio
-
-En DDD, los Value Objects (VO) son objetos inmutables que no tienen identidad propia y representan datos, mientras que los Agregados contienen un conjunto de entidades y VOs relacionadas bajo una raíz única. En Java, a partir de la introducción del soporte para records en JDK 14+, se pueden definir los VOs como registros.
-
-```java
-public record Address(String street, String city) {}
-
-public class Customer {
-    private final Long id;
-    private final Address address;
-    
-    // Constructor, getters, equals, hashCode y métodos de dominio aquí.
-}
-```
-
-#### 3. Invariantes en Agregados
-
-Asegurarse de que los invariantes del negocio se mantengan es crucial para la consistencia del modelo. En Java, esto puede lograrse utilizando interfaces y clases abstractas:
-
-```java
-public interface CustomerInvariant {
-    void assertValidity();
-}
-
-public class Customer implements CustomerInvariant {
-    
-    // Propiedades aquí
-    
-    public Customer create() throws IllegalStateException {
-        this.assertValidity();  // Aseguramos que los invariantes se respeten al crear el objeto.
-        
-        return new Customer(id, address);
-    }
-    
-    @Override
-    public void assertValidity() {
-        if (address == null) throw new IllegalArgumentException("Address cannot be null.");
-        // Otros checks de invariante aquí...
-    }
-}
-```
-
-#### 4. Aplicación de Hexagonal Architecture
-
-Hexagonal architecture implica un diseño en capas donde la lógica del dominio está aislada del resto del sistema, y los cambios no afectan directamente a otras partes. Para aplicar esto con Spring, estructuramos nuestros paquetes como sigue:
-
-```
-src/main/java
-├── com.example.domain
-│   ├── application  // Servicios de aplicación que interactúan con el repositorio.
-│   ├── domain       // Modelos del dominio (entidades y VOs).
-│   └── repository   // Repositorios de persistencia, usando R2DBC en este caso.
-└── com.example.infrastructure
-    └── r2dbc        // Implementación específica para R2DBC, sin importar paquetes internos del dominio.
-```
-
-##### Implementación con Spring Data R2DBC
-
-```java
-public interface CustomerRepository extends ReactiveCrudRepository<Customer, Long> {
-}
-
-// En la capa de infraestructura:
-@Configuration
-class DataSourceConfiguration {
-
-    @Bean
-    public ConnectionFactory connectionFactory() {
-        return new DriverConnectionFactory(new PostgresqlConnectionFactoryOptions(PostgresqlConnectionFactoryOptions.DEFAULT));
-    }
-
-}
-```
-
-#### 5. Diagramas Mermaid para ilustrar la Arquitectura
-
-A continuación, se muestra un diagrama de cómo podrían estar organizadas las capas en una aplicación que utiliza DDD con hexagonal architecture:
-
-```mermaid
-graph TD;
-    A[Domain] --> B(Application Services)
-    C(Infrastructure) -->|R2DBC| D(Customer Repository)
-    E(Ports and Adapters) --> F(API Gateway)
-```
-
-#### 6. Conclusiones
-
-La combinación de Arquitectura Hexagonal con DDD en proyectos Java usando Spring Data R2DBC proporciona un enfoque sólido para el diseño y desarrollo de aplicaciones empresariales. No sólo permite una mayor flexibilidad al cambiar componentes externos, sino que también asegura que la lógica del negocio esté claramente definida y separada del resto del sistema.
-
-Esta estrategia se destaca por promover un diseño con alto nivel de cohesión y bajo acoplamiento, lo cual es vital para el mantenimiento a largo plazo y escalabilidad de aplicaciones Java empresariales.
-
-## Consideraciones para el Mantenimiento y la Evolución del Código
-
-### Consideraciones para el Mantenimiento y la Evolución del Código
-
-En un proyecto que combina la arquitectura Hexagonal con DDD (Domain-Driven Design) usando Java 21 junto a Spring Data R2DBC para la persistencia, es crucial tener en cuenta varias consideraciones técnicas para garantizar una evolución fluida y mantenimiento eficiente del código. Estas consideraciones incluyen el manejo de invariantes en agregados, la utilización efectiva de Value Objects con Records, y cómo se integra todo esto dentro del marco de Spring Data R2DBC.
-
-#### 1. Manejo de Invariantes en Agregados
-
-Un principio fundamental en DDD es mantener los invariantes (restricciones lógicas) que aseguran la consistencia y validez de un agregado. Los invariantes pueden ser complejos, especialmente cuando implican múltiples entidades dentro del mismo agregado.
-
-**Ejemplo de código:**
-
-```java
-public class Order {
-    private final List<OrderItem> items;
-    
-    public void addProduct(Product product, int quantity) {
-        if (product.isOutOfStock()) throw new ProductOutOfStockException();
-        
-        var orderItem = new OrderItem(this, product);
-        orderItem.setQuantity(quantity);
-
-        items.add(orderItem);
-        this.apply(new OrderUpdatedEvent(items));
-    }
-}
-```
-
-En este ejemplo, el método `addProduct` comprueba si el producto está en stock antes de permitir que se añada al pedido. La validación del inventario es un invariante importante para asegurar que no se pueden crear órdenes con productos agotados.
-
-#### 2. Value Objects con Records
-
-La introducción de `Records` en Java 14 ofrece una forma sencilla y segura de crear tipos de datos simples que actúan como Value Objects, es decir, objetos cuyo valor es lo más importante (en lugar del estado).
-
-**Ejemplo de código:**
-
-```java
-public record OrderItem(Order order, Product product, int quantity) {
-    public void setQuantity(int newQty) { 
-        if(newQty <= 0) throw new InvalidOrderException("La cantidad debe ser mayor que cero");
-        this.quantity = newQty;
-    }
-}
-```
-
-Este `Record` define un objeto `OrderItem` con sus propiedades y permite modificar la cantidad de manera segura, respetando los invariantes.
-
-#### 3. Persistencia desacoplada con Spring Data R2DBC
-
-Spring Data R2DBC proporciona una alternativa no bloqueante para el acceso a bases de datos relacionales, lo que facilita la persistencia en aplicaciones que requieren alta escalabilidad y rendimiento bajo un alto volumen de tráfico.
-
-**Ejemplo de código:**
-
-```java
-public interface OrderRepository extends ReactiveCrudRepository<Order, Long> {
-}
-
-public class OrderService {
-
-    private final OrderRepository orderRepo;
-
-    public Mono<Order> save(Order order) {
-        return orderRepo.save(order);
-    }
-}
-```
-
-En este ejemplo, `OrderRepository` se define como una interfaz que extiende `ReactiveCrudRepository`, proporcionando métodos reactivos para interactuar con la base de datos.
-
-#### Diagrama Mermaid
-
-```mermaid
-graph LR;
-    A[Aplicación Servicios] -->|Inyección de dependencias| B(OrderRepository);
-    B --> C[R2DBC];
-    D[Valores] --> E(OrderItem);
-    F(Agregados) --> G(Orden);
-    H(Dominio Model) --> I(Application Services);
-```
-
-**Descripción del Diagrama:**
-
-- **Aplicación Servicios**: Interfaz que conecta el dominio con los repositorios y controladores.
-- **OrderRepository**: Repositorio reactivado para guardar órdenes de manera no bloqueante.
-- **R2DBC**: Motor base de datos reactiva utilizado para la persistencia desacoplada.
-- **Valores (Value Objects)**: Componente central en DDD que encapsula valor y define invariantes.
-- **Agregados**: Conjunto lógico de objetos que forman un solo bloque indivisible desde el punto de vista del negocio.
-- **Dominio Model**: Contiene las reglas del negocio, agrupadas en servicios de dominio, agregados y valores.
-
-#### Consideraciones Técnicas adicionales
-
-1. **Testabilida**: Asegurar la testabilidad es clave para mantener un código limpio y escalable. Los tests unitarios deben centrarse en el comportamiento de los Value Objects y las operaciones dentro del dominio.
-2. **Refactoring Seguro**: Mantener la aplicación abierta a modificaciones pero cerrada a cambios, utilizando refactorizaciones seguras como renombrar variables y mover código, asegurando que estos cambios no rompan el comportamiento existente de los Value Objects o agregados.
-3. **Documentación Interna**: Asegurar que la documentación interna esté actualizada con cualquier cambio en la lógica del negocio para facilitar a otros desarrolladores entender y trabajar sobre el código.
-
-Siguiendo estas pautas, puedes asegurarte de que tu aplicación no solo sea robusta al inicio, sino también fácil de mantener y ampliar conforme evolucionan las necesidades del negocio.
-
-## Conclusiones y Recomendaciones
-
-### Conclusiones y Recomendaciones
-
-En este artículo, hemos explorado la arquitectura hexagonal en combinación con el Diseño Dirigido por el Dominio (DDD) para desarrollar soluciones de software robustas, mantenibles y escalables utilizando Java 21. El enfoque ha demostrado ser efectivo al desacoplar lógica empresarial del dominio de la arquitectura hexagonal desde las dependencias externas como bases de datos, frameworks web y servicios externos. Al implementar un diseño que sigue los principios de DDD y la arquitectura hexagonal, se asegura que el núcleo del software esté orientado a dominios y no hacia tecnologías específicas, facilitando así la evolución futura del sistema.
-
-#### Invariantes en Agregados
-
-La implementación de invariantes dentro de los agregados es crucial para mantener la consistencia y integridad del estado del dominio. Los métodos que modifican el estado deben respetar todas las reglas del negocio, incluyendo restricciones sobre los valores permitidos, relaciones entre objetos y lógica compleja necesaria para preservar la coherencia del modelo.
-
-**Ejemplo de código:**
-
-```java
-public class Order {
-    private final Set<OrderLine> orderLines;
-
-    public void addOrderLine(Product product, int quantity) {
-        if (product.isOutOfStock()) throw new InsufficientProductException();
-        
-        // Validar más reglas antes de añadir la línea de pedido...
-        
-        this.orderLines.add(new OrderLine(this, product, quantity));
-    }
-}
-```
-
-#### Value Objects con Records en Java 21
-
-Los `Records` introducidos en Java 21 simplifican enormemente la creación y manejo de value objects. En lugar de escribir clases llenas de getters y setters para representar conceptos inmutables, los records permiten definir tales objetos con mucha menos redundancia.
-
-**Ejemplo de código:**
-
-```java
-public record OrderLine(Order order, Product product, int quantity) {
-    public boolean isOutOfStock() {
-        return this.quantity > product.getAvailableQuantity();
-    }
-}
-```
+Servicios en DDD son componentes que contienen lógica de negocio compleja o que involucran varias operaciones sobre múltiples agregados. Los servicios no tienen estado y deben ser fácilmente reemplazables por pruebas unitarias.
 
 #### Persistencia Desacoplada con Spring Data R2DBC
 
-La utilización de Spring Data R2DBC para persistir datos desacopla completamente el código del repositorio de las consultas SQL específicas, permitiendo cambios en la base de datos sin necesidad de modificar el código fuente que interactúa con ella. Esto es especialmente útil cuando se trabaja en entornos de múltiples bases de datos.
-
-**Ejemplo de código:**
+Spring Data R2DBC proporciona una forma de interactuar con bases de datos relacionales sin tener que escribir SQL o mapear objetos a tablas manualmente. Esto se logra mediante la creación de repositorios que siguen el patrón CRUD y que son capaces de trabajar tanto en memoria como en base de datos real.
 
 ```java
-public interface OrderRepository extends ReactiveCrudRepository<Order, Long> {
+public interface EventRepository extends ReactiveCrudRepository<Event, String> {}
+```
+
+### Diagrama Mermaid
+
+A continuación, un diagrama simplificado de la arquitectura hexagonal aplicada a una aplicación Java con DDD:
+
+```mermaid
+graph LR;
+    A[Aplicacion] --> B(Dominio);
+    A --> C(Puertos)
+    C --> D(Adaptadores Aplicativos)
+    C --> E(Adaptadores Infraestructura)
+    E --> F[Persistencia]
+```
+
+### Ejemplo de Implementación
+
+Un ejemplo sencillo sería definir un servicio que gestione la creación y modificación de eventos, haciendo uso de los repositorios desacoplados para persistir cambios:
+
+```java
+@Service
+public class EventService {
+
+    private final EventRepository eventRepository;
+
+    public void createEvent(Event event) {
+        // Validaciones...
+        eventRepository.save(event);
+    }
+
+    public void updateEvent(String id, Date date) {
+        // Buscar y actualizar el evento por su ID
+        eventRepository.findById(id).ifPresent(event -> {
+            event.setDate(date);  // Cambiar fecha del evento
+            eventRepository.save(event);
+        });
+    }
 }
 ```
 
-#### Recomendaciones para Desarrolladores
+Con esta estructura, se puede cambiar fácilmente el mecanismo de persistencia sin afectar al núcleo del negocio. Por ejemplo, podrías reemplazar `EventRepository` con un repositorio que persiste en memoria durante las pruebas y uno que usa una base de datos real en producción.
 
-1. **Prioriza la coherencia del dominio:** Mantén las reglas de negocio dentro de los agregados y asegúrate de que todos los métodos que modifican el estado del dominio respeten estas reglas.
-   
-2. **Utiliza Records y Value Objects para encapsular conceptos inmutables:** Esto ayuda a mantener la claridad y minimizar errores al definir datos inmutables en tu código.
+En resumen, la arquitectura hexagonal junto con DDD permite crear aplicaciones robustas y escalables donde el núcleo del negocio está separado de sus tecnologías externas. Esto no solo facilita el desarrollo, sino que también hace más fácil mantener y evolucionar el sistema en un futuro.
 
-3. **Desacopla persistencia con R2DBC o similares:** Aprovecha las ventajas del uso de bases de datos reactivas junto con Spring Data para un manejo eficiente de transacciones y consultas asincrónicas, que mejora la escalabilidad y el rendimiento del sistema.
+## Invariantes en Agregados: Manteniendo la Consistencia del Dominio
 
-4. **Mantén una arquitectura hexagonal bien definida:** Asegúrate de que las capas internas (hexágonos) estén desacopladas de las capas externas, permitiendo fácilmente cambios en los adaptadores sin afectar el núcleo del sistema.
+### Invariantes en Agregados: Manteniendo la Consistencia del Dominio
 
-#### Diagrama Mermaid: Arquitectura Hexagonal
+En el contexto de un diseño basado en el modelo DDD (Domain-Driven Design) y utilizando una arquitectura Hexagonal, los agregados desempeñan un papel crucial para mantener la consistencia lógica del dominio. Un agregado es una unidad que garantiza invariante a través de todas las transacciones que involucran objetos dentro de él, asegurando así que el estado coherente del dominio nunca se comprometa.
 
-```mermaid
-graph TD;
-    A[Adapters - UI] --> B(Ports)
-    B --> C(Core Application)
-    C --> D(Adapters - Data)
-    D --> E{Persistence}
+#### Qué son los Invariantes en DDD
+
+Los invariantes son reglas clave que definen cómo debe comportarse un agregado bajo determinadas circunstancias. Estos invariantes se reflejan en las restricciones de creación y modificación dentro del dominio, y a menudo incluyen lógica que debe ser consistente para el estado completo del agregado.
+
+#### Ejemplo: Manejo de Invariantes
+
+Consideremos un ejemplo de una aplicación de catálogo con productos y detalles de los mismos. Aquí, un Producto (Product) puede ser un agregado que contenga varios Value Objects como Precio (Price), Cantidad en Stock (QuantityOnHand), etc.
+
+El valor del precio debe mantener ciertas invariante, por ejemplo:
+- El precio no puede ser negativo.
+- No puede haber stock si el producto está descontinuado.
+
+Estas reglas de negocio son responsabilidad del agregado `Producto` para garantizar que las transacciones siempre mantengan la consistencia lógica.
+
+#### Implementación en Java
+
+A continuación se muestra un ejemplo simplificado de cómo podríamos implementar este concepto en Java:
+
+```java
+public class Product {
+    private final String productId;
+    private final List<ProductDetail> details;
+
+    // Constructor, getters y métodos para manejar invariantes
+}
+
+public class ProductDetail {
+    private Price price;
+    private int quantityOnHand;
+
+    public void setPrice(Price price) {
+        if (price.getValue() < 0) {
+            throw new IllegalArgumentException("The price cannot be negative.");
+        }
+        this.price = price;
+    }
+
+    // Otros métodos de manejo de invariantes
+}
 ```
 
-Este diagrama muestra cómo el flujo de información se maneja a través del modelo hexagonal, donde los adaptadores externos interactúan con puertos que proporcionan acceso al núcleo del sistema. Esto permite una mayor flexibilidad y mantenimiento.
+#### Diagramas Mermaid
+
+Para ilustrar el concepto, podemos crear un diagrama simple con Mermaid:
+
+```mermaid
+graph LR;
+    Product -->|Contiene| ProductDetail;
+    ProductDetail --> Price;
+    ProductDetail --> QuantityOnHand;
+    classDef default fill:#f9f,stroke:#333,stroke-width:4px;
+```
+
+#### Persistencia desacoplada
+
+En el caso de persistir este modelo en una base de datos NoSQL con R2DBC (Reactive Relational Database Connectivity), la capa de dominio no debería preocuparse por detalles específicos como las características del motor de base de datos o las operaciones CRUD. La interfaz del repositorio para un agregado `Product` podría verse así:
+
+```java
+public interface ProductRepository extends ReactiveCrudRepository<Product, String> {
+    Mono<Product> findByName(String name);
+}
+```
+
+Sin embargo, el código del dominio no conocerá este detalle y trabajará con una interfaz más abstracta proporcionada por la capa de infraestructura.
+
+#### Resumen
+
+En resumen, los invariantes en DDD son esenciales para mantener la consistencia lógica dentro del modelo del dominio. La implementación correcta de estos invariantes asegura que las transacciones siempre mantengan el estado coherente del agregado. Mediante el uso de arquitecturas como la Hexagonal y patrones como Value Objects, podemos crear soluciones robustas, mantenibles y escalables en Java.
 
 ---
 
+Este documento proporciona una visión teórica y práctica sobre cómo implementar invariantes dentro de los agregados utilizando DDD y arquitectura hexagonal, con un enfoque particular en la persistencia desacoplada.
+
+## Value Objects con Records en Java 21: Simplificando Clases Inmutables
+
+### Value Objects con Records en Java 21: Simplificando Clases Inmutables
+
+En el desarrollo de aplicaciones orientadas a dominio (Domain-Driven Design - DDD), los Value Objects juegan un papel crucial al modelar conceptos que no tienen identidad única y cuyas propiedades son más importantes que su estado. En Java 21, la introducción de Records proporciona una forma elegante y segura de crear estos Value Objects.
+
+#### Definición de Value Objects
+
+Un Value Object es un objeto inmutable con un significado basado en sus propiedades y no en su identidad única. Dos instancias de un Value Object son consideradas iguales si tienen el mismo valor para todas las propiedades, independientemente del estado interno.
+
+#### Ventajas de Records en Java 21
+
+Records simplifican la creación de clases inmutables y facilitan operaciones como la comparación entre objetos. Al utilizar records en lugar de definir clases tradicionales, se pueden aprovechar características automáticas de inicialización, deserialización, y validación de tipos.
+
+#### Ejemplo: Value Object para Fecha
+
+```java
+public record Date(int day, int month, int year) {
+    public boolean isLeapYear() {
+        return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+    }
+}
+```
+
+En este ejemplo, `Date` es un record que representa una fecha. Es inmutable por diseño y proporciona métodos como `isLeapYear()` para validar propiedades del objeto.
+
+#### Ejemplo: Value Object para Dinero
+
+```java
+public record Money(BigDecimal amount, Currency currency) {
+    public boolean isValid() {
+        return this.amount.signum() >= 0 && !currency.equals(Currency.getInstance("XXX"));
+    }
+}
+```
+
+Aquí, `Money` es un record que modela un concepto financiero de dinero. Incluye validación para asegurar que el monto no sea negativo y la moneda válida.
+
+#### Integración con Agregados en DDD
+
+En un contexto de agregado, Value Objects como los records son útiles porque aportan inmutabilidad y semántica clara a las reglas del negocio. Consideremos una entidad `Pedido` que contiene un conjunto de líneas de pedido (`OrderLine`) donde cada línea tiene un `Producto` y la cantidad.
+
+```java
+public record OrderItem(Product product, int quantity) {}
+```
+
+Esta representación inmutable garantiza que una vez creado el objeto `OrderItem`, sus propiedades no pueden cambiar. Esto es crucial en un agregado porque cualquier cambio requerirá crear un nuevo `OrderItem`.
+
+#### Uso de Records con Spring Data R2DBC
+
+Spring Data R2DBC es una opción excelente para la persistencia sin SQL, ofreciendo una alternativa a Hibernate y otras ORM tradicionales que evitan las dependencias innecesarias en el dominio.
+
+```java
+public record Customer(String id, String name) {}
+```
+
+Un `Customer` puede ser simplemente un record. Para mapear este objeto con R2DBC:
+
+1. **Configuración de Mapeo**: Se usa Spring Data Mapping para configurar el mapeo entre los records y las tablas.
+2. **Repositorios Personalizados**: Crear repositorios que usan `R2dbcRepository` para operaciones CRUD.
+
+```java
+public interface CustomerRepository extends R2dbcRepository<Customer, String> {
+    // Implementación de métodos personalizados basados en el dominio
+}
+```
+
+#### Consideraciones Finales
+
+El uso de Records en Java 21 simplifica significativamente la creación y mantenimiento de Value Objects. Al adoptar esta práctica en aplicaciones DDD basadas en arquitectura hexagonal, se pueden mejorar aspectos como la inmutabilidad, la claridad del código y la integración con infraestructuras sin comprometer el diseño puro del dominio.
+
+### Diagrama Mermaid
+
+Para ilustrar cómo un Value Object de tipo `Money` interactúa dentro de una estructura de agregados en DDD:
+
+```mermaid
+graph TD;
+    Agregado -->|tiene| LineaPedido;
+    LineaPedido -->|tiene| Producto;
+    LineaPedido -->|tiene| Money;
+```
+
+Este diagrama muestra que un `Agregado` (como una orden o pedido) puede contener un `LineaPedido`, la cual a su vez tiene referencias a un `Producto` y un objeto de tipo `Money`.
+
+Estos ejemplos y consideraciones deberían proporcionar una base sólida para empezar a utilizar Records en Java 21 como parte de las estrategias DDD, especialmente cuando se trabaja con arquitectura hexagonal.
+
+## Persistencia Desacoplada con Spring Data R2DBC: Una Visión Profunda
+
+### Persistencia Desacoplada con Spring Data R2DBC: Una Visión Profunda
+
+En el contexto de la arquitectura Hexagonal y Domain-Driven Design (DDD), desacoplar los componentes del dominio de las tecnologías específicas es un enfoque crucial para mantener la flexibilidad y escalabilidad del software. La persistencia desacoplada permite que los cambios en la base de datos no afecten el código del dominio, facilitando así modificaciones sin reemplazar la lógica empresarial subyacente.
+
+#### Integración con Spring Data R2DBC
+
+Spring Data R2DBC es una implementación de Spring Data diseñada para bases de datos relacionales que son Reactivos (Reactive). Esta tecnología es ideal cuando se trabaja en un entorno Java 11 o superior, ya que aprovecha la programación reactiva proporcionando una alternativa no bloqueante a las tecnologías tradicionales como JPA/Hibernate.
+
+#### Implementación con Value Objects y Entidades
+
+Consideremos una entidad `Order` dentro de nuestro dominio. En un enfoque DDD puro, esta entidad debería estar desacoplada de la infraestructura, es decir, no debe conocer cómo se persiste en base de datos. Sin embargo, la implementación de Spring Data R2DBC requiere cierto grado de integración con la infraestructura.
+
+```java
+public class Order {
+    private final UUID id;
+    private List<OrderLine> lines;
+
+    // Constructor, getters y métodos...
+}
+
+public record OrderLine(UUID productId, int quantity) {}
+```
+
+#### Mapeo Entidad-Relacional
+
+Con Spring Data R2DBC, el mapeo entre entidades de dominio y la base de datos se realiza a través de las interfaces `ReactiveCrudRepository`. A continuación, se muestra cómo podríamos definir una interfaz para la entidad `Order`.
+
+```java
+public interface OrderRepository extends ReactiveCrudRepository<Order, UUID> {}
+```
+
+#### Ejemplo de Uso en Servicio
+
+Los servicios que interactúan con el repositorio pueden hacerlo de forma reactiva gracias a Spring Data R2DBC. Aquí se muestra un ejemplo simplificado:
+
+```java
+@Service
+public class OrderService {
+
+    private final OrderRepository orderRepository;
+
+    public Mono<Order> placeOrder(Order order) {
+        return orderRepository.save(order);
+    }
+
+    public Flux<Order> findAllOrders() {
+        return orderRepository.findAll();
+    }
+}
+```
+
+#### Diagrama Mermaid
+
+Para ilustrar la arquitectura, aquí tienes un diagrama de flujo básico utilizando Mermaid.
+
+```mermaid
+graph TD;
+  A[Controlador] -->|Recepción de Solicitud| B(Dominio);
+  B --> C[Diseño del Comando];
+  C --> D{Ejecución del Caso de Uso};
+  D -->|Satisfactoria| E(Acciones de Persistencia con R2DBC);
+  E --> F(Respuesta al Controlador);
+```
+
+#### Conclusión
+
+Desacoplar la persistencia mediante Spring Data R2DBC no sólo proporciona una forma eficiente y escalable de manejar bases de datos en aplicaciones basadas en DDD y arquitectura Hexagonal, sino que también mantiene el dominio aislado de preocupaciones de infraestructura. Esto permite adaptarse rápidamente a cambios en la base de datos o en las necesidades de rendimiento sin afectar directamente al core del negocio.
+
+#### Próximos Pasos
+
+Una vez que se ha implementado la persistencia reactiva, el siguiente paso sería explorar cómo incorporar otros aspectos críticos del diseño hexagonal y DDD, como los puertos y adaptadores para integraciones externas o servicios remotos. Esto completa un ciclo de desarrollo robusto y modular.
+
+---
+
+Este enfoque no sólo mejora la escalabilidad e independencia del sistema respecto a las tecnologías subyacentes, sino que también garantiza una solución flexible que puede evolucionar con el dominio conforme éste cambia.
+
+## Implementación de Casos de Uso Utilizando Entidades y Agregados
+
+### Implementación de Casos de Uso Utilizando Entidades y Agregados
+
+La arquitectura hexagonal junto con el Diseño Dirigido por el Dominio (DDD) permite crear sistemas complejos que son mantenibles, escalables y fácilmente evitables. En esta sección, exploraremos cómo implementar casos de uso utilizando entidades y agregados en un sistema Java 21, manteniendo invariants en los agregados y usando Value Objects con Records. También veremos cómo desacoplar la persistencia del dominio mediante Spring Data R2DBC.
+
+#### Entidades y Value Objects
+
+En el contexto de DDD, una entidad es un objeto que se identifica por su identificador único, mientras que un Value Object no tiene una identidad independiente sino que representa propiedades o valores del sistema. En nuestra aplicación Java 21, las entidades son los objetos principales que interactúan con otros componentes y mantienen el estado de negocio.
+
+**Ejemplo de Entidad:**
+
+```java
+public class Event implements DomainEntity {
+    private final EventId id;
+    private String name;
+
+    // Constructor, getters y métodos de dominio
+}
+```
+
+Aquí, `Event` es una entidad que representa un evento en el sistema. `DomainEntity` es una interfaz que define la firma básica para todas las entidades del sistema.
+
+**Ejemplo de Value Object:**
+
+```java
+public record EventId(UUID value) implements Identifier {
+    // Métodos y lógica relacionada con el identificador del evento.
+}
+```
+
+En este ejemplo, `EventId` es un Value Object que utiliza Java 21's records para mantener los datos simples y no mutables.
+
+#### Agregados
+
+Un agregado en DDD es una colección de entidades y/o value objects que se tratan como una unidad atómica. Los cambios a los objetos dentro del agregado deben ser consistentes, lo cual significa que las invariants o reglas de negocio pueden ser validadas al nivel del agregado.
+
+**Ejemplo de Agregado:**
+
+```java
+public class EventAggregate {
+    private final List<Event> events;
+
+    public void addEvent(String eventName) {
+        if (eventName.isEmpty()) throw new IllegalArgumentException("Event name cannot be empty");
+        this.events.add(new Event(EventId.generateNewId(), eventName));
+    }
+
+    // Otros métodos de agregado
+}
+```
+
+`EventAggregate` es un ejemplo simple donde la lógica del dominio está encapsulada y las reglas son mantidas consistentes.
+
+#### Servicios de Dominio
+
+Los servicios de dominio contienen lógica de negocio compleja que no pertenece a ninguna entidad o agregado. Estos servicios se utilizan cuando necesitas realizar operaciones que involucran múltiples entidades o agregados en el sistema.
+
+**Ejemplo de Servicio:**
+
+```java
+public class EventService {
+    private final EventRepository eventRepository;
+
+    public void createEvent(EventAggregate aggregate) {
+        if (eventRepository.existsById(aggregate.getEvents().get(0).getId())) throw new ConflictException("Event already exists");
+        eventRepository.saveAll(aggregate.getEvents());
+    }
+}
+```
+
+Este servicio maneja la lógica de persistencia y validación para crear un nuevo evento, asegurando que no se dupliquen los eventos.
+
+#### Persistencia con Spring Data R2DBC
+
+Spring Data R2DBC es una implementación NoSQL de Spring Data que permite a las aplicaciones interactuar directamente con bases de datos PostgreSQL mediante el uso del Protocolo Básico Remoto (RDBMS) para reaccionar (R2DBC). Al separar la lógica de persistencia en adaptadores, se logra una mayor flexibilidad y mantenimiento.
+
+**Ejemplo de Repositorio:**
+
+```java
+public interface EventRepository extends ReactiveCrudRepository<Event, UUID> {
+}
+```
+
+Este repositorio extiende `ReactiveCrudRepository`, proporcionando operaciones CRUD asincrónicas para la persistencia del evento en la base de datos.
+
+#### Diagramas Mermaid
+
+Para visualizar cómo se relacionan las entidades y agregados con los servicios y repositorios, podemos utilizar diagramas como el siguiente:
+
+```mermaid
+classDiagram
+    Event -->|has-a| EventId : "Identifies"
+    Event <|-- DomainEntity
+    EventAggregate *--|> List:Event
+    EventService o-- EventRepository : Uses
+    EventRepository ..|> ReactiveCrudRepository: Extends
+```
+
 ### Conclusión
 
-La combinación de DDD y arquitectura hexagonal puede ser una solución poderosa para la construcción de software empresarial complejo. Al adoptar estos patrones, no solo mejora la robustez y cohesión del código, sino que también facilita el mantenimiento a largo plazo y la adaptabilidad frente a cambios en las necesidades de negocio.
+Implementar casos de uso en una arquitectura hexagonal con DDD requiere entender y aplicar los conceptos de entidades, Value Objects, agregados y servicios correctamente. Al desacoplar la lógica de negocio de su implementación (usando interfaces como puertos) y delegar la persistencia a adaptadores específicos, se logra un sistema que es tanto robusto como fácilmente extensible.
 
-### Agradecimientos
+En este manual, hemos cubierto cómo definir entidades y Value Objects, cómo manejar agregados para mantener las reglas de negocio, cómo implementar servicios de dominio y finalmente cómo persistir objetos del dominio usando Spring Data R2DBC.
 
-Este artículo ha sido posible gracias al equipo de desarrollo y expertos en DDD y arquitectura hexagonal dentro de Alibaba Cloud. Esperamos seguir promoviendo mejores prácticas en el diseño de software empresarial.
+## Estrategias para la Persistencia de Value Objects en Java 21
+
+### Estrategias para la Persistencia de Value Objects en Java 21
+
+La persistencia de `Value Objects` (VO) es un aspecto crucial en el diseño del dominio de una aplicación, especialmente cuando se trabaja con arquitecturas como DDD (Domain-Driven Design) y hexagonal. Los VOs son objetos que representan conceptos de negocio sin identidad mutable, lo cual les da caracteristicas únicas a la hora de ser persistidos en comparación con las entidades tradicionales.
+
+En Java 21, con el uso de Spring Data R2DBC (Reactive Relational Database Connectivity), podemos desacoplar la persistencia de los VOs del núcleo del dominio. Esta estrategia permite mantener un código limpio y coherente con las buenas prácticas DDD.
+
+#### Valor de Value Objects
+
+Un `Value Object` en Java 21 puede ser implementado como una clase normal o, para mayor simplicidad y legibilidad, usando records (introducidos a partir de Java 14). Por ejemplo:
+
+```java
+public record Address(String street, String city, String country) {}
+```
+
+Los VOs deben cumplir ciertas reglas:
+- Inmutabilidad: Una vez creado, no puede ser modificado.
+- Ecuálidad basada en valor: Dos instancias son iguales si tienen los mismos atributos.
+
+#### Persistencia de Value Objects
+
+Cuando se necesita persistir un VO, la clave está en entender que estos objetos no deben tener un identificador único y por lo tanto su persitencia es más sobre cómo manejarlos dentro del contexto de una transacción o como parte de otra entidad con identidad única. 
+
+Una estrategia común es encapsular la lógica de persistencia dentro de un adaptador, que se conecta a través de un puerto definido en el núcleo del dominio.
+
+**Ejemplo usando Spring Data R2DBC:**
+
+Primero, define tu VO:
+
+```java
+public record UserPreferences(String language, String theme) {
+    public static UserPreferences of(String language, String theme) {
+        return new UserPreferences(language == null ? "en" : language, 
+                                   theme == null ? "light" : theme);
+    }
+}
+```
+
+Luego crea una interfaz de repositorio que sigue la convención de Spring Data:
+
+```java
+public interface UserRepository extends ReactiveCrudRepository<User, Long> {
+    Mono<User> findByUsername(String username);
+}
+
+@RequiredArgsConstructor
+public class UserPreferencesAdapter {
+
+    private final UserRepository userRepository;
+
+    public void savePreferences(User user, String language, String theme) {
+        var preferences = UserPreferences.of(language, theme);
+        
+        // Actualiza el VO dentro de un objeto con identidad única.
+        Mono.from(userRepository.findById(user.getId()))
+            .flatMap(existingUser -> existingUser.toBuilder()
+                                                .preferences(preferences)
+                                                .build())
+            .then(userRepository.save(existingUser));
+    }
+}
+```
+
+Aquí, `savePreferences` es una operación de negocio que se ejecuta en el contexto del usuario (una entidad), y no directamente sobre el VO.
+
+#### Diagrama Mermaid
+
+```mermaid
+graph TD;
+  User -->|has| Preferences
+  User --> UserRepository
+  UserRepository --> Database
+```
+
+Este diagrama ilustra cómo un `User` puede tener una colección de `Preferences`, la persistencia del cual pasa a través de `UserRepository` y finalmente se guarda en la base de datos.
+
+#### Consideraciones Importantes
+
+1. **Inmutabilidad:** Como los VOs no tienen identidad mutable, es importante asegurar que cualquier cambio aparente en el VO se realice creando una nueva instancia del mismo con los nuevos valores.
+2. **Transacciones y Concurrencia:** Al persistir un VO a través de una entidad, considera cómo manejar las transacciones para prevenir inconsistencias de datos.
+3. **Desacoplamiento:** Mantén tu lógica de negocio alejada de la implementación específica del almacenamiento (como SQL vs NoSQL), lo que permite fácilmente cambiar el adaptador en caso necesario.
+
+Con estas estrategias, puedes asegurarte de que tus `Value Objects` sigan siendo puramente un modelo de dominio sin contaminarse con detalles de infraestructura o persistencia.
+
+## Optimización del Diseño con Optimistic Locking en Spring Data
+
+### Optimización del Diseño con Optimistic Locking en Spring Data
+
+En el contexto de la arquitectura hexagonal y el diseño orientado a dominios (DDD) en Java 21, es crucial asegurarse de que los patrones utilizados maximicen tanto la robustez como la escalabilidad del sistema. Un aspecto fundamental para lograr esto es garantizar la consistencia y integridad de los datos durante las operaciones concurrentes. En este contexto, **Optimistic Locking** (bloqueo optimista) en combinación con Spring Data R2DBC se presenta como una solución eficaz.
+
+#### Bloqueo Optimista
+
+El bloqueo optimista es un mecanismo que permite a múltiples transacciones leer y escribir en la misma base de datos sin necesidad de solicitar permisos explícitos para los registros. En lugar, cada transacción asume que otras no modificarán el mismo registro durante su operación. Si una transacción trata de guardar cambios sobre un registro ya modificado por otra transacción, se produce un conflicto y la primera transacción debe ser cancelada.
+
+#### Implementación en Spring Data R2DBC
+
+Spring Data R2DBC proporciona un mecanismo sencillo para implementar Optimistic Locking. Esto puede lograrse a través de anotaciones específicas que permiten gestionar versiones de entidades y controlar los conflictos durante la persistencia.
+
+##### Entidad con Optimistic Locking
+
+Para aplicar Optimistic Locking en una entidad, se utiliza la anotación `@Version` en Spring Data R2DBC. Esta anotación se aplica a un campo numérico que incrementa cada vez que se realiza un cambio en el registro correspondiente. Aquí hay un ejemplo de cómo implementarlo:
+
+```java
+import io.r2dbc.spi.Row;
+import io.r2dbc.spi.RowMetadata;
+import lombok.Getter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Version;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Getter
+@Table("events")
+public class Event {
+    @Id
+    private Long id;
+
+    @Version
+    private Integer version;
+
+    // Otros campos de la entidad
+
+    public static Event from(Row row) {
+        return new Event(
+                row.get("id", Long.class),
+                row.get("version", Integer.class)
+        );
+    }
+
+    RowMetadata rowMetadata() {
+        return null; // Implementar según sea necesario
+    }
+}
+```
+
+##### Lógica de Servicio y Repositorio
+
+Para asegurarse de que la lógica del servicio maneje correctamente los conflictos, es vital definir cómo se debe reaccionar ante ellos. Esto generalmente implica implementar una estrategia para resolver o gestionar estos errores de manera coherente con el dominio.
+
+```java
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
+import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Mono;
+
+@Repository
+public class EventRepository {
+    private final R2dbcEntityTemplate template;
+
+    @Autowired
+    public EventRepository(R2dbcEntityTemplate template) {
+        this.template = template;
+    }
+
+    // Método para guardar eventos con control de conflictos
+    public Mono<Event> save(Event event) {
+        return template.insert(event).thenReturn(event)
+                .flatMap(saved -> template.selectOne()
+                        .from(Event.class)
+                        .matching(new QuerySpec().where("id").is(saved.getId()))
+                        .fetchFirst())
+                .doOnError(ConflictException::rethrowIfLockingFailure);
+    }
+}
+```
+
+##### Manejo de Excepciones
+
+Es importante manejar las excepciones que podrían surgir durante la operación. Spring Data R2DBC proporciona un error específico para indicar conflictos, `org.springframework.r2dbc.core.R2dbcDataAccessException`, que se puede filtrar y gestionar según sea necesario.
+
+```java
+public class ConflictException extends RuntimeException {
+    public static void rethrowIfLockingFailure(Runnable action) throws R2dbcDataAccessException {
+        try {
+            action.run();
+        } catch (R2dbcNonTransientResourceException e) {
+            if ("unique".equalsIgnoreCase(e.getConstraintName())) {
+                throw new OptimisticLockingFailureException("Optimistic locking failure", e);
+            }
+            throw e;
+        }
+    }
+
+    public static class OptimisticLockingFailureException extends RuntimeException {
+        public OptimisticLockingFailureException(String message, Throwable cause) {
+            super(message, cause);
+        }
+    }
+}
+```
+
+#### Consideraciones sobre la Arquitectura Hexagonal
+
+La implementación de Optimistic Locking se puede realizar en el nivel del adaptador de persistencia (en nuestro caso, Spring Data R2DBC). Esto asegura que las reglas y lógica de negocio definidas en el dominio no sean comprometidas por aspectos específicos de la infraestructura. Además, esta implementación mantiene un alto nivel de abstracción del adaptador de persistencia, lo cual es crucial para cumplir con los principios de la arquitectura hexagonal.
+
+##### Diagrama Mermaid
+
+Para ilustrar cómo se integra Optimistic Locking en el flujo general de una aplicación basada en DDD y arquitectura hexagonal, se puede utilizar un diagrama Mermaid simple:
+
+```mermaid
+graph LR;
+    subgraph Dominio
+        Event
+        ServiceLogic
+    end
+
+    subgraph AdaptadorPersistencia
+        R2dbcAdapter
+    end
+
+    subgraph Aplicacion
+        Controller -->|EventDTO| ServiceLogic
+        ServiceLogic --> R2dbcAdapter
+        R2dbcAdapter --> Event
+    end
+    
+    subgraph Infraestructura
+        DependencyManager
+        OptimisticLockingStrategy
+    end
+
+    OptimisticLockingStrategy --> R2dbcAdapter
+    DependencyManager -->|Inyección de dependencias| ServiceLogic
+```
+
+Este diagrama ilustra cómo la lógica del dominio y el servicio interactúan con el adaptador persistente, incluyendo la estrategia de bloqueo optimista. La integración de Optimistic Locking en el flujo permite un manejo eficiente y escalable de transacciones concurrentes.
+
+En resumen, combinar DDD y arquitectura hexagonal con Spring Data R2DBC y Optimistic Locking proporciona una solución robusta para garantizar la integridad y consistencia de los datos, especialmente en entornos concurrentes. Esta aproximación no solo mejora la calidad del software sino que también facilita el mantenimiento y expansión del mismo a medida que evoluciona la aplicación.
+
+---
+
+Este segmento técnico proporciona una guía completa para implementar Optimistic Locking en aplicaciones Java basadas en DDD y arquitectura hexagonal, con ejemplos de código y consideraciones sobre cómo esta técnica se integra dentro del contexto general.
+
+## Conclusión: Maximizando el Potencial de Arquitectura Hexagonal y DDD
+
+### Conclusión: Maximizando el Potencial de Arquitectura Hexagonal y DDD
+
+El desarrollo de aplicaciones en Java utilizando la arquitectura hexagonal junto con principios del diseño dirigido por dominio (DDD) ofrece una potente combinación para construir sistemas robustos, mantenibles y escalables. En este manual hemos explorado conceptos fundamentales como entidades, value objects, agregados y servicios, así como cómo integrar estas ideas en la arquitectura hexagonal. A continuación se detallan las conclusiones clave y recomendaciones para maximizar el potencial de esta combinación.
+
+#### Integrando DDD y Arquitectura Hexagonal
+
+La unión entre DDD y la arquitectura hexagonal permite una clara separación entre el dominio del negocio y los detalles técnicos de implementación. Esto no solo facilita la evolución continua del código en respuesta a cambios en las necesidades del negocio, sino que también mejora la comprensibilidad y mantenimiento del sistema.
+
+1. **Claridad en Modelado**: El DDD enfatiza el modelado del dominio basado en un lenguaje común con los stakeholders. Esto se traduce en clases de entidad y value objects que son intuitivamente entendibles para todos los miembros del equipo, mejorando la comunicación y cohesión del equipo.
+
+2. **Flexibilidad Técnica**: La arquitectura hexagonal permite a las entidades y agregados interactuar con el mundo exterior solo a través de puertos y adaptadores. Esto facilita la implementación de nuevas tecnologías en los adaptadores sin afectar al dominio, permitiendo escalabilidad técnica.
+
+3. **Persistencia Desacoplada**: Con Spring Data R2DBC, se pueden construir repositorios que interactúan con bases de datos relacionales sin necesidad de mapeo anotado directamente en el modelo del dominio. Esto ayuda a mantener la independencia entre el modelo lógico y los detalles de persistencia.
+
+#### Mejores Prácticas
+
+- **Utilizar Value Objects para Propiedades Inmutables**: En lugar de usar tipos primitivos o objetos personalizados, opte por value objects en Java 21 que pueden ser definidos como records. Esto promueve la inmutabilidad y claridad del código.
+
+- **Implementar Agregados Consciente de Estado Interno**: Los agregados deben manejar sus invariantes internas cuidadosamente para garantizar la integridad lógica del dominio sin permitir modificaciones fuera de este contexto.
+
+- **Desacoplar Persistencia y Dominio**: Mantenga el repositorio en un nivel inferior a la capa de aplicación para que no interfiera con las entidades y agregados del dominio. Esto permite cambiar fácilmente el mecanismo de persistencia sin afectar al dominio.
+
+#### Ejemplo de Código
+
+Un ejemplo práctico podría ser definir una entidad `User` en el modelo lógico, un value object `Address` que no tiene identidad propia y un agregado que agrupa a ambos para gestionar las operaciones de negocio. Un repositorio implementaría la interfaz proporcionada por el dominio sin introducir anotaciones específicas de persistencia.
+
+```java
+// Value Object: Address
+public record Address(String street, String city) {}
+
+// Entity: User (simplified)
+@ValueObject // Notacion simplificada para entender
+public class User {
+    private final UserId id;
+    private final Address address;
+
+    public void updateAddress(Address newAddress) { ... }
+}
+
+// Aggregate Root: CustomerAggregate
+public class CustomerAggregate {
+    private User user;
+
+    public void changeCustomerDetails(User newUser) throws ViolationOfInvariants {}
+}
+```
+
+#### Diagrama Mermaid
+
+Para ilustrar la arquitectura, un diagrama puede ser útil para visualizar cómo interactúan los diferentes componentes.
+
+```mermaid
+graph TD;
+    A[Dominio] --> B(Puertos);
+    B --> C[Adaptadores];
+    D[Controlador] --> E[Puerto de Entrada]
+    F[Persistencia] --> G[Puerto de Salida]
+    H[Servicio Aplicativo] --> I[Puerto Interno]
+```
+
+#### Consideraciones Futuras
+
+Continuar explorando cómo la implementación en tiempo real y las transacciones pueden beneficiarse de esta arquitectura. Además, considerar el uso de microsservicios para partes complejas del sistema que podrían beneficiarse de una mayor autonomía.
+
+En conclusión, la combinación de DDD y la arquitectura hexagonal proporciona un marco sólido para el desarrollo de software en Java 21. Al seguir las mejores prácticas descritas aquí, los desarrolladores pueden construir sistemas que no solo satisfacen las necesidades actuales sino que también están preparados para futuros cambios y escalabilidad.
+
+--- 
+
+Este manual ha proporcionado una visión profunda sobre cómo implementar DDD en un entorno Java 21 con la arquitectura hexagonal, cubriendo desde los fundamentos hasta estrategias avanzadas.
 
