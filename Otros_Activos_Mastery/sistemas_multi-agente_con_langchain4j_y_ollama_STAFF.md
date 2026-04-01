@@ -426,18 +426,11 @@ public class AgentSystem {
 #### Diagramas Mermaid
 
 ```mermaid
-graph LR;
-    A[Mediator] --> B(Router)
-    C[Middlewares] --> D(Mediation)
-    E{Agent System} --> F[Router]
-    G{Routes} --> H[Fallbacks]
-    I[Events] --> J[Subscribers]
-
-subgraph "System Components"
-    Mediator -- communicates with --> Router
-    Middlewares -- modifies flow of --> Mediation
-    AgentSystem -- initializes and controls --> {Routing & Messaging}
-end
+graph TD
+    A[Agente 1] --> B(Canal Común)
+    C[Agente 2] --> B
+    D[Agente 3] --> B
+    E[Entorno] -- "Sensaciones" --> B
 
 ```
 
@@ -545,16 +538,14 @@ Para asegurar que todos los componentes del agente funcionen juntos, es necesari
 ##### Diagramas Mermaid para Representar Componentes y Comunicaciones
 
 ```mermaid
-graph LR;
-    Client[Client] -->|Request| LoadBalancer[Load Balancer];
-    Subgraph "Backend Servers"
-        Backend1[Server 1]
-        Backend2[Server 2]
-        Backend3[Server 3]
-    end
-    LoadBalancer --> Backend1;
-    LoadBalancer --> Backend2;
-    LoadBalancer --> Backend3;
+sequenceDiagram
+    participant U as "Customer Support User"
+    participant A as "GenericFakeChatModel"
+    participant H as "Human Agent"
+
+    U->>A: Query ("How to reset my password?")
+    A-->>U: Simple Response (Password Reset Instruction)
+    U->>H: Complex Query Notification
 ```
 
 Este diagrama ilustra cómo se distribuye la carga en un sistema multi-agente, asegurando que cada servidor tenga un trabajo equitativo para evitar cuellos de botella.
