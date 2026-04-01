@@ -79,21 +79,23 @@ Para visualizar cómo funciona la estructura y el flujo del código anterior, po
 
 ```mermaid
 sequenceDiagram
-    participant Main as "Main Thread"
-    participant VirtualThread1 as "Virtual Thread 1"
-    participant VirtualThread2 as "Virtual Thread 2"
+    participant Main as Main Thread
+    participant virtualThreadsExecutor as Executor
+    participant VirtualThread1 as Virtual Thread 1
+    participant VirtualThread2 as Virtual Thread 2
+    participant AllOf as CompletableFuture
 
     Main->>virtualThreadsExecutor: runAsync()
     virtualThreadsExecutor->>VirtualThread1: new Task("Tarea 1")
-    VirtualThread1-->>-Main: Tarea 1 iniciada
+    VirtualThread1-->>Main: Tarea 1 iniciada
     note over VirtualThread1: Espera 3 segundos
-    VirtualThread1-->>-Main: Tarea 1 completada
+    VirtualThread1-->>Main: Tarea 1 completada
 
     Main->>virtualThreadsExecutor: runAsync()
     virtualThreadsExecutor->>VirtualThread2: new Task("Tarea 2")
-    VirtualThread2-->>-Main: Tarea 2 iniciada
+    VirtualThread2-->>Main: Tarea 2 iniciada
     note over VirtualThread2: Espera 5 segundos
-    VirtualThread2-->>-Main: Tarea 2 completada
+    VirtualThread2-->>Main: Tarea 2 completada
 
     Main->>AllOf: allOf()
 ```
@@ -193,7 +195,7 @@ sequenceDiagram
     
     Main->>VirtualThread2: Iniciar Tarea 2 (espera 5 segundos)
     note over VirtualThread2: Esperar a que la tarea finalice
-    VirtualThread2-->>-Main: Tarea 2 completada
+    VirtualThread2-->>Main: Tarea 2 completada
 
     Main->>AllOf: allOf()
 ```
@@ -295,21 +297,22 @@ Podemos representar visualmente la estructura de hilos y promesas utilizando Mer
 
 ```mermaid
 graph TD
-A(Inicio Tarea Principal) --> B{CompletableFuture.allOf()}
-B --> C[Hilo1 llamarServicio(1)]
-C --> D(Tarea 1 completa)
-B --> E[Hilo2 llamarServicio(2)]
-E --> F(Tarea 2 completa)
-D & F --> G(Todas las tareas completadas)
-G --> H(Fin Tarea Principal)
+    A(Inicio Tarea Principal) --> B{CompletableFuture.allOf}
+    B --> C[Hilo1 llamarServicio 1]
+    C --> D(Tarea 1 completa)
+    B --> E[Hilo2 llamarServicio 2]
+    E --> F(Tarea 2 completa)
+    D --> G(Todas las tareas completadas)
+    F --> G(Todas las tareas completadas)
+    G --> H(Fin Tarea Principal)
 
-subgraph Hilo1
-    C --> |Tarea asíncrona| D
-end
+    subgraph Hilo1
+        C --> |Tarea asíncrona| D
+    end
 
-subgraph Hilo2
-    E --> |Tarea asíncrona| F
-end
+    subgraph Hilo2
+        E --> |Tarea asíncrona| F
+    end
 ```
 
 Este diagrama representa una estructura de tareas asincrónicas donde cada tarea es ejecutada por un hilo virtual (Virtual Thread) y se espera que todas las tareas sean completadas antes de continuar.
