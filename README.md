@@ -1,41 +1,141 @@
-# 🚀 Joaquín Ríos Heredia | Autonomous Engineering Pipeline
+# 🚀 DAM-Java-Mastery | Biblioteca Técnica Staff Engineer
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-blue?style=for-human-badge&logo=linkedin)](https://www.linkedin.com/in/joaquinrios-dev-strategist/)
-[![GitHub](https://img.shields.io/badge/GitHub-Portfolio-lightgrey?style=for-human-badge&logo=github)](https://github.com/Joaquinriosheredia)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Joaquín_Ríos_Heredia-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/joaquinrios-dev-strategist/)
+[![GitHub](https://img.shields.io/badge/GitHub-Portfolio-lightgrey?style=flat&logo=github)](https://github.com/Joaquinriosheredia)
+![Documentos](https://img.shields.io/badge/Documentos_Staff-6-green?style=flat)
+![Calidad](https://img.shields.io/badge/SRE_Score-92%2F100-brightgreen?style=flat)
 
-Bienvenido a mi ecosistema de alta especialización técnica. Este repositorio es un entorno de ingeniería gestionado por mi motor de IA: **AuthorityEngine v4.0**.
-
----
-
-## 🏭 La Factoría: AuthorityEngine (SRE Pipeline)
-Sistema automatizado de generación de activos técnicos de nivel **Staff Engineer** con infraestructura local sobre **Ryzen 7**.
-
-### 🤖 Stack Tecnológico
-* **Orquestador:** Python 3.12 (Clasificación dinámica y gestión de Git).
-* **Generación (Muscle):** Qwen 2.5 (14B) - Especializado en Java 21 y arquitectura.
-* **Auditoría (Auditor):** Llama 3 (8B) - Validación de métricas y diagramas Mermaid.
+Biblioteca de referencia técnica de nivel **Staff Engineer** sobre Java 21, arquitecturas de software, SRE, seguridad y sistemas distribuidos. Generada y mantenida con **Authority Engine v21.0** — pipeline híbrido de IA local + revisión académica.
 
 ---
 
-## 📂 Estructura Inteligente del Repositorio
-* **[/Java_Elite](./Java_Elite):** Arquitectura limpia, Java 21 y Seguridad Ofensiva.
-* **[/Vanguardia_Tech_2026](./Vanguardia_Tech_2026):** Big Data y procesamiento masivo.
-* **[/Utils](./Utils):** Inventarios de sistema y herramientas de soporte.
+## 🏭 Cómo se genera este contenido
+
+Este repositorio no es documentación genérica. Cada documento pasa por un pipeline de tres capas antes de publicarse:
+
+```
+Tavily API (fuentes elite 2026)
+        ↓
+Ollama + Qwen 7b en GPU RTX 4060 (generación local, sin tokens)
+        ↓
+Auditor automático (score mínimo 72/100)
+        ↓
+Revisión académica por Claude Pro (corrección de código, diagramas, nivel Staff)
+        ↓
+GitHub
+```
+
+**Stack técnico:** Python 3.12 · Ollama 0.19.0 · Qwen 2.5 7b · Tavily API · Claude Pro · RTX 4060 8GB
 
 ---
-*Última actualización: Marzo 2026 | Production-Ready ✅* 
 
-* [✅ Arquitectura Hexagonal y Clean Code en Java 21](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/arquitectura_hexagonal_y_clean_code_en_java_21_STAFF.md) - *Publicado el 30/03/2026*
-* [✅ Seguridad Ofensiva y Auditoría de Microservicios con Java 21](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/seguridad_ofensiva_y_auditoría_de_microservicios_con_java_21_STAFF.md) - *Publicado el 30/03/2026*
-* [✅ Optimización de Rendimiento en JVM y Estrategias de Caché Distribuida con Redis y Java 21](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/optimización_de_rendimiento_en_jvm_y_estrategias_de_caché_distribuida_con_redis_y_java_21_STAFF.md) - *Publicado el 30/03/2026*
-* [✅ Data Mesh: Descentralización de la propiedad del dato](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Vanguardia_Tech_2026/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) - *Publicado el 30/03/2026*
-* [✅ Kubernetes: Auto-escalado y Service Mesh en 2026](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Vanguardia_Tech_2026/kubernetes:_auto-escalado_y_service_mesh_en_2026_STAFF.md) - *Publicado el 01/04/2026*
-* [✅ Sistemas Multi-Agente con LangChain4j y Ollama](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Otros_Activos_Mastery/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) - *Publicado el 01/04/2026*
-* [✅ Arquitectura de Microservicios Reactivos con Spring Boot 3.3 y R2DBC](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) - *Publicado el 01/04/2026*
-* [✅ Arquitectura Hexagonal y DDD con Java 21: Implementando Agregados y Value Objects](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/arquitectura_hexagonal_y_ddd_con_java_21:_implementando_agregados_y_value_objects_STAFF.md) - *Publicado el 01/04/2026*
-* [✅ Arquitectura Hexagonal y DDD en Java 21: Invariantes en Agregados, Value Objects con Records y Persistencia desacoplada con Spring Data R2DBC](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/arquitectura_hexagonal_y_ddd_en_java_21:_invariantes_en_agregados,_value_objects_con_records_y_persistencia_desacoplada_con_spring_data_r2dbc_STAFF.md) - *Publicado el 01/04/2026*
-* [✅ Patrones Strategy y Observer en Java 21: Implementación con Sealed Interfaces, Pattern Matching sobre Records y desacoplamiento funcional sin efectos secundarios](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/patrones_strategy_y_observer_en_java_21:_implementación_con_sealed_interfaces,_pattern_matching_sobre_records_y_desacoplamiento_funcional_sin_efectos_secundarios_STAFF.md) - *Publicado el 01/04/2026*
-* [✅ Arquitectura Hexagonal y DDD en Java 21: Invariantes en Agregados, Value Objects con Records y Persistencia desacoplada con Spring Data R2DBC](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/arquitectura_hexagonal_y_ddd_en_java_21:_invariantes_en_agregados,_value_objects_con_records_y_persistencia_desacoplada_con_spring_data_r2dbc_STAFF.md) - *Publicado el 01/04/2026*
-* [✅ Observabilidad Distribuida en Spring Boot 3.3 con OpenTelemetry y Grafana Loki: Correlación de trazas y logs](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/observabilidad_distribuida_en_spring_boot_3.3_con_opentelemetry_y_grafana_loki:_correlación_de_trazas_y_logs_STAFF.md) - *Publicado el 01/04/2026*
-* [✅ Implementación de Event-Driven Architecture (EDA) con Transactional Outbox Pattern en Java 21: Garantizando Consistencia Eventual con Debezium y R2DBC](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Java_Elite/implementación_de_event-driven_architecture_(eda)_con_transactional_outbox_pattern_en_java_21:_garantizando_consistencia_eventual_con_debezium_y_r2dbc_STAFF.md) - *Publicado el 02/04/2026*
-* [✅ Kubernetes: Auto-escalado y Service Mesh en 2026](https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/Vanguardia_Tech_2026/kubernetes:_auto-escalado_y_service_mesh_en_2026_STAFF.md) - *Publicado el 02/04/2026*
+## 📚 Índice de Documentos por Módulo
+
+### ☕ 01_Java_Core — Java 21 Avanzado
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Java 21 Virtual Threads: Guía de Referencia Staff Engineer](./01_Java_Core/java_21_virtual_threads_STAFF.md) | 5 | 02/04/2026 |
+
+---
+
+### 🏛️ 02_Arquitectura — DDD, Hexagonal, Microservicios
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [DDD y Arquitectura Hexagonal con Java 21](./02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) | 9 | 02/04/2026 |
+
+---
+
+### 🌱 03_Spring_Ecosystem — Spring Boot, R2DBC, WebFlux
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Spring Boot 3.4 y R2DBC con Virtual Threads](./03_Spring_Ecosystem/spring_boot_34_r2dbc_virtual_threads_STAFF.md) | 5 | 02/04/2026 |
+
+---
+
+### 🗄️ 04_Bases_de_Datos — PostgreSQL, Redis, MongoDB
+
+*Próximamente*
+
+---
+
+### ⚙️ 05_SRE_DevOps — Kubernetes, Terraform, Observabilidad
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Kubernetes: Auto-escalado y Service Mesh en 2026](./05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) | 5 | 02/04/2026 |
+
+---
+
+### 🔐 06_Seguridad — JWT, OAuth2, Zero Trust
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [JWT, OAuth2 y Zero Trust Security con Java 21 y Spring Security](./06_Seguridad/jwt_oauth2_y_zero_trust_security_con_java_21_STAFF.md) | 9 | 02/04/2026 |
+
+---
+
+### 📊 07_BigData_Streaming — Kafka, Spark, Flink
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Apache Kafka Streams con Java 21](./07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) | 5 | 02/04/2026 |
+
+---
+
+### 🤖 08_IA_Agentes — RAG, LangChain4j, LLMOps
+
+*Próximamente*
+
+---
+
+### 📱 09_Frontend_Mobile — Flutter, Android, Kotlin
+
+*Próximamente*
+
+---
+
+### 🔭 10_Vanguardia — Tendencias y novedades 2026
+
+*Próximamente*
+
+---
+
+## 📊 Estadísticas del Repositorio
+
+| Métrica | Valor |
+|---------|-------|
+| Documentos Staff publicados | 6 |
+| Módulos con contenido | 6 / 10 |
+| Score SRE promedio | 92 / 100 |
+| Secciones promedio por documento | 7 |
+| Tiempo de generación por documento | ~6 minutos |
+| Última actualización | 02/04/2026 |
+
+---
+
+## 🎯 Criterios de Calidad
+
+Cada documento publicado en este repositorio cumple obligatoriamente:
+
+- ✅ Código Java 21 real y compilable (Records, Virtual Threads, Pattern Matching)
+- ✅ Diagramas de arquitectura Mermaid válidos (graph TD / graph LR)
+- ✅ Inmutabilidad total — prohibidos los setters, uso de Records
+- ✅ Métricas SRE con queries Prometheus reales
+- ✅ Checklist de producción con al menos 5 puntos concretos
+- ✅ Score mínimo 72/100 en el auditor automático
+
+---
+
+## 👤 Autor
+
+**Joaquín Ríos Heredia**
+Staff Engineer · Java 21 · SRE · Cloud Native · GenAI
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Conectar-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/joaquinrios-dev-strategist/)
+
+---
+
+*Generado con Authority Engine v21.0 — Pipeline híbrido IA local + revisión académica*
