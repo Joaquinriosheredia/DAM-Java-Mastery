@@ -1,7 +1,0 @@
-```txt
-fastapi==0.75.2
-pydantic==1.9.1
-transformers==4.20.1
-torch==1.13.1
-uvicorn[standard]==0.18.2
-```
