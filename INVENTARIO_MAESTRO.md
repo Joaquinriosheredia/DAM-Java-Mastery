@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-02 18:39:08
-**Ultimo commit:** 99270ce chore: actualizar inventario v3.1 (7 minutes ago)
-**Total de activos:** 137 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-02 19:15:51
+**Ultimo commit:** bb33443 chore: limpiar borrador DDD de _Review/ (8 seconds ago)
+**Total de activos:** 138 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 16 | 2 | — |
-| **02_Arquitectura** | 24 | 1 | — |
+| **02_Arquitectura** | 25 | 2 | — |
 | **03_Spring_Ecosystem** | 4 | 2 | — |
 | **04_Bases_de_Datos** | 4 | 1 | — |
 | **05_SRE_DevOps** | 10 | 2 | — |
@@ -53,6 +53,7 @@
 - [```markdown](02_Arquitectura/DOC_edge_computing_procesamiento_de_telemetr.md) — 2026-03-31 14:59 (6.0KB)
 - [Informe de Autoridad: Arquitectura de Microservicios Reactivos con Spr](02_Arquitectura/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) — 2026-04-01 15:46 (56.2KB)
 - [```markdown](02_Arquitectura/comparativo_microservicios_monolito_scalabilidad.md) — 2026-03-20 09:08 (4.1KB)
+- [DDD y Arquitectura Hexagonal con Java 21](02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) — 2026-04-02 19:14 (25.3KB)
 - [Implementación de Resilience4j y Circuit Breaker en Microservicios Spr](02_Arquitectura/deep_Implementación_de_Resilience4j_y_Circuit_Breaker_en_Microservicios_Spring_Boot_3.4_20260331_1459.md) — 2026-03-31 14:59 (63.3KB)
 - [Implementación de Resilience4j y Circuit Breaker en Microservicios Spr](02_Arquitectura/deep_Implementación_de_Resilience4j_y_Circuit_Breaker_en_Microservicios_Spring_Boot_3.4_20260331_2052.md) — 2026-03-31 20:52 (110.6KB)
 - [TEST ARQUITECTURA CON CONTROL DE SECCIONES](02_Arquitectura/deep_test_arquitectura_con_control_de_secciones_20260329_0935.md) — 2026-03-29 10:12 (63.1KB)
@@ -199,12 +200,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 137 |
+| Total documentos tecnicos | 138 |
 | Tamano total del repositorio | 1.6MB |
 | Modulos activos | 10 |
-| Total commits | 102 |
+| Total commits | 105 |
 | Generado por | Authority Engine v20.2 |
-| Fecha | 2026-04-02 18:39:08 |
+| Fecha | 2026-04-02 19:15:51 |
 
 ---
 
