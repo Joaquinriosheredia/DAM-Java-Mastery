@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-02 19:15:51
-**Ultimo commit:** bb33443 chore: limpiar borrador DDD de _Review/ (8 seconds ago)
-**Total de activos:** 138 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-02 22:05:29
+**Ultimo commit:** a3b633f chore: limpiar borrador JWT de _Review/ (8 seconds ago)
+**Total de activos:** 139 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -17,7 +17,7 @@
 | **03_Spring_Ecosystem** | 4 | 2 | — |
 | **04_Bases_de_Datos** | 4 | 1 | — |
 | **05_SRE_DevOps** | 10 | 2 | — |
-| **06_Seguridad** | 4 | 1 | — |
+| **06_Seguridad** | 5 | 2 | — |
 | **07_BigData_Streaming** | 3 | 2 | — |
 | **08_IA_Agentes** | 10 | 1 | — |
 | **09_Frontend_Mobile** | 3 | 1 | — |
@@ -103,6 +103,7 @@
 
 ### 📂 06_Seguridad
 
+- [JWT, OAuth2 y Zero Trust Security con Java 21 y Spring Security](06_Seguridad/jwt_oauth2_y_zero_trust_security_con_java_21_STAFF.md) — 2026-04-02 22:04 (25.2KB)
 - [Análisis de SBOM con CycloneDX para Seguridad en la Cadena de Suminist](06_Seguridad/tech_analisis_de_sbom_con_cyclonedx_para_supply_chain_s_191141.md) — 2026-03-25 19:11 (3.7KB)
 - [Documento Técnico: Bastionado de APIs REST con JWT y OAuth2](06_Seguridad/tech_ciberseguridad_bastionado_de_apis_rest_con_jwt_y_o_071802.md) — 2026-03-28 07:18 (8.4KB)
 - [Documento Técnico: Protección de Historiales Clínicos con Cifrado AES-](06_Seguridad/tech_ciberseguridad_proteccion_de_historiales_clinicos__103339.md) — 2026-03-27 10:33 (4.6KB)
@@ -200,12 +201,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 138 |
-| Tamano total del repositorio | 1.6MB |
+| Total documentos tecnicos | 139 |
+| Tamano total del repositorio | 1.7MB |
 | Modulos activos | 10 |
-| Total commits | 105 |
+| Total commits | 108 |
 | Generado por | Authority Engine v20.2 |
-| Fecha | 2026-04-02 19:15:51 |
+| Fecha | 2026-04-02 22:05:29 |
 
 ---
 
