@@ -1,612 +1,634 @@
-# Informe de Autoridad: Patrones Strategy y Observer en Java 21: Implementación con Sealed Interfaces, Pattern Matching sobre Records y desacoplamiento funcional sin efectos secundarios
+# Patrones Strategy y Observer con Java 21: Sealed Interfaces y Pattern Matching
 
-## Visión Estratégica de Patrones Strategy y Observer en Java 21: Implementación con Sealed Interfaces, Pattern Matching sobre Records y desacoplamiento funcional sin efectos secundarios
-
-### Visión Estratégica de Patrones Strategy y Observer en Java 21: Implementación con Sealed Interfaces, Pattern Matching sobre Records y desacoplamiento funcional sin efectos secundarios
-
-En este capítulo técnico, exploraremos la implementación avanzada del patrón Strategy y Observer en Java 21 utilizando los nuevos constructores de idioma como sealed interfaces, pattern matching sobre records, y técnicas para el desacoplamiento funcional sin efectos secundarios. Estas mejoras permiten una mayor flexibilidad y precisión en la definición y uso de patrones estratégicos y observadores.
-
-#### Introducción a Sealed Interfaces
-
-En Java 21, las sealed interfaces son un mecanismo crucial para definir jerarquías limitadas de clases o interfaces. Considera el siguiente ejemplo:
-
-```java
-sealed interface Employee permits SalariedEmployee, FreelanceEmployee {}
-final class SalariedEmployee implements Employee {
-    private final int salary;
-}
-final class FreelanceEmployee implements Employee {
-    private final List<Contract> contracts;
-}
-
-// Ejemplo de uso:
-public void processEmployees(List<Employee> employees) {
-    for (Employee employee : employees) {
-        switch (employee) {
-            case SalariedEmployee salaried -> processSalaried(salaried);
-            case FreelanceEmployee freelance -> processFreelancer(freelance);
-        }
-    }
-}
-```
-
-#### Pattern Matching sobre Records
-
-El pattern matching en Java 21 proporciona un mecanismo poderoso para manipular y deconstruir records. A continuación, se muestra cómo usar el pattern matching para operar sobre records:
-
-```java
-record Contract(int id, Employee employee) {}
-
-public void processContracts(List<Contract> contracts) {
-    for (var c : contracts) {
-        switch (c.employee()) {
-            case SalariedEmployee salaried -> handleSalaried(c.id(), salaried.salary());
-            case FreelanceEmployee freelance -> handleFreelancer(c.id(), freelance.contracts());
-        }
-    }
-}
-```
-
-#### Desacoplamiento Funcional sin Efectos Secundarios
-
-El desacoplamiento funcional es crucial para evitar efectos secundarios y mejorar la testabilidad. En Java 21, esto se puede lograr utilizando funciones puras y estructuras de datos inmutables.
-
-```java
-public int computeTotalIncome(List<Contract> contracts) {
-    return contracts.stream()
-                    .map(this::computeContractIncome)
-                    .reduce(0, Integer::sum);
-}
-
-private int computeContractIncome(Contract contract) {
-    switch (contract.employee()) {
-        case SalariedEmployee salaried -> calculateSalariedIncome(salaried.salary());
-        case FreelanceEmployee freelance -> calculateFreelancerIncome(freelance.contracts().size());
-    }
-}
-```
-
-#### Diagrama Mermaid: Jerarquía de Tipos y Patrón Strategy
-
-El diagrama a continuación ilustra la estructura jerárquica basada en sealed interfaces y cómo estas pueden ser utilizadas para implementar el patrón Strategy.
-
-```mermaid
-classDiagram
-    class Employee {
-        +int getSalary()
-        +List<Contract> getContracts()
-    }
-    class SalariedEmployee <<final>> {
-        -int salary
-        +SalariedEmployee(int)
-        +getSalary() : int
-    }
-    class FreelanceEmployee <<final>> {
-        -List<Contract> contracts
-        +FreelanceEmployee(List<Contract>)
-        +getContracts() : List<Contract>
-    }
-    
-    Employee <|-- SalariedEmployee
-    Employee <|-- FreelanceEmployee
-    
-    Employee "1" -- "0..*" Contract : has
-```
-
-#### Conclusión
-
-El uso de sealed interfaces, pattern matching y desacoplamiento funcional en Java 21 ofrece una nueva dimensión para implementar patrones como Strategy y Observer. Estas mejoras no solo simplifican la estructura del código sino que también aumentan su legibilidad y mantenibilidad.
+PATH_LOCAL: /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/01_Java_Core/patrones_strategy_y_observer_en_java_21:_implementación_con_sealed_interfaces,_pattern_matching_sobre_records_y_desacoplamiento_funcional_sin_efectos_secundarios_STAFF.md
+CATEGORIA: 01_Java_Core
+Score: 96
 
 ---
 
-Este capítulo técnico proporciona un marco completo para la aplicación de patrones estratégicos y observadores en aplicaciones Java modernas, destacando las capacidades avanzadas del lenguaje desde una perspectiva técnica y práctico.
+## Visión Estratégica
 
-## Arquitectura y Componentes
+Los patrones Strategy y Observer del GoF (Gang of Four, 1994) han sido implementados durante décadas con interfaces, clases abstractas y herencia. Java 21 cambia fundamentalmente cómo se implementan: las **Sealed Interfaces** hacen los tipos exhaustivos y verificados por el compilador, los **Records** eliminan el boilerplate de los Value Objects que transportan datos, y el **Pattern Matching** en switch expressions hace el routing por tipo legible y seguro.
 
-### Arquitectura y Componentes
+El resultado es código que expresa la intención del negocio sin ruido sintáctico, donde el compilador avisa automáticamente si se añade un nuevo caso sin manejarlo.
 
-#### Introducción
+**Cuándo usar Strategy vs Observer:**
 
-Este manual se centra en la implementación de los patrones Strategy y Observer utilizando las nuevas características del idioma Java 21, como los tipos sealados (`sealed interfaces`) y el matching por patrón sobre records. La finalidad es desacoplar funcionalmente las operaciones y permitir una implementación sin efectos secundarios.
+| Criterio | Strategy | Observer |
+|----------|----------|----------|
+| Problema que resuelve | Algoritmo intercambiable en tiempo de ejecución | Notificación desacoplada a múltiples receptores |
+| Relación | 1 contexto → 1 estrategia activa | 1 evento → N observadores |
+| Acoplamiento | Contexto conoce la interfaz Strategy | Publicador no conoce a los suscriptores |
+| Ejemplo real | Cálculo de descuento según tipo de cliente | Publicación de Domain Events |
+| Java 21 idiom | Sealed Interface + switch expression | Domain Events + Virtual Threads |
 
-#### Componentes Clave
-
-1. **Tipos Sealados (Sealed Interfaces)**
-2. **Matching por Patrón sobre Records**
-3. **Patrones Strategy**
-4. **Patrones Observer**
-
-#### Arquitectura
-
-La arquitectura del sistema se basa en la separación de las operaciones y los tipos, utilizando patrones sealados para definir jerarquías exhaustivas de clases o interfaces.
-
-**Diagrama de Clases Mermaid: Jerarquía Sealada (Employee)**
-
-```mermaid
-classDiagram
-  class Employee {
-    <<interface>>
-    +getName(): String
-  }
-  class Salaried implements Employee{
-  }
-  class Freelancer implements Employee{
-  }
-
-  Employee <|.. Salaried
-  Employee <|.. Freelancer
-```
-
-**Descripción de la Diagrama:**
-
-- **Employee:** Es una interfaz sealada que limita las implementaciones a `Salaried` y `Freelancer`.
-- **Salaried, Freelancer:** Implementan la interfaz `Employee`.
-
-#### Componentes Detallados
-
-1. **Tipos Sealados (Sealed Interfaces)**:
-    - Los tipos sealados permiten definir jerarquías exhaustivas de clases o interfaces. Esto es crucial para el patrón Strategy ya que limita las posibles estrategias a un conjunto fijo y conocido.
-    
-    ```java
-    public sealed interface Employee permits Salaried, Freelancer {
-        String getName();
-    }
-    
-    public final record Salaried(String name) implements Employee {}
-    public final record Freelancer(String name) implements Employee {}
-    ```
-
-2. **Matching por Patrón sobre Records**:
-    - Este mecanismo permite descomponer los records en sus componentes y realizar operaciones de manera segura y eficiente.
-    
-    ```java
-    void processEmployee(Employee employee) {
-        switch (employee) {
-            case Salaried salaried -> System.out.println(salaried.getName() + " is a salaried employee.");
-            case Freelancer freelancer -> System.out.println(freelancer.getName() + " is a freelance contractor.");
-        }
-    }
-    ```
-
-3. **Patrones Strategy**:
-    - El patrón Strategy permite que un objeto cambie su comportamiento por medio de la implementación del mismo interfaz.
-    
-    ```java
-    public interface PaymentStrategy {
-        void pay(double amount);
-    }
-
-    public sealed class CreditCardPayment permits Visa, Mastercard implements PaymentStrategy {
-        private final String cardNumber;
-        
-        protected CreditCardPayment(String cardNumber) { this.cardNumber = cardNumber; }
-        
-        @Override
-        public abstract void pay(double amount); 
-    }
-    
-    public final record Visa(String cardNumber) extends CreditCardPayment(cardNumber) {
-        @Override
-        public void pay(double amount) {}
-    }
-
-    public final record Mastercard(String cardNumber) extends CreditCardPayment(cardNumber) {
-        @Override
-        public void pay(double amount) {}
-    }
-    ```
-
-4. **Patrones Observer**:
-    - Este patrón permite que un objeto (el observador) cambie su comportamiento cuando el estado de otro objeto (la fuente del evento) cambia.
-    
-    ```java
-    public interface EventObserver {
-        void update(String event);
-    }
-
-    public class ConsoleLogger implements EventObserver {
-        
-        @Override
-        public void update(String event) { 
-            System.out.println("Event: " + event); 
-        }
-    }
-
-    public class EventManager {
-
-        private List<EventObserver> observers = new ArrayList<>();
-
-        public void addObserver(EventObserver observer) { this.observers.add(observer); }
-    
-        public void notifyObservers(String event) {
-            for (EventObserver observer : observers) {
-                observer.update(event);
-            }
-        }
-    }
-    ```
-
-#### Ejemplo de Implementación
-
-**Procesamiento de Empleados con Strategy y Observer:**
-
-```java
-public class EmployeeManager {
-
-    private List<Employee> employees = new ArrayList<>();
-    
-    public void addEmployee(Employee employee) { this.employees.add(employee); }
-
-    // Notificación cuando se añade un nuevo empleado (Observer)
-    EventManager eventManager = new EventManager();
-    
-    public void registerObservers() {
-        ConsoleLogger logger = new ConsoleLogger();
-        eventManager.addObserver(logger);
-        
-        for (Employee emp : employees) {
-            eventManager.notifyObservers("New employee added: " + emp.getName());
-        }
-    }
-
-    // Procesamiento de empleados según su tipo (Strategy)
-    public void processEmployees() {
-        for (Employee employee : employees) {
-            switch (employee) {
-                case Salaried salaried -> System.out.println(salaried.getName() + " is a salaried employee.");
-                case Freelancer freelancer -> System.out.println(freelancer.getName() + " is a freelance contractor.");
-            }
-        }
-    }
-
-}
-```
-
-### Conclusión
-
-La implementación de los patrones Strategy y Observer en Java 21 utilizando sealed interfaces y pattern matching sobre records permite una arquitectura modular, fácilmente mantenible y libre de efectos secundarios. Estas características nuevas del lenguaje ofrecen un alto nivel de flexibilidad y eficiencia en la implementación de estos patrones clásicos.
-
-**Diagrama Mermaid: Arquitectura General**
-
-```mermaid
-classDiagram
-  class EmployeeManager {
-    +addEmployee(Employee)
-    +processEmployees()
-    +registerObservers()
-  }
-  class Employee {
-    <<interface>>
-    +getName(): String
-  }
-  class Salaried implements Employee{
-  }
-  class Freelancer implements Employee{
-  }
-
-  class EventManager {
-    +addObserver(EventObserver)
-    +notifyObservers(String event)
-  }
-  
-  class ConsoleLogger implements EventObserver {
-    +update(String event)
-  }
-  
-  EmployeeManager --|> Employee
-  Employee <|.. Salaried
-  Employee <|.. Freelancer
-
-  EmployeeManager ..> EventManager : Observer
-  EventManager -->| notify | ConsoleLogger : Update
-```
-
-Este diagrama muestra la interacción entre los componentes principales del sistema, destacando cómo se implementan y utilizan los patrones Strategy y Observer.
-
-## Implementación Técnica
-
-### Implementación Técnica
-
-En este capítulo del manual, exploraremos cómo implementar los patrones Strategy y Observer en Java 21 utilizando interfaces selladas (sealed interfaces), el matching de patrones sobre registros (records) y desacoplamiento funcional sin efectos secundarios. Estas características permiten una mayor flexibilidad y control en la estructura de tipos y operaciones, haciendo que las implementaciones sean más limpias y mantenibles.
-
-#### Uso de Interfaces Selladas
-
-En Java 21, las interfaces selladas proporcionan un mecanismo para declarar jerarquías finitas y conocidas de subtipos. Este enfoque es particularmente útil cuando se trabaja con estructuras complejas como contratos que vinculan empleados que pueden ser a tiempo completo o freelance.
-
-Ejemplo:
-```java
-sealed interface Employee permits Salaried, Freelancer {}
-final class Salaried implements Employee {
-    private final int salary;
-}
-final class Freelancer implements Employee {
-    private final double hourlyRate;
-}
-```
-
-#### Matching de Patrones y Operaciones Polimórficas
-
-El matching de patrones permite realizar operaciones sobre los registros (records) que son más expresivos y seguros. En lugar de implementar cada caso por separado, se puede utilizar un único bloque `switch` con matching de patrones para manejar todas las posibilidades.
-
-Ejemplo:
-```java
-public double calculateIncome(Employee employee) {
-    return switch(employee) {
-        case Salaried s -> s.salary;
-        case Freelancer f -> f.hourlyRate * 160; // assuming a 40-hour work week
-    };
-}
-```
-
-#### Desacoplamiento Funcional
-
-El desacoplamiento funcional es crucial para evitar efectos secundarios y mejorar la modularidad. En Java 21, esto puede lograrse utilizando interfaces selladas junto con registros que contienen métodos puramente funcionales.
-
-Ejemplo:
-```java
-public interface Strategy {
-    int apply(int input);
-}
-
-public record IncrementStrategy() implements Strategy {
-    @Override
-    public int apply(int input) { return input + 1; }
-}
-
-public record DoubleStrategy() implements Strategy {
-    @Override
-    public int apply(int input) { return input * 2; }
-}
-```
-
-#### Implementación del Patrón Observer
-
-El patrón Observer permite notificar a múltiples observadores sobre eventos sin que los observadores conozcan la existencia de otros. Utilizando interfaces selladas y registros, podemos crear un sistema de suscripción eficiente.
-
-Ejemplo:
-```java
-public sealed interface Event permits ClickEvent, KeyEvent {}
-
-final class ClickEvent implements Event {}
-final class KeyEvent implements Event {}
-
-public interface Observer {
-    void update(Event event);
-}
-
-public record ConsoleLogger() implements Observer {
-    @Override
-    public void update(Event event) {
-        System.out.println("Observer: Received event " + event.getClass().getSimpleName());
-    }
-}
-```
-
-#### Diagrama de Clases Mermaid
-
-A continuación, se muestra un diagrama de clases utilizando Mermaid para ilustrar las relaciones y estructuras mencionadas anteriormente.
-
-```mermaid
-classDiagram
-    class Employee{
-        +int salary
-        +double hourlyRate
-    }
-    class Salaried{
-        +salary: int
-    } 
-    class Freelancer{
-        +hourlyRate: double
-    }
-
-    Employee <|-- Salaried
-    Employee <|-- Freelancer
-
-    class Strategy{
-        +apply(int input):int
-    }
-    class IncrementStrategy{
-        +apply(int input)
-    }
-    class DoubleStrategy{
-        +apply(int input)
-    }
-
-    Strategy <|-- IncrementStrategy
-    Strategy <|-- DoubleStrategy
-
-    class Event{
-    }
-    class ClickEvent{
-    }
-    class KeyEvent{
-    }
-
-    class Observer{
-        +update(Event event):void
-    }
-    class ConsoleLogger{
-        +update(Event event)
-    }
-
-    Event <|-- ClickEvent
-    Event <|-- KeyEvent
-
-    Observer <|-- ConsoleLogger
-
-    Employee --> Strategy : Uses
-    Strategy --> Observer : Notifies
-```
-
-Este diagrama muestra la relación entre las interfaces selladas, registros y clases funcionales que implementan el patrón Observer.
-
-#### Conclusión
-
-Las nuevas características de Java 21 permiten una mayor flexibilidad en la estructura de tipos y operaciones, lo que resulta en código más limpio y mantenible. El uso de interfaces selladas junto con el matching de patrones sobre registros permite un desacoplamiento funcional eficiente y evita los efectos secundarios indeseados.
-
-Implementar estos patrones utilizando estas características modernas de Java 21 es crucial para desarrolladores senior que buscan soluciones robustas y escalables.
-
-## SRE y Resiliencia
-
-### SRE y Resiliencia
-
-En la era moderna del desarrollo de software, asegurar que los sistemas funcionen eficazmente bajo condiciones adversas es un desafío crítico. El papel del Ingeniero en Operaciones de Sistema (SRE) se centra precisamente en esto: combinar principios de ingeniería y operaciones para lograr la máxima resiliencia, disponibilidad y rendimiento de los sistemas.
-
-#### 1. Resiliencia a través de Diseño
-
-En el contexto del uso de `sealed interfaces` y `pattern matching`, es vital diseñar nuestros patrones de estrategia (`Strategy`) y observador (`Observer`) para ser resilientes frente a cambios inesperados en la estructura de datos o comportamientos del sistema. Esto implica:
-
-- **Utilización de sealed hierarchies**: Las `sealed interfaces` permiten una definición clara de los tipos que pueden implementarlas, lo cual es crucial para garantizar la consistencia y seguridad del código.
-  
-  ```java
-  public sealed interface Employee permits Salaried, Freelancer {
-      void processContract(Contract c);
-  }
-  
-  final class Salaried implements Employee {
-      @Override
-      public void processContract(Contract c) {
-          System.out.println("Processing contract for salaried employee.");
-      }
-  }
-
-  final class Freelancer implements Employee {
-      @Override
-      public void processContract(Contract c) {
-          System.out.println("Processing contract for freelancer.");
-      }
-  }
-  ```
-
-- **Patrón de visitor y pattern matching**: El patrón de visitante permite una forma eficiente de manejar operaciones polimórficas sobre tipos anidados. Con `pattern matching`, esto se puede simplificar considerablemente, permitiendo que las implementaciones sean más legibles y mantenibles.
-
-  ```java
-  public void applyOperation(Employee employee) {
-      switch (employee) {
-          case Salaried s -> System.out.println("Handling salaried specific behavior.");
-          case Freelancer f -> System.out.println("Handling freelancer specific behavior.");
-          default -> throw new AssertionError();
-      }
-  }
-  ```
-
-#### 2. Monitoreo y Respuesta a Eventos
-
-La implementación del patrón observador en Java, que implica la notificación de objetos suscritos sobre cambios específicos, debe ser robusta para manejar situaciones de alta carga o fallas temporales.
-
-- **Uso de sealed interfaces para notificaciones**: En lugar de lanzar eventos genéricos que podrían ser inmanejables bajo cargas altas, es preferible tener notificaciones estructuradas y limitadas a los tipos permitidos por la interfaz `sealed`.
-
-  ```java
-  public interface Event {
-      void handle(Event event);
-  }
-
-  final class ContractSigned implements Event {
-      @Override
-      public void handle(Event event) {
-          System.out.println("Contract signed notification handled.");
-      }
-  }
-  ```
-
-- **Desacoplamiento funcional**: La descomposición de los patrones `Strategy` y `Observer` en funciones puras ayuda a mantener el sistema resiliente, ya que las funciones no tienen efectos secundarios y su comportamiento es determinista.
-
-#### 3. Implementación con Desacoplamiento
-
-El uso de técnicas como el patrón Strategy permite un alto nivel de desacoplamiento entre la lógica del negocio y los algoritmos de cálculo, lo cual es vital para mantener sistemas resilientes:
-
-```java
-public interface CalculationStrategy {
-    double calculate(double a, double b);
-}
-
-public final class Addition implements CalculationStrategy {
-    @Override
-    public double calculate(double a, double b) {
-        return a + b;
-    }
-}
-```
-
-#### Diagrama Mermaid
-
-Un diagrama de flujo puede ser útil para visualizar cómo se manejan los eventos y notificaciones en un sistema basado en patrones de observador.
+**El problema de los patrones GoF clásicos en Java:**
 
 ```mermaid
 graph TD
-A[Cliente] --> B{Evento A ocurrido?}
-B --> |Sí| C[Procesar Evento]
-C --> D[Enviar notificación a suscriptores]
-D --> E[Fin del flujo]
-B --> |No| E
+    A[Patron GoF clasico] --> B[Interface con metodo execute]
+    B --> C[N clases que la implementan]
+    C --> D[if/else o instanceof para routing]
+    D --> E[Compilador no detecta casos nuevos]
+    E --> F[Bug en produccion cuando se añade un tipo]
 
-classDef cliente fill:#f96,stroke:#333,stroke-width:4px;
-classDef evento fill:#6cf,stroke:#fff,stroke-width:2px;
-A class=cliente
-C class=evento
+    G[Patron Java 21] --> H[Sealed Interface]
+    H --> I[Records como implementaciones]
+    I --> J[Switch expression exhaustivo]
+    J --> K[Compilador fuerza cubrir todos los casos]
+    K --> L[Imposible olvidar un tipo nuevo]
 ```
 
-Este enfoque garantiza que los sistemas implementados sigan siendo resilientes y fáciles de mantener a medida que evolucionan, cumpliendo así con las expectativas del rol de Ingeniero en Operaciones de Sistema (SRE).
+```java
+// La diferencia clave: exhaustividad garantizada por el compilador
+public sealed interface EstrategiaDescuento
+    permits EstrategiaDescuento.SinDescuento,
+            EstrategiaDescuento.PorVolumen,
+            EstrategiaDescuento.PorCliente {
+
+    BigDecimal aplicar(BigDecimal precio, int cantidad);
+
+    // Si se añade un nuevo tipo aqui y no se actualiza el switch → ERROR DE COMPILACION
+    // Con la interfaz GoF clasica → BUG SILENCIOSO en produccion
+}
+```
+
+---
+
+## Arquitectura de Componentes
+
+```mermaid
+graph TD
+    subgraph Strategy Pattern
+        A[Contexto - CalculadorPrecio] -->|usa| B[EstrategiaDescuento sealed]
+        B --> C[SinDescuento record]
+        B --> D[PorVolumen record]
+        B --> E[PorCliente record]
+        B --> F[PorTemporada record]
+    end
+    subgraph Observer Pattern
+        G[Publicador - Pedido Aggregate] -->|emite| H[DomainEvent sealed]
+        H --> I[PedidoCreadoEvent record]
+        H --> J[PedidoConfirmadoEvent record]
+        H --> K[PedidoCanceladoEvent record]
+        L[ObservadorInventario] -->|suscrito a| H
+        M[ObservadorNotificacion] -->|suscrito a| H
+        N[ObservadorAnalytics] -->|suscrito a| H
+    end
+```
+
+**Strategy — Sealed Interface con Records:**
+
+```java
+// Cada estrategia es un Record inmutable — sin estado mutable, sin setters
+public sealed interface EstrategiaDescuento
+    permits EstrategiaDescuento.SinDescuento,
+            EstrategiaDescuento.PorVolumen,
+            EstrategiaDescuento.PorCliente,
+            EstrategiaDescuento.PorTemporada {
+
+    BigDecimal aplicar(BigDecimal precio, int cantidad);
+
+    // Sin descuento — tipo nulo explícito, mejor que null
+    record SinDescuento() implements EstrategiaDescuento {
+        public BigDecimal aplicar(BigDecimal precio, int cantidad) {
+            return precio.multiply(BigDecimal.valueOf(cantidad));
+        }
+    }
+
+    // Descuento por volumen — datos del descuento en el Record
+    record PorVolumen(int cantidadMinima, BigDecimal porcentaje)
+            implements EstrategiaDescuento {
+        public PorVolumen {
+            if (cantidadMinima <= 0) throw new IllegalArgumentException("cantidadMinima > 0");
+            if (porcentaje.compareTo(BigDecimal.ZERO) <= 0 ||
+                porcentaje.compareTo(BigDecimal.ONE) > 0) {
+                throw new IllegalArgumentException("porcentaje entre 0 y 1");
+            }
+        }
+
+        public BigDecimal aplicar(BigDecimal precio, int cantidad) {
+            var total = precio.multiply(BigDecimal.valueOf(cantidad));
+            if (cantidad >= cantidadMinima) {
+                var descuento = total.multiply(porcentaje);
+                return total.subtract(descuento);
+            }
+            return total;
+        }
+    }
+
+    // Descuento por tipo de cliente
+    record PorCliente(TipoCliente tipoCliente, BigDecimal porcentaje)
+            implements EstrategiaDescuento {
+        public BigDecimal aplicar(BigDecimal precio, int cantidad) {
+            var total = precio.multiply(BigDecimal.valueOf(cantidad));
+            return total.subtract(total.multiply(porcentaje));
+        }
+    }
+
+    // Descuento temporal por temporada
+    record PorTemporada(String temporada, BigDecimal porcentaje,
+                         LocalDate inicio, LocalDate fin)
+            implements EstrategiaDescuento {
+        public BigDecimal aplicar(BigDecimal precio, int cantidad) {
+            var hoy  = LocalDate.now();
+            var total = precio.multiply(BigDecimal.valueOf(cantidad));
+            if (!hoy.isBefore(inicio) && !hoy.isAfter(fin)) {
+                return total.subtract(total.multiply(porcentaje));
+            }
+            return total; // Fuera de temporada — sin descuento
+        }
+    }
+}
+```
+
+**Observer — Domain Events como Sealed Interface:**
+
+```java
+// Domain Events inmutables como Records
+public sealed interface EventoPedido
+    permits EventoPedido.Creado,
+            EventoPedido.Confirmado,
+            EventoPedido.Cancelado,
+            EventoPedido.Enviado {
+
+    PedidoId pedidoId();
+    Instant ocurrioEn();
+
+    record Creado(PedidoId pedidoId, ClienteId clienteId,
+                   List<LineaPedido> lineas, Instant ocurrioEn)
+            implements EventoPedido {}
+
+    record Confirmado(PedidoId pedidoId, Instant ocurrioEn)
+            implements EventoPedido {}
+
+    record Cancelado(PedidoId pedidoId, String motivo, Instant ocurrioEn)
+            implements EventoPedido {}
+
+    record Enviado(PedidoId pedidoId, String trackingId,
+                   String transportista, Instant ocurrioEn)
+            implements EventoPedido {}
+}
+```
+
+---
+
+## Implementación Java 21
+
+Implementación completa con Pattern Matching y Virtual Threads:
+
+```java
+// Contexto del Strategy — CalculadorPrecio
+public class CalculadorPrecio {
+
+    // Pattern Matching en switch expression — exhaustivo por el compilador
+    public BigDecimal calcular(BigDecimal precioBase, int cantidad,
+                                EstrategiaDescuento estrategia) {
+        return switch (estrategia) {
+            case EstrategiaDescuento.SinDescuento sd ->
+                sd.aplicar(precioBase, cantidad);
+
+            case EstrategiaDescuento.PorVolumen pv when cantidad >= pv.cantidadMinima() ->
+                pv.aplicar(precioBase, cantidad);
+
+            case EstrategiaDescuento.PorVolumen pv ->
+                // Cantidad insuficiente para el descuento por volumen
+                pv.aplicar(precioBase, cantidad);
+
+            case EstrategiaDescuento.PorCliente pc ->
+                pc.aplicar(precioBase, cantidad);
+
+            case EstrategiaDescuento.PorTemporada pt ->
+                pt.aplicar(precioBase, cantidad);
+        };
+    }
+
+    // Seleccion dinamica de estrategia segun el cliente
+    public EstrategiaDescuento seleccionarEstrategia(Cliente cliente, int cantidad) {
+        return switch (cliente.tipo()) {
+            case VIP      -> new EstrategiaDescuento.PorCliente(TipoCliente.VIP,
+                                new BigDecimal("0.20"));
+            case PREMIUM  -> new EstrategiaDescuento.PorCliente(TipoCliente.PREMIUM,
+                                new BigDecimal("0.10"));
+            case ESTANDAR -> cantidad >= 10
+                ? new EstrategiaDescuento.PorVolumen(10, new BigDecimal("0.05"))
+                : new EstrategiaDescuento.SinDescuento();
+        };
+    }
+}
+```
+
+```java
+// Publicador de eventos — el Aggregate emite Domain Events
+public final class Pedido {
+
+    private final PedidoId         id;
+    private final ClienteId        clienteId;
+    private EstadoPedido           estado;
+    private final List<LineaPedido> lineas;
+    private final List<EventoPedido> eventos = new ArrayList<>();
+
+    private Pedido(PedidoId id, ClienteId clienteId, List<LineaPedido> lineas) {
+        this.id        = id;
+        this.clienteId = clienteId;
+        this.estado    = EstadoPedido.BORRADOR;
+        this.lineas    = new ArrayList<>(lineas);
+    }
+
+    public static Pedido crear(ClienteId clienteId, List<LineaPedido> lineas) {
+        var pedido = new Pedido(PedidoId.nuevo(), clienteId, lineas);
+        pedido.eventos.add(new EventoPedido.Creado(
+            pedido.id, clienteId, List.copyOf(lineas), Instant.now()
+        ));
+        return pedido;
+    }
+
+    public void confirmar() {
+        if (estado != EstadoPedido.BORRADOR) {
+            throw new EstadoInvalidoException("Solo borradores pueden confirmarse");
+        }
+        this.estado = EstadoPedido.CONFIRMADO;
+        this.eventos.add(new EventoPedido.Confirmado(this.id, Instant.now()));
+    }
+
+    public void cancelar(String motivo) {
+        if (estado == EstadoPedido.ENVIADO) {
+            throw new EstadoInvalidoException("No se puede cancelar un pedido enviado");
+        }
+        this.estado = EstadoPedido.CANCELADO;
+        this.eventos.add(new EventoPedido.Cancelado(this.id, motivo, Instant.now()));
+    }
+
+    public List<EventoPedido> pullEventos() {
+        var copia = List.copyOf(eventos);
+        eventos.clear();
+        return copia;
+    }
+
+    public PedidoId id()    { return id; }
+    public EstadoPedido estado() { return estado; }
+}
+```
+
+```java
+// Bus de eventos con Virtual Threads — Observer desacoplado
+@Service
+public class EventBus {
+
+    private final Map<Class<?>, List<Consumer<EventoPedido>>> suscriptores
+        = new ConcurrentHashMap<>();
+
+    // Virtual Threads: cada observer en su propio hilo ligero
+    private final ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
+
+    public void suscribir(Class<? extends EventoPedido> tipo,
+                           Consumer<EventoPedido> observador) {
+        suscriptores.computeIfAbsent(tipo, k -> new CopyOnWriteArrayList<>())
+                    .add(observador);
+    }
+
+    public void publicar(EventoPedido evento) {
+        var handlers = suscriptores.getOrDefault(evento.getClass(), List.of());
+        handlers.forEach(handler ->
+            // Cada observador en su propio Virtual Thread — no bloquea el publicador
+            executor.submit(() -> handler.accept(evento))
+        );
+    }
+
+    public void publicarTodos(List<EventoPedido> eventos) {
+        eventos.forEach(this::publicar);
+    }
+}
+```
+
+```java
+// Observadores — cada uno con su propia responsabilidad
+@Component
+public class ObservadoresConfig {
+
+    @Bean
+    public CommandLineRunner registrarObservadores(
+            EventBus bus,
+            InventarioService inventario,
+            NotificacionService notificacion,
+            AnalyticsService analytics) {
+
+        return args -> {
+            // Observer: actualizar inventario cuando se confirma un pedido
+            bus.suscribir(EventoPedido.Confirmado.class, evento -> {
+                if (evento instanceof EventoPedido.Confirmado confirmado) {
+                    inventario.reservar(confirmado.pedidoId());
+                }
+            });
+
+            // Observer: notificar al cliente en múltiples estados
+            bus.suscribir(EventoPedido.Confirmado.class, evento ->
+                notificacion.enviarConfirmacion((EventoPedido.Confirmado) evento));
+
+            bus.suscribir(EventoPedido.Cancelado.class, evento ->
+                notificacion.enviarCancelacion((EventoPedido.Cancelado) evento));
+
+            bus.suscribir(EventoPedido.Enviado.class, evento ->
+                notificacion.enviarTracking((EventoPedido.Enviado) evento));
+
+            // Observer: analytics para todos los eventos
+            bus.suscribir(EventoPedido.Creado.class,     analytics::registrar);
+            bus.suscribir(EventoPedido.Confirmado.class, analytics::registrar);
+            bus.suscribir(EventoPedido.Cancelado.class,  analytics::registrar);
+            bus.suscribir(EventoPedido.Enviado.class,    analytics::registrar);
+        };
+    }
+}
+```
+
+---
+
+## Métricas y SRE
+
+```mermaid
+graph TD
+    A[EventoPedido publicado] --> B[EventBus]
+    B --> C[Virtual Thread 1 - Inventario]
+    B --> D[Virtual Thread 2 - Notificacion]
+    B --> E[Virtual Thread 3 - Analytics]
+    C --> F[Metrica: inventario.reservas]
+    D --> G[Metrica: notificaciones.enviadas]
+    E --> H[Metrica: eventos.procesados]
+    F --> I[Prometheus]
+    G --> I
+    H --> I
+    I --> J[Grafana]
+    J --> K{Alertas}
+    K -->|observer.errors > 0| L[Fallo en observador - revisar]
+    K -->|eventos.lag > 1000| M[Bus saturado - escalar]
+```
+
+```java
+// Metricas del EventBus con Micrometer
+@Service
+public class EventBusConMetricas {
+
+    private final EventBus      bus;
+    private final MeterRegistry registry;
+
+    public EventBusConMetricas(EventBus bus, MeterRegistry registry) {
+        this.bus      = bus;
+        this.registry = registry;
+    }
+
+    public void publicar(EventoPedido evento) {
+        var timer = Timer.builder("eventbus.publish.duration")
+            .tag("tipo", evento.getClass().getSimpleName())
+            .register(registry);
+
+        timer.record(() -> {
+            try {
+                bus.publicar(evento);
+                registry.counter("eventbus.events.total",
+                    "tipo", evento.getClass().getSimpleName(),
+                    "resultado", "ok").increment();
+            } catch (Exception e) {
+                registry.counter("eventbus.events.total",
+                    "tipo", evento.getClass().getSimpleName(),
+                    "resultado", "error").increment();
+                throw e;
+            }
+        });
+    }
+}
+```
+
+**Métricas clave:**
+
+| Métrica | Descripción | Umbral de alerta |
+|---------|-------------|-----------------|
+| `eventbus.events.total{resultado=error}` | Errores en observadores | > 0 en 5 minutos |
+| `eventbus.publish.duration.p99` | Latencia p99 de publicación | > 100ms |
+| `strategy.descuento.aplicaciones` | Estrategias aplicadas por tipo | Monitorizar distribución |
+| `virtual.threads.active` | Hilos virtuales activos en el bus | > 10.000 → revisar backpressure |
+
+**Checklist SRE:**
+- El EventBus debe tener timeout por observador — un observador lento no debe bloquear los demás
+- Los errores en observadores deben loguearse y re-intentarse, nunca perderse silenciosamente
+- Monitorizar la distribución de estrategias aplicadas — cambios bruscos indican bugs en la selección
+- Los Domain Events deben ser idempotentes — el mismo evento procesado dos veces no debe causar efectos dobles
+
+---
+
+## Patrones de Integración
+
+```java
+// Combinacion Strategy + Observer: el resultado de una estrategia genera un evento
+@Service
+public class ServicioPedido {
+
+    private final CalculadorPrecio calculador;
+    private final EventBusConMetricas bus;
+    private final PedidoRepository    repository;
+
+    public ServicioPedido(CalculadorPrecio calculador,
+                          EventBusConMetricas bus,
+                          PedidoRepository repository) {
+        this.calculador = calculador;
+        this.bus        = bus;
+        this.repository = repository;
+    }
+
+    public record ResultadoPedido(PedidoId pedidoId, BigDecimal totalConDescuento) {}
+
+    public ResultadoPedido crearPedido(Cliente cliente, List<LineaPedido> lineas) {
+        // Strategy: seleccionar el descuento correcto para este cliente
+        var estrategia = calculador.seleccionarEstrategia(cliente, totalUnidades(lineas));
+
+        // Calcular precio con la estrategia seleccionada
+        var total = lineas.stream()
+            .map(l -> calculador.calcular(l.precioUnitario().valor(),
+                                          l.cantidad(), estrategia))
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        // Crear el aggregate — genera Domain Events internamente
+        var pedido = Pedido.crear(cliente.id(), lineas);
+        repository.guardar(pedido);
+
+        // Observer: publicar los eventos generados por el aggregate
+        bus.publicarTodos(pedido.pullEventos());
+
+        return new ResultadoPedido(pedido.id(), total);
+    }
+
+    private int totalUnidades(List<LineaPedido> lineas) {
+        return lineas.stream().mapToInt(LineaPedido::cantidad).sum();
+    }
+}
+```
+
+---
+
+## Casos de Uso Avanzados
+
+**Caso 1 — Chain of Responsibility con Sealed Interface:**
+
+```java
+// Cadena de validacion como tipos sellados — cada validador es inmutable
+public sealed interface ValidadorPedido
+    permits ValidadorPedido.ValidarStock,
+            ValidadorPedido.ValidarLimiteCredito,
+            ValidadorPedido.ValidarFraude {
+
+    record ResultadoValidacion(boolean valido, String motivo) {}
+
+    ResultadoValidacion validar(Pedido pedido);
+
+    // Los validadores se encadenan sin conocerse entre sí
+    default ValidadorPedido y(ValidadorPedido siguiente) {
+        return pedido -> {
+            var resultado = this.validar(pedido);
+            return resultado.valido() ? siguiente.validar(pedido) : resultado;
+        };
+    }
+
+    record ValidarStock(InventarioService inventario) implements ValidadorPedido {
+        public ResultadoValidacion validar(Pedido pedido) {
+            var disponible = pedido.lineas().stream()
+                .allMatch(l -> inventario.hayStock(l.productoId(), l.cantidad()));
+            return new ResultadoValidacion(disponible,
+                disponible ? null : "Stock insuficiente");
+        }
+    }
+
+    record ValidarLimiteCredito(CreditoService credito) implements ValidadorPedido {
+        public ResultadoValidacion validar(Pedido pedido) {
+            var limite = credito.obtenerLimite(pedido.clienteId());
+            var total  = pedido.calcularTotal();
+            return new ResultadoValidacion(total.compareTo(limite) <= 0,
+                "Limite de credito superado");
+        }
+    }
+
+    record ValidarFraude(FraudeService fraude) implements ValidadorPedido {
+        public ResultadoValidacion validar(Pedido pedido) {
+            var esFraude = fraude.detectar(pedido.clienteId(), pedido.calcularTotal());
+            return new ResultadoValidacion(!esFraude,
+                esFraude ? "Posible fraude detectado" : null);
+        }
+    }
+}
+
+// Uso — chain expresiva sin boilerplate
+var validador = new ValidadorPedido.ValidarStock(inventario)
+    .y(new ValidadorPedido.ValidarLimiteCredito(credito))
+    .y(new ValidadorPedido.ValidarFraude(fraude));
+
+var resultado = validador.validar(pedido);
+```
+
+**Caso 2 — Observer con backpressure usando Virtual Threads:**
+
+```java
+// EventBus con control de backpressure
+@Service
+public class EventBusConBackpressure {
+
+    private final BlockingQueue<EventoPedido> cola =
+        new LinkedBlockingQueue<>(1000); // Max 1000 eventos en cola
+
+    private final ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
+    private final Map<Class<?>, List<Consumer<EventoPedido>>> suscriptores =
+        new ConcurrentHashMap<>();
+
+    @PostConstruct
+    public void iniciar() {
+        // Procesador de cola en Virtual Thread dedicado
+        executor.submit(() -> {
+            while (!Thread.currentThread().isInterrupted()) {
+                try {
+                    var evento = cola.poll(1, TimeUnit.SECONDS);
+                    if (evento != null) despachar(evento);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        });
+    }
+
+    public boolean publicar(EventoPedido evento) {
+        // Backpressure: si la cola está llena, rechazar en lugar de bloquear
+        var aceptado = cola.offer(evento);
+        if (!aceptado) {
+            log.warn("EventBus saturado — evento descartado: {}",
+                evento.getClass().getSimpleName());
+        }
+        return aceptado;
+    }
+
+    private void despachar(EventoPedido evento) {
+        var handlers = suscriptores.getOrDefault(evento.getClass(), List.of());
+        handlers.forEach(h -> executor.submit(() -> h.accept(evento)));
+    }
+}
+```
+
+---
 
 ## Conclusiones
 
-### Conclusiones
+Los patrones Strategy y Observer implementados con Sealed Interfaces, Records y Pattern Matching de Java 21 son superiores a sus equivalentes GoF clásicos en tres dimensiones clave:
 
-En este manual, hemos explorado la implementación de los patrones Strategy y Observer en Java 21 utilizando las características avanzadas del lenguaje como `sealed interfaces`, pattern matching sobre records y técnicas de desacoplamiento funcional para garantizar un código sin efectos secundarios. La introducción de sealed types ha permitido una manipulación más eficiente y segura de estructuras de datos complejas, especialmente en escenarios donde existen diferentes tipos de objetos que comparten una relación jerárquica. A continuación, se resumen los hallazgos clave:
+1. **Seguridad en compile-time** — añadir un nuevo tipo a la Sealed Interface sin actualizar el switch es un error de compilación, no un bug silencioso en producción.
 
-#### 1. Utilización de Sealed Interfaces para Modelar Jerarquías Tipográficas Seguras
+2. **Inmutabilidad por defecto** — los Records no tienen setters, lo que hace imposible el estado mutable accidental que tantos bugs causa en los observadores clásicos.
 
-El uso de `sealed interfaces` nos ha permitido definir claramente las relaciones entre diferentes tipos de datos dentro del sistema. Por ejemplo, hemos implementado una jerarquía `Employee` que incluye subtipos como `Salaried` y `Freelancer`, garantizando así que ninguna otra clase puede extender estas interfaces a menos que se especifique explícitamente en el tipo `sealed`. Esto proporciona un control mucho más preciso sobre los tipos de datos permitidos, mejorando la seguridad del código.
-
-#### 2. Patrón Matching Sobre Records para Manejo Eficiente y Seguro de Polimorfismo
-
-El patrón matching ha sido fundamental para mejorar la eficiencia y claridad en el manejo del polimorfismo. En lugar de sobrescribir métodos en cada subclase como lo hace el patrón visitor, hemos utilizado pattern matching para definir una única implementación que se encarga de todas las posibles variantes de datos. Esto no solo simplifica la lógica del código sino también facilita su mantenimiento y comprensión por parte del equipo.
-
-#### 3. Desacoplamiento Funcional Sin Efectos Secundarios
-
-La aplicación de técnicas funcionales para evitar efectos secundarios ha sido otro punto destacado en este análisis. A través del uso de funciones puras y la manipulación segura de estructuras de datos, hemos logrado que nuestro código sea más predecible y fácilmente testeable. Esto es especialmente crucial en sistemas complejos donde la consistencia y la ausencia de dependencias mutuas entre componentes son fundamentales para la estabilidad del sistema.
-
-#### 4. Aplicación Práctica de Algebraic Data Types (ADT)
-
-Las hierarquías de tipos `sealed` basadas en records han sido utilizadas para implementar conceptos ADT, lo que ha permitido una manipulación más segura y eficiente de datos complejos. La estructura ADT permite a cada caso del patrón matching manejar específicamente las variaciones de los tipos de datos, asegurando así un manejo exhaustivo y seguro de todas las posibilidades.
-
-#### 5. Integración con Patrones Strategy y Observer
-
-Finalmente, hemos demostrado cómo estos nuevos enfoques pueden integrarse con patrones ya conocidos como Strategy y Observer para mejorar su eficacia y flexibilidad. El uso combinado de sealed interfaces y pattern matching nos ha permitido definir estrategias y observadores más dinámicos y adaptables a diferentes situaciones del sistema.
-
-#### Diagrama Mermaid
+3. **Expresividad** — el Pattern Matching con `when` guards permite routing condicional complejo en una sola expresión, sin ifs anidados ni instanceof.
 
 ```mermaid
-classDiagram
-    class Employee{
-        +getSalary(): Double
-    }
-    class Salaried extends Employee{}
-    class Freelancer extends Employee{}
-
-    Employee <|-- Salaried
-    Employee <|-- Freelancer
-
-    interface Contract {
-        +getEmployee(): Employee
-    }
-
-    class FullTimeContract implements Contract{
-        -employee: Salaried
-        +getEmployee(): Employee
-    }
-    class PartTimeContract implements Contract{
-        -employee: Freelancer
-        +getEmployee(): Employee
-    }
-
-    Contract <|-- FullTimeContract
-    Contract <|-- PartTimeContract
+graph LR
+    A[GoF clasico - 1994] -->|interfaces + clases| B[Boilerplate + mutabilidad]
+    B -->|Java 21| C[Sealed Interfaces + Records]
+    C -->|Pattern Matching| D[Exhaustividad en compile-time]
+    D -->|Virtual Threads| E[Observer escalable sin bloqueos]
 ```
 
-Este diagrama ilustra una jerarquía de tipos `sealed` en la que `Employee` es una interfaz y sus subtipos son `Salaried` y `Freelancer`. A su vez, los contratos pueden ser full-time (que implican a un empleado salariable) o part-time (que implican a un freelance), demostrando cómo sealed types facilitan la manipulación segura de datos en estructuras jerárquicas.
+```java
+// El test que resume el valor de Java 21 para estos patrones
+class PatronesJava21Test {
 
-### Conclusión Final
+    @Test
+    void anadir_nueva_estrategia_sin_actualizar_switch_es_error_compilacion() {
+        // Este test no puede existir — el compilador lo previene antes
+        // Si añades un nuevo permit a EstrategiaDescuento y no actualizas
+        // el switch en CalculadorPrecio, el codigo NO COMPILA
+        // Eso es lo que hace Java 21 superior al GoF clasico
+    }
 
-La implementación avanzada de los patrones Strategy y Observer, junto con el uso innovador de `sealed interfaces`, pattern matching sobre records y técnicas funcionales para evitar efectos secundarios, ha proporcionado un marco robusto y seguro para la programación en Java 21. Estas características no solo mejoran significativamente la claridad y eficiencia del código sino que también facilitan la implementación de patrones más complejos de manera sencilla y mantenible.
+    @Test
+    void strategy_calcula_descuento_por_volumen_correctamente() {
+        var calculador = new CalculadorPrecio();
+        var estrategia = new EstrategiaDescuento.PorVolumen(10, new BigDecimal("0.10"));
 
+        var total = calculador.calcular(new BigDecimal("100"), 15, estrategia);
+
+        assertThat(total).isEqualByComparingTo(new BigDecimal("1350.0")); // 15*100 - 10%
+    }
+
+    @Test
+    void observer_recibe_evento_cuando_pedido_es_creado() {
+        var bus            = new EventBus();
+        var eventosRecibidos = new ArrayList<EventoPedido>();
+
+        bus.suscribir(EventoPedido.Creado.class, eventosRecibidos::add);
+
+        var pedido = Pedido.crear(ClienteId.nuevo(), List.of());
+        bus.publicarTodos(pedido.pullEventos());
+
+        await().atMost(1, SECONDS).until(() -> eventosRecibidos.size() == 1);
+        assertThat(eventosRecibidos.get(0)).isInstanceOf(EventoPedido.Creado.class);
+    }
+}
+```
+
+**Recursos de referencia:**
+- *Design Patterns* — Gamma, Helm, Johnson, Vlissides (GoF, 1994)
+- JEP 409 — Sealed Classes (openjdk.org/jeps/409)
+- JEP 441 — Pattern Matching for switch (openjdk.org/jeps/441)
+- JEP 395 — Records (openjdk.org/jeps/395)
+- *Effective Java 3rd Edition* — Joshua Bloch, Capítulo 4
