@@ -31,6 +31,7 @@ GitHub
 ---
 
 
+
 ## 📚 Índice de Documentos por Módulo
 
 ### ☕ 01_Java_Core — Java 21 Avanzado
@@ -89,6 +90,30 @@ GitHub
 ---
 
 ### 📊 07_BigData_Streaming — Kafka, Spark, Flink
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Apache Kafka Streams con Java 21](./07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) | 5 | 02/04/2026 |
+| [BigData ETL con Apache Spark y Java 21 para Transformación Masiva](./07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) | 6 | 03/04/2026 |
+| [Data Mesh: Descentralización de la Propiedad del Dato con Java 21](./07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) | 7 | 03/04/2026 |
+
+---
+
+### 🤖 08_IA_Agentes — RAG, LangChain4j, LLMOps
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Sistemas Multi-Agente con LangChain4j y Ollama en Java 21](./08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) | 7 | 03/04/2026 |
+
+---
+
+### 📱 09_Frontend_Mobile — Flutter, Android, Kotlin
+
+*Próximamente*
+
+---
+
+## 📊 07_BigData_Streaming — Kafka, Spark, Flink
 
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
