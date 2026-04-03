@@ -48,7 +48,7 @@ GitHub
 | [DDD y Arquitectura Hexagonal con Java 21](./02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) | 9 | 02/04/2026 |
 | [Event-Driven Architecture y Transactional Outbox Pattern con Java 21](./02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) | 8 | 03/04/2026 |
 | [Arquitectura de Microservicios Reactivos con Spring Boot 3.4 y R2DBC](./02_Arquitectura/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) | 7 | 03/04/2026 |
-
+| [Event Sourcing y CQRS con Java 21 y Spring Boot](./02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) | 6 | 03/04/2026 | 
 ---
 
 ### 🌱 03_Spring_Ecosystem — Spring Boot, R2DBC, WebFlux
