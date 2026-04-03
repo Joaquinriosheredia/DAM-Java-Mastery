@@ -45,6 +45,7 @@ GitHub
 |-----------|-----------|-------|
 | [DDD y Arquitectura Hexagonal con Java 21](./02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) | 9 | 02/04/2026 |
 | [Event-Driven Architecture y Transactional Outbox Pattern con Java 21](./02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) | 8 | 03/04/2026 |
+| [Arquitectura de Microservicios Reactivos con Spring Boot 3.4 y R2DBC](./02_Arquitectura/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) | 7 | 03/04/2026 | 
 ---
 
 ### 🌱 03_Spring_Ecosystem — Spring Boot, R2DBC, WebFlux
@@ -52,7 +53,7 @@ GitHub
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
 | [Spring Boot 3.4 y R2DBC con Virtual Threads](./03_Spring_Ecosystem/spring_boot_34_r2dbc_virtual_threads_STAFF.md) | 5 | 02/04/2026 |
-
+| [Observabilidad Distribuida con OpenTelemetry y Grafana](./03_Spring_Ecosystem/observabilidad_distribuida_en_spring_boot_3.3_con_opentelemetry_y_grafana_loki:_correlación_de_trazas_y_logs_STAFF.md) | 7 | 03/04/2026 |
 ---
 
 ### 🗄️ 04_Bases_de_Datos — PostgreSQL, Redis, MongoDB
