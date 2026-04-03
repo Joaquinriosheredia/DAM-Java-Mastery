@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-03 09:14:25
-**Ultimo commit:** d5a1132 feat: Clean Code y SOLID con Java 21 — guía Staff 7 secciones (2 minutes ago)
-**Total de activos:** 140 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-03 09:34:13
+**Ultimo commit:** 08a008f chore: mover seguridad ofensiva a 06_Seguridad/ (25 seconds ago)
+**Total de activos:** 138 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -12,12 +12,12 @@
 
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
-| **01_Java_Core** | 17 | 3 | — |
+| **01_Java_Core** | 16 | 4 | — |
 | **02_Arquitectura** | 25 | 2 | — |
 | **03_Spring_Ecosystem** | 4 | 2 | — |
 | **04_Bases_de_Datos** | 4 | 1 | — |
-| **05_SRE_DevOps** | 10 | 2 | — |
-| **06_Seguridad** | 5 | 2 | — |
+| **05_SRE_DevOps** | 9 | 3 | — |
+| **06_Seguridad** | 6 | 3 | — |
 | **07_BigData_Streaming** | 3 | 2 | — |
 | **08_IA_Agentes** | 10 | 1 | — |
 | **09_Frontend_Mobile** | 3 | 1 | — |
@@ -42,7 +42,6 @@
 - [Informe de Autoridad: Patrones Strategy y Observer en Java 21: Impleme](01_Java_Core/patrones_strategy_y_observer_en_java_21:_implementación_con_sealed_interfaces,_pattern_matching_sobre_records_y_desacoplamiento_funcional_sin_efectos_secundarios_STAFF.md) — 2026-04-01 20:20 (23.8KB)
 - [Patrones Avanzados de Concurrencia en Java 21 usando Virtual Threads y](01_Java_Core/report.md) — 2026-04-01 10:24 (58.0KB)
 - [Java 21 Virtual Threads](01_Java_Core/report_131723.md) — 2026-04-02 12:05 (3.4KB)
-- [Informe de Autoridad: Seguridad Ofensiva y Auditoría de Microservicios](01_Java_Core/seguridad_ofensiva_y_auditoría_de_microservicios_con_java_21_STAFF.md) — 2026-03-31 11:42 (10.2KB)
 - [Informe Técnico: Migración a Java 21 con Virtual Threads (Project Loom](01_Java_Core/tech_java_21_migracion_de_codigo_legacy_a_virtual_threa_082010.md) — 2026-03-28 08:20 (3.4KB)
 - [Informe Técnico: Migración a Java 21 con Virtual Threads (Project Loom](01_Java_Core/tech_java_21_migracion_de_codigo_legacy_a_virtual_threa_082041.md) — 2026-03-28 08:20 (4.0KB)
 - [Documento Técnico: Implementación del Patrón Factory para Gestión de H](01_Java_Core/tech_java_implementacion_de_patron_factory_para_gestion_090131.md) — 2026-03-28 09:01 (4.9KB)
@@ -92,7 +91,6 @@
 ### 📂 05_SRE_DevOps
 
 - [KAFKA STREAMING CON TESTING Y RESILIENCIA](05_SRE_DevOps/deep_kafka_streaming_con_testing_y_resiliencia_20260329_0048.md) — 2026-03-31 14:59 (52.6KB)
-- [Informe de Autoridad: Kubernetes: Auto-escalado y Service Mesh en 2026](05_SRE_DevOps/kubernetes:_auto-escalado_y_service_mesh_en_2026_STAFF.md) — 2026-04-01 14:20 (22.2KB)
 - [Kubernetes: Auto-escalado y Service Mesh en 2026](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-04-02 14:27 (10.6KB)
 - [KAFKA STREAMS CON KUBERNETES Y OBSERVABILIDAD 2026](05_SRE_DevOps/std_kafka_streams_con_kubernetes_y_observabilidad_2026_20260329_1612.md) — 2026-03-29 20:04 (48.4KB)
 - [Informe Técnico: Implementación de IaC mediante Terraform](05_SRE_DevOps/tech_devops_iac_mediante_terraform_081713.md) — 2026-03-28 08:17 (5.0KB)
@@ -105,6 +103,7 @@
 ### 📂 06_Seguridad
 
 - [JWT, OAuth2 y Zero Trust Security con Java 21 y Spring Security](06_Seguridad/jwt_oauth2_y_zero_trust_security_con_java_21_STAFF.md) — 2026-04-02 22:04 (25.2KB)
+- [Seguridad Ofensiva y Auditoría de Microservicios con Java 21](06_Seguridad/seguridad_ofensiva_y_auditoria_de_microservicios_con_java_21_STAFF.md) — 2026-04-03 09:33 (23.0KB)
 - [Análisis de SBOM con CycloneDX para Seguridad en la Cadena de Suminist](06_Seguridad/tech_analisis_de_sbom_con_cyclonedx_para_supply_chain_s_191141.md) — 2026-03-25 19:11 (3.7KB)
 - [Documento Técnico: Bastionado de APIs REST con JWT y OAuth2](06_Seguridad/tech_ciberseguridad_bastionado_de_apis_rest_con_jwt_y_o_071802.md) — 2026-03-28 07:18 (8.4KB)
 - [Documento Técnico: Protección de Historiales Clínicos con Cifrado AES-](06_Seguridad/tech_ciberseguridad_proteccion_de_historiales_clinicos__103339.md) — 2026-03-27 10:33 (4.6KB)
@@ -202,12 +201,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 140 |
-| Tamano total del repositorio | 1.7MB |
+| Total documentos tecnicos | 138 |
+| Tamano total del repositorio | 1.6MB |
 | Modulos activos | 10 |
-| Total commits | 109 |
+| Total commits | 46 |
 | Generado por | Authority Engine v20.2 |
-| Fecha | 2026-04-03 09:14:25 |
+| Fecha | 2026-04-03 09:34:13 |
 
 ---
 
