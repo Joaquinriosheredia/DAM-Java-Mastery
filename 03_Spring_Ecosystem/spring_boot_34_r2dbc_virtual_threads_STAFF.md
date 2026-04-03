@@ -1,16 +1,31 @@
-Spring Boot 3.4 y R2DBC con Virtual Threads
-PATH_LOCAL: /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/_Review/Spring_Boot_3.4_y_R2DBC_con_Virtual_Threads/report.md
-CATEGORIA: 03_Spring_Ecosystem
-Score: 95
+# Spring Boot 3.4 y R2DBC con Virtual Threads
 
-Visión Estratégica
+PATH_LOCAL: /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/03_Spring_Ecosystem/spring_boot_34_r2dbc_virtual_threads_STAFF.md
+CATEGORIA: 03_Spring_Ecosystem
+Score: 97
+
+---
+
+## Visión Estratégica
+
 Spring Boot 3.4 consolida dos paradigmas de concurrencia que hasta ahora eran incompatibles en la práctica: el modelo reactivo de R2DBC/WebFlux y el modelo imperativo con Virtual Threads. Entender cuándo usar cada uno, y cómo combinarlos correctamente, es una decisión arquitectónica de nivel Staff.
-El problema que resuelven juntos:
-El modelo bloqueante tradicional (JDBC + Tomcat) escala mal bajo alta concurrencia porque cada hilo del OS cuesta 1-2 MB y el número de conexiones simultáneas está limitado por el pool de threads. R2DBC resuelve esto con backpressure reactivo. Virtual Threads lo resuelve con threads ligeros gestionados por la JVM. Son dos soluciones al mismo problema con trade-offs distintos.
-CriterioJDBC + Virtual ThreadsR2DBC + WebFluxModelo de códigoImperativo, legibleReactivo, complejoLatencia bajo cargaMuy bajaMuy bajaCompatibilidad libreríasAltaLimitadaCurva de aprendizajeBajaAltaDebuggingSencilloComplejo
-Regla práctica para equipos: Si el equipo domina programación reactiva y la aplicación es I/O-bound con miles de conexiones simultáneas, R2DBC + WebFlux. Si el equipo viene de Spring MVC clásico y quiere escalabilidad sin reescribir, JDBC + Virtual Threads es la migración menos dolorosa de Java 21.
-Spring Boot 3.4 soporta ambos y permite combinarlos en la misma aplicación, lo que es el escenario más realista en migraciones incrementales.
-mermaidgraph TD
+
+**El problema que resuelven juntos:**
+
+El modelo bloqueante tradicional (JDBC + Tomcat) escala mal bajo alta concurrencia porque cada hilo del OS cuesta 1-2 MB. R2DBC resuelve esto con backpressure reactivo. Virtual Threads lo resuelve con hilos ligeros gestionados por la JVM. Son dos soluciones al mismo problema con trade-offs distintos.
+
+| Criterio | JDBC + Virtual Threads | R2DBC + WebFlux |
+|----------|----------------------|-----------------|
+| Modelo de código | Imperativo, legible | Reactivo, complejo |
+| Latencia bajo carga | Muy baja | Muy baja |
+| Compatibilidad librerías | Alta | Limitada |
+| Curva de aprendizaje | Baja | Alta |
+| Debugging | Sencillo | Complejo |
+
+**Regla práctica:** Si el equipo domina programación reactiva y la aplicación es I/O-bound con miles de conexiones simultáneas, R2DBC + WebFlux. Si el equipo viene de Spring MVC clásico y quiere escalabilidad sin reescribir, JDBC + Virtual Threads es la migración menos dolorosa.
+
+```mermaid
+graph TD
     A[Cliente HTTP] --> B[Spring Boot 3.4]
     B --> C{Tipo de endpoint}
     C -->|Reactivo| D[WebFlux + R2DBC]
@@ -21,28 +36,53 @@ mermaidgraph TD
     G --> H
     D --> I[Micrometer + Prometheus]
     E --> I
+```
 
-Arquitectura de Componentes
-La arquitectura de una aplicación Spring Boot 3.4 con R2DBC se organiza en tres capas bien definidas. La clave está en no mezclar código bloqueante dentro del pipeline reactivo.
-mermaidgraph TD
+```java
+// La diferencia fundamental en una línea
+// Virtual Threads — código imperativo, escala igual que reactivo
+public Pedido obtenerPedido(String id) {
+    return repository.findById(id).orElseThrow(); // Bloquea el VT, no el OS thread
+}
+
+// R2DBC — código reactivo, backpressure nativo
+public Mono<Pedido> obtenerPedidoReactivo(String id) {
+    return repository.findById(id); // No bloquea nada
+}
+```
+
+---
+
+## Arquitectura de Componentes
+
+```mermaid
+graph TD
     subgraph Web Layer
-        A[RouterFunction / WebFlux] --> B[Handler]
+        A[RouterFunction - WebFlux] --> B[Handler]
+        C[RestController - MVC + VT] --> D[Service]
     end
-    subgraph Service Layer
-        B --> C[ReactiveCrudRepository]
-        B --> D[R2dbcEntityTemplate]
+    subgraph Data Layer
+        B --> E[ReactiveCrudRepository - R2DBC]
+        D --> F[JpaRepository - JDBC + VT]
     end
     subgraph Infrastructure
-        C --> E[ConnectionPool R2DBC]
-        D --> E
-        E --> F[(PostgreSQL / MySQL)]
+        E --> G[R2DBC Connection Pool]
+        F --> H[HikariCP - JDBC Pool]
+        G --> I[(PostgreSQL)]
+        H --> I
     end
     subgraph Observabilidad
-        E --> G[R2DBC Pool Metrics]
-        G --> H[Micrometer → Prometheus]
+        G --> J[R2DBC Pool Metrics]
+        H --> K[HikariCP Metrics]
+        J --> L[Micrometer Prometheus]
+        K --> L
     end
-Configuración de conexión R2DBC con pool en application.yml:
-yamlspring:
+```
+
+**Configuración R2DBC en application.yml:**
+
+```yaml
+spring:
   r2dbc:
     url: r2dbc:postgresql://localhost:5432/mibasedatos
     username: usuario
@@ -54,9 +94,13 @@ yamlspring:
       validation-query: SELECT 1
   threads:
     virtual:
-      enabled: true  # Activa Virtual Threads en Spring MVC/Tomcat
-Entidad y repositorio reactivo:
-javaimport org.springframework.data.annotation.Id;
+      enabled: true
+```
+
+**Entidad y repositorio reactivo con Records:**
+
+```java
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Flux;
@@ -71,17 +115,18 @@ public record Pedido(
 ) {}
 
 public interface PedidoRepository extends ReactiveCrudRepository<Pedido, Long> {
-
     Flux<Pedido> findByClienteId(String clienteId);
-
     Flux<Pedido> findByEstado(String estado);
-
     Mono<Long> countByEstado(String estado);
 }
+```
 
-Implementación Java 21
-Implementación completa de un servicio reactivo con R2DBC, transacciones y manejo correcto de errores:
-javaimport org.springframework.r2dbc.core.DatabaseClient;
+---
+
+## Implementación Java 21
+
+```java
+import org.springframework.r2dbc.core.DatabaseClient;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.reactive.TransactionalOperator;
 import reactor.core.publisher.Flux;
@@ -90,33 +135,30 @@ import reactor.core.publisher.Mono;
 @Service
 public class PedidoService {
 
-    private final PedidoRepository repository;
-    private final DatabaseClient databaseClient;
+    private final PedidoRepository     repository;
+    private final DatabaseClient        databaseClient;
     private final TransactionalOperator txOperator;
 
     public PedidoService(
             PedidoRepository repository,
             DatabaseClient databaseClient,
             TransactionalOperator txOperator) {
-        this.repository = repository;
+        this.repository    = repository;
         this.databaseClient = databaseClient;
-        this.txOperator = txOperator;
+        this.txOperator    = txOperator;
     }
 
-    // Consulta simple reactiva
     public Flux<Pedido> obtenerPedidosPorCliente(String clienteId) {
         return repository.findByClienteId(clienteId)
             .doOnError(e -> log.error("Error obteniendo pedidos: {}", e.getMessage()));
     }
 
-    // Inserción con transacción reactiva
     public Mono<Pedido> crearPedido(Pedido pedido) {
         return repository.save(pedido)
             .as(txOperator::transactional)
             .doOnSuccess(p -> log.info("Pedido creado: {}", p.id()));
     }
 
-    // Consulta con DatabaseClient para SQL custom
     public Flux<Pedido> pedidosPendientesMayorDe(java.math.BigDecimal importe) {
         return databaseClient.sql("""
                 SELECT id, cliente_id, estado, total
@@ -130,8 +172,10 @@ public class PedidoService {
             .all();
     }
 }
-Controlador WebFlux que expone los endpoints reactivos:
-javaimport org.springframework.http.MediaType;
+```
+
+```java
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -156,17 +200,20 @@ public class PedidoController {
         return service.crearPedido(pedido);
     }
 
-    // Server-Sent Events para streaming reactivo real
     @GetMapping(value = "/stream/pendientes",
                 produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Pedido> streamPendientes() {
         return service.pedidosPendientesMayorDe(java.math.BigDecimal.ZERO);
     }
 }
+```
 
-Métricas y SRE
-R2DBC expone métricas del pool de conexiones automáticamente via Micrometer cuando Spring Boot Actuator está en el classpath. Las métricas más importantes para monitorizar:
-mermaidgraph TD
+---
+
+## Métricas y SRE
+
+```mermaid
+graph TD
     A[R2DBC Connection Pool] --> B[r2dbc.pool.acquired]
     A --> C[r2dbc.pool.pending]
     A --> D[r2dbc.pool.idle]
@@ -178,41 +225,74 @@ mermaidgraph TD
     F --> G[Grafana Dashboard]
     G --> H{Alertas}
     H -->|pending alto| I[Escalar pool o BD]
-    H -->|acquired = max| J[Cuello de botella detectado]
-Queries Prometheus para monitorizar el pool R2DBC:
-promql# Conexiones pendientes (esperando conexión disponible)
-r2dbc_pool_pending{name="connectionPool"}
+    H -->|acquired igual max| J[Cuello de botella detectado]
+```
 
-# Ratio de utilización del pool
-r2dbc_pool_acquired / r2dbc_pool_max_allocated
+```java
+// Health indicator para R2DBC
+@Component
+public class R2dbcHealthIndicator implements ReactiveHealthIndicator {
 
-# Tiempo medio de adquisición de conexión (p95)
-histogram_quantile(0.95,
-  rate(r2dbc_pool_acquire_duration_seconds_bucket[5m])
-)
-Configuración de Actuator para exponer métricas R2DBC:
-yamlmanagement:
-  endpoints:
-    web:
-      exposure:
-        include: health,metrics,prometheus,startup
-  metrics:
-    export:
-      prometheus:
-        enabled: true
-  endpoint:
-    health:
-      show-details: always
-Checklist SRE para R2DBC en producción:
+    private final ConnectionPool pool;
 
-max-size del pool debe ser ≤ max_connections configurado en PostgreSQL por instancia de aplicación
-Configurar validation-query: SELECT 1 para detectar conexiones muertas antes de usarlas
-Activar spring.r2dbc.pool.max-idle-time para liberar conexiones inactivas y no agotar conexiones en la BD
-Alertar cuando r2dbc_pool_pending > 0 durante más de 5 segundos sostenidos
-En Virtual Threads + Spring MVC, monitorizar jvm_threads_live_threads — no debe crecer indefinidamente
+    public R2dbcHealthIndicator(ConnectionPool pool) {
+        this.pool = pool;
+    }
 
+    @Override
+    public Mono<Health> health() {
+        return pool.create()
+            .flatMap(connection ->
+                Mono.from(connection.validate(ValidationDepth.REMOTE))
+                    .map(valid -> valid
+                        ? Health.up()
+                            .withDetail("pool.size", pool.getMetrics()
+                                .map(m -> m.allocatedSize()).orElse(0))
+                            .build()
+                        : Health.down().withDetail("validation", "failed").build())
+                    .doFinally(s -> connection.close())
+            )
+            .onErrorResume(e -> Mono.just(Health.down().withException(e).build()));
+    }
+}
+```
 
-Conclusiones
-Spring Boot 3.4 con R2DBC representa la opción más madura para aplicaciones Java con alta concurrencia de I/O en 2026. Los tres puntos críticos que un Staff Engineer debe dominar son: el modelo de backpressure reactivo (nunca bloquear dentro de un pipeline Flux/Mono), la configuración correcta del pool de conexiones R2DBC (el tamaño del pool es el parámetro más importante para el rendimiento), y la observabilidad del pool via Micrometer.
-La combinación con Virtual Threads no es un reemplazo de R2DBC sino complementaria: Virtual Threads activos en spring.threads.virtual.enabled=true benefician a los componentes bloqueantes que aún existan en la aplicación (schedulers, listeners síncronos), mientras R2DBC maneja el acceso a datos de forma reactiva.
-El error más común en producción es configurar max-size del pool R2DBC mayor que max_connections de PostgreSQL dividido entre el número de instancias de la aplicación. Esto provoca errores de conexión bajo carga que son difíciles de diagnosticar sin las métricas correctas de Micrometer.
+**Métricas clave:**
+
+| Métrica | Descripción | Umbral |
+|---------|-------------|--------|
+| `r2dbc.pool.pending` | Conexiones esperando | > 0 durante 5s → alerta |
+| `r2dbc.pool.acquired / max` | Ratio utilización | > 80% → escalar pool |
+| `r2dbc.pool.acquire.duration.p95` | Latencia adquisición | > 100ms → problema |
+| `jvm.threads.live` | Hilos activos (VT) | No debe crecer indefinidamente |
+
+**Checklist SRE:**
+- `max-size` del pool ≤ `max_connections` de PostgreSQL dividido entre instancias
+- `validation-query: SELECT 1` para detectar conexiones muertas
+- `max-idle-time` configurado para liberar conexiones inactivas
+- Alertar cuando `r2dbc_pool_pending > 0` sostenido más de 5 segundos
+- Nunca bloquear dentro de un pipeline Flux/Mono — usar `Schedulers.boundedElastic()` para código bloqueante
+
+---
+
+## Conclusiones
+
+Spring Boot 3.4 con R2DBC es la opción más madura para aplicaciones Java con alta concurrencia de I/O en 2026. Los tres puntos críticos que un Staff Engineer debe dominar:
+
+1. **Nunca bloquear dentro de un pipeline reactivo** — una llamada bloqueante dentro de un `Flux/Mono` paraliza el event loop completo.
+2. **Tamaño del pool R2DBC** — es el parámetro más importante para el rendimiento. Dimensionar según `max_connections` de PostgreSQL.
+3. **Virtual Threads como complemento, no sustituto** — activos en `spring.threads.virtual.enabled=true` benefician a los componentes bloqueantes residuales.
+
+```mermaid
+graph LR
+    A[Spring MVC + JDBC] -->|Alta concurrencia requerida| B{Elegir modelo}
+    B -->|Equipo reactivo| C[R2DBC + WebFlux]
+    B -->|Equipo clasico| D[JDBC + Virtual Threads]
+    C -->|Migracion incremental| E[Ambos en la misma app]
+    D --> E
+```
+
+**Recursos de referencia:**
+- Spring Data R2DBC — docs.spring.io/spring-data/r2dbc
+- R2DBC Specification — r2dbc.io
+- Spring Boot Virtual Threads — docs.spring.io/spring-boot/reference/web/servlet.html#web.servlet.embedded-container.threads
