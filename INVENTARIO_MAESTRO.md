@@ -1,8 +1,8 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-03 09:49:36
-**Ultimo commit:** fce37bd feat: Optimización JVM y Redis Java 21 — Staff a 04_Bases_de_Datos/ (23 seconds ago)
+**Ultima sincronizacion:** 2026-04-03 09:58:04
+**Ultimo commit:** 43d6afd feat: EDA Transactional Outbox Java 21 — Staff a 02_Arquitectura/ (3 minutes ago)
 **Total de activos:** 138 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
@@ -12,8 +12,8 @@
 
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
-| **01_Java_Core** | 15 | 6 | — |
-| **02_Arquitectura** | 25 | 2 | — |
+| **01_Java_Core** | 14 | 7 | — |
+| **02_Arquitectura** | 26 | 3 | — |
 | **03_Spring_Ecosystem** | 4 | 2 | — |
 | **04_Bases_de_Datos** | 5 | 2 | — |
 | **05_SRE_DevOps** | 9 | 3 | — |
@@ -35,7 +35,6 @@
 - [Informe de Autoridad: Arquitectura Hexagonal y DDD en Java 21: Invaria](01_Java_Core/arquitectura_hexagonal_y_ddd_en_java_21:_invariantes_en_agregados,_value_objects_con_records_y_persistencia_desacoplada_con_spring_data_r2dbc_STAFF.md) — 2026-04-01 22:33 (36.6KB)
 - [Clean Code y Principios SOLID con Java 21](01_Java_Core/clean_code_y_solid_con_java_21_STAFF.md) — 2026-04-03 09:11 (22.8KB)
 - [SISTEMAS DE ALTA DISPONIBILIDAD EN JAVA 21 CON KUBERNETES](01_Java_Core/deep_sistemas_de_alta_disponibilidad_en_java_21_con_kubernetes_20260328_2129.md) — 2026-03-29 01:42 (47.4KB)
-- [Informe de Autoridad: Implementación de Event-Driven Architecture (EDA](01_Java_Core/implementación_de_event-driven_architecture_(eda)_con_transactional_outbox_pattern_en_java_21:_garantizando_consistencia_eventual_con_debezium_y_r2dbc_STAFF.md) — 2026-04-02 09:48 (22.9KB)
 - [Documento Técnico Unificado: Implementación del Patrón Factory para Ge](01_Java_Core/implementación_patrón_factory_para_gesti_1212.md) — 2026-03-31 14:59 (5.3KB)
 - [Java 21 Virtual Threads: Guía de Referencia Staff Engineer](01_Java_Core/java_21_virtual_threads_STAFF.md) — 2026-04-02 14:18 (9.6KB)
 - [Patrones Strategy y Observer con Java 21: Sealed Interfaces y Pattern ](01_Java_Core/patrones_strategy_y_observer_en_java_21:_implementación_con_sealed_interfaces,_pattern_matching_sobre_records_y_desacoplamiento_funcional_sin_efectos_secundarios_STAFF.md) — 2026-04-03 09:42 (23.2KB)
@@ -56,6 +55,7 @@
 - [Implementación de Resilience4j y Circuit Breaker en Microservicios Spr](02_Arquitectura/deep_Implementación_de_Resilience4j_y_Circuit_Breaker_en_Microservicios_Spring_Boot_3.4_20260331_1459.md) — 2026-03-31 14:59 (63.3KB)
 - [Implementación de Resilience4j y Circuit Breaker en Microservicios Spr](02_Arquitectura/deep_Implementación_de_Resilience4j_y_Circuit_Breaker_en_Microservicios_Spring_Boot_3.4_20260331_2052.md) — 2026-03-31 20:52 (110.6KB)
 - [TEST ARQUITECTURA CON CONTROL DE SECCIONES](02_Arquitectura/deep_test_arquitectura_con_control_de_secciones_20260329_0935.md) — 2026-03-29 10:12 (63.1KB)
+- [Event-Driven Architecture y Transactional Outbox Pattern con Java 21](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-03 09:55 (19.4KB)
 - [ARQUITECTURA: MIGRACIÓN DE MONOLITO A MICROSERVICIOS CON STRANGLER FIG](02_Arquitectura/std_arquitectura:_migración_de_monolito_a_microservicios_con_strangler_fig_pattern_20260329_0915.md) — 2026-03-29 09:19 (6.9KB)
 - [Documento Técnico: Arquitectura de Estado en Flutter para Apps Móviles](02_Arquitectura/tech_arquitectura_de_estado_en_flutter_para_apps_movile_090050.md) — 2026-03-27 09:00 (6.3KB)
 - [Documento Técnico: Arquitectura de Estado en Flutter para Apps Móviles](02_Arquitectura/tech_arquitectura_de_estado_en_flutter_para_apps_movile_190913.md) — 2026-03-25 19:09 (3.1KB)
@@ -204,9 +204,9 @@
 | Total documentos tecnicos | 138 |
 | Tamano total del repositorio | 1.6MB |
 | Modulos activos | 10 |
-| Total commits | 49 |
+| Total commits | 51 |
 | Generado por | Authority Engine v20.2 |
-| Fecha | 2026-04-03 09:49:36 |
+| Fecha | 2026-04-03 09:58:04 |
 
 ---
 
