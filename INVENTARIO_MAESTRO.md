@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-02 22:05:29
-**Ultimo commit:** a3b633f chore: limpiar borrador JWT de _Review/ (8 seconds ago)
-**Total de activos:** 139 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-03 09:14:25
+**Ultimo commit:** d5a1132 feat: Clean Code y SOLID con Java 21 — guía Staff 7 secciones (2 minutes ago)
+**Total de activos:** 140 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -12,7 +12,7 @@
 
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
-| **01_Java_Core** | 16 | 2 | — |
+| **01_Java_Core** | 17 | 3 | — |
 | **02_Arquitectura** | 25 | 2 | — |
 | **03_Spring_Ecosystem** | 4 | 2 | — |
 | **04_Bases_de_Datos** | 4 | 1 | — |
@@ -33,6 +33,7 @@
 - [Informe de Autoridad: Arquitectura Hexagonal y Clean Code en Java 21](01_Java_Core/arquitectura_hexagonal_y_clean_code_en_java_21_STAFF.md) — 2026-03-31 11:42 (47.5KB)
 - [Informe de Autoridad: Arquitectura Hexagonal y DDD con Java 21: Implem](01_Java_Core/arquitectura_hexagonal_y_ddd_con_java_21:_implementando_agregados_y_value_objects_STAFF.md) — 2026-04-01 17:54 (56.5KB)
 - [Informe de Autoridad: Arquitectura Hexagonal y DDD en Java 21: Invaria](01_Java_Core/arquitectura_hexagonal_y_ddd_en_java_21:_invariantes_en_agregados,_value_objects_con_records_y_persistencia_desacoplada_con_spring_data_r2dbc_STAFF.md) — 2026-04-01 22:33 (36.6KB)
+- [Clean Code y Principios SOLID con Java 21](01_Java_Core/clean_code_y_solid_con_java_21_STAFF.md) — 2026-04-03 09:11 (22.8KB)
 - [SISTEMAS DE ALTA DISPONIBILIDAD EN JAVA 21 CON KUBERNETES](01_Java_Core/deep_sistemas_de_alta_disponibilidad_en_java_21_con_kubernetes_20260328_2129.md) — 2026-03-29 01:42 (47.4KB)
 - [Informe de Autoridad: Implementación de Event-Driven Architecture (EDA](01_Java_Core/implementación_de_event-driven_architecture_(eda)_con_transactional_outbox_pattern_en_java_21:_garantizando_consistencia_eventual_con_debezium_y_r2dbc_STAFF.md) — 2026-04-02 09:48 (22.9KB)
 - [Documento Técnico Unificado: Implementación del Patrón Factory para Ge](01_Java_Core/implementación_patrón_factory_para_gesti_1212.md) — 2026-03-31 14:59 (5.3KB)
@@ -201,12 +202,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 139 |
+| Total documentos tecnicos | 140 |
 | Tamano total del repositorio | 1.7MB |
 | Modulos activos | 10 |
-| Total commits | 108 |
+| Total commits | 109 |
 | Generado por | Authority Engine v20.2 |
-| Fecha | 2026-04-02 22:05:29 |
+| Fecha | 2026-04-03 09:14:25 |
 
 ---
 
