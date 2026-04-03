@@ -1,26 +1,13 @@
 title: "DAM-Java-Mastery | Biblioteca Técnica Staff Engineer"
-description: "Documentación técnica de nivel Staff Engineer sobre Java 21, arquitecturas distribuidas, SRE, seguridad y sistemas de IA. Generada con Authority Engine v21.0."
+description: "Documentación técnica Staff Engineer sobre Java 21, arquitecturas distribuidas, SRE y sistemas de IA."
 author: "Joaquín Ríos Heredia"
 url: "https://joaquinriosheredia.github.io"
 baseurl: "/DAM-Java-Mastery"
-
 theme: minima
-
-markdown: kramdown
-highlighter: rouge
-
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-
-navigation:
-  - title: "Java Core"
-    url: /01_Java_Core/
-  - title: "Arquitectura"
-    url: /02_Arquitectura/
-  - title: "Spring"
-    url: /03_Spring_Ecosystem/
-  - title: "Seguridad"
-    url: /06_Seguridad/
-  - title: "BigData"
-    url: /07_BigData_Streaming/
+exclude:
+  - "*.py"
+  - "*.json"
+  - "*.log"
+  - "_Review/"
+  - "ROADMAP_TEMAS.md"
+include_pattern: "*_STAFF.md"
