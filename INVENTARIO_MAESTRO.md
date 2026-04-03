@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-03 09:58:04
-**Ultimo commit:** 43d6afd feat: EDA Transactional Outbox Java 21 — Staff a 02_Arquitectura/ (3 minutes ago)
-**Total de activos:** 138 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-03 10:19:12
+**Ultimo commit:** e6f8343 feat: Microservicios Reactivos y Observabilidad — guías Staff refinadas (31 seconds ago)
+**Total de activos:** 135 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -12,9 +12,9 @@
 
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
-| **01_Java_Core** | 14 | 7 | — |
-| **02_Arquitectura** | 26 | 3 | — |
-| **03_Spring_Ecosystem** | 4 | 2 | — |
+| **01_Java_Core** | 11 | 9 | — |
+| **02_Arquitectura** | 26 | 4 | — |
+| **03_Spring_Ecosystem** | 4 | 3 | — |
 | **04_Bases_de_Datos** | 5 | 2 | — |
 | **05_SRE_DevOps** | 9 | 3 | — |
 | **06_Seguridad** | 6 | 3 | — |
@@ -30,9 +30,6 @@
 ### 📂 01_Java_Core
 
 - [ARQUITECTURA DE MICROSERVICIOS REACTIVOS CON SPRING BOOT 3.4 Y PROJECT](01_Java_Core/arquitectura_de_microservicios_reactivos_con_spring_boot_3.4_y_project_loom_20260328_1713.md) — 2026-03-28 17:35 (30.6KB)
-- [Informe de Autoridad: Arquitectura Hexagonal y Clean Code en Java 21](01_Java_Core/arquitectura_hexagonal_y_clean_code_en_java_21_STAFF.md) — 2026-03-31 11:42 (47.5KB)
-- [Informe de Autoridad: Arquitectura Hexagonal y DDD con Java 21: Implem](01_Java_Core/arquitectura_hexagonal_y_ddd_con_java_21:_implementando_agregados_y_value_objects_STAFF.md) — 2026-04-01 17:54 (56.5KB)
-- [Informe de Autoridad: Arquitectura Hexagonal y DDD en Java 21: Invaria](01_Java_Core/arquitectura_hexagonal_y_ddd_en_java_21:_invariantes_en_agregados,_value_objects_con_records_y_persistencia_desacoplada_con_spring_data_r2dbc_STAFF.md) — 2026-04-01 22:33 (36.6KB)
 - [Clean Code y Principios SOLID con Java 21](01_Java_Core/clean_code_y_solid_con_java_21_STAFF.md) — 2026-04-03 09:11 (22.8KB)
 - [SISTEMAS DE ALTA DISPONIBILIDAD EN JAVA 21 CON KUBERNETES](01_Java_Core/deep_sistemas_de_alta_disponibilidad_en_java_21_con_kubernetes_20260328_2129.md) — 2026-03-29 01:42 (47.4KB)
 - [Documento Técnico Unificado: Implementación del Patrón Factory para Ge](01_Java_Core/implementación_patrón_factory_para_gesti_1212.md) — 2026-03-31 14:59 (5.3KB)
@@ -49,7 +46,7 @@
 - [Arquitectura Híbrida DAM](02_Arquitectura/ARQUITECTURA.md) — 2026-03-18 21:33 (209.0B)
 - [```markdown](02_Arquitectura/DOC_ciberseguridad_implementación_de_modelos.md) — 2026-03-20 10:33 (5.2KB)
 - [```markdown](02_Arquitectura/DOC_edge_computing_procesamiento_de_telemetr.md) — 2026-03-31 14:59 (6.0KB)
-- [Informe de Autoridad: Arquitectura de Microservicios Reactivos con Spr](02_Arquitectura/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) — 2026-04-01 15:46 (56.2KB)
+- [Arquitectura de Microservicios Reactivos con Spring Boot 3.4 y R2DBC](02_Arquitectura/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) — 2026-04-03 10:17 (16.4KB)
 - [```markdown](02_Arquitectura/comparativo_microservicios_monolito_scalabilidad.md) — 2026-03-20 09:08 (4.1KB)
 - [DDD y Arquitectura Hexagonal con Java 21](02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) — 2026-04-02 19:14 (25.3KB)
 - [Implementación de Resilience4j y Circuit Breaker en Microservicios Spr](02_Arquitectura/deep_Implementación_de_Resilience4j_y_Circuit_Breaker_en_Microservicios_Spring_Boot_3.4_20260331_1459.md) — 2026-03-31 14:59 (63.3KB)
@@ -76,7 +73,7 @@
 ### 📂 03_Spring_Ecosystem
 
 - [Observabilidad con OpenTelemetry en Spring Boot 3.4](03_Spring_Ecosystem/deep_Observabilidad_con_OpenTelemetry_en_Spring_Boot_3.4_20260331_1142.md) — 2026-03-31 11:42 (42.3KB)
-- [Informe de Autoridad: Observabilidad Distribuida en Spring Boot 3.3 co](03_Spring_Ecosystem/observabilidad_distribuida_en_spring_boot_3.3_con_opentelemetry_y_grafana_loki:_correlación_de_trazas_y_logs_STAFF.md) — 2026-04-01 23:10 (53.8KB)
+- [Observabilidad Distribuida en Spring Boot 3.4 con OpenTelemetry y Graf](03_Spring_Ecosystem/observabilidad_distribuida_en_spring_boot_3.3_con_opentelemetry_y_grafana_loki:_correlación_de_trazas_y_logs_STAFF.md) — 2026-04-03 10:18 (16.0KB)
 - [Spring Boot 3.4 y R2DBC con Virtual Threads](03_Spring_Ecosystem/spring_boot_34_r2dbc_virtual_threads_STAFF.md) — 2026-04-02 15:10 (9.2KB)
 - [Documento Técnico: Implementación de IA con Gobernanza Deep usando Spr](03_Spring_Ecosystem/tech_ia_con_gobernanza_deep_112341.md) — 2026-03-27 11:23 (3.2KB)
 
@@ -201,12 +198,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 138 |
-| Tamano total del repositorio | 1.6MB |
+| Total documentos tecnicos | 135 |
+| Tamano total del repositorio | 1.4MB |
 | Modulos activos | 10 |
-| Total commits | 51 |
+| Total commits | 55 |
 | Generado por | Authority Engine v20.2 |
-| Fecha | 2026-04-03 09:58:04 |
+| Fecha | 2026-04-03 10:19:12 |
 
 ---
 
