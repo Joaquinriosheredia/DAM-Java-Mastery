@@ -1,0 +1,58 @@
+name: Quality Check
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  check-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check document quality
+        run: |
+          echo "🔍 Verificando calidad de documentos Staff..."
+          ERRORS=0
+          TOTAL=0
+
+          for file in $(find . -name "*_STAFF.md" \
+            -not -path "./_Review/*" \
+            -not -path "./_Archive/*"); do
+
+            TOTAL=$((TOTAL + 1))
+            nombre=$(basename "$file")
+
+            # Verificar bloque Java
+            if ! grep -q '```java' "$file"; then
+              echo "❌ Sin código Java: $nombre"
+              ERRORS=$((ERRORS + 1))
+            fi
+
+            # Verificar bloque Mermaid
+            if ! grep -q '```mermaid' "$file"; then
+              echo "❌ Sin diagrama Mermaid: $nombre"
+              ERRORS=$((ERRORS + 1))
+            fi
+
+            # Verificar que no hay setters
+            if grep -q 'public void set[A-Z]' "$file"; then
+              echo "⚠️  Setter detectado: $nombre"
+            fi
+
+            echo "✅ $nombre"
+          done
+
+          echo ""
+          echo "📊 Documentos verificados: $TOTAL"
+          echo "❌ Errores encontrados: $ERRORS"
+
+          if [ $ERRORS -gt 0 ]; then
+            echo "🚨 CI fallido — hay documentos sin calidad Staff"
+            exit 1
+          fi
+
+          echo "🎉 Todos los documentos pasan el control de calidad"
