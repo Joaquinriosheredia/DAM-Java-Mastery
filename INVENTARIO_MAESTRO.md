@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-03 15:27:50
-**Ultimo commit:** 0515091 feat: Event Sourcing y CQRS Java 21 — guía Staff 6 secciones (71 seconds ago)
-**Total de activos:** 137 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-03 19:25:17
+**Ultimo commit:** 445baa6 feat: BigData ETL Apache Spark Java 21 — guía Staff 6 secciones (25 seconds ago)
+**Total de activos:** 138 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -18,7 +18,7 @@
 | **04_Bases_de_Datos** | 5 | 2 | — |
 | **05_SRE_DevOps** | 9 | 3 | — |
 | **06_Seguridad** | 6 | 3 | — |
-| **07_BigData_Streaming** | 3 | 3 | — |
+| **07_BigData_Streaming** | 4 | 4 | — |
 | **08_IA_Agentes** | 10 | 2 | — |
 | **09_Frontend_Mobile** | 3 | 1 | — |
 | **10_Vanguardia** | 58 | 1 | — |
@@ -110,6 +110,7 @@
 ### 📂 07_BigData_Streaming
 
 - [Apache Kafka Streams con Java 21](07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) — 2026-04-02 15:46 (10.8KB)
+- [BigData ETL con Apache Spark y Java 21 para Transformación Masiva](07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) — 2026-04-03 19:24 (17.3KB)
 - [Data Mesh: Descentralización de la Propiedad del Dato con Java 21](07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) — 2026-04-03 10:28 (17.7KB)
 - [Documento Técnico: Edge Computing para Procesamiento de Telemetría IoT](07_BigData_Streaming/tech_edge_computing_procesamiento_de_telemetria_iot_en__081523.md) — 2026-03-28 08:15 (3.8KB)
 
@@ -199,12 +200,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 137 |
+| Total documentos tecnicos | 138 |
 | Tamano total del repositorio | 1.4MB |
 | Modulos activos | 10 |
-| Total commits | 50 |
+| Total commits | 63 |
 | Generado por | Authority Engine v20.2 |
-| Fecha | 2026-04-03 15:27:50 |
+| Fecha | 2026-04-03 19:25:17 |
 
 ---
 
