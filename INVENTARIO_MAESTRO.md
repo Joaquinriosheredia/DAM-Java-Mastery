@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-03 10:29:27
-**Ultimo commit:** 498c793 feat: Data Mesh y Sistemas Multi-Agente — guías Staff refinadas (23 seconds ago)
-**Total de activos:** 135 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-03 15:27:50
+**Ultimo commit:** 0515091 feat: Event Sourcing y CQRS Java 21 — guía Staff 6 secciones (71 seconds ago)
+**Total de activos:** 137 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 11 | 9 | — |
-| **02_Arquitectura** | 26 | 4 | — |
+| **02_Arquitectura** | 27 | 5 | — |
 | **03_Spring_Ecosystem** | 4 | 3 | — |
 | **04_Bases_de_Datos** | 5 | 2 | — |
 | **05_SRE_DevOps** | 9 | 3 | — |
@@ -53,6 +53,7 @@
 - [Implementación de Resilience4j y Circuit Breaker en Microservicios Spr](02_Arquitectura/deep_Implementación_de_Resilience4j_y_Circuit_Breaker_en_Microservicios_Spring_Boot_3.4_20260331_2052.md) — 2026-03-31 20:52 (110.6KB)
 - [TEST ARQUITECTURA CON CONTROL DE SECCIONES](02_Arquitectura/deep_test_arquitectura_con_control_de_secciones_20260329_0935.md) — 2026-03-29 10:12 (63.1KB)
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-03 09:55 (19.4KB)
+- [Event Sourcing y CQRS con Java 21 y Spring Boot](02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) — 2026-04-03 15:27 (21.1KB)
 - [ARQUITECTURA: MIGRACIÓN DE MONOLITO A MICROSERVICIOS CON STRANGLER FIG](02_Arquitectura/std_arquitectura:_migración_de_monolito_a_microservicios_con_strangler_fig_pattern_20260329_0915.md) — 2026-03-29 09:19 (6.9KB)
 - [Documento Técnico: Arquitectura de Estado en Flutter para Apps Móviles](02_Arquitectura/tech_arquitectura_de_estado_en_flutter_para_apps_movile_090050.md) — 2026-03-27 09:00 (6.3KB)
 - [Documento Técnico: Arquitectura de Estado en Flutter para Apps Móviles](02_Arquitectura/tech_arquitectura_de_estado_en_flutter_para_apps_movile_190913.md) — 2026-03-25 19:09 (3.1KB)
@@ -198,12 +199,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 135 |
-| Tamano total del repositorio | 1.3MB |
+| Total documentos tecnicos | 137 |
+| Tamano total del repositorio | 1.4MB |
 | Modulos activos | 10 |
-| Total commits | 57 |
+| Total commits | 50 |
 | Generado por | Authority Engine v20.2 |
-| Fecha | 2026-04-03 10:29:27 |
+| Fecha | 2026-04-03 15:27:50 |
 
 ---
 
