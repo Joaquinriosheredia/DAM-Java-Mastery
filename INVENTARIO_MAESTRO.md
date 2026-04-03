@@ -1,8 +1,8 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-03 09:34:13
-**Ultimo commit:** 08a008f chore: mover seguridad ofensiva a 06_Seguridad/ (25 seconds ago)
+**Ultima sincronizacion:** 2026-04-03 09:43:04
+**Ultimo commit:** 82ad326 feat: Patrones Strategy y Observer Java 21 — guía Staff refinada (24 seconds ago)
 **Total de activos:** 138 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
@@ -12,7 +12,7 @@
 
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
-| **01_Java_Core** | 16 | 4 | — |
+| **01_Java_Core** | 16 | 5 | — |
 | **02_Arquitectura** | 25 | 2 | — |
 | **03_Spring_Ecosystem** | 4 | 2 | — |
 | **04_Bases_de_Datos** | 4 | 1 | — |
@@ -39,7 +39,7 @@
 - [Documento Técnico Unificado: Implementación del Patrón Factory para Ge](01_Java_Core/implementación_patrón_factory_para_gesti_1212.md) — 2026-03-31 14:59 (5.3KB)
 - [Java 21 Virtual Threads: Guía de Referencia Staff Engineer](01_Java_Core/java_21_virtual_threads_STAFF.md) — 2026-04-02 14:18 (9.6KB)
 - [Informe de Autoridad: Optimización de Rendimiento en JVM y Estrategias](01_Java_Core/optimización_de_rendimiento_en_jvm_y_estrategias_de_caché_distribuida_con_redis_y_java_21_STAFF.md) — 2026-03-31 11:42 (57.5KB)
-- [Informe de Autoridad: Patrones Strategy y Observer en Java 21: Impleme](01_Java_Core/patrones_strategy_y_observer_en_java_21:_implementación_con_sealed_interfaces,_pattern_matching_sobre_records_y_desacoplamiento_funcional_sin_efectos_secundarios_STAFF.md) — 2026-04-01 20:20 (23.8KB)
+- [Patrones Strategy y Observer con Java 21: Sealed Interfaces y Pattern ](01_Java_Core/patrones_strategy_y_observer_en_java_21:_implementación_con_sealed_interfaces,_pattern_matching_sobre_records_y_desacoplamiento_funcional_sin_efectos_secundarios_STAFF.md) — 2026-04-03 09:42 (23.2KB)
 - [Patrones Avanzados de Concurrencia en Java 21 usando Virtual Threads y](01_Java_Core/report.md) — 2026-04-01 10:24 (58.0KB)
 - [Java 21 Virtual Threads](01_Java_Core/report_131723.md) — 2026-04-02 12:05 (3.4KB)
 - [Informe Técnico: Migración a Java 21 con Virtual Threads (Project Loom](01_Java_Core/tech_java_21_migracion_de_codigo_legacy_a_virtual_threa_082010.md) — 2026-03-28 08:20 (3.4KB)
@@ -204,9 +204,9 @@
 | Total documentos tecnicos | 138 |
 | Tamano total del repositorio | 1.6MB |
 | Modulos activos | 10 |
-| Total commits | 46 |
+| Total commits | 47 |
 | Generado por | Authority Engine v20.2 |
-| Fecha | 2026-04-03 09:34:13 |
+| Fecha | 2026-04-03 09:43:04 |
 
 ---
 
