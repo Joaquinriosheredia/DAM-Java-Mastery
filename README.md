@@ -36,7 +36,7 @@ GitHub
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
 | [Java 21 Virtual Threads: Guía de Referencia Staff Engineer](./01_Java_Core/java_21_virtual_threads_STAFF.md) | 5 | 02/04/2026 |
-
+| [Clean Code y Principios SOLID con Java 21](./01_Java_Core/clean_code_y_solid_con_java_21_STAFF.md) | 7 | 03/04/2026 |
 ---
 
 ### 🏛️ 02_Arquitectura — DDD, Hexagonal, Microservicios
