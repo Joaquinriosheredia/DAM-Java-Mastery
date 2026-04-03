@@ -74,7 +74,7 @@ GitHub
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
 | [JWT, OAuth2 y Zero Trust Security con Java 21 y Spring Security](./06_Seguridad/jwt_oauth2_y_zero_trust_security_con_java_21_STAFF.md) | 9 | 02/04/2026 |
-
+| [Seguridad Ofensiva y Auditoría de Microservicios con Java 21](./06_Seguridad/seguridad_ofensiva_y_auditoria_de_microservicios_con_java_21_STAFF.md) | 8 | 03/04/2026 | 
 ---
 
 ### 📊 07_BigData_Streaming — Kafka, Spark, Flink
