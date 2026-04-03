@@ -44,7 +44,7 @@ GitHub
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
 | [DDD y Arquitectura Hexagonal con Java 21](./02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) | 9 | 02/04/2026 |
-
+| [Event-Driven Architecture y Transactional Outbox Pattern con Java 21](./02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) | 8 | 03/04/2026 |
 ---
 
 ### 🌱 03_Spring_Ecosystem — Spring Boot, R2DBC, WebFlux
@@ -57,8 +57,7 @@ GitHub
 
 ### 🗄️ 04_Bases_de_Datos — PostgreSQL, Redis, MongoDB
 
-*Próximamente*
-
+| [Optimización JVM y Caché Distribuida con Redis y Java 21](./04_Bases_de_Datos/optimizacion_jvm_y_cache_distribuida_redis_java_21_STAFF.md) | 7 | 03/04/2026 |
 ---
 
 ### ⚙️ 05_SRE_DevOps — Kubernetes, Terraform, Observabilidad
