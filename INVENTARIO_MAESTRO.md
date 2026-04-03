@@ -1,8 +1,8 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-03 09:43:04
-**Ultimo commit:** 82ad326 feat: Patrones Strategy y Observer Java 21 — guía Staff refinada (24 seconds ago)
+**Ultima sincronizacion:** 2026-04-03 09:49:36
+**Ultimo commit:** fce37bd feat: Optimización JVM y Redis Java 21 — Staff a 04_Bases_de_Datos/ (23 seconds ago)
 **Total de activos:** 138 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
@@ -12,10 +12,10 @@
 
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
-| **01_Java_Core** | 16 | 5 | — |
+| **01_Java_Core** | 15 | 6 | — |
 | **02_Arquitectura** | 25 | 2 | — |
 | **03_Spring_Ecosystem** | 4 | 2 | — |
-| **04_Bases_de_Datos** | 4 | 1 | — |
+| **04_Bases_de_Datos** | 5 | 2 | — |
 | **05_SRE_DevOps** | 9 | 3 | — |
 | **06_Seguridad** | 6 | 3 | — |
 | **07_BigData_Streaming** | 3 | 2 | — |
@@ -38,7 +38,6 @@
 - [Informe de Autoridad: Implementación de Event-Driven Architecture (EDA](01_Java_Core/implementación_de_event-driven_architecture_(eda)_con_transactional_outbox_pattern_en_java_21:_garantizando_consistencia_eventual_con_debezium_y_r2dbc_STAFF.md) — 2026-04-02 09:48 (22.9KB)
 - [Documento Técnico Unificado: Implementación del Patrón Factory para Ge](01_Java_Core/implementación_patrón_factory_para_gesti_1212.md) — 2026-03-31 14:59 (5.3KB)
 - [Java 21 Virtual Threads: Guía de Referencia Staff Engineer](01_Java_Core/java_21_virtual_threads_STAFF.md) — 2026-04-02 14:18 (9.6KB)
-- [Informe de Autoridad: Optimización de Rendimiento en JVM y Estrategias](01_Java_Core/optimización_de_rendimiento_en_jvm_y_estrategias_de_caché_distribuida_con_redis_y_java_21_STAFF.md) — 2026-03-31 11:42 (57.5KB)
 - [Patrones Strategy y Observer con Java 21: Sealed Interfaces y Pattern ](01_Java_Core/patrones_strategy_y_observer_en_java_21:_implementación_con_sealed_interfaces,_pattern_matching_sobre_records_y_desacoplamiento_funcional_sin_efectos_secundarios_STAFF.md) — 2026-04-03 09:42 (23.2KB)
 - [Patrones Avanzados de Concurrencia en Java 21 usando Virtual Threads y](01_Java_Core/report.md) — 2026-04-01 10:24 (58.0KB)
 - [Java 21 Virtual Threads](01_Java_Core/report_131723.md) — 2026-04-02 12:05 (3.4KB)
@@ -83,6 +82,7 @@
 
 ### 📂 04_Bases_de_Datos
 
+- [Optimización de Rendimiento en JVM y Caché Distribuida con Redis y Jav](04_Bases_de_Datos/optimizacion_jvm_y_cache_distribuida_redis_java_21_STAFF.md) — 2026-04-03 09:49 (19.4KB)
 - [Optimización de Consultas SQL en Java](04_Bases_de_Datos/optimización_de_consultas_sql_en_java_20260328_1702.md) — 2026-03-28 17:05 (4.5KB)
 - [OPTIMIZACIÓN DE CONSULTAS SQL EN JAVA](04_Bases_de_Datos/optimización_de_consultas_sql_en_java_20260328_1710.md) — 2026-03-28 17:11 (3.0KB)
 - [Optimización de índices en Bases de Datos Relacionales](04_Bases_de_Datos/optimización_de_índices_en_bases_de_datos_relacionales_20260328_1650.md) — 2026-03-28 16:51 (100.0B)
@@ -204,9 +204,9 @@
 | Total documentos tecnicos | 138 |
 | Tamano total del repositorio | 1.6MB |
 | Modulos activos | 10 |
-| Total commits | 47 |
+| Total commits | 49 |
 | Generado por | Authority Engine v20.2 |
-| Fecha | 2026-04-03 09:43:04 |
+| Fecha | 2026-04-03 09:49:36 |
 
 ---
 
