@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-04 09:55:17
-**Ultimo commit:** 048d4ae feat: Garbage Collectors JVM G1 ZGC Shenandoah — guía Staff 6 secciones (in the future)
-**Total de activos:** 23 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-04 10:15:58
+**Ultimo commit:** 5a6b315 feat: Profiling avanzado JFR y Async Profiler — guía Staff 6 secciones (in the future)
+**Total de activos:** 24 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -12,7 +12,7 @@
 
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
-| **01_Java_Core** | 4 | 11 | — |
+| **01_Java_Core** | 5 | 12 | — |
 | **02_Arquitectura** | 5 | 7 | — |
 | **03_Spring_Ecosystem** | 2 | 5 | — |
 | **04_Bases_de_Datos** | 1 | 3 | — |
@@ -32,6 +32,7 @@
 - [Garbage Collectors en la JVM: G1, ZGC y Shenandoah en Producción](01_Java_Core/garbage_collectors_en_la_jvm_g1_zgc_y_shenandoah_en_produccion_STAFF.md) — 2026-04-04 09:55 (33.1KB)
 - [Java 21 Virtual Threads: Guía de Referencia Staff Engineer](01_Java_Core/java_21_virtual_threads_STAFF.md) — 2026-04-02 14:18 (9.6KB)
 - [Patrones Strategy y Observer con Java 21: Sealed Interfaces y Pattern ](01_Java_Core/patrones_strategy_y_observer_en_java_21:_implementación_con_sealed_interfaces,_pattern_matching_sobre_records_y_desacoplamiento_funcional_sin_efectos_secundarios_STAFF.md) — 2026-04-03 09:42 (23.2KB)
+- [Profiling Avanzado en Java con JFR y Async Profiler](01_Java_Core/profiling_avanzado_en_java_con_jfr_y_async_profiler_STAFF.md) — 2026-04-04 10:15 (35.2KB)
 
 ### 📂 02_Arquitectura
 
@@ -81,12 +82,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 23 |
-| Tamano total del repositorio | 466.4KB |
+| Total documentos tecnicos | 24 |
+| Tamano total del repositorio | 501.7KB |
 | Modulos activos | 9 |
-| Total commits | 64 |
+| Total commits | 65 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-04 09:55:17 |
+| Fecha | 2026-04-04 10:15:58 |
 
 ---
 
