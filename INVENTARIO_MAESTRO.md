@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-04 11:36:57
-**Ultimo commit:** 52ca0de feat: Memory leaks reales Java deteccion y solucion — guía Staff 6 secciones (3 seconds ago)
-**Total de activos:** 25 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-04 13:29:36
+**Ultimo commit:** 6ae6399 feat: Anti-patterns microservicios Java 21 — guía Staff 6 secciones (2 seconds ago)
+**Total de activos:** 26 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 6 | 13 | — |
-| **02_Arquitectura** | 5 | 7 | — |
+| **02_Arquitectura** | 6 | 8 | — |
 | **03_Spring_Ecosystem** | 2 | 5 | — |
 | **04_Bases_de_Datos** | 1 | 3 | — |
 | **05_SRE_DevOps** | 1 | 5 | — |
@@ -37,6 +37,7 @@
 
 ### 📂 02_Arquitectura
 
+- [Anti-patterns en Microservicios y Cómo Evitarlos con Java 21](02_Arquitectura/anti-patterns_en_microservicios_y_como_evitarlos_con_java_21_STAFF.md) — 2026-04-04 13:29 (30.9KB)
 - [Arquitectura de Microservicios Reactivos con Spring Boot 3.4 y R2DBC](02_Arquitectura/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) — 2026-04-03 10:17 (16.4KB)
 - [DDD y Arquitectura Hexagonal con Java 21](02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) — 2026-04-02 19:14 (25.3KB)
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-03 09:55 (19.4KB)
@@ -83,12 +84,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 25 |
-| Tamano total del repositorio | 532.3KB |
+| Total documentos tecnicos | 26 |
+| Tamano total del repositorio | 563.2KB |
 | Modulos activos | 9 |
-| Total commits | 66 |
+| Total commits | 67 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-04 11:36:57 |
+| Fecha | 2026-04-04 13:29:36 |
 
 ---
 
