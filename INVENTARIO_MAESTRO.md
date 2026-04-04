@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-03 22:29:49
-**Ultimo commit:** c3a2c09 chore: actualizar inventario y README [2026-04-03 22:23] (7 minutes ago)
-**Total de activos:** 21 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-04 09:19:44
+**Ultimo commit:** 410ebd5 feat: Saga Pattern orquestacion vs coreografia — guía Staff 6 secciones (in the future)
+**Total de activos:** 22 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 3 | 10 | — |
-| **02_Arquitectura** | 4 | 6 | — |
+| **02_Arquitectura** | 5 | 7 | — |
 | **03_Spring_Ecosystem** | 2 | 5 | — |
 | **04_Bases_de_Datos** | 1 | 3 | — |
 | **05_SRE_DevOps** | 1 | 5 | — |
@@ -38,6 +38,7 @@
 - [DDD y Arquitectura Hexagonal con Java 21](02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) — 2026-04-02 19:14 (25.3KB)
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-03 09:55 (19.4KB)
 - [Event Sourcing y CQRS con Java 21 y Spring Boot](02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) — 2026-04-03 15:27 (21.1KB)
+- [Saga Pattern: Orquestación vs Coreografía con Java 21](02_Arquitectura/saga_pattern_orquestacion_vs_coreografia_con_java_21_STAFF.md) — 2026-04-04 09:19 (33.4KB)
 
 ### 📂 03_Spring_Ecosystem
 
@@ -79,12 +80,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 21 |
-| Tamano total del repositorio | 399.9KB |
+| Total documentos tecnicos | 22 |
+| Tamano total del repositorio | 433.3KB |
 | Modulos activos | 9 |
-| Total commits | 74 |
+| Total commits | 63 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-03 22:29:49 |
+| Fecha | 2026-04-04 09:19:44 |
 
 ---
 
