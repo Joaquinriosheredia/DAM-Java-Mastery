@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-05 08:22:25
-**Ultimo commit:** ad7c9ec feat: Optimizacion latencia Java baja latencia — guía Staff 6 secciones (3 seconds ago)
-**Total de activos:** 27 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-05 08:46:53
+**Ultimo commit:** 4b45a0b feat: PostgreSQL 17 indices particionado optimizacion queries — guía Staff 6 secciones (2 seconds ago)
+**Total de activos:** 28 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -15,7 +15,7 @@
 | **01_Java_Core** | 7 | 14 | — |
 | **02_Arquitectura** | 6 | 8 | — |
 | **03_Spring_Ecosystem** | 2 | 5 | — |
-| **04_Bases_de_Datos** | 1 | 3 | — |
+| **04_Bases_de_Datos** | 2 | 4 | — |
 | **05_SRE_DevOps** | 1 | 5 | — |
 | **06_Seguridad** | 2 | 4 | — |
 | **07_BigData_Streaming** | 3 | 5 | — |
@@ -53,6 +53,7 @@
 ### 📂 04_Bases_de_Datos
 
 - [Optimización de Rendimiento en JVM y Caché Distribuida con Redis y Jav](04_Bases_de_Datos/optimizacion_jvm_y_cache_distribuida_redis_java_21_STAFF.md) — 2026-04-03 09:49 (19.4KB)
+- [PostgreSQL 17 Avanzado: Índices, Particionado y Optimización de Querie](04_Bases_de_Datos/postgresql_17_avanzado_indices_particionado_y_optimizacion_de_queries_STAFF.md) — 2026-04-05 08:46 (33.4KB)
 
 ### 📂 05_SRE_DevOps
 
@@ -85,12 +86,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 27 |
-| Tamano total del repositorio | 595.6KB |
+| Total documentos tecnicos | 28 |
+| Tamano total del repositorio | 628.9KB |
 | Modulos activos | 9 |
-| Total commits | 68 |
+| Total commits | 69 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-05 08:22:25 |
+| Fecha | 2026-04-05 08:46:53 |
 
 ---
 
