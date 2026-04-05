@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-05 08:55:23
-**Ultimo commit:** 11ab45a feat: Rate limiter distribuido Redis Java 21 — guía Staff 6 secciones (1 second ago)
-**Total de activos:** 29 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-05 09:25:15
+**Ultimo commit:** 96e1c94 feat: Vector Search pgvector PostgreSQL 17 aplicaciones IA — guía Staff 6 secciones (2 seconds ago)
+**Total de activos:** 30 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -15,7 +15,7 @@
 | **01_Java_Core** | 7 | 14 | — |
 | **02_Arquitectura** | 7 | 9 | — |
 | **03_Spring_Ecosystem** | 2 | 5 | — |
-| **04_Bases_de_Datos** | 2 | 4 | — |
+| **04_Bases_de_Datos** | 3 | 5 | — |
 | **05_SRE_DevOps** | 1 | 5 | — |
 | **06_Seguridad** | 2 | 4 | — |
 | **07_BigData_Streaming** | 3 | 5 | — |
@@ -55,6 +55,7 @@
 
 - [Optimización de Rendimiento en JVM y Caché Distribuida con Redis y Jav](04_Bases_de_Datos/optimizacion_jvm_y_cache_distribuida_redis_java_21_STAFF.md) — 2026-04-03 09:49 (19.4KB)
 - [PostgreSQL 17 Avanzado: Índices, Particionado y Optimización de Querie](04_Bases_de_Datos/postgresql_17_avanzado_indices_particionado_y_optimizacion_de_queries_STAFF.md) — 2026-04-05 08:46 (33.4KB)
+- [Vector Search con pgvector y PostgreSQL 17 para Aplicaciones IA](04_Bases_de_Datos/vector_search_con_pgvector_y_postgresql_17_para_aplicaciones_ia_STAFF.md) — 2026-04-05 09:25 (34.1KB)
 
 ### 📂 05_SRE_DevOps
 
@@ -87,12 +88,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 29 |
-| Tamano total del repositorio | 662.5KB |
+| Total documentos tecnicos | 30 |
+| Tamano total del repositorio | 696.6KB |
 | Modulos activos | 9 |
-| Total commits | 70 |
+| Total commits | 71 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-05 08:55:23 |
+| Fecha | 2026-04-05 09:25:15 |
 
 ---
 
