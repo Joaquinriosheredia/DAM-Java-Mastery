@@ -3,7 +3,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Joaquín_Ríos_Heredia-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/joaquinrios-dev-strategist/)
 [![Web](https://img.shields.io/badge/Web-DAM--Java--Mastery-blue?style=flat&logo=github)](https://joaquinriosheredia.github.io/DAM-Java-Mastery/)
 [![GitHub](https://img.shields.io/badge/GitHub-Portfolio-lightgrey?style=flat&logo=github)](https://github.com/Joaquinriosheredia)
-![Documentos](https://img.shields.io/badge/Documentos_Staff-24-green?style=flat)
+![Documentos](https://img.shields.io/badge/Documentos_Staff-25-green?style=flat)
 ![Calidad](https://img.shields.io/badge/SRE_Score-94%2F100-brightgreen?style=flat)
 
 Biblioteca de referencia técnica de nivel **Staff Engineer** sobre Java 21, arquitecturas de software, SRE, seguridad y sistemas distribuidos. Generada y mantenida con **Authority Engine v21.0** — pipeline híbrido de IA local + revisión académica.
@@ -40,6 +40,7 @@ GitHub
 
 
 
+
 ## 📚 Índice de Documentos por Módulo
 
 ### ☕ 01_Java_Core — Java 21 Avanzado
@@ -65,6 +66,7 @@ GitHub
 | [DDD y Arquitectura Hexagonal con Java 21](./02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) | 9 | 02/04/2026 |
 | [Event-Driven Architecture y Transactional Outbox Pattern con Java 21](./02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) | 7 | 03/04/2026 |
 | [Event Sourcing y CQRS con Java 21 y Spring Boot](./02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) | 6 | 03/04/2026 |
+| [Rate Limiter Distribuido con Redis y Java 21](./02_Arquitectura/rate_limiter_distribuido_con_redis_y_java_21_STAFF.md) | 6 | 05/04/2026 |
 | [Saga Pattern: Orquestación vs Coreografía con Java 21](./02_Arquitectura/saga_pattern_orquestacion_vs_coreografia_con_java_21_STAFF.md) | 8 | 04/04/2026 |
 
 ---
@@ -349,6 +351,30 @@ GitHub
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
 | [Apache Kafka Streams con Java 21](./07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) | 5 | 02/04/2026 |
+| [BigData ETL con Apache Spark y Java 21 para Transformación Masiva](./07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) | 6 | 03/04/2026 |
+| [Data Mesh: Descentralización de la Propiedad del Dato con Java 21](./07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) | 7 | 03/04/2026 |
+
+---
+
+### 🤖 08_IA_Agentes — RAG, LangChain4j, LLMOps
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Sistemas Multi-Agente con LangChain4j y Ollama en Java 21](./08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) | 7 | 03/04/2026 |
+
+---
+
+### 📱 09_Frontend_Mobile — Flutter, Android, Kotlin
+
+*Próximamente*
+
+---
+
+## 📊 07_BigData_Streaming — Kafka, Spark, Flink
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Apache Kafka Streams con Java 21](./07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) | 5 | 02/04/2026 |
 | [Data Mesh: Descentralización de la Propiedad del Dato](./07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) | 7 | 03/04/2026 |
 | [BigData ETL con Apache Spark y Java 21](./07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) | 6 | 03/04/2026 |
 ---
@@ -377,7 +403,7 @@ GitHub
 
 | Métrica | Valor |
 |---------|-------|
-| Documentos Staff publicados | 24 |
+| Documentos Staff publicados | 25 |
 | Módulos con contenido | 8 / 9 |
 | Score SRE promedio | 94 / 100 |
 | Secciones promedio por documento | 7 |

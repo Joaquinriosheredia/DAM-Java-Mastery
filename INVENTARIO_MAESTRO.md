@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-05 08:46:53
-**Ultimo commit:** 4b45a0b feat: PostgreSQL 17 indices particionado optimizacion queries — guía Staff 6 secciones (2 seconds ago)
-**Total de activos:** 28 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-05 08:55:23
+**Ultimo commit:** 11ab45a feat: Rate limiter distribuido Redis Java 21 — guía Staff 6 secciones (1 second ago)
+**Total de activos:** 29 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 7 | 14 | — |
-| **02_Arquitectura** | 6 | 8 | — |
+| **02_Arquitectura** | 7 | 9 | — |
 | **03_Spring_Ecosystem** | 2 | 5 | — |
 | **04_Bases_de_Datos** | 2 | 4 | — |
 | **05_SRE_DevOps** | 1 | 5 | — |
@@ -43,6 +43,7 @@
 - [DDD y Arquitectura Hexagonal con Java 21](02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) — 2026-04-02 19:14 (25.3KB)
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-03 09:55 (19.4KB)
 - [Event Sourcing y CQRS con Java 21 y Spring Boot](02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) — 2026-04-03 15:27 (21.1KB)
+- [Rate Limiter Distribuido con Redis y Java 21](02_Arquitectura/rate_limiter_distribuido_con_redis_y_java_21_STAFF.md) — 2026-04-05 08:55 (33.5KB)
 - [Saga Pattern: Orquestación vs Coreografía con Java 21](02_Arquitectura/saga_pattern_orquestacion_vs_coreografia_con_java_21_STAFF.md) — 2026-04-04 09:19 (33.4KB)
 
 ### 📂 03_Spring_Ecosystem
@@ -86,12 +87,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 28 |
-| Tamano total del repositorio | 628.9KB |
+| Total documentos tecnicos | 29 |
+| Tamano total del repositorio | 662.5KB |
 | Modulos activos | 9 |
-| Total commits | 69 |
+| Total commits | 70 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-05 08:46:53 |
+| Fecha | 2026-04-05 08:55:23 |
 
 ---
 
