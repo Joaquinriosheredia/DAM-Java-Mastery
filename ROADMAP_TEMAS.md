@@ -9,7 +9,7 @@
 # ═══════════════════════════════════════════════════════════════
 
 - [x] Event Sourcing y CQRS con Java 21 y Spring Boot
-- [ ] Garbage Collectors en la JVM: G1, ZGC y Shenandoah en produccion
+- [x] Garbage Collectors en la JVM: G1, ZGC y Shenandoah en produccion
 - [ ] Profiling avanzado en Java con JFR y Async Profiler
 - [x] Memory leaks reales en Java: deteccion y solucion con VisualVM
 - [ ] Optimizacion de latencia en aplicaciones Java de baja latencia
