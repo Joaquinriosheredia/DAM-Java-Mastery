@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-04 19:58:59
-**Ultimo commit:** 3492045 chore: actualizar inventario y README [2026-04-04 13:29] (6 hours ago)
-**Total de activos:** 26 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-05 08:22:25
+**Ultimo commit:** ad7c9ec feat: Optimizacion latencia Java baja latencia — guía Staff 6 secciones (3 seconds ago)
+**Total de activos:** 27 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -12,7 +12,7 @@
 
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
-| **01_Java_Core** | 6 | 13 | — |
+| **01_Java_Core** | 7 | 14 | — |
 | **02_Arquitectura** | 6 | 8 | — |
 | **03_Spring_Ecosystem** | 2 | 5 | — |
 | **04_Bases_de_Datos** | 1 | 3 | — |
@@ -32,6 +32,7 @@
 - [Garbage Collectors en la JVM: G1, ZGC y Shenandoah en Producción](01_Java_Core/garbage_collectors_en_la_jvm_g1_zgc_y_shenandoah_en_produccion_STAFF.md) — 2026-04-04 09:55 (33.1KB)
 - [Java 21 Virtual Threads: Guía de Referencia Staff Engineer](01_Java_Core/java_21_virtual_threads_STAFF.md) — 2026-04-02 14:18 (9.6KB)
 - [Memory Leaks Reales en Java: Detección y Solución](01_Java_Core/memory_leaks_reales_en_java_deteccion_y_solucion_con_visualvm_STAFF.md) — 2026-04-04 11:36 (30.6KB)
+- [Optimización de Latencia en Aplicaciones Java de Baja Latencia](01_Java_Core/optimizacion_de_latencia_en_aplicaciones_java_de_baja_latencia_STAFF.md) — 2026-04-05 08:22 (32.4KB)
 - [Patrones Strategy y Observer con Java 21: Sealed Interfaces y Pattern ](01_Java_Core/patrones_strategy_y_observer_en_java_21:_implementación_con_sealed_interfaces,_pattern_matching_sobre_records_y_desacoplamiento_funcional_sin_efectos_secundarios_STAFF.md) — 2026-04-03 09:42 (23.2KB)
 - [Profiling Avanzado en Java con JFR y Async Profiler](01_Java_Core/profiling_avanzado_en_java_con_jfr_y_async_profiler_STAFF.md) — 2026-04-04 10:15 (35.2KB)
 
@@ -84,12 +85,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 26 |
-| Tamano total del repositorio | 563.2KB |
+| Total documentos tecnicos | 27 |
+| Tamano total del repositorio | 595.6KB |
 | Modulos activos | 9 |
-| Total commits | 67 |
+| Total commits | 68 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-04 19:58:59 |
+| Fecha | 2026-04-05 08:22:25 |
 
 ---
 
