@@ -58,7 +58,7 @@ public class EscaladoMetrics {
     }
 
     public void incrementar() { solicitudesActivas.incrementAndGet(); }
-    public void decrementar() { solicitudesActivas.decrementAndGet(); }
+    public void decrementar() { solicitudesActivas.decrementAndGet(); } 
 }
 ```
 
