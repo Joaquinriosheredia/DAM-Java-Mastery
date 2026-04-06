@@ -10,7 +10,7 @@ Score: 95
 
 Apache Kafka Streams es la biblioteca de procesamiento de flujos nativa de Kafka, integrada en el ecosistema sin necesidad de un cluster de procesamiento externo (a diferencia de Apache Flink o Spark Streaming). En 2026, con Kafka 3.7+ y la eliminación completa de ZooKeeper en favor de **KRaft**, el stack ha madurado hasta ser la opción de referencia para procesamiento de eventos en tiempo real en arquitecturas Java.
 
-La combinación con Java 21 aporta tres mejoras concretas: **Virtual Threads** para gestionar consumers de alta concurrencia sin bloquear hilos del OS, **Records** para modelar eventos inmutables del stream sin boilerplate, y **Pattern Matching** para el routing de eventos por tipo sin instanceof explícito.
+La combinación con Java 21 aporta tres mejoras concretas: **Virtual Threads** para gestionar consumers de alta concurrencia sin bloquear hilos del OS, **Records** para modelar eventos inmutables del stream sin boilerplate, y **Pattern Matching** para el routing de eventos por tipo sin instanceof explícito. 
 
 **Cuándo elegir Kafka Streams sobre alternativas:**
 
