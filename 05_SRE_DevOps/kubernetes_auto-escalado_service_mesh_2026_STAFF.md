@@ -52,7 +52,7 @@ public class EscaladoMetrics {
 
     public EscaladoMetrics(MeterRegistry registry) {
         this.registry = registry;
-        Gauge.builder("solicitudes.activas", solicitudesActivas, AtomicInteger::get)
+        Gauge.builder("solicitudes.activas", solicitudesActivas, AtomicInteger::get) 
             .description("Solicitudes activas — usada por HPA para escalar")
             .register(registry);
     }
