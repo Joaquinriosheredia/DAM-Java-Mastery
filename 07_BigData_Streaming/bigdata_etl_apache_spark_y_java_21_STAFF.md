@@ -12,7 +12,7 @@ Apache Spark es el motor de procesamiento distribuido de referencia para ETL a g
 
 Con Java 21, la integración con Spark gana tres mejoras concretas: los **Records** modelan esquemas de datos inmutables sin boilerplate, los **Virtual Threads** permiten orquestar múltiples jobs en paralelo sin saturar el thread pool, y el **Pattern Matching** simplifica la lógica de transformación condicional.
 
-**Cuándo elegir Spark para ETL:**
+**Cuándo elegir Spark para ETL:** 
 
 | Criterio | Apache Spark | AWS Glue | Flink | Pandas |
 |----------|-------------|----------|-------|--------|
