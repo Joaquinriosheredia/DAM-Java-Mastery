@@ -28,7 +28,7 @@ El modelo de escalado ha evolucionado a un stack de tres capas complementarias:
 
 ```mermaid
 graph TD
-    A[Trafico externo] --> B[Ingress Gateway]
+    A[Trafico externo] --> B[Ingress Gateway] 
     B --> C[Service Mesh - Istio]
     C --> D[Servicio A]
     C --> E[Servicio B]
