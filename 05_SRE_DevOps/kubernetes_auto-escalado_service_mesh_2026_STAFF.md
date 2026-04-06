@@ -12,7 +12,7 @@ En 2026, Kubernetes ha consolidado su posición como el estándar de facto para 
 
 El modelo de escalado ha evolucionado a un stack de tres capas complementarias:
 
-| Capa | Herramienta | Qué escala |
+| Capa | Herramienta | Qué escala | 
 |------|-------------|-----------|
 | Horizontal | HPA v2 | Número de réplicas de pods |
 | Vertical | VPA | CPU/memoria por pod individual |
