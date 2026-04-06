@@ -22,7 +22,7 @@ El modelo de escalado ha evolucionado a un stack de tres capas complementarias:
 
 | Decisión | Opción A | Opción B | Criterio |  
 |----------|----------|----------|---------|
-| Service Mesh | Istio | Linkerd | Istio: más features. Linkerd: menor overhead |
+| Service Mesh | Istio | Linkerd | Istio: más features. Linkerd: menor overhead | 
 | Escalado eventos | KEDA | HPA custom metrics | KEDA si hay más de 3 fuentes de eventos |
 | Escalado vertical | VPA | Manual tuning | VPA en dev/staging, manual en prod crítica |
 
