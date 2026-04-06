@@ -42,7 +42,7 @@ graph TD
 ```
 
 ```java
-// Configuracion de metricas personalizadas para HPA
+// Configuracion de metricas personalizadas para HPA 
 // La aplicacion expone estas metricas via Micrometer
 @Component
 public class EscaladoMetrics {
