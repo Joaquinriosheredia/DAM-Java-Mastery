@@ -8,7 +8,7 @@ Score: 97
 
 ## Visión Estratégica
 
-En 2026, Kubernetes ha consolidado su posición como el estándar de facto para orquestación de contenedores. Los dos retos principales que enfrentan los equipos SRE son escalar eficientemente sin desperdiciar recursos y gestionar el tráfico entre servicios de forma fiable. El auto-escalado y el service mesh son las respuestas arquitectónicas a estos dos retos.
+En 2026, Kubernetes ha consolidado su posición como el estándar de facto para orquestación de contenedores. Los dos retos principales que enfrentan los equipos SRE son escalar eficientemente sin desperdiciar recursos y gestionar el tráfico entre servicios de forma fiable. El auto-escalado y el service mesh son las respuestas arquitectónicas a estos dos retos. 
 
 El modelo de escalado ha evolucionado a un stack de tres capas complementarias:
 
