@@ -6,7 +6,7 @@ Score: 97
 
 ---
 
-## Visión Estratégica
+## Visión Estratégica 
 
 Apache Spark es el motor de procesamiento distribuido de referencia para ETL a gran escala. Su modelo de procesamiento en memoria, con datasets distribuidos inmutables (RDDs) y la API de alto nivel DataFrame/Dataset, permite transformar volúmenes de datos que no caben en una sola máquina de forma eficiente y tolerante a fallos.
 
