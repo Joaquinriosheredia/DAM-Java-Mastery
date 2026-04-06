@@ -18,7 +18,7 @@ Con Java 21, la integración con Spark gana tres mejoras concretas: los **Record
 |----------|-------------|----------|-------|--------|
 | Volumen de datos | TB/PB | GB/TB | GB/TB en streaming | GB máximo |
 | Latencia | Minutos (batch) | Minutos | Milisegundos | Segundos |
-| Coste operativo | Medio (self-managed) | Alto (managed) | Medio | Bajo |
+| Coste operativo | Medio (self-managed) | Alto (managed) | Medio | Bajo | 
 | Complejidad | Media | Baja | Alta | Muy baja |
 | Caso ideal | ETL batch masivo | ETL en AWS sin ops | Streaming stateful | Análisis local |
 
