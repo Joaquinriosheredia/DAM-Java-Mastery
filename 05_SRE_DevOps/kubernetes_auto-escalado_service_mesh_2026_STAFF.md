@@ -20,7 +20,7 @@ El modelo de escalado ha evolucionado a un stack de tres capas complementarias:
 
 **Trade-offs clave:**
 
-| Decisión | Opción A | Opción B | Criterio | 
+| Decisión | Opción A | Opción B | Criterio |  
 |----------|----------|----------|---------|
 | Service Mesh | Istio | Linkerd | Istio: más features. Linkerd: menor overhead |
 | Escalado eventos | KEDA | HPA custom metrics | KEDA si hay más de 3 fuentes de eventos |
