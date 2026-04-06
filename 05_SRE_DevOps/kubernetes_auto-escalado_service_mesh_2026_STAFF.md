@@ -16,7 +16,7 @@ El modelo de escalado ha evolucionado a un stack de tres capas complementarias:
 |------|-------------|-----------|
 | Horizontal | HPA v2 | Número de réplicas de pods |
 | Vertical | VPA | CPU/memoria por pod individual |
-| Eventos | KEDA | Réplicas basadas en carga real (Kafka, SQS, Prometheus) |
+| Eventos | KEDA | Réplicas basadas en carga real (Kafka, SQS, Prometheus) | 
 
 **Trade-offs clave:**
 
