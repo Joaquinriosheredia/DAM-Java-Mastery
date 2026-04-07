@@ -12,7 +12,7 @@
 - [x] Garbage Collectors en la JVM: G1, ZGC y Shenandoah en produccion
 - [x] Profiling avanzado en Java con JFR y Async Profiler
 - [x] Memory leaks reales en Java: deteccion y solucion con VisualVM
-- [ ] Optimizacion de latencia en aplicaciones Java de baja latencia
+- [x] Optimizacion de latencia en aplicaciones Java de baja latencia
 - [ ] Structured Concurrency y Virtual Threads avanzados en Java 21
 
 # ═══════════════════════════════════════════════════════════════
@@ -21,14 +21,14 @@
 # ═══════════════════════════════════════════════════════════════
 
 - [x] Saga Pattern: orquestacion vs coreografia con Java 21
-- [ ] Anti-patterns en microservicios y como evitarlos con Java 21
+- [x] Anti-patterns en microservicios y como evitarlos con Java 21
 - [ ] Monolito modular vs microservicios: cuando elegir cada uno
 - [ ] Consistencia eventual: problemas reales y soluciones con Java 21
 - [ ] Trade-offs CAP en sistemas reales con casos practicos Java
 - [ ] Diseno de APIs idempotentes en sistemas criticos con Spring Boot
 - [ ] Diseno de un sistema de pagos resiliente con exactly-once semantics
 - [ ] Arquitectura de un sistema de notificaciones distribuido con Java 21
-- [ ] Rate limiter distribuido con Redis y Java 21
+- [x] Rate limiter distribuido con Redis y Java 21
 - [ ] Diseno de un sistema tipo Uber a gran escala con Java 21
 
 # ═══════════════════════════════════════════════════════════════
