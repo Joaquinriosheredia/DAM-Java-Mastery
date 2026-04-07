@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-06 07:45:57
-**Ultimo commit:** ca5a011 feat: Redis avanzado Streams pub-sub patrones mensajeria — guía Staff 6 secciones (3 seconds ago)
-**Total de activos:** 31 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-07 09:45:43
+**Ultimo commit:** 7495da0 feat: chaos engineering con gremlin y litmus en kubernetes — guía Staff 5 secciones (4 seconds ago)
+**Total de activos:** 33 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -15,12 +15,12 @@
 | **01_Java_Core** | 7 | 14 | — |
 | **02_Arquitectura** | 7 | 9 | — |
 | **03_Spring_Ecosystem** | 2 | 5 | — |
-| **04_Bases_de_Datos** | 4 | 6 | — |
-| **05_SRE_DevOps** | 1 | 5 | — |
+| **04_Bases_de_Datos** | 5 | 7 | — |
+| **05_SRE_DevOps** | 2 | 17 | — |
 | **06_Seguridad** | 2 | 4 | — |
-| **07_BigData_Streaming** | 3 | 5 | — |
+| **07_BigData_Streaming** | 3 | 11 | — |
 | **08_IA_Agentes** | 1 | 3 | — |
-| **09_Frontend_Mobile** | 3 | 1 | — |
+| **09_Frontend_Mobile** | 3 | 2 | — |
 
 ---
 
@@ -53,6 +53,7 @@
 
 ### 📂 04_Bases_de_Datos
 
+- [MongoDB con Java 21: Modelado de Documentos y Agregaciones Avanzadas](04_Bases_de_Datos/mongodb_con_java_21_modelado_de_documentos_y_agregaciones_avanzadas_STAFF.md) — 2026-04-06 08:08 (31.7KB)
 - [Optimización de Rendimiento en JVM y Caché Distribuida con Redis y Jav](04_Bases_de_Datos/optimizacion_jvm_y_cache_distribuida_redis_java_21_STAFF.md) — 2026-04-03 09:49 (19.4KB)
 - [PostgreSQL 17 Avanzado: Índices, Particionado y Optimización de Querie](04_Bases_de_Datos/postgresql_17_avanzado_indices_particionado_y_optimizacion_de_queries_STAFF.md) — 2026-04-05 08:46 (33.4KB)
 - [Redis Avanzado: Streams, Pub/Sub y Patrones de Mensajería](04_Bases_de_Datos/redis_avanzado_streams_pubsub_y_patrones_de_mensajeria_STAFF.md) — 2026-04-06 07:45 (33.0KB)
@@ -60,7 +61,8 @@
 
 ### 📂 05_SRE_DevOps
 
-- [Kubernetes: Auto-escalado y Service Mesh en 2026](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-04-03 20:25 (10.9KB)
+- [Chaos Engineering con Gremlin y Litmus en Kubernetes: Guía Staff Engin](05_SRE_DevOps/chaos_engineering_con_gremlin_y_litmus_en_kubernetes_STAFF.md) — 2026-04-07 09:45 (25.3KB)
+- [Kubernetes: Auto-escalado y Service Mesh en 2026](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-04-07 08:27 (11.0KB)
 
 ### 📂 06_Seguridad
 
@@ -70,7 +72,7 @@
 ### 📂 07_BigData_Streaming
 
 - [Apache Kafka Streams con Java 21](07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) — 2026-04-02 15:46 (10.8KB)
-- [BigData ETL con Apache Spark y Java 21 para Transformación Masiva](07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) — 2026-04-03 19:24 (17.3KB)
+- [BigData ETL con Apache Spark y Java 21 para Transformación Masiva](07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) — 2026-04-07 08:27 (17.3KB)
 - [Data Mesh: Descentralización de la Propiedad del Dato con Java 21](07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) — 2026-04-03 10:28 (17.7KB)
 
 ### 📂 08_IA_Agentes
@@ -80,7 +82,7 @@
 ### 📂 09_Frontend_Mobile
 
 - [Informe Profesional: Optimización de Rutas de Última Milla mediante Al](09_Frontend_Mobile/DOCUMENTACION_OptimizadorRutasGenetico.md) — 2026-03-20 10:00 (4.4KB)
-- [FRONTEND: INTERNACIONALIZACIÓN (I18N) CON SOPORTE MULTI-IDIOMA](09_Frontend_Mobile/std_frontend:_internacionalización_(i18n)_con_soporte_multi-idioma_20260329_1514.md) — 2026-03-31 14:59 (39.0KB)
+- [FRONTEND: INTERNACIONALIZACIÓN (I18N) CON SOPORTE MULTI-IDIOMA](09_Frontend_Mobile/std_frontend:_internacionalización_(i18n)_con_soporte_multi-idioma_20260329_1514.md) — 2026-04-07 08:27 (39.0KB)
 - [FRONTEND: VALIDACIÓN DE FORMULARIOS EN TIEMPO REAL CON EXPRESIONES REG](09_Frontend_Mobile/std_frontend:_validación_de_formularios_en_tiempo_real_con_expresiones_regulares_20260329_1436.md) — 2026-03-31 14:59 (42.4KB)
 
 ---
@@ -89,12 +91,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 31 |
-| Tamano total del repositorio | 729.3KB |
+| Total documentos tecnicos | 33 |
+| Tamano total del repositorio | 786.2KB |
 | Modulos activos | 9 |
-| Total commits | 72 |
+| Total commits | 132 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-06 07:45:57 |
+| Fecha | 2026-04-07 09:45:43 |
 
 ---
 
