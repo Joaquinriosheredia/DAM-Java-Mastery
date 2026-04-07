@@ -3,7 +3,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Joaquín_Ríos_Heredia-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/joaquinrios-dev-strategist/)
 [![Web](https://img.shields.io/badge/Web-DAM--Java--Mastery-blue?style=flat&logo=github)](https://joaquinriosheredia.github.io/DAM-Java-Mastery/)
 [![GitHub](https://img.shields.io/badge/GitHub-Portfolio-lightgrey?style=flat&logo=github)](https://github.com/Joaquinriosheredia)
-![Documentos](https://img.shields.io/badge/Documentos_Staff-29-green?style=flat)
+![Documentos](https://img.shields.io/badge/Documentos_Staff-30-green?style=flat)
 ![Calidad](https://img.shields.io/badge/SRE_Score-94%2F100-brightgreen?style=flat)
 
 Biblioteca de referencia técnica de nivel **Staff Engineer** sobre Java 21, arquitecturas de software, SRE, seguridad y sistemas distribuidos. Generada y mantenida con **Authority Engine v21.0** — pipeline híbrido de IA local + revisión académica.
@@ -29,6 +29,7 @@ GitHub
 **Stack técnico:** Python 3.12 · Ollama 0.20.0 · Qwen 2.5 7b · Tavily API · Claude Pro · RTX 4060 8GB
 
 ---
+
 
 
 
@@ -101,6 +102,7 @@ GitHub
 |-----------|-----------|-------|
 | [Chaos Engineering con Gremlin y Litmus en Kubernetes: Guía Staff Engineer 2026](./05_SRE_DevOps/chaos_engineering_con_gremlin_y_litmus_en_kubernetes_STAFF.md) | 7 | 07/04/2026 |
 | [Kubernetes: Auto-escalado y Service Mesh en 2026](./05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) | 5 | 07/04/2026 |
+| [Patrones de Despliegue: Blue-Green, Canary y Rolling en Kubernetes — Guía Staff ...](./05_SRE_DevOps/patrones_de_despliegue_bluegreen_canary_y_rolling_con_kubernetes_STAFF.md) | 7 | 07/04/2026 |
 
 ---
 
@@ -114,6 +116,30 @@ GitHub
 ---
 
 ### 📊 07_BigData_Streaming — Kafka, Spark, Flink
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Apache Kafka Streams con Java 21](./07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) | 5 | 02/04/2026 |
+| [BigData ETL con Apache Spark y Java 21 para Transformación Masiva](./07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) | 6 | 07/04/2026 |
+| [Data Mesh: Descentralización de la Propiedad del Dato con Java 21](./07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) | 7 | 03/04/2026 |
+
+---
+
+### 🤖 08_IA_Agentes — RAG, LangChain4j, LLMOps
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Sistemas Multi-Agente con LangChain4j y Ollama en Java 21](./08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) | 7 | 03/04/2026 |
+
+---
+
+### 📱 09_Frontend_Mobile — Flutter, Android, Kotlin
+
+*Próximamente*
+
+---
+
+## 📊 07_BigData_Streaming — Kafka, Spark, Flink
 
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
@@ -482,7 +508,7 @@ GitHub
 
 | Métrica | Valor |
 |---------|-------|
-| Documentos Staff publicados | 29 |
+| Documentos Staff publicados | 30 |
 | Módulos con contenido | 8 / 9 |
 | Score SRE promedio | 94 / 100 |
 | Secciones promedio por documento | 7 |

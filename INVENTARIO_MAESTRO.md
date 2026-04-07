@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-07 09:45:43
-**Ultimo commit:** 7495da0 feat: chaos engineering con gremlin y litmus en kubernetes — guía Staff 5 secciones (4 seconds ago)
-**Total de activos:** 33 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-07 10:06:49
+**Ultimo commit:** b575700 feat: patrones de despliegue K8s — guía Staff 6 secciones (1 second ago)
+**Total de activos:** 34 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 7 | 9 | — |
 | **03_Spring_Ecosystem** | 2 | 5 | — |
 | **04_Bases_de_Datos** | 5 | 7 | — |
-| **05_SRE_DevOps** | 2 | 17 | — |
+| **05_SRE_DevOps** | 3 | 18 | — |
 | **06_Seguridad** | 2 | 4 | — |
 | **07_BigData_Streaming** | 3 | 11 | — |
 | **08_IA_Agentes** | 1 | 3 | — |
@@ -63,6 +63,7 @@
 
 - [Chaos Engineering con Gremlin y Litmus en Kubernetes: Guía Staff Engin](05_SRE_DevOps/chaos_engineering_con_gremlin_y_litmus_en_kubernetes_STAFF.md) — 2026-04-07 09:45 (25.3KB)
 - [Kubernetes: Auto-escalado y Service Mesh en 2026](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-04-07 08:27 (11.0KB)
+- [Patrones de Despliegue: Blue-Green, Canary y Rolling en Kubernetes — G](05_SRE_DevOps/patrones_de_despliegue_bluegreen_canary_y_rolling_con_kubernetes_STAFF.md) — 2026-04-07 10:06 (23.0KB)
 
 ### 📂 06_Seguridad
 
@@ -91,12 +92,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 33 |
-| Tamano total del repositorio | 786.2KB |
+| Total documentos tecnicos | 34 |
+| Tamano total del repositorio | 809.2KB |
 | Modulos activos | 9 |
-| Total commits | 132 |
+| Total commits | 134 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-07 09:45:43 |
+| Fecha | 2026-04-07 10:06:49 |
 
 ---
 
