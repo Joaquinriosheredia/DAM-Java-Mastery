@@ -13,7 +13,7 @@
 - [x] Profiling avanzado en Java con JFR y Async Profiler
 - [x] Memory leaks reales en Java: deteccion y solucion con VisualVM
 - [x] Optimizacion de latencia en aplicaciones Java de baja latencia
-- [ ] Structured Concurrency y Virtual Threads avanzados en Java 21
+- [x] Structured Concurrency y Virtual Threads avanzados en Java 21
 
 # ═══════════════════════════════════════════════════════════════
 # BLOQUE 2 — ARQUITECTURA (completar 02_Arquitectura)
@@ -45,7 +45,7 @@
 # Carpeta vacia — una sola entrada ahora mismo
 # ═══════════════════════════════════════════════════════════════
 
-- [ ] PostgreSQL 17 avanzado: indices particionado y optimizacion de queries
+- [x] PostgreSQL 17 avanzado: indices particionado y optimizacion de queries
 - [x] Vector Search con pgvector y PostgreSQL 17 para aplicaciones IA
 - [x] MongoDB con Java 21: modelado de documentos y agregaciones avanzadas
 - [ ] Redis avanzado: Streams pub-sub y patrones de mensajeria
