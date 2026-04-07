@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-07 11:10:46
-**Ultimo commit:** b921c43 chore: sincronización total del ROADMAP con archivos existentes en Git (2 seconds ago)
-**Total de activos:** 35 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-07 11:48:01
+**Ultimo commit:** f75c797 feat: resilience4j circuit breaker retry bulkhead spring boot 3 — guía Staff 6 secciones (3 seconds ago)
+**Total de activos:** 36 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -14,7 +14,7 @@
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 7 | 14 | — |
 | **02_Arquitectura** | 8 | 10 | — |
-| **03_Spring_Ecosystem** | 2 | 5 | — |
+| **03_Spring_Ecosystem** | 3 | 6 | — |
 | **04_Bases_de_Datos** | 5 | 7 | — |
 | **05_SRE_DevOps** | 3 | 18 | — |
 | **06_Seguridad** | 2 | 4 | — |
@@ -50,6 +50,7 @@
 ### 📂 03_Spring_Ecosystem
 
 - [Observabilidad Distribuida en Spring Boot 3.4 con OpenTelemetry y Graf](03_Spring_Ecosystem/observabilidad_distribuida_en_spring_boot_3.3_con_opentelemetry_y_grafana_loki:_correlación_de_trazas_y_logs_STAFF.md) — 2026-04-03 10:18 (16.0KB)
+- [Resilience4j en Spring Boot 3: Circuit Breaker, Retry y Bulkhead con J](03_Spring_Ecosystem/resilience4j_circuit_breaker_retry_bulkhead_spring_boot_3_STAFF.md) — 2026-04-07 11:47 (23.5KB)
 - [Spring Boot 3.4 y R2DBC con Virtual Threads](03_Spring_Ecosystem/spring_boot_34_r2dbc_virtual_threads_STAFF.md) — 2026-04-03 20:19 (9.7KB)
 
 ### 📂 04_Bases_de_Datos
@@ -93,12 +94,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 35 |
-| Tamano total del repositorio | 830.1KB |
+| Total documentos tecnicos | 36 |
+| Tamano total del repositorio | 853.5KB |
 | Modulos activos | 9 |
-| Total commits | 94 |
+| Total commits | 95 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-07 11:10:46 |
+| Fecha | 2026-04-07 11:48:01 |
 
 ---
 
