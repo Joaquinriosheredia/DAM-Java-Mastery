@@ -10,7 +10,7 @@
 
 - [x] Event Sourcing y CQRS con Java 21 y Spring Boot
 - [x] Garbage Collectors en la JVM: G1, ZGC y Shenandoah en produccion
-- [ ] Profiling avanzado en Java con JFR y Async Profiler
+- [x] Profiling avanzado en Java con JFR y Async Profiler
 - [x] Memory leaks reales en Java: deteccion y solucion con VisualVM
 - [ ] Optimizacion de latencia en aplicaciones Java de baja latencia
 - [ ] Structured Concurrency y Virtual Threads avanzados en Java 21
@@ -47,7 +47,7 @@
 
 - [ ] PostgreSQL 17 avanzado: indices particionado y optimizacion de queries
 - [x] Vector Search con pgvector y PostgreSQL 17 para aplicaciones IA
-- [ ] MongoDB con Java 21: modelado de documentos y agregaciones avanzadas
+- [x] MongoDB con Java 21: modelado de documentos y agregaciones avanzadas
 - [ ] Redis avanzado: Streams pub-sub y patrones de mensajeria
 - [ ] SurrealDB como alternativa multimodelo en produccion con Java
 
@@ -55,10 +55,10 @@
 # BLOQUE 5 — SRE Y DEVOPS (completar 05_SRE_DevOps)
 # ═══════════════════════════════════════════════════════════════
 
-- [ ] SLI SLO y SLAs: diseno y aplicacion real en microservicios Java
+- [x] SLI SLO y SLAs: diseno y aplicacion real en microservicios Java
 - [ ] Alerting efectivo: como evitar el alert fatigue en Prometheus
-- [ ] Chaos Engineering con Gremlin y Litmus en Kubernetes
-- [ ] Patrones de despliegue: Blue-Green Canary y Rolling con Kubernetes
+- [x] Chaos Engineering con Gremlin y Litmus en Kubernetes
+- [x] Patrones de despliegue: Blue-Green Canary y Rolling con Kubernetes
 - [ ] Automatizacion de Infraestructura como Codigo con Ansible y Terraform
 - [ ] Seguridad y Hardening de Servidores Ubuntu para Produccion
 - [ ] Arquitectura multi-region activa-activa en AWS con Java 21
