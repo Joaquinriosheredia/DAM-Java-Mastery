@@ -35,7 +35,7 @@
 # BLOQUE 3 — SPRING ECOSYSTEM (completar 03_Spring_Ecosystem)
 # ═══════════════════════════════════════════════════════════════
 
-- [ ] Resilience4j: Circuit Breaker Retry y Bulkhead en Spring Boot 3
+- [x] Resilience4j: Circuit Breaker Retry y Bulkhead en Spring Boot 3
 - [ ] Spring Security 6 avanzado: metodo a metodo y OAuth2 Resource Server
 - [ ] Spring Batch 5 para procesamiento masivo de datos con Java 21
 - [ ] Testing avanzado en Spring Boot con JUnit 5 y Testcontainers
