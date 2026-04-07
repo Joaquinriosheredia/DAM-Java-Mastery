@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-07 10:06:49
-**Ultimo commit:** b575700 feat: patrones de despliegue K8s — guía Staff 6 secciones (1 second ago)
-**Total de activos:** 34 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-07 10:48:28
+**Ultimo commit:** e4a9840 feat: sli slo slas microservicios java — guía Staff 6 secciones (1 second ago)
+**Total de activos:** 35 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 7 | 14 | — |
-| **02_Arquitectura** | 7 | 9 | — |
+| **02_Arquitectura** | 8 | 10 | — |
 | **03_Spring_Ecosystem** | 2 | 5 | — |
 | **04_Bases_de_Datos** | 5 | 7 | — |
 | **05_SRE_DevOps** | 3 | 18 | — |
@@ -45,6 +45,7 @@
 - [Event Sourcing y CQRS con Java 21 y Spring Boot](02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) — 2026-04-03 15:27 (21.1KB)
 - [Rate Limiter Distribuido con Redis y Java 21](02_Arquitectura/rate_limiter_distribuido_con_redis_y_java_21_STAFF.md) — 2026-04-05 08:55 (33.5KB)
 - [Saga Pattern: Orquestación vs Coreografía con Java 21](02_Arquitectura/saga_pattern_orquestacion_vs_coreografia_con_java_21_STAFF.md) — 2026-04-04 09:19 (33.4KB)
+- [SLI, SLO y SLAs: Diseño y Aplicación Real en Microservicios Java 21 — ](02_Arquitectura/sli_slo_y_slas_diseno_y_aplicacion_real_en_microservicios_java_STAFF.md) — 2026-04-07 10:48 (20.8KB)
 
 ### 📂 03_Spring_Ecosystem
 
@@ -92,12 +93,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 34 |
-| Tamano total del repositorio | 809.2KB |
+| Total documentos tecnicos | 35 |
+| Tamano total del repositorio | 830.1KB |
 | Modulos activos | 9 |
-| Total commits | 134 |
+| Total commits | 136 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-07 10:06:49 |
+| Fecha | 2026-04-07 10:48:28 |
 
 ---
 
