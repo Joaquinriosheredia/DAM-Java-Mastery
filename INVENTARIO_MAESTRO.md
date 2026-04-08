@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-08 12:00:34
-**Ultimo commit:** af3a972 feat: hapi fhir hl7 to fhir transformer — guía Staff 6 secciones (3 seconds ago)
-**Total de activos:** 37 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-08 12:46:52
+**Ultimo commit:** 1675d23 feat: zero trust identity perimeter java 21 — guía Staff 6 secciones (3 seconds ago)
+**Total de activos:** 38 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -17,7 +17,7 @@
 | **03_Spring_Ecosystem** | 3 | 6 | — |
 | **04_Bases_de_Datos** | 5 | 7 | — |
 | **05_SRE_DevOps** | 3 | 18 | — |
-| **06_Seguridad** | 2 | 4 | — |
+| **06_Seguridad** | 3 | 5 | — |
 | **07_BigData_Streaming** | 3 | 11 | — |
 | **08_IA_Agentes** | 1 | 3 | — |
 | **09_Frontend_Mobile** | 3 | 2 | — |
@@ -71,6 +71,7 @@
 
 - [JWT, OAuth2 y Zero Trust Security con Java 21 y Spring Security](06_Seguridad/jwt_oauth2_y_zero_trust_security_con_java_21_STAFF.md) — 2026-04-02 22:04 (25.2KB)
 - [Seguridad Ofensiva y Auditoría de Microservicios con Java 21](06_Seguridad/seguridad_ofensiva_y_auditoria_de_microservicios_con_java_21_STAFF.md) — 2026-04-03 09:33 (23.0KB)
+- [Zero Trust: La Identidad como Nuevo Perímetro con Java 21 — Guía Staff](06_Seguridad/zero_trust_identidad_como_perimetro_java_21_STAFF.md) — 2026-04-08 12:46 (21.0KB)
 
 ### 📂 07_BigData_Streaming
 
@@ -94,12 +95,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 37 |
-| Tamano total del repositorio | 873.9KB |
+| Total documentos tecnicos | 38 |
+| Tamano total del repositorio | 894.9KB |
 | Modulos activos | 9 |
-| Total commits | 143 |
+| Total commits | 145 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-08 12:00:34 |
+| Fecha | 2026-04-08 12:46:52 |
 
 ---
 

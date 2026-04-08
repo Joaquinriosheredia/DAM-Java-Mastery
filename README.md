@@ -3,7 +3,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Joaquín_Ríos_Heredia-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/joaquinrios-dev-strategist/)
 [![Web](https://img.shields.io/badge/Web-DAM--Java--Mastery-blue?style=flat&logo=github)](https://joaquinriosheredia.github.io/DAM-Java-Mastery/)
 [![GitHub](https://img.shields.io/badge/GitHub-Portfolio-lightgrey?style=flat&logo=github)](https://github.com/Joaquinriosheredia)
-![Documentos](https://img.shields.io/badge/Documentos_Staff-32-green?style=flat)
+![Documentos](https://img.shields.io/badge/Documentos_Staff-33-green?style=flat)
 ![Calidad](https://img.shields.io/badge/SRE_Score-94%2F100-brightgreen?style=flat)
 
 Biblioteca de referencia técnica de nivel **Staff Engineer** sobre Java 21, arquitecturas de software, SRE, seguridad y sistemas distribuidos. Generada y mantenida con **Authority Engine v21.0** — pipeline híbrido de IA local + revisión académica.
@@ -29,6 +29,7 @@ GitHub
 **Stack técnico:** Python 3.12 · Ollama 0.20.0 · Qwen 2.5 7b · Tavily API · Claude Pro · RTX 4060 8GB
 
 ---
+
 
 
 
@@ -120,10 +121,35 @@ GitHub
 |-----------|-----------|-------|
 | [JWT, OAuth2 y Zero Trust Security con Java 21 y Spring Security](./06_Seguridad/jwt_oauth2_y_zero_trust_security_con_java_21_STAFF.md) | 9 | 02/04/2026 |
 | [Seguridad Ofensiva y Auditoría de Microservicios con Java 21](./06_Seguridad/seguridad_ofensiva_y_auditoria_de_microservicios_con_java_21_STAFF.md) | 9 | 03/04/2026 |
+| [Zero Trust: La Identidad como Nuevo Perímetro con Java 21 — Guía Staff Engineer](./06_Seguridad/zero_trust_identidad_como_perimetro_java_21_STAFF.md) | 7 | 08/04/2026 |
 
 ---
 
 ### 📊 07_BigData_Streaming — Kafka, Spark, Flink
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Apache Kafka Streams con Java 21](./07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) | 5 | 02/04/2026 |
+| [BigData ETL con Apache Spark y Java 21 para Transformación Masiva](./07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) | 6 | 07/04/2026 |
+| [Data Mesh: Descentralización de la Propiedad del Dato con Java 21](./07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) | 7 | 03/04/2026 |
+
+---
+
+### 🤖 08_IA_Agentes — RAG, LangChain4j, LLMOps
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Sistemas Multi-Agente con LangChain4j y Ollama en Java 21](./08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) | 7 | 03/04/2026 |
+
+---
+
+### 📱 09_Frontend_Mobile — Flutter, Android, Kotlin
+
+*Próximamente*
+
+---
+
+## 📊 07_BigData_Streaming — Kafka, Spark, Flink
 
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
@@ -660,7 +686,7 @@ GitHub
 
 | Métrica | Valor |
 |---------|-------|
-| Documentos Staff publicados | 32 |
+| Documentos Staff publicados | 33 |
 | Módulos con contenido | 8 / 9 |
 | Score SRE promedio | 94 / 100 |
 | Secciones promedio por documento | 7 |
