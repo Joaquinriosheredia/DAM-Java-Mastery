@@ -69,7 +69,7 @@
 # BLOQUE 6 — SEGURIDAD (completar 06_Seguridad)
 # ═══════════════════════════════════════════════════════════════
 
-- [ ] Zero Trust: la identidad como nuevo perimetro con Java 21
+- [x] Zero Trust: la identidad como nuevo perimetro con Java 21
 - [ ] Post-Quantum Cryptography: el fin de RSA y migracion con Java
 - [ ] Secrets management con HashiCorp Vault en produccion
 - [ ] Broken Access Control: casos reales y mitigacion con Spring Security
