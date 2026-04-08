@@ -104,7 +104,7 @@
 # Nicho diferenciador — muy pocos repositorios cubren esto
 # ═══════════════════════════════════════════════════════════════
 
-- [ ] HAPI FHIR: Transformador HL7 v2 a FHIR Bundle con Java 21
+- [x] HAPI FHIR: Transformador HL7 v2 a FHIR Bundle con Java 21
 - [ ] Interoperabilidad Sanitaria con FHIR R4 y Spring Boot
 - [ ] Auditoria GDPR de accesos a datos clinicos con Java 21
 - [ ] Sistemas Clinicos Seguros con HL7 y Java 21
