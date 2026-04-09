@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-09 09:16:51
-**Ultimo commit:** 026a555 feat: rag avanzado langchain4j reranking — guía Staff 6 secciones (3 seconds ago)
-**Total de activos:** 39 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-09 10:18:41
+**Ultimo commit:** b993703 feat: autonomous agents long-term memory langchain4j — guía Staff 6 secciones (3 seconds ago)
+**Total de activos:** 40 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -19,7 +19,7 @@
 | **05_SRE_DevOps** | 3 | 18 | — |
 | **06_Seguridad** | 3 | 5 | — |
 | **07_BigData_Streaming** | 3 | 11 | — |
-| **08_IA_Agentes** | 2 | 4 | — |
+| **08_IA_Agentes** | 3 | 5 | — |
 | **09_Frontend_Mobile** | 3 | 2 | — |
 
 ---
@@ -81,6 +81,7 @@
 
 ### 📂 08_IA_Agentes
 
+- [Agentes Autónomos con Memoria a Largo Plazo y LangChain4j: Arquitectur](08_IA_Agentes/agentes_autonomos_memoria_largo_plazo_langchain4j_STAFF.md) — 2026-04-09 10:18 (21.5KB)
 - [RAG Avanzado con Embeddings Locales y Reranking en Java 21: Arquitectu](08_IA_Agentes/rag_avanzado_embeddings_locales_y_reranking_langchain4j_STAFF.md) — 2026-04-09 09:16 (23.2KB)
 - [Sistemas Multi-Agente con LangChain4j y Ollama en Java 21](08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) — 2026-04-03 10:28 (17.2KB)
 
@@ -96,12 +97,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 39 |
-| Tamano total del repositorio | 918.1KB |
+| Total documentos tecnicos | 40 |
+| Tamano total del repositorio | 939.6KB |
 | Modulos activos | 9 |
-| Total commits | 98 |
+| Total commits | 99 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-09 09:16:51 |
+| Fecha | 2026-04-09 10:18:41 |
 
 ---
 
