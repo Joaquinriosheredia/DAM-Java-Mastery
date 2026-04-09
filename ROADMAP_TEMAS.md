@@ -90,7 +90,7 @@
 # BLOQUE 8 — IA Y AGENTES (completar 08_IA_Agentes)
 # ═══════════════════════════════════════════════════════════════
 
-- [ ] RAG Avanzado con embeddings locales y reranking con LangChain4j
+- [x] RAG Avanzado con embeddings locales y reranking con LangChain4j
 - [ ] Agentes Autonomos con memoria a largo plazo y LangChain4j
 - [ ] Tool Calling y Function Calling con Qwen2.5 y LangChain4j
 - [ ] Defensa contra Prompt Injection en agentes IA con Java
