@@ -92,7 +92,7 @@
 
 - [x] RAG Avanzado con embeddings locales y reranking con LangChain4j
 - [x] Agentes Autonomos con memoria a largo plazo y LangChain4j
-- [ ] Tool Calling y Function Calling con Qwen2.5 y LangChain4j
+- [x] Tool Calling y Function Calling con Qwen2.5 y LangChain4j
 - [ ] Defensa contra Prompt Injection en agentes IA con Java
 - [ ] Arquitectura RAG escalable en produccion con pgvector y Java 21
 - [ ] Evaluacion de modelos LLM: metricas reales y benchmarks
