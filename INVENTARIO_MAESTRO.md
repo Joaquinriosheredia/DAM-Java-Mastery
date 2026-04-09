@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-09 10:18:41
-**Ultimo commit:** b993703 feat: autonomous agents long-term memory langchain4j — guía Staff 6 secciones (3 seconds ago)
-**Total de activos:** 40 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-09 13:00:26
+**Ultimo commit:** ed994a0 feat: tool calling function calling qwen2.5 langchain4j — guía Staff 6 secciones (2 seconds ago)
+**Total de activos:** 41 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -19,7 +19,7 @@
 | **05_SRE_DevOps** | 3 | 18 | — |
 | **06_Seguridad** | 3 | 5 | — |
 | **07_BigData_Streaming** | 3 | 11 | — |
-| **08_IA_Agentes** | 3 | 5 | — |
+| **08_IA_Agentes** | 4 | 6 | — |
 | **09_Frontend_Mobile** | 3 | 2 | — |
 
 ---
@@ -84,6 +84,7 @@
 - [Agentes Autónomos con Memoria a Largo Plazo y LangChain4j: Arquitectur](08_IA_Agentes/agentes_autonomos_memoria_largo_plazo_langchain4j_STAFF.md) — 2026-04-09 10:18 (21.5KB)
 - [RAG Avanzado con Embeddings Locales y Reranking en Java 21: Arquitectu](08_IA_Agentes/rag_avanzado_embeddings_locales_y_reranking_langchain4j_STAFF.md) — 2026-04-09 09:16 (23.2KB)
 - [Sistemas Multi-Agente con LangChain4j y Ollama en Java 21](08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) — 2026-04-03 10:28 (17.2KB)
+- [Tool Calling y Function Calling con Qwen2.5 y LangChain4j: Arquitectur](08_IA_Agentes/tool_calling_function_calling_qwen2_5_langchain4j_STAFF.md) — 2026-04-09 13:00 (23.2KB)
 
 ### 📂 09_Frontend_Mobile
 
@@ -97,12 +98,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 40 |
-| Tamano total del repositorio | 939.6KB |
+| Total documentos tecnicos | 41 |
+| Tamano total del repositorio | 962.8KB |
 | Modulos activos | 9 |
-| Total commits | 99 |
+| Total commits | 100 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-09 10:18:41 |
+| Fecha | 2026-04-09 13:00:26 |
 
 ---
 
