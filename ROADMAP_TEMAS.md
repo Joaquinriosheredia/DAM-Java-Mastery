@@ -81,7 +81,7 @@
 # BLOQUE 7 — BIGDATA Y STREAMING (completar 07_BigData_Streaming)
 # ═══════════════════════════════════════════════════════════════
 
-- [ ] BigData ETL con Apache Spark y Java 21 para transformacion masiva
+- [x] BigData ETL con Apache Spark y Java 21 para transformacion masiva
 - [ ] Orquestacion de Workflows complejos con Apache Airflow 2026
 - [ ] Arquitecturas de Datos en Tiempo Real con Kafka y Flink
 - [ ] Apache Flink con Java 21: procesamiento de streams stateful
