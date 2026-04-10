@@ -3,7 +3,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Joaquín_Ríos_Heredia-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/joaquinrios-dev-strategist/)
 [![Web](https://img.shields.io/badge/Web-DAM--Java--Mastery-blue?style=flat&logo=github)](https://joaquinriosheredia.github.io/DAM-Java-Mastery/)
 [![GitHub](https://img.shields.io/badge/GitHub-Portfolio-lightgrey?style=flat&logo=github)](https://github.com/Joaquinriosheredia)
-![Documentos](https://img.shields.io/badge/Documentos_Staff-38-green?style=flat)
+![Documentos](https://img.shields.io/badge/Documentos_Staff-39-green?style=flat)
 ![Calidad](https://img.shields.io/badge/SRE_Score-94%2F100-brightgreen?style=flat)
 
 Biblioteca de referencia técnica de nivel **Staff Engineer** sobre Java 21, arquitecturas de software, SRE, seguridad y sistemas distribuidos. Generada y mantenida con **Authority Engine v21.0** — pipeline híbrido de IA local + revisión académica.
@@ -29,6 +29,7 @@ GitHub
 **Stack técnico:** Python 3.12 · Ollama 0.20.0 · Qwen 2.5 7b · Tavily API · Claude Pro · RTX 4060 8GB
 
 ---
+
 
 
 
@@ -87,7 +88,6 @@ GitHub
 | [Event Sourcing y CQRS con Java 21 y Spring Boot](./02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) | 6 | 03/04/2026 |
 | [Rate Limiter Distribuido con Redis y Java 21](./02_Arquitectura/rate_limiter_distribuido_con_redis_y_java_21_STAFF.md) | 6 | 05/04/2026 |
 | [Saga Pattern: Orquestación vs Coreografía con Java 21](./02_Arquitectura/saga_pattern_orquestacion_vs_coreografia_con_java_21_STAFF.md) | 8 | 04/04/2026 |
-| [SLI, SLO y SLAs: Diseño y Aplicación Real en Microservicios Java 21 — Guía Staff...](./02_Arquitectura/sli_slo_y_slas_diseno_y_aplicacion_real_en_microservicios_java_STAFF.md) | 7 | 07/04/2026 |
 
 ---
 
@@ -118,8 +118,11 @@ GitHub
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
 | [Chaos Engineering con Gremlin y Litmus en Kubernetes: Guía Staff Engineer 2026](./05_SRE_DevOps/chaos_engineering_con_gremlin_y_litmus_en_kubernetes_STAFF.md) | 7 | 07/04/2026 |
+| [Docker Avanzado: Multi-stage Builds, Imágenes Distroless y Optimización para Jav...](./05_SRE_DevOps/docker_avanzado_java_21_optimizacion_STAFF.md) | 7 | 10/04/2026 |
+| [Infraestructura como Código (IaC) con AWS CDK y Java 21: Arquitectura Declarativ...](./05_SRE_DevOps/iac_aws_cdk_java_21_STAFF.md) | 7 | 10/04/2026 |
 | [Kubernetes: Auto-escalado y Service Mesh en 2026](./05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) | 5 | 07/04/2026 |
 | [Patrones de Despliegue: Blue-Green, Canary y Rolling en Kubernetes — Guía Staff ...](./05_SRE_DevOps/patrones_de_despliegue_bluegreen_canary_y_rolling_con_kubernetes_STAFF.md) | 7 | 07/04/2026 |
+| [SLI, SLO y SLAs: Diseño y Aplicación Real en Microservicios Java 21 — Guía Staff...](./05_SRE_DevOps/sli_slo_y_slas_diseno_y_aplicacion_real_en_microservicios_java_STAFF.md) | 7 | 07/04/2026 |
 
 ---
 
@@ -134,6 +137,41 @@ GitHub
 ---
 
 ### 📊 07_BigData_Streaming — Kafka, Spark, Flink
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Apache Kafka Streams con Java 21](./07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) | 5 | 02/04/2026 |
+| [BigData ETL con Apache Spark y Java 21 para Transformación Masiva](./07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) | 6 | 07/04/2026 |
+| [Data Mesh: Descentralización de la Propiedad del Dato con Java 21](./07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) | 7 | 03/04/2026 |
+
+---
+
+### 🤖 08_IA_Agentes — RAG, LangChain4j, LLMOps
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Agentes Autónomos con Memoria a Largo Plazo y LangChain4j: Arquitectura de Persi...](./08_IA_Agentes/agentes_autonomos_memoria_largo_plazo_langchain4j_STAFF.md) | 7 | 09/04/2026 |
+| [RAG Avanzado con Embeddings Locales y Reranking en Java 21: Arquitectura de Prec...](./08_IA_Agentes/rag_avanzado_embeddings_locales_y_reranking_langchain4j_STAFF.md) | 7 | 09/04/2026 |
+| [Sistemas Multi-Agente con LangChain4j y Ollama en Java 21](./08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) | 7 | 03/04/2026 |
+| [Tool Calling y Function Calling con Qwen2.5 y LangChain4j: Arquitectura de Agent...](./08_IA_Agentes/tool_calling_function_calling_qwen2_5_langchain4j_STAFF.md) | 7 | 09/04/2026 |
+
+---
+
+### 📱 09_Frontend_Mobile — Flutter, Android, Kotlin
+
+*Próximamente*
+
+---
+
+### 🔭 10_Vanguardia — Tendencias y novedades 2026
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [GraalVM Native Image: Compilación AOT de Aplicaciones Spring Boot en Java 21 — G...](./10_Vanguardia/graalvm_native_image_compilacion_aot_java_21_STAFF.md) | 7 | 10/04/2026 |
+
+---
+
+## 📊 07_BigData_Streaming — Kafka, Spark, Flink
 
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
@@ -917,7 +955,7 @@ GitHub
 
 | Métrica | Valor |
 |---------|-------|
-| Documentos Staff publicados | 38 |
+| Documentos Staff publicados | 39 |
 | Módulos con contenido | 9 / 10 |
 | Score SRE promedio | 94 / 100 |
 | Secciones promedio por documento | 7 |

@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-10 08:23:26
-**Ultimo commit:** 5daea57 feat: graalvm native image aot java 21 — guía Staff 6 secciones (2 seconds ago)
-**Total de activos:** 46 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-10 08:41:52
+**Ultimo commit:** 8f540bc chore: reorganizar estructura — mover SLI/SLO y Docker a carpetas correctas (1 second ago)
+**Total de activos:** 45 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,12 +13,12 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 7 | 14 | — |
-| **02_Arquitectura** | 8 | 10 | — |
+| **02_Arquitectura** | 7 | 11 | — |
 | **03_Spring_Ecosystem** | 3 | 6 | — |
 | **04_Bases_de_Datos** | 5 | 7 | — |
-| **05_SRE_DevOps** | 3 | 18 | — |
+| **05_SRE_DevOps** | 6 | 19 | — |
 | **06_Seguridad** | 3 | 5 | — |
-| **07_BigData_Streaming** | 4 | 12 | — |
+| **07_BigData_Streaming** | 3 | 13 | — |
 | **08_IA_Agentes** | 4 | 6 | — |
 | **09_Frontend_Mobile** | 3 | 2 | — |
 | **10_Vanguardia** | 1 | 3 | — |
@@ -46,7 +46,6 @@
 - [Event Sourcing y CQRS con Java 21 y Spring Boot](02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) — 2026-04-03 15:27 (21.1KB)
 - [Rate Limiter Distribuido con Redis y Java 21](02_Arquitectura/rate_limiter_distribuido_con_redis_y_java_21_STAFF.md) — 2026-04-05 08:55 (33.5KB)
 - [Saga Pattern: Orquestación vs Coreografía con Java 21](02_Arquitectura/saga_pattern_orquestacion_vs_coreografia_con_java_21_STAFF.md) — 2026-04-04 09:19 (33.4KB)
-- [SLI, SLO y SLAs: Diseño y Aplicación Real en Microservicios Java 21 — ](02_Arquitectura/sli_slo_y_slas_diseno_y_aplicacion_real_en_microservicios_java_STAFF.md) — 2026-04-07 10:48 (20.8KB)
 
 ### 📂 03_Spring_Ecosystem
 
@@ -65,8 +64,11 @@
 ### 📂 05_SRE_DevOps
 
 - [Chaos Engineering con Gremlin y Litmus en Kubernetes: Guía Staff Engin](05_SRE_DevOps/chaos_engineering_con_gremlin_y_litmus_en_kubernetes_STAFF.md) — 2026-04-07 09:45 (25.3KB)
+- [Docker Avanzado: Multi-stage Builds, Imágenes Distroless y Optimizació](05_SRE_DevOps/docker_avanzado_java_21_optimizacion_STAFF.md) — 2026-04-10 07:57 (19.1KB)
+- [Infraestructura como Código (IaC) con AWS CDK y Java 21: Arquitectura ](05_SRE_DevOps/iac_aws_cdk_java_21_STAFF.md) — 2026-04-10 07:36 (22.1KB)
 - [Kubernetes: Auto-escalado y Service Mesh en 2026](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-04-07 08:27 (11.0KB)
 - [Patrones de Despliegue: Blue-Green, Canary y Rolling en Kubernetes — G](05_SRE_DevOps/patrones_de_despliegue_bluegreen_canary_y_rolling_con_kubernetes_STAFF.md) — 2026-04-07 10:06 (23.0KB)
+- [SLI, SLO y SLAs: Diseño y Aplicación Real en Microservicios Java 21 — ](05_SRE_DevOps/sli_slo_y_slas_diseno_y_aplicacion_real_en_microservicios_java_STAFF.md) — 2026-04-07 10:48 (20.8KB)
 
 ### 📂 06_Seguridad
 
@@ -77,7 +79,6 @@
 ### 📂 07_BigData_Streaming
 
 - [Apache Kafka Streams con Java 21](07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) — 2026-04-02 15:46 (10.8KB)
-- [BigData ETL con Apache Spark y Java 21: Arquitectura de Transformación](07_BigData_Streaming/bigdata_etl_apache_spark_java_21_STAFF.md) — 2026-04-10 08:13 (23.3KB)
 - [BigData ETL con Apache Spark y Java 21 para Transformación Masiva](07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) — 2026-04-07 08:27 (17.3KB)
 - [Data Mesh: Descentralización de la Propiedad del Dato con Java 21](07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) — 2026-04-03 10:28 (17.7KB)
 
@@ -104,12 +105,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 46 |
+| Total documentos tecnicos | 45 |
 | Tamano total del repositorio | 1.0MB |
 | Modulos activos | 10 |
-| Total commits | 107 |
+| Total commits | 111 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-10 08:23:26 |
+| Fecha | 2026-04-10 08:41:52 |
 
 ---
 
