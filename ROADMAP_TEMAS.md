@@ -114,7 +114,7 @@
 # Tendencias que posicionan el perfil como referencia actual
 # ═══════════════════════════════════════════════════════════════
 
-- [ ] GraalVM Native Image: compilacion AOT de aplicaciones Spring Boot
+- [x] GraalVM Native Image: compilacion AOT de aplicaciones Spring Boot
 - [ ] WebAssembly en el servidor con Java 21 y WasmEdge
 - [ ] Platform Engineering: construir IDPs con Backstage y Java
 - [ ] eBPF para observabilidad avanzada en Kubernetes 2026
