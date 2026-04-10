@@ -450,9 +450,9 @@ graph TD
         APP[Spring Boot Service] -->|Micrometer| PROM[Prometheus]
         PROM --> GRAF[Grafana\nSecurity Dashboard]
         PROM --> AM[AlertManager]
-        AM -->|auth failures > 5%| SLACK[Slack: posible ataque\no token mal configurado]
-        AM -->|403 spike| SOC[SOC Alert:\nposible acceso no autorizado]
-        AM -->|audit errors > 0| P1[PagerDuty P1:\nauditoria rota]
+        AM -->|auth failures alto| SLACK[Slack - posible ataque o token mal configurado]
+        AM -->|pico de 403| SOC[SOC Alert - posible acceso no autorizado]
+        AM -->|audit errors detectados| P1[PagerDuty P1 - auditoria rota]
     end
 ```
 
