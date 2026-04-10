@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-10 08:41:52
-**Ultimo commit:** 8f540bc chore: reorganizar estructura — mover SLI/SLO y Docker a carpetas correctas (1 second ago)
-**Total de activos:** 45 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-10 09:01:20
+**Ultimo commit:** 0e06597 feat: spring security 6 advanced method security oauth2 — guía Staff 6 secciones (2 seconds ago)
+**Total de activos:** 46 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -17,7 +17,7 @@
 | **03_Spring_Ecosystem** | 3 | 6 | — |
 | **04_Bases_de_Datos** | 5 | 7 | — |
 | **05_SRE_DevOps** | 6 | 19 | — |
-| **06_Seguridad** | 3 | 5 | — |
+| **06_Seguridad** | 4 | 6 | — |
 | **07_BigData_Streaming** | 3 | 13 | — |
 | **08_IA_Agentes** | 4 | 6 | — |
 | **09_Frontend_Mobile** | 3 | 2 | — |
@@ -74,6 +74,7 @@
 
 - [JWT, OAuth2 y Zero Trust Security con Java 21 y Spring Security](06_Seguridad/jwt_oauth2_y_zero_trust_security_con_java_21_STAFF.md) — 2026-04-02 22:04 (25.2KB)
 - [Seguridad Ofensiva y Auditoría de Microservicios con Java 21](06_Seguridad/seguridad_ofensiva_y_auditoria_de_microservicios_con_java_21_STAFF.md) — 2026-04-03 09:33 (23.0KB)
+- [Spring Security 6 Avanzado: Autorización Granular Método a Método y OA](06_Seguridad/spring_security_6_avanzado_metodo_a_metodo_oauth2_resource_server_STAFF.md) — 2026-04-10 09:01 (23.1KB)
 - [Zero Trust: La Identidad como Nuevo Perímetro con Java 21 — Guía Staff](06_Seguridad/zero_trust_identidad_como_perimetro_java_21_STAFF.md) — 2026-04-08 12:46 (21.0KB)
 
 ### 📂 07_BigData_Streaming
@@ -105,12 +106,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 45 |
-| Tamano total del repositorio | 1.0MB |
+| Total documentos tecnicos | 46 |
+| Tamano total del repositorio | 1.1MB |
 | Modulos activos | 10 |
-| Total commits | 111 |
+| Total commits | 112 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-10 08:41:52 |
+| Fecha | 2026-04-10 09:01:20 |
 
 ---
 
