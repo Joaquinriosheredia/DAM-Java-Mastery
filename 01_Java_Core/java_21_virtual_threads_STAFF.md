@@ -110,7 +110,7 @@ graph LR
     
     subgraph "Runtime JVM"
         VT_POOL[Pool de Virtual Threads]
-        CARRIER[Carrier Threads (Platform)]
+        CARRIER[Carrier Threads Platform]
         SCHEDULER[ForkJoinPool Scheduler]
     end
     
