@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-10 07:57:24
-**Ultimo commit:** 947de9c feat: docker advanced java 21 distroless — guía Staff 6 secciones (3 seconds ago)
-**Total de activos:** 44 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-10 08:13:48
+**Ultimo commit:** c22b6d2 feat: bigdata etl spark java 21 — guía Staff 6 secciones (3 seconds ago)
+**Total de activos:** 45 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -18,7 +18,7 @@
 | **04_Bases_de_Datos** | 5 | 7 | — |
 | **05_SRE_DevOps** | 3 | 18 | — |
 | **06_Seguridad** | 3 | 5 | — |
-| **07_BigData_Streaming** | 3 | 11 | — |
+| **07_BigData_Streaming** | 4 | 12 | — |
 | **08_IA_Agentes** | 4 | 6 | — |
 | **09_Frontend_Mobile** | 3 | 2 | — |
 
@@ -76,6 +76,7 @@
 ### 📂 07_BigData_Streaming
 
 - [Apache Kafka Streams con Java 21](07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) — 2026-04-02 15:46 (10.8KB)
+- [BigData ETL con Apache Spark y Java 21: Arquitectura de Transformación](07_BigData_Streaming/bigdata_etl_apache_spark_java_21_STAFF.md) — 2026-04-10 08:13 (23.3KB)
 - [BigData ETL con Apache Spark y Java 21 para Transformación Masiva](07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) — 2026-04-07 08:27 (17.3KB)
 - [Data Mesh: Descentralización de la Propiedad del Dato con Java 21](07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) — 2026-04-03 10:28 (17.7KB)
 
@@ -98,12 +99,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 44 |
+| Total documentos tecnicos | 45 |
 | Tamano total del repositorio | 1.0MB |
 | Modulos activos | 9 |
-| Total commits | 103 |
+| Total commits | 104 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-10 07:57:24 |
+| Fecha | 2026-04-10 08:13:48 |
 
 ---
 
