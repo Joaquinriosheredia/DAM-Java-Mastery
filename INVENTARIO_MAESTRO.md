@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-10 08:13:48
-**Ultimo commit:** c22b6d2 feat: bigdata etl spark java 21 — guía Staff 6 secciones (3 seconds ago)
-**Total de activos:** 45 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-10 08:23:26
+**Ultimo commit:** 5daea57 feat: graalvm native image aot java 21 — guía Staff 6 secciones (2 seconds ago)
+**Total de activos:** 46 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,6 +21,7 @@
 | **07_BigData_Streaming** | 4 | 12 | — |
 | **08_IA_Agentes** | 4 | 6 | — |
 | **09_Frontend_Mobile** | 3 | 2 | — |
+| **10_Vanguardia** | 1 | 3 | — |
 
 ---
 
@@ -93,18 +94,22 @@
 - [FRONTEND: INTERNACIONALIZACIÓN (I18N) CON SOPORTE MULTI-IDIOMA](09_Frontend_Mobile/std_frontend:_internacionalización_(i18n)_con_soporte_multi-idioma_20260329_1514.md) — 2026-04-07 08:27 (39.0KB)
 - [FRONTEND: VALIDACIÓN DE FORMULARIOS EN TIEMPO REAL CON EXPRESIONES REG](09_Frontend_Mobile/std_frontend:_validación_de_formularios_en_tiempo_real_con_expresiones_regulares_20260329_1436.md) — 2026-03-31 14:59 (42.4KB)
 
+### 📂 10_Vanguardia
+
+- [GraalVM Native Image: Compilación AOT de Aplicaciones Spring Boot en J](10_Vanguardia/graalvm_native_image_compilacion_aot_java_21_STAFF.md) — 2026-04-10 08:23 (19.8KB)
+
 ---
 
 ## Estadisticas Globales del Portfolio
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 45 |
+| Total documentos tecnicos | 46 |
 | Tamano total del repositorio | 1.0MB |
-| Modulos activos | 9 |
-| Total commits | 104 |
+| Modulos activos | 10 |
+| Total commits | 107 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-10 08:13:48 |
+| Fecha | 2026-04-10 08:23:26 |
 
 ---
 
