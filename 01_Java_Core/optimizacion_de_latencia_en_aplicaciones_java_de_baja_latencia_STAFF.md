@@ -258,13 +258,13 @@ graph TD
         APP[Aplicación Java 21]
         
         subgraph "Capa de Negocio"
-            VT[Virtual Threads para I/O]
+            VT[Virtual Threads para I-O]
             SCOPE[StructuredTaskScope]
         end
         
         subgraph "Capa de Datos"
             SEGMENT[MemorySegment Off-Heap]
-            POOL[Object Pooling (Reciclaje)]
+            POOL[Object Pooling - Reciclaje]
         end
         
         subgraph "Capa de Concurrencia"
