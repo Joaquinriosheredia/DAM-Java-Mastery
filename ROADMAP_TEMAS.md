@@ -58,7 +58,7 @@
 - [x] Resilience4j: Circuit Breaker, Retry y Bulkhead en Spring Boot 3
 - [x] Observabilidad con OpenTelemetry, Prometheus y Grafana
 - [x] Spring Boot Reactivo: R2DBC + Virtual Threads optimizacion
-- [ ] Spring Security 6 avanzado: metodo a metodo y OAuth2 Resource Server
+- [x] Spring Security 6 avanzado: metodo a metodo y OAuth2 Resource Server
 - [ ] Spring Batch 5 para procesamiento masivo de datos con Java 21
 - [ ] Testing avanzado en Spring Boot con JUnit 5 y Testcontainers
 - [ ] Spring Cloud Gateway: rate limiting, auth centralizada, multi-cluster
