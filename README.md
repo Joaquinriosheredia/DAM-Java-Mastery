@@ -57,6 +57,7 @@ GitHub
 
 
 
+
 ## 📚 Índice de Documentos por Módulo
 
 ### ☕ 01_Java_Core — Java 21 Avanzado
@@ -131,6 +132,33 @@ GitHub
 ---
 
 ### 📊 07_BigData_Streaming — Kafka, Spark, Flink
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Apache Kafka Streams con Java 21](./07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) | 5 | 02/04/2026 |
+| [BigData ETL con Apache Spark y Java 21 para Transformación Masiva](./07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) | 6 | 07/04/2026 |
+| [Data Mesh: Descentralización de la Propiedad del Dato con Java 21](./07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) | 7 | 03/04/2026 |
+
+---
+
+### 🤖 08_IA_Agentes — RAG, LangChain4j, LLMOps
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Agentes Autónomos con Memoria a Largo Plazo y LangChain4j: Arquitectura de Persi...](./08_IA_Agentes/agentes_autonomos_memoria_largo_plazo_langchain4j_STAFF.md) | 7 | 09/04/2026 |
+| [RAG Avanzado con Embeddings Locales y Reranking en Java 21: Arquitectura de Prec...](./08_IA_Agentes/rag_avanzado_embeddings_locales_y_reranking_langchain4j_STAFF.md) | 7 | 09/04/2026 |
+| [Sistemas Multi-Agente con LangChain4j y Ollama en Java 21](./08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) | 7 | 03/04/2026 |
+| [Tool Calling y Function Calling con Qwen2.5 y LangChain4j: Arquitectura de Agent...](./08_IA_Agentes/tool_calling_function_calling_qwen2_5_langchain4j_STAFF.md) | 7 | 09/04/2026 |
+
+---
+
+### 📱 09_Frontend_Mobile — Flutter, Android, Kotlin
+
+*Próximamente*
+
+---
+
+## 📊 07_BigData_Streaming — Kafka, Spark, Flink
 
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
