@@ -1,19 +1,18 @@
 # ROADMAP — DAM-Java-Mastery
 # Temas pendientes ordenados por prioridad estratégica
 # Ejecutar con: racha2026 "tema"
-# Actualizado: 2026-04-10
+# Actualizado: 2026-04-10 (v3.0 - Sincronizado con estado real)
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 1 — JAVA CORE (completar 01_Java_Core)
-# Carpeta más visible — reclutadores la miran primero
+# BLOQUE 1 — JAVA CORE (01_Java_Core/)
 # Fundamentos del lenguaje y runtime para alta performance
 # ═══════════════════════════════════════════════════════════════
 
-- [x] Clean Code y SOLID con Java 21: principios aplicados a features modernos
+- [x] Clean Code y SOLID con Java 21
 - [x] Patrones Strategy y Observer: sealed interfaces, pattern matching, records
 - [x] Garbage Collectors en la JVM: G1, ZGC y Shenandoah en produccion
 - [x] Java 21 Virtual Threads: concurrencia estructurada y escalabilidad
-- [x] Structured Concurrency y Scoped Values: Project Loom completo
+- [ ] Structured Concurrency y Scoped Values: Project Loom completo
 - [x] Memory leaks reales en Java: deteccion y solucion con VisualVM
 - [x] Profiling avanzado en Java con JFR y Async Profiler
 - [x] Optimizacion de latencia en aplicaciones Java de baja latencia
@@ -26,14 +25,17 @@
 - [ ] Seguridad en Java: JWT, crypto moderna, secrets management
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 2 — ARQUITECTURA (completar 02_Arquitectura)
-# Temas de System Design — diferencian Staff de Senior
-# Patrones de diseño distribuido y toma de decisiones arquitectónicas
+# BLOQUE 2 — ARQUITECTURA (02_Arquitectura/)
+# System Design, patrones distribuidos y toma de decisiones
 # ═══════════════════════════════════════════════════════════════
 
 - [x] Saga Pattern: orquestacion vs coreografia con Java 21
 - [x] Anti-patterns en microservicios y como evitarlos con Java 21
 - [x] Rate limiter distribuido con Redis y Java 21
+- [x] DDD y Arquitectura Hexagonal con Java 21
+- [x] Event-Driven Architecture + Outbox Pattern
+- [x] Event Sourcing y CQRS con Java 21 y Spring Boot
+- [x] Microservicios Reactivos: R2DBC + Virtual Threads
 - [ ] Monolito modular vs microservicios: cuando elegir cada uno
 - [ ] Consistencia eventual: problemas reales y soluciones con Java 21
 - [ ] Trade-offs CAP en sistemas reales con casos practicos Java
@@ -49,41 +51,48 @@
 - [ ] Data residency y soberania: GDPR, Schrems II, region locking
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 3 — SPRING ECOSYSTEM (completar 03_Spring_Ecosystem)
-# Framework principal del ecosistema Java enterprise
+# BLOQUE 3 — SPRING ECOSYSTEM (03_Spring_Ecosystem/)
+# Framework principal y ecosistema de integracion
 # ═══════════════════════════════════════════════════════════════
 
 - [x] Resilience4j: Circuit Breaker, Retry y Bulkhead en Spring Boot 3
+- [x] Observabilidad con OpenTelemetry, Prometheus y Grafana
+- [x] Spring Boot Reactivo: R2DBC + Virtual Threads optimizacion
 - [ ] Spring Security 6 avanzado: metodo a metodo y OAuth2 Resource Server
 - [ ] Spring Batch 5 para procesamiento masivo de datos con Java 21
 - [ ] Testing avanzado en Spring Boot con JUnit 5 y Testcontainers
 - [ ] Spring Cloud Gateway: rate limiting, auth centralizada, multi-cluster
 - [ ] Spring for Apache Kafka: producers, consumers, streams, exactly-once
 - [ ] Spring Data JDBC vs JPA: decisiones de persistencia y performance
+- [ ] Event Sourcing y CQRS con Spring Boot (mover de Arquitectura si aplica)
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 4 — BASES DE DATOS (completar 04_Bases_de_Datos)
+# BLOQUE 4 — BASES DE DATOS (04_Bases_de_Datos/)
 # Persistencia, modelado y optimizacion de datos
 # ═══════════════════════════════════════════════════════════════
 
 - [x] PostgreSQL 17 avanzado: indices, particionado y optimizacion de queries
 - [x] Vector Search con pgvector y PostgreSQL 17 para aplicaciones IA
 - [x] MongoDB con Java 21: modelado de documentos y agregaciones avanzadas
-- [ ] Redis avanzado: Streams, pub-sub y patrones de mensajeria
+- [x] Redis avanzado: Streams, pub-sub y patrones de mensajeria
+- [x] Optimizacion JVM + Redis Cache: estrategias de cacheo distribuido
 - [ ] SurrealDB como alternativa multimodelo en produccion con Java
 - [ ] Database migrations a escala: Flyway vs Liquibase, zero-downtime DDL
 - [ ] Change Data Capture (CDC): Debezium con PostgreSQL y Kafka
 - [ ] Connection pooling avanzado: HikariCP tuning y troubleshooting
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 5 — SRE Y DEVOPS (completar 05_SRE_DevOps)
-# Operaciones, observabilidad y fiabilidad de sistemas
+# BLOQUE 5 — SRE Y DEVOPS (05_SRE_DevOps/)
+# [NOTA: 05_SRE_DevOps_Cloud/ debe consolidarse aqui o renombrarse]
+# Operaciones, observabilidad, fiabilidad y cloud
 # ═══════════════════════════════════════════════════════════════
 
-- [x] SLI, SLO y SLAs: diseno y aplicacion real en microservicios Java
 - [x] Chaos Engineering con Gremlin y Litmus en Kubernetes
 - [x] Patrones de despliegue: Blue-Green, Canary y Rolling con Kubernetes
 - [x] Docker avanzado: multi-stage builds, distroless, optimizacion Java 21
+- [x] Kubernetes auto-escalado: HPA, VPA, cluster autoscaling
+- [x] IaC con AWS CDK en Java 21: infraestructura programable
+- [ ] SLI, SLO y SLAs: diseno y aplicacion real en microservicios Java
 - [ ] Alerting efectivo: como evitar el alert fatigue en Prometheus
 - [ ] Automatizacion de Infraestructura como Codigo con Ansible y Terraform
 - [ ] Seguridad y Hardening de Servidores Ubuntu para Produccion
@@ -97,11 +106,13 @@
 - [ ] GitOps: ArgoCD/Flux, drift detection, progressive delivery
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 6 — SEGURIDAD (completar 06_Seguridad)
+# BLOQUE 6 — SEGURIDAD (06_Seguridad/)
 # Seguridad aplicada, zero trust y compliance
 # ═══════════════════════════════════════════════════════════════
 
 - [x] Zero Trust: la identidad como nuevo perimetro con Java 21
+- [x] JWT y OAuth2: implementacion segura y Zero Trust
+- [x] Seguridad ofensiva y auditoria de aplicaciones Java
 - [ ] Post-Quantum Cryptography: el fin de RSA y migracion con Java
 - [ ] Secrets management con HashiCorp Vault en produccion
 - [ ] Broken Access Control: casos reales y mitigacion con Spring Security
@@ -115,11 +126,13 @@
 - [ ] OWASP API Security Top 10 2026: mitigaciones especificas Java/Spring
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 7 — BIGDATA Y STREAMING (completar 07_BigData_Streaming)
+# BLOQUE 7 — BIGDATA Y STREAMING (07_BigData_Streaming/)
 # Procesamiento distribuido de datos masivos
 # ═══════════════════════════════════════════════════════════════
 
-- [x] BigData ETL con Apache Spark y Java 21 para transformacion masiva
+- [x] BigData ETL con Apache Spark y Java 21: transformacion masiva
+- [x] Apache Kafka Streams: procesamiento stateful de eventos
+- [x] Data Mesh: arquitectura de datos distribuida y federada
 - [ ] Orquestacion de Workflows complejos con Apache Airflow 2026
 - [ ] Arquitecturas de Datos en Tiempo Real con Kafka y Flink
 - [ ] Apache Flink con Java 21: procesamiento de streams stateful
@@ -127,7 +140,7 @@
 - [ ] Optimizacion de Spark: AQE, broadcast joins, skew handling
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 8 — DATA ENGINEERING (nuevo 08_Data_Engineering)
+# BLOQUE 8 — DATA ENGINEERING (08_Data_Engineering/) [NUEVO]
 # Gobernanza, calidad y arquitectura de datos moderna
 # ═══════════════════════════════════════════════════════════════
 
@@ -140,25 +153,14 @@
 - [ ] Batch vs Streaming: decision framework, Lambda y Kappa architectures
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 9 — SPRING ECOSYSTEM AVANZADO (nuevo 09_Spring_Avanzado)
-# Integraciones, eventos y sistemas distribuidos con Spring
-# ═══════════════════════════════════════════════════════════════
-
-- [ ] Event Sourcing y CQRS con Java 21 y Spring Boot
-- [ ] Spring for Apache Pulsar: mensajeria moderna alternativa a Kafka
-- [ ] Spring Integration: patrones de integracion empresarial (EIP)
-- [ ] Spring Modulith: monolitos modulares con boundaries claros
-- [ ] Spring Native y GraalVM: compilacion AOT, startup instantaneo
-- [ ] Spring Authorization Server: OAuth2/OIDC propio, no solo cliente
-
-# ═══════════════════════════════════════════════════════════════
-# BLOQUE 10 — IA Y AGENTES (completar 10_IA_Agentes)
+# BLOQUE 9 — IA Y AGENTES (09_IA_Agentes/)
 # Inteligencia artificial aplicada con Java
 # ═══════════════════════════════════════════════════════════════
 
 - [x] RAG Avanzado con embeddings locales y reranking con LangChain4j
 - [x] Agentes Autonomos con memoria a largo plazo y LangChain4j
 - [x] Tool Calling y Function Calling con Qwen2.5 y LangChain4j
+- [x] Sistemas Multi-Agente: coordinacion y comunicacion
 - [ ] Defensa contra Prompt Injection en agentes IA con Java
 - [ ] Arquitectura RAG escalable en produccion con pgvector y Java 21
 - [ ] Evaluacion de modelos LLM: metricas reales y benchmarks
@@ -171,7 +173,20 @@
 - [ ] Ethical AI y bias detection: metricas de fairness en produccion
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 11 — FINTECH SYSTEMS (nuevo 11_FinTech_Systems)
+# BLOQUE 10 — HEALTHTECH (10_HealthTech/)
+# Sistemas clinicos, interoperabilidad y regulacion sanitaria
+# ═══════════════════════════════════════════════════════════════
+
+- [x] HAPI FHIR: Transformador HL7 v2 a FHIR Bundle con Java 21
+- [x] Interoperabilidad Sanitaria con FHIR R4 y Spring Boot
+- [ ] Auditoria GDPR de accesos a datos clinicos con Java 21
+- [ ] Sistemas Clinicos Seguros con HL7 y Java 21
+- [ ] DICOM processing: imagenes medicas en arquitecturas cloud
+- [ ] Clinical Decision Support: reglas clinicas, alertas inteligentes
+- [ ] HIPAA compliance tecnico: encryption, audit logs, access controls
+
+# ═══════════════════════════════════════════════════════════════
+# BLOQUE 11 — FINTECH SYSTEMS (11_FinTech_Systems/) [NUEVO]
 # Sistemas financieros criticos, alta precision y compliance
 # ═══════════════════════════════════════════════════════════════
 
@@ -185,20 +200,7 @@
 - [ ] Open Banking: PSD2, APIs de terceros, consent management
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 12 — HEALTHTECH (completar 12_HealthTech)
-# Sistemas clinicos, interoperabilidad y regulacion sanitaria
-# ═══════════════════════════════════════════════════════════════
-
-- [x] HAPI FHIR: Transformador HL7 v2 a FHIR Bundle con Java 21
-- [x] Interoperabilidad Sanitaria con FHIR R4 y Spring Boot
-- [ ] Auditoria GDPR de accesos a datos clinicos con Java 21
-- [ ] Sistemas Clinicos Seguros con HL7 y Java 21
-- [ ] DICOM processing: imagenes medicas en arquitecturas cloud
-- [ ] Clinical Decision Support: reglas clinicas, alertas inteligentes
-- [ ] HIPAA compliance tecnico: encryption, audit logs, access controls
-
-# ═══════════════════════════════════════════════════════════════
-# BLOQUE 13 — PLATFORM ENGINEERING (nuevo 13_Platform_Engineering)
+# BLOQUE 12 — PLATFORM ENGINEERING (12_Platform_Engineering/) [NUEVO]
 # Construccion de plataformas internas, IDPs y developer experience
 # ═══════════════════════════════════════════════════════════════
 
@@ -212,7 +214,7 @@
 - [ ] Platform metrics: DORA, developer experience surveys, adoption
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 14 — LEGACY MODERNIZATION (nuevo 14_Legacy_Modernization)
+# BLOQUE 13 — LEGACY MODERNIZATION (13_Legacy_Modernization/) [NUEVO]
 # Estrategias de migracion y evolucion de sistemas enterprise
 # ═══════════════════════════════════════════════════════════════
 
@@ -224,7 +226,7 @@
 - [ ] SOAP a REST: estrategias de migration de servicios legacy
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 15 — PERFORMANCE ENGINEERING (nuevo 15_Performance_Engineering)
+# BLOQUE 14 — PERFORMANCE ENGINEERING (14_Performance_Engineering/) [NUEVO]
 # Cultura de performance, testing y optimizacion continua
 # ═══════════════════════════════════════════════════════════════
 
@@ -236,24 +238,57 @@
 - [ ] JVM tuning avanzado: JIT logs, compiler directives, AOT caching
 
 # ═══════════════════════════════════════════════════════════════
-# BLOQUE 16 — VANGUARDIA 2026 (nuevo 16_Vanguardia)
+# BLOQUE 15 — VANGUARDIA 2026 (15_Vanguardia/)
 # Tendencias emergentes y tecnologias experimentales
 # ═══════════════════════════════════════════════════════════════
 
-- [ ] GraalVM Native Image: compilacion AOT de aplicaciones Spring Boot
+- [x] GraalVM Native Image: compilacion AOT de aplicaciones Spring Boot
 - [ ] WebAssembly en el servidor con Java 21 y WasmEdge
 - [ ] eBPF para observabilidad avanzada en Kubernetes 2026
-- [ ] Serverless con Java 21: AWS Lambda SnapStart, Quarkus Funqy
+- [ ] Serverless con Java 21: AWS Lambda SnapStart y Quarkus
 - [ ] Project Valhalla: value types y primitive classes preview
 - [ ] Project Lilliput: pointers comprimidos, menor footprint
 - [ ] Project Babylon: Java como host de lenguajes y ML
 - [ ] Quantum Computing: Qiskit y Java, preparacion para era post-cuantica
 
 # ═══════════════════════════════════════════════════════════════
+# ACCIONES DE CONSOLIDACION PENDIENTES
+# ═══════════════════════════════════════════════════════════════
+
+## URGENTES (antes de continuar publicando)
+
+1. [ ] Consolidar carpeta 05_SRE_DevOps_Cloud/ en 05_SRE_DevOps/
+   - Mover contenido de Cloud a DevOps o renombrar a 05_SRE_DevOps_Cloud
+   - Eliminar duplicados si existen
+
+2. [ ] Verificar duplicados y eliminar:
+   - BigData ETL Spark (verificar si hay 2 archivos)
+   - Event Sourcing y CQRS (en Arquitectura y Spring)
+   - SLI/SLOs (verificar ubicacion correcta)
+
+3. [ ] Actualizar indices README.md en cada carpeta con links reales
+
+## IMPORTANTES (calidad del corpus)
+
+4. [ ] Crear cross-references entre documentos relacionados
+   - Ej: Virtual Threads -&gt; Structured Concurrency
+   - Ej: Docker avanzado -&gt; Kubernetes auto-escalado
+
+5. [ ] Estandarizar formato de todos los documentos:
+   - Headers consistentes (Visión Estratégica, Arquitectura, Implementacion)
+   - Tablas comparativas donde aplique
+   - Diagramas Mermaid para arquitectura
+   - Checklist SRE al final
+
+6. [ ] Generar "Master Index" global en raiz del repositorio
+   - Matriz de temas vs nivel de dificultad
+   - Rutas de aprendizaje recomendadas por objetivo (Staff, Senior, Arquitecto)
+
+# ═══════════════════════════════════════════════════════════════
 # LEYENDA
 # ═══════════════════════════════════════════════════════════════
 
-# [x] Completado y publicado
+# [x] Completado y publicado (verificado en repo)
 # [~] En progreso / borrador activo
 # [ ] Pendiente de inicio
 
@@ -271,32 +306,43 @@
 # - 80% de temas completados (nivel Staff Engineer)
 # - 100% de bloques con al menos 3 temas completados (perfil completo)
 
+# Estado actual (aproximado):
+# - Total temas: ~108
+# - Completados: ~35 (32%)
+# - En progreso: ~5
+# - Pendientes: ~68
+
 # Cobertura objetivo por area:
-# - Java Core: 100% (fundamento no negociable)
-# - Arquitectura: 80% (diferenciador principal)
-# - Spring Ecosystem: 80% (framework principal)
-# - Datos: 70% (escala y persistencia)
-# - SRE/DevOps: 70% (operaciones modernas)
-# - Seguridad: 70% (compliance y riesgo)
-# - BigData/Streaming: 60% (especializacion valiosa)
-# - IA/Agentes: 60% (tendencia 2026)
-# - Fintech/HealthTech: 40% cada uno (nichos diferenciadores)
-# - Platform Engineering: 60% (tendencia ascendente)
-# - Vanguardia: 30% (visionario, no critico)
+# - Java Core: 100% (fundamento no negociable) → Actual: ~60%
+# - Arquitectura: 80% (diferenciador principal) → Actual: ~45%
+# - Spring Ecosystem: 80% (framework principal) → Actual: ~40%
+# - Datos: 70% (escala y persistencia) → Actual: ~55%
+# - SRE/DevOps: 70% (operaciones modernas) → Actual: ~35%
+# - Seguridad: 70% (compliance y riesgo) → Actual: ~30%
+# - BigData/Streaming: 60% (especializacion valiosa) → Actual: ~40%
+# - IA/Agentes: 60% (tendencia 2026) → Actual: ~35%
+# - Fintech/HealthTech: 40% cada uno (nichos diferenciadores) → Actual: ~25%
+# - Platform Engineering: 60% (tendencia ascendente) → Actual: 0%
+# - Legacy Modernization: 50% (enterprise real) → Actual: 0%
+# - Performance Engineering: 60% (cultura tecnica) → Actual: 0%
+# - Vanguardia: 30% (visionario, no critico) → Actual: ~15%
 
 # ═══════════════════════════════════════════════════════════════
 # NOTAS DE VERSION
 # ═══════════════════════════════════════════════════════════════
 
+# v3.0 (2026-04-10)
+# - Sincronizado con estado real del repositorio
+# - Marcados [x] todos los temas verificados como publicados
+# - Identificados duplicados y contenido faltante en roadmap anterior
+# - Anadida seccion de "Acciones de Consolidacion Pendientes"
+# - Recalculadas metricas de exito con estado actual real (~32% completado)
+# - Numeracion de bloques ajustada para consistencia (1-15 consecutivos)
+
 # v2.0 (2026-04-10)
 # - Reorganizacion de 10 a 16 bloques especializados
-# - Nuevos bloques: Data Engineering, Spring Avanzado, FinTech, 
-#   Platform Engineering, Legacy Modernization, Performance Engineering
-# - Ampliacion de 47 a 108 temas totales
-# - Adicion de metricas de exito y cobertura objetivo
-# - Inclusion de leyenda de prioridad visual
+# - Ampliacion de temas totales
 
 # v1.0 (2026-04-03)
 # - Estructura inicial con 10 bloques
 # - 47 temas definidos
-# - Priorizacion por visibilidad para reclutadores
