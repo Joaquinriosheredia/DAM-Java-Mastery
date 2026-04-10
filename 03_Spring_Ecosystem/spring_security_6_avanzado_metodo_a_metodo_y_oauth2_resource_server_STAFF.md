@@ -40,7 +40,7 @@ graph TD
         FILTER -->|JWKS cache| VALID[Validar firma + claims]
         VALID --> CONTEXT[SecurityContext\nSecureUserPrincipal Record]
         CONTEXT --> METHOD[Controller Method]
-        METHOD --> PRE[@PreAuthorize ABAC\nCustomSecurityEvaluator]
+        METHOD --> PRE[PreAuthorize ABAC CustomSecurityEvaluator]
         PRE -->|allow| BIZ[Business Logic]
         PRE -->|deny| ERR[403 Forbidden]
         BIZ --> AUDIT[AuditLogger\nVirtual Thread async]
@@ -100,7 +100,7 @@ graph LR
         JWT[JWT Claims\nroles, scopes, sub, tenant] --> CONV[JwtAuthenticationConverter\nmapear claims a authorities]
         CONV --> PRINCIPAL[SecureUserPrincipal Record\nimmutable]
         PRINCIPAL --> CTX[SecurityContext\nthread-local / VT-safe]
-        CTX --> PRE[@PreAuthorize\nSpEL expression]
+        CTX --> PRE[PreAuthorize SpEL expression]
         PRE --> EVAL[CustomSecurityEvaluator Bean\nABAC logic]
         EVAL --> DECISION[allow / deny]
     end
@@ -410,7 +410,7 @@ graph LR
         FILTER -->|NimbusJwtDecoder\nJWKS cache| DECODE[Validar firma RS256]
         DECODE -->|SecurePrincipalConverter| CTX[SecurityContext\nSecureUserPrincipal]
         CTX --> CTRL[Controller]
-        CTRL -->|@PreAuthorize SpEL| EVAL[SecurityEvaluator.canModifyOrder]
+        CTRL -->|PreAuthorize SpEL| EVAL[SecurityEvaluator.canModifyOrder]
         EVAL -->|ownership cache| DECISION{allow?}
         DECISION -->|sí| BIZ[Business Logic]
         DECISION -->|no| F403[403 JSON response]
@@ -450,9 +450,9 @@ graph TD
         APP[Spring Boot Service] -->|Micrometer| PROM[Prometheus]
         PROM --> GRAF[Grafana\nSecurity Dashboard]
         PROM --> AM[AlertManager]
-        AM -->|auth failures alto| SLACK[Slack - posible ataque o token mal configurado]
-        AM -->|pico de 403| SOC[SOC Alert - posible acceso no autorizado]
-        AM -->|audit errors detectados| P1[PagerDuty P1 - auditoria rota]
+        AM -->|auth failures > 5%| SLACK[Slack: posible ataque\no token mal configurado]
+        AM -->|403 spike| SOC[SOC Alert:\nposible acceso no autorizado]
+        AM -->|audit errors > 0| P1[PagerDuty P1:\nauditoria rota]
     end
 ```
 
