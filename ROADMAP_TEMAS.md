@@ -92,7 +92,7 @@
 - [x] Docker avanzado: multi-stage builds, distroless, optimizacion Java 21
 - [x] Kubernetes auto-escalado: HPA, VPA, cluster autoscaling
 - [x] IaC con AWS CDK en Java 21: infraestructura programable
-- [ ] SLI, SLO y SLAs: diseno y aplicacion real en microservicios Java
+- [x] SLI, SLO y SLAs: diseno y aplicacion real en microservicios Java
 - [ ] Alerting efectivo: como evitar el alert fatigue en Prometheus
 - [ ] Automatizacion de Infraestructura como Codigo con Ansible y Terraform
 - [ ] Seguridad y Hardening de Servidores Ubuntu para Produccion
@@ -257,11 +257,11 @@
 
 ## URGENTES (antes de continuar publicando)
 
-1. [ ] Consolidar carpeta 05_SRE_DevOps_Cloud/ en 05_SRE_DevOps/
+1. [x] Consolidar carpeta 05_SRE_DevOps_Cloud/ en 05_SRE_DevOps/
    - Mover contenido de Cloud a DevOps o renombrar a 05_SRE_DevOps_Cloud
    - Eliminar duplicados si existen
 
-2. [ ] Verificar duplicados y eliminar:
+2. [x] Verificar duplicados y eliminar:
    - BigData ETL Spark (verificar si hay 2 archivos)
    - Event Sourcing y CQRS (en Arquitectura y Spring)
    - SLI/SLOs (verificar ubicacion correcta)
