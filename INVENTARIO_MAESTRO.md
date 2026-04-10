@@ -1,8 +1,8 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-10 09:07:26
-**Ultimo commit:** 22d56dd feat: Spring Security 6 OAuth2 Resource Server ABAC — guía Staff 6 secciones (3 seconds ago)
+**Ultima sincronizacion:** 2026-04-10 09:15:51
+**Ultimo commit:** bae6742 feat: Spring Security 6 OAuth2 Resource Server ABAC — guía Staff 6 secciones (2 seconds ago)
 **Total de activos:** 47 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
@@ -14,7 +14,7 @@
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 7 | 14 | — |
 | **02_Arquitectura** | 7 | 11 | — |
-| **03_Spring_Ecosystem** | 4 | 7 | — |
+| **03_Spring_Ecosystem** | 4 | 8 | — |
 | **04_Bases_de_Datos** | 5 | 7 | — |
 | **05_SRE_DevOps** | 6 | 19 | — |
 | **06_Seguridad** | 4 | 6 | — |
@@ -52,7 +52,7 @@
 - [Observabilidad Distribuida en Spring Boot 3.4 con OpenTelemetry y Graf](03_Spring_Ecosystem/observabilidad_distribuida_en_spring_boot_3.3_con_opentelemetry_y_grafana_loki:_correlación_de_trazas_y_logs_STAFF.md) — 2026-04-03 10:18 (16.0KB)
 - [Resilience4j en Spring Boot 3: Circuit Breaker, Retry y Bulkhead con J](03_Spring_Ecosystem/resilience4j_circuit_breaker_retry_bulkhead_spring_boot_3_STAFF.md) — 2026-04-07 11:47 (23.5KB)
 - [Spring Boot 3.4 y R2DBC con Virtual Threads](03_Spring_Ecosystem/spring_boot_34_r2dbc_virtual_threads_STAFF.md) — 2026-04-03 20:19 (9.7KB)
-- [Spring Security 6 Avanzado: Autorización Método a Método y OAuth2 Reso](03_Spring_Ecosystem/spring_security_6_avanzado_metodo_a_metodo_y_oauth2_resource_server_STAFF.md) — 2026-04-10 09:07 (29.1KB)
+- [Spring Security 6 Avanzado: Autorización Método a Método y OAuth2 Reso](03_Spring_Ecosystem/spring_security_6_avanzado_metodo_a_metodo_y_oauth2_resource_server_STAFF.md) — 2026-04-10 09:14 (29.1KB)
 
 ### 📂 04_Bases_de_Datos
 
@@ -110,9 +110,9 @@
 | Total documentos tecnicos | 47 |
 | Tamano total del repositorio | 1.1MB |
 | Modulos activos | 10 |
-| Total commits | 113 |
+| Total commits | 114 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-10 09:07:26 |
+| Fecha | 2026-04-10 09:15:51 |
 
 ---
 
