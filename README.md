@@ -3,7 +3,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Joaquín_Ríos_Heredia-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/joaquinrios-dev-strategist/)
 [![Web](https://img.shields.io/badge/Web-DAM--Java--Mastery-blue?style=flat&logo=github)](https://joaquinriosheredia.github.io/DAM-Java-Mastery/)
 [![GitHub](https://img.shields.io/badge/GitHub-Portfolio-lightgrey?style=flat&logo=github)](https://github.com/Joaquinriosheredia)
-![Documentos](https://img.shields.io/badge/Documentos_Staff-40-green?style=flat)
+![Documentos](https://img.shields.io/badge/Documentos_Staff-41-green?style=flat)
 ![Calidad](https://img.shields.io/badge/SRE_Score-94%2F100-brightgreen?style=flat)
 
 Biblioteca de referencia técnica de nivel **Staff Engineer** sobre Java 21, arquitecturas de software, SRE, seguridad y sistemas distribuidos. Generada y mantenida con **Authority Engine v21.0** — pipeline híbrido de IA local + revisión académica.
@@ -29,6 +29,7 @@ GitHub
 **Stack técnico:** Python 3.12 · Ollama 0.20.0 · Qwen 2.5 7b · Tavily API · Claude Pro · RTX 4060 8GB
 
 ---
+
 
 
 
@@ -99,6 +100,7 @@ GitHub
 | [Observabilidad Distribuida en Spring Boot 3.4 con OpenTelemetry y Grafana](./03_Spring_Ecosystem/observabilidad_distribuida_en_spring_boot_3.3_con_opentelemetry_y_grafana_loki:_correlación_de_trazas_y_logs_STAFF.md) | 7 | 03/04/2026 |
 | [Resilience4j en Spring Boot 3: Circuit Breaker, Retry y Bulkhead con Java 21 — G...](./03_Spring_Ecosystem/resilience4j_circuit_breaker_retry_bulkhead_spring_boot_3_STAFF.md) | 7 | 07/04/2026 |
 | [Spring Boot 3.4 y R2DBC con Virtual Threads](./03_Spring_Ecosystem/spring_boot_34_r2dbc_virtual_threads_STAFF.md) | 5 | 03/04/2026 |
+| [Spring Security 6 Avanzado: Autorización Método a Método y OAuth2 Resource Serve...](./03_Spring_Ecosystem/spring_security_6_avanzado_metodo_a_metodo_y_oauth2_resource_server_STAFF.md) | 6 | 10/04/2026 |
 
 ---
 
@@ -139,6 +141,41 @@ GitHub
 ---
 
 ### 📊 07_BigData_Streaming — Kafka, Spark, Flink
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Apache Kafka Streams con Java 21](./07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) | 5 | 02/04/2026 |
+| [BigData ETL con Apache Spark y Java 21 para Transformación Masiva](./07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) | 6 | 07/04/2026 |
+| [Data Mesh: Descentralización de la Propiedad del Dato con Java 21](./07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) | 7 | 03/04/2026 |
+
+---
+
+### 🤖 08_IA_Agentes — RAG, LangChain4j, LLMOps
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Agentes Autónomos con Memoria a Largo Plazo y LangChain4j: Arquitectura de Persi...](./08_IA_Agentes/agentes_autonomos_memoria_largo_plazo_langchain4j_STAFF.md) | 7 | 09/04/2026 |
+| [RAG Avanzado con Embeddings Locales y Reranking en Java 21: Arquitectura de Prec...](./08_IA_Agentes/rag_avanzado_embeddings_locales_y_reranking_langchain4j_STAFF.md) | 7 | 09/04/2026 |
+| [Sistemas Multi-Agente con LangChain4j y Ollama en Java 21](./08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) | 7 | 03/04/2026 |
+| [Tool Calling y Function Calling con Qwen2.5 y LangChain4j: Arquitectura de Agent...](./08_IA_Agentes/tool_calling_function_calling_qwen2_5_langchain4j_STAFF.md) | 7 | 09/04/2026 |
+
+---
+
+### 📱 09_Frontend_Mobile — Flutter, Android, Kotlin
+
+*Próximamente*
+
+---
+
+### 🔭 10_Vanguardia — Tendencias y novedades 2026
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [GraalVM Native Image: Compilación AOT de Aplicaciones Spring Boot en Java 21 — G...](./10_Vanguardia/graalvm_native_image_compilacion_aot_java_21_STAFF.md) | 7 | 10/04/2026 |
+
+---
+
+## 📊 07_BigData_Streaming — Kafka, Spark, Flink
 
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
@@ -992,7 +1029,7 @@ GitHub
 
 | Métrica | Valor |
 |---------|-------|
-| Documentos Staff publicados | 40 |
+| Documentos Staff publicados | 41 |
 | Módulos con contenido | 9 / 10 |
 | Score SRE promedio | 94 / 100 |
 | Secciones promedio por documento | 7 |
