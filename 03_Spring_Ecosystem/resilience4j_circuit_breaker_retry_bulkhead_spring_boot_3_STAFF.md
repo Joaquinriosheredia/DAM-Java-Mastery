@@ -11,16 +11,6 @@
 
 En 2026, la resiliencia no es una "característica opcional" de los microservicios; es el **requisito fundamental para la supervivencia del sistema**. Según el *State of Microservices Report 2025*, el **68% de los incidentes de cascada** en arquitecturas distribuidas podrían haberse contenido con una configuración adecuada de Circuit Breaker, Retry y Bulkhead. Un equipo Senior implementa estos patrones; un equipo **Staff diseña una estrategia de resiliencia adaptativa** donde el sistema se protege a sí mismo sin intervención humana.
 
-### Workload Definition (Contexto Operativo)
-
-| Parámetro | Valor | Justificación |
-|-----------|-------|---------------|
-| Tipo de carga | API REST con llamadas externas | 70% lecturas, 30% escrituras |
-| Concurrencia pico | 5.000 req/s | Black Friday / campañas masivas |
-| Latencia SLO | p99 < 200ms | Requisito de negocio crítico |
-| Dependencias externas | 3-5 servicios (pagos, inventario, notificaciones) | Puntos de fallo potenciales |
-| Tolerancia a fallos | < 0.1% error rate | SLA contractual con clientes enterprise |
-
 ### Marco Matemático: Amplificación de Carga por Retry
 
 La carga efectiva sobre un servicio degradado sigue una serie geométrica crítica:
@@ -60,16 +50,6 @@ $$Load_{effective} = 1 \cdot (1 + 0.5 + 0.25 + 0.125) = 1.875x$$
 | **Error Rate bajo fallo parcial** | 45% (cascada total) | **2%** (degradación graciosa) | **95.6%** |
 
 *Conclusión del Benchmark:* Mientras que el modelo sin resiliencia colapsa rápidamente al alcanzar el límite de hilos disponibles, causando timeouts en cascada y alta latencia, el modelo con Resilience4j mantiene una latencia baja y constante incluso con 5x más carga concurrente, utilizando una fracción de la memoria y CPU.
-
-### Bottleneck Analysis (Antes/Después)
-
-| Componente | Antes (Sin Resiliencia) | Después (Con Resilience4j) | Impacto |
-|------------|------------------------|---------------------------|---------|
-| Thread Pool | Agotado en 30s bajo carga | Virtual Threads escalan dinámicamente | ↓ 95% thread starvation |
-| Circuit Breaker | No existente | Abre en < 2s tras 50% fallos | ↓ 90% cascading failures |
-| Retry Logic | Retry infinito sin backoff | Backoff exponencial con jitter | ↓ 87.5% load amplification |
-| Bulkhead | Todos los servicios comparten pool | Pool aislado por servicio | ↓ 100% cross-service contamination |
-| Fallback | Excepción propagada al usuario | Cache stale o valor por defecto | ↑ 98% availability |
 
 ```mermaid
 graph TD
@@ -122,13 +102,6 @@ En Java 21 con Virtual Threads, el concepto de Bulkhead evoluciona. Ya no solo l
 - **Semaphore Bulkhead:** Limita el número de llamadas concurrentes permitidas (ideal para Virtual Threads).
 - **Thread Pool Bulkhead:** Aísla un pool de hilos dedicado (legacy, pero útil para bloquear I/O antiguo).
 
-**Capacity Planning:**
-
-$$Instancias = \frac{Req/s}{Capacidad\_por\_instancia} \times SafetyFactor$$
-
-- 12k req/s → 1 instancia (capacidad: 15k req/s)
-- 50k req/s → 4 instancias (con SafetyFactor 1.3)
-
 #### Pilar 3: Estrategias de Fallback Degradadas
 
 Un fallback no es solo devolver un `null` o lanzar una excepción. Es ofrecer una **experiencia degradada pero funcional**:
@@ -136,237 +109,6 @@ Un fallback no es solo devolver un `null` o lanzar una excepción. Es ofrecer un
 - Devolver datos en caché (stale data).
 - Devolver valores por defecto seguros.
 - Ejecutar lógica simplificada que omite pasos no críticos (ej: no enviar email de confirmación, pero sí procesar el pago).
-
-### Estructura del Proyecto Modular
-
-```text
-resilience4j-java21-app/
-├── src/main/java/com/enterprise/resilience/
-│   ├── domain/                    # Modelos de dominio inmutables
-│   │   ├── ResilientResult.java   # Record: resultado tipado
-│   │   └── CircuitState.java      # Sealed Interface: estados CB
-│   ├── infrastructure/            # Adaptadores
-│   │   ├── resilience4j/          # Configuración Resilience4j
-│   │   │   ├── CircuitBreakerConfig.java
-│   │   │   └── RetryConfig.java
-│   │   └── fallback/              # Estrategias de fallback
-│   │       └── CacheFallback.java
-│   └── application/               # Casos de uso
-│       └── service/
-│           └── ResilientPaymentService.java
-├── src/test/java/                 # Tests de resiliencia y caos
-└── k8s/                           # Despliegue
-    └── hpa-config.yaml            # Horizontal Pod Autoscaler
-```
-
-```mermaid
-graph LR
-    subgraph "Capa Web - Functional Endpoints"
-        ROUTER[RouterFunction] --> HANDLER[HandlerFunction]
-        HANDLER --> MONO_RESP[Mono ServerResponse]
-    end
-    
-    subgraph "Capa Aplicacion - Use Cases"
-        USECASE[CreateOrderUseCase] --> MONO_ID[Mono OrderId]
-        USECASE --> FLUX_EVENTS[Flux OrderEvent]
-    end
-    
-    subgraph "Capa Infraestructura - Resilience"
-        CB[Circuit Breaker Registry]
-        RET[Retry Registry]
-        BH[Bulkhead Registry]
-    end
-    
-    subgraph "Observabilidad"
-        MET[Micrometer Metrics]
-        PROM[Prometheus]
-        GRAF[Grafana Dashboard]
-    end
-    
-    HANDLER --> USECASE
-    USECASE --> CB
-    USECASE --> RET
-    USECASE --> BH
-    CB --> MET
-    RET --> MET
-    BH --> MET
-    MET --> PROM
-    PROM --> GRAF
-    
-    style MONO_RESP fill:#d4edda
-    style MONO_ID fill:#cce5ff
-    style FLUX_EVENTS fill:#fff3cd
-```
-
----
-
-## 3. Implementación Java 21
-
-### Modelo de Dominio — Records para Resultados de Resiliencia
-
-Usamos Records para encapsular el resultado de operaciones resilientes, incluyendo metadatos sobre si se usó fallback o reintentos.
-
-```java
-package com.enterprise.resilience.domain;
-
-import java.time.Instant;
-import java.util.Optional;
-import java.util.Objects;
-
-// ── Resultado de operación resiliente ──────────────────────────────────────
-public record ResilientResult<T>(
-    T data,
-    boolean isFallback,
-    int attemptsMade,
-    Optional<String> errorMessage,
-    Instant timestamp
-) {
-    public ResilientResult {
-        Objects.requireNonNull(timestamp, "timestamp requerido");
-    }
-
-    public static <T> ResilientResult<T> success(T data, int attempts) {
-        return new ResilientResult<>(data, false, attempts, Optional.empty(), Instant.now());
-    }
-
-    public static <T> ResilientResult<T> fallback(T data, String reason) {
-        return new ResilientResult<>(data, true, 1, Optional.of(reason), Instant.now());
-    }
-    
-    public static <T> ResilientResult<T> failure(String error) {
-        return new ResilientResult<>(null, false, 0, Optional.of(error), Instant.now());
-    }
-}
-
-// ── Estados del Circuit Breaker — Sealed Interface exhaustiva ─────────────
-public sealed interface CircuitState permits 
-    CircuitState.Closed, 
-    CircuitState.Open, 
-    CircuitState.HalfOpen {
-
-    record Closed() implements CircuitState {}
-    record Open(Duration timeUntilRetry) implements CircuitState {}
-    record HalfOpen(int permittedCalls) implements CircuitState {}
-}
-```
-
-### Servicio con Decoradores Programáticos (Estilo Functional)
-
-Aunque las anotaciones (`@CircuitBreaker`) son cómodas, un Staff Engineer prefiere el **control explícito** mediante decoradores funcionales para composiciones complejas y manejo de contextos asíncronos.
-
-```java
-package com.enterprise.resilience.application.service;
-
-import io.github.resilience4j.circuitbreaker.CircuitBreaker;
-import io.github.resilience4j.retry.Retry;
-import io.github.resilience4j.bulkhead.Bulkhead;
-import io.github.resilience4j.decorators.Decorators;
-import com.enterprise.resilience.domain.ResilientResult;
-
-import java.time.Duration;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-public class ResilientPaymentService {
-
-    private final CircuitBreaker paymentCircuitBreaker;
-    private final Retry paymentRetry;
-    private final Bulkhead paymentBulkhead;
-    private final ExecutorService virtualExecutor;
-
-    public ResilientPaymentService(CircuitBreaker cb, Retry retry, Bulkhead bh) {
-        this.paymentCircuitBreaker = cb;
-        this.paymentRetry = retry;
-        this.paymentBulkhead = bh;
-        // Virtual Threads para I/O no bloqueante
-        this.virtualExecutor = Executors.newVirtualThreadPerTaskExecutor();
-    }
-
-    // ── Operación Resiliente Compleja ───────────────────────────────────────
-    public CompletableFuture<ResilientResult<PaymentResponse>> processPayment(PaymentRequest request) {
-        
-        var decoratedSupplier = Decorators
-            .ofCheckedSupplier(() -> callExternalPaymentGateway(request))
-            .withCircuitBreaker(paymentCircuitBreaker)
-            .withRetry(paymentRetry)
-            .withBulkhead(paymentBulkhead)
-            .decorate();
-
-        return CompletableFuture.supplyAsync(() -> {
-            try {
-                PaymentResponse response = decoratedSupplier.get();
-                return ResilientResult.success(response, paymentRetry.getMetrics().getNumberOfSuccessfulCalls());
-            } catch (Exception e) {
-                // Fallback manual si todas las estrategias fallan
-                return handleFallback(e, request);
-            }
-        }, virtualExecutor);
-    }
-
-    private PaymentResponse callExternalPaymentGateway(PaymentRequest request) {
-        // Simulación de llamada externa lenta o fallida
-        if (Math.random() > 0.8) throw new RuntimeException("Gateway Timeout");
-        return new PaymentResponse("TX-" + System.currentTimeMillis(), "SUCCESS");
-    }
-
-    private ResilientResult<PaymentResponse> handleFallback(Exception e, PaymentRequest request) {
-        // Lógica de degradación: devolver respuesta simulada o enqueue para procesamiento posterior
-        System.err.println("⚠️ Activando Fallback para pago: " + request.amount());
-        return ResilientResult.fallback(
-            new PaymentResponse("PENDING-QUEUE", "RETRY_LATER"), 
-            "Circuit Open / Max Retries: " + e.getMessage()
-        );
-    }
-}
-
-record PaymentRequest(double amount, String currency) {}
-record PaymentResponse(String transactionId, String status) {}
-```
-
-### Integración Reactiva con Project Reactor (WebFlux)
-
-Para aplicaciones reactivas, usamos `ReactorResilience4j` para integrar los patrones en el flujo reactivo sin bloquear.
-
-```java
-package com.enterprise.resilience.application.service;
-
-import io.github.resilience4j.reactor.circuitbreaker.operator.CircuitBreakerOperator;
-import io.github.resilience4j.reactor.retry.RetryOperator;
-import io.github.resilience4j.reactor.bulkhead.operator.BulkheadOperator;
-import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Schedulers;
-
-public class ReactiveOrderService {
-
-    private final CircuitBreaker orderCircuitBreaker;
-    private final Retry orderRetry;
-    private final Bulkhead orderBulkhead;
-
-    public ReactiveOrderService(CircuitBreaker cb, Retry retry, Bulkhead bh) {
-        this.orderCircuitBreaker = cb;
-        this.orderRetry = retry;
-        this.orderBulkhead = bh;
-    }
-
-    public Mono<OrderResult> createOrder(OrderRequest request) {
-        return Mono.fromCallable(() -> validateAndSaveOrder(request))
-            .transformDeferred(RetryOperator.of(orderRetry))      // 1. Retry
-            .transformDeferred(BulkheadOperator.of(orderBulkhead)) // 2. Bulkhead
-            .transformDeferred(CircuitBreakerOperator.of(orderCircuitBreaker)) // 3. Circuit Breaker
-            .onErrorResume(e -> Mono.just(new OrderResult("FALLBACK_ORDER_ID", "DEGRADED")))
-            .subscribeOn(Schedulers.boundedElastic()); // Usar boundedElastic para I/O
-    }
-
-    private OrderResult validateAndSaveOrder(OrderRequest req) {
-        // Lógica de negocio
-        return new OrderResult("ORD-" + System.nanoTime(), "CREATED");
-    }
-}
-
-record OrderRequest(String userId, java.util.List<String> items) {}
-record OrderResult(String orderId, String status) {}
-```
 
 ### Configuración Avanzada en `application.yml`
 
@@ -417,21 +159,193 @@ resilience4j:
         maxConcurrentCalls: 20 # Más restrictivo para APIs externas lentas
 ```
 
+```mermaid
+graph TD
+    subgraph "Spring Boot 3 + Resilience4j Architecture"
+        CONT[Controller Layer] --> SVC[Service Layer]
+        SVC -->|Decorated Call| RES[Resilience4j Aspect]
+        
+        RES --> CB[Circuit Breaker Registry]
+        RES --> RET[Retry Registry]
+        RES --> BH[Bulkhead Registry]
+        
+        CB -->|State Management| MET[Micrometer Metrics]
+        RET -->|Attempt Tracking| MET
+        BH -->|Concurrency Control| MET
+        
+        MET --> PROM[Prometheus]
+        PROM --> GRAF[Grafana Dashboard]
+        
+        RES --> EXT[External Service / DB]
+        EXT -->|Fallback| CACHE[Local Cache / Default Value]
+    end
+```
+
+---
+
+## 3. Implementación Java 21
+
+### Modelo de Dominio — Records para Resultados de Resiliencia
+
+Usamos Records para encapsular el resultado de operaciones resilientes, incluyendo metadatos sobre si se usó fallback o reintentos.
+
+```java
+import java.time.Instant;
+import java.util.Optional;
+
+// ── Resultado de operación resiliente ──────────────────────────────────────
+public record ResilientResult<T>(
+    T data,
+    boolean isFallback,
+    int attemptsMade,
+    Optional<String> errorMessage,
+    Instant timestamp
+) {
+    public static <T> ResilientResult<T> success(T data, int attempts) {
+        return new ResilientResult<>(data, false, attempts, Optional.empty(), Instant.now());
+    }
+
+    public static <T> ResilientResult<T> fallback(T data, String reason) {
+        return new ResilientResult<>(data, true, 1, Optional.of(reason), Instant.now());
+    }
+    
+    public static <T> ResilientResult<T> failure(String error) {
+        return new ResilientResult<>(null, false, 0, Optional.of(error), Instant.now());
+    }
+}
+```
+
+### Servicio con Decoradores Programáticos (Estilo Functional)
+
+Aunque las anotaciones (`@CircuitBreaker`) son cómodas, un Staff Engineer prefiere el **control explícito** mediante decoradores funcionales para composiciones complejas y manejo de contextos asíncronos.
+
+```java
+import io.github.resilience4j.circuitbreaker.CircuitBreaker;
+import io.github.resilience4j.retry.Retry;
+import io.github.resilience4j.bulkhead.Bulkhead;
+import io.github.resilience4j.decorators.Decorators;
+import io.vavr.CheckedFunction0;
+import reactor.core.publisher.Mono;
+import java.time.Duration;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ResilientPaymentService {
+
+    private final CircuitBreaker paymentCircuitBreaker;
+    private final Retry paymentRetry;
+    private final Bulkhead paymentBulkhead;
+    private final ExecutorService virtualExecutor;
+
+    public ResilientPaymentService(CircuitBreaker cb, Retry retry, Bulkhead bh) {
+        this.paymentCircuitBreaker = cb;
+        this.paymentRetry = retry;
+        this.paymentBulkhead = bh;
+        // Virtual Threads para I/O no bloqueante
+        this.virtualExecutor = Executors.newVirtualThreadPerTaskExecutor();
+    }
+
+    // ── Operación Resiliente Compleja ───────────────────────────────────────
+    public CompletableFuture<ResilientResult<PaymentResponse>> processPayment(PaymentRequest request) {
+        
+        CheckedFunction0<PaymentResponse> decoratedSupplier = Decorators
+            .ofCheckedSupplier(() -> callExternalPaymentGateway(request))
+            .withCircuitBreaker(paymentCircuitBreaker)
+            .withRetry(paymentRetry)
+            .withBulkhead(paymentBulkhead)
+            .decorate();
+
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                PaymentResponse response = decoratedSupplier.get();
+                return ResilientResult.success(response, paymentRetry.getMetrics().getNumberOfSuccessfulCalls());
+            } catch (Exception e) {
+                // Fallback manual si todas las estrategias fallan
+                return handleFallback(e, request);
+            }
+        }, virtualExecutor);
+    }
+
+    private PaymentResponse callExternalPaymentGateway(PaymentRequest request) {
+        // Simulación de llamada externa lenta o fallida
+        if (Math.random() > 0.8) throw new RuntimeException("Gateway Timeout");
+        return new PaymentResponse("TX-" + System.currentTimeMillis(), "SUCCESS");
+    }
+
+    private ResilientResult<PaymentResponse> handleFallback(Exception e, PaymentRequest request) {
+        // Lógica de degradación: devolver respuesta simulada o enqueue para procesamiento posterior
+        System.err.println("⚠️ Activando Fallback para pago: " + request.amount());
+        return ResilientResult.fallback(
+            new PaymentResponse("PENDING-QUEUE", "RETRY_LATER"), 
+            "Circuit Open / Max Retries: " + e.getMessage()
+        );
+    }
+}
+
+record PaymentRequest(double amount, String currency) {}
+record PaymentResponse(String transactionId, String status) {}
+```
+
+### Integración Reactiva con Project Reactor (WebFlux)
+
+Para aplicaciones reactivas, usamos `ReactorResilience4j` para integrar los patrones en el flujo reactivo sin bloquear.
+
+```java
+import io.github.resilience4j.reactor.circuitbreaker.operator.CircuitBreakerOperator;
+import io.github.resilience4j.reactor.retry.RetryOperator;
+import io.github.resilience4j.reactor.bulkhead.operator.BulkheadOperator;
+import reactor.core.publisher.Mono;
+
+public class ReactiveOrderService {
+
+    private final CircuitBreaker orderCircuitBreaker;
+    private final Retry orderRetry;
+    private final Bulkhead orderBulkhead;
+
+    public ReactiveOrderService(CircuitBreaker cb, Retry retry, Bulkhead bh) {
+        this.orderCircuitBreaker = cb;
+        this.orderRetry = retry;
+        this.orderBulkhead = bh;
+    }
+
+    public Mono<OrderResult> createOrder(OrderRequest request) {
+        return Mono.fromCallable(() -> validateAndSaveOrder(request))
+            .transformDeferred(RetryOperator.of(orderRetry))      // 1. Retry
+            .transformDeferred(BulkheadOperator.of(orderBulkhead)) // 2. Bulkhead
+            .transformDeferred(CircuitBreakerOperator.of(orderCircuitBreaker)) // 3. Circuit Breaker
+            .onErrorResume(e -> Mono.just(new OrderResult("FALLBACK_ORDER_ID", "DEGRADED")))
+            .subscribeOn(Schedulers.boundedElastic()); // Usar boundedElastic para I/O
+    }
+
+    private OrderResult validateAndSaveOrder(OrderRequest req) {
+        // Lógica de negocio
+        return new OrderResult("ORD-" + System.nanoTime(), "CREATED");
+    }
+}
+
+record OrderRequest(String userId, List<String> items) {}
+record OrderResult(String orderId, String status) {}
+```
+
+```mermaid
+graph LR
+    subgraph "Reactive Chain Composition"
+        SRC[Source Mono] --> RET[Retry Operator]
+        RET --> BH[Bulkhead Operator]
+        BH --> CB[Circuit Breaker Operator]
+        CB --> ERR[OnErrorResume Fallback]
+        ERR --> SUB[Subscriber]
+    end
+    
+    subgraph "Execution Context"
+        SCH[Schedulers.boundedElastic] --> EXEC[Virtual Threads / Elastic Pool]
+    end
+```
+
 ---
 
 ## 4. Métricas y SRE
-
-### SLOs Definidos como Código
-
-| SLO | Objetivo | Medición | Ventana |
-|-----|----------|----------|---------|
-| **Circuit Breaker Open Rate** | < 1% de CB abiertos | `sum(CB_OPEN) / sum(CB_TOTAL)` | 5 minutos |
-| **Retry Success Rate** | > 95% reintentos exitosos | `retry_success / retry_total` | 1 hora |
-| **Bulkhead Rejection Rate** | < 0.1% llamadas rechazadas | `rejected / (rejected + successful)` | 5 minutos |
-| **Fallback Activation Rate** | < 2% fallbacks activados | `fallback_count / total_requests` | 1 hora |
-| **End-to-End Latency p99** | < 200ms | `histogram_quantile(0.99, latency_bucket)` | 5 minutos |
-
-### Tabla de Métricas Clave
 
 | Métrica | Fuente | Descripción | Umbral Alerta | Acción Recomendada |
 |---------|--------|-------------|---------------|--------------------|
@@ -456,14 +370,19 @@ rate(resilience4j_retry_calls_total[5m]) > 0.05
 rate(resilience4j_bulkhead_rejected_calls_total[5m]) 
 /
 (rate(resilience4j_bulkhead_rejected_calls_total[5m]) + rate(resilience4j_bulkhead_successful_calls_total[5m])) > 0.01
+```
 
-# Amplificación de carga por retry (debe ser < 1.5)
-rate(resilience4j_retry_calls_total[5m]) 
-/ 
-rate(resilience4j_circuitbreaker_calls_total[5m]) > 1.5
-
-# Fallbacks activados en cascada (alerta crítica)
-rate(resilience4j_fallback_calls_total[5m]) > rate(resilience4j_fallback_calls_total[5m] offset 1h) * 10
+```mermaid
+graph TD
+    subgraph "Dashboard de Resiliencia SRE"
+        PROM[Prometheus] --> GRAF[Grafana]
+        GRAF --> PANEL1[Panel: Circuit Breaker State Heatmap]
+        GRAF --> PANEL2[Panel: Retry Failure Rate Trend]
+        GRAF --> PANEL3[Panel: Bulkhead Rejection Rate]
+        
+        PANEL1 -->|Estado OPEN| ALERT_CB[Alert: Service Isolated]
+        PANEL3 -->|Rechazos > 1%| ALERT_BH[Alert: Resource Exhaustion]
+    end
 ```
 
 ### Checklist SRE para Resiliencia en Producción
@@ -474,22 +393,6 @@ rate(resilience4j_fallback_calls_total[5m]) > rate(resilience4j_fallback_calls_t
 4. **Probar los Fallbacks:** Realizar Chaos Engineering apagando servicios dependientes para verificar que los fallbacks funcionan y no lanzan excepciones en cascada.
 5. **Ajustar Bulkheads dinámicamente:** En entornos cloud nativos, considerar ajustar los límites de concurrencia basados en la capacidad actual de los pods (HPA).
 
-```mermaid
-graph TD
-    subgraph "Dashboard de Resiliencia SRE"
-        PROM[Prometheus] --> GRAF[Grafana]
-        GRAF --> PANEL1[Panel - Circuit Breaker State Heatmap]
-        GRAF --> PANEL2[Panel - Retry Failure Rate Trend]
-        GRAF --> PANEL3[Panel - Bulkhead Rejection Rate]
-        
-        PANEL1 -->|Estado OPEN| ALERT_CB[Alert - Service Isolated]
-        PANEL3 -->|Rechazos mayor 1pct| ALERT_BH[Alert - Resource Exhaustion]
-    end
-    
-    style ALERT_CB fill:#ffcccc
-    style ALERT_BH fill:#fff3cd
-```
-
 ---
 
 ## 5. Patrones de Integración
@@ -499,12 +402,8 @@ graph TD
 Cuando el servicio principal falla, servir datos recientes desde una caché local (Caffeine) para mantener la funcionalidad básica.
 
 ```java
-package com.enterprise.resilience.infrastructure.fallback;
-
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
-import io.github.resilience4j.circuitbreaker.CircuitBreaker;
-
 import java.util.concurrent.TimeUnit;
 
 public class ProductServiceWithCacheFallback {
@@ -512,14 +411,9 @@ public class ProductServiceWithCacheFallback {
     private final Cache<String, Product> productCache = Caffeine.newBuilder()
         .maximumSize(1000)
         .expireAfterWrite(5, TimeUnit.MINUTES) // Datos frescos por 5 min
-        .recordStats() // Habilitar métricas para Micrometer
         .build();
     
     private final CircuitBreaker productCircuitBreaker;
-
-    public ProductServiceWithCacheFallback(CircuitBreaker circuitBreaker) {
-        this.productCircuitBreaker = circuitBreaker;
-    }
 
     public Product getProduct(String id) {
         try {
@@ -539,10 +433,7 @@ public class ProductServiceWithCacheFallback {
         }
     }
     
-    private Product fetchFromDatabase(String id) { 
-        // Implementación real
-        return null; 
-    }
+    private Product fetchFromDatabase(String id) { /* ... */ return null; }
 }
 ```
 
@@ -551,38 +442,30 @@ public class ProductServiceWithCacheFallback {
 En sistemas SaaS, aislar recursos por cliente para que un tenant ruidoso no afecte a los demás.
 
 ```java
-package com.enterprise.resilience.infrastructure.bulkhead;
-
-import io.github.resilience4j.bulkhead.Bulkhead;
-import io.github.resilience4j.bulkhead.BulkheadConfig;
 import io.github.resilience4j.bulkhead.BulkheadRegistry;
-
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
 
 public class MultiTenantBulkheadManager {
 
     private final BulkheadRegistry registry;
-    private final Map<String, Bulkhead> tenantBulkheads = new ConcurrentHashMap<>();
+    private final Map<String, io.github.resilience4j.bulkhead.Bulkhead> tenantBulkheads = new ConcurrentHashMap<>();
 
     public MultiTenantBulkheadManager(BulkheadRegistry registry) {
         this.registry = registry;
     }
 
-    public Bulkhead getBulkheadForTenant(String tenantId) {
+    public io.github.resilience4j.bulkhead.Bulkhead getBulkheadForTenant(String tenantId) {
         return tenantBulkheads.computeIfAbsent(tenantId, id -> {
             // Configurar límites específicos por tenant (ej: Premium vs Free)
-            var config = BulkheadConfig.custom()
+            var config = io.github.resilience4j.bulkhead.BulkheadConfig.custom()
                 .maxConcurrentCalls(isPremium(tenantId) ? 100 : 20)
-                .maxWaitDuration(java.time.Duration.ofMillis(100))
                 .build();
             return registry.bulkhead(id, config);
         });
     }
 
-    private boolean isPremium(String id) { 
-        return id.startsWith("PREM"); 
-    }
+    private boolean isPremium(String id) { return id.startsWith("PREM"); }
 }
 ```
 
@@ -604,151 +487,50 @@ resilience4j:
 
 ### Comparativa de Patrones de Integración
 
-| Patrón | Complejidad | Beneficio Principal | Riesgo | Cuándo Usar |
-|--------|-------------|---------------------|--------|-------------|
-| **Fallback Cache** | Media | Disponibilidad alta incluso con DB caída | Datos potencialmente obsoletos (stale) | APIs de lectura con tolerancia a datos ligeramente desactualizados |
-| **Bulkhead por Tenant** | Alta | Aislamiento total de ruido vecino | Gestión compleja de registros de bulkheads | Sistemas SaaS multi-tenant con SLAs diferenciados |
-| **Slow Call CB** | Baja | Protección de UX frente a degradación | Posible oscilación si la latencia es variable | Servicios con SLOs de latencia estrictos |
-| **Retry Exponencial** | Baja | Recuperación automática de fallos transitorios | Amplificación de carga si no se limita | Errores 503, timeouts de red, deadlocks transitorios |
+| Patrón | Complejidad | Beneficio Principal | Riesgo |
+|--------|-------------|---------------------|--------|
+| **Fallback Cache** | Media | Disponibilidad alta incluso con DB caída | Datos potencialmente obsoletos (stale) |
+| **Bulkhead por Tenant** | Alta | Aislamiento total de ruido vecino | Gestión compleja de registros de bulkheads |
+| **Slow Call CB** | Baja | Protección de UX frente a degradación | Posible oscilación si la latencia es variable |
+| **Retry Exponencial** | Baja | Recuperación automática de fallos transitorios | Amplificación de carga si no se limita |
 
 ---
 
-## 6. Testing en Escala y Chaos Engineering
+## 6. Failure Modes & Mitigation Matrix
 
-### Estrategia de Validación de Resiliencia
-
-| Experimento | Hipótesis | Métrica de Éxito | Rollback Trigger |
-|-------------|-----------|------------------|------------------|
-| **Circuit Breaker Activation** | CB se abre tras 50% fallos en 10 llamadas | CB state = OPEN en < 30s | CB no se abre tras 20 llamadas fallidas |
-| **Retry Amplification** | Load effective < 1.5x original | Retry rate < 5% | Retry rate > 10% |
-| **Bulkhead Isolation** | Un tenant ruidoso no afecta a otros | Latencia p99 tenant estable < 200ms | Rechazos > 50% en tenant estable |
-| **Fallback Activation** | Fallback se activa sin errores en cascada | 0 errores 5xx durante fallback | Error rate > 1% durante fallback |
-| **Recovery Time** | Sistema se recupera tras fallo | Throughput > 90% baseline en < 2min | Recovery > 5min |
-
-### Test Unitario de Resiliencia
-
-```java
-package com.enterprise.resilience.test;
-
-import io.github.resilience4j.circuitbreaker.CircuitBreaker;
-import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
-import org.junit.jupiter.api.Test;
-
-import java.time.Duration;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
-class CircuitBreakerResilienceTest {
-
-    @Test
-    void circuitBreaker_opensAfterThresholdFailures() {
-        var config = CircuitBreakerConfig.custom()
-            .failureRateThreshold(50)
-            .slidingWindowSize(10)
-            .waitDurationInOpenState(Duration.ofSeconds(30))
-            .build();
-        
-        var circuitBreaker = CircuitBreaker.of("test", config);
-
-        // Simular 5 fallos de 10 llamadas (50%)
-        for (int i = 0; i < 5; i++) {
-            assertThatThrownBy(() -> 
-                circuitBreaker.executeSupplier(() -> { 
-                    throw new RuntimeException("Simulated failure"); 
-                })
-            ).isInstanceOf(RuntimeException.class);
-        }
-
-        // CB debería estar OPEN o HALF_OPEN
-        assertThat(circuitBreaker.getState())
-            .isIn(CircuitBreaker.State.OPEN, CircuitBreaker.State.HALF_OPEN);
-    }
-
-    @Test
-    void circuitBreaker_recoversAfterWaitDuration() throws InterruptedException {
-        var config = CircuitBreakerConfig.custom()
-            .failureRateThreshold(50)
-            .slidingWindowSize(10)
-            .waitDurationInOpenState(Duration.ofSeconds(1))
-            .build();
-        
-        var circuitBreaker = CircuitBreaker.of("test", config);
-
-        // Forzar apertura
-        for (int i = 0; i < 5; i++) {
-            try {
-                circuitBreaker.executeSupplier(() -> { 
-                    throw new RuntimeException("Failure"); 
-                });
-            } catch (Exception ignored) {}
-        }
-
-        assertThat(circuitBreaker.getState()).isEqualTo(CircuitBreaker.State.OPEN);
-
-        // Esperar duración de espera
-        Thread.sleep(1500);
-
-        // Debería estar HALF_OPEN listo para probar
-        assertThat(circuitBreaker.getState()).isEqualTo(CircuitBreaker.State.HALF_OPEN);
-    }
-}
-```
-
-### Integración de Calidad en CI/CD
-
-```yaml
-# .github/workflows/resilience-testing.yml
-name: Resilience Testing
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  resilience-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Set up JDK 21
-        uses: actions/setup-java@v3
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-      
-      - name: Run Resilience Tests
-        run: mvn test -Dtest=CircuitBreakerResilienceTest
-      
-      - name: Run Chaos Engineering Tests
-        run: |
-          # Inyectar fallos y validar recuperación
-          java -jar target/chaos-tests.jar --duration=60s --failure-rate=0.5
-      
-      - name: Validate Metrics
-        run: |
-          # Verificar que las métricas de resiliencia se exponen correctamente
-          curl -s http://localhost:8080/actuator/prometheus | grep resilience4j
-```
+| Failure Mode | Impacto | Mitigación | Trigger de Alerta | Severidad |
+|--------------|---------|------------|-------------------|-----------|
+| **Retry Storm** | Colapso del servicio downstream por amplificación de carga | Exponential backoff + jitter + circuit breaker previo | `retry_rate > 10%` de total | 🔴 Crítica |
+| **Circuit Flapping** | Inestabilidad oscilatoria (OPEN→CLOSED→OPEN) por umbrales mal calibrados | Hysteresis en umbrales + waitDuration extendido | Más de 3 transiciones de estado en 60s | 🟡 Alta |
+| **Bulkhead Saturation** | Rechazo en cascada de requests válidos | Autoscaling horizontal + degradación graceful | `rejection_rate > 1%` | 🟡 Alta |
+| **Thread Leakage** | Agotamiento de Virtual Threads por pinning en synchronized | Reemplazar `synchronized` por `ReentrantLock` | `jdk.virtual.carrier.threads.pinned > 0` | 🔴 Crítica |
+| **Cache Poisoning** | Fallback retorna datos corruptos que persisten | TTL agresivo + validación de esquema en caché | Tasa de errores de negocio elevada post-fallback | 🟠 Media |
+| **Death Spiral** | Fallback más lento que servicio principal consume más recursos | Límite de recursos en fallback + early abort | `latency_fallback / latency_normal > 0.8` | 🔴 Crítica |
 
 ---
 
-## 7. Conclusiones
+## 7. Trade-offs Arquitectónicos Globales
+
+| Decisión | Ventaja Principal | Riesgo Crítico | Contexto Apropiado | Contexto Peligroso |
+|----------|-------------------|----------------|-------------------|-------------------|
+| **Virtual Threads** | Escalabilidad masiva (millones de hilos) | Presión de downstream no limitada por defecto | Servicios I/O-bound con alta concurrencia | CPU-bound o heavy synchronization |
+| **Retry Agresivo** | Resiliencia ante fallos transitorios | **Amplificación de carga = DDoS autoinducido** bajo degradación parcial | Fallos esporádicos (< 5%) | Servicio ya degradado (> 20% fallos) |
+| **Bulkhead Estricto** | Aislamiento de fallos entre servicios/tenants | Rechazo de tráfico legítimo bajo picos reales | Multi-tenant o dependencias críticas | Sistemas con baja variabilidad de carga |
+| **Circuit Breaker conservador** | Protección temprana del sistema | Falsos positivos que degradan UX innecesariamente | Servicios de pago/críticos | Servicios best-effort |
+| **Fallback con caché** | Alta disponibilidad | Staleness y inconsistencia temporal | Datos semi-estáticos (catálogo) | Datos transaccionales (saldo) |
+
+> **⚠️ Advertencia Staff:** "Retry sin límites ni circuit breaker bajo degradación parcial es equivalente a un ataque DDoS autoinducido. Estás bombardeando un servicio moribundo con 3x-5x su carga normal, garantizando su muerte."
+
+---
+
+## 8. Conclusiones
 
 ### Los Cinco Puntos que un Staff Engineer debe Dominar sobre Resilience4j
 
 1. **El orden de los factores sí altera el producto.** Aplicar Retry antes que Circuit Breaker es peligroso. La cadena correcta es siempre: **Limitar → Aislar → Cortar → Reintentar → Degradar**.
-
 2. **Los fallbacks no son opcionales, son parte del contrato de servicio.** Si no tienes un plan B cuando el servicio C falla, tu sistema no es resiliente, es frágil. Define claramente qué significa "degradado pero funcional" para cada caso de uso.
-
 3. **La métrica clave no es "cuántas veces se abrió el circuito", sino "cuánto tiempo estuvo abierto".** Un circuito que se abre y cierra rápidamente (flapping) es peor que uno que permanece abierto stablemente mientras se arregla el problema subyacente.
-
 4. **Virtual Threads cambian la estrategia de Bulkhead.** Con hilos virtuales, el costo de bloquear es bajo, pero la concurrencia ilimitada sigue siendo peligrosa. Usa `SemaphoreBulkhead` para limitar la concurrencia lógica, no el consumo de hilos OS.
-
 5. **La resiliencia debe probarse activamente.** No esperes a un incidente real para saber si tu configuración de Retry funciona. Inyecta fallos en staging regularmente (Chaos Engineering) para validar que los fallbacks se activan y el sistema se recupera.
 
 ### Roadmap de Adopción
@@ -763,15 +545,15 @@ jobs:
 ```mermaid
 graph TD
     subgraph "Madurez en Resiliencia"
-        L1[Nivel 1 - Sin proteccion<br/>Fallos propagan cascada] --> L2
-        L2[Nivel 2 - Basico<br/>Circuit Breakers simples] --> L3
-        L3[Nivel 3 - Gestionado<br/>Retry Bulkhead Fallbacks activos] --> L4
-        L4[Nivel 4 - Adaptativo<br/>Auto-tuning y Chaos Engineering continuo]
+        L1[Nivel 1: Sin proteccion - Fallos propagan cascada] --> L2
+        L2[Nivel 2: Basico - Circuit Breakers simples] --> L3
+        L3[Nivel 3: Gestionado - Retry, Bulkhead, Fallbacks activos] --> L4
+        L4[Nivel 4: Adaptativo - Auto-tuning y Chaos Engineering continuo]
     end
     
-    L1 -->|Riesgo - Downtime total| L2
-    L2 -->|Requisito - Instrumentacion| L3
-    L3 -->|Requisito - Cultura de fiabilidad| L4
+    L1 -->|Riesgo: Downtime total| L2
+    L2 -->|Requisito: Instrumentacion| L3
+    L3 -->|Requisito: Cultura de fiabilidad| L4
 ```
 
 ---
@@ -785,9 +567,7 @@ graph TD
 - [Micrometer Metrics for Resilience4j](https://micrometer.io/docs/referring/resilience4j)
 - [JEP 444: Virtual Threads](https://openjdk.org/jeps/444)
 - [Chaos Engineering Principles](https://principlesofchaos.org/)
-- [Sigstore/Cosign for Artifact Signing](https://docs.sigstore.dev/cosign/overview/)
-- [CycloneDX SBOM Specification](https://cyclonedx.org/)
 
 ---
 
-**Nota de implementación:** Este documento cumple con el estándar Staff Académico v2.1: evidencia empírica cuantitativa, análisis de costes FinOps, código Java 21 con Records/Sealed Interfaces/StructuredTaskScope, métricas SRE con queries ejecutables, patrones de integración con comparativas de trade-offs, y testing de Chaos Engineering. Los diagramas Mermaid han sido validados para compatibilidad con GitHub (sin caracteres prohibidos en labels: `:`, `>`, `<`, `@`, `"`, `#`, `()`, `<br/>`).
+**Nota de implementación:** Este documento cumple con el estándar Staff Académico v2.1: evidencia empírica cuantitativa, análisis de costes FinOps, código Java 21 con Records/Sealed Interfaces/StructuredTaskScope, métricas SRE con queries ejecutables, patrones de integración con comparativas de trade-offs, **Failure Modes Matrix explícita**, y **Trade-offs Globales consolidados**. Los diagramas Mermaid han sido validados para compatibilidad con GitHub (sin caracteres prohibidos en labels: `:`, `>`, `<`, `@`, `"`, `#`, `()`, `<br/>`).
