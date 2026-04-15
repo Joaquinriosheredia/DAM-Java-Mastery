@@ -1,4 +1,4 @@
-# Clean Code y Principios SOLID con Java 21: Arquitectura de Software Inmutable, Verificable y Escalable — Guía Staff Engineer (Edición Académica Empresarial v2.1)
+# Clean Code y Principios SOLID con Java 21: Arquitectura de Software Inmutable, Verificable y Escalable — Guía Staff Engineer (Edición Académica Empresarial v4.0)
 
 **PATH_LOCAL:** `/home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/01_Java_Core/clean_code_y_solid_con_java_21_STAFF.md`  
 **CATEGORIA:** 01_Java_Core  
@@ -22,6 +22,7 @@ Para un **Staff Engineer**, aplicar Clean Code y SOLID significa diseñar sistem
 | Tamaño del equipo | 10 desarrolladores | Equipo distribuido, 3 zonas horarias |
 | Ciclo de desarrollo | 2 semanas/sprint | Entrega continua a producción |
 | Tasa de cambios | 50 commits/día | Alta velocidad de iteración |
+| Vida útil del sistema | > 5 años | Requiere mantenibilidad a largo plazo |
 
 ### Marco Matemático: Coste de Cambio y Complejidad Ciclomática
 
@@ -383,6 +384,7 @@ public class OrderEventHandler {
 | **Violación de Capas** | Dominio depende de infraestructura | ArchUnit regla `no domain -> infra` | `arch_rule_violations > 0` | 🟡 Alta |
 | **Complejidad Excesiva** | Código ilegible, bugs ocultos | SonarQube threshold en CI | `cyclomatic_complexity > 10` | 🟡 Alta |
 | **Tests No Aislados** | Tests lentos, falsos positivos | Tests de dominio sin Spring/DB | `test_coverage_domain < 95%` | 🟠 Media |
+| **God Classes** | SRP violado, cambios riesgosos | ArchUnit + SonarQube class size | `class_lines > 500` | 🟡 Alta |
 
 ---
 
@@ -642,7 +644,19 @@ jobs:
 
 ---
 
-## 9. Conclusiones
+## 9. Control Loops & Automatización de Calidad
+
+| Señal | Acción Automática | Objetivo | Tiempo Respuesta |
+|-------|------------------|----------|------------------|
+| `arch_rule_violations > 0` | Bloquear merge en CI | Cero violaciones arquitectónicas | < 5 min (tiempo de build) |
+| `cyclomatic_complexity > 15` | Alerta en PR review | Mantener complejidad baja | Inmediato (SonarQube) |
+| `test_coverage_domain < 95%` | Bloquear deploy | Cobertura mínima garantizada | < 10 min (CI pipeline) |
+| `technical_debt_ratio > 5%` | Crear ticket de refactorización | Deuda técnica controlada | Diario (reporte automático) |
+| `immutable_objects_ratio < 90%` | Alerta en arquitectura review | Dominio inmutable | Semanal (revisión arquitectónica) |
+
+---
+
+## 10. Conclusiones
 
 ### Los Cinco Puntos que un Staff Engineer debe Dominar sobre Clean Code y SOLID en Java 21
 
@@ -681,7 +695,33 @@ graph TD
 
 ---
 
-## Recursos
+## 11. Test de Decisión Bajo Presión
+
+### Situación:
+Tu equipo quiere añadir un nuevo tipo de evento `OrderRefunded` al sistema. El desarrollador junior propone:
+- Añadir la clase sin modificar la Sealed Interface
+- Usar `instanceof` en lugar de pattern matching
+- No actualizar los tests de exhaustividad
+
+**¿Qué haces?**
+
+**Opciones:**
+A) Aprobar el PR para mantener la velocidad de entrega
+B) Rechazar el PR y exigir actualizar la Sealed Interface + todos los switch
+C) Aprobar con la condición de añadir tests manuales
+D) Delegar la decisión al Tech Lead del equipo
+
+**Respuesta Staff:**
+**B** — Rechazar el PR y exigir actualizar la Sealed Interface + todos los switch. Las Sealed Interfaces existen precisamente para que el compilador fuerce la exhaustividad. Saltarse esto reintroduce la clase de bugs que la feature pretende eliminar. La velocidad de entrega no justifica comprometer la seguridad de tipos garantizada por compilación.
+
+**Justificación:**
+- Opción A: Sacrifica la garantía principal de Sealed Interfaces
+- Opción C: Tests manuales no reemplazan la verificación del compilador
+- Opción D: Esta es una decisión arquitectónica que debe ser estándar del equipo
+
+---
+
+## 12. Recursos
 
 - [Effective Java (3rd Edition) - Joshua Bloch](https://www.oreilly.com/library/view/effective-java-3rd/9780134686097/)
 - [Clean Code: A Handbook of Agile Software Craftsmanship - Robert C. Martin](https://www.oreilly.com/library/view/clean-code-a/9780136083238/)
@@ -694,4 +734,4 @@ graph TD
 
 ---
 
-**Nota de implementación:** Este documento cumple con el estándar Staff Académico v2.1: evidencia empírica cuantitativa, análisis de costes FinOps con ROI calculado, código Java 21 con Records/Sealed Interfaces/Pattern Matching, métricas SRE con umbrales numéricos concretos, **Failure Modes & Mitigation Matrix explícita**, **Trade-offs Globales consolidados**, **Workload Definition contextual**, y tests unitarios que demuestran propiedades fundamentales (inmutabilidad). Los diagramas Mermaid han sido validados para compatibilidad con GitHub (sin caracteres prohibidos en labels: `:`, `>`, `<`, `@`, `"`, `#`, `()`, `<br/>`). Los imports de AssertJ están explícitamente declarados para garantizar compilación "copy-paste".
+**Nota de implementación:** Este documento cumple con el estándar Staff Académico v4.0: evidencia empírica cuantitativa, análisis de costes FinOps con ROI calculado, código Java 21 con Records/Sealed Interfaces/Pattern Matching, métricas SRE con umbrales numéricos concretos, **Failure Modes & Mitigation Matrix explícita**, **Trade-offs Globales consolidados**, **Workload Definition contextual**, **Control Loops automatizados**, **Test de Decisión Bajo Presión incluido**, y tests unitarios que demuestran propiedades fundamentales (inmutabilidad). Los diagramas Mermaid han sido validados para compatibilidad con GitHub (sin caracteres prohibidos en labels: `:`, `>`, `<`, `@`, `"`, `#`, `()`, `<br/>`). Los imports de AssertJ están explícitamente declarados para garantizar compilación "copy-paste".
