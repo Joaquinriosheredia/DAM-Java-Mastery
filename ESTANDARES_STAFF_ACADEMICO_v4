@@ -1,0 +1,1003 @@
+## 📁 Estructura Recomendada para tu Repositorio
+
+```
+DAM-Java-Mastery/
+├── _Standards/
+│   └── ESTANDARES_STAFF_ACADEMICO_v4.md    ← ESTE ES EL DOCUMENTO CLAVE
+├── 01_Java_Core/
+│   └── *_STAFF.md
+├── 02_Arquitectura/
+│   └── *_STAFF.md
+├── 03_Spring_Ecosystem/
+│   └── *_STAFF.md
+├── 04_Bases_de_Datos/
+│   └── *_STAFF.md
+├── 05_SRE_DevOps/
+│   └── *_STAFF.md
+└── README.md
+```
+
+---
+
+## 📄 Documento Completo: ESTANDARES_STAFF_ACADEMICO_v4.md
+
+Aquí tienes el documento **listo para copiar y pegar** en tu repositorio:
+
+```markdown
+# Estándares de Calidad Staff Académico v4.0 — DAM-Java-Mastery
+
+**Versión:** 4.0 — Modo Producción  
+**Última Actualización:** Diciembre 2026  
+**Mantenido por:** Joaquín Ríos Heredia  
+**Propósito:** Definir los criterios exactos que debe cumplir cada documento para ser publicado con nivel Staff Engineer académico.
+
+---
+
+## 1. Filosofía del Repositorio
+
+Este repositorio no es documentación genérica de tutoriales. Es una **biblioteca de referencia técnica de nivel Staff/Principal Engineer** que debe cumplir tres criterios simultáneos:
+
+| Criterio | Descripción | Validación |
+|----------|-------------|------------|
+| **Corrección técnica absoluta** | El código compila, las APIs existen, las fórmulas son correctas | Compilación mental línea por línea |
+| **Densidad académica** | Cada sección aporta conocimiento diferenciador, no información de tutoriales | Test: ¿Se encuentra esto en la documentación oficial? |
+| **Aplicabilidad en producción** | Todo lo escrito debe poder implementarse en un sistema real en 2026 | Test: ¿Un SRE puede usar esto a las 3AM? |
+
+**Un reclutador técnico Senior debe abrir cualquier documento y en 2 minutos entender que el autor tiene experiencia real en producción con la tecnología descrita.**
+
+---
+
+## 2. Estructura Obligatoria de 10 Secciones
+
+Todo documento debe tener exactamente estas secciones en este orden. **No se puede omitir ninguna.**
+
+### 2.1 Cabecera de Metadatos
+
+```markdown
+# [Título descriptivo con tecnología y contexto]
+
+**PATH_LOCAL:** `/ruta/completa/en/el/repo/nombre_STAFF.md`
+**CATEGORIA:** [carpeta exacta según tabla 8.5]
+**Score:** [número]/100
+**Nivel:** Staff+ / Principal Engineer / [rol específico]
+```
+
+### 2.2 Sección 1 — Visión Estratégica y Escala Organizacional (Mín. 500 palabras)
+
+**Contenido obligatorio:**
+
+| Elemento | Requisito | Ejemplo |
+|----------|-----------|---------|
+| Por qué es crítico en 2026 | Datos cuantitativos con fuentes (reports 2025-2026) | "68% de incidentes de latencia alta se atribuyen a GC" |
+| Workload Definition | Tabla con 5+ parámetros operativos | Tipo de carga, concurrencia pico, SLOs, dataset size, entorno |
+| Marco matemático | Mínimo 2 fórmulas LaTeX verificables | $C_{total} = C_{infra} + C_{latencia} + C_{incidentes}$ |
+| Tabla comparativa | 3-5 alternativas con columnas: tecnología, ventajas, desventajas, cuándo usar, cuándo NO usar | Incluir "Cuándo NO usar" explícitamente |
+| Dimensión de Escala Organizacional | 5 dimensiones mínimo: FinOps, Gobernanza, Riesgo Operativo, Escalabilidad, Supply Chain Security | Con impacto empresarial cuantificado |
+| Benchmark cuantitativo propio | 6+ métricas comparadas con entorno de prueba especificado | Hardware, JVM flags, dataset, carga, duración |
+| Diagrama Mermaid | Contexto arquitectónico general, mín. 5 nodos | Sin caracteres prohibidos |
+| Código Java 21 inicial | Mín. 10 líneas compilables | Records, sin setters, imports reales |
+| Anti-Goals | Qué NO optimizar y por qué | "No optimizar p99 < 10ms si negocio no lo necesita" |
+
+**Densidad mínima:** 500 palabras  
+**Nivel de abstracción:** Decisión estratégica, no implementación
+
+### 2.3 Sección 2 — Arquitectura de Componentes (Mín. 400 palabras)
+
+**Contenido obligatorio:**
+
+| Elemento | Requisito | Ejemplo |
+|----------|-----------|---------|
+| Diagrama Mermaid detallado | Con subgraphs, mín. 10 nodos total | Agrupar componentes relacionados |
+| Descripción de componentes | Responsabilidad específica de cada uno | No descripciones vagas |
+| Patrones de diseño aplicados | Con justificación de por qué ese patrón y no otro | "Strategy porque necesitamos intercambiar algoritmos" |
+| Bottleneck Analysis | Tabla Antes/Después con 5+ componentes | Mostrar impacto cuantificado |
+| Capacity Planning | Fórmulas de dimensionamiento con headroom | $Heap_{recomendado} = LiveDataSet \times 2.5 \times SafetyFactor$ |
+| Configuración de producción | Código Java 21 (Records, sin setters) | Validación en constructor compacto |
+| Decisiones arquitectónicas | Trade-offs explícitos con criterios numéricos | "ZGC si p99 < 10ms, G1GC si throughput > latencia" |
+
+**Densidad mínima:** 400 palabras  
+**Nivel de abstracción:** Diseño de sistema, no tutorial
+
+### 2.4 Sección 3 — Implementación Java 21 (Mín. 600 palabras + código)
+
+**Contenido obligatorio:**
+
+| Elemento | Requisito | Ejemplo |
+|----------|-----------|---------|
+| Implementación completa | Código que compile en Java 21 | Verificar imports, APIs reales |
+| Records para modelos | Sin setters, sin getters explícitos | Constructor compacto con validación |
+| Sealed Interfaces | Para jerarquías de tipos cerradas | Switch exhaustivo sin default |
+| Pattern Matching | Switch expressions con -> | Guards con when cuando aplique |
+| Virtual Threads | Si hay operaciones I/O | `Executors.newVirtualThreadPerTaskExecutor()` |
+| StructuredTaskScope | Para concurrencia estructurada cuando aplica | `ShutdownOnFailure` con timeout |
+| Justificación de features | Por qué aquí, qué pasa si no, alternativa considerada | "VT porque I/O-bound, alternativa Reactor rechazada por complejidad" |
+| Diagrama Mermaid | Flujo de implementación | Mín. 5 nodos |
+| Manejo de errores | Tipos específicos (no Exception genérica) | Exception por tipo de fallo |
+| Imports explícitos | De packages que existen | No APIs inventadas |
+
+**Densidad mínima:** 600 palabras + código  
+**Nivel de abstracción:** Implementación concreta
+
+### 2.5 Sección 4 — Métricas y SRE (Mín. 400 palabras)
+
+**Contenido obligatorio:**
+
+| Elemento | Requisito | Ejemplo |
+|----------|-----------|---------|
+| Tabla de métricas clave | 6+ métricas con columnas: nombre, fuente, descripción, umbral alerta, acción recomendada | Umbrales numéricos concretos, no "alto" |
+| Queries PromQL ejecutables | Mín. 5 queries con interpretación operativa | Query + qué significa + causa probable + acción concreta |
+| Leading Indicators | Métricas predictivas (antes del fallo) | `queue_growth_rate`, `gc_frequency`, `retry_rate` |
+| Lagging Indicators | Métricas reactivas (después del fallo) | `error_rate`, `availability`, `p99_latency` |
+| Diagrama Mermaid | Flujo de observabilidad | Desde app hasta alertas |
+| Código Micrometer | Records para configuración de métricas | Timer, Counter, DistributionSummary |
+| Checklist SRE | Mín. 7 puntos concretos y accionables | Con umbrales y comandos específicos |
+
+**Densidad mínima:** 400 palabras  
+**Nivel de abstracción:** Operaciones en producción
+
+### 2.6 Sección 5 — Patrones de Integración (Mín. 500 palabras)
+
+**Contenido obligatorio:**
+
+| Elemento | Requisito | Ejemplo |
+|----------|-----------|---------|
+| Mínimo 3 patrones | Con código real completo | No descripciones teóricas |
+| Diagrama Mermaid | Flujos de integración | Mostrar datos y errores |
+| Manejo de fallos | Reintentos, timeouts, circuit breakers | Con configuración específica |
+| Tabla comparativa | Cuándo usar cada patrón, complejidad, beneficio, riesgo | Incluir "Cuándo NO usar" |
+| Control Loops | Automatización basada en feedback | Señal → Acción automática → Objetivo → Tiempo respuesta < 30s |
+
+**Densidad mínima:** 500 palabras  
+**Nivel de abstracción:** Integración con sistemas reales
+
+### 2.7 Sección 6 — Failure Modes & Mitigation Matrix (NUEVA v3.0, Mín. 400 palabras)
+
+**Contenido obligatorio:**
+
+| Elemento | Requisito | Ejemplo |
+|----------|-----------|---------|
+| Tabla de Failure Modes | 6+ modos con columnas: Fallo, Impacto, Mitigación, Trigger de Alerta, Severidad | Con emojis de severidad (🔴 🟡 🟠) |
+| Cascade Failure Scenario | Cadena de 5+ eslabones documentada | "GC lento → latencia → timeouts → retries → colapso" |
+| Punto de no retorno | Identificado explícitamente | "Cuando `active_connections / max_connections > 0.9`" |
+| Cómo romper el ciclo | Qué eslabón atacar primero | "Desactivar retries primero, luego escalar" |
+| Runbook de Incidente 3AM | Síntoma, diagnóstico <3 min, acción inmediata, mitigación temporal, solución definitiva | Con comandos copy-paste |
+
+**Densidad mínima:** 400 palabras  
+**Nivel de abstracción:** Respuesta a incidentes
+
+### 2.8 Sección 7 — Control Loops & Traffic Prioritization (NUEVA v4.0, Mín. 300 palabras)
+
+**Contenido obligatorio:**
+
+| Elemento | Requisito | Ejemplo |
+|----------|-----------|---------|
+| Tabla de Control Loops | 4+ loops con columnas: Señal, Acción automática, Objetivo, Tiempo respuesta | "< 30 segundos sin intervención humana" |
+| Traffic Prioritization | QoS por tipo de usuario/endpoint | Crítico, Importante, Secundario, Bots |
+| Load Shedding | Niveles explícitos con triggers | "CPU > 85% → rechazar baja prioridad" |
+| Graceful Degradation | Matriz por feature con niveles | Normal, Degradado 1, Degradado 2, Emergencia |
+| Kill Switch | Feature flags para casos no previstos | "< 1s via feature flags" |
+
+**Densidad mínima:** 300 palabras  
+**Nivel de abstracción:** Sistemas auto-estables
+
+### 2.9 Sección 8 — Conclusiones y Roadmap (Mín. 500 palabras)
+
+**Contenido obligatorio:**
+
+| Elemento | Requisito | Ejemplo |
+|----------|-----------|---------|
+| Los 5 puntos críticos | Formato "Los cinco puntos que un Staff Engineer debe dominar sobre X" | Específicos del tema, no genéricos |
+| Decisiones de diseño clave | Cuándo aplicar cada una | Con criterios numéricos |
+| Test de Decisión Bajo Presión | Situación, 4 opciones, respuesta Staff con justificación | "ZGC usa 20% más CPU, latencia perfecta. ¿Qué haces?" |
+| Roadmap de adopción | Fases concretas (semana 1, semana 2, mes 1, mes 2+) | Con acciones específicas |
+| Código Java 21 final | Que integre los conceptos del documento | Ejemplo completo |
+| Diagrama Mermaid | Sistema completo | Madurez por niveles |
+| Recursos oficiales | URLs verificadas y accesibles | Mín. 8 recursos |
+| FinOps calculado | Instancias × coste/hora × horas/mes × meses/año, ahorro explícito | "€3.600/año con ROI en 2 meses" |
+
+**Densidad mínima:** 500 palabras  
+**Nivel de abstracción:** Síntesis ejecutiva
+
+### 2.10 Sección 9 — Recursos y Referencias
+
+**Contenido obligatorio:**
+- Mín. 8 URLs verificadas y accesibles
+- JEPs relevantes si aplica a features de Java
+- Documentation links oficiales
+- Books/Papers si hay referencias académicas
+- GitHub repos si hay implementaciones de referencia
+
+### 2.11 Sección 10 — Nota de Implementación
+
+**Contenido obligatorio:**
+
+```markdown
+**Nota de implementación:** Este documento cumple con el estándar Staff Académico v4.0: 
+- evidencia empírica cuantitativa
+- análisis de costes FinOps calculado al euro
+- código Java 21 con Records/Sealed Interfaces/StructuredTaskScope
+- métricas SRE con queries PromQL ejecutables e interpretación operativa
+- patrones de integración con comparativas de trade-offs
+- Failure Modes & Mitigation Matrix explícita
+- Cascade Failure Scenario documentado
+- Runbook de Incidente 3AM completo
+- Control Loops automatizados
+- Traffic Prioritization con QoS
+- Test de Decisión Bajo Presión incluido
+- Workload Definition explícito
+- Justificación de features modernas
+- Anti-Goals definidos
+- Leading Indicators para detección proactiva
+
+Los diagramas Mermaid han sido validados para compatibilidad con GitHub (sin caracteres prohibidos en labels: `:`, `>`, `<`, `@`, `"`, `#`, `()`, `<br/>`).
+Los imports de librerías están explícitamente declarados para garantizar compilación "copy-paste".
+```
+
+---
+
+## 3. Reglas de Código Java 21 — Obligatorias
+
+### 3.1 Lo que SIEMPRE debe aparecer
+
+```markdown
+✅ Records para modelos de datos — nunca clases con setters
+✅ Sealed interfaces para jerarquías de tipos cerradas
+✅ Pattern Matching en switch expressions (switch con ->)
+✅ Virtual Threads para operaciones I/O (`Executors.newVirtualThreadPerTaskExecutor()`)
+✅ StructuredTaskScope para concurrencia estructurada cuando aplica
+✅ Constructor compacto en Records para validación de invariantes
+✅ `var` para variables locales con tipo obvio
+✅ `List.copyOf()`, `Map.of()`, `Set.of()` para colecciones inmutables
+✅ Optional para valores que pueden ser nulos
+✅ Stream API con method references donde aplique
+✅ Justificación de cada feature moderna usada (por qué aquí, qué pasa si no, alternativa considerada)
+✅ Imports explícitos de packages que existen
+```
+
+### 3.2 Lo que NUNCA debe aparecer
+
+```markdown
+❌ Setters públicos en ningún objeto de dominio
+❌ @Setter de Lombok (o cualquier generación de setters)
+❌ record X extends Y — los Records no pueden heredar de clases
+❌ @SealedInterface — no existe como anotación, es palabra clave
+❌ VirtualThread.start() / VirtualThread.newVirtual() — API incorrecta
+❌ Thread.yield() como método de instancia — es estático
+❌ namespace: "valor" — sintaxis de Kotlin/C#, no Java
+❌ VirtualTaskExecutor — no existe en Spring, usar SimpleAsyncTaskExecutor con setVirtualThreads(true)
+❌ -XX:+UnlockCommercialFeatures — flag eliminado en Java 11
+❌ System.setProperty("java.args", "...") — los flags JVM son solo de arranque
+❌ class X implements Interface y sealed interface X con el mismo nombre en el mismo package
+❌ switch con >= 35 && < 45 sobre primitivos — no es Java válido
+❌ APIs inventadas que no existen en ninguna librería real
+❌ Pseudocódigo mezclado con código real (/* implementar aquí */, ...)
+❌ Código que no compila presentado como compilable
+❌ Excepciones genéricas (Exception, RuntimeException) sin tipos específicos
+❌ ThreadLocal masivo sin justificación (riesgo de leak con Virtual Threads)
+```
+
+### 3.3 Virtual Threads — API correcta en Java 21
+
+```java
+// ✅ CORRECTO — las tres formas válidas
+Thread.ofVirtual().start(runnable);
+Thread.ofVirtual().name("nombre").start(runnable);
+Executors.newVirtualThreadPerTaskExecutor();
+
+// En Spring Boot 3.2+
+@Bean
+TaskExecutor virtualThreadExecutor() {
+    var executor = new SimpleAsyncTaskExecutor();
+    executor.setVirtualThreads(true);
+    return executor;
+}
+
+// ❌ INCORRECTO — estas APIs no existen
+VirtualThread.start()
+VirtualThread.newVirtual()
+new VirtualTaskExecutor()
+```
+
+### 3.4 Sealed Interfaces — sintaxis correcta
+
+```java
+// ✅ CORRECTO
+public sealed interface Shape permits Circle, Rectangle, Triangle {}
+public record Circle(double radius) implements Shape {}
+public record Rectangle(double width, double height) implements Shape {}
+
+// ❌ INCORRECTO — clase contenedora con mismo nombre
+public sealed interface Shape permits Shape.Circle {}
+public final class Shape {  // ← no puede tener mismo nombre que la interfaz
+    public record Circle() implements Shape {}
+}
+```
+
+---
+
+## 4. Reglas de Diagramas Mermaid
+
+### 4.1 Caracteres PROHIBIDOS en labels de nodos `[ ]` y aristas `| |`
+
+```markdown
+❌ :   → usar - o texto descriptivo
+❌ @   → escribir sin arroba (PreAuthorize en vez de @PreAuthorize)
+❌ >   → usar "mayor" o texto descriptivo  
+❌ <   → usar "menor" o texto descriptivo
+❌ "   → no usar comillas dentro de labels
+❌ #   → no usar almohadilla
+❌ <br> o <br/> → usar \n para saltos de línea
+❌ ()  → evitar paréntesis en labels de nodos
+```
+
+### 4.2 Ejemplos correctos vs incorrectos
+
+```markdown
+❌ FILTER[SecurityFilterChain<br>JwtAuthenticationFilter]
+✅ FILTER[SecurityFilterChain\nJwtAuthenticationFilter]
+
+❌ PRE[@PreAuthorize ABAC\nEvaluator]
+✅ PRE[PreAuthorize ABAC\nEvaluator]
+
+❌ AM -->|auth failures > 5%| SLACK[Slack: posible ataque]
+✅ AM -->|auth failures alto| SLACK[Slack - posible ataque]
+
+❌ L1[Nivel 1: Sin protección<br/>Fallos en cascada]
+✅ L1[Nivel 1 - Sin proteccion - Fallos en cascada]
+```
+
+### 4.3 Estructura mínima de diagramas
+
+```mermaid
+graph TD
+    subgraph "Nombre descriptivo del contexto"
+        A[Componente A] -->|accion| B[Componente B]
+        B --> C[Componente C]
+        C -->|resultado ok| D[Resultado OK]
+        C -->|resultado ko| E[Manejo de Error]
+    end
+```
+
+**Reglas:**
+- Mínimo 5 nodos por diagrama
+- Usar `subgraph` para agrupar componentes relacionados
+- Usar `-->|label|` para describir el tipo de relación
+- Usar `-.->` para dependencias opcionales o contextuales
+- Usar `{nombre}` para decisiones (rombo)
+- Validar en editor Mermaid live antes de publicar
+
+---
+
+## 5. Reglas de Métricas y PromQL
+
+### 5.1 Formato de tabla de métricas
+
+```markdown
+| Métrica | Fuente | Descripción | Umbral alerta |
+|---------|--------|-------------|---------------|
+| `nombre_metrica_total` | Micrometer/Timer/Counter | Descripción precisa | `> valor_concreto` |
+```
+
+**Reglas:**
+- El nombre de la métrica debe estar en backticks
+- La fuente debe ser específica (Micrometer Timer, Counter, Gauge, DistributionSummary)
+- El umbral debe ser un valor numérico concreto, no "alto" o "excesivo"
+
+### 5.2 Queries PromQL — reglas
+
+```promql
+# ✅ CORRECTO — query ejecutable con contexto
+histogram_quantile(0.99,
+  rate(app_operation_seconds_bucket[5m])
+) > 0.1
+
+# ✅ CORRECTO — con comentario explicativo
+# Tasa de errores sobre total de requests
+rate(app_errors_total[5m])
+/ rate(app_requests_total[5m]) > 0.05
+
+# ❌ INCORRECTO — métrica genérica que no existe
+mongodb_replicaset_state == "STARTED"  # ← string en comparación numérica
+avg_over_time(pgvector_search_time[1m]) # ← métrica inventada
+```
+
+### 5.3 Código Micrometer — patrón correcto con Records
+
+```java
+// ✅ CORRECTO — Record inmutable para métricas
+public record AppMetrics(
+    Timer operationTimer,
+    Counter errorCounter,
+    DistributionSummary scores
+) {
+    public static AppMetrics create(MeterRegistry registry) {
+        return new AppMetrics(
+            Timer.builder("app.operation.seconds")
+                .publishPercentiles(0.95, 0.99)
+                .register(registry),
+            Counter.builder("app.errors.total").register(registry),
+            DistributionSummary.builder("app.scores").register(registry)
+        );
+    }
+}
+
+// ❌ INCORRECTO — Timer.Sample usado incorrectamente
+try (Timer.Sample sample = requestLatencyTimer.start()) {
+    // Timer.Sample no es AutoCloseable — no se puede usar con try-with-resources
+}
+```
+
+---
+
+## 6. Estándares por Carpeta/Bloque Temático
+
+### 6.1 01_Java_Core
+
+**Enfoque:** Features del lenguaje Java 21 con aplicación práctica.
+
+**Debe incluir obligatoriamente:**
+- Comparativa con implementación en Java 8/11/17 — mostrar la evolución
+- Código que demuestre la feature específica del lenguaje (no solo Spring)
+- Implicaciones en concurrencia y rendimiento
+- Cómo la feature elimina una clase de bugs específica
+- Tests que demuestren el comportamiento (inmutabilidad, exhaustividad, etc.)
+
+**Features que deben aparecer según el tema:**
+- Virtual Threads → `Executors.newVirtualThreadPerTaskExecutor()`, `StructuredTaskScope`
+- Records → constructor compacto con validación, métodos `with*` que devuelven nueva instancia
+- Sealed Interfaces → switch exhaustivo sin default
+- Pattern Matching → switch con guards (`when`)
+- String Templates → si aplica al tema
+
+**Evitar:**
+- Código Spring en la sección de implementación principal (Spring va en 03_Spring_Ecosystem)
+- Features de Java 8 presentadas como Java 21
+- Benchmarks sin condiciones de prueba especificadas
+
+### 6.2 02_Arquitectura
+
+**Enfoque:** System Design y decisiones arquitectónicas distribuidas.
+
+**Debe incluir obligatoriamente:**
+- Diagrama C4 o equivalente mostrando el contexto del sistema
+- Análisis de trade-offs con criterios cuantitativos cuando sea posible
+- Cuándo NO usar el patrón (tan importante como cuándo usarlo)
+- Impacto en consistency, availability, partition tolerance (teorema CAP)
+- Consideraciones de escalabilidad horizontal
+- Código Java 21 que demuestre el patrón, no solo diagramas
+
+**Patrones frecuentes en esta carpeta:**
+- Saga, CQRS, Event Sourcing → mostrar compensación y idempotencia
+- Hexagonal/DDD → separación clara de puertos y adaptadores
+- Microservicios → mostrar comunicación sync y async
+- Rate Limiting → algoritmos reales (Token Bucket, Leaky Bucket)
+
+**Evitar:**
+- Diagramas sin código de implementación
+- Patrones descritos solo teóricamente sin ejemplo práctico
+- Ignorar los casos de fallo y recuperación
+
+### 6.3 03_Spring_Ecosystem
+
+**Enfoque:** Spring Boot 3.x con Java 21, sin WebSecurityConfigurerAdapter ni APIs legacy.
+
+**Debe incluir obligatoriamente:**
+- Configuración con `application.yml` completo y comentado
+- `SecurityFilterChain` beans en lugar de `WebSecurityConfigurerAdapter`
+- Tests con `@SpringBootTest`, `MockMvc`, y `@WithMockUser` / `jwt()` donde aplique
+- Integración con Micrometer para métricas
+- Configuración de producción (timeouts, pool sizes, etc.)
+
+**APIs correctas en Spring Boot 3.x:**
+```java
+// ✅ Spring Security 6 — sin herencia
+@Bean SecurityFilterChain chain(HttpSecurity http) throws Exception { ... }
+
+// ✅ Virtual Threads en Spring
+@Bean TaskExecutor executor() {
+    var e = new SimpleAsyncTaskExecutor();
+    e.setVirtualThreads(true);
+    return e;
+}
+
+// ✅ NimbusJwtDecoder correcto
+NimbusJwtDecoder.withJwkSetUri(uri).build()
+
+// ❌ Spring Security legacy
+class Config extends WebSecurityConfigurerAdapter { ... }
+```
+
+**Evitar:**
+- `@Autowired` en campos — usar constructor injection
+- `WebSecurityConfigurerAdapter` — eliminado en Spring Security 6
+- `spring.security.oauth2.resourceserver.jwt.jwk-set-uri` sin configurar el decoder
+- Resilience4j con Hystrix (deprecado)
+
+### 6.4 04_Bases_de_Datos
+
+**Enfoque:** Persistencia, modelado y optimización con Java 21.
+
+**Debe incluir obligatoriamente:**
+- SQL/comandos reales de la base de datos (no pseudocódigo)
+- Configuración de índices con justificación de por qué ese índice
+- Patrón de acceso primario y cómo el esquema lo optimiza
+- Integración con Spring Data o driver directo con JDBC
+- Consideraciones de escala (sharding, particionado, replicación)
+
+**Por tecnología específica:**
+
+**PostgreSQL:**
+- `EXPLAIN (ANALYZE, BUFFERS)` en queries críticas
+- Índices parciales, compuestos, GIN/GiST donde aplique
+- Particionado por rango/lista si aplica al tema
+
+**MongoDB:**
+- `explain("executionStats")` para validar uso de índices
+- ESR Rule para índices compuestos
+- Embedded vs Referenced con criterios claros
+
+**Redis:**
+- Comandos reales: `XADD`, `XREADGROUP`, `XACK`, `XPENDING`, `XCLAIM`
+- `MAXLEN ~` en streams
+- Configuración de `maxmemory-policy`
+
+**pgvector:**
+- Operadores correctos: `<->`, `<#>`, `<=>` con cuándo usar cada uno
+- HNSW vs IVFFlat con parámetros reales
+- `SET hnsw.ef_search` antes de búsquedas
+
+**Evitar:**
+- `VectorDBClient` o clientes inventados
+- SQL con `$1` en JDBC (JDBC usa `?`)
+- Índices sin justificación de por qué ese índice sobre ese campo
+
+### 6.5 05_SRE_DevOps
+
+**Enfoque:** Operaciones, observabilidad y fiabilidad en producción.
+
+**Debe incluir obligatoriamente:**
+- SLI/SLO/SLA concretos para el sistema descrito
+- Alertas con umbrales derivados de SLOs (no números arbitrarios)
+- Runbook de respuesta a incidentes
+- Configuración de Kubernetes/Docker si aplica
+- Queries Prometheus para las alertas
+
+**Evitar:**
+- Alertas sin umbral numérico concreto
+- SLOs sin definición de la ventana de medición
+- Kubernetes YAML sin recursos (requests/limits)
+
+### 6.6 06_Seguridad
+
+**Enfoque:** Seguridad aplicada, no teórica.
+
+**Debe incluir obligatoriamente:**
+- Vectores de ataque específicos con CVEs o ejemplos reales cuando sea posible
+- Código de implementación segura (no solo descripción)
+- Configuración de hardening específica
+- Tests de seguridad automatizables
+
+**Evitar:**
+- RS256 vs HS256 sin explicar por qué RS256 en microservicios
+- "Usar HTTPS" como único consejo de seguridad
+- Configuraciones de seguridad sin justificación técnica
+
+### 6.7 07_BigData_Streaming
+
+**Enfoque:** Procesamiento distribuido con Java 21.
+
+**Debe incluir obligatoriamente:**
+- Garantías de procesamiento (at-most-once, at-least-once, exactly-once)
+- Throughput y latencia esperados con configuración específica
+- Manejo de backpressure
+- Checkpointing/offset management
+
+**Evitar:**
+- Kafka sin mostrar consumer groups y offset management
+- Spark sin mostrar particionado y shuffling
+- Flink sin mostrar state management y checkpoints
+
+### 6.8 08/09_IA_Agentes
+
+**Enfoque:** LLMs y agentes con Java 21 y LangChain4j.
+
+**Debe incluir obligatoriamente:**
+- Modelo de embeddings especificado (no genérico)
+- Estrategia de chunking con tamaño y overlap justificados
+- Evaluación de la calidad del RAG (métricas concretas)
+- Manejo de rate limits del LLM provider
+- Coste estimado por operación
+
+**Evitar:**
+- "Usar embeddings" sin especificar el modelo
+- RAG sin estrategia de re-ranking
+- Agentes sin límite de iteraciones (loop infinito)
+
+---
+
+## 7. Estándares de Densidad y Longitud
+
+### 7.1 Longitud mínima por documento
+
+| Bloque | Líneas mínimas | Palabras mínimas | Bloques de código mínimos |
+|--------|----------------|------------------|---------------------------|
+| 01_Java_Core | 350 | 3.000 | 5 |
+| 02_Arquitectura | 400 | 3.500 | 4 |
+| 03_Spring_Ecosystem | 450 | 4.000 | 6 |
+| 04_Bases_de_Datos | 400 | 3.500 | 5 |
+| 05_SRE_DevOps | 350 | 3.000 | 4 |
+| 06_Seguridad | 400 | 3.500 | 5 |
+| 07_BigData | 350 | 3.000 | 4 |
+| 08/09_IA_Agentes | 350 | 3.000 | 4 |
+
+### 7.2 Densidad de conocimiento
+
+Cada sección debe pasar el test de densidad:
+
+| Pregunta | Criterio de aprobación |
+|----------|------------------------|
+| ¿Puede un desarrollador Senior implementar algo nuevo leyendo solo esta sección? | Si no, falta contenido |
+| ¿Contiene información que no se encuentra en la documentación oficial? | Si no, es un resumen, no Staff |
+| ¿Hay al menos un insight no obvio por sección? | Si no, el nivel no es Staff |
+
+**Ejemplos de insights no obvios (nivel Staff):**
+- "El operador `<#>` en pgvector es más eficiente que `<=>` para embeddings normalizados porque matemáticamente son equivalentes pero inner product evita calcular la raíz cuadrada"
+- "Sin `MAXLEN ~` en Redis Streams el stream crece hasta agotar la RAM — el `~` es más eficiente que el exacto porque Redis hace trim por bloques internos"
+- "Retry antes que Circuit Breaker amplifica la carga en factor n — con r=0.5 y n=3 reintentos el servicio recibe 87.5% más carga"
+
+---
+
+## 8. Checklist de Publicación
+
+Antes de publicar cualquier documento, verificar cada punto:
+
+### 8.1 Checklist de código (18 puntos)
+
+```markdown
+□ Todo el código compila en Java 21 (verificado manualmente)
+□ No hay setters en objetos de dominio
+□ Records no heredan de clases (no extends)
+□ Virtual Threads usan API correcta
+□ Sealed Interfaces tienen switch exhaustivo sin default
+□ No hay APIs inventadas — todo es de librería real
+□ No hay pseudocódigo mezclado con código real
+□ Los imports son de packages que existen
+□ No hay @SealedInterface como anotación
+□ Constructor compacto de Records tiene validación real
+□ Justificación de cada feature moderna incluida (por qué aquí, qué pasa si no, alternativa)
+□ Manejo de errores con tipos específicos (no Exception genérica)
+□ Colecciones inmutables con List.copyOf(), Map.of(), Set.of()
+□ Optional usado correctamente para valores nullable
+□ StructuredTaskScope usado correctamente si hay concurrencia
+□ No hay ThreadLocal masivo sin justificación
+□ No hay synchronized en paths de I/O con Virtual Threads (causa pinning)
+□ Imports de AssertJ/Mockito explícitos en tests
+```
+
+### 8.2 Checklist de Mermaid (10 puntos)
+
+```markdown
+□ No hay : en labels de nodos [ ]
+□ No hay @ en labels de nodos [ ] ni aristas | |
+□ No hay > ni < en aristas | |
+□ No hay <br> ni <br/> — usar \n
+□ No hay " dentro de labels
+□ No hay # dentro de labels
+□ No hay () dentro de labels
+□ Cada diagrama tiene mínimo 5 nodos
+□ Los subgraph tienen nombres descriptivos
+□ Validado en editor Mermaid live antes de publicar
+```
+
+### 8.3 Checklist de contenido v4.0 (22 puntos)
+
+```markdown
+□ Las 10 secciones están presentes y en orden
+□ Workload Definition explícito incluido (5+ parámetros)
+□ Marco matemático con fórmulas LaTeX verificables (mínimo 2)
+□ Tabla comparativa con 3+ alternativas en Visión Estratégica
+□ Tabla de métricas con umbrales numéricos concretos (6+ métricas)
+□ Mínimo 5 queries PromQL ejecutables con interpretación operativa completa
+□ Checklist SRE con mínimo 7 puntos concretos
+□ Roadmap de adopción con fases específicas
+□ Los 5 puntos de conclusión son específicos del tema (no genéricos)
+□ URLs de recursos verificadas y accesibles (mín. 8)
+□ Failure Modes & Mitigation Matrix explícita (6+ modos)
+□ Cascade Failure Scenario documentado (5+ eslabones)
+□ Runbook de Incidente 3AM completo (síntoma → diagnóstico <3 min → acción)
+□ Control Loops automatizados (4+ loops con tiempo respuesta < 30s)
+□ Traffic Prioritization con QoS (Crítico, Importante, Secundario, Bots)
+□ Test de Decisión Bajo Presión incluido (situación, 4 opciones, respuesta Staff)
+□ FinOps calculado al euro (instancias × coste × tiempo, ahorro explícito)
+□ Anti-Goals definidos (qué NO optimizar y por qué)
+□ Leading Indicators para detección proactiva (antes del fallo)
+□ Lagging Indicators para detección reactiva (después del fallo)
+□ Load Shedding con niveles explícitos
+□ Graceful Degradation matriz por feature
+```
+
+### 8.4 Checklist de clasificación (5 puntos)
+
+```markdown
+□ PATH_LOCAL apunta a la carpeta correcta
+□ CATEGORIA es la carpeta correcta según las reglas de clasificación (tabla 8.5)
+□ El nombre de archivo termina en _STAFF.md
+□ No hay contenido de otra categoría (ej: Spring en Java Core)
+□ Score reflejado es coherente con el contenido real
+```
+
+### 8.5 Reglas de clasificación de categorías
+
+| Si el tema contiene | Carpeta correcta |
+|---------------------|------------------|
+| Virtual Threads, Records, GC, JVM, pattern matching | **01_Java_Core** |
+| Kafka, Spark, Flink, streaming, BigData, Data Mesh | **07_BigData_Streaming** |
+| Kubernetes, Docker, Terraform, Prometheus, SRE, DevOps | **05_SRE_DevOps** |
+| JWT, OAuth, Zero Trust, Vault, SBOM, seguridad | **06_Seguridad** |
+| RAG, embeddings, LangChain4j, Ollama, LLM, agentes | **09_IA_Agentes** |
+| DDD, Hexagonal, CQRS, Saga, microservicios, arquitectura | **02_Arquitectura** |
+| Spring Boot, R2DBC, WebFlux, Spring Security, Resilience4j | **03_Spring_Ecosystem** |
+| PostgreSQL, MongoDB, Redis, pgvector, bases de datos | **04_Bases_de_Datos** |
+| FHIR, HL7, DICOM, sistemas clínicos, HIPAA | **10_HealthTech** |
+| GraalVM, WebAssembly, eBPF, Project Valhalla | **15_Vanguardia** |
+
+**Casos especiales:**
+- Spring Security → 03_Spring_Ecosystem (no 06_Seguridad)
+- pgvector → 04_Bases_de_Datos (no 09_IA_Agentes)
+- Rate Limiter con Redis → 02_Arquitectura (patrón, no base de datos)
+- SLI/SLO → 05_SRE_DevOps (no 02_Arquitectura)
+- Memory Leaks → 01_Java_Core (JVM, no 05_SRE_DevOps)
+
+---
+
+## 9. Errores Frecuentes del Engine (Authority Engine / Qwen)
+
+Estos errores aparecen recurrentemente en los borradores generados y siempre deben corregirse:
+
+### 9.1 Errores de compilación Java
+
+```java
+// ❌ Error 1: Sintaxis C#/Kotlin en Java
+class CreateTransaction : Interface  →  class CreateTransaction implements Interface
+namespace: "valor"  →  eliminar, no existe en Java
+
+// ❌ Error 2: APIs de Virtual Threads incorrectas
+try (var thread = VirtualThread.start()) {}  →  Thread.ofVirtual().start(runnable)
+thread.yield()  →  Thread.yield() (método estático)
+VirtualThread.newVirtual()  →  Thread.ofVirtual()
+
+// ❌ Error 3: Switch sobre primitivos con rangos
+case >= 35 && < 45  →  no existe en Java, usar if-else o switch con guards
+
+// ❌ Error 4: Record hereda de clase
+record MyRecord() extends BaseClass {}  →  Records no pueden heredar
+
+// ❌ Error 5: Flags JVM en runtime
+System.setProperty("java.args", "-XX:+UseZGC")  →  flags solo en arranque JVM
+
+// ❌ Error 6: APIs inventadas
+jvisualvm.util.DumpTool  →  no existe
+JdkNashornVirtualThreadExecutor  →  no existe
+VectorDBClient  →  no existe
+StreamReadCursor  →  no existe en Spring Data Redis
+new ReadOffset(123456L)  →  el constructor no acepta Long
+```
+
+### 9.2 Errores de contenido
+
+```markdown
+❌ Loops de generación — el mismo párrafo repetido N veces
+   → Siempre verificar que el borrador no tenga contenido repetido
+
+❌ Categoría incorrecta del engine
+   → Verificar siempre contra la tabla de clasificación de la sección 8.5
+
+❌ Score 100 con código que no compila
+   → El score del engine no es fiable — siempre verificar el código
+
+❌ Documento sobre tema A con contenido sobre tema B
+   → Ejemplo: documento MongoDB con contenido sobre AWS Kinesis
+   → Reescritura total necesaria
+
+❌ Afirmaciones absolutas sin matices
+   → "ZGC es la única opción" → "ZGC es la opción recomendada cuando..."
+
+❌ CPU overhead sin contexto
+   → "+5% CPU" → "+5% CPU en workload I/O-bound con allocation rate <500MB/s"
+
+❌ "0 Full GC" como garantía
+   → "Prácticamente eliminados (<0.01% de probabilidad)"
+
+❌ Object Pooling como recomendación general
+   → "Último recurso solo para hot paths extremos tras profiling"
+
+❌ PromQL sin interpretación operativa (v3.0)
+   → Añadir: qué significa, causa probable, acción concreta
+
+❌ Runbook de Incidente ausente (v3.0)
+   → Añadir: síntoma, diagnóstico <3 min, acción inmediata, mitigación, solución
+
+❌ Cascade Failure Scenario ausente (v3.0)
+   → Añadir: cadena de 5+ eslabones, punto de no retorno, cómo romper ciclo
+
+❌ Test de Decisión Bajo Presión ausente (v3.0)
+   → Añadir: situación, 4 opciones, respuesta Staff con justificación
+
+❌ FinOps sin cálculo explícito (v3.0)
+   → Añadir: instancias × coste/hora × horas/mes × meses/año, ahorro explícito
+
+❌ Control Loops ausentes (v4.0)
+   → Añadir: señal → acción automática → objetivo → tiempo respuesta < 30s
+
+❌ Traffic Prioritization ausente (v4.0)
+   → Añadir: QoS por tipo de usuario/endpoint (Crítico, Importante, Secundario, Bots)
+
+❌ Anti-Goals ausentes (v4.0)
+   → Añadir: qué NO optimizar y por qué
+
+❌ Leading Indicators ausentes (v4.0)
+   → Añadir: métricas predictivas (antes del fallo)
+```
+
+---
+
+## 10. Nivel de Calidad y Puntuación
+
+### 10.1 Escala de puntuación
+
+| Puntuación | Nivel | Criterio |
+|------------|-------|----------|
+| **98-100** | **Principal Engineer** | Todo correcto + Modo Producción (runbooks, control loops, traffic prioritization) |
+| 95-97 | Staff+ Académico | Todo correcto, insights únicos, código impecable |
+| 85-94 | Staff | Correcto, completo, código compilable |
+| 70-84 | Senior | Completo pero con errores menores o gaps de contenido |
+| 50-69 | Mid | Incompleto o con errores de código significativos |
+| < 50 | Reescritura | Errores críticos o contenido incorrecto |
+
+### 10.2 Criterios de penalización automática
+
+| Error | Penalización |
+|-------|--------------|
+| Código que no compila | -30 puntos |
+| APIs inventadas presentadas como reales | -30 puntos |
+| Sin Runbook de Incidente 3AM (v3.0) | -25 puntos |
+| Sin Cascade Failure Scenario (v3.0) | -25 puntos |
+| Sin Control Loops (v4.0) | -25 puntos |
+| Sin Traffic Prioritization (v4.0) | -25 puntos |
+| Setter en objeto de dominio | -20 puntos |
+| Mermaid que no renderiza en GitHub | -20 puntos |
+| Sin Test de Decisión Bajo Presión (v3.0) | -20 puntos |
+| Sin Anti-Goals (v4.0) | -20 puntos |
+| Sección obligatoria ausente | -15 puntos |
+| Categoría incorrecta | -15 puntos |
+| Sin FinOps calculado al euro (v3.0) | -15 puntos |
+| PromQL con sintaxis inválida | -10 puntos |
+| Pseudocódigo en sección de implementación | -10 puntos |
+| Sin Justificación de features modernas (v3.0) | -10 puntos |
+| Menos de 300 palabras en cualquier sección | -5 puntos |
+| Workload Definition ausente (v3.0) | -5 puntos |
+
+### 10.3 Criterios de bonificación
+
+| Elemento | Bonificación |
+|----------|--------------|
+| Runbook de Incidente 3AM excepcionalmente detallado | +10 puntos |
+| Cascade Failure Scenario con 7+ eslabones documentados | +10 puntos |
+| Control Loops con automatización real (código) | +10 puntos |
+| Marco matemático con fórmulas verificables | +5 puntos |
+| Tests que demuestran la propiedad central del documento | +5 puntos |
+| Análisis FinOps con ROI cuantificado y desglosado | +5 puntos |
+| Comparativa cuantitativa (benchmark con condiciones especificadas) | +5 puntos |
+| Insight único no encontrable en documentación oficial | +5 puntos |
+| Test de Decisión Bajo Presión con justificación excepcional | +5 puntos |
+| PromQL con interpretación operativa completa (causa + acción) | +5 puntos |
+
+---
+
+## 11. Proceso de Revisión
+
+### 11.1 Flujo de publicación
+
+```
+1. Engine genera borrador en _Review/
+    ↓
+2. Revisor lee el documento completo
+    ↓
+3. Aplicar checklist secciones 8.1 a 8.5
+    ↓
+4. Corregir errores de código (compilación)
+    ↓
+5. Corregir Mermaid (caracteres prohibidos)
+    ↓
+6. Verificar clasificación de categoría
+    ↓
+7. Validar Workload Definition explícito (v3.0)
+    ↓
+8. Validar Runbook de Incidente 3AM (v3.0)
+    ↓
+9. Validar Cascade Failure Scenario (v3.0)
+    ↓
+10. Validar Control Loops (v4.0)
+    ↓
+11. Validar Traffic Prioritization (v4.0)
+    ↓
+12. nano [carpeta]/[nombre_STAFF.md]
+    ↓
+13. git add + commit + push
+    ↓
+14. ae-inventario
+    ↓
+15. git rm -rf "_Review/[carpeta_borrador]"
+    ↓
+16. git push
+```
+
+### 11.2 Cuándo hacer reescritura total vs corrección
+
+**Reescritura total cuando:**
+- El contenido del documento no corresponde al tema del título
+- Más del 30% del código no compila
+- El engine tuvo un loop y hay contenido repetido masivamente
+- La categoría asignada es incorrecta y el contenido es sobre otro tema
+- Faltan 3+ secciones obligatorias de v4.0 (Runbook, Cascade Failure, Control Loops, Traffic Priority)
+- Workload Definition ausente
+- FinOps sin cálculo explícito
+- Control Loops ausentes
+- Traffic Prioritization ausente
+
+**Corrección parcial cuando:**
+- Errores de Mermaid (caracteres prohibidos) — corregibles en 5 minutos
+- 1-2 bloques de código con APIs incorrectas — corregibles en 10 minutos
+- Sección faltante o incompleta — añadir el contenido específico
+- Categoría incorrecta — cambiar el PATH_LOCAL y mover el archivo
+- PromQL sin interpretación operativa — añadir interpretación y acción
+- Justificación de features moderna faltante — añadir justificación
+- Anti-Goals ausentes — añadir sección
+- Leading Indicators ausentes — añadir métricas predictivas
+
+---
+
+## 12. Historial de Versiones
+
+| Versión | Fecha | Cambios principales |
+|---------|-------|---------------------|
+| v1.0 | Abril 2026 | Estándar inicial |
+| v2.0 | Junio 2026 | + Failure Modes, Trade-offs, FinOps |
+| v2.1 | Agosto 2026 | + Mermaid validation, Java 21 features |
+| v2.2 | Septiembre 2026 | + Justificación de features, Anti-Goals |
+| v3.0 | Octubre 2026 | + Runbook 3AM, Cascade Failure, Control Loops, Test Decisión |
+| **v4.0** | **Diciembre 2026** | **+ Traffic Prioritization, Load Shedding, Graceful Degradation, Kill Switch, Leading/Lagging Indicators** |
+
+---
+
+**Documento mantenido por:** Joaquín Ríos Heredia — Authority Engine v4.0  
+**Última actualización:** Diciembre 2026  
+**Próxima revisión:** Marzo 2027  
+**Actualizar con cada nueva clase de error detectada en borradores del engine**
+```
+
+---
+
+## 📋 Resumen de Acciones
+
+| Acción | Dónde | Tiempo |
+|--------|-------|--------|
+| **1. Crear carpeta `_Standards/`** | Raíz del repositorio | 1 min |
+| **2. Copiar documento above** | `_Standards/ESTANDARES_STAFF_ACADEMICO_v4.md` | 2 min |
+| **3. Commit inicial** | `git add + commit + push` | 1 min |
+| **4. Referenciar en README.md** | Sección "Estándares de Calidad" | 2 min |
+| **5. Usar como checklist** | Para todos los futuros documentos | Continuo |
+
+---
+
+## ✅ Beneficios de Tener Este Documento
+
+1. **Calidad consistente** en todos los documentos del repositorio
+2. **Criterio objetivo** para aceptar/rechazar PRs
+3. **Demostración de rigor** para reclutadores que visiten tu GitHub
+4. **Documento vivo** que evoluciona con lecciones aprendidas
+5. **Referencia para colaboradores** futuros
+
+---
+
+**¿Quieres que proceda a crear el archivo completo listo para copiar y pegar, o prefieres que lo adapte de alguna forma específica?**
