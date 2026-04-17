@@ -12,7 +12,7 @@
 - [x] Patrones Strategy y Observer: sealed interfaces, pattern matching, records
 - [x] Garbage Collectors en la JVM: G1, ZGC y Shenandoah en produccion
 - [x] Java 21 Virtual Threads: concurrencia estructurada y escalabilidad
-- [ ] Structured Concurrency y Scoped Values: Project Loom completo
+- [x] Structured Concurrency y Scoped Values: Project Loom completo
 - [x] Memory leaks reales en Java: deteccion y solucion con VisualVM
 - [x] Profiling avanzado en Java con JFR y Async Profiler
 - [x] Optimizacion de latencia en aplicaciones Java de baja latencia
