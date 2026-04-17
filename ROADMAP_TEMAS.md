@@ -36,7 +36,7 @@
 - [x] Event-Driven Architecture + Outbox Pattern
 - [x] Event Sourcing y CQRS con Java 21 y Spring Boot
 - [x] Microservicios Reactivos: R2DBC + Virtual Threads
-- [ ] Monolito modular vs microservicios: cuando elegir cada uno
+- [x] Monolito modular vs microservicios: cuando elegir cada uno
 - [ ] Consistencia eventual: problemas reales y soluciones con Java 21
 - [ ] Trade-offs CAP en sistemas reales con casos practicos Java
 - [ ] Diseno de APIs idempotentes en sistemas criticos con Spring Boot
