@@ -1,8 +1,8 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-17 15:56:05
-**Ultimo commit:** 0cf0daa draft: java_memory_model_explicado_para_produccion (Score:90) — pendiente revisión Claude (64 minutes ago)
+**Ultima sincronizacion:** 2026-04-17 16:08:40
+**Ultimo commit:** 60b4847 chore: actualizar inventario y README [2026-04-17 15:56] (13 minutes ago)
 **Total de activos:** 51 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
@@ -32,7 +32,7 @@
 - [Clean Code y Principios SOLID con Java 21: Arquitectura de Software In](01_Java_Core/clean_code_y_solid_con_java_21_STAFF.md) — 2026-04-16 11:25 (36.9KB)
 - [Garbage Collectors en la JVM: G1, ZGC y Shenandoah en Producción con J](01_Java_Core/garbage_collectors_en_la_jvm_g1_zgc_y_shenandoah_en_produccion_STAFF.md) — 2026-04-16 11:25 (36.3KB)
 - [Java 21 Virtual Threads: Concurrencia Estructurada y Escalabilidad Mas](01_Java_Core/java_21_virtual_threads_STAFF.md) — 2026-04-16 11:25 (37.6KB)
-- [java_memory_model_explicado_para_produccion](01_Java_Core/java_memory_model_produccion_STAFF.md) — 2026-04-17 14:52 (25.6KB)
+- [Java Memory Model (JMM) Explicado para Producción: Concurrencia, Visib](01_Java_Core/java_memory_model_produccion_STAFF.md) — 2026-04-17 16:07 (31.3KB)
 - [Memory Leaks Reales en Java: Detección Forense, Análisis con JFR y Sol](01_Java_Core/memory_leaks_reales_en_java_deteccion_y_solucion_con_visualvm_STAFF.md) — 2026-04-16 11:25 (37.6KB)
 - [Optimización de Latencia en Aplicaciones Java de Baja Latencia: Ingeni](01_Java_Core/optimizacion_de_latencia_en_aplicaciones_java_de_baja_latencia_STAFF.md) — 2026-04-16 11:25 (42.4KB)
 - [Patrones Strategy y Observer con Java 21: Sealed Interfaces, Pattern M](01_Java_Core/patrones_strategy_y_observer_en_java_21:_implementación_con_sealed_interfaces,_pattern_matching_sobre_records_y_desacoplamiento_funcional_sin_efectos_secundarios_STAFF.md) — 2026-04-16 11:25 (42.2KB)
@@ -113,9 +113,9 @@
 | Total documentos tecnicos | 51 |
 | Tamano total del repositorio | 1.9MB |
 | Modulos activos | 10 |
-| Total commits | 285 |
+| Total commits | 286 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-17 15:56:05 |
+| Fecha | 2026-04-17 16:08:40 |
 
 ---
 
