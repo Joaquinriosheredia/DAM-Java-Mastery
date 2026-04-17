@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-17 17:31:46
-**Ultimo commit:** d80080a feat(arch): monolith vs microservices staff v4.0 - hito 45 (3 seconds ago)
-**Total de activos:** 54 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-17 17:44:32
+**Ultimo commit:** 75329b5 feat(arch): CAP theorem and consistency staff v4.0 - hito 46 (3 seconds ago)
+**Total de activos:** 55 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 9 | 41 | — |
-| **02_Arquitectura** | 9 | 36 | — |
+| **02_Arquitectura** | 10 | 37 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 8 | 29 | — |
@@ -50,6 +50,7 @@
 - [Monolito Modular vs. Microservicios: Guía de Decisión Arquitectónica c](02_Arquitectura/monolito_modular_vs_microservicios_STAFF.md) — 2026-04-17 17:30 (21.7KB)
 - [Rate Limiter Distribuido con Redis y Java 21: Atomicidad, Resiliencia ](02_Arquitectura/rate_limiter_distribuido_con_redis_y_java_21_STAFF.md) — 2026-04-16 11:25 (50.1KB)
 - [Saga Pattern: Orquestación vs Coreografía con Java 21 — Transacciones ](02_Arquitectura/saga_pattern_orquestacion_vs_coreografia_con_java_21_STAFF.md) — 2026-04-16 11:25 (45.1KB)
+- [Consistencia de Datos y Teorema CAP en Sistemas Distribuidos: Patrones](02_Arquitectura/teorema_cap_consistencia_sistemas_reales_STAFF.md) — 2026-04-17 17:44 (31.3KB)
 
 ### 📂 03_Spring_Ecosystem
 
@@ -113,12 +114,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 54 |
+| Total documentos tecnicos | 55 |
 | Tamano total del repositorio | 2.0MB |
 | Modulos activos | 10 |
-| Total commits | 300 |
+| Total commits | 304 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-17 17:31:46 |
+| Fecha | 2026-04-17 17:44:32 |
 
 ---
 
