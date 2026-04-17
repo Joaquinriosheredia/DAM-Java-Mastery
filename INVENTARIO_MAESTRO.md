@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-17 16:29:59
-**Ultimo commit:** 646412a chore: actualizar inventario y README [2026-04-17 16:08] (21 minutes ago)
-**Total de activos:** 51 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-17 16:47:47
+**Ultimo commit:** c381745 feat(java-core): advanced concurrency staff v4.0 - hito 43 (Day 1/10) (1 second ago)
+**Total de activos:** 52 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -12,7 +12,7 @@
 
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
-| **01_Java_Core** | 8 | 40 | — |
+| **01_Java_Core** | 9 | 41 | — |
 | **02_Arquitectura** | 8 | 35 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
@@ -32,6 +32,7 @@
 - [Clean Code y Principios SOLID con Java 21: Arquitectura de Software In](01_Java_Core/clean_code_y_solid_con_java_21_STAFF.md) — 2026-04-16 11:25 (36.9KB)
 - [Garbage Collectors en la JVM: G1, ZGC y Shenandoah en Producción con J](01_Java_Core/garbage_collectors_en_la_jvm_g1_zgc_y_shenandoah_en_produccion_STAFF.md) — 2026-04-16 11:25 (36.3KB)
 - [Java 21 Virtual Threads: Concurrencia Estructurada y Escalabilidad Mas](01_Java_Core/java_21_virtual_threads_STAFF.md) — 2026-04-16 11:25 (37.6KB)
+- [Concurrencia Avanzada en Java 21: Locks, CAS, ForkJoin y Concurrencia ](01_Java_Core/java_concurrencia_avanzada_STAFF.md) — 2026-04-17 16:47 (32.2KB)
 - [Java Memory Model (JMM) Explicado para Producción: Concurrencia, Visib](01_Java_Core/java_memory_model_produccion_STAFF.md) — 2026-04-17 16:07 (31.3KB)
 - [Memory Leaks Reales en Java: Detección Forense, Análisis con JFR y Sol](01_Java_Core/memory_leaks_reales_en_java_deteccion_y_solucion_con_visualvm_STAFF.md) — 2026-04-16 11:25 (37.6KB)
 - [Optimización de Latencia en Aplicaciones Java de Baja Latencia: Ingeni](01_Java_Core/optimizacion_de_latencia_en_aplicaciones_java_de_baja_latencia_STAFF.md) — 2026-04-16 11:25 (42.4KB)
@@ -110,12 +111,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 51 |
+| Total documentos tecnicos | 52 |
 | Tamano total del repositorio | 1.9MB |
 | Modulos activos | 10 |
-| Total commits | 288 |
+| Total commits | 292 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-17 16:29:59 |
+| Fecha | 2026-04-17 16:47:47 |
 
 ---
 

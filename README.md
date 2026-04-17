@@ -3,7 +3,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Joaquín_Ríos_Heredia-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/joaquinrios-dev-strategist/)
 [![Web](https://img.shields.io/badge/Web-DAM--Java--Mastery-blue?style=flat&logo=github)](https://joaquinriosheredia.github.io/DAM-Java-Mastery/)
 [![GitHub](https://img.shields.io/badge/GitHub-Portfolio-lightgrey?style=flat&logo=github)](https://github.com/Joaquinriosheredia)
-![Documentos](https://img.shields.io/badge/Documentos_Staff-43-green?style=flat)
+![Documentos](https://img.shields.io/badge/Documentos_Staff-44-green?style=flat)
 ![Calidad](https://img.shields.io/badge/SRE_Score-94%2F100-brightgreen?style=flat)
 
 Biblioteca de referencia técnica de nivel **Staff Engineer** sobre Java 21, arquitecturas de software, SRE, seguridad y sistemas distribuidos. Generada y mantenida con **Authority Engine v21.0** — pipeline híbrido de IA local + revisión académica.
@@ -68,6 +68,7 @@ GitHub
 
 
 
+
 ## 📚 Índice de Documentos por Módulo
 
 ### ☕ 01_Java_Core — Java 21 Avanzado
@@ -77,6 +78,7 @@ GitHub
 | [Clean Code y Principios SOLID con Java 21: Arquitectura de Software Inmutable, V...](./01_Java_Core/clean_code_y_solid_con_java_21_STAFF.md) | 12 | 16/04/2026 |
 | [Garbage Collectors en la JVM: G1, ZGC y Shenandoah en Producción con Java 21 — G...](./01_Java_Core/garbage_collectors_en_la_jvm_g1_zgc_y_shenandoah_en_produccion_STAFF.md) | 15 | 16/04/2026 |
 | [Java 21 Virtual Threads: Concurrencia Estructurada y Escalabilidad Masiva en Pro...](./01_Java_Core/java_21_virtual_threads_STAFF.md) | 15 | 16/04/2026 |
+| [Concurrencia Avanzada en Java 21: Locks, CAS, ForkJoin y Concurrencia Estructura...](./01_Java_Core/java_concurrencia_avanzada_STAFF.md) | 13 | 17/04/2026 |
 | [Java Memory Model (JMM) Explicado para Producción: Concurrencia, Visibilidad y O...](./01_Java_Core/java_memory_model_produccion_STAFF.md) | 13 | 17/04/2026 |
 | [Memory Leaks Reales en Java: Detección Forense, Análisis con JFR y Solución Estr...](./01_Java_Core/memory_leaks_reales_en_java_deteccion_y_solucion_con_visualvm_STAFF.md) | 15 | 16/04/2026 |
 | [Optimización de Latencia en Aplicaciones Java de Baja Latencia: Ingeniería de Re...](./01_Java_Core/optimizacion_de_latencia_en_aplicaciones_java_de_baja_latencia_STAFF.md) | 15 | 16/04/2026 |
@@ -148,6 +150,41 @@ GitHub
 ---
 
 ### 📊 07_BigData_Streaming — Kafka, Spark, Flink
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Apache Kafka Streams con Java 21: Procesamiento de Streams en Tiempo Real, State...](./07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) | 13 | 17/04/2026 |
+| [BigData ETL con Apache Spark y Java 21: Procesamiento Distribuido, Optimización ...](./07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) | 12 | 17/04/2026 |
+| [Data Mesh: Descentralización de la Propiedad del Dato con Java 21 — Guía Staff E...](./07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) | 8 | 17/04/2026 |
+
+---
+
+### 🤖 08_IA_Agentes — RAG, LangChain4j, LLMOps
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [Agentes Autónomos con Memoria a Largo Plazo y LangChain4j: Arquitectura de Persi...](./08_IA_Agentes/agentes_autonomos_memoria_largo_plazo_langchain4j_STAFF.md) | 13 | 17/04/2026 |
+| [RAG Avanzado con Embeddings Locales y Reranking en Java 21: Arquitectura de Prec...](./08_IA_Agentes/rag_avanzado_embeddings_locales_y_reranking_langchain4j_STAFF.md) | 14 | 17/04/2026 |
+| [Sistemas Multi-Agente con LangChain4j y Ollama en Java 21: Arquitectura de Agent...](./08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) | 11 | 17/04/2026 |
+| [Tool Calling y Function Calling con Qwen2.5 y LangChain4j: Arquitectura de Agent...](./08_IA_Agentes/tool_calling_function_calling_qwen2_5_langchain4j_STAFF.md) | 14 | 17/04/2026 |
+
+---
+
+### 📱 09_Frontend_Mobile — Flutter, Android, Kotlin
+
+*Próximamente*
+
+---
+
+### 🔭 10_Vanguardia — Tendencias y novedades 2026
+
+| Documento | Secciones | Fecha |
+|-----------|-----------|-------|
+| [GraalVM Native Image: Compilación AOT de Aplicaciones Spring Boot en Java 21 — G...](./10_Vanguardia/graalvm_native_image_compilacion_aot_java_21_STAFF.md) | 14 | 17/04/2026 |
+
+---
+
+## 📊 07_BigData_Streaming — Kafka, Spark, Flink
 
 | Documento | Secciones | Fecha |
 |-----------|-----------|-------|
@@ -1211,7 +1248,7 @@ GitHub
 
 | Métrica | Valor |
 |---------|-------|
-| Documentos Staff publicados | 43 |
+| Documentos Staff publicados | 44 |
 | Módulos con contenido | 9 / 10 |
 | Score SRE promedio | 94 / 100 |
 | Secciones promedio por documento | 7 |
