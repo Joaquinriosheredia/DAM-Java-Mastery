@@ -1,7 +1,7 @@
 # ROADMAP — DAM-Java-Mastery
 # Temas pendientes ordenados por prioridad estratégica
 # Ejecutar con: racha2026 "tema"
-# Actualizado: 2026-04-10 (v3.0 - Sincronizado con estado real)
+# Actualizado: 2026-04-17 (auto-sync ae-inventario)
 
 # ═══════════════════════════════════════════════════════════════
 # BLOQUE 1 — JAVA CORE (01_Java_Core/)
@@ -64,7 +64,7 @@
 - [ ] Spring Cloud Gateway: rate limiting, auth centralizada, multi-cluster
 - [ ] Spring for Apache Kafka: producers, consumers, streams, exactly-once
 - [ ] Spring Data JDBC vs JPA: decisiones de persistencia y performance
-- [ ] Event Sourcing y CQRS con Spring Boot (mover de Arquitectura si aplica)
+- [x] Event Sourcing y CQRS con Spring Boot (mover de Arquitectura si aplica)
 
 # ═══════════════════════════════════════════════════════════════
 # BLOQUE 4 — BASES DE DATOS (04_Bases_de_Datos/)
