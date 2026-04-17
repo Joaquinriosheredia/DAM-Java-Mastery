@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-17 16:47:47
-**Ultimo commit:** c381745 feat(java-core): advanced concurrency staff v4.0 - hito 43 (Day 1/10) (1 second ago)
-**Total de activos:** 52 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-17 17:13:08
+**Ultimo commit:** a57299d feat(sre): finalize debugging production sync - hito 44 (3 seconds ago)
+**Total de activos:** 53 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 8 | 35 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
-| **05_SRE_DevOps** | 7 | 28 | — |
+| **05_SRE_DevOps** | 8 | 29 | — |
 | **06_Seguridad** | 4 | 10 | — |
 | **07_BigData_Streaming** | 3 | 16 | — |
 | **08_IA_Agentes** | 4 | 10 | — |
@@ -68,6 +68,7 @@
 ### 📂 05_SRE_DevOps
 
 - [Chaos Engineering con Gremlin y Litmus en Kubernetes: Resiliencia Proa](05_SRE_DevOps/chaos_engineering_con_gremlin_y_litmus_en_kubernetes_STAFF.md) — 2026-04-17 14:31 (42.7KB)
+- [Debugging en Producción: Thread Dumps, Heap Dumps y Profiling con Java](05_SRE_DevOps/debugging_produccion_dumps_STAFF.md) — 2026-04-17 17:03 (38.4KB)
 - [Docker Avanzado: Multi-stage Builds, Imágenes Distroless y Optimizació](05_SRE_DevOps/docker_avanzado_java_21_optimizacion_STAFF.md) — 2026-04-17 14:31 (35.8KB)
 - [Infraestructura como Código (IaC) con AWS CDK y Java 21: Arquitectura ](05_SRE_DevOps/iac_aws_cdk_java_21_STAFF.md) — 2026-04-17 14:31 (40.8KB)
 - [Kubernetes Auto-Escalado y Service Mesh en 2026: HPA, VPA, KEDA e Isti](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-04-17 14:31 (34.1KB)
@@ -111,12 +112,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 52 |
-| Tamano total del repositorio | 1.9MB |
+| Total documentos tecnicos | 53 |
+| Tamano total del repositorio | 2.0MB |
 | Modulos activos | 10 |
-| Total commits | 292 |
+| Total commits | 296 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-17 16:47:47 |
+| Fecha | 2026-04-17 17:13:08 |
 
 ---
 
