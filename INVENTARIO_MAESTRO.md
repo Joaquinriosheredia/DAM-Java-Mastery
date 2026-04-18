@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-18 09:04:31
-**Ultimo commit:** 56a8bb1 feat(sre): deadlock detection staff v4.0 - hito 49 (Day 2/10) (3 seconds ago)
-**Total de activos:** 57 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-18 13:20:23
+**Ultimo commit:** 056f2e0 feat(arch): idempotency in distributed systems staff v4.0 - HITO 50 (Day 2/10) (3 seconds ago)
+**Total de activos:** 58 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 9 | 41 | — |
-| **02_Arquitectura** | 11 | 38 | — |
+| **02_Arquitectura** | 12 | 39 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 9 | 30 | — |
@@ -48,6 +48,7 @@
 - [Diseño de Sistemas Escalables Tipo FAANG: Arquitectura Distribuida, Re](02_Arquitectura/diseno_sistemas_escalables_faang_STAFF.md) — 2026-04-17 17:55 (27.2KB)
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21: ](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-16 11:25 (46.6KB)
 - [Event Sourcing y CQRS con Java 21 y Spring Boot: Inmutabilidad, Trazab](02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) — 2026-04-16 11:25 (47.0KB)
+- [Idempotencia en Sistemas Distribuidos con Java 21: Patrones de Consist](02_Arquitectura/idempotencia_sistemas_distribuidos_STAFF.md) — 2026-04-18 13:20 (42.4KB)
 - [Monolito Modular vs. Microservicios: Guía de Decisión Arquitectónica c](02_Arquitectura/monolito_modular_vs_microservicios_STAFF.md) — 2026-04-17 17:30 (21.7KB)
 - [Rate Limiter Distribuido con Redis y Java 21: Atomicidad, Resiliencia ](02_Arquitectura/rate_limiter_distribuido_con_redis_y_java_21_STAFF.md) — 2026-04-16 11:25 (50.1KB)
 - [Saga Pattern: Orquestación vs Coreografía con Java 21 — Transacciones ](02_Arquitectura/saga_pattern_orquestacion_vs_coreografia_con_java_21_STAFF.md) — 2026-04-16 11:25 (45.1KB)
@@ -116,12 +117,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 57 |
+| Total documentos tecnicos | 58 |
 | Tamano total del repositorio | 2.1MB |
 | Modulos activos | 10 |
-| Total commits | 312 |
+| Total commits | 316 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-18 09:04:31 |
+| Fecha | 2026-04-18 13:20:23 |
 
 ---
 
