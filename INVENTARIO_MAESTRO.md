@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-17 17:55:52
-**Ultimo commit:** 6d76b01 feat(arch): scalable systems FAANG staff v4.0 - hito 48 (Day 1/10) EOD (3 seconds ago)
-**Total de activos:** 56 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-18 09:04:31
+**Ultimo commit:** 56a8bb1 feat(sre): deadlock detection staff v4.0 - hito 49 (Day 2/10) (3 seconds ago)
+**Total de activos:** 57 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 11 | 38 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
-| **05_SRE_DevOps** | 8 | 29 | — |
+| **05_SRE_DevOps** | 9 | 30 | — |
 | **06_Seguridad** | 4 | 10 | — |
 | **07_BigData_Streaming** | 3 | 16 | — |
 | **08_IA_Agentes** | 4 | 10 | — |
@@ -71,6 +71,7 @@
 ### 📂 05_SRE_DevOps
 
 - [Chaos Engineering con Gremlin y Litmus en Kubernetes: Resiliencia Proa](05_SRE_DevOps/chaos_engineering_con_gremlin_y_litmus_en_kubernetes_STAFF.md) — 2026-04-17 14:31 (42.7KB)
+- [Deadlocks en Producción: Detección, Prevención y Solución con Java 21 ](05_SRE_DevOps/deadlocks_produccion_deteccion_STAFF.md) — 2026-04-18 09:03 (30.2KB)
 - [Debugging en Producción: Thread Dumps, Heap Dumps y Profiling con Java](05_SRE_DevOps/debugging_produccion_dumps_STAFF.md) — 2026-04-17 17:03 (38.4KB)
 - [Docker Avanzado: Multi-stage Builds, Imágenes Distroless y Optimizació](05_SRE_DevOps/docker_avanzado_java_21_optimizacion_STAFF.md) — 2026-04-17 14:31 (35.8KB)
 - [Infraestructura como Código (IaC) con AWS CDK y Java 21: Arquitectura ](05_SRE_DevOps/iac_aws_cdk_java_21_STAFF.md) — 2026-04-17 14:31 (40.8KB)
@@ -115,12 +116,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 56 |
+| Total documentos tecnicos | 57 |
 | Tamano total del repositorio | 2.1MB |
 | Modulos activos | 10 |
-| Total commits | 308 |
+| Total commits | 312 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-17 17:55:52 |
+| Fecha | 2026-04-18 09:04:31 |
 
 ---
 
