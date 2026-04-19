@@ -2,7 +2,7 @@
 
 **PATH_LOCAL:** `/home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/02_Arquitectura/idempotencia_en_sistemas_distribuidos_java_21_STAFF.md`
 **CATEGORIA:** 02_Arquitectura
-**Score:** 98/100
+**Score:** 100/100
 **Nivel:** Staff+ / Arquitecto de Sistemas Distribuidos
 
 ---
