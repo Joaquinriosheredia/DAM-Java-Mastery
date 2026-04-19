@@ -881,15 +881,15 @@ class IdempotencyConcurrencyTest {
 ```mermaid
 graph TD
     subgraph "Madurez en Idempotencia Distribuida"
-        L1[Nivel 1: Sin idempotencia<br>Duplicados aceptados como "normal"] --> L2
-        L2[Nivel 2: Idempotencia básica<br>Redis only, sin fallback] --> L3
-        L3[Nivel 3: Resiliente<br>Redis+DB, circuit breaker, métricas] --> L4
-        L4[Nivel 4: Autónoma<br>Control loops, outbox, auditoría automática]
+        L1["Nivel 1: Sin idempotencia - Duplicados aceptados como normal"] --> L2
+        L2["Nivel 2: Idempotencia basica - Redis only, sin fallback"] --> L3
+        L3["Nivel 3: Resiliente - Redis+DB, circuit breaker, metricas"] --> L4
+        L4["Nivel 4: Autonoma - Control loops, outbox, auditoria automatica"]
     end
     
-    L1 -->|Riesgo: Inconsistencia de datos| L2
-    L2 -->|Requisito: Fallos de infra| L3
-    L3 -->|Requisito: Escala y autonomía| L4
+    L1 -->|"Riesgo: Inconsistencia de datos"| L2
+    L2 -->|"Requisito: Fallos de infra"| L3
+    L3 -->|"Requisito: Escala y autonomia"| L4
 ```
 
 ---
