@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-18 13:20:23
-**Ultimo commit:** 056f2e0 feat(arch): idempotency in distributed systems staff v4.0 - HITO 50 (Day 2/10) (3 seconds ago)
-**Total de activos:** 58 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-19 12:21:49
+**Ultimo commit:** 0445743 feat(arch): resilience patterns staff v4.0 - hito 51 (Day 2/10) (3 seconds ago)
+**Total de activos:** 59 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 9 | 41 | — |
-| **02_Arquitectura** | 12 | 39 | — |
+| **02_Arquitectura** | 13 | 40 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 9 | 30 | — |
@@ -51,6 +51,7 @@
 - [Idempotencia en Sistemas Distribuidos con Java 21: Patrones de Consist](02_Arquitectura/idempotencia_sistemas_distribuidos_STAFF.md) — 2026-04-18 13:20 (42.4KB)
 - [Monolito Modular vs. Microservicios: Guía de Decisión Arquitectónica c](02_Arquitectura/monolito_modular_vs_microservicios_STAFF.md) — 2026-04-17 17:30 (21.7KB)
 - [Rate Limiter Distribuido con Redis y Java 21: Atomicidad, Resiliencia ](02_Arquitectura/rate_limiter_distribuido_con_redis_y_java_21_STAFF.md) — 2026-04-16 11:25 (50.1KB)
+- [Idempotencia en Sistemas Distribuidos con Java 21 — Guía Staff Enginee](02_Arquitectura/resiliencia_timeouts_circuit_breakers_STAFF.md) — 2026-04-19 12:21 (38.4KB)
 - [Saga Pattern: Orquestación vs Coreografía con Java 21 — Transacciones ](02_Arquitectura/saga_pattern_orquestacion_vs_coreografia_con_java_21_STAFF.md) — 2026-04-16 11:25 (45.1KB)
 - [Consistencia de Datos y Teorema CAP en Sistemas Distribuidos: Patrones](02_Arquitectura/teorema_cap_consistencia_sistemas_reales_STAFF.md) — 2026-04-17 17:44 (31.3KB)
 
@@ -117,12 +118,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 58 |
-| Tamano total del repositorio | 2.1MB |
+| Total documentos tecnicos | 59 |
+| Tamano total del repositorio | 2.2MB |
 | Modulos activos | 10 |
-| Total commits | 316 |
+| Total commits | 322 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-18 13:20:23 |
+| Fecha | 2026-04-19 12:21:49 |
 
 ---
 
