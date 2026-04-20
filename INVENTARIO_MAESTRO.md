@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-20 12:43:15
-**Ultimo commit:** 6523d8e feat(arch): distributed cache patterns staff v4.0 - hito 52 (Day 2/10) (4 seconds ago)
-**Total de activos:** 60 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-20 14:16:13
+**Ultimo commit:** 52ea363 feat(sre): observability and monitoring staff v4.0 - hito 53 (Day 2/10) (4 seconds ago)
+**Total de activos:** 61 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 14 | 41 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
-| **05_SRE_DevOps** | 9 | 30 | — |
+| **05_SRE_DevOps** | 10 | 31 | — |
 | **06_Seguridad** | 4 | 10 | — |
 | **07_BigData_Streaming** | 3 | 16 | — |
 | **08_IA_Agentes** | 4 | 10 | — |
@@ -80,6 +80,7 @@
 - [Infraestructura como Código (IaC) con AWS CDK y Java 21: Arquitectura ](05_SRE_DevOps/iac_aws_cdk_java_21_STAFF.md) — 2026-04-17 14:31 (40.8KB)
 - [Kubernetes Auto-Escalado y Service Mesh en 2026: HPA, VPA, KEDA e Isti](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-04-17 14:31 (34.1KB)
 - [Linux Gestión Avanzada de Procesos, Scheduling y Señales en Sistemas P](05_SRE_DevOps/linux_gestion_avanzada_de_procesos_scheduling_y_senales_en_sistemas_productivos_STAFF.md) — 2026-04-17 14:52 (34.5KB)
+- [Observabilidad Distribuida en Spring Boot 3.4 con OpenTelemetry y Graf](05_SRE_DevOps/observabilidad_metricas_trazas_STAFF.md) — 2026-04-20 14:15 (31.0KB)
 - [Patrones de Despliegue en Kubernetes: Blue-Green, Canary y Rolling con](05_SRE_DevOps/patrones_de_despliegue_bluegreen_canary_y_rolling_con_kubernetes_STAFF.md) — 2026-04-17 14:31 (37.5KB)
 - [SLI, SLO y SLAs: Diseño y Aplicación Real en Microservicios Java 21 — ](05_SRE_DevOps/sli_slo_y_slas_diseno_y_aplicacion_real_en_microservicios_java_STAFF.md) — 2026-04-17 14:31 (35.5KB)
 
@@ -119,12 +120,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 60 |
+| Total documentos tecnicos | 61 |
 | Tamano total del repositorio | 2.2MB |
 | Modulos activos | 10 |
-| Total commits | 326 |
+| Total commits | 330 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-20 12:43:15 |
+| Fecha | 2026-04-20 14:16:13 |
 
 ---
 
