@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-19 12:21:49
-**Ultimo commit:** 0445743 feat(arch): resilience patterns staff v4.0 - hito 51 (Day 2/10) (3 seconds ago)
-**Total de activos:** 59 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-20 12:43:15
+**Ultimo commit:** 6523d8e feat(arch): distributed cache patterns staff v4.0 - hito 52 (Day 2/10) (4 seconds ago)
+**Total de activos:** 60 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 9 | 41 | — |
-| **02_Arquitectura** | 13 | 40 | — |
+| **02_Arquitectura** | 14 | 41 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 9 | 30 | — |
@@ -44,6 +44,7 @@
 - [ADR-001: GPU Acceleration for Local LLM Inference Pipeline](02_Arquitectura/ADR-001-GPU-Acceleration.md) — 2026-04-16 11:32 (4.8KB)
 - [Anti-patterns en Microservicios y Cómo Evitarlos con Java 21 — Guía St](02_Arquitectura/anti-patterns_en_microservicios_y_como_evitarlos_con_java_21_STAFF.md) — 2026-04-16 11:25 (45.3KB)
 - [Arquitectura de Microservicios Reactivos con Spring Boot 3.4 y R2DBC: ](02_Arquitectura/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) — 2026-04-16 11:25 (42.9KB)
+- [Patrones de Caché Distribuido y Estrategias de Invalidación con Redis ](02_Arquitectura/cache_distribuido_invalidacion_STAFF.md) — 2026-04-20 12:42 (35.8KB)
 - [DDD y Arquitectura Hexagonal con Java 21: Diseño de Dominio Inmutable,](02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) — 2026-04-16 11:25 (48.4KB)
 - [Diseño de Sistemas Escalables Tipo FAANG: Arquitectura Distribuida, Re](02_Arquitectura/diseno_sistemas_escalables_faang_STAFF.md) — 2026-04-17 17:55 (27.2KB)
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21: ](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-16 11:25 (46.6KB)
@@ -118,12 +119,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 59 |
+| Total documentos tecnicos | 60 |
 | Tamano total del repositorio | 2.2MB |
 | Modulos activos | 10 |
-| Total commits | 322 |
+| Total commits | 326 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-19 12:21:49 |
+| Fecha | 2026-04-20 12:43:15 |
 
 ---
 
