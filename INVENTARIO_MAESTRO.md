@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-21 08:05:09
-**Ultimo commit:** 8d92f6c feat(sre): blameless postmortems staff v4.0 - hito 54 (Day 3/10) (3 seconds ago)
-**Total de activos:** 62 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-21 09:28:57
+**Ultimo commit:** a95e3a0 feat(java-core): hashmap and concurrenthashmap internals staff v4.0 - hito 55 (4 seconds ago)
+**Total de activos:** 63 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -12,7 +12,7 @@
 
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
-| **01_Java_Core** | 9 | 41 | — |
+| **01_Java_Core** | 10 | 42 | — |
 | **02_Arquitectura** | 14 | 41 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
@@ -31,6 +31,7 @@
 
 - [Clean Code y Principios SOLID con Java 21: Arquitectura de Software In](01_Java_Core/clean_code_y_solid_con_java_21_STAFF.md) — 2026-04-16 11:25 (36.9KB)
 - [Garbage Collectors en la JVM: G1, ZGC y Shenandoah en Producción con J](01_Java_Core/garbage_collectors_en_la_jvm_g1_zgc_y_shenandoah_en_produccion_STAFF.md) — 2026-04-16 11:25 (36.3KB)
+- [Internals de HashMap y ConcurrentHashMap en Java 21: Arquitectura de C](01_Java_Core/internals_hashmap_concurrenthashmap_STAFF.md) — 2026-04-21 09:28 (37.7KB)
 - [Java 21 Virtual Threads: Concurrencia Estructurada y Escalabilidad Mas](01_Java_Core/java_21_virtual_threads_STAFF.md) — 2026-04-16 11:25 (37.6KB)
 - [Concurrencia Avanzada en Java 21: Locks, CAS, ForkJoin y Concurrencia ](01_Java_Core/java_concurrencia_avanzada_STAFF.md) — 2026-04-17 16:47 (32.2KB)
 - [Java Memory Model (JMM) Explicado para Producción: Concurrencia, Visib](01_Java_Core/java_memory_model_produccion_STAFF.md) — 2026-04-17 16:07 (31.3KB)
@@ -121,12 +122,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 62 |
+| Total documentos tecnicos | 63 |
 | Tamano total del repositorio | 2.3MB |
 | Modulos activos | 10 |
-| Total commits | 334 |
+| Total commits | 338 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-21 08:05:09 |
+| Fecha | 2026-04-21 09:28:57 |
 
 ---
 
