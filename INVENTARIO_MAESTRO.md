@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-21 09:28:57
-**Ultimo commit:** a95e3a0 feat(java-core): hashmap and concurrenthashmap internals staff v4.0 - hito 55 (4 seconds ago)
-**Total de activos:** 63 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-21 10:40:04
+**Ultimo commit:** 0795ed4 feat(arch): optimistic vs pessimistic locking staff v4.0 - hito 56 (3 seconds ago)
+**Total de activos:** 64 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 10 | 42 | — |
-| **02_Arquitectura** | 14 | 41 | — |
+| **02_Arquitectura** | 15 | 42 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 11 | 32 | — |
@@ -51,6 +51,7 @@
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21: ](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-16 11:25 (46.6KB)
 - [Event Sourcing y CQRS con Java 21 y Spring Boot: Inmutabilidad, Trazab](02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) — 2026-04-16 11:25 (47.0KB)
 - [Idempotencia en Sistemas Distribuidos con Java 21: Patrones de Consist](02_Arquitectura/idempotencia_sistemas_distribuidos_STAFF.md) — 2026-04-18 13:20 (42.4KB)
+- [Optimistic vs. Pessimistic Locking en Java 21: Decisión Operativa Basa](02_Arquitectura/locking_optimista_pesimista_STAFF.md) — 2026-04-21 10:39 (39.3KB)
 - [Monolito Modular vs. Microservicios: Guía de Decisión Arquitectónica c](02_Arquitectura/monolito_modular_vs_microservicios_STAFF.md) — 2026-04-17 17:30 (21.7KB)
 - [Rate Limiter Distribuido con Redis y Java 21: Atomicidad, Resiliencia ](02_Arquitectura/rate_limiter_distribuido_con_redis_y_java_21_STAFF.md) — 2026-04-16 11:25 (50.1KB)
 - [Idempotencia en Sistemas Distribuidos con Java 21 — Guía Staff Enginee](02_Arquitectura/resiliencia_timeouts_circuit_breakers_STAFF.md) — 2026-04-19 12:21 (38.4KB)
@@ -122,12 +123,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 63 |
-| Tamano total del repositorio | 2.3MB |
+| Total documentos tecnicos | 64 |
+| Tamano total del repositorio | 2.4MB |
 | Modulos activos | 10 |
-| Total commits | 338 |
+| Total commits | 342 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-21 09:28:57 |
+| Fecha | 2026-04-21 10:40:04 |
 
 ---
 
