@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-21 10:40:04
-**Ultimo commit:** 0795ed4 feat(arch): optimistic vs pessimistic locking staff v4.0 - hito 56 (3 seconds ago)
-**Total de activos:** 64 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-21 11:18:33
+**Ultimo commit:** 2712409 feat(arch): distributed transactions beyond saga staff v4.0 - hito 57 (3 seconds ago)
+**Total de activos:** 65 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 10 | 42 | — |
-| **02_Arquitectura** | 15 | 42 | — |
+| **02_Arquitectura** | 16 | 43 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 11 | 32 | — |
@@ -57,6 +57,7 @@
 - [Idempotencia en Sistemas Distribuidos con Java 21 — Guía Staff Enginee](02_Arquitectura/resiliencia_timeouts_circuit_breakers_STAFF.md) — 2026-04-19 12:21 (38.4KB)
 - [Saga Pattern: Orquestación vs Coreografía con Java 21 — Transacciones ](02_Arquitectura/saga_pattern_orquestacion_vs_coreografia_con_java_21_STAFF.md) — 2026-04-16 11:25 (45.1KB)
 - [Consistencia de Datos y Teorema CAP en Sistemas Distribuidos: Patrones](02_Arquitectura/teorema_cap_consistencia_sistemas_reales_STAFF.md) — 2026-04-17 17:44 (31.3KB)
+- [Transacciones Distribuidas Más Allá de Saga: Patrones de Consistencia ](02_Arquitectura/transacciones_distribuidas_mas_alla_saga_STAFF.md) — 2026-04-21 11:18 (49.2KB)
 
 ### 📂 03_Spring_Ecosystem
 
@@ -123,12 +124,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 64 |
+| Total documentos tecnicos | 65 |
 | Tamano total del repositorio | 2.4MB |
 | Modulos activos | 10 |
-| Total commits | 342 |
+| Total commits | 346 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-21 10:40:04 |
+| Fecha | 2026-04-21 11:18:33 |
 
 ---
 
