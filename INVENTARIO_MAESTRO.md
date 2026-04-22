@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-22 11:19:36
-**Ultimo commit:** f76e733 feat(arch): retry patterns and error handling staff v4.0 - hito 59 (4 seconds ago)
-**Total de activos:** 67 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-22 12:03:18
+**Ultimo commit:** 44879e1 feat(arch): latency vs throughput optimization staff v4.0 - HITO 60 (Goal Achieved) (3 seconds ago)
+**Total de activos:** 68 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 10 | 42 | — |
-| **02_Arquitectura** | 18 | 45 | — |
+| **02_Arquitectura** | 19 | 46 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 11 | 32 | — |
@@ -52,6 +52,7 @@
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21: ](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-16 11:25 (46.6KB)
 - [Event Sourcing y CQRS con Java 21 y Spring Boot: Inmutabilidad, Trazab](02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) — 2026-04-16 11:25 (47.0KB)
 - [Idempotencia en Sistemas Distribuidos con Java 21: Patrones de Consist](02_Arquitectura/idempotencia_sistemas_distribuidos_STAFF.md) — 2026-04-18 13:20 (42.4KB)
+- [Latencia vs. Throughput: Optimización de Sistemas Distribuidos con Jav](02_Arquitectura/latencia_vs_throughput_optimizacion_STAFF.md) — 2026-04-22 12:03 (36.5KB)
 - [Optimistic vs. Pessimistic Locking en Java 21: Decisión Operativa Basa](02_Arquitectura/locking_optimista_pesimista_STAFF.md) — 2026-04-21 10:39 (39.3KB)
 - [Monolito Modular vs. Microservicios: Guía de Decisión Arquitectónica c](02_Arquitectura/monolito_modular_vs_microservicios_STAFF.md) — 2026-04-17 17:30 (21.7KB)
 - [Patrones de Reintento y Manejo de Fallos en Sistemas Distribuidos con ](02_Arquitectura/patrones_reintento_manejo_fallos_STAFF.md) — 2026-04-22 11:19 (35.2KB)
@@ -126,12 +127,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 67 |
+| Total documentos tecnicos | 68 |
 | Tamano total del repositorio | 2.5MB |
 | Modulos activos | 10 |
-| Total commits | 354 |
+| Total commits | 358 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-22 11:19:36 |
+| Fecha | 2026-04-22 12:03:18 |
 
 ---
 
