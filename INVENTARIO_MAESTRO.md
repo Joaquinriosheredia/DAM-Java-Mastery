@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-21 11:18:33
-**Ultimo commit:** 2712409 feat(arch): distributed transactions beyond saga staff v4.0 - hito 57 (3 seconds ago)
-**Total de activos:** 65 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-22 11:04:24
+**Ultimo commit:** 129aa9b feat(arch): eventual vs strong consistency staff v4.0 - hito 58 (4 seconds ago)
+**Total de activos:** 66 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 10 | 42 | — |
-| **02_Arquitectura** | 16 | 43 | — |
+| **02_Arquitectura** | 17 | 44 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 11 | 32 | — |
@@ -46,6 +46,7 @@
 - [Anti-patterns en Microservicios y Cómo Evitarlos con Java 21 — Guía St](02_Arquitectura/anti-patterns_en_microservicios_y_como_evitarlos_con_java_21_STAFF.md) — 2026-04-16 11:25 (45.3KB)
 - [Arquitectura de Microservicios Reactivos con Spring Boot 3.4 y R2DBC: ](02_Arquitectura/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) — 2026-04-16 11:25 (42.9KB)
 - [Patrones de Caché Distribuido y Estrategias de Invalidación con Redis ](02_Arquitectura/cache_distribuido_invalidacion_STAFF.md) — 2026-04-20 12:42 (35.8KB)
+- [Consistencia Eventual vs Consistencia Fuerte en Sistemas Distribuidos ](02_Arquitectura/consistencia_eventual_vs_fuerte_STAFF.md) — 2026-04-22 11:04 (50.6KB)
 - [DDD y Arquitectura Hexagonal con Java 21: Diseño de Dominio Inmutable,](02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) — 2026-04-16 11:25 (48.4KB)
 - [Diseño de Sistemas Escalables Tipo FAANG: Arquitectura Distribuida, Re](02_Arquitectura/diseno_sistemas_escalables_faang_STAFF.md) — 2026-04-17 17:55 (27.2KB)
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21: ](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-16 11:25 (46.6KB)
@@ -124,12 +125,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 65 |
-| Tamano total del repositorio | 2.4MB |
+| Total documentos tecnicos | 66 |
+| Tamano total del repositorio | 2.5MB |
 | Modulos activos | 10 |
-| Total commits | 346 |
+| Total commits | 350 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-21 11:18:33 |
+| Fecha | 2026-04-22 11:04:24 |
 
 ---
 
