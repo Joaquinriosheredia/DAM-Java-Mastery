@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-22 11:04:24
-**Ultimo commit:** 129aa9b feat(arch): eventual vs strong consistency staff v4.0 - hito 58 (4 seconds ago)
-**Total de activos:** 66 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-22 11:19:36
+**Ultimo commit:** f76e733 feat(arch): retry patterns and error handling staff v4.0 - hito 59 (4 seconds ago)
+**Total de activos:** 67 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 10 | 42 | — |
-| **02_Arquitectura** | 17 | 44 | — |
+| **02_Arquitectura** | 18 | 45 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 11 | 32 | — |
@@ -54,6 +54,7 @@
 - [Idempotencia en Sistemas Distribuidos con Java 21: Patrones de Consist](02_Arquitectura/idempotencia_sistemas_distribuidos_STAFF.md) — 2026-04-18 13:20 (42.4KB)
 - [Optimistic vs. Pessimistic Locking en Java 21: Decisión Operativa Basa](02_Arquitectura/locking_optimista_pesimista_STAFF.md) — 2026-04-21 10:39 (39.3KB)
 - [Monolito Modular vs. Microservicios: Guía de Decisión Arquitectónica c](02_Arquitectura/monolito_modular_vs_microservicios_STAFF.md) — 2026-04-17 17:30 (21.7KB)
+- [Patrones de Reintento y Manejo de Fallos en Sistemas Distribuidos con ](02_Arquitectura/patrones_reintento_manejo_fallos_STAFF.md) — 2026-04-22 11:19 (35.2KB)
 - [Rate Limiter Distribuido con Redis y Java 21: Atomicidad, Resiliencia ](02_Arquitectura/rate_limiter_distribuido_con_redis_y_java_21_STAFF.md) — 2026-04-16 11:25 (50.1KB)
 - [Idempotencia en Sistemas Distribuidos con Java 21 — Guía Staff Enginee](02_Arquitectura/resiliencia_timeouts_circuit_breakers_STAFF.md) — 2026-04-19 12:21 (38.4KB)
 - [Saga Pattern: Orquestación vs Coreografía con Java 21 — Transacciones ](02_Arquitectura/saga_pattern_orquestacion_vs_coreografia_con_java_21_STAFF.md) — 2026-04-16 11:25 (45.1KB)
@@ -125,12 +126,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 66 |
+| Total documentos tecnicos | 67 |
 | Tamano total del repositorio | 2.5MB |
 | Modulos activos | 10 |
-| Total commits | 350 |
+| Total commits | 354 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-22 11:04:24 |
+| Fecha | 2026-04-22 11:19:36 |
 
 ---
 
