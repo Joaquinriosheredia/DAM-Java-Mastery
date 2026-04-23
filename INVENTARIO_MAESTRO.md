@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-23 09:01:23
-**Ultimo commit:** f758ad6 feat(arch): api gateway and bff patterns staff v4.0 - hito 62 (3 seconds ago)
-**Total de activos:** 70 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-23 09:13:39
+**Ultimo commit:** 7958a3d feat(arch): api design rest vs graphql vs grpc staff v4.0 - hito 63 (1 second ago)
+**Total de activos:** 71 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 10 | 42 | — |
-| **02_Arquitectura** | 21 | 48 | — |
+| **02_Arquitectura** | 22 | 49 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 11 | 32 | — |
@@ -50,6 +50,7 @@
 - [Patrones de Caché Distribuido y Estrategias de Invalidación con Redis ](02_Arquitectura/cache_distribuido_invalidacion_STAFF.md) — 2026-04-20 12:42 (35.8KB)
 - [Consistencia Eventual vs Consistencia Fuerte en Sistemas Distribuidos ](02_Arquitectura/consistencia_eventual_vs_fuerte_STAFF.md) — 2026-04-22 11:04 (50.6KB)
 - [DDD y Arquitectura Hexagonal con Java 21: Diseño de Dominio Inmutable,](02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) — 2026-04-16 11:25 (48.4KB)
+- [Diseño de APIs: REST vs. GraphQL vs. gRPC en Java 21 — Guía de Decisió](02_Arquitectura/diseno_apis_rest_graphql_grpc_STAFF.md) — 2026-04-23 09:13 (36.4KB)
 - [Diseño de Sistemas Escalables Tipo FAANG: Arquitectura Distribuida, Re](02_Arquitectura/diseno_sistemas_escalables_faang_STAFF.md) — 2026-04-17 17:55 (27.2KB)
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21: ](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-16 11:25 (46.6KB)
 - [Event Sourcing y CQRS con Java 21 y Spring Boot: Inmutabilidad, Trazab](02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) — 2026-04-16 11:25 (47.0KB)
@@ -129,12 +130,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 70 |
+| Total documentos tecnicos | 71 |
 | Tamano total del repositorio | 2.6MB |
 | Modulos activos | 10 |
-| Total commits | 366 |
+| Total commits | 370 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-23 09:01:23 |
+| Fecha | 2026-04-23 09:13:39 |
 
 ---
 
