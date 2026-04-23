@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-23 08:46:14
-**Ultimo commit:** a62cfb6 feat(arch): clean, hexagonal and onion architectures comparison staff v4.0 - hito 61 (3 seconds ago)
-**Total de activos:** 69 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-23 09:01:23
+**Ultimo commit:** f758ad6 feat(arch): api gateway and bff patterns staff v4.0 - hito 62 (3 seconds ago)
+**Total de activos:** 70 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 10 | 42 | — |
-| **02_Arquitectura** | 20 | 47 | — |
+| **02_Arquitectura** | 21 | 48 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 11 | 32 | — |
@@ -44,6 +44,7 @@
 
 - [ADR-001: GPU Acceleration for Local LLM Inference Pipeline](02_Arquitectura/ADR-001-GPU-Acceleration.md) — 2026-04-16 11:32 (4.8KB)
 - [Anti-patterns en Microservicios y Cómo Evitarlos con Java 21 — Guía St](02_Arquitectura/anti-patterns_en_microservicios_y_como_evitarlos_con_java_21_STAFF.md) — 2026-04-16 11:25 (45.3KB)
+- [API Gateway y Backend for Frontend (BFF) con Java 21: Patrones de Agre](02_Arquitectura/api_gateway_bff_pattern_STAFF.md) — 2026-04-23 09:01 (31.4KB)
 - [Arquitectura Clean vs Hexagonal vs Onion en Java 21: Guía de Decisión ](02_Arquitectura/arquitectura_clean_hexagonal_onion_STAFF.md) — 2026-04-23 08:45 (35.9KB)
 - [Arquitectura de Microservicios Reactivos con Spring Boot 3.4 y R2DBC: ](02_Arquitectura/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) — 2026-04-16 11:25 (42.9KB)
 - [Patrones de Caché Distribuido y Estrategias de Invalidación con Redis ](02_Arquitectura/cache_distribuido_invalidacion_STAFF.md) — 2026-04-20 12:42 (35.8KB)
@@ -128,12 +129,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 69 |
+| Total documentos tecnicos | 70 |
 | Tamano total del repositorio | 2.6MB |
 | Modulos activos | 10 |
-| Total commits | 362 |
+| Total commits | 366 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-23 08:46:14 |
+| Fecha | 2026-04-23 09:01:23 |
 
 ---
 
