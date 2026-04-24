@@ -90,7 +90,7 @@ La arquitectura de observabilidad moderna se basa en la **separación de concern
 ### Los Tres Pilares de la Observabilidad Distribuida
 
 #### Pilar 1: Instrumentation Layer (Spring Boot 3.4 + Micrometer)
-Genera señales automáticamente sin modificar código de negocio. Propaga contextos de trazabilidad a través de boundaries de servicios (HTTP, Kafka, gRPC). Usa **Virtual Threads** de Java 21 para asegurar que la recolección de telemetría no bloquee hilos de plataforma.
+Genera señales automáticamente sin modificar código de negocio. Propaga contextos de trazabilidad a través de boundaries de servicios (HTTP, Kafka, gRPC). Usa **Virtual Threads** de Java 21 para asegurar que la recolección de telemetría no bloquee hilos de plataforma.   
 
 #### Pilar 2: OpenTelemetry Collector (El Gateway)
 Punto central de ingesta que desacopla la aplicación de los backends específicos. Realiza procesamiento ligero:
