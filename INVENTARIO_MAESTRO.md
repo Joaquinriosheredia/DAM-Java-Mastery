@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-23 09:13:39
-**Ultimo commit:** 7958a3d feat(arch): api design rest vs graphql vs grpc staff v4.0 - hito 63 (1 second ago)
-**Total de activos:** 71 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-24 07:23:43
+**Ultimo commit:** 284d90e feat(arch): domain events and event storming staff v4.0 - hito 64 (4 seconds ago)
+**Total de activos:** 72 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 10 | 42 | — |
-| **02_Arquitectura** | 22 | 49 | — |
+| **02_Arquitectura** | 23 | 50 | — |
 | **03_Spring_Ecosystem** | 4 | 23 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 11 | 32 | — |
@@ -52,6 +52,7 @@
 - [DDD y Arquitectura Hexagonal con Java 21: Diseño de Dominio Inmutable,](02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) — 2026-04-16 11:25 (48.4KB)
 - [Diseño de APIs: REST vs. GraphQL vs. gRPC en Java 21 — Guía de Decisió](02_Arquitectura/diseno_apis_rest_graphql_grpc_STAFF.md) — 2026-04-23 09:13 (36.4KB)
 - [Diseño de Sistemas Escalables Tipo FAANG: Arquitectura Distribuida, Re](02_Arquitectura/diseno_sistemas_escalables_faang_STAFF.md) — 2026-04-17 17:55 (27.2KB)
+- [Domain Events y Event Storming en Java 21: Arquitectura de Dominio Enr](02_Arquitectura/domain_events_event_storming_STAFF.md) — 2026-04-24 07:23 (35.5KB)
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21: ](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-16 11:25 (46.6KB)
 - [Event Sourcing y CQRS con Java 21 y Spring Boot: Inmutabilidad, Trazab](02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) — 2026-04-16 11:25 (47.0KB)
 - [Idempotencia en Sistemas Distribuidos con Java 21: Patrones de Consist](02_Arquitectura/idempotencia_sistemas_distribuidos_STAFF.md) — 2026-04-18 13:20 (42.4KB)
@@ -130,12 +131,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 71 |
-| Tamano total del repositorio | 2.6MB |
+| Total documentos tecnicos | 72 |
+| Tamano total del repositorio | 2.7MB |
 | Modulos activos | 10 |
-| Total commits | 370 |
+| Total commits | 374 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-23 09:13:39 |
+| Fecha | 2026-04-24 07:23:43 |
 
 ---
 
