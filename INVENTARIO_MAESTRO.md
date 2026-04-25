@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-25 10:01:01
-**Ultimo commit:** 785311b spring_boot_testing_avanzado_slice_integration_contract.md (26 seconds ago)
-**Total de activos:** 74 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-25 10:18:23
+**Ultimo commit:** 9a7d96e fix(arch): resolve conflict and consolidate hitos 67-68 in 03_Spring_Ecosystem (3 seconds ago)
+**Total de activos:** 76 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -14,7 +14,7 @@
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 10 | 42 | — |
 | **02_Arquitectura** | 25 | 52 | — |
-| **03_Spring_Ecosystem** | 4 | 23 | — |
+| **03_Spring_Ecosystem** | 6 | 24 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 11 | 33 | — |
 | **06_Seguridad** | 4 | 10 | — |
@@ -73,6 +73,8 @@
 - [Observabilidad Distribuida en Spring Boot 3.4 con OpenTelemetry y Graf](03_Spring_Ecosystem/observabilidad_distribuida_en_spring_boot_3.3_con_opentelemetry_y_grafana_loki:_correlación_de_trazas_y_logs_STAFF.md) — 2026-04-17 14:31 (32.2KB)
 - [Resilience4j en Spring Boot 3.4: Circuit Breaker, Retry y Bulkhead con](03_Spring_Ecosystem/resilience4j_circuit_breaker_retry_bulkhead_spring_boot_3_STAFF.md) — 2026-04-17 14:31 (41.9KB)
 - [Spring Boot 3.4 y R2DBC con Virtual Threads: Concurrencia Reactiva vs ](03_Spring_Ecosystem/spring_boot_34_r2dbc_virtual_threads_STAFF.md) — 2026-04-17 14:31 (42.5KB)
+- [spring_boot_performance_tuning_en_produccion](03_Spring_Ecosystem/spring_boot_performance_tuning_STAFF.md) — 2026-04-25 10:05 (29.7KB)
+- [Spring Boot Testing Avanzado: Slice Tests, Integration Tests y Contrac](03_Spring_Ecosystem/spring_boot_testing_avanzado_STAFF.md) — 2026-04-25 10:00 (35.7KB)
 - [Spring Security 6 Avanzado: Autorización Método a Método y OAuth2 Reso](03_Spring_Ecosystem/spring_security_6_avanzado_metodo_a_metodo_y_oauth2_resource_server_STAFF.md) — 2026-04-17 14:31 (29.9KB)
 
 ### 📂 04_Bases_de_Datos
@@ -133,12 +135,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 74 |
-| Tamano total del repositorio | 2.7MB |
+| Total documentos tecnicos | 76 |
+| Tamano total del repositorio | 2.8MB |
 | Modulos activos | 10 |
-| Total commits | 385 |
+| Total commits | 240 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-25 10:01:01 |
+| Fecha | 2026-04-25 10:18:23 |
 
 ---
 

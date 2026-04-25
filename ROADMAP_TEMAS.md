@@ -1,7 +1,7 @@
 # ROADMAP — DAM-Java-Mastery
 # Temas pendientes ordenados por prioridad estratégica
 # Ejecutar con: racha2026 "tema"
-# Actualizado: 2026-04-17 (auto-sync ae-inventario)
+# Actualizado: 2026-04-25 (auto-sync ae-inventario)
 
 # ═══════════════════════════════════════════════════════════════
 # BLOQUE 1 — JAVA CORE (01_Java_Core/)
@@ -60,7 +60,7 @@
 - [x] Spring Boot Reactivo: R2DBC + Virtual Threads optimizacion
 - [x] Spring Security 6 avanzado: metodo a metodo y OAuth2 Resource Server
 - [ ] Spring Batch 5 para procesamiento masivo de datos con Java 21
-- [ ] Testing avanzado en Spring Boot con JUnit 5 y Testcontainers
+- [x] Testing avanzado en Spring Boot con JUnit 5 y Testcontainers
 - [ ] Spring Cloud Gateway: rate limiting, auth centralizada, multi-cluster
 - [ ] Spring for Apache Kafka: producers, consumers, streams, exactly-once
 - [ ] Spring Data JDBC vs JPA: decisiones de persistencia y performance
