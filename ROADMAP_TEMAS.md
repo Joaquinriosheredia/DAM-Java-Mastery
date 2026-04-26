@@ -61,6 +61,7 @@
 - [x] Spring Security 6 avanzado: metodo a metodo y OAuth2 Resource Server
 - [ ] Spring Batch 5 para procesamiento masivo de datos con Java 21
 - [x] Testing avanzado en Spring Boot con JUnit 5 y Testcontainers
+- [x] Spring Cloud: Config, Gateway y Service Discovery
 - [ ] Spring Cloud Gateway: rate limiting, auth centralizada, multi-cluster
 - [ ] Spring for Apache Kafka: producers, consumers, streams, exactly-once
 - [ ] Spring Data JDBC vs JPA: decisiones de persistencia y performance
