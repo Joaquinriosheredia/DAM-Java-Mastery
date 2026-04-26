@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-25 10:18:23
-**Ultimo commit:** 9a7d96e fix(arch): resolve conflict and consolidate hitos 67-68 in 03_Spring_Ecosystem (3 seconds ago)
-**Total de activos:** 76 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-26 10:58:13
+**Ultimo commit:** 06838d9 feat(spring): cloud infra config gateway and discovery staff v4.0 - hito 69 (6 seconds ago)
+**Total de activos:** 77 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -14,7 +14,7 @@
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 10 | 42 | — |
 | **02_Arquitectura** | 25 | 52 | — |
-| **03_Spring_Ecosystem** | 6 | 24 | — |
+| **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 11 | 33 | — |
 | **06_Seguridad** | 4 | 10 | — |
@@ -75,6 +75,7 @@
 - [Spring Boot 3.4 y R2DBC con Virtual Threads: Concurrencia Reactiva vs ](03_Spring_Ecosystem/spring_boot_34_r2dbc_virtual_threads_STAFF.md) — 2026-04-17 14:31 (42.5KB)
 - [spring_boot_performance_tuning_en_produccion](03_Spring_Ecosystem/spring_boot_performance_tuning_STAFF.md) — 2026-04-25 10:05 (29.7KB)
 - [Spring Boot Testing Avanzado: Slice Tests, Integration Tests y Contrac](03_Spring_Ecosystem/spring_boot_testing_avanzado_STAFF.md) — 2026-04-25 10:00 (35.7KB)
+- [Spring Cloud Config, Gateway y Service Discovery con Java 21: Arquitec](03_Spring_Ecosystem/spring_cloud_infra_config_gateway_STAFF.md) — 2026-04-26 10:52 (32.7KB)
 - [Spring Security 6 Avanzado: Autorización Método a Método y OAuth2 Reso](03_Spring_Ecosystem/spring_security_6_avanzado_metodo_a_metodo_y_oauth2_resource_server_STAFF.md) — 2026-04-17 14:31 (29.9KB)
 
 ### 📂 04_Bases_de_Datos
@@ -135,12 +136,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 76 |
+| Total documentos tecnicos | 77 |
 | Tamano total del repositorio | 2.8MB |
 | Modulos activos | 10 |
-| Total commits | 240 |
+| Total commits | 395 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-25 10:18:23 |
+| Fecha | 2026-04-26 10:58:13 |
 
 ---
 
