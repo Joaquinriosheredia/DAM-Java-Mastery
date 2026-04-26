@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-26 10:58:13
-**Ultimo commit:** 06838d9 feat(spring): cloud infra config gateway and discovery staff v4.0 - hito 69 (6 seconds ago)
-**Total de activos:** 77 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-26 12:41:59
+**Ultimo commit:** dafaf8f feat(testing): mocking vs stubs vs fakes staff v4.0 (6 seconds ago)
+**Total de activos:** 78 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -12,7 +12,7 @@
 
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
-| **01_Java_Core** | 10 | 42 | — |
+| **01_Java_Core** | 11 | 43 | — |
 | **02_Arquitectura** | 25 | 52 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
@@ -36,6 +36,7 @@
 - [Concurrencia Avanzada en Java 21: Locks, CAS, ForkJoin y Concurrencia ](01_Java_Core/java_concurrencia_avanzada_STAFF.md) — 2026-04-17 16:47 (32.2KB)
 - [Java Memory Model (JMM) Explicado para Producción: Concurrencia, Visib](01_Java_Core/java_memory_model_produccion_STAFF.md) — 2026-04-17 16:07 (31.3KB)
 - [Memory Leaks Reales en Java: Detección Forense, Análisis con JFR y Sol](01_Java_Core/memory_leaks_reales_en_java_deteccion_y_solucion_con_visualvm_STAFF.md) — 2026-04-16 11:25 (37.6KB)
+- [Mocking vs. Stubs vs. Fakes en Testing Java 21: Estrategias de Aislami](01_Java_Core/mocking_vs_stubs_vs_fakes_testing_java_21_STAFF.md) — 2026-04-26 12:41 (41.0KB)
 - [Optimización de Latencia en Aplicaciones Java de Baja Latencia: Ingeni](01_Java_Core/optimizacion_de_latencia_en_aplicaciones_java_de_baja_latencia_STAFF.md) — 2026-04-16 11:25 (42.4KB)
 - [Patrones Strategy y Observer con Java 21: Sealed Interfaces, Pattern M](01_Java_Core/patrones_strategy_y_observer_en_java_21:_implementación_con_sealed_interfaces,_pattern_matching_sobre_records_y_desacoplamiento_funcional_sin_efectos_secundarios_STAFF.md) — 2026-04-16 11:25 (42.2KB)
 - [Profiling Avanzado en Java: JFR, Async Profiler y Observabilidad de Re](01_Java_Core/profiling_avanzado_en_java_con_jfr_y_async_profiler_STAFF.md) — 2026-04-16 11:25 (44.2KB)
@@ -136,12 +137,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 77 |
-| Tamano total del repositorio | 2.8MB |
+| Total documentos tecnicos | 78 |
+| Tamano total del repositorio | 2.9MB |
 | Modulos activos | 10 |
-| Total commits | 395 |
+| Total commits | 428 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-26 10:58:13 |
+| Fecha | 2026-04-26 12:41:59 |
 
 ---
 
