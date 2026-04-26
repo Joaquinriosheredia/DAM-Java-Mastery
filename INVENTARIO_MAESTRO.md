@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-26 12:41:59
-**Ultimo commit:** dafaf8f feat(testing): mocking vs stubs vs fakes staff v4.0 (6 seconds ago)
-**Total de activos:** 78 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-26 12:52:15
+**Ultimo commit:** c449e42 feat(sre): alerting efectivo basado en slos staff v4.0 (6 seconds ago)
+**Total de activos:** 79 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 25 | 52 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
-| **05_SRE_DevOps** | 11 | 33 | — |
+| **05_SRE_DevOps** | 12 | 34 | — |
 | **06_Seguridad** | 4 | 10 | — |
 | **07_BigData_Streaming** | 3 | 16 | — |
 | **08_IA_Agentes** | 4 | 10 | — |
@@ -89,6 +89,7 @@
 
 ### 📂 05_SRE_DevOps
 
+- [Alerting Efectivo Basado en SLOs con Java 21 y Prometheus — Guía Staff](05_SRE_DevOps/alerting_efectivo_basado_en_slos_STAFF.md) — 2026-04-26 12:51 (65.8KB)
 - [Chaos Engineering con Gremlin y Litmus en Kubernetes: Resiliencia Proa](05_SRE_DevOps/chaos_engineering_con_gremlin_y_litmus_en_kubernetes_STAFF.md) — 2026-04-17 14:31 (42.7KB)
 - [Deadlocks en Producción: Detección, Prevención y Solución con Java 21 ](05_SRE_DevOps/deadlocks_produccion_deteccion_STAFF.md) — 2026-04-18 09:03 (30.2KB)
 - [Debugging en Producción: Thread Dumps, Heap Dumps y Profiling con Java](05_SRE_DevOps/debugging_produccion_dumps_STAFF.md) — 2026-04-17 17:03 (38.4KB)
@@ -137,12 +138,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 78 |
+| Total documentos tecnicos | 79 |
 | Tamano total del repositorio | 2.9MB |
 | Modulos activos | 10 |
-| Total commits | 428 |
+| Total commits | 431 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-26 12:41:59 |
+| Fecha | 2026-04-26 12:52:15 |
 
 ---
 
