@@ -95,7 +95,7 @@
 - [x] Kubernetes auto-escalado: HPA, VPA, cluster autoscaling
 - [x] IaC con AWS CDK en Java 21: infraestructura programable
 - [x] SLI, SLO y SLAs: diseno y aplicacion real en microservicios Java
-- [ ] Alerting efectivo: como evitar el alert fatigue en Prometheus
+- [x] Alerting efectivo: como evitar el alert fatigue en Prometheus
 - [ ] Automatizacion de Infraestructura como Codigo con Ansible y Terraform
 - [ ] Seguridad y Hardening de Servidores Ubuntu para Produccion
 - [ ] Arquitectura multi-region activa-activa en AWS con Java 21
