@@ -16,6 +16,12 @@
 - [x] Memory leaks reales en Java: deteccion y solucion con VisualVM
 - [x] Profiling avanzado en Java con JFR y Async Profiler
 - [x] Optimizacion de latencia en aplicaciones Java de baja latencia
+- [x] Concurrencia Avanzada: Locks, CAS, ForkJoin y Concurrencia Estructurada
+- [x] Java Memory Model (JMM): concurrencia, visibilidad y ordenamiento
+- [x] Internals de HashMap y ConcurrentHashMap con Java 21
+- [x] Optimistic vs Pessimistic Locking con Java 21
+- [x] Deadlocks en Produccion: deteccion, prevencion y solucion
+- [x] Debugging en Produccion: Thread Dumps, Heap Dumps y Profiling
 - [ ] Foreign Function & Memory (FFM) API: reemplazo moderno de JNI
 - [ ] Class Loading y JVM Internals: metaspace, CDS, JIT compilation
 - [ ] Concurrency lock-free: VarHandle, Disruptor, false sharing
@@ -36,19 +42,28 @@
 - [x] DDD y Arquitectura Hexagonal con Java 21
 - [x] Event-Driven Architecture + Outbox Pattern
 - [x] Event Sourcing y CQRS con Java 21 y Spring Boot
+- [x] Arquitectura Clean vs Hexagonal vs Onion: guia de decision
+- [x] Diseno de APIs: REST vs GraphQL vs gRPC con Java 21
+- [x] Diseno de Sistemas Escalables tipo FAANG con Java 21
+- [x] Domain Events y Event Storming con Java 21
+- [x] Latencia vs Throughput: optimizacion de sistemas distribuidos Java 21
+- [x] Patrones de Orquestacion Distribuida: Saga, Choreography y Orchestrator
+- [x] Patrones de Reintento y Manejo de Fallos: Circuit Breakers y Backoff
+- [x] Resiliencia: Timeouts y Circuit Breakers en sistemas distribuidos
+- [x] Transacciones Distribuidas mas alla de Saga: consistencia y compensacion
 - [x] Microservicios Reactivos: R2DBC + Virtual Threads
 - [x] Monolito modular vs microservicios: cuando elegir cada uno
-- [ ] Consistencia eventual: problemas reales y soluciones con Java 21
-- [ ] Trade-offs CAP en sistemas reales con casos practicos Java
-- [ ] Diseno de APIs idempotentes en sistemas criticos con Spring Boot
+- [x] Consistencia eventual: problemas reales y soluciones con Java 21
+- [x] Trade-offs CAP en sistemas reales con casos practicos Java
+- [x] Diseno de APIs idempotentes en sistemas criticos con Spring Boot
 - [ ] Diseno de un sistema de pagos resiliente con exactly-once semantics
 - [ ] Arquitectura de un sistema de notificaciones distribuido con Java 21
 - [ ] Diseno de un sistema tipo Uber a gran escala con Java 21
 - [ ] API Versioning: estrategias de evolucion sin breaking changes
-- [ ] Backends for Frontends (BFF): GraphQL vs REST especificos por cliente
+- [x] Backends for Frontends (BFF): GraphQL vs REST especificos por cliente
 - [ ] Event-Driven Architecture: event-carried state transfer vs notification
-- [ ] Caching a escala: invalidacion, Caffeine vs Redis vs CDN
-- [ ] Multi-tenancy: discriminador vs bases separadas vs schemas separados
+- [x] Caching a escala: invalidacion, Caffeine vs Redis vs CDN
+- [x] Multi-tenancy: discriminador vs bases separadas vs schemas separados
 - [ ] Data residency y soberania: GDPR, Schrems II, region locking
 
 # ═══════════════════════════════════════════════════════════════
@@ -62,6 +77,7 @@
 - [x] Spring Security 6 avanzado: metodo a metodo y OAuth2 Resource Server
 - [ ] Spring Batch 5 para procesamiento masivo de datos con Java 21
 - [x] Testing avanzado en Spring Boot con JUnit 5 y Testcontainers
+- [x] Spring Boot Performance Tuning en Produccion
 - [x] Spring Cloud: Config, Gateway y Service Discovery
 - [ ] Spring Cloud Gateway: rate limiting, auth centralizada, multi-cluster
 - [ ] Spring for Apache Kafka: producers, consumers, streams, exactly-once
@@ -96,6 +112,9 @@
 - [x] IaC con AWS CDK en Java 21: infraestructura programable
 - [x] SLI, SLO y SLAs: diseno y aplicacion real en microservicios Java
 - [x] Alerting efectivo: como evitar el alert fatigue en Prometheus
+- [x] Linux: Gestion Avanzada de Procesos, Scheduling y Senales
+- [x] Observabilidad: metricas, logs, trazas y alerting en SRE
+- [x] Postmortems de Fallos Reales en Produccion: analisis forense y prevencion
 - [ ] Automatizacion de Infraestructura como Codigo con Ansible y Terraform
 - [ ] Seguridad y Hardening de Servidores Ubuntu para Produccion
 - [ ] Arquitectura multi-region activa-activa en AWS con Java 21
