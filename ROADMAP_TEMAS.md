@@ -22,6 +22,7 @@
 - [ ] Java 21 Migration Strategy: migracion incremental desde Java 8/11
 - [ ] Reactive Programming: Project Reactor vs Virtual Threads decision framework
 - [ ] Testing en Java 21: unit, integration, property-based, Testcontainers
+- [x] Mocking vs Stubs vs Fakes: diferencias reales y estrategias de aislamiento
 - [ ] Seguridad en Java: JWT, crypto moderna, secrets management
 
 # ═══════════════════════════════════════════════════════════════
