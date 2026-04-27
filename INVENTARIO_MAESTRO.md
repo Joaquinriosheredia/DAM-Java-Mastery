@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-26 13:35:14
-**Ultimo commit:** d62bd13 chore(roadmap): sincronizar [x] con archivos reales del repo — 25 entradas corregidas (6 seconds ago)
-**Total de activos:** 79 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-27 07:52
+**Ultimo commit:** 077e710 publish(02_Arquitectura): arquitectura_de_sistemas_ia_en_produccion_STAFF.md
+**Total de activos:** 80 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 11 | 43 | — |
-| **02_Arquitectura** | 25 | 52 | — |
+| **02_Arquitectura** | 26 | 53 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 12 | 34 | — |
@@ -48,6 +48,7 @@
 - [API Gateway y Backend for Frontend (BFF) con Java 21: Patrones de Agre](02_Arquitectura/api_gateway_bff_pattern_STAFF.md) — 2026-04-23 09:01 (31.4KB)
 - [Arquitectura Clean vs Hexagonal vs Onion en Java 21: Guía de Decisión ](02_Arquitectura/arquitectura_clean_hexagonal_onion_STAFF.md) — 2026-04-23 08:45 (35.9KB)
 - [Arquitectura de Microservicios Reactivos con Spring Boot 3.4 y R2DBC: ](02_Arquitectura/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) — 2026-04-16 11:25 (42.9KB)
+- [Arquitectura de Sistemas IA en Producción con Java 21: MLOps, Inferenci](02_Arquitectura/arquitectura_de_sistemas_ia_en_produccion_STAFF.md) — 2026-04-27 07:52 (37.7KB)
 - [Patrones de Caché Distribuido y Estrategias de Invalidación con Redis ](02_Arquitectura/cache_distribuido_invalidacion_STAFF.md) — 2026-04-20 12:42 (35.8KB)
 - [Consistencia Eventual vs Consistencia Fuerte en Sistemas Distribuidos ](02_Arquitectura/consistencia_eventual_vs_fuerte_STAFF.md) — 2026-04-22 11:04 (50.6KB)
 - [DDD y Arquitectura Hexagonal con Java 21: Diseño de Dominio Inmutable,](02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) — 2026-04-16 11:25 (48.4KB)
