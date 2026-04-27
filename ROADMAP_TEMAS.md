@@ -64,6 +64,7 @@
 - [ ] Event-Driven Architecture: event-carried state transfer vs notification
 - [x] Caching a escala: invalidacion, Caffeine vs Redis vs CDN
 - [x] Multi-tenancy: discriminador vs bases separadas vs schemas separados
+- [x] Arquitectura de sistemas IA en produccion: despliegue, observabilidad y fiabilidad
 - [ ] Data residency y soberania: GDPR, Schrems II, region locking
 
 # ═══════════════════════════════════════════════════════════════
