@@ -65,6 +65,7 @@
 - [x] Caching a escala: invalidacion, Caffeine vs Redis vs CDN
 - [x] Multi-tenancy: discriminador vs bases separadas vs schemas separados
 - [x] Arquitectura de sistemas IA en produccion: despliegue, observabilidad y fiabilidad
+- [x] Backpressure en sistemas reactivos con Java 21: control de flujo y resiliencia
 - [ ] Data residency y soberania: GDPR, Schrems II, region locking
 
 # ═══════════════════════════════════════════════════════════════
