@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-28 06:56:03
-**Ultimo commit:** bceb4b9 feat(streaming): cdc with debezium and kafka staff v4.0 - hito 74 (2 seconds ago)
-**Total de activos:** 83 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-28 07:02:41
+**Ultimo commit:** c2aaee3 feat(devops): complete ci/cd pipeline with github actions staff v4.0 - hito 75 (3 seconds ago)
+**Total de activos:** 84 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 4 | 17 | — |
 | **08_IA_Agentes** | 4 | 10 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
-| **10_Vanguardia** | 1 | 4 | — |
+| **10_Vanguardia** | 2 | 5 | — |
 
 ---
 
@@ -134,6 +134,7 @@
 
 ### 📂 10_Vanguardia
 
+- [CI/CD Completo con GitHub Actions en Java 21: Pipelines, Seguridad y O](10_Vanguardia/ci_cd_github_actions_pipeline_STAFF.md) — 2026-04-28 07:02 (26.8KB)
 - [GraalVM Native Image: Compilación AOT de Aplicaciones Spring Boot en J](10_Vanguardia/graalvm_native_image_compilacion_aot_java_21_STAFF.md) — 2026-04-17 14:31 (31.0KB)
 
 ---
@@ -142,12 +143,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 83 |
+| Total documentos tecnicos | 84 |
 | Tamano total del repositorio | 3.1MB |
 | Modulos activos | 10 |
-| Total commits | 444 |
+| Total commits | 447 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-28 06:56:03 |
+| Fecha | 2026-04-28 07:02:41 |
 
 ---
 
