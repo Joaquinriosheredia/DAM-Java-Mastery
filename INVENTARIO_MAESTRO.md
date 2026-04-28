@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-28 06:48:33
-**Ultimo commit:** da8499b caching_multinivel_l1_l2_l3.md (3 minutes ago)
-**Total de activos:** 81 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-28 06:52:16
+**Ultimo commit:** b444ae9 fix(arch): correct path and consolidate Hito 70 staff v4.0 (2 seconds ago)
+**Total de activos:** 82 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 11 | 43 | — |
-| **02_Arquitectura** | 27 | 55 | — |
+| **02_Arquitectura** | 28 | 56 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 12 | 34 | — |
@@ -51,6 +51,7 @@
 - [Arquitectura de Sistemas IA en Producción con Java 21: MLOps, Inferenc](02_Arquitectura/arquitectura_sistemas_ia_produccion_STAFF.md) — 2026-04-27 07:51 (37.7KB)
 - [Backpressure en Sistemas Reactivos con Java 21: Estrategias de Control](02_Arquitectura/backpressure_en_sistemas_reactivos_java_21_STAFF.md) — 2026-04-27 08:14 (36.7KB)
 - [Patrones de Caché Distribuido y Estrategias de Invalidación con Redis ](02_Arquitectura/cache_distribuido_invalidacion_STAFF.md) — 2026-04-20 12:42 (35.8KB)
+- [Caché Multinivel (L1, L2, L3) en Java 21: Estrategias de Invalidación,](02_Arquitectura/caching_multinivel_l1_l2_l3_java_21_STAFF.md) — 2026-04-28 06:47 (33.6KB)
 - [Consistencia Eventual vs Consistencia Fuerte en Sistemas Distribuidos ](02_Arquitectura/consistencia_eventual_vs_fuerte_STAFF.md) — 2026-04-22 11:04 (50.6KB)
 - [DDD y Arquitectura Hexagonal con Java 21: Diseño de Dominio Inmutable,](02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md) — 2026-04-16 11:25 (48.4KB)
 - [Diseño de APIs: REST vs. GraphQL vs. gRPC en Java 21 — Guía de Decisió](02_Arquitectura/diseno_apis_rest_graphql_grpc_STAFF.md) — 2026-04-23 09:13 (36.4KB)
@@ -140,12 +141,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 81 |
+| Total documentos tecnicos | 82 |
 | Tamano total del repositorio | 3.0MB |
 | Modulos activos | 10 |
-| Total commits | 439 |
+| Total commits | 441 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-28 06:48:33 |
+| Fecha | 2026-04-28 06:52:16 |
 
 ---
 
