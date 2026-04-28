@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-28 06:52:16
-**Ultimo commit:** b444ae9 fix(arch): correct path and consolidate Hito 70 staff v4.0 (2 seconds ago)
-**Total de activos:** 82 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-28 06:56:03
+**Ultimo commit:** bceb4b9 feat(streaming): cdc with debezium and kafka staff v4.0 - hito 74 (2 seconds ago)
+**Total de activos:** 83 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -18,7 +18,7 @@
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 12 | 34 | — |
 | **06_Seguridad** | 4 | 10 | — |
-| **07_BigData_Streaming** | 3 | 16 | — |
+| **07_BigData_Streaming** | 4 | 17 | — |
 | **08_IA_Agentes** | 4 | 10 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
 | **10_Vanguardia** | 1 | 4 | — |
@@ -116,6 +116,7 @@
 
 - [Apache Kafka Streams con Java 21: Procesamiento de Streams en Tiempo R](07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md) — 2026-04-17 14:31 (35.4KB)
 - [BigData ETL con Apache Spark y Java 21: Procesamiento Distribuido, Opt](07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) — 2026-04-17 14:31 (35.6KB)
+- [CDC con Debezium y Kafka en Java 21: Arquitectura de Captura de Cambio](07_BigData_Streaming/cdc_debezium_kafka_streaming_STAFF.md) — 2026-04-28 06:55 (37.3KB)
 - [Data Mesh: Descentralización de la Propiedad del Dato con Java 21 — Gu](07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) — 2026-04-17 14:31 (40.0KB)
 
 ### 📂 08_IA_Agentes
@@ -141,12 +142,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 82 |
-| Tamano total del repositorio | 3.0MB |
+| Total documentos tecnicos | 83 |
+| Tamano total del repositorio | 3.1MB |
 | Modulos activos | 10 |
-| Total commits | 441 |
+| Total commits | 444 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-28 06:52:16 |
+| Fecha | 2026-04-28 06:56:03 |
 
 ---
 
