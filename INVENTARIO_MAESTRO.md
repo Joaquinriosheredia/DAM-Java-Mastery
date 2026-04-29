@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-28 07:02:41
-**Ultimo commit:** c2aaee3 feat(devops): complete ci/cd pipeline with github actions staff v4.0 - hito 75 (3 seconds ago)
-**Total de activos:** 84 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-29 07:19:41
+**Ultimo commit:** d04a201 feat(streaming): rabbitmq vs kafka comparison staff v4.0 - hito 76 (3 seconds ago)
+**Total de activos:** 85 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -18,7 +18,7 @@
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 12 | 34 | — |
 | **06_Seguridad** | 4 | 10 | — |
-| **07_BigData_Streaming** | 4 | 17 | — |
+| **07_BigData_Streaming** | 5 | 18 | — |
 | **08_IA_Agentes** | 4 | 10 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
 | **10_Vanguardia** | 2 | 5 | — |
@@ -118,6 +118,7 @@
 - [BigData ETL con Apache Spark y Java 21: Procesamiento Distribuido, Opt](07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) — 2026-04-17 14:31 (35.6KB)
 - [CDC con Debezium y Kafka en Java 21: Arquitectura de Captura de Cambio](07_BigData_Streaming/cdc_debezium_kafka_streaming_STAFF.md) — 2026-04-28 06:55 (37.3KB)
 - [Data Mesh: Descentralización de la Propiedad del Dato con Java 21 — Gu](07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) — 2026-04-17 14:31 (40.0KB)
+- [Colas de Mensajes: RabbitMQ vs. Kafka en Arquitecturas Distribuidas co](07_BigData_Streaming/rabbitmq_vs_kafka_comparison_STAFF.md) — 2026-04-29 07:19 (29.2KB)
 
 ### 📂 08_IA_Agentes
 
@@ -143,12 +144,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 84 |
+| Total documentos tecnicos | 85 |
 | Tamano total del repositorio | 3.1MB |
 | Modulos activos | 10 |
-| Total commits | 447 |
+| Total commits | 450 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-28 07:02:41 |
+| Fecha | 2026-04-29 07:19:41 |
 
 ---
 
