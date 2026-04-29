@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-29 07:19:41
-**Ultimo commit:** d04a201 feat(streaming): rabbitmq vs kafka comparison staff v4.0 - hito 76 (3 seconds ago)
-**Total de activos:** 85 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-29 07:31:44
+**Ultimo commit:** cb9b979 feat(ai): llm cost optimization in production staff v4.0 - hito 77 (3 seconds ago)
+**Total de activos:** 86 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -19,7 +19,7 @@
 | **05_SRE_DevOps** | 12 | 34 | — |
 | **06_Seguridad** | 4 | 10 | — |
 | **07_BigData_Streaming** | 5 | 18 | — |
-| **08_IA_Agentes** | 4 | 10 | — |
+| **08_IA_Agentes** | 5 | 11 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
 | **10_Vanguardia** | 2 | 5 | — |
 
@@ -123,6 +123,7 @@
 ### 📂 08_IA_Agentes
 
 - [Agentes Autónomos con Memoria a Largo Plazo y LangChain4j: Arquitectur](08_IA_Agentes/agentes_autonomos_memoria_largo_plazo_langchain4j_STAFF.md) — 2026-04-17 14:31 (37.6KB)
+- [Optimización de Costes de LLMs en Producción con Java 21: Estrategias ](08_IA_Agentes/llm_cost_optimization_production_STAFF.md) — 2026-04-29 07:31 (32.3KB)
 - [RAG Avanzado con Embeddings Locales y Reranking en Java 21: Arquitectu](08_IA_Agentes/rag_avanzado_embeddings_locales_y_reranking_langchain4j_STAFF.md) — 2026-04-17 14:31 (39.0KB)
 - [Sistemas Multi-Agente con LangChain4j y Ollama en Java 21: Arquitectur](08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) — 2026-04-17 14:31 (37.2KB)
 - [Tool Calling y Function Calling con Qwen2.5 y LangChain4j: Arquitectur](08_IA_Agentes/tool_calling_function_calling_qwen2_5_langchain4j_STAFF.md) — 2026-04-17 14:31 (38.0KB)
@@ -144,12 +145,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 85 |
-| Tamano total del repositorio | 3.1MB |
+| Total documentos tecnicos | 86 |
+| Tamano total del repositorio | 3.2MB |
 | Modulos activos | 10 |
-| Total commits | 450 |
+| Total commits | 453 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-29 07:19:41 |
+| Fecha | 2026-04-29 07:31:44 |
 
 ---
 
