@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-29 07:41:59
-**Ultimo commit:** 7121d80 feat(streaming): end-to-end data pipelines spark and kafka staff v4.0 - hito 78 (4 seconds ago)
-**Total de activos:** 87 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-29 10:09:43
+**Ultimo commit:** 7f5511c feat(ai): llm evaluation metrics and quality staff v4.0 - hito 79 (3 seconds ago)
+**Total de activos:** 88 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -19,7 +19,7 @@
 | **05_SRE_DevOps** | 12 | 34 | — |
 | **06_Seguridad** | 4 | 10 | — |
 | **07_BigData_Streaming** | 6 | 19 | — |
-| **08_IA_Agentes** | 5 | 11 | — |
+| **08_IA_Agentes** | 6 | 12 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
 | **10_Vanguardia** | 2 | 5 | — |
 
@@ -125,6 +125,7 @@
 
 - [Agentes Autónomos con Memoria a Largo Plazo y LangChain4j: Arquitectur](08_IA_Agentes/agentes_autonomos_memoria_largo_plazo_langchain4j_STAFF.md) — 2026-04-17 14:31 (37.6KB)
 - [Optimización de Costes de LLMs en Producción con Java 21: Estrategias ](08_IA_Agentes/llm_cost_optimization_production_STAFF.md) — 2026-04-29 07:31 (32.3KB)
+- [Evaluación de Modelos LLM en Producción: Métricas, Calidad y Observabi](08_IA_Agentes/llm_evaluation_metrics_quality_STAFF.md) — 2026-04-29 10:09 (30.7KB)
 - [RAG Avanzado con Embeddings Locales y Reranking en Java 21: Arquitectu](08_IA_Agentes/rag_avanzado_embeddings_locales_y_reranking_langchain4j_STAFF.md) — 2026-04-17 14:31 (39.0KB)
 - [Sistemas Multi-Agente con LangChain4j y Ollama en Java 21: Arquitectur](08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md) — 2026-04-17 14:31 (37.2KB)
 - [Tool Calling y Function Calling con Qwen2.5 y LangChain4j: Arquitectur](08_IA_Agentes/tool_calling_function_calling_qwen2_5_langchain4j_STAFF.md) — 2026-04-17 14:31 (38.0KB)
@@ -146,12 +147,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 87 |
+| Total documentos tecnicos | 88 |
 | Tamano total del repositorio | 3.2MB |
 | Modulos activos | 10 |
-| Total commits | 456 |
+| Total commits | 459 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-29 07:41:59 |
+| Fecha | 2026-04-29 10:09:43 |
 
 ---
 
