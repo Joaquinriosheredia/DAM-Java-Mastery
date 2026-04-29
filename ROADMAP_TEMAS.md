@@ -186,7 +186,7 @@
 - [x] Sistemas Multi-Agente: coordinacion y comunicacion
 - [ ] Defensa contra Prompt Injection en agentes IA con Java
 - [ ] Arquitectura RAG escalable en produccion con pgvector y Java 21
-- [ ] Evaluacion de modelos LLM: metricas reales y benchmarks
+- [x] Evaluacion de modelos LLM: Metricas y calidad
 - [ ] Cost control en sistemas con LLM: caching y optimizacion
 - [ ] LLMOps: ciclo de vida de modelos en produccion con Java
 - [ ] Multi-agent systems: coordinacion, consenso, conflict resolution
