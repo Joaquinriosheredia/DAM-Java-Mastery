@@ -191,7 +191,7 @@
 - [ ] LLMOps: ciclo de vida de modelos en produccion con Java
 - [ ] Multi-agent systems: coordinacion, consenso, conflict resolution
 - [ ] Embeddings optimization: quantization, dimensionality reduction
-- [ ] Fine-tuning vs RAG vs Prompt Engineering: decision framework
+- [x] Fine-tuning vs RAG: Comparativa real
 - [ ] Observability en LLMs: tracing de chains, evaluacion de context
 - [ ] Ethical AI y bias detection: metricas de fairness en produccion
 
