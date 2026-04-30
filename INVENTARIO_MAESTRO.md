@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-30 14:45:54
-**Ultimo commit:** 740e179 feat(streaming): kafka exactly once semantics staff v4.0 - hito 80 (4 seconds ago)
-**Total de activos:** 89 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-30 14:53:24
+**Ultimo commit:** 2c2526d feat(ai): fine-tuning vs rag comparative staff v4.0 - hito 81 (1 second ago)
+**Total de activos:** 90 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -19,7 +19,7 @@
 | **05_SRE_DevOps** | 12 | 34 | — |
 | **06_Seguridad** | 4 | 10 | — |
 | **07_BigData_Streaming** | 7 | 20 | — |
-| **08_IA_Agentes** | 6 | 12 | — |
+| **08_IA_Agentes** | 7 | 13 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
 | **10_Vanguardia** | 2 | 5 | — |
 
@@ -125,6 +125,7 @@
 ### 📂 08_IA_Agentes
 
 - [Agentes Autónomos con Memoria a Largo Plazo y LangChain4j: Arquitectur](08_IA_Agentes/agentes_autonomos_memoria_largo_plazo_langchain4j_STAFF.md) — 2026-04-17 14:31 (37.6KB)
+- [Fine Tuning vs. RAG en Sistemas de IA con Java 21: Comparativa Real de](08_IA_Agentes/fine_tuning_vs_rag_comparative_STAFF.md) — 2026-04-30 14:53 (34.5KB)
 - [Optimización de Costes de LLMs en Producción con Java 21: Estrategias ](08_IA_Agentes/llm_cost_optimization_production_STAFF.md) — 2026-04-29 07:31 (32.3KB)
 - [Evaluación de Modelos LLM en Producción: Métricas, Calidad y Observabi](08_IA_Agentes/llm_evaluation_metrics_quality_STAFF.md) — 2026-04-29 10:09 (30.7KB)
 - [RAG Avanzado con Embeddings Locales y Reranking en Java 21: Arquitectu](08_IA_Agentes/rag_avanzado_embeddings_locales_y_reranking_langchain4j_STAFF.md) — 2026-04-17 14:31 (39.0KB)
@@ -148,12 +149,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 89 |
+| Total documentos tecnicos | 90 |
 | Tamano total del repositorio | 3.3MB |
 | Modulos activos | 10 |
-| Total commits | 462 |
+| Total commits | 465 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-30 14:45:54 |
+| Fecha | 2026-04-30 14:53:24 |
 
 ---
 
