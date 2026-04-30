@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-30 14:53:24
-**Ultimo commit:** 2c2526d feat(ai): fine-tuning vs rag comparative staff v4.0 - hito 81 (1 second ago)
-**Total de activos:** 90 documentos tecnicos
+**Ultima sincronizacion:** 2026-04-30 15:13:26
+**Ultimo commit:** 2f7dcb6 feat(security): vault and aws secrets manager management staff v4.0 - hito 82 (3 seconds ago)
+**Total de activos:** 91 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -17,7 +17,7 @@
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 12 | 34 | — |
-| **06_Seguridad** | 4 | 10 | — |
+| **06_Seguridad** | 5 | 11 | — |
 | **07_BigData_Streaming** | 7 | 20 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
@@ -110,6 +110,7 @@
 - [JWT, OAuth2 y Zero Trust Security con Java 21 y Spring Security 6 — Gu](06_Seguridad/jwt_oauth2_y_zero_trust_security_con_java_21_STAFF.md) — 2026-04-17 14:31 (44.8KB)
 - [Seguridad Ofensiva y Auditoría de Microservicios con Java 21: Pentesti](06_Seguridad/seguridad_ofensiva_y_auditoria_de_microservicios_con_java_21_STAFF.md) — 2026-04-17 14:31 (35.1KB)
 - [Spring Security 6 Avanzado: Autorización Granular Método-a-Método y OA](06_Seguridad/spring_security_6_avanzado_metodo_a_metodo_oauth2_resource_server_STAFF.md) — 2026-04-17 14:31 (33.6KB)
+- [Gestión de Secretos con Vault y AWS Secrets Manager en Java 21: Arquit](06_Seguridad/vault_aws_secrets_manager_STAFF.md) — 2026-04-30 15:13 (36.9KB)
 - [Zero Trust: La Identidad como Nuevo Perímetro con Java 21 y Spring Sec](06_Seguridad/zero_trust_identidad_como_perimetro_java_21_STAFF.md) — 2026-04-17 14:31 (35.2KB)
 
 ### 📂 07_BigData_Streaming
@@ -149,12 +150,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 90 |
+| Total documentos tecnicos | 91 |
 | Tamano total del repositorio | 3.3MB |
 | Modulos activos | 10 |
-| Total commits | 465 |
+| Total commits | 468 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-30 14:53:24 |
+| Fecha | 2026-04-30 15:13:26 |
 
 ---
 
