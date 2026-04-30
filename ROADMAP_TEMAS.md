@@ -1,7 +1,7 @@
 # ROADMAP — DAM-Java-Mastery
 # Temas pendientes ordenados por prioridad estratégica
 # Ejecutar con: racha2026 "tema"
-# Actualizado: 2026-04-25 (auto-sync ae-inventario)
+# Actualizado: 2026-04-30 (auto-sync ae-inventario)
 
 # ═══════════════════════════════════════════════════════════════
 # BLOQUE 1 — JAVA CORE (01_Java_Core/)
@@ -56,7 +56,7 @@
 - [x] Consistencia eventual: problemas reales y soluciones con Java 21
 - [x] Trade-offs CAP en sistemas reales con casos practicos Java
 - [x] Diseno de APIs idempotentes en sistemas criticos con Spring Boot
-- [ ] Diseno de un sistema de pagos resiliente con exactly-once semantics
+- [x] Diseno de un sistema de pagos resiliente con exactly-once semantics
 - [ ] Arquitectura de un sistema de notificaciones distribuido con Java 21
 - [ ] Diseno de un sistema tipo Uber a gran escala con Java 21
 - [ ] API Versioning: estrategias de evolucion sin breaking changes
