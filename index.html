@@ -4,6 +4,61 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Joaquín Ríos Heredia — Backend / AI Engineer</title>
+
+<!-- SEO & Discovery -->
+<meta name="description" content="Java Backend Engineer (Java 21) especializado en sistemas distribuidos, IA local y Cloud AWS. Portfolio con 10 labs ejecutables, +90 guías Staff y contribuciones open source.">
+<meta name="keywords" content="Java 21, Spring Boot, Kubernetes, Kafka, AWS, AI Engineer, Distributed Systems, Backend, Staff Engineer">
+<meta name="author" content="Joaquín Ríos Heredia">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://joaquinriosheredia.github.io/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23020617' width='100' height='100'/><text x='50' y='65' font-family='monospace' font-size='50' fill='%232563eb' text-anchor='middle'>JR</text></svg>">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- OpenGraph / Facebook / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://joaquinriosheredia.github.io/">
+<meta property="og:title" content="Joaquín Ríos Heredia — Java Backend Engineer (Java 21)">
+<meta property="og:description" content="10 Java Production Labs · +90 guías Staff Engineer · AI & Distributed Systems · Open Source Contributor">
+<meta property="og:image" content="https://raw.githubusercontent.com/Joaquinriosheredia/Proyecto_Git_Joaquin/main/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Portfolio de Joaquín Ríos Heredia - Java Backend Engineer">
+<meta property="og:site_name" content="Joaquín Ríos Heredia">
+<meta property="og:locale" content="es_ES">
+
+<!-- Theme & PWA -->
+<meta name="theme-color" content="#020617">
+<meta name="color-scheme" content="dark only">
+
+<!-- Preconnect for performance -->
+<link rel="preconnect" href="https://github.com">
+<link rel="preconnect" href="https://raw.githubusercontent.com">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Joaquín Ríos Heredia",
+  "jobTitle": "Backend Engineer / AI Specialist",
+  "url": "https://joaquinriosheredia.github.io/",
+  "image": "https://raw.githubusercontent.com/Joaquinriosheredia/Proyecto_Git_Joaquin/main/joaquin.jpg",
+  "sameAs": [
+    "https://github.com/Joaquinriosheredia",
+    "https://linkedin.com/in/joaquinrios-dev-strategist",
+    "https://malt.es/profile/joaquinriosheredia"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Freelance"
+  },
+  "skills": ["Java 21", "Spring Boot", "Kubernetes", "Apache Kafka", "AWS", "Artificial Intelligence", "Distributed Systems", "Python", "PostgreSQL", "Redis"]
+}
+</script>
+
 <style>
 :root {
   --bg: #020617; --card: #0f172a; --border: #1e293b; --text: #e2e8f0; --muted: #94a3b8;
@@ -15,18 +70,29 @@ body {
   background: var(--bg); color: var(--text); line-height: 1.5;
 }
 
-/* NAV */
-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(2,6,23,0.95); backdrop-filter: blur(10px);
-  padding: 12px 30px; display: flex; gap: 20px; flex-wrap: wrap;
-  border-bottom: 1px solid var(--border);
+/* RIGHT SIDEBAR NAV */
+.sidebar {
+  position: fixed; right: 0; top: 0; bottom: 0;
+  width: 220px; background: rgba(2,6,23,0.98);
+  border-left: 1px solid var(--border); padding: 20px 16px;
+  display: flex; flex-direction: column; gap: 8px; z-index: 100;
 }
-nav a {
+.sidebar a {
   color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500;
-  padding: 4px 8px; border-radius: 6px; transition: all 0.2s;
+  padding: 10px 14px; border-radius: 8px; transition: all 0.2s;
+  display: flex; align-items: center; gap: 8px;
 }
-nav a:hover { color: var(--primary); background: rgba(37,99,235,0.1); }
+.sidebar a:hover, .sidebar a.active {
+  color: var(--primary); background: rgba(37,99,235,0.12);
+}
+.sidebar a::before {
+  content: "•"; color: var(--primary); font-weight: bold; opacity: 0;
+  transition: opacity 0.2s;
+}
+.sidebar a:hover::before, .sidebar a.active::before { opacity: 1; }
+
+/* MAIN CONTENT */
+.main { margin-right: 220px; }
 
 /* HEADER */
 .header {
@@ -97,20 +163,22 @@ h2::before { content: ""; display: block; width: 4px; height: 20px; background: 
 
 /* AUTHORITY FLOW DIAGRAM */
 .flow-diagram {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px; margin: 20px 0; padding: 16px; background: rgba(15,23,42,0.6);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px; margin: 20px 0; padding: 16px; background: rgba(15,23,42,0.6);
   border-radius: 12px; border: 1px dashed var(--border);
 }
 .flow-step {
-  text-align: center; padding: 12px 8px; border-radius: 8px;
+  text-align: center; padding: 14px 10px; border-radius: 10px;
   background: var(--card); border: 1px solid var(--border); font-size: 13px;
 }
+.flow-step .emoji { font-size: 24px; display: block; margin-bottom: 6px; line-height: 1; }
 .flow-step b { display: block; margin-bottom: 4px; color: var(--primary); font-size: 14px; }
+.flow-step .desc { font-size: 11px; color: var(--muted); }
 .flow-arrow {
   display: flex; align-items: center; justify-content: center;
-  color: var(--muted); font-size: 18px; font-weight: 300;
+  color: var(--muted); font-size: 20px; font-weight: 300;
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .flow-diagram { grid-template-columns: 1fr; }
   .flow-arrow { transform: rotate(90deg); }
 }
@@ -130,13 +198,18 @@ h2::before { content: ""; display: block; width: 4px; height: 20px; background: 
 .pr-status.pending { background: rgba(245,158,11,0.15); color: var(--warning); }
 
 /* STACK */
-.stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
 .stack-item {
   padding: 12px 16px; border-radius: 10px; font-size: 14px;
   background: var(--card); border: 1px solid var(--border);
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 10px;
 }
+.stack-item .icon { font-size: 18px; }
 .stack-item b { color: var(--primary); }
+.stack-item .badge {
+  margin-left: auto; font-size: 10px; padding: 2px 6px; border-radius: 4px;
+  background: rgba(34,197,94,0.15); color: var(--success); font-weight: 600;
+}
 
 /* UTILS */
 .muted { color: var(--muted); }
@@ -151,23 +224,28 @@ footer {
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .sidebar { position: static; width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; border-left: none; border-bottom: 1px solid var(--border); padding: 12px; }
+  .sidebar a { padding: 8px 12px; font-size: 13px; }
+  .main { margin-right: 0; }
   .header { grid-template-columns: 1fr; text-align: center; padding: 30px 20px; }
   .header img { margin: 0 auto; }
   .section { padding: 30px 20px; }
-  nav { padding: 10px 15px; justify-content: center; }
 }
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="#labs">Labs</a>
-  <a href="#jarvis">JARVIS</a>
-  <a href="#authority">Authority</a>
-  <a href="#opensource">Open Source</a>
-  <a href="#stack">Stack</a>
-</nav>
+<!-- RIGHT SIDEBAR -->
+<aside class="sidebar">
+  <a href="#labs">🔬 Labs</a>
+  <a href="#jarvis">🎙️ JARVIS</a>
+  <a href="#authority">🏭 Authority</a>
+  <a href="#opensource">🌍 Open Source</a>
+  <a href="#stack">🛠️ Stack</a>
+</aside>
+
+<div class="main">
 
 <!-- HEADER -->
 <header class="header">
@@ -419,26 +497,56 @@ footer {
 <section id="authority" class="section">
   <h2>🏭 Authority Engine v21.0</h2>
   <div class="card">
-    <p><b>Pipeline de IA propio</b> que genera documentación técnica nivel Staff Engineer y la despliega en AWS automáticamente.</p>
+    <p><b>Pipeline de IA propio</b> que genera documentación técnica nivel Staff Engineer y la despliega en AWS automáticamente. <span class="code">Python Expert</span> · 100% código propio.</p>
     
-    <!-- DIAGRAMA DE FLUJO -->
+    <!-- DIAGRAMA DE FLUJO CON EMOJIS -->
     <div class="flow-diagram">
-      <div class="flow-step"><b>Input</b>Documento Staff<br><span class="small muted">.md / .adoc</span></div>
+      <div class="flow-step">
+        <span class="emoji">📄</span>
+        <b>Input</b>
+        <span class="desc">Documento Staff<br>.md / .adoc</span>
+      </div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step"><b>Parser</b>Authority Core<br><span class="small muted">Python + Lark</span></div>
+      <div class="flow-step">
+        <span class="emoji">🐍</span>
+        <b>Parser</b>
+        <span class="desc">Authority Core<br>Python + Lark</span>
+      </div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step"><b>IA Local</b>Ollama + Qwen 7B<br><span class="small muted">RTX 4060 · 48 tok/s</span></div>
+      <div class="flow-step">
+        <span class="emoji">🧠</span>
+        <b>IA Local</b>
+        <span class="desc">Ollama + Qwen 7B<br>RTX 4060 · 48 tok/s</span>
+      </div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step"><b>Enrich</b>Tavily API + Code Search<br><span class="small muted">Validación técnica</span></div>
+      <div class="flow-step">
+        <span class="emoji">🔍</span>
+        <b>Investigar</b>
+        <span class="desc">Tavily API + Code Search<br>Validación técnica</span>
+      </div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step"><b>Render</b>Markdown + Mermaid<br><span class="small muted">Plantillas Jinja2</span></div>
+      <div class="flow-step">
+        <span class="emoji">⚖️</span>
+        <b>Auditar</b>
+        <span class="desc">Compilación real<br>`mvn verify` + tests</span>
+      </div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step"><b>Deploy</b>AWS Lambda + S3<br><span class="small muted">CI/CD con GitHub Actions</span></div>
+      <div class="flow-step">
+        <span class="emoji">🎨</span>
+        <b>Render</b>
+        <span class="desc">Markdown + Mermaid<br>Plantillas Jinja2</span>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <span class="emoji">🚀</span>
+        <b>Publicar</b>
+        <span class="desc">AWS Lambda + S3<br>CI/CD GitHub Actions</span>
+      </div>
     </div>
     
     <div class="grid-2" style="margin-top:16px">
       <div>
-        <p class="lab-metric"><b>+70 guías publicadas</b> · Score calidad: <b>94/100</b> (evaluator LLM)</p>
+        <p class="lab-metric"><b>+90 guías publicadas</b> · Score calidad: <b>99/100</b> (evaluator LLM)</p>
         <p class="lab-metric"><b>6 min/doc</b> · ~1.200 líneas Python propio (no wrappers)</p>
         <p class="lab-metric"><b>Coste</b>: ~$0.03/doc (Lambda + S3 + Ollama local)</p>
       </div>
@@ -499,14 +607,15 @@ footer {
 <section id="stack" class="section">
   <h2>🛠️ Stack Técnico</h2>
   <div class="stack-grid">
-    <div class="stack-item">☕ <b>Java 21</b><br><span class="small muted">VT · Records · SCA</span></div>
-    <div class="stack-item">🏛️ <b>Arquitectura</b><br><span class="small muted">DDD · Hexagonal · CQRS</span></div>
-    <div class="stack-item">☁️ <b>AWS</b><br><span class="small muted">Lambda · S3 · boto3</span></div>
-    <div class="stack-item">🔐 <b>Seguridad</b><br><span class="small muted">JWT · OAuth2 · Zero Trust</span></div>
-    <div class="stack-item">⚙️ <b>SRE</b><br><span class="small muted">K8s · Prometheus · OTel</span></div>
-    <div class="stack-item">🤖 <b>IA</b><br><span class="small muted">Ollama · RAG · Multi-Agent</span></div>
-    <div class="stack-item">🗄️ <b>Data</b><br><span class="small muted">Kafka · PostgreSQL · Redis</span></div>
-    <div class="stack-item">🧪 <b>Quality</b><br><span class="small muted">Testcontainers · k6 · Chaos</span></div>
+    <div class="stack-item"><span class="icon">☕</span> <b>Java 21</b><br><span class="small muted">VT · Records · SCA</span></div>
+    <div class="stack-item"><span class="icon">🐍</span> <b>Python</b> <span class="badge">EXPERT</span><br><span class="small muted">Async · Lark · boto3</span></div>
+    <div class="stack-item"><span class="icon">🏛️</span> <b>Arquitectura</b><br><span class="small muted">DDD · Hexagonal · CQRS</span></div>
+    <div class="stack-item"><span class="icon">☁️</span> <b>AWS</b><br><span class="small muted">Lambda · S3 · boto3</span></div>
+    <div class="stack-item"><span class="icon">🔐</span> <b>Seguridad</b><br><span class="small muted">JWT · OAuth2 · Zero Trust</span></div>
+    <div class="stack-item"><span class="icon">⚙️</span> <b>SRE</b><br><span class="small muted">K8s · Prometheus · OTel</span></div>
+    <div class="stack-item"><span class="icon">🤖</span> <b>IA</b><br><span class="small muted">Ollama · RAG · Multi-Agent</span></div>
+    <div class="stack-item"><span class="icon">🗄️</span> <b>Data</b><br><span class="small muted">Kafka · PostgreSQL · Redis</span></div>
+    <div class="stack-item"><span class="icon">🧪</span> <b>Quality</b><br><span class="small muted">Testcontainers · k6 · Chaos</span></div>
   </div>
 </section>
 
@@ -514,6 +623,37 @@ footer {
   <p>📍 Freelance inmediato · Full-time desde Junio 2026 · 100% Remoto / Presencial Sevilla o Málaga</p>
   <p class="small muted">Última actualización: Mayo 2026 · Portfolio auto-generado con Authority Engine</p>
 </footer>
+
+</div>
+
+<script>
+// Smooth scroll + active link highlight
+document.querySelectorAll('.sidebar a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+      this.classList.add('active');
+    }
+  });
+});
+// Highlight active section on scroll
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.sidebar a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(sec => {
+    const top = sec.offsetTop - 100;
+    if (pageYOffset >= top) current = sec.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+  });
+});
+</script>
 
 </body>
 </html>
