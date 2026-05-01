@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-04-30 15:13:26
-**Ultimo commit:** 2f7dcb6 feat(security): vault and aws secrets manager management staff v4.0 - hito 82 (3 seconds ago)
-**Total de activos:** 91 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-01 08:02:27
+**Ultimo commit:** 9cea5e6 feat(sre): google sre golden signals monitoring staff v4.0 - hito 83 (4 seconds ago)
+**Total de activos:** 92 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 28 | 56 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
-| **05_SRE_DevOps** | 12 | 34 | — |
+| **05_SRE_DevOps** | 13 | 35 | — |
 | **06_Seguridad** | 5 | 11 | — |
 | **07_BigData_Streaming** | 7 | 20 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
@@ -97,6 +97,7 @@
 - [Deadlocks en Producción: Detección, Prevención y Solución con Java 21 ](05_SRE_DevOps/deadlocks_produccion_deteccion_STAFF.md) — 2026-04-18 09:03 (30.2KB)
 - [Debugging en Producción: Thread Dumps, Heap Dumps y Profiling con Java](05_SRE_DevOps/debugging_produccion_dumps_STAFF.md) — 2026-04-17 17:03 (38.4KB)
 - [Docker Avanzado: Multi-stage Builds, Imágenes Distroless y Optimizació](05_SRE_DevOps/docker_avanzado_java_21_optimizacion_STAFF.md) — 2026-04-17 14:31 (35.8KB)
+- [Golden Signals: Monitorización Google SRE con Java 21 y Micrometer](05_SRE_DevOps/google_sre_golden_signals_STAFF.md) — 2026-05-01 08:02 (50.8KB)
 - [Infraestructura como Código (IaC) con AWS CDK y Java 21: Arquitectura ](05_SRE_DevOps/iac_aws_cdk_java_21_STAFF.md) — 2026-04-17 14:31 (40.8KB)
 - [Kubernetes Auto-Escalado y Service Mesh en 2026: HPA, VPA, KEDA e Isti](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-04-17 14:31 (34.1KB)
 - [Linux Gestión Avanzada de Procesos, Scheduling y Señales en Sistemas P](05_SRE_DevOps/linux_gestion_avanzada_de_procesos_scheduling_y_senales_en_sistemas_productivos_STAFF.md) — 2026-04-17 14:52 (34.5KB)
@@ -150,12 +151,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 91 |
-| Tamano total del repositorio | 3.3MB |
+| Total documentos tecnicos | 92 |
+| Tamano total del repositorio | 3.4MB |
 | Modulos activos | 10 |
-| Total commits | 468 |
+| Total commits | 471 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-04-30 15:13:26 |
+| Fecha | 2026-05-01 08:02:27 |
 
 ---
 
