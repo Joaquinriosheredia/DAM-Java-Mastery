@@ -6,129 +6,188 @@
 <title>Joaquín Ríos Heredia</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  color: #0f172a;
-  background: #ffffff;
+:root{
+  --bg:#0b1220;
+  --card:#0f172a;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --primary:#3b82f6;
+  --border:#1f2937;
 }
 
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background:linear-gradient(180deg,#0b1220,#020617);
+  color:var(--text);
 }
 
 /* NAV */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 0;
+.nav{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
 }
 
-.nav a {
-  text-decoration: none;
-  color: #0f172a;
-  margin-left: 16px;
-  font-size: 14px;
+.nav a{
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:18px;
+  font-size:13px;
+  transition:.2s;
 }
+.nav a:hover{color:white}
 
 /* HERO */
-.hero {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 30px 0;
-  border-bottom: 2px solid #e2e8f0;
+.hero{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
+  display:flex;
+  gap:30px;
+  align-items:center;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp .8s ease forwards;
 }
 
-.hero img {
-  width: 120px;
-  border-radius: 10px;
-  border: 2px solid #2563eb;
+.hero img{
+  width:120px;
+  border-radius:12px;
+  border:2px solid var(--primary);
 }
 
-.hero h1 {
-  margin: 0;
-  font-size: 28px;
+.hero h1{
+  margin:0;
+  font-size:34px;
 }
 
-.hero h2 {
-  margin: 6px 0;
-  font-size: 15px;
-  color: #2563eb;
-  font-weight: 500;
+.hero h2{
+  margin:6px 0;
+  font-size:16px;
+  color:var(--primary);
 }
 
-.hero p {
-  font-size: 13px;
-  color: #475569;
+.hero p{
+  color:var(--muted);
+  font-size:14px;
+  max-width:520px;
 }
 
 /* BUTTONS */
-.buttons a {
-  display: inline-block;
-  padding: 8px 14px;
-  margin-right: 10px;
-  border-radius: 6px;
-  font-size: 13px;
-  text-decoration: none;
+.buttons a{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:8px;
+  font-size:13px;
+  margin-right:10px;
+  text-decoration:none;
+  transition:.2s;
 }
-
-.btn-primary {
-  background: #2563eb;
-  color: white;
+.btn-primary{
+  background:var(--primary);
+  color:white;
 }
-
-.btn-secondary {
-  border: 1px solid #2563eb;
-  color: #2563eb;
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-secondary{
+  border:1px solid var(--primary);
+  color:var(--primary);
 }
+.btn-secondary:hover{background:rgba(59,130,246,0.1)}
 
 /* SECTIONS */
-.section {
-  margin-top: 30px;
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:.6s ease;
 }
 
-.section h3 {
-  font-size: 14px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+.section.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.section h3{
+  font-size:13px;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:16px;
 }
 
 /* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
 }
 
-.card {
-  background: #f8fafc;
-  padding: 10px;
-  border-left: 3px solid #2563eb;
-  font-size: 13px;
+.card{
+  background:var(--card);
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  font-size:13px;
+  transition:.2s;
+}
+.card:hover{
+  transform:translateY(-3px);
+  border-color:var(--primary);
 }
 
 /* PROJECT */
-.project {
-  background: #f8fafc;
-  padding: 12px;
-  border-left: 4px solid #2563eb;
-  margin-bottom: 10px;
+.project{
+  background:var(--card);
+  padding:16px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  margin-bottom:12px;
+  transition:.2s;
+}
+.project:hover{
+  border-color:var(--primary);
+  transform:translateY(-2px);
 }
 
-.small {
-  font-size: 12px;
-  color: #475569;
+.metric{
+  color:var(--primary);
+  font-weight:600;
+}
+
+.small{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:20px;
+  color:var(--muted);
+  font-size:12px;
+  border-top:1px solid var(--border);
+}
+
+/* ANIM */
+@keyframes fadeUp{
+  to{opacity:1; transform:translateY(0)}
+}
+
+/* RESPONSIVE */
+@media(max-width:800px){
+  .hero{flex-direction:column; align-items:flex-start;}
+  .grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 
 <body>
-
-<div class="container">
 
 <!-- NAV -->
 <div class="nav">
@@ -150,7 +209,7 @@ body {
     <h2>Backend Engineer · Java 21 · Distributed Systems · AI</h2>
 
     <p>
-      I build production systems with benchmarks, observability and failure validation.
+      Production-grade systems with benchmarks, observability and real failure validation.
     </p>
 
     <div class="buttons">
@@ -168,10 +227,10 @@ body {
 <div class="section">
   <h3>Proof of Work</h3>
   <div class="grid">
-    <div class="card"><strong>82</strong> technical docs</div>
-    <div class="card"><strong>99/100</strong> quality score</div>
-    <div class="card"><strong>48 tok/s</strong> local LLM</div>
-    <div class="card"><strong>AWS</strong> serverless pipeline</div>
+    <div class="card"><span class="metric">82</span> technical docs</div>
+    <div class="card"><span class="metric">99/100</span> quality score</div>
+    <div class="card"><span class="metric">48 tok/s</span> local LLM</div>
+    <div class="card"><span class="metric">AWS</span> serverless pipeline</div>
   </div>
 </div>
 
@@ -180,49 +239,43 @@ body {
   <h3>Java Production Labs</h3>
 
   <div class="project">
-    Virtual Threads → 7.4× throughput · p99 5.8s → 167ms
+    <strong>Virtual Threads</strong><br>
+    <span class="metric">7.4× throughput</span> · p99 5.8s → 167ms
   </div>
 
   <div class="project">
-    PostgreSQL → 26× speedup · 120× less I/O
+    <strong>PostgreSQL</strong><br>
+    <span class="metric">26× speedup</span> · 120× less I/O
   </div>
 
   <div class="project">
-    Saga + Outbox + Kafka → zero data loss
+    <strong>Distributed Systems</strong><br>
+    Saga · Kafka · Outbox → zero data loss
   </div>
 
   <div class="small">
-    ADR · Testcontainers · Benchmarks · Chaos · Observability
+    ADR · Testcontainers · Benchmarks · Chaos · Prometheus
   </div>
 </div>
 
 <!-- PROJECTS -->
 <div class="section" id="projects">
   <h3>Projects</h3>
-
   <div class="project">
-    <strong>Authority Engine</strong><br>
-    AI pipeline with AWS Lambda + Ollama + CI/CD
+    Authority Engine — AI pipeline with Ollama + AWS Lambda
   </div>
 </div>
 
 <!-- OSS -->
 <div class="section" id="oss">
   <h3>Open Source</h3>
-
-  <div class="project">
-    langchain4j → Spring Boot Chroma Starter (+179 lines)
-  </div>
-
-  <div class="project">
-    ollama4j → model metadata (merged)
-  </div>
+  <div class="project">langchain4j → Spring Boot Starter</div>
+  <div class="project">ollama4j → model metadata (merged)</div>
 </div>
 
 <!-- STACK -->
 <div class="section">
   <h3>Stack</h3>
-
   <div class="grid">
     <div class="card">Java 21 · Spring Boot · Python</div>
     <div class="card">DDD · Hexagonal · Microservices</div>
@@ -231,6 +284,19 @@ body {
   </div>
 </div>
 
+<div class="footer">
+  Remote · English B2 · Available for freelance · Full-time 2026
 </div>
+
+<script>
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); }
+  });
+});
+sections.forEach(s=>observer.observe(s));
+</script>
+
 </body>
 </html>
