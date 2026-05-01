@@ -197,18 +197,68 @@ h2::before { content: ""; display: block; width: 4px; height: 20px; background: 
 .pr-status.merged { background: rgba(34,197,94,0.15); color: var(--success); }
 .pr-status.pending { background: rgba(245,158,11,0.15); color: var(--warning); }
 
-/* STACK */
-.stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
-.stack-item {
-  padding: 12px 16px; border-radius: 10px; font-size: 14px;
-  background: var(--card); border: 1px solid var(--border);
-  display: flex; align-items: center; gap: 10px;
+/* STACK - CORREGIDO */
+.stack-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 16px; 
 }
-.stack-item .icon { font-size: 18px; }
-.stack-item b { color: var(--primary); }
-.stack-item .badge {
-  margin-left: auto; font-size: 10px; padding: 2px 6px; border-radius: 4px;
-  background: rgba(34,197,94,0.15); color: var(--success); font-weight: 600;
+.stack-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.stack-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37,99,235,0.15);
+}
+.stack-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.stack-icon { font-size: 24px; }
+.stack-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.stack-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: rgba(34,197,94,0.15);
+  color: var(--success);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.stack-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.stack-item {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.stack-item::before {
+  content: "·";
+  color: var(--primary);
+  font-weight: bold;
+  margin-top: -2px;
 }
 
 /* UTILS */
@@ -231,6 +281,7 @@ footer {
   .header { grid-template-columns: 1fr; text-align: center; padding: 30px 20px; }
   .header img { margin: 0 auto; }
   .section { padding: 30px 20px; }
+  .stack-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -603,19 +654,117 @@ footer {
   </div>
 </section>
 
-<!-- STACK -->
+<!-- STACK - CORREGIDO -->
 <section id="stack" class="section">
   <h2>🛠️ Stack Técnico</h2>
   <div class="stack-grid">
-    <div class="stack-item"><span class="icon">☕</span> <b>Java 21</b><br><span class="small muted">VT · Records · SCA</span></div>
-    <div class="stack-item"><span class="icon">🐍</span> <b>Python</b> <span class="badge">EXPERT</span><br><span class="small muted">Async · Lark · boto3</span></div>
-    <div class="stack-item"><span class="icon">🏛️</span> <b>Arquitectura</b><br><span class="small muted">DDD · Hexagonal · CQRS</span></div>
-    <div class="stack-item"><span class="icon">☁️</span> <b>AWS</b><br><span class="small muted">Lambda · S3 · boto3</span></div>
-    <div class="stack-item"><span class="icon">🔐</span> <b>Seguridad</b><br><span class="small muted">JWT · OAuth2 · Zero Trust</span></div>
-    <div class="stack-item"><span class="icon">⚙️</span> <b>SRE</b><br><span class="small muted">K8s · Prometheus · OTel</span></div>
-    <div class="stack-item"><span class="icon">🤖</span> <b>IA</b><br><span class="small muted">Ollama · RAG · Multi-Agent</span></div>
-    <div class="stack-item"><span class="icon">🗄️</span> <b>Data</b><br><span class="small muted">Kafka · PostgreSQL · Redis</span></div>
-    <div class="stack-item"><span class="icon">🧪</span> <b>Quality</b><br><span class="small muted">Testcontainers · k6 · Chaos</span></div>
+    <div class="stack-card">
+      <div class="stack-header">
+        <span class="stack-icon">☕</span>
+        <div class="stack-title">Java 21</div>
+      </div>
+      <div class="stack-items">
+        <div class="stack-item">Virtual Threads</div>
+        <div class="stack-item">Records</div>
+        <div class="stack-item">Structured Concurrency</div>
+      </div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-header">
+        <span class="stack-icon">🐍</span>
+        <div class="stack-title">Python <span class="stack-badge">EXPERT</span></div>
+      </div>
+      <div class="stack-items">
+        <div class="stack-item">Async/Await</div>
+        <div class="stack-item">Lark Parser</div>
+        <div class="stack-item">boto3</div>
+      </div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-header">
+        <span class="stack-icon">🏛️</span>
+        <div class="stack-title">Arquitectura</div>
+      </div>
+      <div class="stack-items">
+        <div class="stack-item">DDD</div>
+        <div class="stack-item">Hexagonal</div>
+        <div class="stack-item">CQRS</div>
+      </div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-header">
+        <span class="stack-icon">☁️</span>
+        <div class="stack-title">AWS</div>
+      </div>
+      <div class="stack-items">
+        <div class="stack-item">Lambda</div>
+        <div class="stack-item">S3</div>
+        <div class="stack-item">boto3</div>
+      </div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-header">
+        <span class="stack-icon">🔐</span>
+        <div class="stack-title">Seguridad</div>
+      </div>
+      <div class="stack-items">
+        <div class="stack-item">JWT</div>
+        <div class="stack-item">OAuth2</div>
+        <div class="stack-item">Zero Trust</div>
+      </div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-header">
+        <span class="stack-icon">⚙️</span>
+        <div class="stack-title">SRE</div>
+      </div>
+      <div class="stack-items">
+        <div class="stack-item">Kubernetes</div>
+        <div class="stack-item">Prometheus</div>
+        <div class="stack-item">OpenTelemetry</div>
+      </div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-header">
+        <span class="stack-icon">🤖</span>
+        <div class="stack-title">IA</div>
+      </div>
+      <div class="stack-items">
+        <div class="stack-item">Ollama</div>
+        <div class="stack-item">RAG</div>
+        <div class="stack-item">Multi-Agente</div>
+      </div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-header">
+        <span class="stack-icon">🗄️</span>
+        <div class="stack-title">Data</div>
+      </div>
+      <div class="stack-items">
+        <div class="stack-item">Kafka</div>
+        <div class="stack-item">PostgreSQL</div>
+        <div class="stack-item">Redis</div>
+      </div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-header">
+        <span class="stack-icon">🧪</span>
+        <div class="stack-title">Quality</div>
+      </div>
+      <div class="stack-items">
+        <div class="stack-item">Testcontainers</div>
+        <div class="stack-item">k6</div>
+        <div class="stack-item">Chaos Engineering</div>
+      </div>
+    </div>
   </div>
 </section>
 
