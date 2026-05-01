@@ -1,822 +1,238 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Joaquín Ríos Heredia — Java 21 Engineer · IA · Backend</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Joaquín Ríos Heredia — Backend / AI Engineer</title>
+
 <style>
-  :root {
-    --negro: #0a0a0a;
-    --oscuro: #111111;
-    --card: #161616;
-    --borde: #222222;
-    --azul: #2563eb;
-    --azul-claro: #3b82f6;
-    --cyan: #06b6d4;
-    --texto: #e5e5e5;
-    --texto-gris: #888888;
-    --blanco: #ffffff;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
   body {
-    background: var(--negro);
-    color: var(--texto);
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #0f172a;
+    background: #ffffff;
+    line-height: 1.45;
   }
 
-  /* ── NAV ──────────────────────────────────────────────── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 24px 60px;
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 28px 22px;
+  }
+
+  .header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
-  }
-
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 3px;
-    color: var(--blanco);
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 40px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--texto-gris);
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover { color: var(--blanco); }
-
-  /* ── HERO ─────────────────────────────────────────────── */
-  .hero {
-    height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(to bottom, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.85) 100%),
-      url('https://raw.githubusercontent.com/Joaquinriosheredia/DAM-Java-Mastery/main/assets/hero-bg.jpg') center top / cover no-repeat;
-  }
-
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-  }
-
-  .hero-content {
-    position: relative;
-    text-align: center;
-    z-index: 2;
-    padding: 0 20px;
-  }
-
-  .hero-tag {
-    display: inline-block;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--cyan);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.3s forwards;
-  }
-
-  .hero-nombre {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(60px, 12vw, 140px);
-    line-height: 0.9;
-    letter-spacing: -2px;
-    color: var(--blanco);
-    opacity: 0;
-    animation: fadeUp 0.8s 0.5s forwards;
-  }
-
-  .hero-nombre span {
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-  }
-
-  .hero-titulo {
-    margin-top: 24px;
-    font-size: 14px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--texto-gris);
-    opacity: 0;
-    animation: fadeUp 0.8s 0.7s forwards;
-  }
-
-  .hero-titulo strong {
-    color: var(--azul-claro);
-    font-weight: 500;
-  }
-
-  .hero-ctas {
-    margin-top: 48px;
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.9s forwards;
-  }
-
-  .btn {
-    padding: 14px 32px;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .btn-primary {
-    background: var(--azul);
-    color: var(--blanco);
-    border: 1px solid var(--azul);
-  }
-
-  .btn-primary:hover {
-    background: var(--azul-claro);
-    border-color: var(--azul-claro);
-    transform: translateY(-2px);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--texto);
-    border: 1px solid var(--borde);
-  }
-
-  .btn-outline:hover {
-    border-color: var(--texto-gris);
-    transform: translateY(-2px);
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    opacity: 0;
-    animation: fadeUp 0.8s 1.2s forwards;
-  }
-
-  .hero-scroll span {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--texto-gris);
-  }
-
-  .scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--texto-gris), transparent);
-    animation: scrollLine 2s infinite;
-  }
-
-  @keyframes scrollLine {
-    0% { transform: scaleY(0); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-    51% { transform: scaleY(1); transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
-  }
-
-  /* ── STATS BAR ────────────────────────────────────────── */
-  .stats-bar {
-    background: var(--oscuro);
-    border-top: 1px solid var(--borde);
-    border-bottom: 1px solid var(--borde);
-    padding: 32px 60px;
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 42px;
-    color: var(--blanco);
-    line-height: 1;
-  }
-
-  .stat-num span { color: var(--azul-claro); }
-
-  .stat-label {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--texto-gris);
-    margin-top: 4px;
-  }
-
-  /* ── SECCIONES ────────────────────────────────────────── */
-  section {
-    padding: 100px 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--cyan);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .section-titulo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(36px, 5vw, 64px);
-    color: var(--blanco);
-    line-height: 1;
-    margin-bottom: 48px;
-  }
-
-  /* ── SOBRE MI ─────────────────────────────────────────── */
-  .sobre-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .sobre-texto p {
-    font-size: 16px;
-    line-height: 1.8;
-    color: var(--texto-gris);
-    margin-bottom: 20px;
-  }
-
-  .sobre-texto p strong {
-    color: var(--texto);
-    font-weight: 500;
-  }
-
-  .sobre-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 32px;
-  }
-
-  .tag {
-    padding: 6px 14px;
-    border: 1px solid var(--borde);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--texto-gris);
-    letter-spacing: 1px;
-    transition: all 0.3s;
-  }
-
-  .tag:hover {
-    border-color: var(--azul);
-    color: var(--azul-claro);
-  }
-
-  .sobre-metricas {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 20px;
+    align-items: center;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 18px;
   }
 
-  .metrica-card {
-    background: var(--card);
-    border: 1px solid var(--borde);
-    padding: 28px;
-    transition: border-color 0.3s;
+  .header img {
+    width: 110px;
+    border-radius: 10px;
+    border: 2px solid #2563eb;
   }
 
-  .metrica-card:hover { border-color: var(--azul); }
-
-  .metrica-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    color: var(--blanco);
-    line-height: 1;
+  h1 {
+    margin: 0;
+    font-size: 26px;
   }
 
-  .metrica-num span { color: var(--azul-claro); }
-
-  .metrica-desc {
-    font-size: 12px;
-    color: var(--texto-gris);
-    letter-spacing: 1px;
-    margin-top: 6px;
-  }
-
-  /* ── DOCUMENTOS ───────────────────────────────────────── */
-  #documentos { background: var(--oscuro); max-width: 100%; padding: 100px 60px; }
-
-  .docs-inner { max-width: 1200px; margin: 0 auto; }
-
-  .docs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1px;
-    background: var(--borde);
-    border: 1px solid var(--borde);
-  }
-
-  .doc-card {
-    background: var(--oscuro);
-    padding: 36px;
-    text-decoration: none;
-    display: block;
-    transition: background 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .doc-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--azul);
-    transform: scaleY(0);
-    transition: transform 0.3s;
-    transform-origin: bottom;
-  }
-
-  .doc-card:hover { background: var(--card); }
-  .doc-card:hover::before { transform: scaleY(1); }
-
-  .doc-categoria {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--cyan);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-
-  .doc-titulo {
+  h2 {
+    margin: 4px 0 0 0;
     font-size: 15px;
-    color: var(--texto);
+    color: #2563eb;
     font-weight: 500;
-    line-height: 1.4;
-    margin-bottom: 16px;
   }
 
-  .doc-meta {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-
-  .doc-score {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--azul-claro);
-  }
-
-  .doc-secciones {
-    font-size: 11px;
-    color: var(--texto-gris);
-  }
-
-  /* ── PROYECTO ─────────────────────────────────────────── */
-  .proyecto-card {
-    background: var(--card);
-    border: 1px solid var(--borde);
-    padding: 60px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .proyecto-card::after {
-    content: 'v21.0';
-    position: absolute;
-    top: 40px; right: 60px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 80px;
-    color: rgba(255,255,255,0.03);
-    letter-spacing: -2px;
-    pointer-events: none;
-  }
-
-  .proyecto-nombre {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    color: var(--blanco);
-    margin-bottom: 16px;
-  }
-
-  .proyecto-desc {
-    font-size: 15px;
-    color: var(--texto-gris);
-    line-height: 1.8;
-    max-width: 600px;
-    margin-bottom: 40px;
-  }
-
-  .pipeline {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-  }
-
-  .pipe-step {
-    background: var(--oscuro);
-    border: 1px solid var(--borde);
-    padding: 10px 20px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--texto-gris);
-    letter-spacing: 1px;
-  }
-
-  .pipe-arrow {
-    color: var(--azul);
-    padding: 0 8px;
-    font-size: 14px;
-  }
-
-  .proyecto-stats {
-    display: flex;
-    gap: 40px;
-  }
-
-  .pstat {
-    text-align: center;
-  }
-
-  .pstat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
-    color: var(--azul-claro);
-  }
-
-  .pstat-label {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--texto-gris);
-  }
-
-  /* ── CONTACTO ─────────────────────────────────────────── */
-  #contacto {
-    background: var(--negro);
-    border-top: 1px solid var(--borde);
-    text-align: center;
-    padding: 100px 60px;
-    max-width: 100%;
-  }
-
-  .contacto-inner { max-width: 700px; margin: 0 auto; }
-
-  .contacto-inner .section-titulo {
-    font-size: clamp(48px, 8vw, 96px);
-    margin-bottom: 24px;
-  }
-
-  .contacto-desc {
-    font-size: 16px;
-    color: var(--texto-gris);
-    line-height: 1.8;
-    margin-bottom: 48px;
-  }
-
-  .contacto-links {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  /* ── FOOTER ───────────────────────────────────────────── */
-  footer {
-    border-top: 1px solid var(--borde);
-    padding: 32px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-copy {
+  .contact {
     font-size: 12px;
-    color: var(--texto-gris);
-    font-family: 'JetBrains Mono', monospace;
+    color: #475569;
+    margin-top: 8px;
   }
 
-  .footer-engine {
-    font-size: 11px;
-    color: var(--texto-gris);
-    letter-spacing: 1px;
+  .section {
+    margin-top: 26px;
   }
 
-  .footer-engine span { color: var(--azul-claro); }
-
-  /* ── ANIMACIONES ──────────────────────────────────────── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
+  .section h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
-  .fade-up {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.7s, transform 0.7s;
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 
-  /* ── RESPONSIVE ───────────────────────────────────────── */
-  @media (max-width: 768px) {
-    nav { padding: 20px 24px; }
-    .nav-links { display: none; }
-    section { padding: 60px 24px; }
-    .stats-bar { padding: 24px; gap: 32px; flex-wrap: wrap; }
-    .sobre-grid { grid-template-columns: 1fr; gap: 40px; }
-    #documentos { padding: 60px 24px; }
-    .proyecto-card { padding: 32px; }
-    .pipeline { display: none; }
-    footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+  .card {
+    background: #f8fafc;
+    padding: 10px;
+    border-left: 3px solid #2563eb;
+    font-size: 12.5px;
+  }
+
+  .metric {
+    font-weight: 600;
+  }
+
+  ul {
+    padding-left: 18px;
+    margin: 6px 0;
+  }
+
+  .project {
+    margin-bottom: 14px;
+    background: #f8fafc;
+    padding: 12px;
+    border-left: 4px solid #2563eb;
+  }
+
+  .small {
+    font-size: 12px;
+    color: #475569;
+  }
+
+  a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+
+  strong {
+    font-weight: 600;
   }
 </style>
 </head>
+
 <body>
+<div class="container">
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">JRH</a>
-  <ul class="nav-links">
-    <li><a href="#sobre">Sobre mí</a></li>
-    <li><a href="#documentos">Biblioteca</a></li>
-    <li><a href="#proyecto">Authority Engine</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-tag">// Java 21 Engineer · IA & Agentes · Backend</div>
-    <h1 class="hero-nombre">
-      JOAQUÍN<br><span>RÍOS</span> HEREDIA
-    </h1>
-    <p class="hero-titulo">
-      Staff Engineer · <strong>Authority Engine v21.0</strong> · Sevilla
-    </p>
-    <div class="hero-ctas">
-      <a href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery" target="_blank" class="btn btn-primary">Ver Biblioteca Técnica</a>
-      <a href="https://www.linkedin.com/in/joaquinrios-dev-strategist/" target="_blank" class="btn btn-outline">LinkedIn</a>
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stat">
-    <div class="stat-num">17<span>+</span></div>
-    <div class="stat-label">Documentos Staff</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">94<span>/100</span></div>
-    <div class="stat-label">SRE Score Medio</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">48<span>t/s</span></div>
-    <div class="stat-label">GPU Inferencia</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">8<span>/10</span></div>
-    <div class="stat-label">Módulos Activos</div>
-  </div>
-</div>
-
-<!-- SOBRE MI -->
-<section id="sobre">
-  <div class="sobre-grid">
-    <div class="sobre-texto fade-up">
-      <div class="section-tag">// sobre mí</div>
-      <h2 class="section-titulo">Engineer.<br>Builder.<br>Strategist.</h2>
-      <div style="margin-bottom:36px;">
-        <img src="https://raw.githubusercontent.com/Joaquinriosheredia/DAM-Java-Mastery/main/assets/avatar.png" 
-             alt="Joaquín Ríos Heredia" 
-             style="width:140px; height:140px; border-radius:50%; border:3px solid #2563eb; object-fit:cover; display:block; margin-bottom:12px;">
-        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#888; letter-spacing:1px;">// Joaquín Ríos Heredia · Java 21 Engineer</span>
-      </div>
-      <p>
-        Ingeniero de Software especializado en <strong>Java 21, arquitecturas distribuidas e integración de IA</strong>.
-        Finalizando DAM en Junio 2026. Creador de Authority Engine v21.0 —
-        pipeline híbrido que combina modelos de lenguaje locales con revisión académica automatizada.
-      </p>
-      <p>
-        Perfil con <strong>visión de negocio real</strong> — 25 años de experiencia en operaciones críticas
-        antes de especializarme en software. Sé lo que cuesta que un sistema falle en producción.
-      </p>
-      <div class="sobre-stack">
-        <span class="tag">Java 21</span>
-        <span class="tag">Spring Boot 3.x</span>
-        <span class="tag">DDD</span>
-        <span class="tag">Hexagonal</span>
-        <span class="tag">Kafka</span>
-        <span class="tag">Kubernetes</span>
-        <span class="tag">Redis</span>
-        <span class="tag">JWT / OAuth2</span>
-        <span class="tag">LangChain4j</span>
-        <span class="tag">Ollama</span>
-        <span class="tag">RAG</span>
-        <span class="tag">Python 3.12</span>
-      </div>
-    </div>
-    <div class="sobre-metricas fade-up">
-      <div class="metrica-card">
-        <div class="metrica-num">48<span>t/s</span></div>
-        <div class="metrica-desc">Inferencia GPU local<br>RTX 4060 · Qwen 7b</div>
-      </div>
-      <div class="metrica-card">
-        <div class="metrica-num">94<span>/100</span></div>
-        <div class="metrica-desc">Score medio auditor<br>calidad Staff Engineer</div>
-      </div>
-      <div class="metrica-card">
-        <div class="metrica-num">6<span>min</span></div>
-        <div class="metrica-desc">Tiempo por documento<br>pipeline completo</div>
-      </div>
-      <div class="metrica-card">
-        <div class="metrica-num">1.2<span>k</span></div>
-        <div class="metrica-desc">Líneas Python propio<br>Authority Engine</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DOCUMENTOS -->
-<div id="documentos">
-  <div class="docs-inner">
-    <div class="fade-up">
-      <div class="section-tag">// biblioteca técnica</div>
-      <h2 class="section-titulo">Documentación<br>Staff Engineer</h2>
-    </div>
-    <div class="docs-grid fade-up">
-      <a href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/01_Java_Core/java_21_virtual_threads_STAFF.md" target="_blank" class="doc-card">
-        <div class="doc-categoria">01 · Java Core</div>
-        <div class="doc-titulo">Java 21 Virtual Threads: Guía de Referencia Staff Engineer</div>
-        <div class="doc-meta"><span class="doc-score">Score 94/100</span><span class="doc-secciones">5 secciones</span></div>
-      </a>
-      <a href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/01_Java_Core/clean_code_y_solid_con_java_21_STAFF.md" target="_blank" class="doc-card">
-        <div class="doc-categoria">01 · Java Core</div>
-        <div class="doc-titulo">Clean Code y Principios SOLID con Java 21</div>
-        <div class="doc-meta"><span class="doc-score">Score 96/100</span><span class="doc-secciones">7 secciones</span></div>
-      </a>
-      <a href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/02_Arquitectura/ddd_y_arquitectura_hexagonal_con_java_21_STAFF.md" target="_blank" class="doc-card">
-        <div class="doc-categoria">02 · Arquitectura</div>
-        <div class="doc-titulo">DDD y Arquitectura Hexagonal con Java 21</div>
-        <div class="doc-meta"><span class="doc-score">Score 97/100</span><span class="doc-secciones">9 secciones</span></div>
-      </a>
-      <a href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md" target="_blank" class="doc-card">
-        <div class="doc-categoria">02 · Arquitectura</div>
-        <div class="doc-titulo">Event Sourcing y CQRS con Java 21 y Spring Boot</div>
-        <div class="doc-meta"><span class="doc-score">Score 97/100</span><span class="doc-secciones">6 secciones</span></div>
-      </a>
-      <a href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/06_Seguridad/jwt_oauth2_y_zero_trust_security_con_java_21_STAFF.md" target="_blank" class="doc-card">
-        <div class="doc-categoria">06 · Seguridad</div>
-        <div class="doc-titulo">JWT, OAuth2 y Zero Trust Security con Java 21</div>
-        <div class="doc-meta"><span class="doc-score">Score 96/100</span><span class="doc-secciones">9 secciones</span></div>
-      </a>
-      <a href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/07_BigData_Streaming/apache_kafka_streams_con_java_21_STAFF.md" target="_blank" class="doc-card">
-        <div class="doc-categoria">07 · BigData</div>
-        <div class="doc-titulo">Apache Kafka Streams con Java 21</div>
-        <div class="doc-meta"><span class="doc-score">Score 95/100</span><span class="doc-secciones">5 secciones</span></div>
-      </a>
-      <a href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery/blob/main/08_IA_Agentes/sistemas_multi-agente_con_langchain4j_y_ollama_STAFF.md" target="_blank" class="doc-card">
-        <div class="doc-categoria">08 · IA & Agentes</div>
-        <div class="doc-titulo">Sistemas Multi-Agente con LangChain4j y Ollama en Java 21</div>
-        <div class="doc-meta"><span class="doc-score">Score 96/100</span><span class="doc-secciones">7 secciones</span></div>
-      </a>
-      <a href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery" target="_blank" class="doc-card" style="grid-column: span 2;">
-        <div class="doc-categoria">// ver todos</div>
-        <div class="doc-titulo">Biblioteca completa en GitHub → 17+ documentos Staff Engineer publicados con calidad Staff real y score medio 94/100</div>
-        <div class="doc-meta"><span class="doc-score">github.com/Joaquinriosheredia/DAM-Java-Mastery</span></div>
-      </a>
+<!-- HEADER -->
+<div class="header">
+  <img src="https://raw.githubusercontent.com/Joaquinriosheredia/Proyecto_Git_Joaquin/main/joaquin.jpg">
+  <div>
+    <h1>Joaquín Ríos Heredia</h1>
+    <h2>Backend Engineer (Java 21) · Distributed Systems · AI Integration</h2>
+    <div class="contact">
+      Sevilla / Málaga · 100% Remote · 
+      j.r.sinbarreras@gmail.com · 665 977 485<br>
+      <a href="https://github.com/Joaquinriosheredia">GitHub</a> ·
+      <a href="https://linkedin.com/in/joaquinrios-dev-strategist">LinkedIn</a> ·
+      <a href="https://joaquinriosheredia.github.io/DAM-Java-Mastery/">Portfolio</a>
     </div>
   </div>
 </div>
 
-<!-- AUTHORITY ENGINE -->
-<section id="proyecto">
-  <div class="fade-up">
-    <div class="section-tag">// proyecto principal</div>
-  </div>
-  <div class="proyecto-card fade-up">
-    <div class="proyecto-nombre">Authority Engine v21.0</div>
-    <p class="proyecto-desc">
-      Pipeline híbrido de generación de documentación técnica Staff Engineer.
-      Combina modelos de lenguaje locales (Ollama/Qwen), investigación web en tiempo real
-      y auditoría automática de calidad para producir documentación verificable en GitHub.
-    </p>
-    <div class="pipeline">
-      <div class="pipe-step">Tavily API</div>
-      <div class="pipe-arrow">→</div>
-      <div class="pipe-step">Ollama + Qwen 7b</div>
-      <div class="pipe-arrow">→</div>
-      <div class="pipe-step">Auditor 0-100</div>
-      <div class="pipe-arrow">→</div>
-      <div class="pipe-step">Claude Pro</div>
-      <div class="pipe-arrow">→</div>
-      <div class="pipe-step">GitHub</div>
-    </div>
-    <div class="proyecto-stats">
-      <div class="pstat">
-        <div class="pstat-num">~1.200</div>
-        <div class="pstat-label">Líneas Python</div>
-      </div>
-      <div class="pstat">
-        <div class="pstat-num">6 min</div>
-        <div class="pstat-label">Por documento</div>
-      </div>
-      <div class="pstat">
-        <div class="pstat-num">48 t/s</div>
-        <div class="pstat-label">GPU RTX 4060</div>
-      </div>
-      <div class="pstat">
-        <div class="pstat-num">72+</div>
-        <div class="pstat-label">Score mínimo</div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- SUMMARY -->
+<div class="section">
+  <h3>Profile</h3>
+  <p class="small">
+    Backend engineer specialized in <strong>Java 21, distributed systems and AI integration</strong>.
+    I build production-grade systems with benchmarks, observability and failure validation — not demos.
+  </p>
+</div>
 
-<!-- CONTACTO -->
-<div id="contacto">
-  <div class="contacto-inner">
-    <div class="section-tag fade-up">// contacto</div>
-    <h2 class="section-titulo fade-up">Hablemos.</h2>
-    <p class="contacto-desc fade-up">
-      Disponible para consultoría TI de forma inmediata.<br>
-      Empleo fijo desde Junio 2026.<br>
-      100% Remoto · Presencial en Sevilla o Málaga.
-    </p>
-    <div class="contacto-links fade-up">
-      <a href="mailto:j.r.sinbarreras@gmail.com" class="btn btn-primary" target="_blank">j.r.sinbarreras@gmail.com</a>
-      <a href="https://www.linkedin.com/in/joaquinrios-dev-strategist/" target="_blank" class="btn btn-outline">LinkedIn</a>
-      <a href="https://github.com/Joaquinriosheredia" target="_blank" class="btn btn-outline">GitHub</a>
+<!-- PROOF -->
+<div class="section">
+  <h3>Proof of Work</h3>
+  <div class="grid">
+    <div class="card"><span class="metric">82</span> technical docs published</div>
+    <div class="card"><span class="metric">99/100</span> avg quality score</div>
+    <div class="card"><span class="metric">48 tok/s</span> local LLM (RTX 4060)</div>
+    <div class="card"><span class="metric">AWS Serverless</span> end-to-end automation</div>
+  </div>
+</div>
+
+<!-- LABS -->
+<div class="section">
+  <h3>Java Production Labs</h3>
+
+  <div class="project">
+    <strong>Virtual Threads Benchmark</strong><br>
+    7.4× throughput · p99 5.8s → 167ms · thread pool exhaustion validated
+  </div>
+
+  <div class="project">
+    <strong>PostgreSQL Partial Index</strong><br>
+    26× speedup · 120× less I/O · EXPLAIN ANALYZE validated
+  </div>
+
+  <div class="project">
+    <strong>Distributed Systems</strong><br>
+    Saga Pattern · Transactional Outbox · Kafka · zero data loss
+  </div>
+
+  <p class="small">
+    Includes: ADRs · Testcontainers · JMH/k6 benchmarks · chaos testing · Prometheus/Grafana
+  </p>
+</div>
+
+<!-- PROJECTS -->
+<div class="section">
+  <h3>Projects</h3>
+
+  <div class="project">
+    <strong>Authority Engine v21</strong><br>
+    AI pipeline generating and deploying technical content on AWS.<br>
+    Python · Java · Ollama · Lambda · S3 · CI/CD
+  </div>
+
+</div>
+
+<!-- OPEN SOURCE -->
+<div class="section">
+  <h3>Open Source</h3>
+
+  <div class="project">
+    <strong>langchain4j (11k⭐)</strong><br>
+    Spring Boot Chroma Starter · +179 lines · PR #185
+  </div>
+
+  <div class="project">
+    <strong>ollama4j (3k⭐)</strong><br>
+    Model metadata support · PR #303 (merged)
+  </div>
+
+</div>
+
+<!-- STACK -->
+<div class="section">
+  <h3>Stack</h3>
+  <div class="grid">
+
+    <div class="card">
+      <strong>Backend</strong><br>
+      Java 21 · Spring Boot · Python · FastAPI
     </div>
+
+    <div class="card">
+      <strong>Architecture</strong><br>
+      DDD · Hexagonal · CQRS · Microservices
+    </div>
+
+    <div class="card">
+      <strong>Data</strong><br>
+      Kafka · PostgreSQL · Redis · CDC
+    </div>
+
+    <div class="card">
+      <strong>Cloud</strong><br>
+      AWS Lambda · S3 · Docker · Kubernetes
+    </div>
+
   </div>
 </div>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-copy">© 2026 Joaquín Ríos Heredia</div>
-  <div class="footer-engine">Generado con <span>Authority Engine v21.0</span> · Pipeline IA local</div>
-</footer>
+<div class="section small">
+  English B2 · Available for freelance · Full-time from 2026 · Remote
+</div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Scroll animations
-  const observer = new IntersectionObserver((entries) => {
+</div>
+</body>
+</html>
