@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-01 08:26:11
-**Ultimo commit:** 28fad07 feat(arch): grpc high performance systems staff v4.0 - hito 84 (4 seconds ago)
-**Total de activos:** 93 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-01 08:46:12
+**Ultimo commit:** ae8c282 feat(devops): container hardening docker and k8s staff v4.0 - hito 85 (2 seconds ago)
+**Total de activos:** 94 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 28 | 56 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
-| **05_SRE_DevOps** | 13 | 35 | — |
+| **05_SRE_DevOps** | 14 | 36 | — |
 | **06_Seguridad** | 5 | 11 | — |
 | **07_BigData_Streaming** | 7 | 20 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
@@ -94,6 +94,7 @@
 
 - [Alerting Efectivo Basado en SLOs con Java 21 y Prometheus — Guía Staff](05_SRE_DevOps/alerting_efectivo_basado_en_slos_STAFF.md) — 2026-04-26 12:51 (65.8KB)
 - [Chaos Engineering con Gremlin y Litmus en Kubernetes: Resiliencia Proa](05_SRE_DevOps/chaos_engineering_con_gremlin_y_litmus_en_kubernetes_STAFF.md) — 2026-04-17 14:31 (42.7KB)
+- [Hardening de Contenedores Docker y Kubernetes con Java 21: Seguridad, ](05_SRE_DevOps/container_hardening_docker_k8s_STAFF.md) — 2026-05-01 08:46 (35.9KB)
 - [Deadlocks en Producción: Detección, Prevención y Solución con Java 21 ](05_SRE_DevOps/deadlocks_produccion_deteccion_STAFF.md) — 2026-04-18 09:03 (30.2KB)
 - [Debugging en Producción: Thread Dumps, Heap Dumps y Profiling con Java](05_SRE_DevOps/debugging_produccion_dumps_STAFF.md) — 2026-04-17 17:03 (38.4KB)
 - [Docker Avanzado: Multi-stage Builds, Imágenes Distroless y Optimizació](05_SRE_DevOps/docker_avanzado_java_21_optimizacion_STAFF.md) — 2026-04-17 14:31 (35.8KB)
@@ -152,12 +153,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 93 |
+| Total documentos tecnicos | 94 |
 | Tamano total del repositorio | 3.4MB |
 | Modulos activos | 10 |
-| Total commits | 474 |
+| Total commits | 477 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-01 08:26:11 |
+| Fecha | 2026-05-01 08:46:12 |
 
 ---
 
