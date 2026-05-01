@@ -3,234 +3,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Joaquín Ríos Heredia — Backend / AI Engineer</title>
+<title>Joaquín Ríos Heredia</title>
 
 <style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #0f172a;
-    background: #ffffff;
-    line-height: 1.45;
-  }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #0f172a;
+  background: #ffffff;
+}
 
-  .container {
-    max-width: 900px;
-    margin: auto;
-    padding: 28px 22px;
-  }
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
 
-  .header {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 18px;
-  }
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
 
-  .header img {
-    width: 110px;
-    border-radius: 10px;
-    border: 2px solid #2563eb;
-  }
+.nav a {
+  text-decoration: none;
+  color: #0f172a;
+  margin-left: 16px;
+  font-size: 14px;
+}
 
-  h1 {
-    margin: 0;
-    font-size: 26px;
-  }
+/* HERO */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 30px 0;
+  border-bottom: 2px solid #e2e8f0;
+}
 
-  h2 {
-    margin: 4px 0 0 0;
-    font-size: 15px;
-    color: #2563eb;
-    font-weight: 500;
-  }
+.hero img {
+  width: 120px;
+  border-radius: 10px;
+  border: 2px solid #2563eb;
+}
 
-  .contact {
-    font-size: 12px;
-    color: #475569;
-    margin-top: 8px;
-  }
+.hero h1 {
+  margin: 0;
+  font-size: 28px;
+}
 
-  .section {
-    margin-top: 26px;
-  }
+.hero h2 {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #2563eb;
+  font-weight: 500;
+}
 
-  .section h3 {
-    font-size: 14px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
+.hero p {
+  font-size: 13px;
+  color: #475569;
+}
 
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
+/* BUTTONS */
+.buttons a {
+  display: inline-block;
+  padding: 8px 14px;
+  margin-right: 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  text-decoration: none;
+}
 
-  .card {
-    background: #f8fafc;
-    padding: 10px;
-    border-left: 3px solid #2563eb;
-    font-size: 12.5px;
-  }
+.btn-primary {
+  background: #2563eb;
+  color: white;
+}
 
-  .metric {
-    font-weight: 600;
-  }
+.btn-secondary {
+  border: 1px solid #2563eb;
+  color: #2563eb;
+}
 
-  ul {
-    padding-left: 18px;
-    margin: 6px 0;
-  }
+/* SECTIONS */
+.section {
+  margin-top: 30px;
+}
 
-  .project {
-    margin-bottom: 14px;
-    background: #f8fafc;
-    padding: 12px;
-    border-left: 4px solid #2563eb;
-  }
+.section h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
 
-  .small {
-    font-size: 12px;
-    color: #475569;
-  }
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
 
-  a {
-    color: #2563eb;
-    text-decoration: none;
-  }
+.card {
+  background: #f8fafc;
+  padding: 10px;
+  border-left: 3px solid #2563eb;
+  font-size: 13px;
+}
 
-  strong {
-    font-weight: 600;
-  }
+/* PROJECT */
+.project {
+  background: #f8fafc;
+  padding: 12px;
+  border-left: 4px solid #2563eb;
+  margin-bottom: 10px;
+}
+
+.small {
+  font-size: 12px;
+  color: #475569;
+}
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
-<!-- HEADER -->
-<div class="header">
-  <img src="https://raw.githubusercontent.com/Joaquinriosheredia/Proyecto_Git_Joaquin/main/joaquin.jpg">
+<!-- NAV -->
+<div class="nav">
+  <strong>JRH</strong>
   <div>
-    <h1>Joaquín Ríos Heredia</h1>
-    <h2>Backend Engineer (Java 21) · Distributed Systems · AI Integration</h2>
-    <div class="contact">
-      Sevilla / Málaga · 100% Remote · 
-      j.r.sinbarreras@gmail.com · 665 977 485<br>
-      <a href="https://github.com/Joaquinriosheredia">GitHub</a> ·
-      <a href="https://linkedin.com/in/joaquinrios-dev-strategist">LinkedIn</a> ·
-      <a href="https://joaquinriosheredia.github.io/DAM-Java-Mastery/">Portfolio</a>
-    </div>
+    <a href="#labs">Labs</a>
+    <a href="#projects">Projects</a>
+    <a href="#oss">Open Source</a>
+    <a href="https://github.com/Joaquinriosheredia">GitHub</a>
   </div>
 </div>
 
-<!-- SUMMARY -->
-<div class="section">
-  <h3>Profile</h3>
-  <p class="small">
-    Backend engineer specialized in <strong>Java 21, distributed systems and AI integration</strong>.
-    I build production-grade systems with benchmarks, observability and failure validation — not demos.
-  </p>
+<!-- HERO -->
+<div class="hero">
+  <img src="https://raw.githubusercontent.com/Joaquinriosheredia/Proyecto_Git_Joaquin/main/joaquin.jpg">
+
+  <div>
+    <h1>Joaquín Ríos Heredia</h1>
+    <h2>Backend Engineer · Java 21 · Distributed Systems · AI</h2>
+
+    <p>
+      I build production systems with benchmarks, observability and failure validation.
+    </p>
+
+    <div class="buttons">
+      <a class="btn-primary" href="https://github.com/Joaquinriosheredia/Java-Production-Labs">
+        View Labs
+      </a>
+      <a class="btn-secondary" href="https://joaquinriosheredia.github.io/DAM-Java-Mastery/">
+        Portfolio
+      </a>
+    </div>
+  </div>
 </div>
 
 <!-- PROOF -->
 <div class="section">
   <h3>Proof of Work</h3>
   <div class="grid">
-    <div class="card"><span class="metric">82</span> technical docs published</div>
-    <div class="card"><span class="metric">99/100</span> avg quality score</div>
-    <div class="card"><span class="metric">48 tok/s</span> local LLM (RTX 4060)</div>
-    <div class="card"><span class="metric">AWS Serverless</span> end-to-end automation</div>
+    <div class="card"><strong>82</strong> technical docs</div>
+    <div class="card"><strong>99/100</strong> quality score</div>
+    <div class="card"><strong>48 tok/s</strong> local LLM</div>
+    <div class="card"><strong>AWS</strong> serverless pipeline</div>
   </div>
 </div>
 
 <!-- LABS -->
-<div class="section">
+<div class="section" id="labs">
   <h3>Java Production Labs</h3>
 
   <div class="project">
-    <strong>Virtual Threads Benchmark</strong><br>
-    7.4× throughput · p99 5.8s → 167ms · thread pool exhaustion validated
+    Virtual Threads → 7.4× throughput · p99 5.8s → 167ms
   </div>
 
   <div class="project">
-    <strong>PostgreSQL Partial Index</strong><br>
-    26× speedup · 120× less I/O · EXPLAIN ANALYZE validated
+    PostgreSQL → 26× speedup · 120× less I/O
   </div>
 
   <div class="project">
-    <strong>Distributed Systems</strong><br>
-    Saga Pattern · Transactional Outbox · Kafka · zero data loss
+    Saga + Outbox + Kafka → zero data loss
   </div>
 
-  <p class="small">
-    Includes: ADRs · Testcontainers · JMH/k6 benchmarks · chaos testing · Prometheus/Grafana
-  </p>
+  <div class="small">
+    ADR · Testcontainers · Benchmarks · Chaos · Observability
+  </div>
 </div>
 
 <!-- PROJECTS -->
-<div class="section">
+<div class="section" id="projects">
   <h3>Projects</h3>
 
   <div class="project">
-    <strong>Authority Engine v21</strong><br>
-    AI pipeline generating and deploying technical content on AWS.<br>
-    Python · Java · Ollama · Lambda · S3 · CI/CD
+    <strong>Authority Engine</strong><br>
+    AI pipeline with AWS Lambda + Ollama + CI/CD
   </div>
-
 </div>
 
-<!-- OPEN SOURCE -->
-<div class="section">
+<!-- OSS -->
+<div class="section" id="oss">
   <h3>Open Source</h3>
 
   <div class="project">
-    <strong>langchain4j (11k⭐)</strong><br>
-    Spring Boot Chroma Starter · +179 lines · PR #185
+    langchain4j → Spring Boot Chroma Starter (+179 lines)
   </div>
 
   <div class="project">
-    <strong>ollama4j (3k⭐)</strong><br>
-    Model metadata support · PR #303 (merged)
+    ollama4j → model metadata (merged)
   </div>
-
 </div>
 
 <!-- STACK -->
 <div class="section">
   <h3>Stack</h3>
+
   <div class="grid">
-
-    <div class="card">
-      <strong>Backend</strong><br>
-      Java 21 · Spring Boot · Python · FastAPI
-    </div>
-
-    <div class="card">
-      <strong>Architecture</strong><br>
-      DDD · Hexagonal · CQRS · Microservices
-    </div>
-
-    <div class="card">
-      <strong>Data</strong><br>
-      Kafka · PostgreSQL · Redis · CDC
-    </div>
-
-    <div class="card">
-      <strong>Cloud</strong><br>
-      AWS Lambda · S3 · Docker · Kubernetes
-    </div>
-
+    <div class="card">Java 21 · Spring Boot · Python</div>
+    <div class="card">DDD · Hexagonal · Microservices</div>
+    <div class="card">Kafka · PostgreSQL · Redis</div>
+    <div class="card">AWS · Docker · Kubernetes</div>
   </div>
-</div>
-
-<!-- FOOTER -->
-<div class="section small">
-  English B2 · Available for freelance · Full-time from 2026 · Remote
 </div>
 
 </div>
