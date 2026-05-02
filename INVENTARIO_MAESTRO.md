@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-02 12:35:54
-**Ultimo commit:** 8be2ceb feat(perf): java performance engineering and benchmarking staff v4.0 - hito 86 (3 seconds ago)
-**Total de activos:** 95 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-02 12:41:58
+**Ultimo commit:** eb60a78 feat(streaming): kafka internals partitions and replication staff v4.0 - hito 87 (3 seconds ago)
+**Total de activos:** 96 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -18,7 +18,7 @@
 | **04_Bases_de_Datos** | 5 | 17 | — |
 | **05_SRE_DevOps** | 14 | 36 | — |
 | **06_Seguridad** | 5 | 11 | — |
-| **07_BigData_Streaming** | 7 | 20 | — |
+| **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
 | **10_Vanguardia** | 4 | 7 | — |
@@ -122,6 +122,7 @@
 - [CDC con Debezium y Kafka en Java 21: Arquitectura de Captura de Cambio](07_BigData_Streaming/cdc_debezium_kafka_streaming_STAFF.md) — 2026-04-28 06:55 (37.3KB)
 - [Data Mesh: Descentralización de la Propiedad del Dato con Java 21 — Gu](07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) — 2026-04-17 14:31 (40.0KB)
 - [Exactly-Once Semantics en Kafka con Java 21: Garantías de Procesamient](07_BigData_Streaming/kafka_exactly_once_semantics_STAFF.md) — 2026-04-30 14:45 (35.6KB)
+- [Kafka Internals: Particiones, ISR y Replicación en Java 21 — Guía Staf](07_BigData_Streaming/kafka_internals_partitions_isr_replication_STAFF.md) — 2026-05-02 12:41 (36.0KB)
 - [Colas de Mensajes: RabbitMQ vs. Kafka en Arquitecturas Distribuidas co](07_BigData_Streaming/rabbitmq_vs_kafka_comparison_STAFF.md) — 2026-04-29 07:19 (29.2KB)
 - [Data Pipelines End-to-End con Apache Spark y Kafka en Java 21: Arquite](07_BigData_Streaming/spark_kafka_data_pipelines_STAFF.md) — 2026-04-29 07:41 (31.3KB)
 
@@ -154,12 +155,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 95 |
+| Total documentos tecnicos | 96 |
 | Tamano total del repositorio | 3.5MB |
 | Modulos activos | 10 |
-| Total commits | 480 |
+| Total commits | 483 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-02 12:35:54 |
+| Fecha | 2026-05-02 12:41:58 |
 
 ---
 
