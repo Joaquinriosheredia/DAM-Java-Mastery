@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-02 12:41:58
-**Ultimo commit:** eb60a78 feat(streaming): kafka internals partitions and replication staff v4.0 - hito 87 (3 seconds ago)
-**Total de activos:** 96 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-03 08:26:58
+**Ultimo commit:** 87cfee2 feat(sre): kubernetes troubleshooting in production staff v4.0 - hito 88 (3 seconds ago)
+**Total de activos:** 97 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 28 | 56 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 5 | 17 | — |
-| **05_SRE_DevOps** | 14 | 36 | — |
+| **05_SRE_DevOps** | 15 | 37 | — |
 | **06_Seguridad** | 5 | 11 | — |
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
@@ -101,6 +101,7 @@
 - [Golden Signals: Monitorización Google SRE con Java 21 y Micrometer](05_SRE_DevOps/google_sre_golden_signals_STAFF.md) — 2026-05-01 08:02 (50.8KB)
 - [Infraestructura como Código (IaC) con AWS CDK y Java 21: Arquitectura ](05_SRE_DevOps/iac_aws_cdk_java_21_STAFF.md) — 2026-04-17 14:31 (40.8KB)
 - [Kubernetes Auto-Escalado y Service Mesh en 2026: HPA, VPA, KEDA e Isti](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-04-17 14:31 (34.1KB)
+- [Kubernetes Troubleshooting en Producción con Java 21: Diagnóstico, Mét](05_SRE_DevOps/kubernetes_troubleshooting_production_STAFF.md) — 2026-05-03 08:26 (34.7KB)
 - [Linux Gestión Avanzada de Procesos, Scheduling y Señales en Sistemas P](05_SRE_DevOps/linux_gestion_avanzada_de_procesos_scheduling_y_senales_en_sistemas_productivos_STAFF.md) — 2026-04-17 14:52 (34.5KB)
 - [Observabilidad Distribuida en Spring Boot 3.4 con OpenTelemetry y Graf](05_SRE_DevOps/observabilidad_metricas_trazas_STAFF.md) — 2026-04-25 09:08 (31.0KB)
 - [Patrones de Despliegue en Kubernetes: Blue-Green, Canary y Rolling con](05_SRE_DevOps/patrones_de_despliegue_bluegreen_canary_y_rolling_con_kubernetes_STAFF.md) — 2026-04-17 14:31 (37.5KB)
@@ -155,12 +156,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 96 |
+| Total documentos tecnicos | 97 |
 | Tamano total del repositorio | 3.5MB |
 | Modulos activos | 10 |
-| Total commits | 483 |
+| Total commits | 486 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-02 12:41:58 |
+| Fecha | 2026-05-03 08:26:58 |
 
 ---
 
