@@ -1,1453 +1,600 @@
-# 📊 INVENTARIO DEL SISTEMA — AuthorityEngine
+# INVENTARIO DEL SISTEMA — AuthorityEngine
 
-**Generado:** 2026-03-30 15:33:52
+**Generado:** 2026-05-03 08:38:30
 **Directorio Base:** `/home/usuariojoaquin/AuthorityEngine`
+**Version del Motor:** engine.py v21.0
 
 ---
 
-## 📁 Estructura de Directorios
+## Resumen Ejecutivo
+
+| Metrica | Valor |
+|---------|-------|
+| Archivos Python | 11 |
+| Total de archivos | 238 |
+| Tamano total | 4.8MB |
+| Auditorias SRE realizadas | 0 |
+| Auditorias aprobadas | 0 (0%) |
+| Score SRE promedio global | 0/100 |
+| Fecha generacion | 2026-05-03 08:38:30 |
+
+---
+
+## Estructura de Directorios
 
 ```
 📂 AuthorityEngine/
-│   📄 .gitignore (25.0B)
-│   📄 config.py (3.9KB)
-│   📄 engine.log (3.1KB)
-│   📄 engine.py (14.4KB)
-│   📄 engine_bak.py (13.3KB)
-│   📄 generar_inventario.py (7.0KB)
-│   📄 pom.xml (1.8KB)
-│   📄 racha.log (38.3KB)
-│   📄 racha.py (6.3KB)
-│   📄 repair_section.py (1.4KB)
-│   📄 reparar_config.py (1.6KB)
-│   📂 SRE_Vanguardia/
-│   │   📄 Dockerfile (497.0B)
-│   │   📄 README.md (3.5KB)
-│   │   📄 deep_sistemas_de_alta_disponibilidad_en_java_21_con_kubernetes_20260328_2129.md (47.4KB)
-│   │   📄 main.py (1.2KB)
-│   │   📄 nlp_processor.py (1.3KB)
-│   │   📄 recommendation_system.py (1.5KB)
-│   │   📄 relevance_scoring_engine.py (1.0KB)
-│   │   📄 requirements.txt (103.0B)
-│   │   📄 vllm_server.py (1.8KB)
-│   │   📄 web_crawler.py (1.9KB)
-│   📂 BasesDatos_AI/
-│   │   📄 Neo4jConfig.java (564.0B)
-│   │   📄 README.md (3.8KB)
-│   │   📄 User.java (381.0B)
-│   │   📄 pom.xml (2.5KB)
-│   📂 BasesDatos/
-│   │   📄 README.md (153.0B)
-│   │   📄 optimización_de_índices_en_bases_de_datos_relacionales_20260328_1650.md (100.0B)
-│   │   📄 optimización_de_índices_en_bases_de_datos_relacionales_20260328_1653.md (5.0KB)
-│   │   📄 pgvector_integration.sql (1.4KB)
-│   📂 Android_PMDM/
-│   │   📄 .gitkeep (0.0B)
-│   │   📄 MainActivity.java (3.4KB)
-│   │   📄 TechSolution.java (4.4KB)
-│   📂 src/
-│   │   📂 main/
-│   │   │   📂 resources/
-│   │   │   │   📄 application.yml (554.0B)
-│   │   │   📂 java/
-│   │   │   │   📂 com/
-│   │   │   │   │   📂 joaquin/
-│   │   │   │   │   │   📂 resilience/
-│   │   │   │   │   │   │   📄 CircuitBreakerController.java (1.9KB)
-│   │   │   │   │   │   │   📂 service/
-│   │   │   │   │   │   │   │   📄 ExternalApiService.java (597.0B)
-│   │   │   │   │   │   │   📂 controller/
-│   │   │   │   │   │   │   │   📄 ResilienceController.java (1.1KB)
-│   📂 Core_Backend/
-│   │   📄 HighConcurrencyExample.java (1.7KB)
-│   │   📄 README.md (149.0B)
-│   │   📄 arquitectura_de_microservicios_reactivos_con_spring_boot_3.4_y_project_loom_20260328_1713.md (30.6KB)
-│   │   📄 optimización_de_consultas_sql_en_java_20260328_1702.md (4.5KB)
-│   │   📄 optimización_de_consultas_sql_en_java_20260328_1710.md (3.0KB)
-│   │   📄 std_arquitectura:_migración_de_monolito_a_microservicios_con_strangler_fig_pattern_20260329_0915.md (6.9KB)
-│   │   📄 std_manual_de_recuperación_de_git:_protocolo_rebase_y_sincronización_de_emergencia_20260329_2122.md (52.4KB)
-│   │   📄 tech_patron_saga_para_transacciones_distribuidas_en_mic_123719.md (9.5KB)
-│   │   📄 tech_refactorizacion_de_monolitos_a_microservicios_estr_071936.md (7.5KB)
-│   📂 target/
-│   │   📂 classes/
-│   │   │   📄 application.yml (554.0B)
-│   │   │   📂 com/
-│   │   │   │   📂 joaquin/
-│   │   │   │   │   📂 resilience/
-│   │   │   │   │   │   📄 CircuitBreakerController.class (2.1KB)
-│   │   │   │   │   │   📂 service/
-│   │   │   │   │   │   │   📄 ExternalApiService.class (805.0B)
-│   │   │   │   │   │   📂 controller/
-│   │   │   │   │   │   │   📄 ResilienceController.class (1.7KB)
-│   │   📂 maven-status/
-│   │   │   📂 maven-compiler-plugin/
-│   │   │   │   📂 compile/
-│   │   │   │   │   📂 default-compile/
-│   │   │   │   │   │   📄 createdFiles.lst (171.0B)
-│   │   │   │   │   │   📄 inputFiles.lst (384.0B)
-│   📂 PSP/
-│   │   📄 .gitkeep (0.0B)
-│   │   📄 ServerMultiHilo.java (3.4KB)
-│   │   📄 TechSolution.java (2.5KB)
-│   │   📄 TechSolution_1107.java (3.4KB)
-│   │   📄 ThreadStateManagement.java (3.1KB)
-│   │   📄 ThreadSynchronization.java (3.0KB)
-│   📂 BBDD_Acceso/
-│   │   📄 .gitkeep (0.0B)
-│   │   📄 TechSolution.java (3.1KB)
-│   │   📄 TechnicalSolution_20260319_095852.sql (1.2KB)
-│   │   📄 auditoria_triggers.sql (1.7KB)
-│   │   📄 optimizacion_con_indice_cubiente.sql (1.2KB)
-│   📂 Frontend_UX/
-│   │   📄 std_frontend:_internacionalización_(i18n)_con_soporte_multi-idioma_20260329_1514.md (39.0KB)
-│   │   📄 std_frontend:_validación_de_formularios_en_tiempo_real_con_expresiones_regulares_20260329_1436.md (42.4KB)
-│   📂 config/
-│   │   📄 settings.json (406.0B)
-│   📂 Java_Elite/
-│   │   📄 README.md (1.4KB)
-│   │   📄 metadata_seguridad_ofensiva_y_auditoría_de_microservicios_con_java_21.json (221.0B)
-│   │   📄 seguridad_ofensiva_y_auditoría_de_microservicios_con_java_21_STAFF.md (43.8KB)
-│   📂 Testing/
-│   │   📄 DatabaseServiceTest.java (2.9KB)
-│   │   📄 README.md (162.0B)
-│   📂 Ingenieria_DAM/
-│   │   📄 implementación_patrón_factory_para_gesti_1212.md (5.3KB)
-│   📂 Sistemas_IPE/
-│   │   📄 .gitkeep (0.0B)
-│   │   📄 KernelReal2026.md (5.1KB)
-│   │   📄 KernelSolution_2026.md (3.8KB)
-│   │   📄 RealKernelReport_2026.md (4.6KB)
-│   │   📄 Reporte_Criticidad_2026.md (4.4KB)
-│   │   📄 critical_kernel_report_2026.md (3.3KB)
-│   │   📄 critical_kernel_report_2026_1316.md (3.2KB)
-│   📂 venv/
-│   │   📄 pyvenv.cfg (180.0B)
-│   │   📂 bin/
-│   │   │   📄 Activate.ps1 (8.8KB)
-│   │   │   📄 activate (2.0KB)
-│   │   │   📄 activate.csh (937.0B)
-│   │   │   📄 activate.fish (2.2KB)
-│   │   │   📄 httpx (241.0B)
-│   │   │   📄 normalizer (270.0B)
-│   │   │   📄 pip (258.0B)
-│   │   │   📄 pip3 (258.0B)
-│   │   │   📄 pip3.12 (258.0B)
-│   │   │   📄 python (7.6MB)
-│   │   │   📄 python3 (7.6MB)
-│   │   │   📄 python3.12 (7.6MB)
-│   │   📂 include/
-│   │   │   📂 python3.12/
-│   │   📂 lib/
-│   │   │   📂 python3.12/
-│   │   │   │   📂 site-packages/
-│   │   │   │   │   📄 81d243bd2c585b0f4821__mypyc.cpython-312-x86_64-linux-gnu.so (404.4KB)
-│   │   │   │   │   📄 typing_extensions.py (156.7KB)
-│   │   │   │   │   📂 tavily_python-0.7.23.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (10.6KB)
-│   │   │   │   │   │   📄 RECORD (1.6KB)
-│   │   │   │   │   │   📄 REQUESTED (0.0B)
-│   │   │   │   │   │   📄 WHEEL (91.0B)
-│   │   │   │   │   │   📄 top_level.txt (7.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE (1.1KB)
-│   │   │   │   │   📂 regex/
-│   │   │   │   │   │   📄 __init__.py (75.0B)
-│   │   │   │   │   │   📄 _main.py (32.6KB)
-│   │   │   │   │   │   📄 _regex.cpython-312-x86_64-linux-gnu.so (2.5MB)
-│   │   │   │   │   │   📄 _regex_core.py (143.9KB)
-│   │   │   │   │   │   📂 tests/
-│   │   │   │   │   │   │   📄 test_regex.py (220.5KB)
-│   │   │   │   │   📂 tiktoken_ext/
-│   │   │   │   │   │   📄 openai_public.py (5.5KB)
-│   │   │   │   │   📂 idna-3.11.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (8.2KB)
-│   │   │   │   │   │   📄 RECORD (1.4KB)
-│   │   │   │   │   │   📄 WHEEL (82.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE.md (1.5KB)
-│   │   │   │   │   📂 charset_normalizer/
-│   │   │   │   │   │   📄 __init__.py (1.6KB)
-│   │   │   │   │   │   📄 __main__.py (109.0B)
-│   │   │   │   │   │   📄 api.py (37.1KB)
-│   │   │   │   │   │   📄 cd.cpython-312-x86_64-linux-gnu.so (15.5KB)
-│   │   │   │   │   │   📄 cd.py (14.8KB)
-│   │   │   │   │   │   📄 constant.py (43.4KB)
-│   │   │   │   │   │   📄 legacy.py (2.6KB)
-│   │   │   │   │   │   📄 md.cpython-312-x86_64-linux-gnu.so (15.5KB)
-│   │   │   │   │   │   📄 md.py (29.7KB)
-│   │   │   │   │   │   📄 models.py (12.1KB)
-│   │   │   │   │   │   📄 py.typed (0.0B)
-│   │   │   │   │   │   📄 utils.py (12.0KB)
-│   │   │   │   │   │   📄 version.py (115.0B)
-│   │   │   │   │   │   📂 cli/
-│   │   │   │   │   │   │   📄 __init__.py (136.0B)
-│   │   │   │   │   │   │   📄 __main__.py (11.7KB)
-│   │   │   │   │   📂 h11/
-│   │   │   │   │   │   📄 __init__.py (1.5KB)
-│   │   │   │   │   │   📄 _abnf.py (4.7KB)
-│   │   │   │   │   │   📄 _connection.py (26.2KB)
-│   │   │   │   │   │   📄 _events.py (11.5KB)
-│   │   │   │   │   │   📄 _headers.py (10.2KB)
-│   │   │   │   │   │   📄 _readers.py (8.4KB)
-│   │   │   │   │   │   📄 _receivebuffer.py (5.1KB)
-│   │   │   │   │   │   📄 _state.py (12.9KB)
-│   │   │   │   │   │   📄 _util.py (4.8KB)
-│   │   │   │   │   │   📄 _version.py (686.0B)
-│   │   │   │   │   │   📄 _writers.py (5.0KB)
-│   │   │   │   │   │   📄 py.typed (7.0B)
-│   │   │   │   │   📂 idna/
-│   │   │   │   │   │   📄 __init__.py (868.0B)
-│   │   │   │   │   │   📄 codec.py (3.4KB)
-│   │   │   │   │   │   📄 compat.py (316.0B)
-│   │   │   │   │   │   📄 core.py (12.9KB)
-│   │   │   │   │   │   📄 idnadata.py (77.8KB)
-│   │   │   │   │   │   📄 intranges.py (1.9KB)
-│   │   │   │   │   │   📄 package_data.py (21.0B)
-│   │   │   │   │   │   📄 py.typed (0.0B)
-│   │   │   │   │   │   📄 uts46data.py (238.0KB)
-│   │   │   │   │   📂 pip/
-│   │   │   │   │   │   📄 __init__.py (355.0B)
-│   │   │   │   │   │   📄 __main__.py (854.0B)
-│   │   │   │   │   │   📄 __pip-runner__.py (1.4KB)
-│   │   │   │   │   │   📄 py.typed (286.0B)
-│   │   │   │   │   │   📂 _vendor/
-│   │   │   │   │   │   │   📄 __init__.py (4.9KB)
-│   │   │   │   │   │   │   📄 six.py (33.7KB)
-│   │   │   │   │   │   │   📄 typing_extensions.py (108.5KB)
-│   │   │   │   │   │   │   📄 vendor.txt (493.0B)
-│   │   │   │   │   │   │   📂 pkg_resources/
-│   │   │   │   │   │   │   │   📄 __init__.py (106.8KB)
-│   │   │   │   │   │   │   📂 msgpack/
-│   │   │   │   │   │   │   │   📄 __init__.py (1.1KB)
-│   │   │   │   │   │   │   │   📄 exceptions.py (1.1KB)
-│   │   │   │   │   │   │   │   📄 ext.py (5.9KB)
-│   │   │   │   │   │   │   │   📄 fallback.py (33.7KB)
-│   │   │   │   │   │   │   📂 distlib/
-│   │   │   │   │   │   │   │   📄 __init__.py (625.0B)
-│   │   │   │   │   │   │   │   📄 compat.py (40.5KB)
-│   │   │   │   │   │   │   │   📄 database.py (50.7KB)
-│   │   │   │   │   │   │   │   📄 index.py (20.3KB)
-│   │   │   │   │   │   │   │   📄 locators.py (50.6KB)
-│   │   │   │   │   │   │   │   📄 manifest.py (13.8KB)
-│   │   │   │   │   │   │   │   📄 markers.py (5.1KB)
-│   │   │   │   │   │   │   │   📄 metadata.py (38.8KB)
-│   │   │   │   │   │   │   │   📄 resources.py (10.6KB)
-│   │   │   │   │   │   │   │   📄 scripts.py (17.9KB)
-│   │   │   │   │   │   │   │   📄 util.py (65.9KB)
-│   │   │   │   │   │   │   │   📄 version.py (23.2KB)
-│   │   │   │   │   │   │   │   📄 wheel.py (42.9KB)
-│   │   │   │   │   │   │   📂 distro/
-│   │   │   │   │   │   │   │   📄 __init__.py (981.0B)
-│   │   │   │   │   │   │   │   📄 __main__.py (64.0B)
-│   │   │   │   │   │   │   │   📄 distro.py (48.2KB)
-│   │   │   │   │   │   │   📂 resolvelib/
-│   │   │   │   │   │   │   │   📄 __init__.py (537.0B)
-│   │   │   │   │   │   │   │   📄 providers.py (5.7KB)
-│   │   │   │   │   │   │   │   📄 reporters.py (1.6KB)
-│   │   │   │   │   │   │   │   📄 resolvers.py (20.0KB)
-│   │   │   │   │   │   │   │   📄 structs.py (4.8KB)
-│   │   │   │   │   │   │   │   📂 compat/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   │   📄 collections_abc.py (156.0B)
-│   │   │   │   │   │   │   📂 idna/
-│   │   │   │   │   │   │   │   📄 __init__.py (849.0B)
-│   │   │   │   │   │   │   │   📄 codec.py (3.3KB)
-│   │   │   │   │   │   │   │   📄 compat.py (321.0B)
-│   │   │   │   │   │   │   │   📄 core.py (12.5KB)
-│   │   │   │   │   │   │   │   📄 idnadata.py (76.5KB)
-│   │   │   │   │   │   │   │   📄 intranges.py (1.8KB)
-│   │   │   │   │   │   │   │   📄 package_data.py (21.0B)
-│   │   │   │   │   │   │   │   📄 uts46data.py (201.7KB)
-│   │   │   │   │   │   │   📂 packaging/
-│   │   │   │   │   │   │   │   📄 __about__.py (661.0B)
-│   │   │   │   │   │   │   │   📄 __init__.py (497.0B)
-│   │   │   │   │   │   │   │   📄 _manylinux.py (11.2KB)
-│   │   │   │   │   │   │   │   📄 _musllinux.py (4.3KB)
-│   │   │   │   │   │   │   │   📄 _structures.py (1.4KB)
-│   │   │   │   │   │   │   │   📄 markers.py (8.3KB)
-│   │   │   │   │   │   │   │   📄 requirements.py (4.6KB)
-│   │   │   │   │   │   │   │   📄 specifiers.py (29.4KB)
-│   │   │   │   │   │   │   │   📄 tags.py (15.3KB)
-│   │   │   │   │   │   │   │   📄 utils.py (4.1KB)
-│   │   │   │   │   │   │   │   📄 version.py (14.3KB)
-│   │   │   │   │   │   │   📂 truststore/
-│   │   │   │   │   │   │   │   📄 __init__.py (403.0B)
-│   │   │   │   │   │   │   │   📄 _api.py (9.7KB)
-│   │   │   │   │   │   │   │   📄 _macos.py (17.3KB)
-│   │   │   │   │   │   │   │   📄 _openssl.py (2.3KB)
-│   │   │   │   │   │   │   │   📄 _ssl_constants.py (1.1KB)
-│   │   │   │   │   │   │   │   📄 _windows.py (17.1KB)
-│   │   │   │   │   │   │   📂 tomli/
-│   │   │   │   │   │   │   │   📄 __init__.py (396.0B)
-│   │   │   │   │   │   │   │   📄 _parser.py (22.1KB)
-│   │   │   │   │   │   │   │   📄 _re.py (2.9KB)
-│   │   │   │   │   │   │   │   📄 _types.py (254.0B)
-│   │   │   │   │   │   │   📂 urllib3/
-│   │   │   │   │   │   │   │   📄 __init__.py (3.3KB)
-│   │   │   │   │   │   │   │   📄 _collections.py (11.1KB)
-│   │   │   │   │   │   │   │   📄 _version.py (64.0B)
-│   │   │   │   │   │   │   │   📄 connection.py (19.8KB)
-│   │   │   │   │   │   │   │   📄 connectionpool.py (39.3KB)
-│   │   │   │   │   │   │   │   📄 exceptions.py (8.0KB)
-│   │   │   │   │   │   │   │   📄 fields.py (8.4KB)
-│   │   │   │   │   │   │   │   📄 filepost.py (2.4KB)
-│   │   │   │   │   │   │   │   📄 poolmanager.py (20.5KB)
-│   │   │   │   │   │   │   │   📄 request.py (6.5KB)
-│   │   │   │   │   │   │   │   📄 response.py (29.9KB)
-│   │   │   │   │   │   │   │   📂 packages/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   │   📄 six.py (33.9KB)
-│   │   │   │   │   │   │   │   │   📂 backports/
-│   │   │   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   │   │   📄 makefile.py (1.4KB)
-│   │   │   │   │   │   │   │   │   │   📄 weakref_finalize.py (5.2KB)
-│   │   │   │   │   │   │   │   📂 contrib/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   │   📄 _appengine_environ.py (957.0B)
-│   │   │   │   │   │   │   │   │   📄 appengine.py (10.8KB)
-│   │   │   │   │   │   │   │   │   📄 ntlmpool.py (4.4KB)
-│   │   │   │   │   │   │   │   │   📄 pyopenssl.py (16.7KB)
-│   │   │   │   │   │   │   │   │   📄 securetransport.py (33.6KB)
-│   │   │   │   │   │   │   │   │   📄 socks.py (6.9KB)
-│   │   │   │   │   │   │   │   │   📂 _securetransport/
-│   │   │   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   │   │   📄 bindings.py (17.2KB)
-│   │   │   │   │   │   │   │   │   │   📄 low_level.py (13.6KB)
-│   │   │   │   │   │   │   │   📂 util/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (1.1KB)
-│   │   │   │   │   │   │   │   │   📄 connection.py (4.8KB)
-│   │   │   │   │   │   │   │   │   📄 proxy.py (1.6KB)
-│   │   │   │   │   │   │   │   │   📄 queue.py (498.0B)
-│   │   │   │   │   │   │   │   │   📄 request.py (3.9KB)
-│   │   │   │   │   │   │   │   │   📄 response.py (3.4KB)
-│   │   │   │   │   │   │   │   │   📄 retry.py (21.5KB)
-│   │   │   │   │   │   │   │   │   📄 ssl_.py (16.8KB)
-│   │   │   │   │   │   │   │   │   📄 ssl_match_hostname.py (5.6KB)
-│   │   │   │   │   │   │   │   │   📄 ssltransport.py (6.7KB)
-│   │   │   │   │   │   │   │   │   📄 timeout.py (9.9KB)
-│   │   │   │   │   │   │   │   │   📄 url.py (14.0KB)
-│   │   │   │   │   │   │   │   │   📄 wait.py (5.3KB)
-│   │   │   │   │   │   │   📂 tenacity/
-│   │   │   │   │   │   │   │   📄 __init__.py (20.0KB)
-│   │   │   │   │   │   │   │   📄 _asyncio.py (3.5KB)
-│   │   │   │   │   │   │   │   📄 _utils.py (2.1KB)
-│   │   │   │   │   │   │   │   📄 after.py (1.6KB)
-│   │   │   │   │   │   │   │   📄 before.py (1.5KB)
-│   │   │   │   │   │   │   │   📄 before_sleep.py (2.3KB)
-│   │   │   │   │   │   │   │   📄 nap.py (1.4KB)
-│   │   │   │   │   │   │   │   📄 retry.py (8.5KB)
-│   │   │   │   │   │   │   │   📄 stop.py (3.0KB)
-│   │   │   │   │   │   │   │   📄 tornadoweb.py (2.1KB)
-│   │   │   │   │   │   │   │   📄 wait.py (7.8KB)
-│   │   │   │   │   │   │   📂 rich/
-│   │   │   │   │   │   │   │   📄 __init__.py (5.9KB)
-│   │   │   │   │   │   │   │   📄 __main__.py (8.3KB)
-│   │   │   │   │   │   │   │   📄 _cell_widths.py (9.9KB)
-│   │   │   │   │   │   │   │   📄 _emoji_codes.py (136.9KB)
-│   │   │   │   │   │   │   │   📄 _emoji_replace.py (1.0KB)
-│   │   │   │   │   │   │   │   📄 _export_format.py (2.1KB)
-│   │   │   │   │   │   │   │   📄 _extension.py (265.0B)
-│   │   │   │   │   │   │   │   📄 _fileno.py (799.0B)
-│   │   │   │   │   │   │   │   📄 _inspect.py (9.5KB)
-│   │   │   │   │   │   │   │   📄 _log_render.py (3.1KB)
-│   │   │   │   │   │   │   │   📄 _loop.py (1.2KB)
-│   │   │   │   │   │   │   │   📄 _null_file.py (1.4KB)
-│   │   │   │   │   │   │   │   📄 _palettes.py (6.9KB)
-│   │   │   │   │   │   │   │   📄 _pick.py (423.0B)
-│   │   │   │   │   │   │   │   📄 _ratio.py (5.3KB)
-│   │   │   │   │   │   │   │   📄 _spinners.py (19.5KB)
-│   │   │   │   │   │   │   │   📄 _stack.py (351.0B)
-│   │   │   │   │   │   │   │   📄 _timer.py (417.0B)
-│   │   │   │   │   │   │   │   📄 _win32_console.py (22.3KB)
-│   │   │   │   │   │   │   │   📄 _windows.py (1.9KB)
-│   │   │   │   │   │   │   │   📄 _windows_renderer.py (2.7KB)
-│   │   │   │   │   │   │   │   📄 _wrap.py (1.8KB)
-│   │   │   │   │   │   │   │   📄 abc.py (890.0B)
-│   │   │   │   │   │   │   │   📄 align.py (10.1KB)
-│   │   │   │   │   │   │   │   📄 ansi.py (6.7KB)
-│   │   │   │   │   │   │   │   📄 bar.py (3.2KB)
-│   │   │   │   │   │   │   │   📄 box.py (9.6KB)
-│   │   │   │   │   │   │   │   📄 cells.py (4.4KB)
-│   │   │   │   │   │   │   │   📄 color.py (17.8KB)
-│   │   │   │   │   │   │   │   📄 color_triplet.py (1.0KB)
-│   │   │   │   │   │   │   │   📄 columns.py (7.0KB)
-│   │   │   │   │   │   │   │   📄 console.py (96.9KB)
-│   │   │   │   │   │   │   │   📄 constrain.py (1.3KB)
-│   │   │   │   │   │   │   │   📄 containers.py (5.4KB)
-│   │   │   │   │   │   │   │   📄 control.py (6.5KB)
-│   │   │   │   │   │   │   │   📄 default_styles.py (7.9KB)
-│   │   │   │   │   │   │   │   📄 diagnose.py (972.0B)
-│   │   │   │   │   │   │   │   📄 emoji.py (2.4KB)
-│   │   │   │   │   │   │   │   📄 errors.py (642.0B)
-│   │   │   │   │   │   │   │   📄 file_proxy.py (1.6KB)
-│   │   │   │   │   │   │   │   📄 filesize.py (2.4KB)
-│   │   │   │   │   │   │   │   📄 highlighter.py (9.4KB)
-│   │   │   │   │   │   │   │   📄 json.py (4.9KB)
-│   │   │   │   │   │   │   │   📄 jupyter.py (3.2KB)
-│   │   │   │   │   │   │   │   📄 layout.py (13.7KB)
-│   │   │   │   │   │   │   │   📄 live.py (13.9KB)
-│   │   │   │   │   │   │   │   📄 live_render.py (3.6KB)
-│   │   │   │   │   │   │   │   📄 logging.py (11.6KB)
-│   │   │   │   │   │   │   │   📄 markup.py (8.0KB)
-│   │   │   │   │   │   │   │   📄 measure.py (5.2KB)
-│   │   │   │   │   │   │   │   📄 padding.py (4.9KB)
-│   │   │   │   │   │   │   │   📄 pager.py (828.0B)
-│   │   │   │   │   │   │   │   📄 palette.py (3.3KB)
-│   │   │   │   │   │   │   │   📄 panel.py (10.3KB)
-│   │   │   │   │   │   │   │   📄 pretty.py (35.0KB)
-│   │   │   │   │   │   │   │   📄 progress.py (58.3KB)
-│   │   │   │   │   │   │   │   📄 progress_bar.py (8.0KB)
-│   │   │   │   │   │   │   │   📄 prompt.py (11.0KB)
-│   │   │   │   │   │   │   │   📄 protocol.py (1.4KB)
-│   │   │   │   │   │   │   │   📄 region.py (166.0B)
-│   │   │   │   │   │   │   │   📄 repr.py (4.3KB)
-│   │   │   │   │   │   │   │   📄 rule.py (4.5KB)
-│   │   │   │   │   │   │   │   📄 scope.py (2.8KB)
-│   │   │   │   │   │   │   │   📄 screen.py (1.6KB)
-│   │   │   │   │   │   │   │   📄 segment.py (23.7KB)
-│   │   │   │   │   │   │   │   📄 spinner.py (4.2KB)
-│   │   │   │   │   │   │   │   📄 status.py (4.3KB)
-│   │   │   │   │   │   │   │   📄 style.py (26.4KB)
-│   │   │   │   │   │   │   │   📄 styled.py (1.2KB)
-│   │   │   │   │   │   │   │   📄 syntax.py (34.3KB)
-│   │   │   │   │   │   │   │   📄 table.py (38.8KB)
-│   │   │   │   │   │   │   │   📄 terminal_theme.py (3.3KB)
-│   │   │   │   │   │   │   │   📄 text.py (44.5KB)
-│   │   │   │   │   │   │   │   📄 theme.py (3.7KB)
-│   │   │   │   │   │   │   │   📄 themes.py (102.0B)
-│   │   │   │   │   │   │   │   📄 traceback.py (28.9KB)
-│   │   │   │   │   │   │   │   📄 tree.py (9.0KB)
-│   │   │   │   │   │   │   📂 chardet/
-│   │   │   │   │   │   │   │   📄 __init__.py (4.7KB)
-│   │   │   │   │   │   │   │   📄 big5freq.py (30.5KB)
-│   │   │   │   │   │   │   │   📄 big5prober.py (1.7KB)
-│   │   │   │   │   │   │   │   📄 chardistribution.py (9.8KB)
-│   │   │   │   │   │   │   │   📄 charsetgroupprober.py (3.8KB)
-│   │   │   │   │   │   │   │   📄 charsetprober.py (5.3KB)
-│   │   │   │   │   │   │   │   📄 codingstatemachine.py (3.6KB)
-│   │   │   │   │   │   │   │   📄 codingstatemachinedict.py (542.0B)
-│   │   │   │   │   │   │   │   📄 cp949prober.py (1.8KB)
-│   │   │   │   │   │   │   │   📄 enums.py (1.6KB)
-│   │   │   │   │   │   │   │   📄 escprober.py (3.9KB)
-│   │   │   │   │   │   │   │   📄 escsm.py (11.9KB)
-│   │   │   │   │   │   │   │   📄 eucjpprober.py (3.8KB)
-│   │   │   │   │   │   │   │   📄 euckrfreq.py (13.2KB)
-│   │   │   │   │   │   │   │   📄 euckrprober.py (1.7KB)
-│   │   │   │   │   │   │   │   📄 euctwfreq.py (36.0KB)
-│   │   │   │   │   │   │   │   📄 euctwprober.py (1.7KB)
-│   │   │   │   │   │   │   │   📄 gb2312freq.py (20.2KB)
-│   │   │   │   │   │   │   │   📄 gb2312prober.py (1.7KB)
-│   │   │   │   │   │   │   │   📄 hebrewprober.py (14.2KB)
-│   │   │   │   │   │   │   │   📄 jisfreq.py (25.2KB)
-│   │   │   │   │   │   │   │   📄 johabfreq.py (41.5KB)
-│   │   │   │   │   │   │   │   📄 johabprober.py (1.7KB)
-│   │   │   │   │   │   │   │   📄 jpcntx.py (26.4KB)
-│   │   │   │   │   │   │   │   📄 langbulgarianmodel.py (102.1KB)
-│   │   │   │   │   │   │   │   📄 langgreekmodel.py (96.2KB)
-│   │   │   │   │   │   │   │   📄 langhebrewmodel.py (95.9KB)
-│   │   │   │   │   │   │   │   📄 langhungarianmodel.py (99.0KB)
-│   │   │   │   │   │   │   │   📄 langrussianmodel.py (125.0KB)
-│   │   │   │   │   │   │   │   📄 langthaimodel.py (100.4KB)
-│   │   │   │   │   │   │   │   📄 langturkishmodel.py (93.1KB)
-│   │   │   │   │   │   │   │   📄 latin1prober.py (5.3KB)
-│   │   │   │   │   │   │   │   📄 macromanprober.py (5.9KB)
-│   │   │   │   │   │   │   │   📄 mbcharsetprober.py (3.6KB)
-│   │   │   │   │   │   │   │   📄 mbcsgroupprober.py (2.1KB)
-│   │   │   │   │   │   │   │   📄 mbcssm.py (29.7KB)
-│   │   │   │   │   │   │   │   📄 resultdict.py (402.0B)
-│   │   │   │   │   │   │   │   📄 sbcharsetprober.py (6.2KB)
-│   │   │   │   │   │   │   │   📄 sbcsgroupprober.py (4.0KB)
-│   │   │   │   │   │   │   │   📄 sjisprober.py (3.9KB)
-│   │   │   │   │   │   │   │   📄 universaldetector.py (14.5KB)
-│   │   │   │   │   │   │   │   📄 utf1632prober.py (8.3KB)
-│   │   │   │   │   │   │   │   📄 utf8prober.py (2.7KB)
-│   │   │   │   │   │   │   │   📄 version.py (244.0B)
-│   │   │   │   │   │   │   │   📂 cli/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   │   📄 chardetect.py (3.2KB)
-│   │   │   │   │   │   │   │   📂 metadata/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   │   📄 languages.py (13.2KB)
-│   │   │   │   │   │   │   📂 requests/
-│   │   │   │   │   │   │   │   📄 __init__.py (5.0KB)
-│   │   │   │   │   │   │   │   📄 __version__.py (435.0B)
-│   │   │   │   │   │   │   │   📄 _internal_utils.py (1.5KB)
-│   │   │   │   │   │   │   │   📄 adapters.py (19.2KB)
-│   │   │   │   │   │   │   │   📄 api.py (6.3KB)
-│   │   │   │   │   │   │   │   📄 auth.py (9.9KB)
-│   │   │   │   │   │   │   │   📄 certs.py (575.0B)
-│   │   │   │   │   │   │   │   📄 compat.py (1.3KB)
-│   │   │   │   │   │   │   │   📄 cookies.py (18.1KB)
-│   │   │   │   │   │   │   │   📄 exceptions.py (3.7KB)
-│   │   │   │   │   │   │   │   📄 help.py (3.8KB)
-│   │   │   │   │   │   │   │   📄 hooks.py (733.0B)
-│   │   │   │   │   │   │   │   📄 models.py (34.5KB)
-│   │   │   │   │   │   │   │   📄 packages.py (695.0B)
-│   │   │   │   │   │   │   │   📄 sessions.py (29.7KB)
-│   │   │   │   │   │   │   │   📄 status_codes.py (4.1KB)
-│   │   │   │   │   │   │   │   📄 structures.py (2.8KB)
-│   │   │   │   │   │   │   │   📄 utils.py (32.4KB)
-│   │   │   │   │   │   │   📂 webencodings/
-│   │   │   │   │   │   │   │   📄 __init__.py (10.3KB)
-│   │   │   │   │   │   │   │   📄 labels.py (8.8KB)
-│   │   │   │   │   │   │   │   📄 mklabels.py (1.3KB)
-│   │   │   │   │   │   │   │   📄 tests.py (6.4KB)
-│   │   │   │   │   │   │   │   📄 x_user_defined.py (4.2KB)
-│   │   │   │   │   │   │   📂 colorama/
-│   │   │   │   │   │   │   │   📄 __init__.py (266.0B)
-│   │   │   │   │   │   │   │   📄 ansi.py (2.5KB)
-│   │   │   │   │   │   │   │   📄 ansitowin32.py (10.9KB)
-│   │   │   │   │   │   │   │   📄 initialise.py (3.2KB)
-│   │   │   │   │   │   │   │   📄 win32.py (6.0KB)
-│   │   │   │   │   │   │   │   📄 winterm.py (7.0KB)
-│   │   │   │   │   │   │   │   📂 tests/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (75.0B)
-│   │   │   │   │   │   │   │   │   📄 ansi_test.py (2.8KB)
-│   │   │   │   │   │   │   │   │   📄 ansitowin32_test.py (10.4KB)
-│   │   │   │   │   │   │   │   │   📄 initialise_test.py (6.6KB)
-│   │   │   │   │   │   │   │   │   📄 isatty_test.py (1.8KB)
-│   │   │   │   │   │   │   │   │   📄 utils.py (1.1KB)
-│   │   │   │   │   │   │   │   │   📄 winterm_test.py (3.6KB)
-│   │   │   │   │   │   │   📂 platformdirs/
-│   │   │   │   │   │   │   │   📄 __init__.py (19.7KB)
-│   │   │   │   │   │   │   │   📄 __main__.py (1.4KB)
-│   │   │   │   │   │   │   │   📄 android.py (7.0KB)
-│   │   │   │   │   │   │   │   📄 api.py (7.0KB)
-│   │   │   │   │   │   │   │   📄 macos.py (3.6KB)
-│   │   │   │   │   │   │   │   📄 unix.py (8.6KB)
-│   │   │   │   │   │   │   │   📄 version.py (160.0B)
-│   │   │   │   │   │   │   │   📄 windows.py (9.3KB)
-│   │   │   │   │   │   │   📂 cachecontrol/
-│   │   │   │   │   │   │   │   📄 __init__.py (676.0B)
-│   │   │   │   │   │   │   │   📄 _cmd.py (1.7KB)
-│   │   │   │   │   │   │   │   📄 adapter.py (6.2KB)
-│   │   │   │   │   │   │   │   📄 cache.py (1.9KB)
-│   │   │   │   │   │   │   │   📄 controller.py (18.0KB)
-│   │   │   │   │   │   │   │   📄 filewrapper.py (4.2KB)
-│   │   │   │   │   │   │   │   📄 heuristics.py (4.7KB)
-│   │   │   │   │   │   │   │   📄 serialize.py (7.0KB)
-│   │   │   │   │   │   │   │   📄 wrapper.py (1.4KB)
-│   │   │   │   │   │   │   │   📂 caches/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (303.0B)
-│   │   │   │   │   │   │   │   │   📄 file_cache.py (5.2KB)
-│   │   │   │   │   │   │   │   │   📄 redis_cache.py (1.4KB)
-│   │   │   │   │   │   │   📂 pyparsing/
-│   │   │   │   │   │   │   │   📄 __init__.py (8.9KB)
-│   │   │   │   │   │   │   │   📄 actions.py (6.4KB)
-│   │   │   │   │   │   │   │   📄 common.py (13.1KB)
-│   │   │   │   │   │   │   │   📄 core.py (219.2KB)
-│   │   │   │   │   │   │   │   📄 exceptions.py (9.3KB)
-│   │   │   │   │   │   │   │   📄 helpers.py (37.7KB)
-│   │   │   │   │   │   │   │   📄 results.py (26.1KB)
-│   │   │   │   │   │   │   │   📄 testing.py (13.2KB)
-│   │   │   │   │   │   │   │   📄 unicode.py (10.4KB)
-│   │   │   │   │   │   │   │   📄 util.py (8.5KB)
-│   │   │   │   │   │   │   │   📂 diagram/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (23.6KB)
-│   │   │   │   │   │   │   📂 certifi/
-│   │   │   │   │   │   │   │   📄 __init__.py (94.0B)
-│   │   │   │   │   │   │   │   📄 __main__.py (255.0B)
-│   │   │   │   │   │   │   │   📄 cacert.pem (275.0KB)
-│   │   │   │   │   │   │   │   📄 core.py (4.4KB)
-│   │   │   │   │   │   │   📂 pyproject_hooks/
-│   │   │   │   │   │   │   │   📄 __init__.py (491.0B)
-│   │   │   │   │   │   │   │   📄 _compat.py (138.0B)
-│   │   │   │   │   │   │   │   📄 _impl.py (11.6KB)
-│   │   │   │   │   │   │   │   📂 _in_process/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (546.0B)
-│   │   │   │   │   │   │   │   │   📄 _in_process.py (10.7KB)
-│   │   │   │   │   │   │   📂 pygments/
-│   │   │   │   │   │   │   │   📄 __init__.py (2.9KB)
-│   │   │   │   │   │   │   │   📄 __main__.py (353.0B)
-│   │   │   │   │   │   │   │   📄 cmdline.py (23.1KB)
-│   │   │   │   │   │   │   │   📄 console.py (1.7KB)
-│   │   │   │   │   │   │   │   📄 filter.py (1.9KB)
-│   │   │   │   │   │   │   │   📄 formatter.py (4.1KB)
-│   │   │   │   │   │   │   │   📄 lexer.py (33.8KB)
-│   │   │   │   │   │   │   │   📄 modeline.py (986.0B)
-│   │   │   │   │   │   │   │   📄 plugin.py (2.5KB)
-│   │   │   │   │   │   │   │   📄 regexopt.py (3.0KB)
-│   │   │   │   │   │   │   │   📄 scanner.py (3.0KB)
-│   │   │   │   │   │   │   │   📄 sphinxext.py (6.7KB)
-│   │   │   │   │   │   │   │   📄 style.py (6.1KB)
-│   │   │   │   │   │   │   │   📄 token.py (6.0KB)
-│   │   │   │   │   │   │   │   📄 unistring.py (61.7KB)
-│   │   │   │   │   │   │   │   📄 util.py (10.0KB)
-│   │   │   │   │   │   │   │   📂 filters/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (39.4KB)
-│   │   │   │   │   │   │   │   📂 formatters/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (5.3KB)
-│   │   │   │   │   │   │   │   │   📄 _mapping.py (4.1KB)
-│   │   │   │   │   │   │   │   │   📄 bbcode.py (3.2KB)
-│   │   │   │   │   │   │   │   │   📄 groff.py (5.0KB)
-│   │   │   │   │   │   │   │   │   📄 html.py (34.8KB)
-│   │   │   │   │   │   │   │   │   📄 img.py (21.4KB)
-│   │   │   │   │   │   │   │   │   📄 irc.py (4.9KB)
-│   │   │   │   │   │   │   │   │   📄 latex.py (18.9KB)
-│   │   │   │   │   │   │   │   │   📄 other.py (5.0KB)
-│   │   │   │   │   │   │   │   │   📄 pangomarkup.py (2.2KB)
-│   │   │   │   │   │   │   │   │   📄 rtf.py (4.9KB)
-│   │   │   │   │   │   │   │   │   📄 svg.py (7.2KB)
-│   │   │   │   │   │   │   │   │   📄 terminal.py (4.6KB)
-│   │   │   │   │   │   │   │   │   📄 terminal256.py (11.5KB)
-│   │   │   │   │   │   │   │   📂 lexers/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (11.8KB)
-│   │   │   │   │   │   │   │   │   📄 _mapping.py (70.6KB)
-│   │   │   │   │   │   │   │   │   📄 python.py (52.2KB)
-│   │   │   │   │   │   │   │   📂 styles/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (3.6KB)
-│   │   │   │   │   │   📂 _internal/
-│   │   │   │   │   │   │   📄 __init__.py (515.0B)
-│   │   │   │   │   │   │   📄 build_env.py (10.0KB)
-│   │   │   │   │   │   │   📄 cache.py (10.1KB)
-│   │   │   │   │   │   │   📄 configuration.py (13.7KB)
-│   │   │   │   │   │   │   📄 exceptions.py (23.1KB)
-│   │   │   │   │   │   │   📄 main.py (340.0B)
-│   │   │   │   │   │   │   📄 pyproject.py (7.0KB)
-│   │   │   │   │   │   │   📄 self_outdated_check.py (8.2KB)
-│   │   │   │   │   │   │   📄 wheel_builder.py (11.5KB)
-│   │   │   │   │   │   │   📂 models/
-│   │   │   │   │   │   │   │   📄 __init__.py (63.0B)
-│   │   │   │   │   │   │   │   📄 candidate.py (931.0B)
-│   │   │   │   │   │   │   │   📄 direct_url.py (6.7KB)
-│   │   │   │   │   │   │   │   📄 format_control.py (2.4KB)
-│   │   │   │   │   │   │   │   📄 index.py (1.0KB)
-│   │   │   │   │   │   │   │   📄 installation_report.py (2.8KB)
-│   │   │   │   │   │   │   │   📄 link.py (20.3KB)
-│   │   │   │   │   │   │   │   📄 scheme.py (738.0B)
-│   │   │   │   │   │   │   │   📄 search_scope.py (4.5KB)
-│   │   │   │   │   │   │   │   📄 selection_prefs.py (1.9KB)
-│   │   │   │   │   │   │   │   📄 target_python.py (4.2KB)
-│   │   │   │   │   │   │   │   📄 wheel.py (3.5KB)
-│   │   │   │   │   │   │   📂 utils/
-│   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   📄 _jaraco_text.py (3.3KB)
-│   │   │   │   │   │   │   │   📄 _log.py (1015.0B)
-│   │   │   │   │   │   │   │   📄 appdirs.py (1.6KB)
-│   │   │   │   │   │   │   │   📄 compat.py (1.8KB)
-│   │   │   │   │   │   │   │   📄 compatibility_tags.py (5.3KB)
-│   │   │   │   │   │   │   │   📄 datetime.py (242.0B)
-│   │   │   │   │   │   │   │   📄 deprecation.py (3.5KB)
-│   │   │   │   │   │   │   │   📄 direct_url_helpers.py (3.1KB)
-│   │   │   │   │   │   │   │   📄 egg_link.py (2.4KB)
-│   │   │   │   │   │   │   │   📄 encoding.py (1.1KB)
-│   │   │   │   │   │   │   │   📄 entrypoints.py (3.0KB)
-│   │   │   │   │   │   │   │   📄 filesystem.py (5.0KB)
-│   │   │   │   │   │   │   │   📄 filetypes.py (716.0B)
-│   │   │   │   │   │   │   │   📄 glibc.py (3.0KB)
-│   │   │   │   │   │   │   │   📄 hashes.py (5.0KB)
-│   │   │   │   │   │   │   │   📄 logging.py (11.3KB)
-│   │   │   │   │   │   │   │   📄 misc.py (23.1KB)
-│   │   │   │   │   │   │   │   📄 models.py (1.2KB)
-│   │   │   │   │   │   │   │   📄 packaging.py (2.1KB)
-│   │   │   │   │   │   │   │   📄 setuptools_build.py (4.3KB)
-│   │   │   │   │   │   │   │   📄 subprocess.py (9.0KB)
-│   │   │   │   │   │   │   │   📄 temp_dir.py (9.1KB)
-│   │   │   │   │   │   │   │   📄 unpacking.py (8.6KB)
-│   │   │   │   │   │   │   │   📄 urls.py (1.7KB)
-│   │   │   │   │   │   │   │   📄 virtualenv.py (3.4KB)
-│   │   │   │   │   │   │   │   📄 wheel.py (4.4KB)
-│   │   │   │   │   │   │   📂 vcs/
-│   │   │   │   │   │   │   │   📄 __init__.py (596.0B)
-│   │   │   │   │   │   │   │   📄 bazaar.py (3.4KB)
-│   │   │   │   │   │   │   │   📄 git.py (17.7KB)
-│   │   │   │   │   │   │   │   📄 mercurial.py (5.1KB)
-│   │   │   │   │   │   │   │   📄 subversion.py (11.5KB)
-│   │   │   │   │   │   │   │   📄 versioncontrol.py (22.3KB)
-│   │   │   │   │   │   │   📂 network/
-│   │   │   │   │   │   │   │   📄 __init__.py (50.0B)
-│   │   │   │   │   │   │   │   📄 auth.py (20.1KB)
-│   │   │   │   │   │   │   │   📄 cache.py (3.8KB)
-│   │   │   │   │   │   │   │   📄 download.py (5.9KB)
-│   │   │   │   │   │   │   │   📄 lazy_wheel.py (7.5KB)
-│   │   │   │   │   │   │   │   📄 session.py (18.3KB)
-│   │   │   │   │   │   │   │   📄 utils.py (4.0KB)
-│   │   │   │   │   │   │   │   📄 xmlrpc.py (1.8KB)
-│   │   │   │   │   │   │   📂 req/
-│   │   │   │   │   │   │   │   📄 __init__.py (2.7KB)
-│   │   │   │   │   │   │   │   📄 constructors.py (18.6KB)
-│   │   │   │   │   │   │   │   📄 req_file.py (17.4KB)
-│   │   │   │   │   │   │   │   📄 req_install.py (34.6KB)
-│   │   │   │   │   │   │   │   📄 req_set.py (4.6KB)
-│   │   │   │   │   │   │   │   📄 req_uninstall.py (24.0KB)
-│   │   │   │   │   │   │   📂 index/
-│   │   │   │   │   │   │   │   📄 __init__.py (30.0B)
-│   │   │   │   │   │   │   │   📄 collector.py (16.2KB)
-│   │   │   │   │   │   │   │   📄 package_finder.py (37.0KB)
-│   │   │   │   │   │   │   │   📄 sources.py (8.5KB)
-│   │   │   │   │   │   │   📂 cli/
-│   │   │   │   │   │   │   │   📄 __init__.py (132.0B)
-│   │   │   │   │   │   │   │   📄 autocompletion.py (6.5KB)
-│   │   │   │   │   │   │   │   📄 base_command.py (8.5KB)
-│   │   │   │   │   │   │   │   📄 cmdoptions.py (29.4KB)
-│   │   │   │   │   │   │   │   📄 command_context.py (774.0B)
-│   │   │   │   │   │   │   │   📄 main.py (2.8KB)
-│   │   │   │   │   │   │   │   📄 main_parser.py (4.2KB)
-│   │   │   │   │   │   │   │   📄 parser.py (10.5KB)
-│   │   │   │   │   │   │   │   📄 progress_bars.py (1.9KB)
-│   │   │   │   │   │   │   │   📄 req_command.py (17.9KB)
-│   │   │   │   │   │   │   │   📄 spinners.py (5.0KB)
-│   │   │   │   │   │   │   │   📄 status_codes.py (116.0B)
-│   │   │   │   │   │   │   📂 locations/
-│   │   │   │   │   │   │   │   📄 __init__.py (15.0KB)
-│   │   │   │   │   │   │   │   📄 _distutils.py (5.9KB)
-│   │   │   │   │   │   │   │   📄 _sysconfig.py (7.5KB)
-│   │   │   │   │   │   │   │   📄 base.py (2.5KB)
-│   │   │   │   │   │   │   📂 distributions/
-│   │   │   │   │   │   │   │   📄 __init__.py (858.0B)
-│   │   │   │   │   │   │   │   📄 base.py (1.7KB)
-│   │   │   │   │   │   │   │   📄 installed.py (842.0B)
-│   │   │   │   │   │   │   │   📄 sdist.py (6.6KB)
-│   │   │   │   │   │   │   │   📄 wheel.py (1.2KB)
-│   │   │   │   │   │   │   📂 operations/
-│   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   📄 check.py (6.6KB)
-│   │   │   │   │   │   │   │   📄 freeze.py (9.6KB)
-│   │   │   │   │   │   │   │   📄 prepare.py (27.5KB)
-│   │   │   │   │   │   │   │   📂 build/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   │   📄 build_tracker.py (4.7KB)
-│   │   │   │   │   │   │   │   │   📄 metadata.py (1.4KB)
-│   │   │   │   │   │   │   │   │   📄 metadata_editable.py (1.4KB)
-│   │   │   │   │   │   │   │   │   📄 metadata_legacy.py (2.1KB)
-│   │   │   │   │   │   │   │   │   📄 wheel.py (1.0KB)
-│   │   │   │   │   │   │   │   │   📄 wheel_editable.py (1.4KB)
-│   │   │   │   │   │   │   │   │   📄 wheel_legacy.py (3.0KB)
-│   │   │   │   │   │   │   │   📂 install/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (51.0B)
-│   │   │   │   │   │   │   │   │   📄 editable_legacy.py (1.3KB)
-│   │   │   │   │   │   │   │   │   📄 wheel.py (26.7KB)
-│   │   │   │   │   │   │   📂 resolution/
-│   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   📄 base.py (583.0B)
-│   │   │   │   │   │   │   │   📂 resolvelib/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   │   📄 base.py (5.1KB)
-│   │   │   │   │   │   │   │   │   📄 candidates.py (20.6KB)
-│   │   │   │   │   │   │   │   │   📄 factory.py (31.5KB)
-│   │   │   │   │   │   │   │   │   📄 found_candidates.py (5.6KB)
-│   │   │   │   │   │   │   │   │   📄 provider.py (9.6KB)
-│   │   │   │   │   │   │   │   │   📄 reporter.py (3.0KB)
-│   │   │   │   │   │   │   │   │   📄 requirements.py (5.6KB)
-│   │   │   │   │   │   │   │   │   📄 resolver.py (12.3KB)
-│   │   │   │   │   │   │   │   📂 legacy/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   │   │   📄 resolver.py (23.5KB)
-│   │   │   │   │   │   │   📂 commands/
-│   │   │   │   │   │   │   │   📄 __init__.py (3.8KB)
-│   │   │   │   │   │   │   │   📄 cache.py (7.8KB)
-│   │   │   │   │   │   │   │   📄 check.py (1.7KB)
-│   │   │   │   │   │   │   │   📄 completion.py (4.2KB)
-│   │   │   │   │   │   │   │   📄 configuration.py (9.5KB)
-│   │   │   │   │   │   │   │   📄 debug.py (6.6KB)
-│   │   │   │   │   │   │   │   📄 download.py (5.2KB)
-│   │   │   │   │   │   │   │   📄 freeze.py (3.2KB)
-│   │   │   │   │   │   │   │   📄 hash.py (1.7KB)
-│   │   │   │   │   │   │   │   📄 help.py (1.1KB)
-│   │   │   │   │   │   │   │   📄 index.py (4.7KB)
-│   │   │   │   │   │   │   │   📄 inspect.py (3.1KB)
-│   │   │   │   │   │   │   │   📄 install.py (28.1KB)
-│   │   │   │   │   │   │   │   📄 list.py (12.3KB)
-│   │   │   │   │   │   │   │   📄 search.py (5.6KB)
-│   │   │   │   │   │   │   │   📄 show.py (6.3KB)
-│   │   │   │   │   │   │   │   📄 uninstall.py (3.8KB)
-│   │   │   │   │   │   │   │   📄 wheel.py (6.3KB)
-│   │   │   │   │   │   │   📂 metadata/
-│   │   │   │   │   │   │   │   📄 __init__.py (4.2KB)
-│   │   │   │   │   │   │   │   📄 _json.py (2.6KB)
-│   │   │   │   │   │   │   │   📄 base.py (25.3KB)
-│   │   │   │   │   │   │   │   📄 pkg_resources.py (9.8KB)
-│   │   │   │   │   │   │   │   📂 importlib/
-│   │   │   │   │   │   │   │   │   📄 __init__.py (135.0B)
-│   │   │   │   │   │   │   │   │   📄 _compat.py (1.8KB)
-│   │   │   │   │   │   │   │   │   📄 _dists.py (8.1KB)
-│   │   │   │   │   │   │   │   │   📄 _envs.py (7.3KB)
-│   │   │   │   │   📂 requests-2.33.0.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (5.0KB)
-│   │   │   │   │   │   📄 RECORD (2.9KB)
-│   │   │   │   │   │   📄 REQUESTED (0.0B)
-│   │   │   │   │   │   📄 WHEEL (91.0B)
-│   │   │   │   │   │   📄 top_level.txt (9.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE (9.9KB)
-│   │   │   │   │   │   │   📄 NOTICE (38.0B)
-│   │   │   │   │   📂 certifi-2026.2.25.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (2.4KB)
-│   │   │   │   │   │   📄 RECORD (1023.0B)
-│   │   │   │   │   │   📄 WHEEL (91.0B)
-│   │   │   │   │   │   📄 top_level.txt (8.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE (989.0B)
-│   │   │   │   │   📂 pip-24.0.dist-info/
-│   │   │   │   │   │   📄 AUTHORS.txt (10.1KB)
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 LICENSE.txt (1.1KB)
-│   │   │   │   │   │   📄 METADATA (3.5KB)
-│   │   │   │   │   │   📄 RECORD (75.5KB)
-│   │   │   │   │   │   📄 REQUESTED (0.0B)
-│   │   │   │   │   │   📄 WHEEL (92.0B)
-│   │   │   │   │   │   📄 entry_points.txt (125.0B)
-│   │   │   │   │   │   📄 top_level.txt (4.0B)
-│   │   │   │   │   📂 tavily/
-│   │   │   │   │   │   📄 __init__.py (228.0B)
-│   │   │   │   │   │   📄 async_tavily.py (33.2KB)
-│   │   │   │   │   │   📄 config.py (67.0B)
-│   │   │   │   │   │   📄 errors.py (804.0B)
-│   │   │   │   │   │   📄 tavily.py (29.4KB)
-│   │   │   │   │   │   📄 utils.py (1.0KB)
-│   │   │   │   │   │   📂 hybrid_rag/
-│   │   │   │   │   │   │   📄 __init__.py (42.0B)
-│   │   │   │   │   │   │   📄 hybrid_rag.py (8.0KB)
-│   │   │   │   │   📂 urllib3-2.6.3.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (6.7KB)
-│   │   │   │   │   │   📄 RECORD (5.4KB)
-│   │   │   │   │   │   📄 WHEEL (87.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE.txt (1.1KB)
-│   │   │   │   │   📂 charset_normalizer-3.4.6.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (39.6KB)
-│   │   │   │   │   │   📄 RECORD (2.8KB)
-│   │   │   │   │   │   📄 WHEEL (190.0B)
-│   │   │   │   │   │   📄 entry_points.txt (65.0B)
-│   │   │   │   │   │   📄 top_level.txt (47.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE (1.0KB)
-│   │   │   │   │   📂 typing_extensions-4.15.0.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (3.2KB)
-│   │   │   │   │   │   📄 RECORD (580.0B)
-│   │   │   │   │   │   📄 WHEEL (82.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE (13.6KB)
-│   │   │   │   │   📂 httpcore-1.0.9.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (21.0KB)
-│   │   │   │   │   │   📄 RECORD (4.7KB)
-│   │   │   │   │   │   📄 WHEEL (87.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE.md (1.5KB)
-│   │   │   │   │   📂 urllib3/
-│   │   │   │   │   │   📄 __init__.py (6.8KB)
-│   │   │   │   │   │   📄 _base_connection.py (5.4KB)
-│   │   │   │   │   │   📄 _collections.py (17.2KB)
-│   │   │   │   │   │   📄 _request_methods.py (9.7KB)
-│   │   │   │   │   │   📄 _version.py (704.0B)
-│   │   │   │   │   │   📄 connection.py (41.8KB)
-│   │   │   │   │   │   📄 connectionpool.py (42.4KB)
-│   │   │   │   │   │   📄 exceptions.py (9.7KB)
-│   │   │   │   │   │   📄 fields.py (10.6KB)
-│   │   │   │   │   │   📄 filepost.py (2.3KB)
-│   │   │   │   │   │   📄 poolmanager.py (23.3KB)
-│   │   │   │   │   │   📄 py.typed (93.0B)
-│   │   │   │   │   │   📄 response.py (51.7KB)
-│   │   │   │   │   │   📂 http2/
-│   │   │   │   │   │   │   📄 __init__.py (1.7KB)
-│   │   │   │   │   │   │   📄 connection.py (12.3KB)
-│   │   │   │   │   │   │   📄 probe.py (2.9KB)
-│   │   │   │   │   │   📂 contrib/
-│   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   📄 pyopenssl.py (19.3KB)
-│   │   │   │   │   │   │   📄 socks.py (7.4KB)
-│   │   │   │   │   │   │   📂 emscripten/
-│   │   │   │   │   │   │   │   📄 __init__.py (836.0B)
-│   │   │   │   │   │   │   │   📄 connection.py (8.8KB)
-│   │   │   │   │   │   │   │   📄 emscripten_fetch_worker.js (3.6KB)
-│   │   │   │   │   │   │   │   📄 fetch.py (23.0KB)
-│   │   │   │   │   │   │   │   📄 request.py (566.0B)
-│   │   │   │   │   │   │   │   📄 response.py (9.3KB)
-│   │   │   │   │   │   📂 util/
-│   │   │   │   │   │   │   📄 __init__.py (1001.0B)
-│   │   │   │   │   │   │   📄 connection.py (4.3KB)
-│   │   │   │   │   │   │   📄 proxy.py (1.1KB)
-│   │   │   │   │   │   │   📄 request.py (8.2KB)
-│   │   │   │   │   │   │   📄 response.py (3.3KB)
-│   │   │   │   │   │   │   📄 retry.py (18.8KB)
-│   │   │   │   │   │   │   📄 ssl_.py (19.5KB)
-│   │   │   │   │   │   │   📄 ssl_match_hostname.py (5.7KB)
-│   │   │   │   │   │   │   📄 ssltransport.py (8.6KB)
-│   │   │   │   │   │   │   📄 timeout.py (10.1KB)
-│   │   │   │   │   │   │   📄 url.py (14.8KB)
-│   │   │   │   │   │   │   📄 util.py (1.1KB)
-│   │   │   │   │   │   │   📄 wait.py (4.3KB)
-│   │   │   │   │   📂 anyio/
-│   │   │   │   │   │   📄 __init__.py (6.0KB)
-│   │   │   │   │   │   📄 from_thread.py (18.7KB)
-│   │   │   │   │   │   📄 functools.py (11.8KB)
-│   │   │   │   │   │   📄 lowlevel.py (5.0KB)
-│   │   │   │   │   │   📄 py.typed (0.0B)
-│   │   │   │   │   │   📄 pytest_plugin.py (12.5KB)
-│   │   │   │   │   │   📄 to_interpreter.py (6.9KB)
-│   │   │   │   │   │   📄 to_process.py (9.6KB)
-│   │   │   │   │   │   📄 to_thread.py (2.6KB)
-│   │   │   │   │   │   📂 abc/
-│   │   │   │   │   │   │   📄 __init__.py (2.8KB)
-│   │   │   │   │   │   │   📄 _eventloop.py (10.4KB)
-│   │   │   │   │   │   │   📄 _resources.py (783.0B)
-│   │   │   │   │   │   │   📄 _sockets.py (12.8KB)
-│   │   │   │   │   │   │   📄 _streams.py (7.3KB)
-│   │   │   │   │   │   │   📄 _subprocesses.py (2.0KB)
-│   │   │   │   │   │   │   📄 _tasks.py (3.6KB)
-│   │   │   │   │   │   │   📄 _testing.py (1.8KB)
-│   │   │   │   │   │   📂 _core/
-│   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   📄 _asyncio_selector_thread.py (5.5KB)
-│   │   │   │   │   │   │   📄 _contextmanagers.py (7.0KB)
-│   │   │   │   │   │   │   📄 _eventloop.py (6.3KB)
-│   │   │   │   │   │   │   📄 _exceptions.py (4.3KB)
-│   │   │   │   │   │   │   📄 _fileio.py (25.1KB)
-│   │   │   │   │   │   │   📄 _resources.py (435.0B)
-│   │   │   │   │   │   │   📄 _signals.py (1016.0B)
-│   │   │   │   │   │   │   📄 _sockets.py (34.2KB)
-│   │   │   │   │   │   │   📄 _streams.py (1.8KB)
-│   │   │   │   │   │   │   📄 _subprocesses.py (7.7KB)
-│   │   │   │   │   │   │   📄 _synchronization.py (20.6KB)
-│   │   │   │   │   │   │   📄 _tasks.py (5.3KB)
-│   │   │   │   │   │   │   📄 _tempfile.py (19.2KB)
-│   │   │   │   │   │   │   📄 _testing.py (2.3KB)
-│   │   │   │   │   │   │   📄 _typedattr.py (2.4KB)
-│   │   │   │   │   │   📂 _backends/
-│   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   📄 _asyncio.py (97.1KB)
-│   │   │   │   │   │   │   📄 _trio.py (40.4KB)
-│   │   │   │   │   │   📂 streams/
-│   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   📄 buffered.py (6.1KB)
-│   │   │   │   │   │   │   📄 file.py (4.3KB)
-│   │   │   │   │   │   │   📄 memory.py (10.5KB)
-│   │   │   │   │   │   │   📄 stapled.py (4.3KB)
-│   │   │   │   │   │   │   📄 text.py (5.6KB)
-│   │   │   │   │   │   │   📄 tls.py (14.9KB)
-│   │   │   │   │   📂 anyio-4.13.0.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (4.4KB)
-│   │   │   │   │   │   📄 RECORD (6.1KB)
-│   │   │   │   │   │   📄 WHEEL (91.0B)
-│   │   │   │   │   │   📄 entry_points.txt (39.0B)
-│   │   │   │   │   │   📄 top_level.txt (6.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE (1.1KB)
-│   │   │   │   │   📂 tiktoken/
-│   │   │   │   │   │   📄 __init__.py (346.0B)
-│   │   │   │   │   │   📄 _educational.py (8.0KB)
-│   │   │   │   │   │   📄 _tiktoken.cpython-312-x86_64-linux-gnu.so (3.4MB)
-│   │   │   │   │   │   📄 core.py (17.0KB)
-│   │   │   │   │   │   📄 load.py (5.8KB)
-│   │   │   │   │   │   📄 model.py (4.0KB)
-│   │   │   │   │   │   📄 py.typed (0.0B)
-│   │   │   │   │   │   📄 registry.py (3.2KB)
-│   │   │   │   │   📂 requests/
-│   │   │   │   │   │   📄 __init__.py (4.9KB)
-│   │   │   │   │   │   📄 __version__.py (435.0B)
-│   │   │   │   │   │   📄 _internal_utils.py (1.5KB)
-│   │   │   │   │   │   📄 adapters.py (25.6KB)
-│   │   │   │   │   │   📄 api.py (6.3KB)
-│   │   │   │   │   │   📄 auth.py (9.9KB)
-│   │   │   │   │   │   📄 certs.py (430.0B)
-│   │   │   │   │   │   📄 compat.py (2.1KB)
-│   │   │   │   │   │   📄 cookies.py (18.2KB)
-│   │   │   │   │   │   📄 exceptions.py (4.2KB)
-│   │   │   │   │   │   📄 help.py (3.7KB)
-│   │   │   │   │   │   📄 hooks.py (734.0B)
-│   │   │   │   │   │   📄 models.py (34.6KB)
-│   │   │   │   │   │   📄 packages.py (904.0B)
-│   │   │   │   │   │   📄 sessions.py (29.9KB)
-│   │   │   │   │   │   📄 status_codes.py (4.2KB)
-│   │   │   │   │   │   📄 structures.py (2.8KB)
-│   │   │   │   │   │   📄 utils.py (32.3KB)
-│   │   │   │   │   📂 tiktoken-0.12.0.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (6.5KB)
-│   │   │   │   │   │   📄 RECORD (1.5KB)
-│   │   │   │   │   │   📄 WHEEL (113.0B)
-│   │   │   │   │   │   📄 top_level.txt (22.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE (1.1KB)
-│   │   │   │   │   📂 certifi/
-│   │   │   │   │   │   📄 __init__.py (94.0B)
-│   │   │   │   │   │   📄 __main__.py (243.0B)
-│   │   │   │   │   │   📄 cacert.pem (266.1KB)
-│   │   │   │   │   │   📄 core.py (3.3KB)
-│   │   │   │   │   │   📄 py.typed (0.0B)
-│   │   │   │   │   📂 httpx-0.28.1.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (6.9KB)
-│   │   │   │   │   │   📄 RECORD (3.4KB)
-│   │   │   │   │   │   📄 WHEEL (87.0B)
-│   │   │   │   │   │   📄 entry_points.txt (37.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE.md (1.5KB)
-│   │   │   │   │   📂 regex-2026.3.32.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (39.5KB)
-│   │   │   │   │   │   📄 RECORD (1.1KB)
-│   │   │   │   │   │   📄 WHEEL (190.0B)
-│   │   │   │   │   │   📄 top_level.txt (6.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE.txt (11.3KB)
-│   │   │   │   │   📂 h11-0.16.0.dist-info/
-│   │   │   │   │   │   📄 INSTALLER (4.0B)
-│   │   │   │   │   │   📄 METADATA (8.2KB)
-│   │   │   │   │   │   📄 RECORD (1.8KB)
-│   │   │   │   │   │   📄 WHEEL (91.0B)
-│   │   │   │   │   │   📄 top_level.txt (4.0B)
-│   │   │   │   │   │   📂 licenses/
-│   │   │   │   │   │   │   📄 LICENSE.txt (1.1KB)
-│   │   │   │   │   📂 httpcore/
-│   │   │   │   │   │   📄 __init__.py (3.4KB)
-│   │   │   │   │   │   📄 _api.py (3.1KB)
-│   │   │   │   │   │   📄 _exceptions.py (1.2KB)
-│   │   │   │   │   │   📄 _models.py (17.2KB)
-│   │   │   │   │   │   📄 _ssl.py (187.0B)
-│   │   │   │   │   │   📄 _synchronization.py (9.2KB)
-│   │   │   │   │   │   📄 _trace.py (3.9KB)
-│   │   │   │   │   │   📄 _utils.py (1.5KB)
-│   │   │   │   │   │   📄 py.typed (0.0B)
-│   │   │   │   │   │   📂 _async/
-│   │   │   │   │   │   │   📄 __init__.py (1.2KB)
-│   │   │   │   │   │   │   📄 connection.py (8.3KB)
-│   │   │   │   │   │   │   📄 connection_pool.py (16.9KB)
-│   │   │   │   │   │   │   📄 http11.py (13.6KB)
-│   │   │   │   │   │   │   📄 http2.py (23.4KB)
-│   │   │   │   │   │   │   📄 http_proxy.py (14.4KB)
-│   │   │   │   │   │   │   📄 interfaces.py (4.4KB)
-│   │   │   │   │   │   │   📄 socks_proxy.py (13.5KB)
-│   │   │   │   │   │   📂 _backends/
-│   │   │   │   │   │   │   📄 __init__.py (0.0B)
-│   │   │   │   │   │   │   📄 anyio.py (5.1KB)
-│   │   │   │   │   │   │   📄 auto.py (1.6KB)
-│   │   │   │   │   │   │   📄 base.py (3.0KB)
-│   │   │   │   │   │   │   📄 mock.py (4.0KB)
-│   │   │   │   │   │   │   📄 sync.py (7.8KB)
-│   │   │   │   │   │   │   📄 trio.py (5.9KB)
-│   │   │   │   │   │   📂 _sync/
-│   │   │   │   │   │   │   📄 __init__.py (1.1KB)
-│   │   │   │   │   │   │   📄 connection.py (8.0KB)
-│   │   │   │   │   │   │   📄 connection_pool.py (16.6KB)
-│   │   │   │   │   │   │   📄 http11.py (13.2KB)
-│   │   │   │   │   │   │   📄 http2.py (22.9KB)
-│   │   │   │   │   │   │   📄 http_proxy.py (14.1KB)
-│   │   │   │   │   │   │   📄 interfaces.py (4.2KB)
-│   │   │   │   │   │   │   📄 socks_proxy.py (13.3KB)
-│   │   │   │   │   📂 httpx/
-│   │   │   │   │   │   📄 __init__.py (2.1KB)
-│   │   │   │   │   │   📄 __version__.py (108.0B)
-│   │   │   │   │   │   📄 _api.py (11.5KB)
-│   │   │   │   │   │   📄 _auth.py (11.6KB)
-│   │   │   │   │   │   📄 _client.py (64.2KB)
-│   │   │   │   │   │   📄 _config.py (8.3KB)
-│   │   │   │   │   │   📄 _content.py (8.0KB)
-│   │   │   │   │   │   📄 _decoders.py (11.8KB)
-│   │   │   │   │   │   📄 _exceptions.py (8.3KB)
-│   │   │   │   │   │   📄 _main.py (15.3KB)
-│   │   │   │   │   │   📄 _models.py (43.7KB)
-│   │   │   │   │   │   📄 _multipart.py (9.6KB)
-│   │   │   │   │   │   📄 _status_codes.py (5.5KB)
-│   │   │   │   │   │   📄 _types.py (2.9KB)
-│   │   │   │   │   │   📄 _urlparse.py (18.1KB)
-│   │   │   │   │   │   📄 _urls.py (21.0KB)
-│   │   │   │   │   │   📄 _utils.py (8.1KB)
-│   │   │   │   │   │   📄 py.typed (0.0B)
-│   │   │   │   │   │   📂 _transports/
-│   │   │   │   │   │   │   📄 __init__.py (275.0B)
-│   │   │   │   │   │   │   📄 asgi.py (5.4KB)
-│   │   │   │   │   │   │   📄 base.py (2.5KB)
-│   │   │   │   │   │   │   📄 default.py (13.7KB)
-│   │   │   │   │   │   │   📄 mock.py (1.2KB)
-│   │   │   │   │   │   │   📄 wsgi.py (4.7KB)
-│   📂 Seguridad_2026/
-│   │   📄 Dockerfile (418.0B)
-│   │   📄 README.md (3.9KB)
-│   │   📄 entrypoint.sh (530.0B)
-│   │   📄 tech_analisis_de_sbom_con_cyclonedx_para_supply_chain_s_191141.md (3.7KB)
-│   📂 Core_Prog/
-│   │   📄 .gitkeep (0.0B)
-│   │   📄 GenericosYColeccionesAvanzadas.java (3.4KB)
-│   │   📄 TechnicalSolution_20260319_094306.java (1.5KB)
-│   │   📄 TechnicalSolution_20260319_094325.java (1.4KB)
-│   │   📄 TechnicalSolution_20260319_094341.java (1.3KB)
-│   │   📄 TechnicalSolution_20260319_094400.java (2.1KB)
-│   │   📄 TechnicalSolution_20260319_094415.java (641.0B)
-│   │   📄 TechnicalSolution_20260319_094432.java (1.7KB)
-│   │   📄 agentes_ia_computer_use_linux.md (2.7KB)
-│   │   📄 backup_monitor.sh (3.4KB)
-│   │   📄 comparativo_microservicios_monolito_scalabilidad.md (4.1KB)
-│   │   📄 java_tip_20260319_092851.md (790.0B)
-│   │   📄 java_tip_20260319_092903.md (1.0KB)
-│   │   📄 java_tip_20260319_092912.md (1013.0B)
-│   │   📄 java_tip_20260319_092935.md (736.0B)
-│   │   📄 java_tip_20260319_092943.md (738.0B)
-│   │   📄 java_tip_20260319_092953.md (606.0B)
-│   📂 Utils/
-│   │   📄 ARQUITECTURA.md (209.0B)
-│   │   📄 INVENTARIO_SISTEMA.md (30.1KB)
-│   │   📄 fix_config.py (1.8KB)
-│   │   📄 fix_ollama.py (959.0B)
-│   📂 SRE_Resiliencia/
-│   │   📄 README.md (172.0B)
-│   │   📄 metrics_service.py (1.3KB)
-│   │   📄 std_kafka_streams_con_kubernetes_y_observabilidad_2026_20260329_1612.md (48.4KB)
-│   │   📄 tracing_service.py (1.3KB)
-│   📂 skills/
-│   │   📄 skill_informe_40pag.md (6.8KB)
-│   📂 Core_Ingenieria/
-│   │   📄 DOC_edge_computing_procesamiento_de_telemetr.md (6.0KB)
-│   │   📄 DOC_proyecto_sistema_integral_de_gestión_ciu.md (4.2KB)
-│   📂 IA_Agentes/
-│   │   📄 AgentSelfReflection.py (3.1KB)
-│   │   📄 CrewAIApplication.java (372.0B)
-│   │   📄 CrewAISecurityConfig.java (380.0B)
-│   │   📄 MultiAgentOrchestrator.java** (1.5KB)
-│   │   📄 README.md (2.8KB)
-│   │   📄 UserService.java (703.0B)
-│   │   📄 llm_evaluation_framework.py (3.3KB)
-│   │   📄 main.py (3.7KB)
-│   │   📄 requirements.txt (95.0B)
-│   │   📄 run_benchmark.py (2.8KB)
-│   │   📄 tech_sistemas_rag_avanzados_reranking_y_embeddings_loca_090052.md (7.6KB)
-│   │   📄 tool_function_calling_integration.py (2.0KB)
-│   📂 Vanguardia_Tech_2026/
-│   │   📄 metadata_bigdata_etl_con_pyspark_para_transformaci_n_masiva_20260328_145426.json (273.0B)
-│   │   📄 tech_20260320_144412.md (4.5KB)
-│   │   📄 tech_20260320_144504.md (4.5KB)
-│   │   📄 tech_20260321_092023.md (3.6KB)
-│   │   📄 tech_20260321_093448.md (4.3KB)
-│   │   📄 tech_20260321_100649.md (4.6KB)
-│   │   📄 tech_20260322_114214.md (3.9KB)
-│   │   📄 tech_20260322_114419.md (4.5KB)
-│   │   📄 tech_20260322_114447.md (4.3KB)
-│   │   📄 tech_20260322_114736.md (1.4KB)
-│   │   📄 tech_20260322_114840.md (3.8KB)
-│   │   📄 tech_20260322_115248.md (4.0KB)
-│   │   📄 tech_20260324_090034.md (3.9KB)
-│   │   📄 tech_20260325_165123.md (3.7KB)
-│   │   📄 tech_20260325_173905.md (4.8KB)
-│   │   📄 tech_20260325_174710.md (3.4KB)
-│   │   📄 tech_20260325_180510.md (4.4KB)
-│   │   📄 tech_arquitectura_de_microservicios_migracion_de_monoli_192936.md (7.4KB)
-│   │   📄 tech_arquitectura_diseno_de_api_gateway_para_enrutamien_140757.md (4.1KB)
-│   │   📄 tech_arquitectura_diseno_de_microservicios_con_bounded__140654.md (4.2KB)
-│   │   📄 tech_arquitectura_diseno_de_sistemas_tolerantes_a_fallo_140844.md (4.4KB)
-│   │   📄 tech_arquitectura_documentacion_de_arquitectura_con_c4__140908.md (4.5KB)
-│   │   📄 tech_arquitectura_implementacion_de_event_sourcing_para_140713.md (3.9KB)
-│   │   📄 tech_arquitectura_implementacion_de_saga_pattern_para_t_140821.md (4.4KB)
-│   │   📄 tech_arquitectura_migracion_de_monolito_a_microservicio_140935.md (4.8KB)
-│   │   📄 tech_arquitectura_patron_cqrs_para_separacion_de_lectur_140737.md (4.3KB)
-│   │   📄 tech_ciberseguridad_bastionado_de_apis_rest_con_jwt_y_o_071802.md (8.4KB)
-│   │   📄 tech_ciberseguridad_proteccion_de_historiales_clinicos__103339.md (4.6KB)
-│   │   📄 tech_claude_code_review_191402.md (3.2KB)
-│   │   📄 tech_claude_connectors_gratis_para_todos_los_usuarios_075847.md (3.6KB)
-│   │   📄 tech_cloud_orquestacion_de_microservicios_mediante_serv_071837.md (4.0KB)
-│   │   📄 tech_deep_123519.md (3.9KB)
-│   │   📄 tech_deep_123742.md (4.8KB)
-│   │   📄 tech_deep_123830.md (3.9KB)
-│   │   📄 tech_deep_123938.md (3.6KB)
-│   │   📄 tech_devops_iac_mediante_terraform_081713.md (5.0KB)
-│   │   📄 tech_devops_monitorizacion_con_prometheus_y_alertas_con_140544.md (4.9KB)
-│   │   📄 tech_devsecops_automatizacion_de_escaneo_de_vulnerabili_071924.md (3.6KB)
-│   │   📄 tech_edge_computing_procesamiento_de_telemetria_iot_en__081523.md (3.8KB)
-│   │   📄 tech_el_netflix_open_source_con_arquitectura_en_react_y_094903.md (4.6KB)
-│   │   📄 tech_entornos_pruebas_unitarias_y_de_integracion_con_mo_200039.md (4.3KB)
-│   │   📄 tech_ia_auditoria_de_codigo_generado_por_ia_con_script__140622.md (3.6KB)
-│   │   📄 tech_ia_con_gobernanza_deep_112341.md (3.2KB)
-│   │   📄 tech_java_21_migracion_de_codigo_legacy_a_virtual_threa_082010.md (3.4KB)
-│   │   📄 tech_java_21_migracion_de_codigo_legacy_a_virtual_threa_082041.md (4.0KB)
-│   │   📄 tech_java_implementacion_de_patron_factory_para_gestion_090131.md (4.9KB)
-│   │   📄 tech_java_optimizacion_de_estructuras_de_datos_mediante_090211.md (3.7KB)
-│   │   📄 tech_la_habilidad_mas_valiosa_en_2026_ya_no_es_programa_105031.md (3.5KB)
-│   │   📄 tech_pencil_lanza_swarm_mode_multiples_agentes_ia_disen_075731.md (5.0KB)
-│   │   📄 tech_plantillas_y_prompts_para_claude_code_productivida_080716.md (4.5KB)
-│   │   📄 tech_sanciones_de_la_ia_en_europa_2026_no_es_una_prorro_152727.md (4.2KB)
-│   │   📄 tech_sanciones_de_la_ia_en_europa_legal_avisa_del_riesg_152758.md (4.9KB)
-│   │   📄 tech_sanciones_de_la_ia_en_europa_multas_de_ia_en_2026__152828.md (3.8KB)
-│   │   📄 tech_security_gestion_de_secretos_con_hashicorp_vault_p_140456.md (4.2KB)
-│   │   📄 tech_sistemas_infraestructura_como_codigo_iac_mediante__072018.md (3.8KB)
-│   │   📄 tech_testing_implementacion_de_cicd_con_validacion_de_t_140414.md (4.5KB)
-│   │   📄 tech_testsprite_21_testing_ia_github_integration_075529.md (4.5KB)
-│   📂 Vanguardia_Tech/
-│   │   📄 implementación_monitorización_de_agentes_1126.md (7.3KB)
-│   📂 BigData_Streaming/
-│   │   📄 deep_kafka_streaming_con_testing_y_resiliencia_20260329_0048.md (52.6KB)
-│   📂 Ingenieria_DAM_Academico/
-│   │   📄 tech_20260320_144344.md (4.6KB)
-│   │   📄 tech_20260320_144435.md (3.1KB)
-│   │   📄 tech_20260321_094252.md (3.9KB)
-│   │   📄 tech_20260321_100555.md (4.4KB)
-│   │   📄 tech_20260321_100621.md (3.9KB)
-│   │   📄 tech_20260321_100717.md (4.1KB)
-│   │   📄 tech_20260321_100742.md (3.8KB)
-│   │   📄 tech_20260321_195301.md (4.6KB)
-│   │   📄 tech_20260322_114115.md (3.4KB)
-│   │   📄 tech_20260322_114254.md (4.4KB)
-│   │   📄 tech_20260322_114325.md (5.2KB)
-│   │   📄 tech_20260322_114349.md (3.2KB)
-│   │   📄 tech_20260323_091151.md (3.9KB)
-│   │   📄 tech_20260323_091417.md (4.6KB)
-│   │   📄 tech_20260323_155031.md (4.4KB)
-│   │   📄 tech_20260323_161439.md (4.7KB)
-│   │   📄 tech_20260325_090034.md (3.9KB)
-│   📂 Interfaces_Movil/
-│   │   📄 DOCUMENTACION_OptimizadorRutasGenetico.md (4.4KB)
-│   │   📄 OptimizadorRutasGenetico.java (4.6KB)
-│   │   📄 tech_arquitectura_de_estado_en_flutter_para_apps_movile_090050.md (6.3KB)
-│   │   📄 tech_arquitectura_de_estado_en_flutter_para_apps_movile_190913.md (3.1KB)
-│   📂 HealthTech/
-│   │   📄 tech_interoperabilidad_fhir_transformacion_de_hl7_v2_a__090100.md (9.8KB)
-│   📂 Interfaces_DI/
-│   │   📄 .gitkeep (0.0B)
-│   │   📄 RefactorizaciónStrategy.java (2.9KB)
-│   │   📄 SecureCloudStorageService.java (4.6KB)
-│   │   📄 TechSolution.java (4.1KB)
-│   │   📄 microfrontend_ai_native.java (5.0KB)
-│   📂 agents/
-│   │   📄 auditor.py (2.6KB)
-│   │   📄 muscle.py (1.2KB)
-│   │   📄 radar.py (1.1KB)
-│   📂 Arquitectura_Vanguardia/
-│   │   📄 DOC_ciberseguridad_implementación_de_modelos.md (5.2KB)
-│   📂 data/
-│   │   📂 vector_db/
-│   📂 core/
-│   │   📄 orchestrator.py (7.3KB)
-│   📂 BigData_LMSGI/
-│   │   📄 .gitkeep (0.0B)
-│   │   📄 AnalisisBigData.java (7.3KB)
-│   │   📄 ProcesadorDeArchivosJSON.java (3.1KB)
-│   │   📄 TechSolution.java (2.2KB)
-│   📂 Arquitectura/
-│   │   📄 deep_test_arquitectura_con_control_de_secciones_20260329_0935.md (63.1KB)
+    📄 .gitignore  (25.0B, 2026-03-30 13:47)
+    📄 HANDOFF.md  (673.0B, 2026-05-03 07:36)
+    📄 INVENTARIO_SISTEMA.md  (67.4KB, 2026-05-03 08:26)
+    📄 README.md  (3.2KB, 2026-04-01 13:10)
+    📄 cache.json  (30.8KB, 2026-03-31 22:41)
+    📄 cure.py  (8.3KB, 2026-04-25 22:08)
+    📄 engine.log  (241.7KB, 2026-04-26 12:30)
+    📄 engine.py  (23.7KB, 2026-04-03 22:48)
+    📄 engine_bak.py  (13.3KB, 2026-03-30 13:40)
+    📄 engine_v18_bak.py  (8.9KB, 2026-04-02 11:44)
+    📄 generar_inventario.py  (27.1KB, 2026-04-17 16:29)
+    📄 generar_inventario_v3.3_backup.py  (16.2KB, 2026-04-03 22:21)
+    📄 generar_inventario_v3.4_backup.py  (22.4KB, 2026-04-17 16:27)
+    📄 openclaw.log  (35.0KB, 2026-04-26 12:30)
+    📄 openclaw_results.json  (3.9KB, 2026-04-26 12:30)
+    📄 openclaw_v9.py  (10.4KB, 2026-04-26 10:37)
+    📄 pom.xml  (1.8KB, 2026-03-30 13:40)
+    📄 racha.log  (78.9KB, 2026-04-26 12:30)
+    📄 racha.py  (4.8KB, 2026-04-02 14:59)
+    📄 racha_metrics.json  (18.5KB, 2026-04-26 12:30)
+    📄 repair_section.py  (1.4KB, 2026-03-30 13:40)
+    📄 reparar_config.py  (1.6KB, 2026-03-30 13:40)
+    📄 score_historico.json  (17.4KB, 2026-04-26 12:30)
+    📄 section_cache.json  (2.9MB, 2026-04-26 12:30)
+    📄 skills.txt  (1.4KB, 2026-04-01 17:03)
+    📄 temas_rafaga.txt  (1.3KB, 2026-04-25 22:13)
+    📂 Android_PMDM/
+        📄 .gitkeep  (0.0B, 2026-03-30 13:40)
+        📄 MainActivity.java  (3.4KB, 2026-03-30 13:40)
+        📄 TechSolution.java  (4.4KB, 2026-03-30 13:40)
+    📂 Arquitectura/
+        📄 deep_test_arquitectura_con_control_de_secciones_20260329_0935.md  (63.1KB, 2026-03-30 13:40)
+    📂 Arquitectura_Vanguardia/
+        📄 DOC_ciberseguridad_implementación_de_modelos.md  (5.2KB, 2026-03-30 13:40)
+    📂 BBDD_Acceso/
+        📄 .gitkeep  (0.0B, 2026-03-30 13:40)
+        📄 TechSolution.java  (3.1KB, 2026-03-30 13:40)
+        📄 TechnicalSolution_20260319_095852.sql  (1.2KB, 2026-03-30 13:40)
+        📄 auditoria_triggers.sql  (1.7KB, 2026-03-30 13:40)
+        📄 optimizacion_con_indice_cubiente.sql  (1.2KB, 2026-03-30 13:40)
+    📂 BasesDatos/
+        📄 README.md  (153.0B, 2026-03-30 13:40)
+        📄 optimización_de_índices_en_bases_de_datos_relacionales_20260328_1650.md  (100.0B, 2026-03-30 13:40)
+        📄 optimización_de_índices_en_bases_de_datos_relacionales_20260328_1653.md  (5.0KB, 2026-03-30 13:40)
+        📄 pgvector_integration.sql  (1.4KB, 2026-03-30 13:40)
+    📂 BasesDatos_AI/
+        📄 Neo4jConfig.java  (564.0B, 2026-03-30 13:40)
+        📄 README.md  (3.8KB, 2026-03-30 13:40)
+        📄 User.java  (381.0B, 2026-03-30 13:40)
+        📄 pom.xml  (2.5KB, 2026-03-30 13:40)
+    📂 BigData_LMSGI/
+        📄 .gitkeep  (0.0B, 2026-03-30 13:40)
+        📄 AnalisisBigData.java  (7.3KB, 2026-03-30 13:40)
+        📄 ProcesadorDeArchivosJSON.java  (3.1KB, 2026-03-30 13:40)
+        📄 TechSolution.java  (2.2KB, 2026-03-30 13:40)
+    📂 BigData_Streaming/
+        📄 deep_kafka_streaming_con_testing_y_resiliencia_20260329_0048.md  (52.6KB, 2026-03-30 13:40)
+    📂 Core_Backend/
+        📄 HighConcurrencyExample.java  (1.7KB, 2026-03-30 13:40)
+        📄 README.md  (149.0B, 2026-03-30 13:40)
+        📄 arquitectura_de_microservicios_reactivos_con_spring_boot_3.4_y_project_loom_20260328_1713.md  (30.6KB, 2026-03-30 13:40)
+        📄 optimización_de_consultas_sql_en_java_20260328_1702.md  (4.5KB, 2026-03-30 13:40)
+        📄 optimización_de_consultas_sql_en_java_20260328_1710.md  (3.0KB, 2026-03-30 13:40)
+        📄 std_arquitectura:_migración_de_monolito_a_microservicios_con_strangler_fig_pattern_20260329_0915.md  (6.9KB, 2026-03-30 13:40)
+        📄 std_manual_de_recuperación_de_git:_protocolo_rebase_y_sincronización_de_emergencia_20260329_2122.md  (52.4KB, 2026-03-30 13:40)
+        📄 tech_patron_saga_para_transacciones_distribuidas_en_mic_123719.md  (9.5KB, 2026-03-30 13:40)
+        📄 tech_refactorizacion_de_monolitos_a_microservicios_estr_071936.md  (7.5KB, 2026-03-30 13:40)
+    📂 Core_Ingenieria/
+        📄 DOC_edge_computing_procesamiento_de_telemetr.md  (6.0KB, 2026-03-30 13:40)
+        📄 DOC_proyecto_sistema_integral_de_gestión_ciu.md  (4.2KB, 2026-03-30 13:40)
+    📂 Core_Prog/
+        📄 .gitkeep  (0.0B, 2026-03-30 13:40)
+        📄 GenericosYColeccionesAvanzadas.java  (3.4KB, 2026-03-30 13:40)
+        📄 TechnicalSolution_20260319_094306.java  (1.5KB, 2026-03-30 13:40)
+        📄 TechnicalSolution_20260319_094325.java  (1.4KB, 2026-03-30 13:40)
+        📄 TechnicalSolution_20260319_094341.java  (1.3KB, 2026-03-30 13:40)
+        📄 TechnicalSolution_20260319_094400.java  (2.1KB, 2026-03-30 13:40)
+        📄 TechnicalSolution_20260319_094415.java  (641.0B, 2026-03-30 13:40)
+        📄 TechnicalSolution_20260319_094432.java  (1.7KB, 2026-03-30 13:40)
+        📄 agentes_ia_computer_use_linux.md  (2.7KB, 2026-03-30 13:40)
+        📄 backup_monitor.sh  (3.4KB, 2026-03-30 13:40)
+        📄 comparativo_microservicios_monolito_scalabilidad.md  (4.1KB, 2026-03-30 13:40)
+        📄 java_tip_20260319_092851.md  (790.0B, 2026-03-30 13:40)
+        📄 java_tip_20260319_092903.md  (1.0KB, 2026-03-30 13:40)
+        📄 java_tip_20260319_092912.md  (1013.0B, 2026-03-30 13:40)
+        📄 java_tip_20260319_092935.md  (736.0B, 2026-03-30 13:40)
+        📄 java_tip_20260319_092943.md  (738.0B, 2026-03-30 13:40)
+        📄 java_tip_20260319_092953.md  (606.0B, 2026-03-30 13:40)
+    📂 Frontend_UX/
+        📄 std_frontend:_internacionalización_(i18n)_con_soporte_multi-idioma_20260329_1514.md  (39.0KB, 2026-03-30 13:40)
+        📄 std_frontend:_validación_de_formularios_en_tiempo_real_con_expresiones_regulares_20260329_1436.md  (42.4KB, 2026-03-30 13:40)
+    📂 HealthTech/
+        📄 tech_interoperabilidad_fhir_transformacion_de_hl7_v2_a__090100.md  (9.8KB, 2026-03-30 13:40)
+    📂 IA_Agentes/
+        📄 AgentSelfReflection.py  (3.1KB, 2026-03-30 13:40)
+        📄 CrewAIApplication.java  (372.0B, 2026-03-30 13:40)
+        📄 CrewAISecurityConfig.java  (380.0B, 2026-03-30 13:40)
+        📄 MultiAgentOrchestrator.java**  (1.5KB, 2026-03-30 13:40)
+        📄 README.md  (2.8KB, 2026-03-30 13:40)
+        📄 UserService.java  (703.0B, 2026-03-30 13:40)
+        📄 llm_evaluation_framework.py  (3.3KB, 2026-03-30 13:40)
+        📄 main.py  (3.7KB, 2026-03-30 13:40)
+        📄 requirements.txt  (95.0B, 2026-03-30 13:40)
+        📄 run_benchmark.py  (2.8KB, 2026-03-30 13:40)
+        📄 tech_sistemas_rag_avanzados_reranking_y_embeddings_loca_090052.md  (7.6KB, 2026-03-30 13:40)
+        📄 tool_function_calling_integration.py  (2.0KB, 2026-03-30 13:40)
+    📂 Ingenieria_DAM/
+        📄 implementación_patrón_factory_para_gesti_1212.md  (5.3KB, 2026-03-30 13:40)
+    📂 Ingenieria_DAM_Academico/
+        📄 tech_20260320_144344.md  (4.6KB, 2026-03-30 13:40)
+        📄 tech_20260320_144435.md  (3.1KB, 2026-03-30 13:40)
+        📄 tech_20260321_094252.md  (3.9KB, 2026-03-30 13:40)
+        📄 tech_20260321_100555.md  (4.4KB, 2026-03-30 13:40)
+        📄 tech_20260321_100621.md  (3.9KB, 2026-03-30 13:40)
+        📄 tech_20260321_100717.md  (4.1KB, 2026-03-30 13:40)
+        📄 tech_20260321_100742.md  (3.8KB, 2026-03-30 13:40)
+        📄 tech_20260321_195301.md  (4.6KB, 2026-03-30 13:40)
+        📄 tech_20260322_114115.md  (3.4KB, 2026-03-30 13:40)
+        📄 tech_20260322_114254.md  (4.4KB, 2026-03-30 13:40)
+        📄 tech_20260322_114325.md  (5.2KB, 2026-03-30 13:40)
+        📄 tech_20260322_114349.md  (3.2KB, 2026-03-30 13:40)
+        📄 tech_20260323_091151.md  (3.9KB, 2026-03-30 13:40)
+        📄 tech_20260323_091417.md  (4.6KB, 2026-03-30 13:40)
+        📄 tech_20260323_155031.md  (4.4KB, 2026-03-30 13:40)
+        📄 tech_20260323_161439.md  (4.7KB, 2026-03-30 13:40)
+        📄 tech_20260325_090034.md  (3.9KB, 2026-03-30 13:40)
+    📂 Interfaces_DI/
+        📄 .gitkeep  (0.0B, 2026-03-30 13:40)
+        📄 RefactorizaciónStrategy.java  (2.9KB, 2026-03-30 13:40)
+        📄 SecureCloudStorageService.java  (4.6KB, 2026-03-30 13:40)
+        📄 TechSolution.java  (4.1KB, 2026-03-30 13:40)
+        📄 microfrontend_ai_native.java  (5.0KB, 2026-03-30 13:40)
+    📂 Interfaces_Movil/
+        📄 DOCUMENTACION_OptimizadorRutasGenetico.md  (4.4KB, 2026-03-30 13:40)
+        📄 OptimizadorRutasGenetico.java  (4.6KB, 2026-03-30 13:40)
+        📄 tech_arquitectura_de_estado_en_flutter_para_apps_movile_090050.md  (6.3KB, 2026-03-30 13:40)
+        📄 tech_arquitectura_de_estado_en_flutter_para_apps_movile_190913.md  (3.1KB, 2026-03-30 13:40)
+    📂 Java_Elite/
+        📄 README.md  (1.4KB, 2026-03-30 15:18)
+        📄 arquitectura_hexagonal_y_clean_code_en_java_21_STAFF.md  (47.5KB, 2026-03-30 16:49)
+        📄 metadata_seguridad_ofensiva_y_auditoría_de_microservicios_con_java_21.json  (221.0B, 2026-03-30 15:13)
+        📄 optimización_de_rendimiento_en_jvm_y_estrategias_de_caché_distribuida_con_redis_y_java_21_STAFF.md  (57.5KB, 2026-03-30 20:03)
+        📄 seguridad_ofensiva_y_auditoría_de_microservicios_con_java_21_STAFF.md  (10.2KB, 2026-03-30 19:14)
+    📂 Otros_Activos_Mastery/
+        📄 kubernetes:_auto-escalado_y_service_mesh_en_2026_STAFF.md  (9.3KB, 2026-04-01 13:10)
+    📂 PSP/
+        📄 .gitkeep  (0.0B, 2026-03-30 13:40)
+        📄 ServerMultiHilo.java  (3.4KB, 2026-03-30 13:40)
+        📄 TechSolution.java  (2.5KB, 2026-03-30 13:40)
+        📄 TechSolution_1107.java  (3.4KB, 2026-03-30 13:40)
+        📄 ThreadStateManagement.java  (3.1KB, 2026-03-30 13:40)
+        📄 ThreadSynchronization.java  (3.0KB, 2026-03-30 13:40)
+    📂 SRE_Resiliencia/
+        📄 README.md  (172.0B, 2026-03-30 13:40)
+        📄 metrics_service.py  (1.3KB, 2026-03-30 13:40)
+        📄 std_kafka_streams_con_kubernetes_y_observabilidad_2026_20260329_1612.md  (48.4KB, 2026-03-30 13:40)
+        📄 tracing_service.py  (1.3KB, 2026-03-30 13:40)
+    📂 SRE_Vanguardia/
+        📄 Dockerfile  (497.0B, 2026-03-30 13:40)
+        📄 README.md  (3.5KB, 2026-03-30 13:40)
+        📄 deep_sistemas_de_alta_disponibilidad_en_java_21_con_kubernetes_20260328_2129.md  (47.4KB, 2026-03-30 13:40)
+        📄 main.py  (1.2KB, 2026-03-30 13:40)
+        📄 nlp_processor.py  (1.3KB, 2026-03-30 13:40)
+        📄 recommendation_system.py  (1.5KB, 2026-03-30 13:40)
+        📄 relevance_scoring_engine.py  (1.0KB, 2026-03-30 13:40)
+        📄 requirements.txt  (103.0B, 2026-03-30 13:40)
+        📄 vllm_server.py  (1.8KB, 2026-03-30 13:40)
+        📄 web_crawler.py  (1.9KB, 2026-03-30 13:40)
+    📂 Seguridad_2026/
+        📄 Dockerfile  (418.0B, 2026-03-30 13:40)
+        📄 README.md  (3.9KB, 2026-03-30 13:40)
+        📄 entrypoint.sh  (530.0B, 2026-03-30 13:40)
+        📄 tech_analisis_de_sbom_con_cyclonedx_para_supply_chain_s_191141.md  (3.7KB, 2026-03-30 13:40)
+    📂 Sistemas_IPE/
+        📄 .gitkeep  (0.0B, 2026-03-30 13:40)
+        📄 KernelReal2026.md  (5.1KB, 2026-03-30 13:40)
+        📄 KernelSolution_2026.md  (3.8KB, 2026-03-30 13:40)
+        📄 RealKernelReport_2026.md  (4.6KB, 2026-03-30 13:40)
+        📄 Reporte_Criticidad_2026.md  (4.4KB, 2026-03-30 13:40)
+        📄 critical_kernel_report_2026.md  (3.3KB, 2026-03-30 13:40)
+        📄 critical_kernel_report_2026_1316.md  (3.2KB, 2026-03-30 13:40)
+    📂 Testing/
+        📄 DatabaseServiceTest.java  (2.9KB, 2026-03-30 13:40)
+        📄 README.md  (162.0B, 2026-03-30 13:40)
+    📂 Utils/
+        📄 ARQUITECTURA.md  (209.0B, 2026-03-30 13:40)
+        📄 INVENTARIO_SISTEMA.md  (107.5KB, 2026-03-30 15:43)
+        📄 fix_config.py  (1.8KB, 2026-03-30 13:40)
+        📄 fix_ollama.py  (959.0B, 2026-03-30 13:40)
+    📂 Vanguardia_Tech/
+        📄 implementación_monitorización_de_agentes_1126.md  (7.3KB, 2026-03-30 13:40)
+    📂 Vanguardia_Tech_2026/
+        📄 data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md  (9.7KB, 2026-03-30 20:16)
+        📄 metadata_bigdata_etl_con_pyspark_para_transformaci_n_masiva_20260328_145426.json  (273.0B, 2026-03-30 13:40)
+        📄 tech_20260320_144412.md  (4.5KB, 2026-03-30 13:40)
+        📄 tech_20260320_144504.md  (4.5KB, 2026-03-30 13:40)
+        📄 tech_20260321_092023.md  (3.6KB, 2026-03-30 13:40)
+        📄 tech_20260321_093448.md  (4.3KB, 2026-03-30 13:40)
+        📄 tech_20260321_100649.md  (4.6KB, 2026-03-30 13:40)
+        📄 tech_20260322_114214.md  (3.9KB, 2026-03-30 13:40)
+        📄 tech_20260322_114419.md  (4.5KB, 2026-03-30 13:40)
+        📄 tech_20260322_114447.md  (4.3KB, 2026-03-30 13:40)
+        📄 tech_20260322_114736.md  (1.4KB, 2026-03-30 13:40)
+        📄 tech_20260322_114840.md  (3.8KB, 2026-03-30 13:40)
+        📄 tech_20260322_115248.md  (4.0KB, 2026-03-30 13:40)
+        📄 tech_20260324_090034.md  (3.9KB, 2026-03-30 13:40)
+        📄 tech_20260325_165123.md  (3.7KB, 2026-03-30 13:40)
+        📄 tech_20260325_173905.md  (4.8KB, 2026-03-30 13:40)
+        📄 tech_20260325_174710.md  (3.4KB, 2026-03-30 13:40)
+        📄 tech_20260325_180510.md  (4.4KB, 2026-03-30 13:40)
+        📄 tech_arquitectura_de_microservicios_migracion_de_monoli_192936.md  (7.4KB, 2026-03-30 13:40)
+        📄 tech_arquitectura_diseno_de_api_gateway_para_enrutamien_140757.md  (4.1KB, 2026-03-30 13:40)
+        📄 tech_arquitectura_diseno_de_microservicios_con_bounded__140654.md  (4.2KB, 2026-03-30 13:40)
+        📄 tech_arquitectura_diseno_de_sistemas_tolerantes_a_fallo_140844.md  (4.4KB, 2026-03-30 13:40)
+        📄 tech_arquitectura_documentacion_de_arquitectura_con_c4__140908.md  (4.5KB, 2026-03-30 13:40)
+        📄 tech_arquitectura_implementacion_de_event_sourcing_para_140713.md  (3.9KB, 2026-03-30 13:40)
+        📄 tech_arquitectura_implementacion_de_saga_pattern_para_t_140821.md  (4.4KB, 2026-03-30 13:40)
+        📄 tech_arquitectura_migracion_de_monolito_a_microservicio_140935.md  (4.8KB, 2026-03-30 13:40)
+        📄 tech_arquitectura_patron_cqrs_para_separacion_de_lectur_140737.md  (4.3KB, 2026-03-30 13:40)
+        📄 tech_ciberseguridad_bastionado_de_apis_rest_con_jwt_y_o_071802.md  (8.4KB, 2026-03-30 13:40)
+        📄 tech_ciberseguridad_proteccion_de_historiales_clinicos__103339.md  (4.6KB, 2026-03-30 13:40)
+        📄 tech_claude_code_review_191402.md  (3.2KB, 2026-03-30 13:40)
+        📄 tech_claude_connectors_gratis_para_todos_los_usuarios_075847.md  (3.6KB, 2026-03-30 13:40)
+        📄 tech_cloud_orquestacion_de_microservicios_mediante_serv_071837.md  (4.0KB, 2026-03-30 13:40)
+        📄 tech_deep_123519.md  (3.9KB, 2026-03-30 13:40)
+        📄 tech_deep_123742.md  (4.8KB, 2026-03-30 13:40)
+        📄 tech_deep_123830.md  (3.9KB, 2026-03-30 13:40)
+        📄 tech_deep_123938.md  (3.6KB, 2026-03-30 13:40)
+        📄 tech_devops_iac_mediante_terraform_081713.md  (5.0KB, 2026-03-30 13:40)
+        📄 tech_devops_monitorizacion_con_prometheus_y_alertas_con_140544.md  (4.9KB, 2026-03-30 13:40)
+        📄 tech_devsecops_automatizacion_de_escaneo_de_vulnerabili_071924.md  (3.6KB, 2026-03-30 13:40)
+        📄 tech_edge_computing_procesamiento_de_telemetria_iot_en__081523.md  (3.8KB, 2026-03-30 13:40)
+        📄 tech_el_netflix_open_source_con_arquitectura_en_react_y_094903.md  (4.6KB, 2026-03-30 13:40)
+        📄 tech_entornos_pruebas_unitarias_y_de_integracion_con_mo_200039.md  (4.3KB, 2026-03-30 13:40)
+        📄 tech_ia_auditoria_de_codigo_generado_por_ia_con_script__140622.md  (3.6KB, 2026-03-30 13:40)
+        📄 tech_ia_con_gobernanza_deep_112341.md  (3.2KB, 2026-03-30 13:40)
+        📄 tech_java_21_migracion_de_codigo_legacy_a_virtual_threa_082010.md  (3.4KB, 2026-03-30 13:40)
+        📄 tech_java_21_migracion_de_codigo_legacy_a_virtual_threa_082041.md  (4.0KB, 2026-03-30 13:40)
+        📄 tech_java_implementacion_de_patron_factory_para_gestion_090131.md  (4.9KB, 2026-03-30 13:40)
+        📄 tech_java_optimizacion_de_estructuras_de_datos_mediante_090211.md  (3.7KB, 2026-03-30 13:40)
+        📄 tech_la_habilidad_mas_valiosa_en_2026_ya_no_es_programa_105031.md  (3.5KB, 2026-03-30 13:40)
+        📄 tech_pencil_lanza_swarm_mode_multiples_agentes_ia_disen_075731.md  (5.0KB, 2026-03-30 13:40)
+        📄 tech_plantillas_y_prompts_para_claude_code_productivida_080716.md  (4.5KB, 2026-03-30 13:40)
+        📄 tech_sanciones_de_la_ia_en_europa_2026_no_es_una_prorro_152727.md  (4.2KB, 2026-03-30 13:40)
+        📄 tech_sanciones_de_la_ia_en_europa_legal_avisa_del_riesg_152758.md  (4.9KB, 2026-03-30 13:40)
+        📄 tech_sanciones_de_la_ia_en_europa_multas_de_ia_en_2026__152828.md  (3.8KB, 2026-03-30 13:40)
+        📄 tech_security_gestion_de_secretos_con_hashicorp_vault_p_140456.md  (4.2KB, 2026-03-30 13:40)
+        📄 tech_sistemas_infraestructura_como_codigo_iac_mediante__072018.md  (3.8KB, 2026-03-30 13:40)
+        📄 tech_testing_implementacion_de_cicd_con_validacion_de_t_140414.md  (4.5KB, 2026-03-30 13:40)
+        📄 tech_testsprite_21_testing_ia_github_integration_075529.md  (4.5KB, 2026-03-30 13:40)
+    📂 _archive/
+        📄 config.py  (3.9KB, 2026-03-30 13:40)
+    📂 agents/
+        📄 auditor.py  (2.6KB, 2026-03-30 13:40)
+        📄 muscle.py  (1.2KB, 2026-03-30 13:40)
+        📄 radar.py  (1.1KB, 2026-03-30 13:40)
+    📂 config/
+        📄 settings.json  (406.0B, 2026-03-30 13:40)
+    📂 core/
+        📄 orchestrator.py  (7.7KB, 2026-04-01 13:28)
+    📂 data/
+        📂 vector_db/
+    📂 skills/
+        📄 skill_informe_40pag.md  (6.8KB, 2026-03-30 13:40)
+    📂 src/
+        📂 main/
+            📂 java/
+                📂 com/
+                    📂 joaquin/
+                        📂 resilience/
+                            📄 CircuitBreakerController.java  (1.9KB, 2026-03-30 13:40)
+                            📂 controller/
+                                📄 ResilienceController.java  (1.1KB, 2026-03-30 13:40)
+                            📂 service/
+                                📄 ExternalApiService.java  (597.0B, 2026-03-30 13:40)
+            📂 resources/
+                📄 application.yml  (554.0B, 2026-03-30 13:40)
+    📂 target/
+        📂 classes/
+            📄 application.yml  (554.0B, 2026-03-30 13:40)
+            📂 com/
+                📂 joaquin/
+                    📂 resilience/
+                        📄 CircuitBreakerController.class  (2.1KB, 2026-03-30 13:40)
+                        📂 controller/
+                            📄 ResilienceController.class  (1.7KB, 2026-03-30 13:40)
+                        📂 service/
+                            📄 ExternalApiService.class  (805.0B, 2026-03-30 13:40)
+        📂 maven-status/
+            📂 maven-compiler-plugin/
+                📂 compile/
+                    📂 default-compile/
+                        📄 createdFiles.lst  (171.0B, 2026-03-30 13:40)
+                        📄 inputFiles.lst  (384.0B, 2026-03-30 13:40)
 ```
 
 ---
 
-## 📄 Contenido de Archivos Python
+## Codigo Fuente (archivos .py)
 
-### `config.py` (3.9KB, 120 líneas, modificado: 2026-03-30 13:40)
+### `cure.py`
+
+- **Tamano:** 8.3KB
+- **Lineas:** 248
+- **Modificado:** 2026-04-25 22:08
 
 ```python
 #!/usr/bin/env python3
 """
-Configuración centralizada del Authority Engine.
-Todos los scripts importan de aquí — cero duplicación.
+cure.py v3.0 — Cirujano de Inyección con flujo Review
+Authority Engine — Joaquín Ríos Heredia
+
+Cambios v3.0:
+- Reemplaza el documento completo en lugar de inyectar sección a sección
+- Más robusto: funciona con cualquier estructura que venga de Claude
+- Mantiene los metadatos PATH_LOCAL y CATEGORIA del original
+- Backup, diff, score y git push sin cambios
+"""
+
+import re
+import sys
+import shutil
+import difflib
+from pathlib import Path
+import subprocess
+import os
+
+try:
+    from engine import evaluar, CONFIG, log
+except ImportError as e:
+    print(f"❌ No se pudo importar engine.py: {e}")
+    print("   Ejecuta cure.py desde ~/AuthorityEngine/")
+    sys.exit(1)
+
+REPO_ROOT = Path(CONFIG["REPO_ROOT"])
+
+
+# ── Git ────────────────────────────────────────────────────────────────────────
+
+def git_push_definitivo(path: Path, tema: str, score: int, categoria: str) -> bool:
+    try:
+        os.chdir(REPO_ROOT)
+
+        result = subprocess.run(
+            ["git", "pull", "--rebase"],
+            capture_output=True, text=True
+        )
+        if result.returncode != 0:
+            log("⚠️  git pull conflicto — abortando rebase")
+            subprocess.run(["git", "rebase", "--abort"], check=False)
+            return False
+
+        subprocess.run(["git", "add", str(path)], check=True)
+        subprocess.run(["git", "commit", "-m",
+            f"feat: {tema} [{categoria}] (Score:{score}) — revisado por Claude"],
+            check=True)
+        subprocess.run(["git", "push"], check=True)
+
+        log(f"✅ Publicado en {categoria}/ en GitHub")
+        return True
+    except Exception as e:
+        log(f"⚠️  Git fallo: {e}")
+        return False
+
+
+# ── Backup ────────────────────────────────────────────────────────────────────
+
+def crear_backup(path: Path) -> Path:
+    backup = path.with_suffix(".md.bak")
+    shutil.copy2(path, backup)
+    return backup
+
+def restaurar_backup(path: Path, backup: Path):
+    shutil.copy2(backup, path)
+    log(f"↩  Restaurado desde {backup.name}")
+
+
+# ── Extracción de metadatos ───────────────────────────────────────────────────
+
+def extraer_path(texto: str) -> Path | None:
+    m = re.search(r"PATH_LOCAL:\s*(.+)", texto)
+    if not m:
+        return None
+    return Path(m.group(1).strip())
+
+def extraer_categoria(texto: str) -> str:
+    m = re.search(r"CATEGORIA:\s*(.+)", texto)
+    if m:
+        return m.group(1).strip()
+    return "10_Vanguardia"
+
+def extraer_tema(texto: str) -> str:
+    m = re.search(r"^#\s+(.+)", texto, re.M)
+    if m:
+        return m.group(1).strip()
+    return "documento"
+
+def nombre_archivo(tema: str) -> str:
+    nombre = tema.lower()
+    nombre = re.sub(r'[^\w\s]', '', nombre)
+    nombre = re.sub(r'\s+', '_', nombre.strip())
+    return nombre[:80] + "_STAFF.md"
+
+
+# ── Preparar documento final ──────────────────────────────────────────────────
+
+def preparar_documento(contenido_claude: str, path_original: Path) -> str:
+    """
+    Toma el documento refinado por Claude y asegura que tenga
+    los metadatos correctos (PATH_LOCAL, CATEGORIA, Score).
+    Reemplaza el contenido completo — no inyecta sección a sección.
+    """
+    # Extraer metadatos del documento de Claude
+    categoria = extraer_categoria(contenido_claude)
+    tema = extraer_tema(contenido_claude)
+
+    # Evaluar el score del contenido refinado
+    score, _ = evaluar(contenido_claude)
+
+    # Construir cabecera de metadatos limpia
+    cabecera = (
+        f"# {tema}\n\n"
+        f"PATH_LOCAL: {path_original}\n"
+        f"CATEGORIA: {categoria}\n"
+        f"Score: {score}\n\n"
+        f"---\n\n"
+    )
+
+... (128 líneas más no mostradas)
+```
+
+---
+
+### `engine.py`
+
+- **Tamano:** 23.7KB
+- **Lineas:** 643
+- **Modificado:** 2026-04-03 22:48
+
+```python
+#!/usr/bin/env python3
+"""
+engine.py v21.0 — Motor de Autoridad con GPU + Prompts Dinámicos
+Authority Engine — Joaquín Ríos Heredia
+
+Cambios v21.0:
+- Modelo cambiado a qwen2.5:7b (GPU completa, 6x más rápido)
+- Prompts específicos por sección (cada sección pide exactamente lo que necesita)
+- Búsquedas Tavily específicas por sección (contexto más preciso)
+- Secciones dinámicas por complejidad del tema (5, 7, 9 o 12 secciones)
+- Categorización corregida (tecnologías específicas antes que java 21)
 """
 
 import os
-from pathlib import Path
-
-CONFIG = {
-    # IA Local
-    "ollama_url": "http://localhost:11434/api/generate",
-    "modelo": "qwen2.5:14b",
-    
-    # Búsqueda Web
-    "tavily_key": os.environ.get("TAVILY_KEY"),
-    
-    # Rutas
-    "repo_base": Path.home() / ".openclaw" / "workspace" / "DAM-Java-Mastery",
-    "author_engine": Path.home() / "AuthorityEngine",
-    "skills": Path.home() / "AuthorityEngine" / "skills" / "skill_informe_40pag.md",
-    
-    # Umbrales de Calidad
-    "security_score_minimo": 75,
-    "min_palabras_seccion": 800,
-    
-    # Timeout (segundos)
-    "ollama_timeout": 900,
-    "tavily_timeout": 30,
-}
-
-# FOLDER_PRIORITIES con scoring
-# Formato: "keyword": ("carpeta_destino", prioridad)
-# Prioridad 10 = tecnologías específicas (evaluar primero)
-# Prioridad 5 = términos genéricos (evaluar después)
-# ⚠️ NOTA: NO incluir keywords de 2 letras como "ia" o "ai" (falsos positivos)
-# ⚠️ NOTA: "test" eliminado (genera falsos positivos con "testing", "latest", etc.)
-FOLDER_PRIORITIES = {
-    # Prioridad 10: Tecnologías específicas
-    "kafka": ("BigData_Streaming", 10),
-    "spark": ("BigData_Streaming", 10),
-    "flink": ("BigData_Streaming", 10),
-    "spring boot": ("Core_Backend", 10),
-    "springboot": ("Core_Backend", 10),
-    "kubernetes": ("SRE_Resiliencia", 10),
-    "k8s": ("SRE_Resiliencia", 10),
-    "ollama": ("IA_Agentes", 10),
-    "langchain": ("IA_Agentes", 10),
-    "postgresql": ("BasesDatos", 10),
-    "mongodb": ("BasesDatos", 10),
-    "oauth2": ("Seguridad", 10),
-    "jwt": ("Seguridad", 10),
-    "zero trust": ("Seguridad", 10),
-    "zerotrust": ("Seguridad", 10),
-    "data lake": ("BigData_Streaming", 10),
-    "datalake": ("BigData_Streaming", 10),
-    
-    # Prioridad 7: Términos semi-específicos
-    "streaming": ("BigData_Streaming", 7),
-    "bigdata": ("BigData_Streaming", 7),
-    "big data": ("BigData_Streaming", 7),
-    "microservicios": ("Core_Backend", 7),
-    "microservices": ("Core_Backend", 7),
-    "observability": ("SRE_Resiliencia", 7),
-    "resilience": ("SRE_Resiliencia", 7),
-    "chaos": ("SRE_Resiliencia", 7),
-    "docker": ("Cloud_DevOps", 7),
-    "terraform": ("Cloud_DevOps", 7),
-    "aws": ("Cloud_DevOps", 7),
-    "azure": ("Cloud_DevOps", 7),
-    "gcp": ("Cloud_DevOps", 7),
-    "redis": ("BasesDatos", 7),
-    "postgres": ("BasesDatos", 7),
-    "rag": ("IA_Agentes", 7),
-    "embeddings": ("IA_Agentes", 7),
-    "agentes": ("IA_Agentes", 7),
-    "pyspark": ("BigData_Streaming", 7),
-    "etl": ("BigData_Streaming", 7),
-    "plsql": ("BBDD_Acceso", 7),
-    "pl/sql": ("BBDD_Acceso", 7),
-    
-    # Prioridad 5: Términos genéricos + DAM Académico
-    "testing": ("Testing", 5),
-    # ❌ "test" ELIMINADO (falsos positivos)
-    "junit": ("Testing", 5),
-    "mockito": ("Testing", 5),
-    "selenium": ("Testing", 5),
-    "java": ("Core_Backend", 5),
-    "backend": ("Core_Backend", 5),
-    "spring": ("Core_Backend", 5),
-    "cloud": ("Cloud_DevOps", 5),
-    "devops": ("Cloud_DevOps", 5),
-    "security": ("Seguridad", 5),
-    "seguridad": ("Seguridad", 5),
-    "oauth": ("Seguridad", 5),
-    "sql": ("BasesDatos", 5),
-    "database": ("BasesDatos", 5),
-    "bbdd": ("BasesDatos", 5),
-    "fhir": ("HealthTech", 5),
-    "hl7": ("HealthTech", 5),
-
-
-... (20 líneas más)
-```
-
----
-
-### `engine.py` (14.4KB, 329 líneas, modificado: 2026-03-30 13:40)
-
-```python
-import os
-import sys
+import re
 import json
 import time
-import shutil
-import hashlib
-import logging
-import tempfile
-import threading
-import subprocess
 import requests
-import re
-
-from datetime import datetime
+import hashlib
+import atexit
+import subprocess
 from pathlib import Path
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from tavily import TavilyClient
+from datetime import datetime
 
-# ================== CONFIGURACIÓN DINÁMICA (SRE) ==================
-# Resolución dinámica del HOME para evitar hardcoding y asegurar portabilidad
-HOME_DIR = Path.home()
-
+# ================== CONFIG ==================
 CONFIG = {
+    "MODEL": "qwen2.5:7b",
     "OLLAMA_URL": "http://localhost:11434/api/generate",
-    "MODEL": "qwen2.5:14b",
-    "TAVILY_KEY": os.environ.get("TAVILY_KEY"),
-    "REPO_ROOT": str(HOME_DIR / ".openclaw" / "workspace" / "DAM-Java-Mastery"),
-    "CACHE_FILE": str(HOME_DIR / "AuthorityEngine" / "cache.json"),
-    "SKILL_ARCHIVO": str(HOME_DIR / "AuthorityEngine" / "skills" / "skill_informe_40pag.md"),
-    "LOG_FILE": str(HOME_DIR / "AuthorityEngine" / "engine.log"),
-    "CACHE_TTL": 86400,  # 24 horas de validez para la investigación web
-    "MAX_WORKERS": 4,    # Optimizado para los núcleos del Ryzen 7 5700X
-    "RETRIES": 3,
-    "MIN_WORDS": 400,
-    "DRY_RUN": False
+    "CACHE_SEC_TTL": 7200,
+    "MIN_WORDS": 300,
+    "SCORE_ACCEPTABLE": 70,
+    "SCORE_DEPLOY": 72,
+    "REPO_ROOT": "/home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery",
+    "REVIEW_DIR": "_Review",
+    "ELITE_DOMAINS": [
+        "spring.io", "github.com", "stackoverflow.com", "baeldung.com",
+        "oracle.com", "aws.amazon.com", "kubernetes.io", "kafka.apache.org",
+        "docs.docker.com", "istio.io", "prometheus.io"
+    ],
+    "BASE_PROMPT": """
+Senior Staff Engineer Java 21 / SRE
+
+REGLAS INNEGOCIABLES:
+- SOLO Java 21
+- Incluir ```java``` con código real y compilable
+- Incluir ```mermaid``` con graph TD o graph LR
+- Prohibido setters — usar Records o constructores
+- Records no usan extends
+- Español técnico, directo, sin introducciones genéricas
+- Mínimo 300 palabras por sección
+"""
 }
 
-# ================== LOGGING PROFESIONAL ==================
-os.makedirs(os.path.dirname(CONFIG["LOG_FILE"]), exist_ok=True)
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.FileHandler(CONFIG["LOG_FILE"], encoding="utf-8"),
-        logging.StreamHandler(sys.stdout)
-    ]
-)
+# ================== PROMPTS POR SECCIÓN ==================
+PROMPTS_SECCION = {
+    "Visión Estratégica": """
+Escribe la sección VISIÓN ESTRATÉGICA sobre el tema indicado.
+CONTENIDO OBLIGATORIO:
+- Por qué este tema es crítico en 2026 (con datos concretos)
+- Comparativa con alternativas (tabla markdown con 3-5 opciones)
+- Cuándo usar y cuándo NO usar esta tecnología
+- Trade-offs reales que un Staff Engineer debe conocer
+- Un diagrama Mermaid que muestre el contexto arquitectónico
+- Código Java 21 de ejemplo inicial
+""",
+    "Arquitectura de Componentes": """
+Escribe la sección ARQUITECTURA DE COMPONENTES sobre el tema indicado.
+CONTENIDO OBLIGATORIO:
+- Diagrama Mermaid detallado de la arquitectura (subgraphs si aplica)
+- Descripción de cada componente y su responsabilidad
+- Patrones de diseño aplicados (con justificación)
+- Configuración de producción en código Java 21 (Records, sin setters)
+- Decisiones arquitectónicas clave y sus trade-offs
+""",
+    "Implementación Java 21": """
+Escribe la sección IMPLEMENTACIÓN JAVA 21 sobre el tema indicado.
+CONTENIDO OBLIGATORIO:
+- Implementación completa y real (código que compile en Java 21)
+- Usar Records para modelos de datos (sin setters)
+- Usar Pattern Matching y Switch Expressions donde aplique
+- Usar Virtual Threads si hay operaciones I/O
+- Usar Sealed Interfaces si hay jerarquía de tipos
+- Diagrama Mermaid del flujo de implementación
+- Manejo de errores con tipos específicos
+""",
+    "Métricas y SRE": """
+Escribe la sección MÉTRICAS Y SRE sobre el tema indicado.
+CONTENIDO OBLIGATORIO:
+- Métricas clave en formato tabla (nombre, descripción, umbral de alerta)
+- Queries Prometheus/PromQL reales para monitorizar
+- Diagrama Mermaid del flujo de observabilidad
+- Código Java 21 para exponer métricas (Micrometer)
+- Checklist SRE para producción (mínimo 5 puntos concretos)
+- Errores más comunes en producción y cómo detectarlos
+""",
+    "Seguridad y Superficie de Ataque": """
+Escribe la sección SEGURIDAD Y SUPERFICIE DE ATAQUE sobre el tema indicado.
+CONTENIDO OBLIGATORIO:
+- Principales vectores de ataque específicos de esta tecnología
+- Diagrama Mermaid del modelo de amenazas
+- Código Java 21 con implementación segura (sin vulnerabilidades)
+- Configuración de seguridad recomendada para producción
+- Checklist de hardening específico
+""",
+    "Validación y Estrategia de Pruebas": """
+Escribe la sección VALIDACIÓN Y ESTRATEGIA DE PRUEBAS sobre el tema indicado.
+CONTENIDO OBLIGATORIO:
+- Pirámide de tests aplicada a este tema específico
+- Código Java 21 con tests reales (JUnit 5, Mockito, Testcontainers)
+- Diagrama Mermaid de la estrategia de testing
+- Cobertura mínima recomendada y qué medir
+- Pruebas de integración y contrato si aplica
+""",
+    "Rendimiento y Capacidad Crítica": """
+Escribe la sección RENDIMIENTO Y CAPACIDAD CRÍTICA sobre el tema indicado.
+CONTENIDO OBLIGATORIO:
+- Benchmarks de referencia con números reales
+- Cuellos de botella más comunes y cómo detectarlos
+- Código Java 21 optimizado con Virtual Threads si aplica
+- Diagrama Mermaid del flujo de optimización
 
-def log(msg, level="info"):
-    getattr(logging, level)(msg)
-
-# ================== AUDITOR SRE (CALIDAD TÉCNICA) ==================
-def calcular_sre_score(resultados):
-    """
-    Evalúa la calidad del contenido generado basándose en criterios de Staff Engineer.
-    Penaliza placeholders, falta de código o brevedad excesiva.
-    """
-    if not resultados: 
-        return 0
-    score_total = 0
-    for texto in resultados.values():
-        s = 100
-        # Penalización por falta de bloques de código
-        if "```" not in texto: 
-            s -= 30
-        # Penalización por marcadores de posición (placeholders)
-        if re.search(r'\b(TODO|FIXME|PENDIENTE|IMPLEMENTAR)\b', texto.upper()): 
-            s -= 20
-        # Penalización por densidad de contenido insuficiente
-        if len(texto.split()) < CONFIG["MIN_WORDS"]: 
-            s -= 20
-        score_total += max(0, s)
-    return score_total // len(resultados)
-
-# ================== GESTIÓN DE CACHÉ ATÓMICA ==================
-cache_lock = threading.Lock()
-
-def gestionar_cache(tema, datos=None):
-    """
-    Maneja la persistencia de investigaciones web para optimizar el uso de la API de Tavily.
-    Utiliza un Lock para evitar condiciones de carrera en modo multihilo.
-    """
-    with cache_lock:
-        cache = {}
-        if os.path.exists(CONFIG["CACHE_FILE"]):
-            try:
-                with open(CONFIG["CACHE_FILE"], "r", encoding="utf-8") as f:
-                    cache = json.load(f)
-            except: 
-                pass
-        
-        key = hashlib.md5(tema.encode()).hexdigest()
-        
-        # Guardar en caché si se proporcionan datos nuevos
-        if datos:
-            cache[key] = {"data": datos, "ts": time.time()}
-            with open(CONFIG["CACHE_FILE"], "w", encoding="utf-8") as f:
-                json.dump(cache, f, indent=2, ensure_ascii=False)
-            return datos
-        
-
-
-... (229 líneas más)
+... (523 líneas más no mostradas)
 ```
 
 ---
 
-### `engine_bak.py` (13.3KB, 304 líneas, modificado: 2026-03-30 13:40)
+### `engine_bak.py`
+
+- **Tamano:** 13.3KB
+- **Lineas:** 304
+- **Modificado:** 2026-03-30 13:40
 
 ```python
 import os
@@ -1550,234 +697,835 @@ def seleccionar_secciones_inteligentes(tema, num_secciones, todas_las_secciones)
     try:
         respuesta = llamar_ollama(prompt)
         # Extraer números de la respuesta
+        numeros = [int(x.strip()) for x in respuesta.split(',') if x.strip().isdigit()]
+        
+        # Validar y seleccionar secciones
+        secciones_seleccionadas = []
+        for num in numeros:
+            if 1 <= num <= len(todas_las_secciones):
+                secciones_seleccionadas.append(todas_las_secciones[num - 1])
+        
+        # Si la IA no devolvió suficientes, rellenar con las restantes
+        if len(secciones_seleccionadas) < num_secciones:
+            for sec in todas_las_secciones:
+                if sec not in secciones_seleccionadas:
+                    secciones_seleccionadas.append(sec)
+                    if len(secciones_seleccionadas) >= num_secciones:
+                        break
+        
+        return secciones_seleccionadas[:num_secciones]
+    
+    except Exception as e:
+        log(f"Error en selección inteligente: {e}. Usando orden default.", "WARNING")
 
-
-... (204 líneas más)
+... (184 líneas más no mostradas)
 ```
 
 ---
 
-### `generar_inventario.py` (7.0KB, 195 líneas, modificado: 2026-03-30 13:40)
+### `engine_v18_bak.py`
+
+- **Tamano:** 8.9KB
+- **Lineas:** 309
+- **Modificado:** 2026-04-02 11:44
 
 ```python
-#!/usr/bin/env python3
-"""
-Genera un informe completo de la estructura de AuthorityEngine
-con metadatos y contenido de cada archivo.
-"""
-
-
 import os
+import re
+import json
+import time
+import requests
+import hashlib
+import atexit
 import subprocess
 from pathlib import Path
 from datetime import datetime
 
-BASE_DIR = Path.home() / "AuthorityEngine"
-OUTPUT_FILE = BASE_DIR / "INVENTARIO_SISTEMA.md"
+# ================== CONFIG ==================
+CONFIG = {
+    "MODEL": "qwen2.5:14b",
+    "OLLAMA_URL": "http://localhost:11434/api/generate",
+    "CACHE_SEC_TTL": 7200,
+    "MIN_WORDS": 450,
+    "SCORE_ACCEPTABLE": 70,
+    "SCORE_DEPLOY": 72,
+    "REPO_ROOT": "/home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery",
+    "ELITE_DOMAINS": [
+        "spring.io","github.com","stackoverflow.com","baeldung.com",
+        "oracle.com","aws.amazon.com","kubernetes.io"
+    ],
+    "BASE_PROMPT": """
+Senior Staff Engineer Java 21 / SRE
 
-# Directorios a excluir
-EXCLUDE_DIRS = {"__pycache__", ".git", "node_modules"}
+REGLAS:
+- SOLO Java 21
+- Incluir ```java``` y ```mermaid```
+- Mermaid empieza con graph TD/LR
+- Prohibido setters
+- Records no usan extends
+- Español, técnico, directo
 
-def get_file_size(size_bytes):
-    """Convierte bytes a formato legible."""
-    for unit in ['B', 'KB', 'MB', 'GB']:
+ESTRUCTURA:
+1. Análisis técnico
+2. Código Java
+3. Diagrama Mermaid
+4. Buenas prácticas SRE
+"""
+}
+
+# ================== LOCK ==================
+LOCK_FILE = "/tmp/engine.lock"
+
+def acquire_lock():
+    if os.path.exists(LOCK_FILE):
+        try:
+            with open(LOCK_FILE, "r") as f:
+                pid = int(f.read().strip())
+            os.kill(pid, 0)
+            print("❌ Otro proceso en ejecución")
+            exit(1)
+        except:
+            os.remove(LOCK_FILE)
+
+    with open(LOCK_FILE, "w") as f:
+        f.write(str(os.getpid()))
+
+    atexit.register(lambda: os.remove(LOCK_FILE) if os.path.exists(LOCK_FILE) else None)
+
+# ================== LOG ==================
+LOG_FILE = Path.home() / "AuthorityEngine/engine.log"
+LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+def log(msg):
+    print(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}")
+    try:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"{datetime.now().isoformat()} {msg}\n")
+    except:
+        pass
+
+# ================== LIMPIEZA REFORZADA ==================
+def limpiar_texto(texto):
+    # Eliminamos caracteres basura
+    texto = re.sub(r'[^\x00-\x7F\u00C0-\u017F\s]+', '', texto)
+    # Fix Mermaid headers
+    texto = re.sub(r'(graph\s+[T|L][D|R|B|T]);', r'\1', texto, flags=re.I)
+    # Asegura bloques de código con saltos de línea
+    texto = re.sub(r'```(java|mermaid)', r'\n```\1', texto)
+    return texto
+
+# ================== CACHE ==================
+CACHE_FILE = Path.home() / "AuthorityEngine/section_cache.json"
+CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+sec_cache = {}
+
+def load_cache():
+    global sec_cache
+    if CACHE_FILE.exists():
+        try:
+            sec_cache = json.loads(CACHE_FILE.read_text())
+        except:
+            sec_cache = {}
+
+def save_cache():
+    CACHE_FILE.write_text(json.dumps(sec_cache))
+
+def build_key(tema, seccion, prompt):
+    return hashlib.md5(f"{tema}|{seccion}|{prompt}".encode()).hexdigest()
+
+def get_cache(key):
+    e = sec_cache.get(key)
+    if not e:
+        return None
+    if time.time() - e["ts"] > CONFIG["CACHE_SEC_TTL"]:
+        return None
+    return e["content"]
+
+def set_cache(key, content):
+    sec_cache[key] = {"content": content, "ts": time.time()}
+    save_cache()
+
+# ================== WEB ==================
+def investigar_web(tema):
+    try:
+        from tavily import TavilyClient
+
+... (189 líneas más no mostradas)
+```
+
+---
+
+### `generar_inventario.py`
+
+- **Tamano:** 27.1KB
+- **Lineas:** 729
+- **Modificado:** 2026-04-17 16:29
+
+```python
+#!/usr/bin/env python3
+"""
+generar_inventario.py v3.5 — El Inventariador
+Authority Engine — Joaquín Ríos Heredia
+
+Cambios v3.5:
+  - Actualización automática de ROADMAP_TEMAS.md
+  - Marca [x] los temas que ya tienen _STAFF.md publicado
+  - Matching por similitud de palabras clave (umbral configurable)
+"""
+
+import os
+import sys
+import json
+import re
+import shutil
+import subprocess
+import tempfile
+import unicodedata
+from pathlib import Path
+from datetime import datetime
+from collections import defaultdict
+
+# ── CONFIGURACIÓN ─────────────────────────────────────────────────────────────
+BASE_DIR       = Path.home() / "AuthorityEngine"
+REPO_DIR       = Path.home() / ".openclaw" / "workspace" / "DAM-Java-Mastery"
+AUDIT_LOG      = Path.home() / ".openclaw" / "auditoria_sre_log.json"
+OUTPUT_SISTEMA = BASE_DIR / "INVENTARIO_SISTEMA.md"
+OUTPUT_MAESTRO = REPO_DIR / "INVENTARIO_MAESTRO.md"
+README         = REPO_DIR / "README.md"
+ROADMAP        = REPO_DIR / "ROADMAP_TEMAS.md"
+
+DRY_RUN        = "--dry-run" in sys.argv
+EXCLUDE_DIRS   = {"__pycache__", ".git", "node_modules", ".venv", "venv"}
+MAX_LINES_CODE = 120
+MAX_LINES_LOG  = 60
+
+# Umbral de similitud para marcar [x] en el roadmap
+# 0.35 = permisivo (más matches), 0.50 = estricto (menos matches)
+UMBRAL_SIMILITUD = 0.45
+
+CARPETAS_REPO = {
+    "01_Java_Core",
+    "02_Arquitectura",
+    "03_Spring_Ecosystem",
+    "04_Bases_de_Datos",
+    "05_SRE_DevOps",
+    "06_Seguridad",
+    "07_BigData_Streaming",
+    "08_IA_Agentes",
+    "09_Frontend_Mobile",
+    "10_Vanguardia",
+    "_Review",
+    "_Archive",
+}
+
+CARPETA_META = {
+    "01_Java_Core":        ("☕", "Java 21 Avanzado"),
+    "02_Arquitectura":     ("🏛️", "DDD, Hexagonal, Microservicios"),
+    "03_Spring_Ecosystem": ("🌱", "Spring Boot, R2DBC, WebFlux"),
+    "04_Bases_de_Datos":   ("🗄️", "PostgreSQL, Redis, MongoDB"),
+    "05_SRE_DevOps":       ("⚙️", "Kubernetes, Terraform, Observabilidad"),
+    "06_Seguridad":        ("🔐", "JWT, OAuth2, Zero Trust"),
+    "07_BigData_Streaming":("📊", "Kafka, Spark, Flink"),
+    "08_IA_Agentes":       ("🤖", "RAG, LangChain4j, LLMOps"),
+    "09_Frontend_Mobile":  ("📱", "Flutter, Android, Kotlin"),
+    "10_Vanguardia":       ("🔭", "Tendencias y novedades 2026"),
+}
+
+
+# ── UTILIDADES ────────────────────────────────────────────────────────────────
+def fmt_size(size_bytes: int) -> str:
+    for unit in ["B", "KB", "MB", "GB"]:
         if size_bytes < 1024:
             return f"{size_bytes:.1f}{unit}"
         size_bytes /= 1024
     return f"{size_bytes:.1f}TB"
 
-def get_file_content(filepath, max_lines=100):
-    """Lee el contenido del archivo (limitado para no saturar)."""
+
+def fmt_ts(path: Path) -> str:
+    return datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m-%d %H:%M")
+
+
+def read_file(path: Path, max_lines: int = MAX_LINES_CODE) -> tuple[str, int]:
     try:
-        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
-            lines = f.readlines()
-            total_lines = len(lines)
-            content = ''.join(lines[:max_lines])
-            if total_lines > max_lines:
-                content += f"\n\n... ({total_lines - max_lines} líneas más)"
-            return content, total_lines
+        lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+        total = len(lines)
+        snippet = "\n".join(lines[:max_lines])
+        if total > max_lines:
+            snippet += f"\n\n... ({total - max_lines} líneas más no mostradas)"
+        return snippet, total
     except Exception as e:
         return f"Error leyendo archivo: {e}", 0
 
-def generate_report():
-    """Genera el informe completo."""
-    report = []
-    
-    # Header
-    report.append("# 📊 INVENTARIO DEL SISTEMA — AuthorityEngine")
-    report.append("")
-    report.append(f"**Generado:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    report.append(f"**Directorio Base:** `{BASE_DIR}`")
-    report.append("")
-    report.append("---")
-    report.append("")
-    
-    # Estructura de directorios
-    report.append("## 📁 Estructura de Directorios")
-    report.append("")
-    report.append("```")
-    
-    for root, dirs, files in os.walk(BASE_DIR):
-        # Excluir directorios
-        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
-        
-        level = root.replace(str(BASE_DIR), '').count(os.sep)
-        indent = '│   ' * level
-        report.append(f"{indent}📂 {os.path.basename(root)}/")
-        
-        sub_indent = '│   ' * (level + 1)
-        for file in sorted(files):
-            filepath = Path(root) / file
-            size = get_file_size(filepath.stat().st_size)
-            report.append(f"{sub_indent}📄 {file} ({size})")
-    
-    report.append("```")
-    report.append("")
-    report.append("---")
-    report.append("")
-    
-    # Contenido de archivos Python
-    report.append("## 📄 Contenido de Archivos Python")
-    report.append("")
-    
-    py_files = sorted(BASE_DIR.glob("*.py"))
-    
-    for py_file in py_files:
-        content, total_lines = get_file_content(py_file)
-        size = get_file_size(py_file.stat().st_size)
-        mtime = datetime.fromtimestamp(py_file.stat().st_mtime).strftime('%Y-%m-%d %H:%M')
-        
-        report.append(f"### `{py_file.name}` ({size}, {total_lines} líneas, modificado: {mtime})")
-        report.append("")
-        report.append("```python")
-        report.append(content)
-        report.append("```")
-        report.append("")
-        report.append("---")
-        report.append("")
-    
-    # Contenido de archivos de texto (skills, logs, etc.)
-    report.append("## 📝 Otros Archivos de Interés")
-    report.append("")
-    
+
+def safe_write(path: Path, content: str):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        mode="w", encoding="utf-8",
+        dir=path.parent, delete=False, suffix=".tmp"
+    ) as tmp:
+        tmp.write(content)
+        tmp_path = tmp.name
+    shutil.move(tmp_path, path)
 
 
-... (95 líneas más)
+def git_cmd(args: list, cwd: Path) -> str:
+    try:
+        result = subprocess.run(
+            ["git"] + args,
+            cwd=cwd, capture_output=True, text=True, timeout=30
+        )
+        return result.stdout.strip()
+    except Exception:
+        return ""
+
+
+# ── MÉTRICAS GIT ──────────────────────────────────────────────────────────────
+def commits_por_carpeta(repo: Path) -> dict[str, int]:
+    carpetas = [d for d in repo.iterdir()
+
+... (609 líneas más no mostradas)
 ```
 
 ---
 
-### `racha.py` (6.3KB, 193 líneas, modificado: 2026-03-30 13:40)
+### `generar_inventario_v3.3_backup.py`
+
+- **Tamano:** 16.2KB
+- **Lineas:** 439
+- **Modificado:** 2026-04-03 22:21
 
 ```python
 #!/usr/bin/env python3
 """
-racha.py v10.1 — Orquestador del Authority Engine
-Clasificación por scoring con prioridades.
-Importa configuración desde config.py — cero duplicación.
+generar_inventario.py v3.3 — El Inventariador
+Authority Engine — Joaquín Ríos Heredia
+
+Genera dos artefactos:
+  1. INVENTARIO_SISTEMA.md  — catálogo técnico del directorio AuthorityEngine
+  2. INVENTARIO_MAESTRO.md  — índice navegable del repositorio DAM-Java-Mastery
+
+Cambios v3.3:
+  - Orden git corregido: add → commit → pull --rebase → push
+  - El índice queda limpio antes del pull, evitando el error de rebase
 """
 
-import sys
 import os
+import sys
+import json
+import re
+import shutil
+import subprocess
+import tempfile
+from pathlib import Path
+from datetime import datetime
+from collections import defaultdict
+
+# ── CONFIGURACIÓN ─────────────────────────────────────────────────────────────
+BASE_DIR       = Path.home() / "AuthorityEngine"
+REPO_DIR       = Path.home() / ".openclaw" / "workspace" / "DAM-Java-Mastery"
+AUDIT_LOG      = Path.home() / ".openclaw" / "auditoria_sre_log.json"
+OUTPUT_SISTEMA = BASE_DIR / "INVENTARIO_SISTEMA.md"
+OUTPUT_MAESTRO = REPO_DIR / "INVENTARIO_MAESTRO.md"
+
+DRY_RUN        = "--dry-run" in sys.argv
+EXCLUDE_DIRS   = {"__pycache__", ".git", "node_modules", ".venv", "venv"}
+MAX_LINES_CODE = 120
+MAX_LINES_LOG  = 60
+
+CARPETAS_REPO = {
+    "01_Java_Core",
+    "02_Arquitectura",
+    "03_Spring_Ecosystem",
+    "04_Bases_de_Datos",
+    "05_SRE_DevOps",
+    "06_Seguridad",
+    "07_BigData_Streaming",
+    "08_IA_Agentes",
+    "09_Frontend_Mobile",
+    "10_Vanguardia",
+    "_Review",
+    "_Archive",
+}
+
+
+# ── UTILIDADES ────────────────────────────────────────────────────────────────
+def fmt_size(size_bytes: int) -> str:
+    for unit in ["B", "KB", "MB", "GB"]:
+        if size_bytes < 1024:
+            return f"{size_bytes:.1f}{unit}"
+        size_bytes /= 1024
+    return f"{size_bytes:.1f}TB"
+
+
+def fmt_ts(path: Path) -> str:
+    return datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m-%d %H:%M")
+
+
+def read_file(path: Path, max_lines: int = MAX_LINES_CODE) -> tuple[str, int]:
+    try:
+        lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+        total = len(lines)
+        snippet = "\n".join(lines[:max_lines])
+        if total > max_lines:
+            snippet += f"\n\n... ({total - max_lines} líneas más no mostradas)"
+        return snippet, total
+    except Exception as e:
+        return f"Error leyendo archivo: {e}", 0
+
+
+def safe_write(path: Path, content: str):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        mode="w", encoding="utf-8",
+        dir=path.parent, delete=False, suffix=".tmp"
+    ) as tmp:
+        tmp.write(content)
+        tmp_path = tmp.name
+    shutil.move(tmp_path, path)
+
+
+def git_cmd(args: list, cwd: Path) -> str:
+    try:
+        result = subprocess.run(
+            ["git"] + args,
+            cwd=cwd, capture_output=True, text=True, timeout=30
+        )
+        return result.stdout.strip()
+    except Exception:
+        return ""
+
+
+# ── MÉTRICAS GIT ──────────────────────────────────────────────────────────────
+def commits_por_carpeta(repo: Path) -> dict[str, int]:
+    carpetas = [d for d in repo.iterdir()
+                if d.is_dir() and not d.name.startswith(".")]
+    resultado = {}
+    for carpeta in carpetas:
+        log = git_cmd(
+            ["log", "--oneline", "--", f"{carpeta.name}/"],
+            cwd=repo
+        )
+        resultado[carpeta.name] = len(log.splitlines()) if log else 0
+    return resultado
+
+
+def ultimo_commit_repo(repo: Path) -> str:
+    return git_cmd(["log", "-1", "--format=%h %s (%ar)"], cwd=repo) or "Sin commits"
+
+
+# ── MÉTRICAS SRE ──────────────────────────────────────────────────────────────
+def cargar_historico_sre() -> list[dict]:
+
+... (319 líneas más no mostradas)
+```
+
+---
+
+### `generar_inventario_v3.4_backup.py`
+
+- **Tamano:** 22.4KB
+- **Lineas:** 600
+- **Modificado:** 2026-04-17 16:27
+
+```python
+#!/usr/bin/env python3
+"""
+generar_inventario.py v3.4 — El Inventariador
+Authority Engine — Joaquín Ríos Heredia
+
+Genera dos artefactos:
+  1. INVENTARIO_SISTEMA.md  — catálogo técnico del directorio AuthorityEngine
+  2. INVENTARIO_MAESTRO.md  — índice navegable del repositorio DAM-Java-Mastery
+
+Cambios v3.4:
+  - Actualización automática del README.md con los documentos Staff publicados
+  - Sin paso manual de editar README tras publicar un documento
+"""
+
+import os
+import sys
+import json
+import re
+import shutil
+import subprocess
+import tempfile
+from pathlib import Path
+from datetime import datetime
+from collections import defaultdict
+
+# ── CONFIGURACIÓN ─────────────────────────────────────────────────────────────
+BASE_DIR       = Path.home() / "AuthorityEngine"
+REPO_DIR       = Path.home() / ".openclaw" / "workspace" / "DAM-Java-Mastery"
+AUDIT_LOG      = Path.home() / ".openclaw" / "auditoria_sre_log.json"
+OUTPUT_SISTEMA = BASE_DIR / "INVENTARIO_SISTEMA.md"
+OUTPUT_MAESTRO = REPO_DIR / "INVENTARIO_MAESTRO.md"
+README         = REPO_DIR / "README.md"
+
+DRY_RUN        = "--dry-run" in sys.argv
+EXCLUDE_DIRS   = {"__pycache__", ".git", "node_modules", ".venv", "venv"}
+MAX_LINES_CODE = 120
+MAX_LINES_LOG  = 60
+
+CARPETAS_REPO = {
+    "01_Java_Core",
+    "02_Arquitectura",
+    "03_Spring_Ecosystem",
+    "04_Bases_de_Datos",
+    "05_SRE_DevOps",
+    "06_Seguridad",
+    "07_BigData_Streaming",
+    "08_IA_Agentes",
+    "09_Frontend_Mobile",
+    "10_Vanguardia",
+    "_Review",
+    "_Archive",
+}
+
+# Metadatos de cada carpeta para el README
+CARPETA_META = {
+    "01_Java_Core":        ("☕", "Java 21 Avanzado"),
+    "02_Arquitectura":     ("🏛️", "DDD, Hexagonal, Microservicios"),
+    "03_Spring_Ecosystem": ("🌱", "Spring Boot, R2DBC, WebFlux"),
+    "04_Bases_de_Datos":   ("🗄️", "PostgreSQL, Redis, MongoDB"),
+    "05_SRE_DevOps":       ("⚙️", "Kubernetes, Terraform, Observabilidad"),
+    "06_Seguridad":        ("🔐", "JWT, OAuth2, Zero Trust"),
+    "07_BigData_Streaming":("📊", "Kafka, Spark, Flink"),
+    "08_IA_Agentes":       ("🤖", "RAG, LangChain4j, LLMOps"),
+    "09_Frontend_Mobile":  ("📱", "Flutter, Android, Kotlin"),
+    "10_Vanguardia":       ("🔭", "Tendencias y novedades 2026"),
+}
+
+
+# ── UTILIDADES ────────────────────────────────────────────────────────────────
+def fmt_size(size_bytes: int) -> str:
+    for unit in ["B", "KB", "MB", "GB"]:
+        if size_bytes < 1024:
+            return f"{size_bytes:.1f}{unit}"
+        size_bytes /= 1024
+    return f"{size_bytes:.1f}TB"
+
+
+def fmt_ts(path: Path) -> str:
+    return datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m-%d %H:%M")
+
+
+def read_file(path: Path, max_lines: int = MAX_LINES_CODE) -> tuple[str, int]:
+    try:
+        lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+        total = len(lines)
+        snippet = "\n".join(lines[:max_lines])
+        if total > max_lines:
+            snippet += f"\n\n... ({total - max_lines} líneas más no mostradas)"
+        return snippet, total
+    except Exception as e:
+        return f"Error leyendo archivo: {e}", 0
+
+
+def safe_write(path: Path, content: str):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        mode="w", encoding="utf-8",
+        dir=path.parent, delete=False, suffix=".tmp"
+    ) as tmp:
+        tmp.write(content)
+        tmp_path = tmp.name
+    shutil.move(tmp_path, path)
+
+
+def git_cmd(args: list, cwd: Path) -> str:
+    try:
+        result = subprocess.run(
+            ["git"] + args,
+            cwd=cwd, capture_output=True, text=True, timeout=30
+        )
+        return result.stdout.strip()
+    except Exception:
+        return ""
+
+
+# ── MÉTRICAS GIT ──────────────────────────────────────────────────────────────
+def commits_por_carpeta(repo: Path) -> dict[str, int]:
+    carpetas = [d for d in repo.iterdir()
+                if d.is_dir() and not d.name.startswith(".")]
+    resultado = {}
+
+... (480 líneas más no mostradas)
+```
+
+---
+
+### `openclaw_v9.py`
+
+- **Tamano:** 10.4KB
+- **Lineas:** 276
+- **Modificado:** 2026-04-26 10:37
+
+```python
+#!/usr/bin/env python3
+"""
+openclaw_v9.py v9.2 — Burst Operator
+Authority Engine — Joaquín Ríos Heredia
+
+Mejoras v9.2:
+- argparse con --dry-run, --modo, --retry, --cooldown
+- Timeout por tema (evita cuelgues infinitos)
+- Reintento automático configurable por tema fallido
+- ETA en tiempo real por tema
+- Persistencia de resultados en JSON
+- Resumen final enriquecido con tasa de éxito
+"""
+
+import os
+import re
+import sys
+import time
+import json
+import argparse
 import subprocess
 import logging
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 
-# Importar configuración centralizada
-from config import CONFIG, FOLDER_PRIORITIES
+# ── CONFIGURACIÓN ──────────────────────────────────────────────────────────────
+BASE_DIR     = Path.home() / "AuthorityEngine"
+LISTA_TEMAS  = BASE_DIR / "temas_rafaga.txt"
+LOG_FILE     = BASE_DIR / "openclaw.log"
+RACHA_SCRIPT = BASE_DIR / "racha.py"
+RESULTS_FILE = BASE_DIR / "openclaw_results.json"
+REPO_ROOT    = Path.home() / ".openclaw/workspace/DAM-Java-Mastery"
 
-# Setup logging
-LOG_FILE = CONFIG["author_engine"] / "racha.log"
+# ── LOGGING ────────────────────────────────────────────────────────────────────
+BASE_DIR.mkdir(parents=True, exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
-    datefmt="%H:%M:%S",
     handlers=[
         logging.FileHandler(LOG_FILE, encoding="utf-8"),
         logging.StreamHandler(sys.stdout)
     ]
 )
-log = logging.getLogger("racha")
+log = logging.getLogger("OpenClaw")
 
-def sanitizar_tema(tema: str) -> str:
+
+# ── UTILIDADES ─────────────────────────────────────────────────────────────────
+def fmt_eta(segundos: float) -> str:
+    """Formatea segundos en HH:MM:SS legible."""
+    return str(timedelta(seconds=int(segundos)))
+
+
+def guardar_resultados(resultados: dict):
+    """Persiste el resumen de la ráfaga en JSON para auditoría posterior."""
+    resultados["timestamp"] = datetime.now().isoformat()
+    with open(RESULTS_FILE, "w", encoding="utf-8") as f:
+        json.dump(resultados, f, indent=2, ensure_ascii=False)
+    log.info(f"📁 Resultados guardados en: {RESULTS_FILE}")
+
+
+def inicializar_lista() -> bool:
+    """Crea archivo de temas de ejemplo si no existe. Retorna False si fue creado."""
+    if not LISTA_TEMAS.exists():
+        ejemplos = [
+            "Patrones de Resiliencia (Circuit Breaker y Retry) en Microservicios",
+            "Estrategias de Migración de Monolito a Arquitectura Hexagonal",
+            "Implementación de Zero Trust Security en APIs RESTful",
+            "Optimización de Consultas N+1 en Hibernate y Spring Data JPA"
+        ]
+        LISTA_TEMAS.write_text("\n".join(ejemplos), encoding="utf-8")
+        log.info(f"📄 Archivo de temas creado: {LISTA_TEMAS}")
+        log.info("ℹ️  Edita el archivo y vuelve a ejecutar.")
+        return False
+    return True
+
+
+# ── COMPROBACIÓN DE EXISTENCIA ─────────────────────────────────────────────────
+def nombre_archivo(tema: str) -> str:
+    """Misma lógica que engine.py para predecir el nombre del .md generado."""
+    nombre = tema.lower()
+    nombre = re.sub(r'[^\w\s]', '', nombre)
+    nombre = re.sub(r'\s+', '_', nombre.strip())
+    return nombre[:80] + ".md"
+
+
+def tema_existe_en_repo(tema: str) -> bool:
+    """Busca recursivamente el .md del tema en el repo. Devuelve True si ya existe."""
+    if not REPO_ROOT.exists():
+        return False
+    target = nombre_archivo(tema)
+    return any(REPO_ROOT.rglob(target))
+
+
+# ── EJECUCIÓN DE UN TEMA ───────────────────────────────────────────────────────
+def ejecutar_tema(tema: str, modo: str, timeout: int, dry_run: bool) -> bool:
     """
-    Elimina caracteres de control que corrompen logs.
-    Colapsa whitespace, elimina \n \t \r.
+    Lanza racha.py para un tema. Retorna True si éxito.
+    - timeout: segundos máximos antes de matar el proceso
+    - dry_run: solo imprime el comando, no ejecuta
     """
-    return " ".join(tema.split())
+    cmd = [sys.executable, str(RACHA_SCRIPT), tema]
+    if dry_run:
+        cmd.append("--dry-run")
 
-def match_keyword(keyword: str, texto: str) -> bool:
-    """
-    Matching por substring normalizado (sin regex).
-    "kafka" matchea en "kafka streaming"
-    "test" NO matchea en "testing" (porque "test" fue eliminado del config)
-    """
-    return keyword.lower() in texto.lower()
+    log.info(f"▶ CMD: {' '.join(cmd)}")
 
-def clasificar_tema(tema: str) -> str:
-    """
-    Clasificación por scoring con max().
-    Score = (prioridad * 100) + (len(keyword) * 2)
-    Gana el score más alto — no el primero que aparece.
-    
-    Ejemplo: "Kafka streaming con testing y resiliencia"
-    - kafka: (10 * 100) + (5 * 2) = 1010 → BigData_Streaming
-    - streaming: (7 * 100) + (9 * 2) = 718 → BigData_Streaming
-    - testing: (5 * 100) + (7 * 2) = 514 → Testing
-    - resiliencia: (7 * 100) + (11 * 2) = 722 → SRE_Resiliencia
-    ✅ Gana: kafka (1010) → BigData_Streaming
-    
-    SIN filtro de carpetas_reales — mkdir crea la carpeta si no existe.
-    """
-    tema_lower = tema.lower()
-    mejor_score = -1
-    mejor_folder = "Core_Backend"
-    mejor_keyword = None
-    todos_candidatos = []
-    
-    # Evaluar TODAS las keywords (SIN filtro de carpetas)
-    for keyword, (folder, prioridad) in FOLDER_PRIORITIES.items():
-        if match_keyword(keyword, tema_lower):
-            score = (prioridad * 100) + (len(keyword) * 2)
-            todos_candidatos.append({
-                "keyword": keyword,
-                "folder": folder,
-                "prioridad": prioridad,
-                "score": score
-            })
-            
-            if score > mejor_score:
-                mejor_score = score
-                mejor_folder = folder
-                mejor_keyword = keyword
-    
-    # Log de todos los candidatos (para debug)
-    if todos_candidatos:
-        todos_candidatos.sort(key=lambda x: x["score"], reverse=True)
-        for c in todos_candidatos[:5]:  # Top 5
-            log.info(f"🔍 Candidato: '{c['keyword']}' → {c['folder']} (prioridad={c['prioridad']}, len={len(c['keyword'])}, score={c['score']})")
-        
-        log.info(f"✅ MATCH FINAL: '{mejor_keyword}' → {mejor_folder} (score={mejor_score})")
-    else:
-        log.warning(f"⚠️ No match encontrado, usando default: Core_Backend")
-    
-    return mejor_folder
+    if dry_run:
+        # En dry-run mostramos el comando y simulamos éxito
+        return True
 
-def ejecutar_engine(tema: str, ruta_destino: str, modo: str, secciones: int = None) -> bool:
-    """Ejecuta engine.py con subprocess seguro y streaming en tiempo real."""
-    script_motor = CONFIG["author_engine"] / "engine.py"
+    try:
+        proceso = subprocess.run(
+            cmd,
+            timeout=timeout   # ← Fix crítico: evita cuelgues infinitos
+        )
+        return proceso.returncode == 0
 
-    cmd = ["python3", "-u", str(script_motor), tema, str(ruta_destino), modo]
-    if secciones:
+    except subprocess.TimeoutExpired:
+        log.error(f"⏰ TIMEOUT ({timeout}s) alcanzado para: '{tema}'")
+        return False
 
-
-... (93 líneas más)
+... (156 líneas más no mostradas)
 ```
 
 ---
 
-### `repair_section.py` (1.4KB, 41 líneas, modificado: 2026-03-30 13:40)
+### `racha.py`
+
+- **Tamano:** 4.8KB
+- **Lineas:** 143
+- **Modificado:** 2026-04-02 14:59
+
+```python
+#!/usr/bin/env python3
+"""
+racha.py v13.0 — Director Maestro
+Authority Engine — Joaquín Ríos Heredia
+
+Cambios v13.0:
+- Compatible con engine.py v20.0 (solo acepta 'tema')
+- Elimina ruta_destino y modo como argumentos al engine
+- La clasificación temática la hace engine.py internamente
+- Mantiene métricas y logging
+"""
+
+import sys
+import subprocess
+import logging
+import argparse
+import json
+from pathlib import Path
+from datetime import datetime
+
+# ── Config ────────────────────────────────────────────────────────────────────
+
+BASE_PATH = Path.home()
+
+CONFIG = {
+    "engine_path":   BASE_PATH / "AuthorityEngine/engine.py",
+    "log_file":      BASE_PATH / "AuthorityEngine/racha.log",
+    "metrics_file":  BASE_PATH / "AuthorityEngine/racha_metrics.json",
+}
+
+# ── Logging ───────────────────────────────────────────────────────────────────
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler(CONFIG["log_file"]),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+log = logging.getLogger("racha")
+
+# ── Métricas ──────────────────────────────────────────────────────────────────
+
+def guardar_metricas(tema: str, exito: bool, duracion):
+    data = []
+    if CONFIG["metrics_file"].exists():
+        try:
+            with open(CONFIG["metrics_file"], "r") as f:
+                data = json.load(f)
+        except:
+            data = []
+
+    data.append({
+        "tema":         tema,
+        "exito":        exito,
+        "duracion_seg": duracion.total_seconds(),
+        "timestamp":    datetime.now().isoformat()
+    })
+
+    with open(CONFIG["metrics_file"], "w") as f:
+        json.dump(data, f, indent=2)
+
+# ── Engine ────────────────────────────────────────────────────────────────────
+
+def ejecutar_engine(tema: str) -> bool:
+    """
+    Llama a engine.py pasando solo el tema.
+    engine.py v20.0 gestiona internamente la ruta y la categoría.
+    """
+    cmd = ["python3", "-u", str(CONFIG["engine_path"]), tema]
+    log.info(f"🚀 Ejecutando: {' '.join(cmd)}")
+
+    try:
+        proceso = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            bufsize=1,
+            universal_newlines=True
+        )
+
+        if proceso.stdout:
+            for linea in proceso.stdout:
+                sys.stdout.write(linea)
+                sys.stdout.flush()
+
+        proceso.wait()
+
+        if proceso.returncode != 0:
+            log.error(f"❌ Código salida: {proceso.returncode}")
+            return False
+
+        return True
+
+    except Exception as e:
+        log.exception(f"❌ Error crítico: {e}")
+        return False
+
+# ── Main ──────────────────────────────────────────────────────────────────────
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="racha.py v13.0 — Genera borrador técnico en _Review/"
+    )
+    parser.add_argument("tema", help="Tema del documento a generar")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Simula la ejecución sin generar nada")
+
+    args = parser.parse_args()
+    tema = args.tema
+    start = datetime.now()
+
+    log.info(f"--- RACHA: {tema} ---")
+
+    if not CONFIG["engine_path"].exists():
+        log.error("❌ engine.py no encontrado")
+        sys.exit(1)
+
+
+... (23 líneas más no mostradas)
+```
+
+---
+
+### `repair_section.py`
+
+- **Tamano:** 1.4KB
+- **Lineas:** 41
+- **Modificado:** 2026-03-30 13:40
 
 ```python
 import sys
@@ -1821,12 +1569,15 @@ if __name__ == "__main__":
     # Cambia el nombre del archivo por el que se está generando ahora
     ruta = sys.argv[1]
     reparar_seccion(ruta, "Arquitectura de Sistemas: Diagramas Mermaid (SOLID/DDD)", "BigData: ETL con PySpark")
-
 ```
 
 ---
 
-### `reparar_config.py` (1.6KB, 42 líneas, modificado: 2026-03-30 13:40)
+### `reparar_config.py`
+
+- **Tamano:** 1.6KB
+- **Lineas:** 42
+- **Modificado:** 2026-03-30 13:40
 
 ```python
 import json
@@ -1871,190 +1622,75 @@ with open(path, "w") as f:
     json.dump(config, f, indent=2)
 
 print("✅ Archivo openclaw.json generado correctamente.")
-
 ```
 
 ---
 
-## 📝 Otros Archivos de Interés
-
-### Directorio `skills/`
-
-#### `skill_informe_40pag.md` (6.8KB)
+## Log de Ejecucion (ultimas 60 lineas)
 
 ```
-# DIRECTIVA DE EXTENSIÓN: INFORME STAFF v10.1
-**Mínimo 20 secciones detalladas. PROHIBIDO resumir o usar lenguaje genérico.**
+2026-03-30 10:27:40,060 [INFO] MODO DEEP: 16 secciones en /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/Seguridad
+2026-03-30 10:27:40,060 [INFO] 🚀 Iniciando Factory de Autoridad v16.0 para: Estrategias de Hacking Ético en Microservicios 2026
+2026-03-30 10:27:40,061 [INFO] Investigando en la red: Estrategias de Hacking Ético en Microservicios 2026
+2026-03-30 10:31:26,196 [INFO] Desplegando 4 trabajadores para procesar 9 capítulos.
+2026-03-30 10:31:26,198 [INFO] Procesando capítulo: Visión Estratégica y ROI 2026
+2026-03-30 10:31:26,201 [INFO] Procesando capítulo: Análisis del Estado del Arte
+2026-03-30 10:31:26,201 [INFO] Procesando capítulo: Arquitectura de Componentes (Mermaid)
+2026-03-30 10:31:26,204 [INFO] Procesando capítulo: Seguridad Avanzada y Gestión de Secretos
+2026-03-30 10:48:24,046 [INFO] MODO DEEP: 16 secciones en /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/Seguridad
+2026-03-30 10:48:24,046 [INFO] 🚀 [FASE 1] Iniciando Factory v16.2: ESTRATEGIAS DE HACKING ÉTICO EN MICROSERVICIOS 2026
+2026-03-30 10:48:24,048 [INFO] 🔍 [FASE 2] Radar activado. Consultando la red (Tavily)...
+2026-03-30 10:48:24,050 [INFO]  📡 [FASE 3] Contexto recibido (7238 bytes). Mapeando hilos...
+2026-03-30 10:48:24,050 [INFO] 🧵 [FASE 4] Desplegando 4 trabajadores para 7 capítulos.
+2026-03-30 10:48:24,050 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Visión Estratégica y ROI 2026...
+2026-03-30 10:48:24,051 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Análisis del Estado del Arte...
+2026-03-30 10:48:24,052 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Arquitectura de Componentes (Mermaid)...
+2026-03-30 10:48:24,053 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Seguridad Avanzada y Gestión de Secretos...
+2026-03-30 10:51:20,184 [INFO]  ✅ [FINALIZADO] Análisis del Estado del Arte (Completado en 176.13s)
+2026-03-30 10:51:20,185 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Threat Modeling...
+2026-03-30 10:54:19,879 [INFO]  ✅ [FINALIZADO] Seguridad Avanzada y Gestión de Secretos (Completado en 355.82s)
+2026-03-30 10:54:19,879 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Arquitectura Zero Trust...
+2026-03-30 10:57:37,031 [WARNING] Error en el motor IA (Intento 1): HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=600)
+2026-03-30 10:57:37,034 [WARNING] Error en el motor IA (Intento 1): HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=600)
+2026-03-30 11:00:15,211 [INFO]  ✅ [FINALIZADO] Threat Modeling (Completado en 535.03s)
+2026-03-30 11:00:15,211 [INFO]  ⚙️  [TRABAJANDO] Generando sección: Roadmap de Evolución y Conclusiones Senior...
+2026-03-30 11:03:04,787 [INFO]  ✅ [FINALIZADO] Arquitectura Zero Trust (Completado en 524.91s)
+2026-03-30 11:06:46,017 [INFO]  ✅ [FINALIZADO] Arquitectura de Componentes (Mermaid) (Completado en 1101.96s)
+2026-03-30 11:06:52,495 [WARNING] Error en el motor IA (Intento 2): HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=600)
+2026-03-30 11:09:28,159 [WARNING] Error en el motor IA (Intento 1): HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=600)
+2026-03-31 10:28:13,945 [INFO] 🚀 Generando: Observabilidad con OpenTelemetry en Spring Boot 3.4 | Intento 1
+2026-03-31 10:28:13,946 [INFO] Investigando: Observabilidad con OpenTelemetry en Spring Boot 3.4
+2026-03-31 10:28:38,438 [INFO] ⚙️ Generando: Visión Estratégica y ROI 2026 (intento 1)
+2026-03-31 10:28:38,438 [INFO] ⚙️ Generando: Arquitectura de Componentes (Mermaid) (intento 1)
+2026-03-31 10:28:38,440 [INFO] ⚙️ Generando: Java 21 (intento 1)
+2026-03-31 10:28:38,440 [INFO] ⚙️ Generando: Spring (intento 1)
+2026-03-31 10:32:15,639 [INFO] ⚙️ Generando: Performance (intento 1)
+2026-03-31 10:35:54,241 [INFO] ⚙️ Generando: APIs (intento 1)
+2026-03-31 10:37:51,419 [WARNING] Error IA intento 1: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=600)
+2026-03-31 10:37:51,419 [WARNING] Error IA intento 1: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=600)
+2026-03-31 10:41:17,981 [INFO] ⚙️ Generando: DDD (intento 1)
+2026-03-31 10:44:30,192 [INFO] ⚙️ Generando: Roadmap y Conclusiones SRE (intento 1)
+2026-03-31 10:47:08,880 [WARNING] Error IA intento 2: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=600)
+2026-03-31 10:47:08,880 [WARNING] Error IA intento 2: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=600)
+2026-03-31 11:16:49,701 [INFO] 🚀 Generando: Observabilidad con OpenTelemetry en Spring Boot 3.4 | Intento 1
+2026-03-31 11:17:48,876 [INFO] ⚙️ Generando: Visión Estratégica y ROI 2026 (intento 1)
+2026-03-31 11:17:48,876 [INFO] ⚙️ Generando: Arquitectura de Componentes (Mermaid) (intento 1)
+2026-03-31 11:17:48,877 [INFO] ⚙️ Generando: Java 21 (intento 1)
+2026-03-31 11:17:48,879 [INFO] ⚙️ Generando: Spring (intento 1)
+2026-03-31 11:20:38,804 [INFO] ⚙️ Generando: Performance (intento 1)
+2026-03-31 11:23:18,811 [INFO] ⚙️ Generando: APIs (intento 1)
+2026-03-31 11:25:50,650 [INFO] ⚙️ Generando: DDD (intento 1)
+2026-03-31 11:29:25,471 [INFO] ⚙️ Generando: Roadmap y Conclusiones SRE (intento 1)
+2026-03-31 11:40:19,779 [WARNING] Salida IA inválida, reintentando...
+2026-03-31 11:42:36,983 [INFO] 🛡️ SRE Score: 92/100
+2026-03-31 11:42:39,709 [INFO] Push OK
+2026-03-31 12:51:42,406 [INFO] 🚀 Generando: Implementación de Resilience4j y Circuit Breaker en Microservicios Spring Boot 3.4 | Intento 1
+2026-03-31 12:51:42,408 [INFO] Investigando: Implementación de Resilience4j y Circuit Breaker en Microservicios Spring Boot 3.4
+2026-03-31 12:52:08,927 [INFO] ⚙️ Generando: Visión Estratégica y ROI 2026 (intento 1)
+2026-03-31 12:52:08,927 [INFO] ⚙️ Generando: Arquitectura de Componentes (Mermaid) (intento 1)
+2026-03-31 12:52:08,929 [INFO] ⚙️ Generando: DDD (intento 1)
 
----
-
-## 🎯 OBJETIVO DE ESTE SKILL
-
-Generar informes técnicos de nivel Staff Engineer (20-40 páginas) que demuestren:
-- Autoridad técnica verificable
-- Código de producción ejecutable
-- Validación SRE con Security Score
-- Trazabilidad completa de decisiones
-
----
-
-## 📋 ESTRUCTURA OBLIGATORIA (Mínimo 2 páginas por sección)
-
-### 1. Portada Profesional y Control de Versiones
-- Título del informe
-- Autor: Joaquín Ríos Heredia — Staff Engineer
-- Fecha de publicación
-- Versión del documento (v1.0, v1.1, etc.)
-- Estado: Borrador / Revisado / Publicado
-- Enlace a repositorio GitHub
-
-### 2. Resumen Ejecutivo (ROI y Valor Estratégico)
-- Problema de negocio abordado
-- Solución técnica propuesta
-- ROI estimado (tiempo/coste ahorrado)
-- Recomendaciones clave para CTOs/CEOs
-- Métricas de éxito esperadas
-
-### 3. Estado del Arte 2026: Tendencias en Big Data e IA
-- Investigación web actualizada (fuentes 2025-2026)
-- Comparativa con soluciones de años anteriores
-- Tendencias emergentes (Project Loom, GraalVM, RAG, etc.)
-- Citas de fuentes verificadas (documentación oficial, papers)
-
-### 4. Arquitectura de Sistemas: Diagramas Mermaid (SOLID/DDD)
-- Diagrama de contexto (C4 Model - Nivel 1)
-- Diagrama de contenedores (C4 Model - Nivel 2)
-- Diagrama de componentes (C4 Model - Nivel 3)
-- Justificación de decisiones arquitectónicas
-- Alternativas consideradas y por qué se descartaron
-
-### 5. Implementación Técnica: Código Java 21 / PySpark (Sin placeholders)
-- Scripts completos y ejecutables
-- Sin comentarios tipo "// TODO: implementar"
-- Manejo de errores incluido
-- Logs estructurados
-- Configuración de entorno (requirements.txt, pom.xml, etc.)
-
-### 6. Auditoría SRE: Security Score y Análisis de Vulnerabilidades
-- Security Score obtenido (mínimo 70/100)
-- Vulnerabilidades detectadas y corregidas
-- Herramientas de escaneo utilizadas (Snyk, OWASP ZAP, etc.)
-- Compliance aplicado (GDPR, HIPAA, AI Act 2026)
-- Log de auditoría completo (auditoria_sre_log.json)
-
-### 7. Guía de Despliegue Paso a Paso (Instalación y Configuración)
-- Requisitos previos (hardware, software, versiones)
-- Instalación de dependencias
-- Configuración de variables de entorno
-- Primer despliegue de prueba
-- Validación de instalación exitosa
-
-### 8. Benchmarks de Rendimiento y Casos de Uso Reales
-- Métricas de rendimiento (throughput, latencia, uso de recursos)
-- Comparativa con alternativas (antes/después)
-- 3-5 casos de uso anonimizados de producción
-- Lecciones aprendidas de cada caso
-- Gráficos de rendimiento (pueden ser ASCII o Mermaid)
-
-### 9. Testing y Validación de Calidad
-- Tests unitarios (cobertura mínima 80%)
-- Tests de integración
-- Tests de carga (JMeter, Gatling)
-- Criterios de aceptación
-- Evidencia de tests passing
-
-### 10. Monitorización y Observabilidad en Producción
-- Métricas clave a monitorizar (KPIs técnicos)
-- Alertas configuradas (Prometheus, Grafana)
-- Dashboards recomendados
-- Runbook para incidentes comunes
-- SLA/SLO definidos
-
-### 11. Escalabilidad y Estrategias de Crecimiento
-- Escalado horizontal vs. vertical
-- Estrategias de caching (Redis, Memcached)
-- Balanceo de carga
-- Consideraciones de coste cloud (FinOps)
-- Límites conocidos del sistema
-
-### 12. Seguridad y Gestión de Secretos
-- HashiCorp Vault o alternativas
-- Rotación de credenciales
-- Encriptación en reposo y tránsito
-- Access control (RBAC, IAM)
-- Audit logging de accesos
-
-
-... (102 líneas más)
+... (2991 líneas más no mostradas)
 ```
 
 ---
-
-### `racha.log` (últimas 50 líneas)
-
-```
-22:30:46 [INFO] ============================================================
-22:30:46 [INFO] Iniciando racha.py: BigData: Testing de pipelines Kafka deep --dry-run
-22:30:46 [INFO] ============================================================
-22:30:46 [INFO] Modo dry-run activado (solo clasificación, sin ejecución)
-22:30:46 [INFO] Carpetas disponibles: ['SRE_Vanguardia', 'BasesDatos_AI', 'BasesDatos', 'Android_PMDM', 'src', 'Core_Backend', 'target', 'PSP', 'BBDD_Acceso', 'Java_Elite', 'Testing', 'Ingenieria_DAM', 'Sistemas_IPE', 'Seguridad_2026', 'Core_Prog', 'Utils', 'SRE_Resiliencia', 'Core_Ingenieria', 'IA_Agentes', 'Vanguardia_Tech_2026', 'Vanguardia_Tech', 'Ingenieria_DAM_Academico', 'Interfaces_Movil', 'HealthTech', 'Interfaces_DI', 'Arquitectura_Vanguardia', 'BigData_LMSGI']
-22:30:46 [INFO] Keyword match: 'testing' → Testing
-22:30:46 [INFO] 🎯 Destino: Testing → /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/Testing
-22:30:46 [INFO] ✅ Dry-run completado exitosamente
-22:40:31 [INFO] ============================================================
-22:40:31 [INFO] Iniciando racha.py: BigData: Testing de pipelines Kafka deep --dry-run
-22:40:31 [INFO] ============================================================
-22:40:31 [INFO] Modo dry-run activado (solo clasificación, sin ejecución)
-22:40:31 [INFO] Carpetas disponibles: ['SRE_Vanguardia', 'BasesDatos_AI', 'BasesDatos', 'Android_PMDM', 'src', 'Core_Backend', 'target', 'PSP', 'BBDD_Acceso', 'Java_Elite', 'Testing', 'Ingenieria_DAM', 'Sistemas_IPE', 'Seguridad_2026', 'Core_Prog', 'Utils', 'SRE_Resiliencia', 'Core_Ingenieria', 'IA_Agentes', 'Vanguardia_Tech_2026', 'Vanguardia_Tech', 'Ingenieria_DAM_Academico', 'Interfaces_Movil', 'HealthTech', 'Interfaces_DI', 'Arquitectura_Vanguardia', 'BigData_LMSGI']
-22:40:31 [INFO] Keyword match: 'testing' → Testing
-22:40:31 [INFO] 🎯 Destino: Testing → /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/Testing
-22:40:31 [INFO] ✅ Dry-run completado exitosamente
-23:57:40 [INFO] ============================================================
-23:57:40 [INFO] Iniciando racha.py: BigData: Testing de pipelines Kafka deep --dry-run
-23:57:40 [INFO] ============================================================
-23:57:40 [INFO] Modo dry-run activado (solo clasificación, sin ejecución)
-23:57:40 [INFO] Carpetas disponibles: ['SRE_Vanguardia', 'BasesDatos_AI', 'BasesDatos', 'Android_PMDM', 'src', 'Core_Backend', 'target', 'PSP', 'BBDD_Acceso', 'Java_Elite', 'Testing', 'Ingenieria_DAM', 'Sistemas_IPE', 'Seguridad_2026', 'Core_Prog', 'Utils', 'SRE_Resiliencia', 'Core_Ingenieria', 'IA_Agentes', 'Vanguardia_Tech_2026', 'Vanguardia_Tech', 'Ingenieria_DAM_Academico', 'Interfaces_Movil', 'HealthTech', 'Interfaces_DI', 'Arquitectura_Vanguardia', 'BigData_LMSGI']
-23:57:40 [INFO] Keyword match (prioridad 5): 'testing' → Testing
-23:57:40 [INFO] 🎯 Destino: Testing → /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/Testing
-23:57:40 [INFO] ✅ Dry-run completado exitosamente
-00:18:33 [INFO] ============================================================
-00:18:33 [INFO] Iniciando racha.py: Kafka streaming con testing y resiliencia deep --dry-run
-00:18:33 [INFO] ============================================================
-00:18:33 [INFO] Modo dry-run activado (solo clasificación, sin ejecución)
-00:18:33 [INFO] Carpetas disponibles: ['SRE_Vanguardia', 'BasesDatos_AI', 'BasesDatos', 'Android_PMDM', 'src', 'Core_Backend', 'target', 'PSP', 'BBDD_Acceso', 'Java_Elite', 'Testing', 'Ingenieria_DAM', 'Sistemas_IPE', 'Seguridad_2026', 'Core_Prog', 'Utils', 'SRE_Resiliencia', 'Core_Ingenieria', 'IA_Agentes', 'Vanguardia_Tech_2026', 'Vanguardia_Tech', 'Ingenieria_DAM_Academico', 'Interfaces_Movil', 'HealthTech', 'Interfaces_DI', 'Arquitectura_Vanguardia', 'BigData_LMSGI']
-00:18:33 [INFO] Keyword match (prioridad 10): 'ia' → IA_Agentes
-00:18:33 [INFO] 🎯 Destino: IA_Agentes → /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/IA_Agentes
-00:18:33 [INFO] ✅ Dry-run completado exitosamente
-00:18:33 [INFO] ============================================================
-00:18:33 [INFO] Iniciando racha.py: Arquitectura hexagonal con Spring Boot deep --dry-run
-00:18:33 [INFO] ============================================================
-00:18:33 [INFO] Modo dry-run activado (solo clasificación, sin ejecución)
-00:18:33 [INFO] Carpetas disponibles: ['SRE_Vanguardia', 'BasesDatos_AI', 'BasesDatos', 'Android_PMDM', 'src', 'Core_Backend', 'target', 'PSP', 'BBDD_Acceso', 'Java_Elite', 'Testing', 'Ingenieria_DAM', 'Sistemas_IPE', 'Seguridad_2026', 'Core_Prog', 'Utils', 'SRE_Resiliencia', 'Core_Ingenieria', 'IA_Agentes', 'Vanguardia_Tech_2026', 'Vanguardia_Tech', 'Ingenieria_DAM_Academico', 'Interfaces_Movil', 'HealthTech', 'Interfaces_DI', 'Arquitectura_Vanguardia', 'BigData_LMSGI']
-00:18:33 [INFO] Keyword match (prioridad 9): 'spring boot' → Core_Backend
-00:18:33 [INFO] 🎯 Destino: Core_Backend → /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/Core_Backend
-00:18:33 [INFO] ✅ Dry-run completado exitosamente
-00:18:33 [INFO] ============================================================
-00:18:33 [INFO] Iniciando racha.py: RAG con embeddings locales en Java deep --dry-run
-00:18:33 [INFO] ============================================================
-00:18:33 [INFO] Modo dry-run activado (solo clasificación, sin ejecución)
-00:18:33 [INFO] Carpetas disponibles: ['SRE_Vanguardia', 'BasesDatos_AI', 'BasesDatos', 'Android_PMDM', 'src', 'Core_Backend', 'target', 'PSP', 'BBDD_Acceso', 'Java_Elite', 'Testing', 'Ingenieria_DAM', 'Sistemas_IPE', 'Seguridad_2026', 'Core_Prog', 'Utils', 'SRE_Resiliencia', 'Core_Ingenieria', 'IA_Agentes', 'Vanguardia_Tech_2026', 'Vanguardia_Tech', 'Ingenieria_DAM_Academico', 'Interfaces_Movil', 'HealthTech', 'Interfaces_DI', 'Arquitectura_Vanguardia', 'BigData_LMSGI']
-00:18:33 [INFO] Keyword match (prioridad 10): 'embeddings' → IA_Agentes
-00:18:33 [INFO] 🎯 Destino: IA_Agentes → /home/usuariojoaquin/.openclaw/workspace/DAM-Java-Mastery/IA_Agentes
-00:18:33 [INFO] ✅ Dry-run completado exitosamente
-00:32:35 [INFO] ============================================================
-00:32:35 [INFO] Iniciando racha.py v10: Kafka streaming con testing y resiliencia deep --dry-run
-
-
-... (336 líneas más)
-```
-
----
-
-## 📊 Resumen
-
-| Métrica | Valor |
-|---------|-------|
-| Total de archivos | 4068 |
-| Archivos Python | 7 |
-| Tamaño total | 59.6MB |
-| Fecha de generación | 2026-03-30 15:33:52 |
