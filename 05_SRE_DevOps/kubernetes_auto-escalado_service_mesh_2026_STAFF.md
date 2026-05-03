@@ -415,6 +415,147 @@ public class ConcurrencyConfig {
 }
 ```
 
+### Métricas Custom para HPA con Micrometer (Java 21)
+
+Expone las métricas que el Prometheus Adapter convierte en métricas de HPA: `http_requests_per_second` y `http_request_duration_seconds_p99`.
+
+```java
+package com.enterprise.app.metrics;
+
+import io.micrometer.core.instrument.Gauge;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Timer;
+import org.springframework.stereotype.Component;
+
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+
+@Component
+public class HpaCustomMetrics {
+
+    private final AtomicInteger activeRequests  = new AtomicInteger(0);
+    private final AtomicLong    throughputRps   = new AtomicLong(0);
+    private final Timer         requestLatency;
+
+    public HpaCustomMetrics(MeterRegistry registry) {
+        // HPA target: AverageValue "500" — escala cuando activos/pod > 500
+        Gauge.builder("http_active_requests", activeRequests, AtomicInteger::get)
+            .description("Requests HTTP activos en este pod")
+            .register(registry);
+
+        // HPA target: AverageValue "1000" req/s — trigger de escalado horizontal
+        Gauge.builder("http_requests_per_second", throughputRps, AtomicLong::get)
+            .description("Throughput actual por pod — usado como trigger HPA")
+            .register(registry);
+
+        // Percentil p99 expuesto como Object metric — HPA escala si p99 > 200ms
+        this.requestLatency = Timer.builder("http_request_duration_seconds")
+            .description("Latencia HTTP — HPA escala si p99 supera SLO de 200ms")
+            .publishPercentiles(0.50, 0.95, 0.99)
+            .register(registry);
+    }
+
+    public <T> T recordRequest(java.util.function.Supplier<T> handler) {
+        activeRequests.incrementAndGet();
+        try {
+            return requestLatency.record(handler);
+        } finally {
+            activeRequests.decrementAndGet();
+        }
+    }
+
+    public void updateThroughput(long rps) {
+        throughputRps.set(rps);
+    }
+}
+```
+
+### Spring Boot Kubernetes Health Checks (Java 21)
+
+Readiness y Liveness probes como `HealthIndicator` de Spring Boot Actuator. El readiness bloquea tráfico hasta que el warm-up termina; el liveness fuerza reinicio si el pod se queda colgado.
+
+```java
+package com.enterprise.app.health;
+
+import org.springframework.boot.actuate.health.Health;
+import org.springframework.boot.actuate.health.HealthIndicator;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicLong;
+
+// Readiness probe: K8s solo envía tráfico cuando devuelve UP
+@Component("readinessState")
+public class KubernetesReadinessCheck implements HealthIndicator {
+
+    private final AtomicBoolean warmupComplete = new AtomicBoolean(false);
+    private final DataSource    dataSource;
+
+    public KubernetesReadinessCheck(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    @EventListener(ApplicationReadyEvent.class)
+    public void onApplicationReady() {
+        // ApplicationReadyEvent se dispara cuando todos los beans están inicializados
+        // y el pool de conexiones está caliente — safe para recibir tráfico
+        warmupComplete.set(true);
+    }
+
+    @Override
+    public Health health() {
+        if (!warmupComplete.get()) {
+            return Health.down()
+                .withDetail("reason", "Warm-up en curso — pool de conexiones inicializando")
+                .build();
+        }
+        try (Connection conn = dataSource.getConnection()) {
+            if (!conn.isValid(2)) {
+                return Health.down().withDetail("reason", "DB connection inválida").build();
+            }
+        } catch (Exception e) {
+            return Health.down().withDetail("db_error", e.getMessage()).build();
+        }
+        return Health.up().withDetail("warm_up", "complete").withDetail("db", "ok").build();
+    }
+}
+
+// Liveness probe: si DOWN, K8s reinicia el pod (posible deadlock o OOM)
+@Component("livenessState")
+class KubernetesLivenessCheck implements HealthIndicator {
+
+    private final AtomicLong lastSuccessEpochMs = new AtomicLong(System.currentTimeMillis());
+    private static final long STALE_THRESHOLD_MS = 30_000;
+
+    public void recordSuccess() {
+        lastSuccessEpochMs.set(System.currentTimeMillis());
+    }
+
+    @Override
+    public Health health() {
+        long elapsed = System.currentTimeMillis() - lastSuccessEpochMs.get();
+        if (elapsed > STALE_THRESHOLD_MS) {
+            return Health.down()
+                .withDetail("reason", "Sin requests exitosos en " + elapsed + "ms — posible deadlock")
+                .withDetail("stale_ms", elapsed)
+                .build();
+        }
+        return Health.up().withDetail("last_ok_ms_ago", elapsed).build();
+    }
+}
+
+// application.yml:
+// management.endpoint.health.probes.enabled: true
+// management.health.readinessstate.enabled: true
+// management.health.livenessstate.enabled: true
+```
+
 ```mermaid
 graph TD
     subgraph "Flujo de Auto-Escalado"
@@ -680,6 +821,107 @@ spec:
         http2MaxRequests: 1000
         maxRequestsPerConnection: 10
         maxRetries: 3
+```
+
+### Patrón 4: Cliente Java Kubernetes API para Observabilidad y Escalado Programático
+
+Permite a una aplicación Java consultar el estado del cluster, detectar HPAs saturados y escalar deployments de forma programática — sin depender de `kubectl` ni scripts Bash.
+
+```java
+package com.enterprise.app.k8s;
+
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.apis.AppsV1Api;
+import io.kubernetes.client.openapi.apis.AutoscalingV2Api;
+import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.util.Config;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class KubernetesScalingClient {
+
+    private final AppsV1Api        appsApi;
+    private final AutoscalingV2Api hpaApi;
+    private final String           namespace;
+
+    public KubernetesScalingClient() throws Exception {
+        // Config.fromCluster() carga el ServiceAccount del pod en K8s
+        // Config.fromConfig()  carga kubeconfig local (desarrollo)
+        ApiClient client = System.getenv("KUBERNETES_SERVICE_HOST") != null
+            ? Config.fromCluster()
+            : Config.defaultClient();
+        client.setConnectTimeout(5_000);
+        client.setReadTimeout(10_000);
+        Configuration.setDefaultApiClient(client);
+
+        this.appsApi   = new AppsV1Api();
+        this.hpaApi    = new AutoscalingV2Api();
+        this.namespace = System.getenv().getOrDefault("POD_NAMESPACE", "production");
+    }
+
+    public record HpaStatus(
+        String name,
+        int    currentReplicas,
+        int    desiredReplicas,
+        int    maxReplicas,
+        double cpuUtilizationPercent
+    ) {
+        public double saturationRatio() {
+            return maxReplicas > 0 ? (double) currentReplicas / maxReplicas : 0;
+        }
+    }
+
+    // Devuelve el estado de todos los HPAs del namespace
+    public List<HpaStatus> listHpaStatuses() throws Exception {
+        return hpaApi
+            .listNamespacedHorizontalPodAutoscaler(namespace,
+                null, null, null, null, null, null, null, null, null, null)
+            .getItems()
+            .stream()
+            .map(this::toHpaStatus)
+            .toList();
+    }
+
+    // HPAs con saturación >= thresholdPct (ej: 0.8 = 80% del máximo)
+    public List<HpaStatus> findSaturatedHpas(double thresholdPct) throws Exception {
+        return listHpaStatuses().stream()
+            .filter(h -> h.saturationRatio() >= thresholdPct)
+            .toList();
+    }
+
+    // Escala un Deployment directamente — útil en runbooks de incidente 3AM
+    public void scaleDeployment(String name, int replicas) throws Exception {
+        V1Scale scale = new V1Scale().spec(new V1ScaleSpec().replicas(replicas));
+        appsApi.replaceNamespacedDeploymentScale(name, namespace, scale,
+            null, null, null, null);
+    }
+
+    private HpaStatus toHpaStatus(V2HorizontalPodAutoscaler hpa) {
+        V2HorizontalPodAutoscalerStatus status = hpa.getStatus();
+        V2HorizontalPodAutoscalerSpec   spec   = hpa.getSpec();
+
+        int current = status != null && status.getCurrentReplicas() != null
+            ? status.getCurrentReplicas() : 0;
+        int desired = status != null && status.getDesiredReplicas() != null
+            ? status.getDesiredReplicas() : 0;
+        int max     = spec != null ? spec.getMaxReplicas() : 0;
+        double cpu  = status != null && status.getCurrentMetrics() != null
+            ? status.getCurrentMetrics().stream()
+                .filter(m -> m.getResource() != null && "cpu".equals(m.getResource().getName()))
+                .mapToDouble(m -> {
+                    Integer util = m.getResource().getCurrent().getAverageUtilization();
+                    return util != null ? util : 0;
+                })
+                .findFirst().orElse(0)
+            : 0;
+
+        String hpaName = hpa.getMetadata() != null ? hpa.getMetadata().getName() : "unknown";
+        return new HpaStatus(hpaName, current, desired, max, cpu);
+    }
+}
 ```
 
 ### Comparativa de Patrones de Integración
