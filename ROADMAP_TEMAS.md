@@ -1,7 +1,7 @@
 # ROADMAP — DAM-Java-Mastery
 # Temas pendientes ordenados por prioridad estratégica
 # Ejecutar con: racha2026 "tema"
-# Actualizado: 2026-04-30 (auto-sync ae-inventario)
+# Actualizado: 2026-05-03 (auto-sync ae-inventario)
 
 # ═══════════════════════════════════════════════════════════════
 # BLOQUE 1 — JAVA CORE (01_Java_Core/)
@@ -97,7 +97,7 @@
 - [x] Redis avanzado: Streams, pub-sub y patrones de mensajeria
 - [x] Optimizacion JVM + Redis Cache: estrategias de cacheo distribuido
 - [ ] SurrealDB como alternativa multimodelo en produccion con Java
-- [ ] Database migrations a escala: Flyway vs Liquibase, zero-downtime DDL
+- [x] Database migrations a escala: Flyway vs Liquibase, zero-downtime DDL
 - [ ] Change Data Capture (CDC): Debezium con PostgreSQL y Kafka
 - [ ] Connection pooling avanzado: HikariCP tuning y troubleshooting
 

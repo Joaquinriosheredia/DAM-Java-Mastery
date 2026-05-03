@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-03 08:26:58
-**Ultimo commit:** 87cfee2 feat(sre): kubernetes troubleshooting in production staff v4.0 - hito 88 (3 seconds ago)
-**Total de activos:** 97 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-03 08:38:31
+**Ultimo commit:** 45265e2 feat(db): database migrations flyway and liquibase staff v4.0 - hito 89 (3 seconds ago)
+**Total de activos:** 98 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
-| **10_Vanguardia** | 4 | 7 | — |
+| **10_Vanguardia** | 5 | 8 | — |
 
 ---
 
@@ -146,6 +146,7 @@
 ### 📂 10_Vanguardia
 
 - [CI/CD Completo con GitHub Actions en Java 21: Pipelines, Seguridad y O](10_Vanguardia/ci_cd_github_actions_pipeline_STAFF.md) — 2026-04-28 07:02 (26.8KB)
+- [Migraciones de Base de Datos con Flyway y Liquibase en Java 21: Estrat](10_Vanguardia/database_migrations_flyway_liquibase_STAFF.md) — 2026-05-03 08:38 (30.0KB)
 - [GraalVM Native Image: Compilación AOT de Aplicaciones Spring Boot en J](10_Vanguardia/graalvm_native_image_compilacion_aot_java_21_STAFF.md) — 2026-04-17 14:31 (31.0KB)
 - [gRPC en Sistemas de Alto Rendimiento con Java 21: Optimización de Late](10_Vanguardia/grpc_high_performance_systems_STAFF.md) — 2026-05-01 08:25 (35.9KB)
 - [Ingeniería del Rendimiento: Benchmarking en Java 21 — Guía Staff Engin](10_Vanguardia/java_performance_engineering_benchmarking_STAFF.md) — 2026-05-02 12:35 (30.5KB)
@@ -156,12 +157,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 97 |
-| Tamano total del repositorio | 3.5MB |
+| Total documentos tecnicos | 98 |
+| Tamano total del repositorio | 3.6MB |
 | Modulos activos | 10 |
-| Total commits | 486 |
+| Total commits | 489 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-03 08:26:58 |
+| Fecha | 2026-05-03 08:38:31 |
 
 ---
 
