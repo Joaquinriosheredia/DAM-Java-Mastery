@@ -7,37 +7,27 @@
 
 <!-- SEO & Discovery -->
 <meta name="description" content="Java Backend Engineer (Java 21) especializado en sistemas distribuidos, IA local y Cloud AWS. Portfolio con 10 labs ejecutables, +90 guías Staff y contribuciones open source.">
-<meta name="keywords" content="Java 21, Spring Boot, Kubernetes, Kafka, AWS, AI Engineer, Distributed Systems, Backend, Staff Engineer">
+<meta name="keywords" content="Java 21, Spring Boot, Kubernetes, Kafka, AWS, AI Engineer, Distributed Systems, Backend, Staff Engineer, Testcontainers">
 <meta name="author" content="Joaquín Ríos Heredia">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://joaquinriosheredia.github.io/">
 
 <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23020617' width='100' height='100'/><text x='50' y='65' font-family='monospace' font-size='50' fill='%232563eb' text-anchor='middle'>JR</text></svg>">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<!-- OpenGraph / Facebook / LinkedIn -->
+<!-- OpenGraph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://joaquinriosheredia.github.io/">
 <meta property="og:title" content="Joaquín Ríos Heredia — Java Backend Engineer (Java 21)">
 <meta property="og:description" content="10 Java Production Labs · +90 guías Staff Engineer · AI & Distributed Systems · Open Source Contributor">
 <meta property="og:image" content="https://raw.githubusercontent.com/Joaquinriosheredia/Proyecto_Git_Joaquin/main/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Portfolio de Joaquín Ríos Heredia - Java Backend Engineer">
-<meta property="og:site_name" content="Joaquín Ríos Heredia">
 <meta property="og:locale" content="es_ES">
 
-<!-- Theme & PWA -->
+<!-- Theme -->
 <meta name="theme-color" content="#020617">
 <meta name="color-scheme" content="dark only">
 
-<!-- Preconnect for performance -->
-<link rel="preconnect" href="https://github.com">
-<link rel="preconnect" href="https://raw.githubusercontent.com">
-
-<!-- Structured Data (JSON-LD) -->
+<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -45,17 +35,12 @@
   "name": "Joaquín Ríos Heredia",
   "jobTitle": "Backend Engineer / AI Specialist",
   "url": "https://joaquinriosheredia.github.io/",
-  "image": "https://raw.githubusercontent.com/Joaquinriosheredia/Proyecto_Git_Joaquin/main/joaquin.jpg",
   "sameAs": [
     "https://github.com/Joaquinriosheredia",
     "https://linkedin.com/in/joaquinrios-dev-strategist",
     "https://malt.es/profile/joaquinriosheredia"
   ],
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Freelance"
-  },
-  "skills": ["Java 21", "Spring Boot", "Kubernetes", "Apache Kafka", "AWS", "Artificial Intelligence", "Distributed Systems", "Python", "PostgreSQL", "Redis"]
+  "skills": ["Java 21", "Spring Boot", "Kubernetes", "Apache Kafka", "AWS", "Artificial Intelligence", "Distributed Systems", "Python", "PostgreSQL", "Redis", "Testcontainers"]
 }
 </script>
 
@@ -178,10 +163,6 @@ h2::before { content: ""; display: block; width: 4px; height: 20px; background: 
   display: flex; align-items: center; justify-content: center;
   color: var(--muted); font-size: 20px; font-weight: 300;
 }
-@media (max-width: 900px) {
-  .flow-diagram { grid-template-columns: 1fr; }
-  .flow-arrow { transform: rotate(90deg); }
-}
 
 /* OPEN SOURCE */
 .pr-card {
@@ -197,11 +178,32 @@ h2::before { content: ""; display: block; width: 4px; height: 20px; background: 
 .pr-status.merged { background: rgba(34,197,94,0.15); color: var(--success); }
 .pr-status.pending { background: rgba(245,158,11,0.15); color: var(--warning); }
 
-/* STACK - CORREGIDO */
-.stack-grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-  gap: 16px; 
+/* NPM PACKAGE CARD */
+.npm-card {
+  display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start;
+  padding: 20px; border: 1px solid var(--success); border-radius: 12px;
+  background: linear-gradient(145deg, #0f172a, #071a10);
+  margin-bottom: 20px;
+}
+.npm-icon { font-size: 36px; }
+.npm-name { font-weight: 700; color: var(--success); font-size: 18px; font-family: monospace; }
+.npm-desc { color: var(--muted); font-size: 14px; margin: 6px 0; }
+.npm-install {
+  background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 8px;
+  padding: 10px 14px; font-family: monospace; font-size: 13px; color: var(--success);
+  margin: 10px 0; display: inline-block;
+}
+.npm-checks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.npm-check {
+  font-size: 11px; padding: 3px 8px; border-radius: 4px;
+  background: rgba(34,197,94,0.1); color: var(--success); border: 1px solid rgba(34,197,94,0.3);
+}
+
+/* STACK */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
 }
 .stack-card {
   background: var(--card);
@@ -218,47 +220,25 @@ h2::before { content: ""; display: block; width: 4px; height: 20px; background: 
   box-shadow: 0 8px 25px rgba(37,99,235,0.15);
 }
 .stack-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 4px;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 4px;
 }
 .stack-icon { font-size: 24px; }
 .stack-title {
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-weight: 600; font-size: 16px; color: var(--primary);
+  display: flex; align-items: center; gap: 8px;
 }
 .stack-badge {
-  font-size: 10px;
-  padding: 2px 8px;
-  border-radius: 12px;
-  background: rgba(34,197,94,0.15);
-  color: var(--success);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: 10px; padding: 2px 8px; border-radius: 12px;
+  background: rgba(34,197,94,0.15); color: var(--success);
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
 }
-.stack-items {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+.stack-items { display: flex; flex-direction: column; gap: 6px; }
 .stack-item {
-  font-size: 13px;
-  color: var(--muted);
-  display: flex;
-  align-items: flex-start;
-  gap: 6px;
+  font-size: 13px; color: var(--muted);
+  display: flex; align-items: flex-start; gap: 6px;
 }
 .stack-item::before {
-  content: "·";
-  color: var(--primary);
-  font-weight: bold;
-  margin-top: -2px;
+  content: "·"; color: var(--primary); font-weight: bold; margin-top: -2px;
 }
 
 /* UTILS */
@@ -282,6 +262,9 @@ footer {
   .header img { margin: 0 auto; }
   .section { padding: 30px 20px; }
   .stack-grid { grid-template-columns: 1fr; }
+  .npm-card { grid-template-columns: 1fr; }
+  .flow-diagram { grid-template-columns: 1fr; }
+  .flow-arrow { transform: rotate(90deg); }
 }
 </style>
 </head>
@@ -289,6 +272,7 @@ footer {
 
 <!-- RIGHT SIDEBAR -->
 <aside class="sidebar">
+  <a href="#devtools">🔧 DevTools</a>
   <a href="#labs">🔬 Labs</a>
   <a href="#jarvis">🎙️ JARVIS</a>
   <a href="#authority">🏭 Authority</a>
@@ -306,12 +290,47 @@ footer {
     <h2>Java Backend Engineer (Java 21) · AI & Distributed Systems</h2>
     <p>
       📧 j.r.sinbarreras@gmail.com · 📍 Sevilla/Málaga (100% Remoto)<br>
-      🔗 <a href="https://github.com/Joaquinriosheredia" target="_blank">GitHub</a> · 
+      🔗 <a href="https://github.com/Joaquinriosheredia" target="_blank">GitHub</a> ·
       <a href="https://linkedin.com/in/joaquinrios-dev-strategist" target="_blank">LinkedIn</a> ·
       <a href="https://malt.es/profile/joaquinriosheredia" target="_blank">Malt</a>
     </p>
   </div>
 </header>
+
+<!-- DEVTOOLS / NPM -->
+<section id="devtools" class="section">
+  <h2>🔧 DevTools Publicadas</h2>
+
+  <div class="npm-card">
+    <div class="npm-icon">📦</div>
+    <div>
+      <div class="npm-name">testcontainers-doctor</div>
+      <div class="npm-desc">CLI para diagnosticar entornos Testcontainers en segundos. Construido después de depurar setups reales en WSL2 + Docker 29.</div>
+      <div class="npm-install">npm install -g testcontainers-doctor</div>
+      <div class="npm-checks">
+        <span class="npm-check">✅ 19 checks automáticos</span>
+        <span class="npm-check">✅ Docker daemon</span>
+        <span class="npm-check">✅ Java 21 + JAVA_HOME</span>
+        <span class="npm-check">✅ Maven</span>
+        <span class="npm-check">✅ Puertos PostgreSQL/Redis/Kafka/MySQL/MongoDB</span>
+        <span class="npm-check">✅ Ryuk reaper</span>
+        <span class="npm-check">✅ WSL2 integration</span>
+        <span class="npm-check">✅ JSON output + exit codes para CI/CD</span>
+        <span class="npm-check">✅ Linux · macOS · WSL2</span>
+        <span class="npm-check">✅ MIT License</span>
+      </div>
+      <div style="margin-top:12px; display:flex; gap:16px; flex-wrap:wrap">
+        <a href="https://www.npmjs.com/package/testcontainers-doctor" target="_blank" style="color:var(--success); font-size:13px; text-decoration:none">📦 npm →</a>
+        <a href="https://github.com/Joaquinriosheredia/testcontainers-doctor" target="_blank" style="color:var(--primary); font-size:13px; text-decoration:none">⭐ GitHub →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card highlight">
+    <b>Resultado real ejecutado en WSL2:</b> 19 passed · 1 warning · 0 failed<br>
+    <span class="muted small">Reduce el tiempo de diagnóstico de entorno de horas a segundos.</span>
+  </div>
+</section>
 
 <!-- LABS -->
 <section id="labs" class="section">
@@ -320,21 +339,20 @@ footer {
     <b>10 laboratorios ejecutables</b> · Spring Boot 3 + Java 21 · Clonable en 45 min.<br>
     Cada lab incluye: <span class="code">ADR</span> · <span class="code">Testcontainers</span> · <span class="code">JMH/k6</span> · <span class="code">Chaos</span> · <span class="code">Prometheus+Grafana</span>
   </div>
-  
+
   <div class="grid-3">
     <!-- Lab 1 -->
     <div class="lab-card">
       <div class="lab-header">
         <h3 class="lab-title">01 — Virtual Threads</h3>
-        <span class="lab-badge done">✅ Done</span>
+        <span class="lab-badge done">✅ Ejecutado</span>
       </div>
       <div>
-        <p class="lab-metric"><b>8.2× throughput</b> vs thread-pool tradicional (10K RPS → 82K RPS)</p>
-        <p class="lab-metric">Latencia p99: 12ms → 3ms bajo carga sostenida</p>
+        <p class="lab-metric"><b>7.4× throughput</b> vs thread-pool tradicional · 200 VUs · 30s</p>
+        <p class="lab-metric">p99: 5.817ms → 167ms · Pico exhaustion: <b>13.9s</b></p>
         <div class="lab-tech">
           <span class="tech-tag">Spring Boot 3.2</span>
           <span class="tech-tag">Java 21 Loom</span>
-          <span class="tech-tag">JMH</span>
           <span class="tech-tag">k6</span>
         </div>
       </div>
@@ -345,16 +363,16 @@ footer {
     <div class="lab-card">
       <div class="lab-header">
         <h3 class="lab-title">02 — Resilience4j</h3>
-        <span class="lab-badge done">✅ Done</span>
+        <span class="lab-badge done">✅ Ejecutado</span>
       </div>
       <div>
-        <p class="lab-metric"><b>Circuit Breaker + Retry + Bulkhead</b> con fallback escalonado</p>
-        <p class="lab-metric">Recuperación automática en <b>&lt;900ms</b> tras fallo en downstream</p>
+        <p class="lab-metric"><b>0.00% error rate</b> · 90.680 llamadas bloqueadas por CB</p>
+        <p class="lab-metric">Fallback in-process: <b>5ms</b> · Recovery: <b>5s</b> · 159.482 requests</p>
         <div class="lab-tech">
           <span class="tech-tag">Resilience4j</span>
-          <span class="tech-tag">Micrometer</span>
-          <span class="tech-tag">Chaos Monkey</span>
-          <span class="tech-tag">Testcontainers</span>
+          <span class="tech-tag">Circuit Breaker</span>
+          <span class="tech-tag">k6</span>
+          <span class="tech-tag">Chaos script</span>
         </div>
       </div>
       <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/02_resilience" target="_blank">Ver código →</a>
@@ -367,8 +385,8 @@ footer {
         <span class="lab-badge done">✅ Done</span>
       </div>
       <div>
-        <p class="lab-metric"><b>Token Bucket distribuido</b> con precisión &lt;5ms entre nodos</p>
-        <p class="lab-metric">Escalado horizontal sin coordinación centralizada</p>
+        <p class="lab-metric"><b>Token Bucket distribuido</b> · overhead Redis: &lt;1ms p99</p>
+        <p class="lab-metric">50 RPS con budget 10 → rechazo ~80% · Precisión &lt;5ms</p>
         <div class="lab-tech">
           <span class="tech-tag">Redis Lua</span>
           <span class="tech-tag">Spring Data Redis</span>
@@ -385,12 +403,11 @@ footer {
         <span class="lab-badge">🚧 WIP</span>
       </div>
       <div>
-        <p class="lab-metric"><b>Zero data loss</b> con transacción atómica DB→Kafka</p>
-        <p class="lab-metric">Idempotencia garantizada con deduplication key</p>
+        <p class="lab-metric"><b>Zero data loss</b> · 100 orders/s · delivery lag ~1s</p>
+        <p class="lab-metric">Kafka down → eventos en outbox → backlog limpiado al recover</p>
         <div class="lab-tech">
           <span class="tech-tag">Transactional Outbox</span>
           <span class="tech-tag">Kafka Producer</span>
-          <span class="tech-tag">Debezium</span>
           <span class="tech-tag">PostgreSQL</span>
         </div>
       </div>
@@ -404,8 +421,8 @@ footer {
         <span class="lab-badge">🚧 WIP</span>
       </div>
       <div>
-        <p class="lab-metric"><b>Compensación automática</b> en flujos distribuidos de 4+ servicios</p>
-        <p class="lab-metric">Estado consistente incluso con fallos parciales</p>
+        <p class="lab-metric"><b>Happy path: ~200ms</b> · 50% inventory failure: ~300ms</p>
+        <p class="lab-metric">100% payment failure: fast fail ~100ms · Compensación automática</p>
         <div class="lab-tech">
           <span class="tech-tag">Choreography Saga</span>
           <span class="tech-tag">Kafka Events</span>
@@ -422,13 +439,12 @@ footer {
         <span class="lab-badge">📋 Planned</span>
       </div>
       <div>
-        <p class="lab-metric"><b>20K msg/s (Redis Pub/Sub)</b> vs <b>500 msg/s (Kafka)</b> en baja latencia</p>
-        <p class="lab-metric">Trade-off: durabilidad vs throughput — documentado en ADR</p>
+        <p class="lab-metric"><b>~20.000 msg/s (Redis)</b> vs <b>~500 msg/s (Kafka acks=all)</b></p>
+        <p class="lab-metric">Redis ~40× más rápido · Kafka garantiza durabilidad</p>
         <div class="lab-tech">
-          <span class="tech-tag">Redis Streams</span>
+          <span class="tech-tag">Redis Pub/Sub</span>
           <span class="tech-tag">Kafka</span>
-          <span class="tech-tag">JMH</span>
-          <span class="tech-tag">ADR-006</span>
+          <span class="tech-tag">curl benchmark</span>
         </div>
       </div>
       <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/06_redis_vs_kafka" target="_blank">Ver código →</a>
@@ -438,16 +454,15 @@ footer {
     <div class="lab-card">
       <div class="lab-header">
         <h3 class="lab-title">07 — PostgreSQL Tuning</h3>
-        <span class="lab-badge">📋 Planned</span>
+        <span class="lab-badge done">✅ Ejecutado</span>
       </div>
       <div>
-        <p class="lab-metric"><b>23× speedup</b> con índices parciales + BRIN + query refactoring</p>
-        <p class="lab-metric">Análisis de `EXPLAIN ANALYZE` automatizado en CI</p>
+        <p class="lab-metric"><b>26× speedup</b> · 1.000.034 filas · Seq scan: 37ms → Index: 1ms</p>
+        <p class="lab-metric">120× menos I/O · 12.268 → 102 buffer accesses · EXPLAIN ANALYZE</p>
         <div class="lab-tech">
           <span class="tech-tag">PostgreSQL 16</span>
+          <span class="tech-tag">Índice parcial</span>
           <span class="tech-tag">pg_stat_statements</span>
-          <span class="tech-tag">Flyway</span>
-          <span class="tech-tag">JOOQ</span>
         </div>
       </div>
       <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/07_postgres_tuning" target="_blank">Ver código →</a>
@@ -460,13 +475,12 @@ footer {
         <span class="lab-badge">📋 Planned</span>
       </div>
       <div>
-        <p class="lab-metric"><b>Windowed processing</b> con session windows + state store local</p>
-        <p class="lab-metric">Exactly-once semantics con Kafka transactions</p>
+        <p class="lab-metric"><b>5.000 events/s</b> (10K msgs) · processing lag &lt;500ms</p>
+        <p class="lab-metric">10.000 events/s (100K msgs) · lag &lt;1s · escala con particiones</p>
         <div class="lab-tech">
           <span class="tech-tag">Kafka Streams</span>
           <span class="tech-tag">RocksDB</span>
-          <span class="tech-tag">Kafka 3.6</span>
-          <span class="tech-tag">Testcontainers</span>
+          <span class="tech-tag">TopologyTestDriver</span>
         </div>
       </div>
       <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/08_kafka_streams" target="_blank">Ver código →</a>
@@ -480,12 +494,11 @@ footer {
       </div>
       <div>
         <p class="lab-metric"><b>520MB → 195MB</b> · rebuild: <b>3min → 15s</b> con layer caching</p>
-        <p class="lab-metric">Multi-stage + distroless + SBOM con Syft</p>
+        <p class="lab-metric">Multi-stage + distroless · Sin root user · Container memory limits</p>
         <div class="lab-tech">
           <span class="tech-tag">Docker BuildKit</span>
-          <span class="tech-tag">JLink</span>
-          <span class="tech-tag">Cosign</span>
-          <span class="tech-tag">Trivy</span>
+          <span class="tech-tag">Distroless</span>
+          <span class="tech-tag">Multi-stage</span>
         </div>
       </div>
       <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/09_docker_optimization" target="_blank">Ver código →</a>
@@ -498,13 +511,12 @@ footer {
         <span class="lab-badge">📋 Planned</span>
       </div>
       <div>
-        <p class="lab-metric"><b>HPA custom metrics</b> con Prometheus adapter (RPS, lag, error rate)</p>
-        <p class="lab-metric">Scale-to-zero con KEDA + Kafka scaler</p>
+        <p class="lab-metric"><b>HPA custom metrics</b> · 20 VUs → scale up: 4 pods</p>
+        <p class="lab-metric">Métricas custom Prometheus · Scale down tras 5min sin carga</p>
         <div class="lab-tech">
-          <span class="tech-tag">K8s 1.29</span>
-          <span class="tech-tag">KEDA</span>
+          <span class="tech-tag">Kubernetes HPA</span>
           <span class="tech-tag">Prometheus Adapter</span>
-          <span class="tech-tag">VerticalPodAutoscaler</span>
+          <span class="tech-tag">k6</span>
         </div>
       </div>
       <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/10_kubernetes_autoscaling" target="_blank">Ver código →</a>
@@ -549,8 +561,7 @@ footer {
   <h2>🏭 Authority Engine v21.0</h2>
   <div class="card">
     <p><b>Pipeline de IA propio</b> que genera documentación técnica nivel Staff Engineer y la despliega en AWS automáticamente. <span class="code">Python Expert</span> · 100% código propio.</p>
-    
-    <!-- DIAGRAMA DE FLUJO CON EMOJIS -->
+
     <div class="flow-diagram">
       <div class="flow-step">
         <span class="emoji">📄</span>
@@ -594,17 +605,17 @@ footer {
         <span class="desc">AWS Lambda + S3<br>CI/CD GitHub Actions</span>
       </div>
     </div>
-    
+
     <div class="grid-2" style="margin-top:16px">
       <div>
-        <p class="lab-metric"><b>+90 guías publicadas</b> · Score calidad: <b>99/100</b> (evaluator LLM)</p>
+        <p class="lab-metric"><b>+90 guías publicadas</b> · Score calidad: <b>94/100</b></p>
         <p class="lab-metric"><b>6 min/doc</b> · ~1.200 líneas Python propio (no wrappers)</p>
         <p class="lab-metric"><b>Coste</b>: ~$0.03/doc (Lambda + S3 + Ollama local)</p>
       </div>
       <div>
         <p><b>Características clave:</b></p>
         <ul class="small" style="margin:8px 0 0; padding-left:18px">
-          <li>Validación de código con compilación real (`mvn verify`)</li>
+          <li>Validación de código con compilación real (<span class="code">mvn verify</span>)</li>
           <li>Detección de afirmaciones no verificadas → marca como <span class="code">[NEEDS_EVIDENCE]</span></li>
           <li>Generación de ADRs, diagramas Mermaid y runbooks operativos</li>
           <li>SBOM automático + firma de artefactos con Cosign</li>
@@ -626,22 +637,22 @@ footer {
     <!-- PR 1 -->
     <div class="pr-card">
       <div>
-        <div class="pr-repo">langchain4j</div>
-        <div class="pr-desc">Spring Boot Starter para ChromaDB: configuración auto, health checks, properties typed</div>
-        <div class="pr-meta">PR #185 · +179 líneas · 3 archivos</div>
+        <div class="pr-repo">langchain4j-spring</div>
+        <div class="pr-desc">Spring Boot Starter para ChromaDB: auto-configuration, ChromaEmbeddingStoreProperties, AutoConfiguration bean, tests incluidos</div>
+        <div class="pr-meta">PR #185 · +179 líneas · 3 archivos · Sigue patrón Milvus y Redis</div>
       </div>
       <div style="text-align:right">
         <span class="pr-status pending">⏳ Pending Review</span>
         <div class="small muted" style="margin-top:8px">11k ⭐ · 450 forks</div>
       </div>
     </div>
-    
+
     <!-- PR 2 -->
     <div class="pr-card">
       <div>
         <div class="pr-repo">ollama4j</div>
-        <div class="pr-desc">Exponer `model_info` completo en `ModelDetail`: license, context_length, capabilities</div>
-        <div class="pr-meta">PR #303 · +42 líneas · 1 archivo</div>
+        <div class="pr-desc">Exponer model_info en ModelDetail: Map&lt;String,Object&gt; con @JsonProperty para acceso a context_length, embedding_length y arquitectura sin parsear JSON crudo</div>
+        <div class="pr-meta">PR #303 · +3 líneas · SonarQube ✅ · CodeRabbit ✅ · Mergeado en 3 días</div>
       </div>
       <div style="text-align:right">
         <span class="pr-status merged">✅ Merged</span>
@@ -650,11 +661,11 @@ footer {
     </div>
   </div>
   <div class="card warning" style="margin-top:20px">
-    <b>Próxima contribución planeada</b>: Añadir soporte para <span class="code">Structured Outputs</span> en langchain4j (JSON Schema validation en tool calls).
+    <b>Próxima contribución</b>: Segunda contribución activa en ollama4j — ya con credibilidad de maintainer establecida tras el merge del PR #303.
   </div>
 </section>
 
-<!-- STACK - CORREGIDO -->
+<!-- STACK -->
 <section id="stack" class="section">
   <h2>🛠️ Stack Técnico</h2>
   <div class="stack-grid">
@@ -765,6 +776,18 @@ footer {
         <div class="stack-item">Chaos Engineering</div>
       </div>
     </div>
+
+    <div class="stack-card">
+      <div class="stack-header">
+        <span class="stack-icon">🔧</span>
+        <div class="stack-title">DevTools <span class="stack-badge">NEW</span></div>
+      </div>
+      <div class="stack-items">
+        <div class="stack-item">testcontainers-doctor</div>
+        <div class="stack-item">Node.js CLI</div>
+        <div class="stack-item">npm published</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -776,7 +799,6 @@ footer {
 </div>
 
 <script>
-// Smooth scroll + active link highlight
 document.querySelectorAll('.sidebar a').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
@@ -788,7 +810,6 @@ document.querySelectorAll('.sidebar a').forEach(link => {
     }
   });
 });
-// Highlight active section on scroll
 const sections = document.querySelectorAll('.section');
 const navLinks = document.querySelectorAll('.sidebar a');
 window.addEventListener('scroll', () => {
