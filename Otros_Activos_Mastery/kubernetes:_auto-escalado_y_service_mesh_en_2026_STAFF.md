@@ -160,6 +160,58 @@ graph LR;
 
 La implementación eficiente del auto-escalado en Kubernetes y la integración de Istio como un service mesh global son fundamentales para mantener una infraestructura escalable y resiliente. Estas tecnologías no solo mejoran significativamente el rendimiento y la capacidad de manejar picos de tráfico, sino que también proporcionan las herramientas necesarias para gestionar y monitorear eficazmente los sistemas distribuidos en entornos complejos.
 
+#### Java 21: Gestión de HPA con el Cliente Oficial de Kubernetes
+
+```java
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.apis.AutoscalingV2Api;
+import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.util.Config;
+
+import java.util.List;
+
+public class KubernetesHpaManager {
+
+    private final AutoscalingV2Api autoscalingApi;
+
+    public KubernetesHpaManager() throws Exception {
+        ApiClient client = Config.defaultClient();
+        Configuration.setDefaultApiClient(client);
+        this.autoscalingApi = new AutoscalingV2Api();
+    }
+
+    public void listHpaStatus(String namespace) throws Exception {
+        V2HorizontalPodAutoscalerList hpaList =
+            autoscalingApi.listNamespacedHorizontalPodAutoscaler(namespace)
+                .execute();
+
+        for (V2HorizontalPodAutoscaler hpa : hpaList.getItems()) {
+            V2HorizontalPodAutoscalerStatus status = hpa.getStatus();
+            String name = hpa.getMetadata().getName();
+            int currentReplicas = status.getCurrentReplicas() != null ? status.getCurrentReplicas() : 0;
+            int desiredReplicas = status.getDesiredReplicas();
+
+            System.out.printf("HPA: %-30s  actual: %d  deseado: %d%n",
+                name, currentReplicas, desiredReplicas);
+
+            if (currentReplicas >= desiredReplicas && desiredReplicas > 0) {
+                double ratio = (double) currentReplicas / desiredReplicas;
+                if (ratio >= 0.8) {
+                    System.out.printf("  ⚠️  Saturación alta (%.0f%%) — considera aumentar maxReplicas%n",
+                        ratio * 100);
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        KubernetesHpaManager manager = new KubernetesHpaManager();
+        manager.listHpaStatus("default");
+    }
+}
+```
+
 #### Referencias
 
 - [Kubernetes Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
