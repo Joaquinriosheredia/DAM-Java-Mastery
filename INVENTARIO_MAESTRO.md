@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-03 08:38:31
-**Ultimo commit:** 45265e2 feat(db): database migrations flyway and liquibase staff v4.0 - hito 89 (3 seconds ago)
-**Total de activos:** 98 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-04 08:34:18
+**Ultimo commit:** b45c594 feat(db): relational vs nosql modeling staff v4.0 - hito 90 (3 seconds ago)
+**Total de activos:** 100 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -15,8 +15,8 @@
 | **01_Java_Core** | 11 | 43 | — |
 | **02_Arquitectura** | 28 | 56 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
-| **04_Bases_de_Datos** | 5 | 17 | — |
-| **05_SRE_DevOps** | 15 | 37 | — |
+| **04_Bases_de_Datos** | 6 | 18 | — |
+| **05_SRE_DevOps** | 15 | 38 | — |
 | **06_Seguridad** | 5 | 11 | — |
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
@@ -88,6 +88,7 @@
 - [Optimización de JVM y Caché Distribuida con Redis y Java 21: Estrategi](04_Bases_de_Datos/optimizacion_jvm_y_cache_distribuida_redis_java_21_STAFF.md) — 2026-04-17 14:31 (50.0KB)
 - [PostgreSQL 17 Avanzado: Índices, Particionado y Optimización de Querie](04_Bases_de_Datos/postgresql_17_avanzado_indices_particionado_y_optimizacion_de_queries_STAFF.md) — 2026-04-17 14:31 (49.1KB)
 - [Redis Avanzado: Streams, Pub/Sub y Patrones de Mensajería con Java 21 ](04_Bases_de_Datos/redis_avanzado_streams_pubsub_y_patrones_de_mensajeria_STAFF.md) — 2026-04-17 14:31 (48.7KB)
+- [Modelado Relacional vs. NoSQL: Cuándo Usar Cada Uno en Java 21 — Guía ](04_Bases_de_Datos/relational_vs_nosql_modeling_STAFF.md) — 2026-05-04 08:34 (32.0KB)
 - [Vector Search con pgvector y PostgreSQL 17 para Aplicaciones IA: Index](04_Bases_de_Datos/vector_search_con_pgvector_y_postgresql_17_para_aplicaciones_ia_STAFF.md) — 2026-04-17 14:31 (47.9KB)
 
 ### 📂 05_SRE_DevOps
@@ -100,7 +101,7 @@
 - [Docker Avanzado: Multi-stage Builds, Imágenes Distroless y Optimizació](05_SRE_DevOps/docker_avanzado_java_21_optimizacion_STAFF.md) — 2026-04-17 14:31 (35.8KB)
 - [Golden Signals: Monitorización Google SRE con Java 21 y Micrometer](05_SRE_DevOps/google_sre_golden_signals_STAFF.md) — 2026-05-01 08:02 (50.8KB)
 - [Infraestructura como Código (IaC) con AWS CDK y Java 21: Arquitectura ](05_SRE_DevOps/iac_aws_cdk_java_21_STAFF.md) — 2026-04-17 14:31 (40.8KB)
-- [Kubernetes Auto-Escalado y Service Mesh en 2026: HPA, VPA, KEDA e Isti](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-04-17 14:31 (34.1KB)
+- [Kubernetes Auto-Escalado y Service Mesh en 2026: HPA, VPA, KEDA e Isti](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-05-03 18:23 (43.2KB)
 - [Kubernetes Troubleshooting en Producción con Java 21: Diagnóstico, Mét](05_SRE_DevOps/kubernetes_troubleshooting_production_STAFF.md) — 2026-05-03 08:26 (34.7KB)
 - [Linux Gestión Avanzada de Procesos, Scheduling y Señales en Sistemas P](05_SRE_DevOps/linux_gestion_avanzada_de_procesos_scheduling_y_senales_en_sistemas_productivos_STAFF.md) — 2026-04-17 14:52 (34.5KB)
 - [Observabilidad Distribuida en Spring Boot 3.4 con OpenTelemetry y Graf](05_SRE_DevOps/observabilidad_metricas_trazas_STAFF.md) — 2026-04-25 09:08 (31.0KB)
@@ -157,12 +158,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 98 |
+| Total documentos tecnicos | 100 |
 | Tamano total del repositorio | 3.6MB |
 | Modulos activos | 10 |
-| Total commits | 489 |
+| Total commits | 501 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-03 08:38:31 |
+| Fecha | 2026-05-04 08:34:18 |
 
 ---
 
