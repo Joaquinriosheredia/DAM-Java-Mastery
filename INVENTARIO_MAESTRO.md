@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-05 08:11:55
-**Ultimo commit:** 25e5af9 feat(sre): prometheus and grafana observability staff v4.0 - hito 92 (3 seconds ago)
-**Total de activos:** 102 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-05 08:21:07
+**Ultimo commit:** b9ed9b3 feat(cloud): aws cloud cost optimization finops staff v4.0 - hito 93 (3 seconds ago)
+**Total de activos:** 103 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
-| **10_Vanguardia** | 5 | 8 | — |
+| **10_Vanguardia** | 6 | 9 | — |
 
 ---
 
@@ -148,6 +148,7 @@
 
 ### 📂 10_Vanguardia
 
+- [optimizacion_de_costes_en_cloud_aws](10_Vanguardia/aws_cloud_cost_optimization_FinOps_STAFF.md) — 2026-05-05 08:20 (28.7KB)
 - [CI/CD Completo con GitHub Actions en Java 21: Pipelines, Seguridad y O](10_Vanguardia/ci_cd_github_actions_pipeline_STAFF.md) — 2026-04-28 07:02 (26.8KB)
 - [Migraciones de Base de Datos con Flyway y Liquibase en Java 21: Estrat](10_Vanguardia/database_migrations_flyway_liquibase_STAFF.md) — 2026-05-03 08:38 (30.0KB)
 - [GraalVM Native Image: Compilación AOT de Aplicaciones Spring Boot en J](10_Vanguardia/graalvm_native_image_compilacion_aot_java_21_STAFF.md) — 2026-04-17 14:31 (31.0KB)
@@ -160,12 +161,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 102 |
+| Total documentos tecnicos | 103 |
 | Tamano total del repositorio | 3.7MB |
 | Modulos activos | 10 |
-| Total commits | 507 |
+| Total commits | 510 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-05 08:11:55 |
+| Fecha | 2026-05-05 08:21:07 |
 
 ---
 
