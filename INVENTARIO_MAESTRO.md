@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-04 09:18:20
-**Ultimo commit:** 29423df feat(sre): kubernetes networking staff v4.0 - hito 91 (3 seconds ago)
-**Total de activos:** 101 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-05 08:11:55
+**Ultimo commit:** 25e5af9 feat(sre): prometheus and grafana observability staff v4.0 - hito 92 (3 seconds ago)
+**Total de activos:** 102 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 28 | 56 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 6 | 18 | — |
-| **05_SRE_DevOps** | 16 | 39 | — |
+| **05_SRE_DevOps** | 17 | 40 | — |
 | **06_Seguridad** | 5 | 11 | — |
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
@@ -108,6 +108,7 @@
 - [Observabilidad Distribuida en Spring Boot 3.4 con OpenTelemetry y Graf](05_SRE_DevOps/observabilidad_metricas_trazas_STAFF.md) — 2026-04-25 09:08 (31.0KB)
 - [Patrones de Despliegue en Kubernetes: Blue-Green, Canary y Rolling con](05_SRE_DevOps/patrones_de_despliegue_bluegreen_canary_y_rolling_con_kubernetes_STAFF.md) — 2026-04-17 14:31 (37.5KB)
 - [Postmortems de Fallos Reales en Producción: Análisis Forense, Learning](05_SRE_DevOps/postmortems_fallos_produccion_STAFF.md) — 2026-04-21 08:04 (43.8KB)
+- [Observabilidad con Prometheus y Grafana en Java 21: Métricas, Alertas ](05_SRE_DevOps/prometheus_grafana_observability_STAFF.md) — 2026-05-05 08:11 (31.4KB)
 - [SLI, SLO y SLAs: Diseño y Aplicación Real en Microservicios Java 21 — ](05_SRE_DevOps/sli_slo_y_slas_diseno_y_aplicacion_real_en_microservicios_java_STAFF.md) — 2026-04-17 14:31 (35.5KB)
 
 ### 📂 06_Seguridad
@@ -159,12 +160,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 101 |
+| Total documentos tecnicos | 102 |
 | Tamano total del repositorio | 3.7MB |
 | Modulos activos | 10 |
-| Total commits | 504 |
+| Total commits | 507 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-04 09:18:20 |
+| Fecha | 2026-05-05 08:11:55 |
 
 ---
 
