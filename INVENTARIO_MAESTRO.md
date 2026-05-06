@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-05 08:21:07
-**Ultimo commit:** b9ed9b3 feat(cloud): aws cloud cost optimization finops staff v4.0 - hito 93 (3 seconds ago)
-**Total de activos:** 103 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-06 07:57:00
+**Ultimo commit:** 9f0a472 feat(security): owasp top 10 java security staff v4.0 - hito 94 (3 seconds ago)
+**Total de activos:** 104 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
-| **10_Vanguardia** | 6 | 9 | — |
+| **10_Vanguardia** | 7 | 10 | — |
 
 ---
 
@@ -154,6 +154,7 @@
 - [GraalVM Native Image: Compilación AOT de Aplicaciones Spring Boot en J](10_Vanguardia/graalvm_native_image_compilacion_aot_java_21_STAFF.md) — 2026-04-17 14:31 (31.0KB)
 - [gRPC en Sistemas de Alto Rendimiento con Java 21: Optimización de Late](10_Vanguardia/grpc_high_performance_systems_STAFF.md) — 2026-05-01 08:25 (35.9KB)
 - [Ingeniería del Rendimiento: Benchmarking en Java 21 — Guía Staff Engin](10_Vanguardia/java_performance_engineering_benchmarking_STAFF.md) — 2026-05-02 12:35 (30.5KB)
+- [OWASP Top 10 Aplicado a Java 21: Seguridad, Vulnerabilidades y Mitigac](10_Vanguardia/owasp_top_10_java_security_STAFF.md) — 2026-05-06 07:56 (33.1KB)
 
 ---
 
@@ -161,12 +162,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 103 |
-| Tamano total del repositorio | 3.7MB |
+| Total documentos tecnicos | 104 |
+| Tamano total del repositorio | 3.8MB |
 | Modulos activos | 10 |
-| Total commits | 510 |
+| Total commits | 513 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-05 08:21:07 |
+| Fecha | 2026-05-06 07:57:00 |
 
 ---
 
