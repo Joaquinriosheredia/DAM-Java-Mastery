@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-07 09:10:44
-**Ultimo commit:** 07690d0 feat(security): api security rate limiting and abuse prevention staff v4.0 - hito 96 (4 seconds ago)
-**Total de activos:** 106 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-07 09:23:58
+**Ultimo commit:** d1cd839 feat(security): event-driven systems security staff v4.0 - hito 97 (3 seconds ago)
+**Total de activos:** 107 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -17,7 +17,7 @@
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 6 | 18 | — |
 | **05_SRE_DevOps** | 18 | 41 | — |
-| **06_Seguridad** | 6 | 12 | — |
+| **06_Seguridad** | 7 | 13 | — |
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
@@ -115,6 +115,7 @@
 ### 📂 06_Seguridad
 
 - [Seguridad en APIs: Rate Limit, API Keys y Prevención de Abuse con Java](06_Seguridad/api_security_rate_limiting_abuse_STAFF.md) — 2026-05-07 09:10 (35.9KB)
+- [Seguridad en Sistemas Event-Driven con Java 21: Autenticación, Autoriz](06_Seguridad/event_driven_systems_security_STAFF.md) — 2026-05-07 09:23 (33.0KB)
 - [JWT, OAuth2 y Zero Trust Security con Java 21 y Spring Security 6 — Gu](06_Seguridad/jwt_oauth2_y_zero_trust_security_con_java_21_STAFF.md) — 2026-04-17 14:31 (44.8KB)
 - [Seguridad Ofensiva y Auditoría de Microservicios con Java 21: Pentesti](06_Seguridad/seguridad_ofensiva_y_auditoria_de_microservicios_con_java_21_STAFF.md) — 2026-04-17 14:31 (35.1KB)
 - [Spring Security 6 Avanzado: Autorización Granular Método-a-Método y OA](06_Seguridad/spring_security_6_avanzado_metodo_a_metodo_oauth2_resource_server_STAFF.md) — 2026-04-17 14:31 (33.6KB)
@@ -164,12 +165,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 106 |
-| Tamano total del repositorio | 3.8MB |
+| Total documentos tecnicos | 107 |
+| Tamano total del repositorio | 3.9MB |
 | Modulos activos | 10 |
-| Total commits | 519 |
+| Total commits | 522 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-07 09:10:44 |
+| Fecha | 2026-05-07 09:23:58 |
 
 ---
 
