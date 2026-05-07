@@ -5,795 +5,529 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Joaquín Ríos Heredia — Backend / AI Engineer</title>
 
-<!-- SEO & Discovery -->
-<meta name="description" content="Java Backend Engineer (Java 21) especializado en sistemas distribuidos, IA local y Cloud AWS. Portfolio con 10 labs ejecutables, +90 guías Staff y contribuciones open source.">
-<meta name="keywords" content="Java 21, Spring Boot, Kubernetes, Kafka, AWS, AI Engineer, Distributed Systems, Backend, Staff Engineer, Testcontainers">
+<meta name="description" content="Java Backend Engineer especializado en sistemas distribuidos, IA local y Cloud AWS. Portfolio con labs ejecutables, contribuciones open source y tooling propio.">
+<meta name="keywords" content="Java 21, Spring Boot, Kubernetes, Kafka, AWS, AI Engineer, Distributed Systems, Backend, Testcontainers">
 <meta name="author" content="Joaquín Ríos Heredia">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://joaquinriosheredia.github.io/">
-
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23020617' width='100' height='100'/><text x='50' y='65' font-family='monospace' font-size='50' fill='%232563eb' text-anchor='middle'>JR</text></svg>">
-
-<!-- OpenGraph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://joaquinriosheredia.github.io/">
-<meta property="og:title" content="Joaquín Ríos Heredia — Java Backend Engineer (Java 21)">
-<meta property="og:description" content="10 Java Production Labs · +90 guías Staff Engineer · AI & Distributed Systems · Open Source Contributor">
-<meta property="og:image" content="https://raw.githubusercontent.com/Joaquinriosheredia/Proyecto_Git_Joaquin/main/assets/og-image.png">
-<meta property="og:locale" content="es_ES">
-
-<!-- Theme -->
-<meta name="theme-color" content="#020617">
-<meta name="color-scheme" content="dark only">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Joaquín Ríos Heredia",
-  "jobTitle": "Backend Engineer / AI Specialist",
-  "url": "https://joaquinriosheredia.github.io/",
-  "sameAs": [
-    "https://github.com/Joaquinriosheredia",
-    "https://linkedin.com/in/joaquinrios-dev-strategist",
-    "https://malt.es/profile/joaquinriosheredia"
-  ],
-  "skills": ["Java 21", "Spring Boot", "Kubernetes", "Apache Kafka", "AWS", "Artificial Intelligence", "Distributed Systems", "Python", "PostgreSQL", "Redis", "Testcontainers"]
-}
-</script>
 
 <style>
 :root {
-  --bg: #020617; --card: #0f172a; --border: #1e293b; --text: #e2e8f0; --muted: #94a3b8;
-  --primary: #2563eb; --success: #22c55e; --warning: #f59e0b; --danger: #ef4444;
+  --bg: #020617;
+  --card: #0f172a;
+  --border: #1e293b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --primary: #2563eb;
+  --success: #22c55e;
 }
+
 * { box-sizing: border-box; }
+
 body {
-  margin: 0; font-family: 'Segoe UI', system-ui, sans-serif;
-  background: var(--bg); color: var(--text); line-height: 1.5;
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
 }
 
-/* RIGHT SIDEBAR NAV */
 .sidebar {
-  position: fixed; right: 0; top: 0; bottom: 0;
-  width: 220px; background: rgba(2,6,23,0.98);
-  border-left: 1px solid var(--border); padding: 20px 16px;
-  display: flex; flex-direction: column; gap: 8px; z-index: 100;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 220px;
+  background: rgba(2,6,23,0.98);
+  border-left: 1px solid var(--border);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
 }
+
 .sidebar a {
-  color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500;
-  padding: 10px 14px; border-radius: 8px; transition: all 0.2s;
-  display: flex; align-items: center; gap: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all .2s;
 }
-.sidebar a:hover, .sidebar a.active {
-  color: var(--primary); background: rgba(37,99,235,0.12);
-}
-.sidebar a::before {
-  content: "•"; color: var(--primary); font-weight: bold; opacity: 0;
-  transition: opacity 0.2s;
-}
-.sidebar a:hover::before, .sidebar a.active::before { opacity: 1; }
 
-/* MAIN CONTENT */
-.main { margin-right: 220px; }
+.sidebar a:hover,
+.sidebar a.active {
+  color: var(--primary);
+  background: rgba(37,99,235,.12);
+}
 
-/* HEADER */
+.main {
+  margin-right: 220px;
+}
+
 .header {
-  display: grid; grid-template-columns: auto 1fr; gap: 24px;
-  padding: 40px; max-width: 1100px; margin: auto; align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  padding: 40px;
+  max-width: 1100px;
+  margin: auto;
+  align-items: center;
 }
-.header img {
-  width: 120px; height: 120px; border-radius: 12px;
-  border: 2px solid var(--primary); object-fit: cover;
-}
-.header h1 { margin: 0; font-size: 32px; font-weight: 700; }
-.header h2 { margin: 8px 0; color: var(--primary); font-weight: 500; font-size: 20px; }
-.header p { margin: 12px 0 0; color: var(--muted); font-size: 15px; }
-.header a { color: var(--primary); text-decoration: none; }
-.header a:hover { text-decoration: underline; }
 
-/* SECTIONS */
-.section {
-  padding: 40px; max-width: 1100px; margin: auto;
-  animation: fadeIn 0.5s ease-out;
+.header img {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  border: 2px solid var(--primary);
+  object-fit: cover;
 }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.header h1 {
+  margin: 0;
+  font-size: 34px;
+}
+
+.header h2 {
+  margin: 8px 0;
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.header p {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.header a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.section {
+  padding: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
 
 h2 {
-  color: var(--primary); margin: 0 0 20px; font-size: 24px;
-  display: flex; align-items: center; gap: 10px;
-}
-h2::before { content: ""; display: block; width: 4px; height: 20px; background: var(--primary); border-radius: 2px; }
-
-/* CARDS & GRIDS */
-.card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 20px; transition: transform 0.2s, box-shadow 0.2s;
-}
-.card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,99,235,0.15); }
-.card.highlight { border-left: 4px solid var(--success); }
-.card.warning { border-left: 4px solid var(--warning); }
-
-.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-
-/* LABS GRID */
-.lab-card {
-  display: grid; grid-template-rows: auto 1fr auto; gap: 12px;
-  border: 1px solid var(--border); border-radius: 12px; padding: 16px;
-  background: linear-gradient(145deg, #0f172a, #0a0f1d);
-}
-.lab-card:hover { border-color: var(--primary); }
-.lab-header { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
-.lab-title { font-weight: 600; font-size: 16px; margin: 0; color: var(--text); }
-.lab-badge {
-  font-size: 11px; padding: 3px 8px; border-radius: 20px; font-weight: 600;
-  background: rgba(37,99,235,0.15); color: var(--primary); border: 1px solid var(--primary);
-}
-.lab-badge.done { background: rgba(34,197,94,0.15); color: var(--success); border-color: var(--success); }
-.lab-metric { font-size: 13px; color: var(--muted); margin: 4px 0; }
-.lab-metric b { color: var(--text); font-weight: 600; }
-.lab-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-.tech-tag {
-  font-size: 11px; padding: 2px 7px; border-radius: 4px;
-  background: rgba(148,163,184,0.1); color: var(--muted); border: 1px solid var(--border);
-}
-.lab-link {
-  margin-top: 12px; font-size: 13px; color: var(--primary); text-decoration: none;
-  display: inline-flex; align-items: center; gap: 4px; font-weight: 500;
-}
-.lab-link:hover { text-decoration: underline; }
-
-/* AUTHORITY FLOW DIAGRAM */
-.flow-diagram {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 10px; margin: 20px 0; padding: 16px; background: rgba(15,23,42,0.6);
-  border-radius: 12px; border: 1px dashed var(--border);
-}
-.flow-step {
-  text-align: center; padding: 14px 10px; border-radius: 10px;
-  background: var(--card); border: 1px solid var(--border); font-size: 13px;
-}
-.flow-step .emoji { font-size: 24px; display: block; margin-bottom: 6px; line-height: 1; }
-.flow-step b { display: block; margin-bottom: 4px; color: var(--primary); font-size: 14px; }
-.flow-step .desc { font-size: 11px; color: var(--muted); }
-.flow-arrow {
-  display: flex; align-items: center; justify-content: center;
-  color: var(--muted); font-size: 20px; font-weight: 300;
-}
-
-/* OPEN SOURCE */
-.pr-card {
-  display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: start;
-  padding: 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--card);
-}
-.pr-repo { font-weight: 600; color: var(--text); font-size: 15px; }
-.pr-desc { color: var(--muted); font-size: 14px; margin: 4px 0; }
-.pr-meta { font-size: 12px; color: var(--muted); }
-.pr-status {
-  padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;
-}
-.pr-status.merged { background: rgba(34,197,94,0.15); color: var(--success); }
-.pr-status.pending { background: rgba(245,158,11,0.15); color: var(--warning); }
-
-/* NPM PACKAGE CARD */
-.npm-card {
-  display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start;
-  padding: 20px; border: 1px solid var(--success); border-radius: 12px;
-  background: linear-gradient(145deg, #0f172a, #071a10);
+  color: var(--primary);
   margin-bottom: 20px;
-}
-.npm-icon { font-size: 36px; }
-.npm-name { font-weight: 700; color: var(--success); font-size: 18px; font-family: monospace; }
-.npm-desc { color: var(--muted); font-size: 14px; margin: 6px 0; }
-.npm-install {
-  background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 8px;
-  padding: 10px 14px; font-family: monospace; font-size: 13px; color: var(--success);
-  margin: 10px 0; display: inline-block;
-}
-.npm-checks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-.npm-check {
-  font-size: 11px; padding: 3px 8px; border-radius: 4px;
-  background: rgba(34,197,94,0.1); color: var(--success); border: 1px solid rgba(34,197,94,0.3);
+  font-size: 24px;
 }
 
-/* STACK */
-.stack-grid {
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.card.highlight {
+  border-left: 4px solid var(--success);
+}
+
+.grid-2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap: 20px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
   gap: 16px;
 }
+
+.lab-card {
+  background: linear-gradient(145deg,#0f172a,#0a0f1d);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.lab-title {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.lab-metric {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.tech-tag {
+  display: inline-block;
+  margin: 4px 4px 0 0;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: rgba(148,163,184,.1);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.lab-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--primary);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 16px;
+}
+
 .stack-card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: transform 0.2s, box-shadow 0.2s;
 }
-.stack-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(37,99,235,0.15);
-}
-.stack-header {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 4px;
-}
-.stack-icon { font-size: 24px; }
+
 .stack-title {
-  font-weight: 600; font-size: 16px; color: var(--primary);
-  display: flex; align-items: center; gap: 8px;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 10px;
 }
-.stack-badge {
-  font-size: 10px; padding: 2px 8px; border-radius: 12px;
-  background: rgba(34,197,94,0.15); color: var(--success);
-  font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
-}
-.stack-items { display: flex; flex-direction: column; gap: 6px; }
+
 .stack-item {
-  font-size: 13px; color: var(--muted);
-  display: flex; align-items: flex-start; gap: 6px;
-}
-.stack-item::before {
-  content: "·"; color: var(--primary); font-weight: bold; margin-top: -2px;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 6px;
 }
 
-/* UTILS */
-.muted { color: var(--muted); }
-.small { font-size: 13px; }
 .code {
-  font-family: 'Fira Code', monospace; font-size: 12px;
-  background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px;
-}
-footer {
-  text-align: center; padding: 30px; color: var(--muted); font-size: 14px;
-  border-top: 1px solid var(--border); margin-top: 20px;
+  font-family: monospace;
+  background: rgba(0,0,0,.3);
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
-/* RESPONSIVE */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  margin-top: 30px;
+}
+
 @media (max-width: 900px) {
-  .sidebar { position: static; width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; border-left: none; border-bottom: 1px solid var(--border); padding: 12px; }
-  .sidebar a { padding: 8px 12px; font-size: 13px; }
-  .main { margin-right: 0; }
-  .header { grid-template-columns: 1fr; text-align: center; padding: 30px 20px; }
-  .header img { margin: 0 auto; }
-  .section { padding: 30px 20px; }
-  .stack-grid { grid-template-columns: 1fr; }
-  .npm-card { grid-template-columns: 1fr; }
-  .flow-diagram { grid-template-columns: 1fr; }
-  .flow-arrow { transform: rotate(90deg); }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-left: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .main {
+    margin-right: 0;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .header img {
+    margin: auto;
+  }
+
+  .section {
+    padding: 30px 20px;
+  }
 }
 </style>
 </head>
+
 <body>
 
-<!-- RIGHT SIDEBAR -->
 <aside class="sidebar">
-  <a href="#devtools">🔧 DevTools</a>
   <a href="#labs">🔬 Labs</a>
-  <a href="#jarvis">🎙️ JARVIS</a>
   <a href="#authority">🏭 Authority</a>
   <a href="#opensource">🌍 Open Source</a>
+  <a href="#jarvis">🎙️ AI Systems</a>
   <a href="#stack">🛠️ Stack</a>
 </aside>
 
 <div class="main">
 
-<!-- HEADER -->
 <header class="header">
   <img src="https://raw.githubusercontent.com/Joaquinriosheredia/Proyecto_Git_Joaquin/main/joaquin.jpg" alt="Joaquín Ríos">
+
   <div>
     <h1>JOAQUÍN RÍOS HEREDIA</h1>
-    <h2>Java Backend Engineer (Java 21) · AI & Distributed Systems</h2>
+
+    <h2>Backend Engineer · Distributed Systems · AI Infrastructure</h2>
+
     <p>
-      📧 j.r.sinbarreras@gmail.com · 📍 Sevilla/Málaga (100% Remoto)<br>
-      🔗 <a href="https://github.com/Joaquinriosheredia" target="_blank">GitHub</a> ·
+      Java 21 · Spring Boot · Kafka · PostgreSQL · Kubernetes · AWS<br>
+      Construcción de sistemas backend, tooling de desarrollo, IA local y arquitecturas resilientes.
+    </p>
+
+    <p>
+      📧 j.r.sinbarreras@gmail.com · 📍 Sevilla / Málaga · Remoto<br>
+
+      🔗
+      <a href="https://github.com/Joaquinriosheredia" target="_blank">GitHub</a> ·
+
       <a href="https://linkedin.com/in/joaquinrios-dev-strategist" target="_blank">LinkedIn</a> ·
+
       <a href="https://malt.es/profile/joaquinriosheredia" target="_blank">Malt</a>
     </p>
   </div>
 </header>
 
-<!-- DEVTOOLS / NPM -->
-<section id="devtools" class="section">
-  <h2>🔧 DevTools Publicadas</h2>
-
-  <div class="npm-card">
-    <div class="npm-icon">📦</div>
-    <div>
-      <div class="npm-name">testcontainers-doctor</div>
-      <div class="npm-desc">CLI para diagnosticar entornos Testcontainers en segundos. Construido después de depurar setups reales en WSL2 + Docker 29.</div>
-      <div class="npm-install">npm install -g testcontainers-doctor</div>
-      <div class="npm-checks">
-        <span class="npm-check">✅ 19 checks automáticos</span>
-        <span class="npm-check">✅ Docker daemon</span>
-        <span class="npm-check">✅ Java 21 + JAVA_HOME</span>
-        <span class="npm-check">✅ Maven</span>
-        <span class="npm-check">✅ Puertos PostgreSQL/Redis/Kafka/MySQL/MongoDB</span>
-        <span class="npm-check">✅ Ryuk reaper</span>
-        <span class="npm-check">✅ WSL2 integration</span>
-        <span class="npm-check">✅ JSON output + exit codes para CI/CD</span>
-        <span class="npm-check">✅ Linux · macOS · WSL2</span>
-        <span class="npm-check">✅ MIT License</span>
-      </div>
-      <div style="margin-top:12px; display:flex; gap:16px; flex-wrap:wrap">
-        <a href="https://www.npmjs.com/package/testcontainers-doctor" target="_blank" style="color:var(--success); font-size:13px; text-decoration:none">📦 npm →</a>
-        <a href="https://github.com/Joaquinriosheredia/testcontainers-doctor" target="_blank" style="color:var(--primary); font-size:13px; text-decoration:none">⭐ GitHub →</a>
-      </div>
-    </div>
-  </div>
-
+<section class="section">
   <div class="card highlight">
-    <b>Resultado real ejecutado en WSL2:</b> 19 passed · 1 warning · 0 failed<br>
-    <span class="muted small">Reduce el tiempo de diagnóstico de entorno de horas a segundos.</span>
+    <b>Perfil:</b> Ingeniero backend centrado en sistemas distribuidos, observabilidad, resiliencia e integración de IA local. Portfolio técnico construido mediante proyectos reales, tooling open source y laboratorios reproducibles orientados a producción.
   </div>
 </section>
 
-<!-- LABS -->
 <section id="labs" class="section">
+
   <h2>🔬 Java Production Labs</h2>
+
   <div class="card highlight" style="margin-bottom:24px">
-    <b>10 laboratorios ejecutables</b> · Spring Boot 3 + Java 21 · Clonable en 45 min.<br>
-    Cada lab incluye: <span class="code">ADR</span> · <span class="code">Testcontainers</span> · <span class="code">JMH/k6</span> · <span class="code">Chaos</span> · <span class="code">Prometheus+Grafana</span>
+    Labs orientados a problemas reales de backend:
+    resiliencia, concurrencia, Kafka, PostgreSQL, Redis, Docker, Kubernetes y observabilidad.
   </div>
 
   <div class="grid-3">
-    <!-- Lab 1 -->
+
     <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">01 — Virtual Threads</h3>
-        <span class="lab-badge done">✅ Ejecutado</span>
-      </div>
+      <h3 class="lab-title">Virtual Threads Benchmark</h3>
+
+      <p class="lab-metric">
+        Benchmark comparativo Java 21 Loom vs thread pools tradicionales.
+      </p>
+
       <div>
-        <p class="lab-metric"><b>7.4× throughput</b> vs thread-pool tradicional · 200 VUs · 30s</p>
-        <p class="lab-metric">p99: 5.817ms → 167ms · Pico exhaustion: <b>13.9s</b></p>
-        <div class="lab-tech">
-          <span class="tech-tag">Spring Boot 3.2</span>
-          <span class="tech-tag">Java 21 Loom</span>
-          <span class="tech-tag">k6</span>
-        </div>
+        <span class="tech-tag">Java 21</span>
+        <span class="tech-tag">Spring Boot</span>
+        <span class="tech-tag">k6</span>
       </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/01_virtual_threads" target="_blank">Ver código →</a>
+
+      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/01_virtual_threads" target="_blank">
+        Ver código →
+      </a>
     </div>
 
-    <!-- Lab 2 -->
     <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">02 — Resilience4j</h3>
-        <span class="lab-badge done">✅ Ejecutado</span>
-      </div>
+      <h3 class="lab-title">Resilience4j + Chaos Testing</h3>
+
+      <p class="lab-metric">
+        Circuit breakers, fallback y pruebas de fallo controlado.
+      </p>
+
       <div>
-        <p class="lab-metric"><b>0.00% error rate</b> · 90.680 llamadas bloqueadas por CB</p>
-        <p class="lab-metric">Fallback in-process: <b>5ms</b> · Recovery: <b>5s</b> · 159.482 requests</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Resilience4j</span>
-          <span class="tech-tag">Circuit Breaker</span>
-          <span class="tech-tag">k6</span>
-          <span class="tech-tag">Chaos script</span>
-        </div>
+        <span class="tech-tag">Resilience4j</span>
+        <span class="tech-tag">Chaos</span>
+        <span class="tech-tag">k6</span>
       </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/02_resilience" target="_blank">Ver código →</a>
+
+      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/02_resilience" target="_blank">
+        Ver código →
+      </a>
     </div>
 
-    <!-- Lab 3 -->
     <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">03 — Rate Limiter Redis</h3>
-        <span class="lab-badge done">✅ Done</span>
-      </div>
+      <h3 class="lab-title">PostgreSQL Performance Tuning</h3>
+
+      <p class="lab-metric">
+        Optimización de consultas, índices parciales y análisis EXPLAIN.
+      </p>
+
       <div>
-        <p class="lab-metric"><b>Token Bucket distribuido</b> · overhead Redis: &lt;1ms p99</p>
-        <p class="lab-metric">50 RPS con budget 10 → rechazo ~80% · Precisión &lt;5ms</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Redis Lua</span>
-          <span class="tech-tag">Spring Data Redis</span>
-          <span class="tech-tag">k6 spike test</span>
-        </div>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">EXPLAIN</span>
+        <span class="tech-tag">Performance</span>
       </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/03_rate_limiter" target="_blank">Ver código →</a>
+
+      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/07_postgres_tuning" target="_blank">
+        Ver código →
+      </a>
     </div>
 
-    <!-- Lab 4 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">04 — Outbox + Kafka</h3>
-        <span class="lab-badge">🚧 WIP</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>Zero data loss</b> · 100 orders/s · delivery lag ~1s</p>
-        <p class="lab-metric">Kafka down → eventos en outbox → backlog limpiado al recover</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Transactional Outbox</span>
-          <span class="tech-tag">Kafka Producer</span>
-          <span class="tech-tag">PostgreSQL</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/04_outbox_kafka" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 5 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">05 — Saga Pattern</h3>
-        <span class="lab-badge">🚧 WIP</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>Happy path: ~200ms</b> · 50% inventory failure: ~300ms</p>
-        <p class="lab-metric">100% payment failure: fast fail ~100ms · Compensación automática</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Choreography Saga</span>
-          <span class="tech-tag">Kafka Events</span>
-          <span class="tech-tag">Idempotent Consumers</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/05_saga_pattern" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 6 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">06 — Redis vs Kafka</h3>
-        <span class="lab-badge">📋 Planned</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>~20.000 msg/s (Redis)</b> vs <b>~500 msg/s (Kafka acks=all)</b></p>
-        <p class="lab-metric">Redis ~40× más rápido · Kafka garantiza durabilidad</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Redis Pub/Sub</span>
-          <span class="tech-tag">Kafka</span>
-          <span class="tech-tag">curl benchmark</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/06_redis_vs_kafka" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 7 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">07 — PostgreSQL Tuning</h3>
-        <span class="lab-badge done">✅ Ejecutado</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>26× speedup</b> · 1.000.034 filas · Seq scan: 37ms → Index: 1ms</p>
-        <p class="lab-metric">120× menos I/O · 12.268 → 102 buffer accesses · EXPLAIN ANALYZE</p>
-        <div class="lab-tech">
-          <span class="tech-tag">PostgreSQL 16</span>
-          <span class="tech-tag">Índice parcial</span>
-          <span class="tech-tag">pg_stat_statements</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/07_postgres_tuning" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 8 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">08 — Kafka Streams</h3>
-        <span class="lab-badge">📋 Planned</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>5.000 events/s</b> (10K msgs) · processing lag &lt;500ms</p>
-        <p class="lab-metric">10.000 events/s (100K msgs) · lag &lt;1s · escala con particiones</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Kafka Streams</span>
-          <span class="tech-tag">RocksDB</span>
-          <span class="tech-tag">TopologyTestDriver</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/08_kafka_streams" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 9 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">09 — Docker Optimization</h3>
-        <span class="lab-badge">📋 Planned</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>520MB → 195MB</b> · rebuild: <b>3min → 15s</b> con layer caching</p>
-        <p class="lab-metric">Multi-stage + distroless · Sin root user · Container memory limits</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Docker BuildKit</span>
-          <span class="tech-tag">Distroless</span>
-          <span class="tech-tag">Multi-stage</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/09_docker_optimization" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 10 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">10 — Kubernetes Autoscaling</h3>
-        <span class="lab-badge">📋 Planned</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>HPA custom metrics</b> · 20 VUs → scale up: 4 pods</p>
-        <p class="lab-metric">Métricas custom Prometheus · Scale down tras 5min sin carga</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Kubernetes HPA</span>
-          <span class="tech-tag">Prometheus Adapter</span>
-          <span class="tech-tag">k6</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/10_kubernetes_autoscaling" target="_blank">Ver código →</a>
-    </div>
   </div>
 </section>
 
-<!-- JARVIS -->
-<section id="jarvis" class="section">
-  <h2>🎙️ JARVIS — AI Voice Assistant</h2>
-  <div class="grid-2">
-    <div class="card">
-<pre style="margin:0; font-size:13px; line-height:1.6">
-[Entrada] → Whisper.cpp (local)
-         → Orchestrator (Spring AI)
-         → Tool Router:
-            • Gmail API (send/search)
-            • VLC Control (música)
-            • OpenWeather (tiempo)
-            • FileSystem (seguro)
-         → Memory Layer (pgvector)
-         → Response → Coqui TTS → Salida
-</pre>
-    </div>
-    <div class="card">
-      <ul style="margin:0; padding-left:20px; font-size:14px">
-        <li><b>Local-first</b>: Ollama + Qwen 7B en RTX 4060 (48 tok/s)</li>
-        <li><b>Tool use</b>: Funciones registradas con validación de esquema JSON</li>
-        <li><b>Memoria</b>: Embeddings con pgvector + ventana de contexto dinámica</li>
-        <li><b>Seguridad</b>: Sandbox para herramientas, rate limiting por usuario</li>
-        <li><b>Observabilidad</b>: Traces con OpenTelemetry + logs estructurados</li>
-      </ul>
-    </div>
-  </div>
-  <div class="card highlight" style="margin-top:16px">
-    Sistema multi-modal real con orquestación de agentes + tool use + fallback a cloud si es necesario.
-  </div>
-</section>
-
-<!-- AUTHORITY -->
 <section id="authority" class="section">
-  <h2>🏭 Authority Engine v21.0</h2>
+
+  <h2>🏭 Authority Engine</h2>
+
   <div class="card">
-    <p><b>Pipeline de IA propio</b> que genera documentación técnica nivel Staff Engineer y la despliega en AWS automáticamente. <span class="code">Python Expert</span> · 100% código propio.</p>
 
-    <div class="flow-diagram">
-      <div class="flow-step">
-        <span class="emoji">📄</span>
-        <b>Input</b>
-        <span class="desc">Documento Staff<br>.md / .adoc</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="emoji">🐍</span>
-        <b>Parser</b>
-        <span class="desc">Authority Core<br>Python + Lark</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="emoji">🧠</span>
-        <b>IA Local</b>
-        <span class="desc">Ollama + Qwen 7B<br>RTX 4060 · 48 tok/s</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="emoji">🔍</span>
-        <b>Investigar</b>
-        <span class="desc">Tavily API + Code Search<br>Validación técnica</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="emoji">⚖️</span>
-        <b>Auditar</b>
-        <span class="desc">Compilación real<br>`mvn verify` + tests</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="emoji">🎨</span>
-        <b>Render</b>
-        <span class="desc">Markdown + Mermaid<br>Plantillas Jinja2</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="emoji">🚀</span>
-        <b>Publicar</b>
-        <span class="desc">AWS Lambda + S3<br>CI/CD GitHub Actions</span>
-      </div>
-    </div>
+    <p>
+      Sistema propio para generación automatizada de documentación técnica y contenido Staff-level usando IA local, validación de código y despliegue automatizado.
+    </p>
 
-    <div class="grid-2" style="margin-top:16px">
+    <div class="grid-2" style="margin-top:20px">
+
       <div>
-        <p class="lab-metric"><b>+90 guías publicadas</b> · Score calidad: <b>94/100</b></p>
-        <p class="lab-metric"><b>6 min/doc</b> · ~1.200 líneas Python propio (no wrappers)</p>
-        <p class="lab-metric"><b>Coste</b>: ~$0.03/doc (Lambda + S3 + Ollama local)</p>
-      </div>
-      <div>
-        <p><b>Características clave:</b></p>
-        <ul class="small" style="margin:8px 0 0; padding-left:18px">
-          <li>Validación de código con compilación real (<span class="code">mvn verify</span>)</li>
-          <li>Detección de afirmaciones no verificadas → marca como <span class="code">[NEEDS_EVIDENCE]</span></li>
-          <li>Generación de ADRs, diagramas Mermaid y runbooks operativos</li>
-          <li>SBOM automático + firma de artefactos con Cosign</li>
+        <p><b>Capacidades:</b></p>
+
+        <ul>
+          <li>Generación automática de documentación técnica</li>
+          <li>Validación mediante compilación real y tests</li>
+          <li>Generación de ADRs y runbooks</li>
+          <li>Render Markdown + Mermaid</li>
+          <li>Pipeline automatizado AWS + GitHub Actions</li>
         </ul>
       </div>
+
+      <div>
+        <p><b>Stack:</b></p>
+
+        <ul>
+          <li>Python + Lark Parser</li>
+          <li>Ollama + modelos locales</li>
+          <li>AWS Lambda + S3</li>
+          <li>OpenTelemetry</li>
+          <li>CI/CD automatizado</li>
+        </ul>
+      </div>
+
     </div>
+
   </div>
-  <div style="text-align:center; margin-top:16px">
-    <a class="lab-link" href="https://joaquinriosheredia.github.io/DAM-Java-Mastery" target="_blank" style="font-size:15px">
-      Ver documentación generada →
-    </a>
-  </div>
+
 </section>
 
-<!-- OPEN SOURCE -->
 <section id="opensource" class="section">
-  <h2>🌍 Open Source Contributions</h2>
+
+  <h2>🌍 Open Source</h2>
+
   <div class="grid-2">
-    <!-- PR 1 -->
-    <div class="pr-card">
-      <div>
-        <div class="pr-repo">langchain4j-spring</div>
-        <div class="pr-desc">Spring Boot Starter para ChromaDB: auto-configuration, ChromaEmbeddingStoreProperties, AutoConfiguration bean, tests incluidos</div>
-        <div class="pr-meta">PR #185 · +179 líneas · 3 archivos · Sigue patrón Milvus y Redis</div>
-      </div>
-      <div style="text-align:right">
-        <span class="pr-status pending">⏳ Pending Review</span>
-        <div class="small muted" style="margin-top:8px">11k ⭐ · 450 forks</div>
-      </div>
+
+    <div class="card">
+      <b>ollama4j</b>
+
+      <p>
+        Contribución mergeada para exponer metadata avanzada de modelos sin parseo manual de JSON.
+      </p>
+
+      <p class="lab-metric">
+        PR mergeado · SonarQube OK · CodeRabbit OK
+      </p>
     </div>
 
-    <!-- PR 2 -->
-    <div class="pr-card">
-      <div>
-        <div class="pr-repo">ollama4j</div>
-        <div class="pr-desc">Exponer model_info en ModelDetail: Map&lt;String,Object&gt; con @JsonProperty para acceso a context_length, embedding_length y arquitectura sin parsear JSON crudo</div>
-        <div class="pr-meta">PR #303 · +3 líneas · SonarQube ✅ · CodeRabbit ✅ · Mergeado en 3 días</div>
-      </div>
-      <div style="text-align:right">
-        <span class="pr-status merged">✅ Merged</span>
-        <div class="small muted" style="margin-top:8px">3k ⭐ · 210 forks</div>
-      </div>
+    <div class="card">
+      <b>langchain4j-spring</b>
+
+      <p>
+        Starter de Spring Boot para integración con ChromaDB y auto-configuración.
+      </p>
+
+      <p class="lab-metric">
+        Contribution pending review
+      </p>
     </div>
+
   </div>
-  <div class="card warning" style="margin-top:20px">
-    <b>Próxima contribución</b>: Segunda contribución activa en ollama4j — ya con credibilidad de maintainer establecida tras el merge del PR #303.
-  </div>
+
 </section>
 
-<!-- STACK -->
-<section id="stack" class="section">
-  <h2>🛠️ Stack Técnico</h2>
-  <div class="stack-grid">
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">☕</span>
-        <div class="stack-title">Java 21</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Virtual Threads</div>
-        <div class="stack-item">Records</div>
-        <div class="stack-item">Structured Concurrency</div>
-      </div>
-    </div>
+<section id="jarvis" class="section">
 
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🐍</span>
-        <div class="stack-title">Python <span class="stack-badge">EXPERT</span></div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Async/Await</div>
-        <div class="stack-item">Lark Parser</div>
-        <div class="stack-item">boto3</div>
-      </div>
-    </div>
+  <h2>🎙️ AI Systems</h2>
 
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🏛️</span>
-        <div class="stack-title">Arquitectura</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">DDD</div>
-        <div class="stack-item">Hexagonal</div>
-        <div class="stack-item">CQRS</div>
-      </div>
-    </div>
+  <div class="card">
 
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">☁️</span>
-        <div class="stack-title">AWS</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Lambda</div>
-        <div class="stack-item">S3</div>
-        <div class="stack-item">boto3</div>
-      </div>
-    </div>
+<pre style="margin:0;font-size:13px;line-height:1.6">
+Voice Input
+  → Whisper.cpp
+  → Spring AI Orchestrator
+  → Tool Router
+  → Memory Layer (pgvector)
+  → Ollama / Local LLMs
+  → TTS Response
+</pre>
 
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🔐</span>
-        <div class="stack-title">Seguridad</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">JWT</div>
-        <div class="stack-item">OAuth2</div>
-        <div class="stack-item">Zero Trust</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">⚙️</span>
-        <div class="stack-title">SRE</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Kubernetes</div>
-        <div class="stack-item">Prometheus</div>
-        <div class="stack-item">OpenTelemetry</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🤖</span>
-        <div class="stack-title">IA</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Ollama</div>
-        <div class="stack-item">RAG</div>
-        <div class="stack-item">Multi-Agente</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🗄️</span>
-        <div class="stack-title">Data</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Kafka</div>
-        <div class="stack-item">PostgreSQL</div>
-        <div class="stack-item">Redis</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🧪</span>
-        <div class="stack-title">Quality</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Testcontainers</div>
-        <div class="stack-item">k6</div>
-        <div class="stack-item">Chaos Engineering</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🔧</span>
-        <div class="stack-title">DevTools <span class="stack-badge">NEW</span></div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">testcontainers-doctor</div>
-        <div class="stack-item">Node.js CLI</div>
-        <div class="stack-item">npm published</div>
-      </div>
-    </div>
   </div>
+
+  <div class="card highlight" style="margin-top:20px">
+
+    Arquitectura multi-tool con memoria contextual, IA local y observabilidad integrada.
+
+  </div>
+
+</section>
+
+<section id="stack" class="section">
+
+  <h2>🛠️ Stack Técnico</h2>
+
+  <div class="stack-grid">
+
+    <div class="stack-card">
+      <div class="stack-title">Backend</div>
+
+      <div class="stack-item">Java 21</div>
+      <div class="stack-item">Spring Boot</div>
+      <div class="stack-item">REST APIs</div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-title">Distributed Systems</div>
+
+      <div class="stack-item">Kafka</div>
+      <div class="stack-item">Redis</div>
+      <div class="stack-item">CQRS</div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-title">Cloud & DevOps</div>
+
+      <div class="stack-item">Docker</div>
+      <div class="stack-item">Kubernetes</div>
+      <div class="stack-item">AWS</div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-title">Testing</div>
+
+      <div class="stack-item">Testcontainers</div>
+      <div class="stack-item">k6</div>
+      <div class="stack-item">Chaos Engineering</div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-title">AI Engineering</div>
+
+      <div class="stack-item">Ollama</div>
+      <div class="stack-item">RAG</div>
+      <div class="stack-item">Spring AI</div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-title">Observability</div>
+
+      <div class="stack-item">Prometheus</div>
+      <div class="stack-item">Grafana</div>
+      <div class="stack-item">OpenTelemetry</div>
+    </div>
+
+  </div>
+
 </section>
 
 <footer>
-  <p>📍 Freelance inmediato · Full-time desde Junio 2026 · 100% Remoto / Presencial Sevilla o Málaga</p>
-  <p class="small muted">Última actualización: Mayo 2026 · Portfolio auto-generado con Authority Engine</p>
+  <p>
+    Disponible para backend engineering, platform engineering y AI infrastructure.
+  </p>
+
+  <p style="font-size:13px">
+    Portfolio técnico construido mediante proyectos propios y contribuciones open source.
+  </p>
 </footer>
 
 </div>
@@ -802,25 +536,14 @@ footer {
 document.querySelectorAll('.sidebar a').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
+
     const target = document.querySelector(this.getAttribute('href'));
+
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
-      this.classList.add('active');
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
-  });
-});
-const sections = document.querySelectorAll('.section');
-const navLinks = document.querySelectorAll('.sidebar a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(sec => {
-    const top = sec.offsetTop - 100;
-    if (pageYOffset >= top) current = sec.getAttribute('id');
-  });
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
   });
 });
 </script>
