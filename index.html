@@ -564,9 +564,13 @@ footer {
 
 <!-- AUTHORITY -->
 <section id="authority" class="section">
-  <h2>🏭 Authority Engine v21.0</h2>
+  <h2>🏭 AI Documentation Pipeline</h2>
   <div class="card">
-    <p><b>Pipeline de IA propio</b> que genera documentación técnica nivel Staff Engineer y la despliega en AWS automáticamente. <span class="code">Python Expert</span> · 100% código propio.</p>
+    <p>
+<b>Pipeline automatizado para generación y validación de documentación técnica</b>
+orientado a arquitecturas backend y sistemas distribuidos.
+Combina análisis estructural, validación de código y despliegue automatizado en AWS.
+</p>
 
     <div class="flow-diagram">
       <div class="flow-step">
@@ -584,7 +588,7 @@ footer {
       <div class="flow-step">
         <span class="emoji">🧠</span>
         <b>IA Local</b>
-        <span class="desc">Ollama + Qwen 7B<br>RTX 4060 · 48 tok/s</span>
+        <span class="desc">Ollama + Qwen 7B ejecutado localmente sobre GPU consumer</span>
       </div>
       <div class="flow-arrow">→</div>
       <div class="flow-step">
@@ -614,9 +618,19 @@ footer {
 
     <div class="grid-2" style="margin-top:16px">
       <div>
-        <p class="lab-metric"><b>+90 guías publicadas</b> · Score calidad: <b>94/100</b></p>
-        <p class="lab-metric"><b>6 min/doc</b> · ~1.200 líneas Python propio (no wrappers)</p>
-        <p class="lab-metric"><b>Coste</b>: ~$0.03/doc (Lambda + S3 + Ollama local)</p>
+        <p class="lab-metric">
+<b>+90 documentos técnicos generados</b> · ADRs · runbooks · guías operativas
+</p>
+
+<p class="lab-metric">
+<b>Validación automática</b> mediante <span class="code">mvn verify</span>,
+tests y análisis estructural antes de publicar
+</p>
+
+<p class="lab-metric">
+<b>Coste operativo estimado:</b> ~$0.03/documento
+usando AWS Lambda + S3 + modelos locales
+</p>
       </div>
       <div>
         <p><b>Características clave:</b></p>
@@ -690,7 +704,7 @@ footer {
     <div class="stack-card">
       <div class="stack-header">
         <span class="stack-icon">🐍</span>
-        <div class="stack-title">Python <span class="stack-badge">EXPERT</span></div>
+        <div class="stack-title">Python <span class="stack-badge">ADVANCED</span></div>
       </div>
       <div class="stack-items">
         <div class="stack-item">Async/Await</div>
