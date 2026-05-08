@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-07 09:23:58
-**Ultimo commit:** d1cd839 feat(security): event-driven systems security staff v4.0 - hito 97 (3 seconds ago)
-**Total de activos:** 107 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-08 08:14:55
+**Ultimo commit:** cec4581 feat(arch): advanced serialization json protobuf avro staff v4.0 - hito 98 (3 seconds ago)
+**Total de activos:** 108 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
-| **10_Vanguardia** | 7 | 10 | — |
+| **10_Vanguardia** | 8 | 11 | — |
 
 ---
 
@@ -151,6 +151,7 @@
 
 ### 📂 10_Vanguardia
 
+- [Serialización Avanzada: JSON vs. Protobuf vs. Avro en Java 21 — Guía S](10_Vanguardia/advanced_serialization_json_protobuf_avro_STAFF.md) — 2026-05-08 08:14 (32.8KB)
 - [optimizacion_de_costes_en_cloud_aws](10_Vanguardia/aws_cloud_cost_optimization_FinOps_STAFF.md) — 2026-05-05 08:20 (28.7KB)
 - [CI/CD Completo con GitHub Actions en Java 21: Pipelines, Seguridad y O](10_Vanguardia/ci_cd_github_actions_pipeline_STAFF.md) — 2026-04-28 07:02 (26.8KB)
 - [Migraciones de Base de Datos con Flyway y Liquibase en Java 21: Estrat](10_Vanguardia/database_migrations_flyway_liquibase_STAFF.md) — 2026-05-03 08:38 (30.0KB)
@@ -165,12 +166,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 107 |
+| Total documentos tecnicos | 108 |
 | Tamano total del repositorio | 3.9MB |
 | Modulos activos | 10 |
-| Total commits | 522 |
+| Total commits | 525 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-07 09:23:58 |
+| Fecha | 2026-05-08 08:14:55 |
 
 ---
 
