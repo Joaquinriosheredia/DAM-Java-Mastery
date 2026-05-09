@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-09 07:49:47
-**Ultimo commit:** 3cda471 feat(arch): e2e testing in microservices - HITO 100 MASTERY REACHED (4 seconds ago)
-**Total de activos:** 110 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-09 08:00:03
+**Ultimo commit:** 3036a0d feat(arch): zero trust in microservices - HITO 101 BEYOND MASTERY (4 seconds ago)
+**Total de activos:** 111 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 11 | 43 | — |
-| **02_Arquitectura** | 29 | 57 | — |
+| **02_Arquitectura** | 30 | 58 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 6 | 18 | — |
 | **05_SRE_DevOps** | 18 | 41 | — |
@@ -72,6 +72,7 @@
 - [Saga Pattern: Orquestación vs Coreografía con Java 21 — Transacciones ](02_Arquitectura/saga_pattern_orquestacion_vs_coreografia_con_java_21_STAFF.md) — 2026-04-16 11:25 (45.1KB)
 - [Consistencia de Datos y Teorema CAP en Sistemas Distribuidos: Patrones](02_Arquitectura/teorema_cap_consistencia_sistemas_reales_STAFF.md) — 2026-04-17 17:44 (31.3KB)
 - [Transacciones Distribuidas Más Allá de Saga: Patrones de Consistencia ](02_Arquitectura/transacciones_distribuidas_mas_alla_saga_STAFF.md) — 2026-04-21 11:18 (49.2KB)
+- [Zero Trust Aplicado a Microservicios con Java 21: Seguridad, Identidad](02_Arquitectura/zero_trust_microservices_architecture_STAFF.md) — 2026-05-09 07:59 (25.2KB)
 
 ### 📂 03_Spring_Ecosystem
 
@@ -168,12 +169,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 110 |
-| Tamano total del repositorio | 3.9MB |
+| Total documentos tecnicos | 111 |
+| Tamano total del repositorio | 4.0MB |
 | Modulos activos | 10 |
-| Total commits | 531 |
+| Total commits | 534 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-09 07:49:47 |
+| Fecha | 2026-05-09 08:00:03 |
 
 ---
 
