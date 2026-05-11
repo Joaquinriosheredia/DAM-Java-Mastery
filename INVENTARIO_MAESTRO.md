@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-09 08:00:03
-**Ultimo commit:** 3036a0d feat(arch): zero trust in microservices - HITO 101 BEYOND MASTERY (4 seconds ago)
-**Total de activos:** 111 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-11 08:07:00
+**Ultimo commit:** 4938d5f feat(java): jvm jit and graalvm internals staff v4.0 - hito 102 (3 seconds ago)
+**Total de activos:** 112 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -12,7 +12,7 @@
 
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
-| **01_Java_Core** | 11 | 43 | — |
+| **01_Java_Core** | 12 | 44 | — |
 | **02_Arquitectura** | 30 | 58 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 6 | 18 | — |
@@ -35,6 +35,7 @@
 - [Java 21 Virtual Threads: Concurrencia Estructurada y Escalabilidad Mas](01_Java_Core/java_21_virtual_threads_STAFF.md) — 2026-04-16 11:25 (37.6KB)
 - [Concurrencia Avanzada en Java 21: Locks, CAS, ForkJoin y Concurrencia ](01_Java_Core/java_concurrencia_avanzada_STAFF.md) — 2026-04-17 16:47 (32.2KB)
 - [Java Memory Model (JMM) Explicado para Producción: Concurrencia, Visib](01_Java_Core/java_memory_model_produccion_STAFF.md) — 2026-04-17 16:07 (31.3KB)
+- [JVM JIT Internals — C1, C2 y GraalVM en Java 21](01_Java_Core/jvm_jit_c1_c2_graalvm_internals_STAFF.md) — 2026-05-11 08:06 (28.2KB)
 - [Memory Leaks Reales en Java: Detección Forense, Análisis con JFR y Sol](01_Java_Core/memory_leaks_reales_en_java_deteccion_y_solucion_con_visualvm_STAFF.md) — 2026-04-16 11:25 (37.6KB)
 - [Mocking vs. Stubs vs. Fakes en Testing Java 21: Estrategias de Aislami](01_Java_Core/mocking_vs_stubs_vs_fakes_testing_java_21_STAFF.md) — 2026-04-26 12:41 (41.0KB)
 - [Optimización de Latencia en Aplicaciones Java de Baja Latencia: Ingeni](01_Java_Core/optimizacion_de_latencia_en_aplicaciones_java_de_baja_latencia_STAFF.md) — 2026-04-16 11:25 (42.4KB)
@@ -169,12 +170,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 111 |
+| Total documentos tecnicos | 112 |
 | Tamano total del repositorio | 4.0MB |
 | Modulos activos | 10 |
-| Total commits | 534 |
+| Total commits | 609 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-09 08:00:03 |
+| Fecha | 2026-05-11 08:07:00 |
 
 ---
 
