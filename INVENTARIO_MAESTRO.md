@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-11 08:07:00
-**Ultimo commit:** 4938d5f feat(java): jvm jit and graalvm internals staff v4.0 - hito 102 (3 seconds ago)
-**Total de activos:** 112 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-11 08:26:00
+**Ultimo commit:** 3b6ebbd feat(aiops): ai gateways and llm observability staff v4.0 - hito 103 (4 seconds ago)
+**Total de activos:** 113 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 30 | 58 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 6 | 18 | — |
-| **05_SRE_DevOps** | 18 | 41 | — |
+| **05_SRE_DevOps** | 19 | 42 | — |
 | **06_Seguridad** | 7 | 13 | — |
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
@@ -96,6 +96,7 @@
 
 ### 📂 05_SRE_DevOps
 
+- [API Gateways y Observabilidad de LLMs — Guía Staff Engineer (Edición A](05_SRE_DevOps/ai_gateways_llm_observability_STAFF.md) — 2026-05-11 08:25 (24.8KB)
 - [Alerting Efectivo Basado en SLOs con Java 21 y Prometheus — Guía Staff](05_SRE_DevOps/alerting_efectivo_basado_en_slos_STAFF.md) — 2026-04-26 12:51 (65.8KB)
 - [Chaos Engineering con Gremlin y Litmus en Kubernetes: Resiliencia Proa](05_SRE_DevOps/chaos_engineering_con_gremlin_y_litmus_en_kubernetes_STAFF.md) — 2026-04-17 14:31 (42.7KB)
 - [Hardening de Contenedores Docker y Kubernetes con Java 21: Seguridad, ](05_SRE_DevOps/container_hardening_docker_k8s_STAFF.md) — 2026-05-01 08:46 (35.9KB)
@@ -170,12 +171,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 112 |
+| Total documentos tecnicos | 113 |
 | Tamano total del repositorio | 4.0MB |
 | Modulos activos | 10 |
-| Total commits | 609 |
+| Total commits | 612 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-11 08:07:00 |
+| Fecha | 2026-05-11 08:26:00 |
 
 ---
 
