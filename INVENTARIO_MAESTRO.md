@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-12 09:31:33
-**Ultimo commit:** 48d6c99 feat(sre): observability anti-patterns staff v4.0 - hito 104 (4 seconds ago)
-**Total de activos:** 114 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-12 09:41:26
+**Ultimo commit:** 7885918 feat(arch): advanced api gateway patterns staff v4.0 - hito 105 (2 seconds ago)
+**Total de activos:** 115 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
-| **10_Vanguardia** | 9 | 12 | — |
+| **10_Vanguardia** | 10 | 13 | — |
 
 ---
 
@@ -156,6 +156,7 @@
 
 ### 📂 10_Vanguardia
 
+- [API Gateway Avanzado: Rate Limiting, Auth y Caching](10_Vanguardia/advanced_api_gateway_rate_limiting_auth_caching_STAFF.md) — 2026-05-12 09:41 (24.1KB)
 - [Serialización Avanzada: JSON vs. Protobuf vs. Avro en Java 21 — Guía S](10_Vanguardia/advanced_serialization_json_protobuf_avro_STAFF.md) — 2026-05-08 08:14 (32.8KB)
 - [optimizacion_de_costes_en_cloud_aws](10_Vanguardia/aws_cloud_cost_optimization_FinOps_STAFF.md) — 2026-05-05 08:20 (28.7KB)
 - [CI/CD Completo con GitHub Actions en Java 21: Pipelines, Seguridad y O](10_Vanguardia/ci_cd_github_actions_pipeline_STAFF.md) — 2026-04-28 07:02 (26.8KB)
@@ -172,12 +173,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 114 |
-| Tamano total del repositorio | 4.0MB |
+| Total documentos tecnicos | 115 |
+| Tamano total del repositorio | 4.1MB |
 | Modulos activos | 10 |
-| Total commits | 615 |
+| Total commits | 618 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-12 09:31:33 |
+| Fecha | 2026-05-12 09:41:26 |
 
 ---
 
