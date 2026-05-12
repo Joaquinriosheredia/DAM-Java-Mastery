@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-11 08:26:00
-**Ultimo commit:** 3b6ebbd feat(aiops): ai gateways and llm observability staff v4.0 - hito 103 (4 seconds ago)
-**Total de activos:** 113 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-12 09:31:33
+**Ultimo commit:** 48d6c99 feat(sre): observability anti-patterns staff v4.0 - hito 104 (4 seconds ago)
+**Total de activos:** 114 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 30 | 58 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 6 | 18 | — |
-| **05_SRE_DevOps** | 19 | 42 | — |
+| **05_SRE_DevOps** | 20 | 43 | — |
 | **06_Seguridad** | 7 | 13 | — |
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 7 | 13 | — |
@@ -110,6 +110,7 @@
 - [Kubernetes Troubleshooting en Producción con Java 21: Diagnóstico, Mét](05_SRE_DevOps/kubernetes_troubleshooting_production_STAFF.md) — 2026-05-03 08:26 (34.7KB)
 - [Linux Gestión Avanzada de Procesos, Scheduling y Señales en Sistemas P](05_SRE_DevOps/linux_gestion_avanzada_de_procesos_scheduling_y_senales_en_sistemas_productivos_STAFF.md) — 2026-04-17 14:52 (34.5KB)
 - [Observabilidad Distribuida en Spring Boot 3.4 con OpenTelemetry y Graf](05_SRE_DevOps/observabilidad_metricas_trazas_STAFF.md) — 2026-04-25 09:08 (31.0KB)
+- [anti_patrones_de_observabilidad_en_microservicios](05_SRE_DevOps/observability_antipatterns_microservices_STAFF.md) — 2026-05-12 09:31 (39.0KB)
 - [Patrones de Despliegue en Kubernetes: Blue-Green, Canary y Rolling con](05_SRE_DevOps/patrones_de_despliegue_bluegreen_canary_y_rolling_con_kubernetes_STAFF.md) — 2026-04-17 14:31 (37.5KB)
 - [Postmortems de Fallos Reales en Producción: Análisis Forense, Learning](05_SRE_DevOps/postmortems_fallos_produccion_STAFF.md) — 2026-04-21 08:04 (43.8KB)
 - [Observabilidad con Prometheus y Grafana en Java 21: Métricas, Alertas ](05_SRE_DevOps/prometheus_grafana_observability_STAFF.md) — 2026-05-05 08:11 (31.4KB)
@@ -171,12 +172,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 113 |
+| Total documentos tecnicos | 114 |
 | Tamano total del repositorio | 4.0MB |
 | Modulos activos | 10 |
-| Total commits | 612 |
+| Total commits | 615 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-11 08:26:00 |
+| Fecha | 2026-05-12 09:31:33 |
 
 ---
 
