@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-12 09:41:26
-**Ultimo commit:** 7885918 feat(arch): advanced api gateway patterns staff v4.0 - hito 105 (2 seconds ago)
-**Total de activos:** 115 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-13 07:29:05
+**Ultimo commit:** bf18909 feat(arch): api versioning and backward compatibility staff v4.0 - hito 106 (4 seconds ago)
+**Total de activos:** 116 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 12 | 44 | — |
-| **02_Arquitectura** | 30 | 58 | — |
+| **02_Arquitectura** | 31 | 59 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 6 | 18 | — |
 | **05_SRE_DevOps** | 20 | 43 | — |
@@ -47,6 +47,7 @@
 - [ADR-001: GPU Acceleration for Local LLM Inference Pipeline](02_Arquitectura/ADR-001-GPU-Acceleration.md) — 2026-04-16 11:32 (4.8KB)
 - [Anti-patterns en Microservicios y Cómo Evitarlos con Java 21 — Guía St](02_Arquitectura/anti-patterns_en_microservicios_y_como_evitarlos_con_java_21_STAFF.md) — 2026-04-16 11:25 (45.3KB)
 - [API Gateway y Backend for Frontend (BFF) con Java 21: Patrones de Agre](02_Arquitectura/api_gateway_bff_pattern_STAFF.md) — 2026-04-23 09:01 (31.4KB)
+- [API Versioning y Backward Compatibility en Microservicios — Guía Staff](02_Arquitectura/api_versioning_backward_compatibility_STAFF.md) — 2026-05-13 07:28 (19.2KB)
 - [Arquitectura Clean vs Hexagonal vs Onion en Java 21: Guía de Decisión ](02_Arquitectura/arquitectura_clean_hexagonal_onion_STAFF.md) — 2026-04-23 08:45 (35.9KB)
 - [Arquitectura de Microservicios Reactivos con Spring Boot 3.4 y R2DBC: ](02_Arquitectura/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) — 2026-04-16 11:25 (42.9KB)
 - [Arquitectura de Sistemas IA en Producción con Java 21: MLOps, Inferenc](02_Arquitectura/arquitectura_sistemas_ia_produccion_STAFF.md) — 2026-04-27 07:51 (37.7KB)
@@ -173,12 +174,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 115 |
+| Total documentos tecnicos | 116 |
 | Tamano total del repositorio | 4.1MB |
 | Modulos activos | 10 |
-| Total commits | 618 |
+| Total commits | 621 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-12 09:41:26 |
+| Fecha | 2026-05-13 07:29:05 |
 
 ---
 
