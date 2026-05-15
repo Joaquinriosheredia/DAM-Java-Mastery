@@ -37,7 +37,7 @@
   "url": "https://joaquinriosheredia.github.io/",
   "sameAs": [
     "https://github.com/Joaquinriosheredia",
-    "https://linkedin.com/in/joaquinrios-dev-strategist",
+    "https://linkedin.com/in/joaquinrios-ai-engineer",
     "https://malt.es/profile/joaquinriosheredia"
   ],
   "skills": ["Java 21", "Spring Boot", "Kubernetes", "Apache Kafka", "AWS", "Artificial Intelligence", "Distributed Systems", "Python", "PostgreSQL", "Redis", "Testcontainers"]
@@ -291,7 +291,7 @@ footer {
     <p>
       📧 j.r.sinbarreras@gmail.com · 📍 Sevilla/Málaga (100% Remoto)<br>
       🔗 <a href="https://github.com/Joaquinriosheredia" target="_blank">GitHub</a> ·
-      <a href="https://linkedin.com/in/joaquinrios-dev-strategist" target="_blank">LinkedIn</a> ·
+      <a href="https://linkedin.com/in/joaquinrios-ai-engineer" target="_blank">LinkedIn</a> ·
       <a href="https://malt.es/profile/joaquinriosheredia" target="_blank">Malt</a>
     </p>
   </div>
@@ -388,15 +388,16 @@ footer {
     <div class="lab-card">
       <div class="lab-header">
         <h3 class="lab-title">03 — Rate Limiter Redis</h3>
-        <span class="lab-badge done">✅ Done</span>
+        <span class="lab-badge done">✅ Ejecutado</span>
       </div>
       <div>
-        <p class="lab-metric"><b>Token Bucket distribuido</b> · overhead Redis: &lt;1ms p99</p>
-        <p class="lab-metric">50 RPS con budget 10 → rechazo ~80% · Precisión &lt;5ms</p>
+        <p class="lab-metric"><b>Token Bucket distribuido</b> · scripts Lua atómicos en Redis · <b>460 req/s</b> · p99: 4.55ms · 0% errores 5xx</p>
+        <p class="lab-metric">Resilience4j Circuit Breaker: outage Redis <b>~1s hang → &lt;1ms 503</b></p>
         <div class="lab-tech">
           <span class="tech-tag">Redis Lua</span>
+          <span class="tech-tag">Resilience4j CB</span>
           <span class="tech-tag">Spring Data Redis</span>
-          <span class="tech-tag">k6 spike test</span>
+          <span class="tech-tag">k6</span>
         </div>
       </div>
       <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/03_rate_limiter" target="_blank">Ver código →</a>
@@ -409,12 +410,13 @@ footer {
         <span class="lab-badge">🚧 WIP</span>
       </div>
       <div>
-        <p class="lab-metric"><b>Zero data loss</b> · 100 orders/s · delivery lag ~1s</p>
-        <p class="lab-metric">Kafka down → eventos en outbox → backlog limpiado al recover</p>
+        <p class="lab-metric"><b>Zero data loss</b> · 7.626 órdenes · 0 duplicados confirmados</p>
+        <p class="lab-metric">Silent event loss detectado vía chaos (Kafka kill mid-flight) · backoff exponencial 2ⁿ⁻¹s cap 60s</p>
         <div class="lab-tech">
           <span class="tech-tag">Transactional Outbox</span>
           <span class="tech-tag">Kafka Producer</span>
           <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Chaos Testing</span>
         </div>
       </div>
       <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/04_outbox_kafka" target="_blank">Ver código →</a>
@@ -427,12 +429,12 @@ footer {
         <span class="lab-badge">🚧 WIP</span>
       </div>
       <div>
-        <p class="lab-metric"><b>Happy path: ~200ms</b> · 50% inventory failure: ~300ms</p>
-        <p class="lab-metric">100% payment failure: fast fail ~100ms · Compensación automática</p>
+        <p class="lab-metric"><b>Race condition dual-write</b> demostrada bajo carga: <b>71.8% de transacciones distribuidas</b> stuck silenciosamente con HTTP 200 OK</p>
+        <p class="lab-metric">Hallazgo intencional: prueba empírica de por qué el Outbox Pattern es obligatorio</p>
         <div class="lab-tech">
           <span class="tech-tag">Choreography Saga</span>
-          <span class="tech-tag">Kafka Events</span>
-          <span class="tech-tag">Idempotent Consumers</span>
+          <span class="tech-tag">Kafka KRaft</span>
+          <span class="tech-tag">Dual-Write Analysis</span>
         </div>
       </div>
       <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/05_saga_pattern" target="_blank">Ver código →</a>
@@ -532,33 +534,38 @@ footer {
 
 <!-- JARVIS -->
 <section id="jarvis" class="section">
-  <h2>🎙️ JARVIS — AI Voice Assistant</h2>
+  <h2>🎙️ JARVIS Runtime</h2>
   <div class="grid-2">
     <div class="card">
 <pre style="margin:0; font-size:13px; line-height:1.6">
-[Entrada] → Whisper.cpp (local)
-         → Orchestrator (Spring AI)
-         → Tool Router:
-            • Gmail API (send/search)
-            • VLC Control (música)
-            • OpenWeather (tiempo)
-            • FileSystem (seguro)
-         → Memory Layer (pgvector)
-         → Response → Coqui TTS → Salida
+$ jarvis ask "optimiza este SQL"
+
+[CLI Python + Typer + Rich]
+  → Router de modelos
+     · Local: Ollama (prioridad)
+     · Cloud: OpenAI / Anthropic
+         (solo si local falla)
+  → Memoria SQLite persistente
+  → Cost tracker en tiempo real
+  → Respuesta en terminal
 </pre>
     </div>
     <div class="card">
       <ul style="margin:0; padding-left:20px; font-size:14px">
-        <li><b>Local-first</b>: Ollama + Qwen 7B en RTX 4060 (48 tok/s)</li>
-        <li><b>Tool use</b>: Funciones registradas con validación de esquema JSON</li>
-        <li><b>Memoria</b>: Embeddings con pgvector + ventana de contexto dinámica</li>
-        <li><b>Seguridad</b>: Sandbox para herramientas, rate limiting por usuario</li>
-        <li><b>Observabilidad</b>: Traces con OpenTelemetry + logs estructurados</li>
+        <li><b>Local-first</b>: Ollama · zero coste por defecto</li>
+        <li><b>Fallback cloud</b>: OpenAI / Anthropic solo cuando se necesita</li>
+        <li><b>Memoria persistente</b>: SQLite · contexto entre sesiones</li>
+        <li><b>Cost tracking</b>: métricas de uso en tiempo real por modelo</li>
+        <li><b>18 pytest tests</b> · Docker Compose incluido</li>
+        <li><b>Setup:</b> <code style="font-size:12px; background:rgba(0,0,0,0.3); padding:1px 5px; border-radius:3px">git clone → ./setup.sh → jarvis ask "hola"</code></li>
       </ul>
+      <div style="margin-top:14px; display:flex; gap:14px; flex-wrap:wrap">
+        <a href="https://github.com/Joaquinriosheredia/jarvis-runtime" target="_blank" style="color:var(--primary); font-size:13px; text-decoration:none; font-weight:500">⭐ GitHub →</a>
+      </div>
     </div>
   </div>
   <div class="card highlight" style="margin-top:16px">
-    Sistema multi-modal real con orquestación de agentes + tool use + fallback a cloud si es necesario.
+    <b>Stack:</b> Python · Typer · Rich · Ollama · OpenAI SDK · SQLite · Docker Compose · pytest (18 tests)
   </div>
 </section>
 
@@ -654,7 +661,33 @@ usando AWS Lambda + S3 + modelos locales
 <section id="opensource" class="section">
   <h2>🌍 Open Source Contributions</h2>
   <div class="grid-2">
-    <!-- PR 1 -->
+    <!-- PR 1 — Observal -->
+    <div class="pr-card">
+      <div>
+        <div class="pr-repo">Observal <span style="font-size:12px; color:var(--muted); font-weight:400">(BlazeUp AI · AI Agent Registry)</span></div>
+        <div class="pr-desc">fix(lint): replace magic values with named constants in deps.py · Resuelve violaciones PLR2004 de ruff en el backend FastAPI</div>
+        <div class="pr-meta">PR #810 · FastAPI · Python · ruff linting</div>
+      </div>
+      <div style="text-align:right">
+        <span class="pr-status merged">✅ Merged</span>
+        <div class="small muted" style="margin-top:8px">Self-hosted AI registry</div>
+      </div>
+    </div>
+
+    <!-- PR 2 — langchain4j-spring Spring Boot 4 -->
+    <div class="pr-card">
+      <div>
+        <div class="pr-repo">langchain4j-spring</div>
+        <div class="pr-desc">feat: add Spring Boot 4 starter for Chroma embedding store · Auto-configuration, properties y bean para Spring Boot 4</div>
+        <div class="pr-meta">PR #194 · Spring Boot 4 · ChromaDB · auto-configuration</div>
+      </div>
+      <div style="text-align:right">
+        <span class="pr-status pending">⏳ Pending Review</span>
+        <div class="small muted" style="margin-top:8px">11k ⭐ · 450 forks</div>
+      </div>
+    </div>
+
+    <!-- PR 3 — langchain4j-spring Spring Boot 3 -->
     <div class="pr-card">
       <div>
         <div class="pr-repo">langchain4j-spring</div>
@@ -667,7 +700,7 @@ usando AWS Lambda + S3 + modelos locales
       </div>
     </div>
 
-    <!-- PR 2 -->
+    <!-- PR 4 — ollama4j -->
     <div class="pr-card">
       <div>
         <div class="pr-repo">ollama4j</div>
@@ -679,9 +712,6 @@ usando AWS Lambda + S3 + modelos locales
         <div class="small muted" style="margin-top:8px">3k ⭐ · 210 forks</div>
       </div>
     </div>
-  </div>
-  <div class="card warning" style="margin-top:20px">
-    <b>Próxima contribución</b>: Segunda contribución activa en ollama4j — ya con credibilidad de maintainer establecida tras el merge del PR #303.
   </div>
 </section>
 
