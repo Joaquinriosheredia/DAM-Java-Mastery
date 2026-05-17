@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-17 10:58:52
-**Ultimo commit:** 7cd7d13 feat(arch): recommendation systems architecture staff v4.0 - hito 110 (4 seconds ago)
-**Total de activos:** 120 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-17 11:06:22
+**Ultimo commit:** 1abc898 feat(ai): enterprise rag architecture staff v4.0 - hito 111 (3 seconds ago)
+**Total de activos:** 121 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -19,7 +19,7 @@
 | **05_SRE_DevOps** | 20 | 43 | — |
 | **06_Seguridad** | 7 | 13 | — |
 | **07_BigData_Streaming** | 8 | 21 | — |
-| **08_IA_Agentes** | 7 | 13 | — |
+| **08_IA_Agentes** | 8 | 14 | — |
 | **09_Frontend_Mobile** | 3 | 5 | — |
 | **10_Vanguardia** | 10 | 13 | — |
 
@@ -146,6 +146,7 @@
 ### 📂 08_IA_Agentes
 
 - [Agentes Autónomos con Memoria a Largo Plazo y LangChain4j: Arquitectur](08_IA_Agentes/agentes_autonomos_memoria_largo_plazo_langchain4j_STAFF.md) — 2026-04-17 14:31 (37.6KB)
+- [Arquitectura RAG Enterprise: Retrieval-Augmented Generation en Java 21](08_IA_Agentes/enterprise_rag_architecture_STAFF.md) — 2026-05-17 11:06 (23.2KB)
 - [Fine Tuning vs. RAG en Sistemas de IA con Java 21: Comparativa Real de](08_IA_Agentes/fine_tuning_vs_rag_comparative_STAFF.md) — 2026-04-30 14:53 (34.5KB)
 - [Optimización de Costes de LLMs en Producción con Java 21: Estrategias ](08_IA_Agentes/llm_cost_optimization_production_STAFF.md) — 2026-04-29 07:31 (32.3KB)
 - [Evaluación de Modelos LLM en Producción: Métricas, Calidad y Observabi](08_IA_Agentes/llm_evaluation_metrics_quality_STAFF.md) — 2026-04-29 10:09 (30.7KB)
@@ -178,12 +179,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 120 |
+| Total documentos tecnicos | 121 |
 | Tamano total del repositorio | 4.2MB |
 | Modulos activos | 10 |
-| Total commits | 633 |
+| Total commits | 636 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-17 10:58:52 |
+| Fecha | 2026-05-17 11:06:22 |
 
 ---
 
