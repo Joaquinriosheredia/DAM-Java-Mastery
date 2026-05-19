@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-18 08:01:36
-**Ultimo commit:** 2f0ee30 feat(arch): enterprise serverless architecture staff v4.0 - hito 113 (3 seconds ago)
-**Total de activos:** 123 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-19 09:25:28
+**Ultimo commit:** 2de0baf feat(arch): asyncapi and event-driven architecture staff v4.0 - hito 114 (4 seconds ago)
+**Total de activos:** 124 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 12 | 44 | — |
-| **02_Arquitectura** | 37 | 65 | — |
+| **02_Arquitectura** | 38 | 66 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 6 | 18 | — |
 | **05_SRE_DevOps** | 20 | 43 | — |
@@ -51,6 +51,7 @@
 - [Arquitectura Clean vs Hexagonal vs Onion en Java 21: Guía de Decisión ](02_Arquitectura/arquitectura_clean_hexagonal_onion_STAFF.md) — 2026-04-23 08:45 (35.9KB)
 - [Arquitectura de Microservicios Reactivos con Spring Boot 3.4 y R2DBC: ](02_Arquitectura/arquitectura_de_microservicios_reactivos_con_spring_boot_3.3_y_r2dbc_STAFF.md) — 2026-04-16 11:25 (42.9KB)
 - [Arquitectura de Sistemas IA en Producción con Java 21: MLOps, Inferenc](02_Arquitectura/arquitectura_sistemas_ia_produccion_STAFF.md) — 2026-04-27 07:51 (37.7KB)
+- [AsyncAPI y Arquitecturas Event-Driven en Java 21: Especificación, Cont](02_Arquitectura/asyncapi_event_driven_architecture_STAFF.md) — 2026-05-19 09:25 (17.8KB)
 - [Backpressure en Sistemas Reactivos con Java 21: Estrategias de Control](02_Arquitectura/backpressure_en_sistemas_reactivos_java_21_STAFF.md) — 2026-04-27 08:14 (36.7KB)
 - [Patrones de Caché Distribuido y Estrategias de Invalidación con Redis ](02_Arquitectura/cache_distribuido_invalidacion_STAFF.md) — 2026-04-20 12:42 (35.8KB)
 - [Caché Multinivel (L1, L2, L3) en Java 21: Estrategias de Invalidación,](02_Arquitectura/caching_multinivel_l1_l2_l3_java_21_STAFF.md) — 2026-04-28 06:47 (33.6KB)
@@ -181,12 +182,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 123 |
+| Total documentos tecnicos | 124 |
 | Tamano total del repositorio | 4.2MB |
 | Modulos activos | 10 |
-| Total commits | 642 |
+| Total commits | 645 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-18 08:01:36 |
+| Fecha | 2026-05-19 09:25:28 |
 
 ---
 
