@@ -5,879 +5,2807 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Joaquín Ríos Heredia — Backend / AI Engineer</title>
 
-<!-- SEO & Discovery -->
 <meta name="description" content="Java Backend Engineer (Java 21) especializado en sistemas distribuidos, IA local y Cloud AWS. Portfolio con 10 labs ejecutables, +90 guías Staff y contribuciones open source.">
 <meta name="keywords" content="Java 21, Spring Boot, Kubernetes, Kafka, AWS, AI Engineer, Distributed Systems, Backend, Staff Engineer, Testcontainers">
 <meta name="author" content="Joaquín Ríos Heredia">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://joaquinriosheredia.github.io/">
+<link rel="canonical" href="https://joaquinriosheredia.github.io/DAM-Java-Mastery/">
 
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23020617' width='100' height='100'/><text x='50' y='65' font-family='monospace' font-size='50' fill='%232563eb' text-anchor='middle'>JR</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23020617' width='100' height='100'/><text x='50' y='65' font-family='monospace' font-size='50' fill='%233B82F6' text-anchor='middle'>JR</text></svg>">
 
-<!-- OpenGraph -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://joaquinriosheredia.github.io/">
+<meta property="og:url" content="https://joaquinriosheredia.github.io/DAM-Java-Mastery/">
 <meta property="og:title" content="Joaquín Ríos Heredia — Java Backend Engineer (Java 21)">
 <meta property="og:description" content="10 Java Production Labs · +90 guías Staff Engineer · AI & Distributed Systems · Open Source Contributor">
-<meta property="og:image" content="https://raw.githubusercontent.com/Joaquinriosheredia/Proyecto_Git_Joaquin/main/assets/og-image.png">
 <meta property="og:locale" content="es_ES">
 
-<!-- Theme -->
 <meta name="theme-color" content="#020617">
 <meta name="color-scheme" content="dark only">
 
-<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Joaquín Ríos Heredia",
   "jobTitle": "Backend Engineer / AI Specialist",
-  "url": "https://joaquinriosheredia.github.io/",
+  "url": "https://joaquinriosheredia.github.io/DAM-Java-Mastery/",
   "sameAs": [
     "https://github.com/Joaquinriosheredia",
     "https://linkedin.com/in/joaquinrios-ai-engineer",
     "https://malt.es/profile/joaquinriosheredia"
   ],
-  "skills": ["Java 21", "Spring Boot", "Kubernetes", "Apache Kafka", "AWS", "Artificial Intelligence", "Distributed Systems", "Python", "PostgreSQL", "Redis", "Testcontainers"]
+  "skills": ["Java 21","Spring Boot","Kubernetes","Apache Kafka","AWS","Artificial Intelligence","Distributed Systems","Python","PostgreSQL","Redis","Testcontainers"]
 }
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
 :root {
-  --bg: #020617; --card: #0f172a; --border: #1e293b; --text: #e2e8f0; --muted: #94a3b8;
-  --primary: #2563eb; --success: #22c55e; --warning: #f59e0b; --danger: #ef4444;
+  --bg:        #020617;
+  --bg-1:      #0a0f1e;
+  --bg-2:      #0f172a;
+  --border:    rgba(30,41,59,0.8);
+  --border-hi: rgba(59,130,246,0.3);
+  --text:      #e2e8f0;
+  --text-2:    #cbd5e1;
+  --muted:     #64748b;
+  --primary:   #3B82F6;
+  --primary-d: #2563eb;
+  --cyan:      #06B6D4;
+  --success:   #22c55e;
+  --warning:   #f59e0b;
+  --danger:    #ef4444;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --radius-sm: 8px;
+  --radius:    12px;
+  --radius-lg: 20px;
+
+  --shadow-glow: 0 0 40px rgba(59,130,246,0.15);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-hover: 0 8px 40px rgba(59,130,246,0.2);
+
+  --nav-h: 64px;
+
+  --ease-out-expo: cubic-bezier(0.19,1,0.22,1);
 }
-* { box-sizing: border-box; }
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
 body {
-  margin: 0; font-family: 'Segoe UI', system-ui, sans-serif;
-  background: var(--bg); color: var(--text); line-height: 1.5;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* RIGHT SIDEBAR NAV */
-.sidebar {
-  position: fixed; right: 0; top: 0; bottom: 0;
-  width: 220px; background: rgba(2,6,23,0.98);
-  border-left: 1px solid var(--border); padding: 20px 16px;
-  display: flex; flex-direction: column; gap: 8px; z-index: 100;
-}
-.sidebar a {
-  color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500;
-  padding: 10px 14px; border-radius: 8px; transition: all 0.2s;
-  display: flex; align-items: center; gap: 8px;
-}
-.sidebar a:hover, .sidebar a.active {
-  color: var(--primary); background: rgba(37,99,235,0.12);
-}
-.sidebar a::before {
-  content: "•"; color: var(--primary); font-weight: bold; opacity: 0;
-  transition: opacity 0.2s;
-}
-.sidebar a:hover::before, .sidebar a.active::before { opacity: 1; }
+/* ═══════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
-/* MAIN CONTENT */
-.main { margin-right: 220px; }
-
-/* HEADER */
-.header {
-  display: grid; grid-template-columns: auto 1fr; gap: 24px;
-  padding: 40px; max-width: 1100px; margin: auto; align-items: center;
+/* ═══════════════════════════════════════════
+   STICKY NAV
+═══════════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 5vw, 60px);
+  background: rgba(2, 6, 23, 0.6);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border-bottom: 1px solid rgba(30,41,59,0.5);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
-.header img {
-  width: 120px; height: 120px; border-radius: 12px;
-  border: 2px solid var(--primary); object-fit: cover;
-}
-.header h1 { margin: 0; font-size: 32px; font-weight: 700; }
-.header h2 { margin: 8px 0; color: var(--primary); font-weight: 500; font-size: 20px; }
-.header p { margin: 12px 0 0; color: var(--muted); font-size: 15px; }
-.header a { color: var(--primary); text-decoration: none; }
-.header a:hover { text-decoration: underline; }
 
-/* SECTIONS */
+.nav.scrolled {
+  background: rgba(2,6,23,0.9);
+  border-bottom-color: rgba(59,130,246,0.15);
+}
+
+.nav-logo {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 12px var(--primary);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  transition: color 0.2s, background 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+  background: rgba(255,255,255,0.06);
+}
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s var(--ease-out-expo);
+  cursor: pointer;
+  border: none;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(59,130,246,0.3);
+}
+.btn-primary:hover {
+  background: #5b9cf6;
+  box-shadow: 0 0 30px rgba(59,130,246,0.5);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  color: var(--text);
+  border-color: rgba(59,130,246,0.4);
+  background: rgba(59,130,246,0.05);
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: calc(var(--nav-h) + 40px) clamp(20px, 5vw, 60px) 80px;
+}
+
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-fallback {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(59,130,246,0.08) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.25);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.hero-title {
+  font-size: clamp(42px, 8vw, 96px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.hero-title .grad {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--cyan) 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2.5vw, 21px);
+  color: var(--muted);
+  margin-bottom: 40px;
+  font-weight: 400;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-sub strong {
+  color: var(--text-2);
+  font-weight: 600;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 5vw, 56px);
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-num {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.hero-stat-num .accent { color: var(--primary); }
+.hero-stat-num .cyan { color: var(--cyan); }
+
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.hero-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.5;
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+.scroll-hint-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, transparent, var(--muted));
+}
+
+.scroll-hint-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════ */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 60px);
+}
+
 .section {
-  padding: 40px; max-width: 1100px; margin: auto;
-  animation: fadeIn 0.5s ease-out;
-}
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-
-h2 {
-  color: var(--primary); margin: 0 0 20px; font-size: 24px;
-  display: flex; align-items: center; gap: 10px;
-}
-h2::before { content: ""; display: block; width: 4px; height: 20px; background: var(--primary); border-radius: 2px; }
-
-/* CARDS & GRIDS */
-.card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 20px; transition: transform 0.2s, box-shadow 0.2s;
-}
-.card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,99,235,0.15); }
-.card.highlight { border-left: 4px solid var(--success); }
-.card.warning { border-left: 4px solid var(--warning); }
-
-.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-
-/* LABS GRID */
-.lab-card {
-  display: grid; grid-template-rows: auto 1fr auto; gap: 12px;
-  border: 1px solid var(--border); border-radius: 12px; padding: 16px;
-  background: linear-gradient(145deg, #0f172a, #0a0f1d);
-}
-.lab-card:hover { border-color: var(--primary); }
-.lab-header { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
-.lab-title { font-weight: 600; font-size: 16px; margin: 0; color: var(--text); }
-.lab-badge {
-  font-size: 11px; padding: 3px 8px; border-radius: 20px; font-weight: 600;
-  background: rgba(37,99,235,0.15); color: var(--primary); border: 1px solid var(--primary);
-}
-.lab-badge.done { background: rgba(34,197,94,0.15); color: var(--success); border-color: var(--success); }
-.lab-metric { font-size: 13px; color: var(--muted); margin: 4px 0; }
-.lab-metric b { color: var(--text); font-weight: 600; }
-.lab-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-.tech-tag {
-  font-size: 11px; padding: 2px 7px; border-radius: 4px;
-  background: rgba(148,163,184,0.1); color: var(--muted); border: 1px solid var(--border);
-}
-.lab-link {
-  margin-top: 12px; font-size: 13px; color: var(--primary); text-decoration: none;
-  display: inline-flex; align-items: center; gap: 4px; font-weight: 500;
-}
-.lab-link:hover { text-decoration: underline; }
-
-/* AUTHORITY FLOW DIAGRAM */
-.flow-diagram {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 10px; margin: 20px 0; padding: 16px; background: rgba(15,23,42,0.6);
-  border-radius: 12px; border: 1px dashed var(--border);
-}
-.flow-step {
-  text-align: center; padding: 14px 10px; border-radius: 10px;
-  background: var(--card); border: 1px solid var(--border); font-size: 13px;
-}
-.flow-step .emoji { font-size: 24px; display: block; margin-bottom: 6px; line-height: 1; }
-.flow-step b { display: block; margin-bottom: 4px; color: var(--primary); font-size: 14px; }
-.flow-step .desc { font-size: 11px; color: var(--muted); }
-.flow-arrow {
-  display: flex; align-items: center; justify-content: center;
-  color: var(--muted); font-size: 20px; font-weight: 300;
+  padding: clamp(60px, 8vw, 100px) 0;
+  position: relative;
 }
 
-/* OPEN SOURCE */
-.pr-card {
-  display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: start;
-  padding: 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--card);
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 16px;
 }
-.pr-repo { font-weight: 600; color: var(--text); font-size: 15px; }
-.pr-desc { color: var(--muted); font-size: 14px; margin: 4px 0; }
-.pr-meta { font-size: 12px; color: var(--muted); }
-.pr-status {
-  padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;
-}
-.pr-status.merged { background: rgba(34,197,94,0.15); color: var(--success); }
-.pr-status.pending { background: rgba(245,158,11,0.15); color: var(--warning); }
 
-/* NPM PACKAGE CARD */
-.npm-card {
-  display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start;
-  padding: 20px; border: 1px solid var(--success); border-radius: 12px;
-  background: linear-gradient(145deg, #0f172a, #071a10);
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--primary);
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+
+/* ═══════════════════════════════════════════
+   PROFILE SECTION
+═══════════════════════════════════════════ */
+.profile-section {
+  padding: clamp(40px,6vw,80px) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+
+.profile-avatar-wrap {
+  position: relative;
+}
+
+.profile-avatar {
+  width: clamp(80px, 12vw, 120px);
+  height: clamp(80px, 12vw, 120px);
+  border-radius: var(--radius);
+  object-fit: cover;
+  border: 2px solid rgba(59,130,246,0.4);
+  box-shadow: 0 0 40px rgba(59,130,246,0.2);
+  display: block;
+}
+
+.profile-status {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--success);
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: pulse-dot 1.5s ease-in-out infinite;
+  box-shadow: 0 0 8px var(--success);
+}
+
+.profile-name {
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.profile-role {
+  font-size: clamp(14px, 2vw, 17px);
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.profile-bio {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 640px;
   margin-bottom: 20px;
 }
-.npm-icon { font-size: 36px; }
-.npm-name { font-weight: 700; color: var(--success); font-size: 18px; font-family: monospace; }
-.npm-desc { color: var(--muted); font-size: 14px; margin: 6px 0; }
-.npm-install {
-  background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 8px;
-  padding: 10px 14px; font-family: monospace; font-size: 13px; color: var(--success);
-  margin: 10px 0; display: inline-block;
-}
-.npm-checks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-.npm-check {
-  font-size: 11px; padding: 3px 8px; border-radius: 4px;
-  background: rgba(34,197,94,0.1); color: var(--success); border: 1px solid rgba(34,197,94,0.3);
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-/* STACK */
-.stack-grid {
+.profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+.profile-link:hover {
+  color: var(--primary);
+  border-color: rgba(59,130,246,0.4);
+  background: rgba(59,130,246,0.05);
+}
+
+/* ═══════════════════════════════════════════
+   DEVTOOLS SECTION
+═══════════════════════════════════════════ */
+.npm-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(7,26,16,0.8) 100%);
+  border: 1px solid rgba(34,197,94,0.25);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 4vw, 40px);
+  position: relative;
+  overflow: hidden;
+}
+
+.npm-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(34,197,94,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.npm-glow-corner {
+  position: absolute;
+  top: 0; right: 0;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(34,197,94,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.npm-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.npm-icon-big {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.npm-pkg-name {
+  font-family: var(--font-mono);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--success);
+  letter-spacing: -0.02em;
+}
+
+.npm-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.npm-install-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--success);
+}
+
+.npm-install-prefix { color: var(--muted); }
+
+.npm-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.npm-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(34,197,94,0.1);
+  color: var(--success);
+  border: 1px solid rgba(34,197,94,0.2);
+}
+
+.npm-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.npm-link {
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+.npm-link.green {
+  color: var(--success);
+  border: 1px solid rgba(34,197,94,0.3);
+  background: rgba(34,197,94,0.05);
+}
+.npm-link.green:hover {
+  background: rgba(34,197,94,0.1);
+  border-color: var(--success);
+}
+
+.npm-link.blue {
+  color: var(--primary);
+  border: 1px solid rgba(59,130,246,0.3);
+  background: rgba(59,130,246,0.05);
+}
+.npm-link.blue:hover {
+  background: rgba(59,130,246,0.1);
+  border-color: var(--primary);
+}
+
+.npm-result-card {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(34,197,94,0.15);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.npm-terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.terminal-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+.terminal-dot.red { background: #ff5f57; }
+.terminal-dot.yellow { background: #febc2e; }
+.terminal-dot.green { background: #28c840; }
+
+.terminal-title {
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 8px;
+  font-family: var(--font-mono);
+}
+
+.terminal-output {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: var(--text-2);
+}
+
+.term-cmd { color: var(--cyan); }
+.term-pass { color: var(--success); }
+.term-warn { color: var(--warning); }
+.term-label { color: var(--muted); }
+.term-value { color: #fff; }
+
+/* ═══════════════════════════════════════════
+   LABS SECTION
+═══════════════════════════════════════════ */
+.labs-header-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+
+.labs-header-text strong { color: var(--text); }
+.labs-header-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+.labs-header-meta {
+  display: flex;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.labs-meta-item {
+  text-align: center;
+}
+
+.labs-meta-num {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.labs-meta-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.labs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.lab-card {
+  background: linear-gradient(145deg, var(--bg-2), #080d1a);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s var(--ease-out-expo);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.lab-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% -20%, rgba(59,130,246,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lab-card:hover {
+  border-color: rgba(59,130,246,0.4);
+  box-shadow: 0 8px 40px rgba(59,130,246,0.12);
+  transform: translateY(-3px);
+}
+
+.lab-card:hover::before { opacity: 1; }
+
+.lab-card.done { border-top: 2px solid var(--success); }
+.lab-card.planned { border-top: 2px solid rgba(100,116,139,0.4); }
+
+.lab-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.lab-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.lab-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.lab-status {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lab-status.done {
+  background: rgba(34,197,94,0.12);
+  color: var(--success);
+  border: 1px solid rgba(34,197,94,0.25);
+}
+
+.lab-status.planned {
+  background: rgba(100,116,139,0.1);
+  color: var(--muted);
+  border: 1px solid rgba(100,116,139,0.2);
+}
+
+.lab-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lab-metric-big {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1;
+}
+
+.lab-metric-big .highlight { color: var(--primary); }
+.lab-metric-big .green { color: var(--success); }
+.lab-metric-big .cyan { color: var(--cyan); }
+
+.lab-metric-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.lab-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background: rgba(148,163,184,0.07);
+  color: var(--muted);
+  border: 1px solid rgba(148,163,184,0.12);
+  font-family: var(--font-mono);
+}
+
+.lab-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid rgba(30,41,59,0.6);
+}
+
+.lab-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+
+.lab-link:hover { gap: 10px; }
+
+.lab-link-arrow {
+  transition: transform 0.2s;
+}
+
+.lab-link:hover .lab-link-arrow { transform: translateX(3px); }
+
+/* ═══════════════════════════════════════════
+   JARVIS SECTION
+═══════════════════════════════════════════ */
+.jarvis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.terminal-card {
+  background: #0a0f1a;
+  border: 1px solid rgba(6,182,212,0.25);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(6,182,212,0.05);
+  border-bottom: 1px solid rgba(6,182,212,0.15);
+}
+
+.terminal-body {
+  padding: 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--text-2);
+}
+
+.t-prompt { color: var(--cyan); }
+.t-comment { color: var(--muted); }
+.t-key { color: var(--primary); }
+.t-val { color: var(--success); }
+.t-arrow { color: var(--muted); margin: 0 4px; }
+
+.jarvis-features {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.jarvis-feature {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+}
+
+.jarvis-feature:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.jarvis-feature-icon {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.jarvis-feature-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.jarvis-feature-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.stack-pill {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.stack-chip {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(59,130,246,0.08);
+  color: var(--primary);
+  border: 1px solid rgba(59,130,246,0.2);
+  font-family: var(--font-mono);
+}
+
+/* ═══════════════════════════════════════════
+   PIPELINE / AUTHORITY
+═══════════════════════════════════════════ */
+.pipeline-card {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 4vw, 40px);
+  overflow: hidden;
+  position: relative;
+}
+
+.pipeline-steps {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 32px 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+
+.pipeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 110px;
+}
+
+.pipeline-step-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.pipeline-step-inner::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  right: -50%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, rgba(59,130,246,0.4), rgba(59,130,246,0.1));
+  z-index: 0;
+}
+
+.pipeline-step:last-child .pipeline-step-inner::before { display: none; }
+
+.pipeline-icon-wrap {
+  width: 56px; height: 56px;
+  border-radius: var(--radius);
+  background: rgba(59,130,246,0.08);
+  border: 1px solid rgba(59,130,246,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s;
+}
+
+.pipeline-step:hover .pipeline-icon-wrap {
+  background: rgba(59,130,246,0.15);
+  border-color: rgba(59,130,246,0.5);
+  box-shadow: 0 0 20px rgba(59,130,246,0.2);
+}
+
+.pipeline-step-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.pipeline-step-desc {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.4;
+  max-width: 90px;
+}
+
+.pipeline-metrics {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
+  margin-top: 24px;
 }
-.stack-card {
-  background: var(--card);
+
+.pipeline-metric {
+  padding: 16px;
+  background: rgba(0,0,0,0.3);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
+}
+
+.pipeline-metric-val {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.03em;
+  margin-bottom: 4px;
+}
+
+.pipeline-metric-desc { font-size: 13px; color: var(--muted); }
+
+/* ═══════════════════════════════════════════
+   OPEN SOURCE
+═══════════════════════════════════════════ */
+.prs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+}
+
+.pr-card {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, transform 0.2s;
 }
-.stack-card:hover {
+
+.pr-card:hover {
+  border-color: rgba(59,130,246,0.3);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(37,99,235,0.15);
 }
-.stack-header {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 4px;
+
+.pr-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
 }
-.stack-icon { font-size: 24px; }
-.stack-title {
-  font-weight: 600; font-size: 16px; color: var(--primary);
-  display: flex; align-items: center; gap: 8px;
+
+.pr-repo {
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
 }
-.stack-badge {
-  font-size: 10px; padding: 2px 8px; border-radius: 12px;
-  background: rgba(34,197,94,0.15); color: var(--success);
-  font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+
+.pr-sub {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
 }
-.stack-items { display: flex; flex-direction: column; gap: 6px; }
+
+.pr-badge {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pr-badge.merged {
+  background: rgba(34,197,94,0.12);
+  color: var(--success);
+  border: 1px solid rgba(34,197,94,0.25);
+}
+
+.pr-badge.pending {
+  background: rgba(245,158,11,0.12);
+  color: var(--warning);
+  border: 1px solid rgba(245,158,11,0.25);
+}
+
+.pr-desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.pr-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+  padding-top: 12px;
+  border-top: 1px solid rgba(30,41,59,0.6);
+}
+
+.pr-stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--warning);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   STACK SECTION
+═══════════════════════════════════════════ */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.stack-card {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.stack-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--primary), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.stack-card:hover {
+  border-color: rgba(59,130,246,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(59,130,246,0.1);
+}
+
+.stack-card:hover::after { transform: scaleX(1); }
+
+.stack-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stack-icon { font-size: 22px; line-height: 1; }
+
+.stack-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stack-badge-new {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 100px;
+  background: rgba(34,197,94,0.1);
+  color: var(--success);
+  border: 1px solid rgba(34,197,94,0.2);
+}
+
+.stack-items {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .stack-item {
-  font-size: 13px; color: var(--muted);
-  display: flex; align-items: flex-start; gap: 6px;
+  font-size: 12.5px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
+
 .stack-item::before {
-  content: "·"; color: var(--primary); font-weight: bold; margin-top: -2px;
+  content: '';
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
 }
 
-/* UTILS */
-.muted { color: var(--muted); }
-.small { font-size: 13px; }
-.code {
-  font-family: 'Fira Code', monospace; font-size: 12px;
-  background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px;
-}
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
 footer {
-  text-align: center; padding: 30px; color: var(--muted); font-size: 14px;
-  border-top: 1px solid var(--border); margin-top: 20px;
+  border-top: 1px solid var(--border);
+  padding: clamp(40px, 6vw, 72px) 0;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .sidebar { position: static; width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; border-left: none; border-bottom: 1px solid var(--border); padding: 12px; }
-  .sidebar a { padding: 8px 12px; font-size: 13px; }
-  .main { margin-right: 0; }
-  .header { grid-template-columns: 1fr; text-align: center; padding: 30px 20px; }
-  .header img { margin: 0 auto; }
-  .section { padding: 30px 20px; }
-  .stack-grid { grid-template-columns: 1fr; }
-  .npm-card { grid-template-columns: 1fr; }
-  .flow-diagram { grid-template-columns: 1fr; }
-  .flow-arrow { transform: rotate(90deg); }
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 32px;
+}
+
+.footer-tagline {
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.footer-desc {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+.footer-availability {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--success);
+  font-weight: 500;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.footer-copy {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(30,41,59,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ═══════════════════════════════════════════
+   SECTION DIVIDERS
+═══════════════════════════════════════════ */
+.section-separator {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════
+   SCROLL REVEAL (GSAP target classes)
+═══════════════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(40px); }
+.reveal-left { opacity: 0; transform: translateX(-40px); }
+.reveal-right { opacity: 0; transform: translateX(40px); }
+.reveal-scale { opacity: 0; transform: scale(0.95); }
+
+/* ═══════════════════════════════════════════
+   MOBILE NAV TOGGLE
+═══════════════════════════════════════════ */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+}
+.nav-toggle:hover { background: rgba(255,255,255,0.06); }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .npm-hero { grid-template-columns: 1fr; }
+  .jarvis-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  :root { --nav-h: 56px; }
+
+  .nav-links { display: none; flex-direction: column; position: fixed; top: var(--nav-h); left: 0; right: 0; background: rgba(2,6,23,0.97); padding: 16px; border-bottom: 1px solid var(--border); gap: 4px; backdrop-filter: blur(20px); z-index: 999; }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 12px 16px; }
+  .nav-toggle { display: flex; align-items: center; justify-content: center; }
+  .nav-cta .btn { display: none; }
+
+  .profile-grid { grid-template-columns: 1fr; text-align: center; }
+  .profile-avatar { margin: 0 auto; }
+  .profile-status { right: 50%; transform: translateX(50%); }
+  .profile-links { justify-content: center; }
+
+  .labs-header-card { grid-template-columns: 1fr; }
+  .labs-grid { grid-template-columns: 1fr; }
+
+  .prs-grid { grid-template-columns: 1fr; }
+
+  .pipeline-steps { gap: 0; }
+
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-links { align-items: flex-start; }
+  .footer-copy { flex-direction: column; gap: 8px; text-align: center; }
+
+  .hero-stats { gap: 20px; }
+  .hero-divider { display: none; }
+
+  .hero-actions { flex-direction: column; align-items: center; }
+  .hero-actions .btn { width: 100%; max-width: 280px; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .stack-grid { grid-template-columns: repeat(2, 1fr); }
+  .pipeline-steps { flex-wrap: nowrap; }
+}
+
+/* ═══════════════════════════════════════════
+   REDUCED MOTION
+═══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-badge, .hero-title, .hero-sub, .hero-actions, .hero-stats {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   CODE INLINE
+═══════════════════════════════════════════ */
+code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: rgba(0,0,0,0.35);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--cyan);
+  border: 1px solid rgba(6,182,212,0.15);
 }
 </style>
 </head>
 <body>
 
-<!-- RIGHT SIDEBAR -->
-<aside class="sidebar">
-  <a href="#devtools">🔧 DevTools</a>
-  <a href="#labs">🔬 Labs</a>
-  <a href="#jarvis">🎙️ JARVIS</a>
-  <a href="#authority">🏭 Authority</a>
-  <a href="#opensource">🌍 Open Source</a>
-  <a href="#stack">🛠️ Stack</a>
-</aside>
+<!-- ═══════════════ NAVIGATION ═══════════════ -->
+<nav class="nav" id="main-nav" role="navigation" aria-label="Navegación principal">
+  <a href="#top" class="nav-logo" aria-label="Inicio">
+    <span class="nav-logo-dot" aria-hidden="true"></span>
+    JRH
+  </a>
 
-<div class="main">
+  <ul class="nav-links" id="nav-links" role="list">
+    <li><a href="#devtools">DevTools</a></li>
+    <li><a href="#labs">Labs</a></li>
+    <li><a href="#jarvis">JARVIS</a></li>
+    <li><a href="#authority">Pipeline</a></li>
+    <li><a href="#opensource">Open Source</a></li>
+    <li><a href="#stack">Stack</a></li>
+  </ul>
 
-<!-- HEADER -->
-<header class="header">
-  <img src="https://raw.githubusercontent.com/Joaquinriosheredia/Proyecto_Git_Joaquin/main/joaquin.jpg" alt="Joaquín Ríos">
-  <div>
-    <h1>JOAQUÍN RÍOS HEREDIA</h1>
-    <h2>Java Backend Engineer (Java 21) · AI & Distributed Systems</h2>
-    <p>
-      📧 j.r.sinbarreras@gmail.com · 📍 Sevilla/Málaga (100% Remoto)<br>
-      🔗 <a href="https://github.com/Joaquinriosheredia" target="_blank">GitHub</a> ·
-      <a href="https://linkedin.com/in/joaquinrios-ai-engineer" target="_blank">LinkedIn</a> ·
-      <a href="https://malt.es/profile/joaquinriosheredia" target="_blank">Malt</a>
-    </p>
-  </div>
-</header>
-<section class="section">
-<div class="card highlight">
-<b>Perfil:</b> Ingeniero backend centrado en sistemas distribuidos, observabilidad, resiliencia e integración de IA local. Portfolio técnico construido mediante proyectos reales, tooling open source y laboratorios reproducibles orientados a producción.
-</div>
-</section>
-
-<section id="labs" class="section">
-<!-- DEVTOOLS / NPM -->
-<section id="devtools" class="section">
-  <h2>🔧 DevTools Publicadas</h2>
-
-  <div class="npm-card">
-    <div class="npm-icon">📦</div>
-    <div>
-      <div class="npm-name">testcontainers-doctor</div>
-      <div class="npm-desc">CLI para diagnosticar entornos Testcontainers en segundos. Construido después de depurar setups reales en WSL2 + Docker 29.</div>
-      <div class="npm-install">npm install -g testcontainers-doctor</div>
-      <div class="npm-checks">
-        <span class="npm-check">✅ 19 checks automáticos</span>
-        <span class="npm-check">✅ Docker daemon</span>
-        <span class="npm-check">✅ Java 21 + JAVA_HOME</span>
-        <span class="npm-check">✅ Maven</span>
-        <span class="npm-check">✅ Puertos PostgreSQL/Redis/Kafka/MySQL/MongoDB</span>
-        <span class="npm-check">✅ Ryuk reaper</span>
-        <span class="npm-check">✅ WSL2 integration</span>
-        <span class="npm-check">✅ JSON output + exit codes para CI/CD</span>
-        <span class="npm-check">✅ Linux · macOS · WSL2</span>
-        <span class="npm-check">✅ MIT License</span>
-      </div>
-      <div style="margin-top:12px; display:flex; gap:16px; flex-wrap:wrap">
-        <a href="https://www.npmjs.com/package/testcontainers-doctor" target="_blank" style="color:var(--success); font-size:13px; text-decoration:none">📦 npm →</a>
-        <a href="https://github.com/Joaquinriosheredia/testcontainers-doctor" target="_blank" style="color:var(--primary); font-size:13px; text-decoration:none">⭐ GitHub →</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="card highlight">
-    <b>Resultado real ejecutado en WSL2:</b> 19 passed · 1 warning · 0 failed<br>
-    <span class="muted small">Reduce el tiempo de diagnóstico de entorno de horas a segundos.</span>
-  </div>
-</section>
-
-<!-- LABS -->
-<section id="labs" class="section">
-  <h2>🔬 Java Production Labs</h2>
-  <div class="card highlight" style="margin-bottom:24px">
-    <b>10 laboratorios ejecutables</b> · Spring Boot 3 + Java 21 · Clonable en 45 min.<br>
-    Cada lab incluye: <span class="code">ADR</span> · <span class="code">Testcontainers</span> · <span class="code">JMH/k6</span> · <span class="code">Chaos</span> · <span class="code">Prometheus+Grafana</span>
-  </div>
-
-  <div class="grid-3">
-    <!-- Lab 1 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">01 — Virtual Threads</h3>
-        <span class="lab-badge done">✅ Ejecutado</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>7.4× throughput</b> vs thread-pool tradicional · 200 VUs · 30s</p>
-        <p class="lab-metric">p99: 5.817ms → 167ms · Pico exhaustion: <b>13.9s</b></p>
-        <div class="lab-tech">
-          <span class="tech-tag">Spring Boot 3.2</span>
-          <span class="tech-tag">Java 21 Loom</span>
-          <span class="tech-tag">k6</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/01_virtual_threads" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 2 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">02 — Resilience4j</h3>
-        <span class="lab-badge done">✅ Ejecutado</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>0.00% error rate</b> · 90.680 llamadas bloqueadas por CB</p>
-        <p class="lab-metric">Fallback in-process: <b>5ms</b> · Recovery: <b>5s</b> · 159.482 requests</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Resilience4j</span>
-          <span class="tech-tag">Circuit Breaker</span>
-          <span class="tech-tag">k6</span>
-          <span class="tech-tag">Chaos script</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/02_resilience" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 3 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">03 — Rate Limiter Redis</h3>
-        <span class="lab-badge done">✅ Ejecutado</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>Token Bucket distribuido</b> · scripts Lua atómicos en Redis · <b>460 req/s</b> · p99: 4.55ms · 0% errores 5xx</p>
-        <p class="lab-metric">Resilience4j Circuit Breaker: outage Redis <b>~1s hang → &lt;1ms 503</b></p>
-        <div class="lab-tech">
-          <span class="tech-tag">Redis Lua</span>
-          <span class="tech-tag">Resilience4j CB</span>
-          <span class="tech-tag">Spring Data Redis</span>
-          <span class="tech-tag">k6</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/03_rate_limiter" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 4 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">04 — Outbox + Kafka</h3>
-        <span class="lab-badge done">✅ Ejecutado</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>Zero data loss</b> · 7.626 órdenes · 0 duplicados confirmados</p>
-        <p class="lab-metric">Silent event loss detectado vía chaos (Kafka kill mid-flight) · backoff exponencial 2ⁿ⁻¹s cap 60s</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Transactional Outbox</span>
-          <span class="tech-tag">Kafka Producer</span>
-          <span class="tech-tag">PostgreSQL</span>
-          <span class="tech-tag">Chaos Testing</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/04_outbox_kafka" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 5 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">05 — Saga Pattern</h3>
-        <span class="lab-badge done">✅ Ejecutado</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>Race condition dual-write</b> demostrada bajo carga: <b>71.8% de transacciones distribuidas</b> stuck silenciosamente con HTTP 200 OK</p>
-        <p class="lab-metric">Hallazgo intencional: prueba empírica de por qué el Outbox Pattern es obligatorio</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Choreography Saga</span>
-          <span class="tech-tag">Kafka KRaft</span>
-          <span class="tech-tag">Dual-Write Analysis</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/05_saga_pattern" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 6 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">06 — Redis vs Kafka</h3>
-        <span class="lab-badge">📋 Planned</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>~20.000 msg/s (Redis)</b> vs <b>~500 msg/s (Kafka acks=all)</b></p>
-        <p class="lab-metric">Redis ~40× más rápido · Kafka garantiza durabilidad</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Redis Pub/Sub</span>
-          <span class="tech-tag">Kafka</span>
-          <span class="tech-tag">curl benchmark</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/06_redis_vs_kafka" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 7 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">07 — PostgreSQL Tuning</h3>
-        <span class="lab-badge done">✅ Ejecutado</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>26× speedup</b> · 1.000.034 filas · Seq scan: 37ms → Index: 1ms</p>
-        <p class="lab-metric">120× menos I/O · 12.268 → 102 buffer accesses · EXPLAIN ANALYZE</p>
-        <div class="lab-tech">
-          <span class="tech-tag">PostgreSQL 16</span>
-          <span class="tech-tag">Índice parcial</span>
-          <span class="tech-tag">pg_stat_statements</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/07_postgres_tuning" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 8 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">08 — Kafka Streams</h3>
-        <span class="lab-badge">📋 Planned</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>5.000 events/s</b> (10K msgs) · processing lag &lt;500ms</p>
-        <p class="lab-metric">10.000 events/s (100K msgs) · lag &lt;1s · escala con particiones</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Kafka Streams</span>
-          <span class="tech-tag">RocksDB</span>
-          <span class="tech-tag">TopologyTestDriver</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/08_kafka_streams" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 9 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">09 — Docker Optimization</h3>
-        <span class="lab-badge">📋 Planned</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>520MB → 195MB</b> · rebuild: <b>3min → 15s</b> con layer caching</p>
-        <p class="lab-metric">Multi-stage + distroless · Sin root user · Container memory limits</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Docker BuildKit</span>
-          <span class="tech-tag">Distroless</span>
-          <span class="tech-tag">Multi-stage</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/09_docker_optimization" target="_blank">Ver código →</a>
-    </div>
-
-    <!-- Lab 10 -->
-    <div class="lab-card">
-      <div class="lab-header">
-        <h3 class="lab-title">10 — Kubernetes Autoscaling</h3>
-        <span class="lab-badge">📋 Planned</span>
-      </div>
-      <div>
-        <p class="lab-metric"><b>HPA custom metrics</b> · 20 VUs → scale up: 4 pods</p>
-        <p class="lab-metric">Métricas custom Prometheus · Scale down tras 5min sin carga</p>
-        <div class="lab-tech">
-          <span class="tech-tag">Kubernetes HPA</span>
-          <span class="tech-tag">Prometheus Adapter</span>
-          <span class="tech-tag">k6</span>
-        </div>
-      </div>
-      <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/10_kubernetes_autoscaling" target="_blank">Ver código →</a>
-    </div>
-  </div>
-</section>
-
-<!-- JARVIS -->
-<section id="jarvis" class="section">
-  <h2>🎙️ JARVIS Runtime</h2>
-  <div class="grid-2">
-    <div class="card">
-<pre style="margin:0; font-size:13px; line-height:1.6">
-$ jarvis ask "optimiza este SQL"
-
-[CLI Python + Typer + Rich]
-  → Router de modelos
-     · Local: Ollama (prioridad)
-     · Cloud: OpenAI / Anthropic
-         (solo si local falla)
-  → Memoria SQLite persistente
-  → Cost tracker en tiempo real
-  → Respuesta en terminal
-</pre>
-    </div>
-    <div class="card">
-      <ul style="margin:0; padding-left:20px; font-size:14px">
-        <li><b>Local-first</b>: Ollama · zero coste por defecto</li>
-        <li><b>Fallback cloud</b>: OpenAI / Anthropic solo cuando se necesita</li>
-        <li><b>Memoria persistente</b>: SQLite · contexto entre sesiones</li>
-        <li><b>Cost tracking</b>: métricas de uso en tiempo real por modelo</li>
-        <li><b>18 pytest tests</b> · Docker Compose incluido</li>
-        <li><b>Setup:</b> <code style="font-size:12px; background:rgba(0,0,0,0.3); padding:1px 5px; border-radius:3px">git clone → ./setup.sh → jarvis ask "hola"</code></li>
-      </ul>
-      <div style="margin-top:14px; display:flex; gap:14px; flex-wrap:wrap">
-        <a href="https://github.com/Joaquinriosheredia/jarvis-runtime" target="_blank" style="color:var(--primary); font-size:13px; text-decoration:none; font-weight:500">⭐ GitHub →</a>
-      </div>
-    </div>
-  </div>
-  <div class="card highlight" style="margin-top:16px">
-    <b>Stack:</b> Python · Typer · Rich · Ollama · OpenAI SDK · SQLite · Docker Compose · pytest (18 tests)
-  </div>
-</section>
-
-<!-- AUTHORITY -->
-<section id="authority" class="section">
-  <h2>🏭 AI Documentation Pipeline</h2>
-  <div class="card">
-    <p>
-<b>Pipeline automatizado para generación y validación de documentación técnica</b>
-orientado a arquitecturas backend y sistemas distribuidos.
-Combina análisis estructural, validación de código y despliegue automatizado en AWS.
-</p>
-
-    <div class="flow-diagram">
-      <div class="flow-step">
-        <span class="emoji">📄</span>
-        <b>Input</b>
-        <span class="desc">Documento Staff<br>.md / .adoc</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="emoji">🐍</span>
-        <b>Parser</b>
-        <span class="desc">Authority Core<br>Python + Lark</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="emoji">🧠</span>
-        <b>IA Local</b>
-        <span class="desc">Ollama + Qwen 7B ejecutado localmente sobre GPU consumer</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="emoji">🔍</span>
-        <b>Investigar</b>
-        <span class="desc">Tavily API + Code Search<br>Validación técnica</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="emoji">⚖️</span>
-        <b>Auditar</b>
-        <span class="desc">Compilación real<br>`mvn verify` + tests</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="emoji">🎨</span>
-        <b>Render</b>
-        <span class="desc">Markdown + Mermaid<br>Plantillas Jinja2</span>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <span class="emoji">🚀</span>
-        <b>Publicar</b>
-        <span class="desc">AWS Lambda + S3<br>CI/CD GitHub Actions</span>
-      </div>
-    </div>
-
-    <div class="grid-2" style="margin-top:16px">
-      <div>
-        <p class="lab-metric">
-<b>+105 documentos técnicos generados</b> · ADRs · runbooks · guías operativas
-</p>
-
-<p class="lab-metric">
-<b>Validación automática</b> mediante <span class="code">mvn verify</span>,
-tests y análisis estructural antes de publicar
-</p>
-
-<p class="lab-metric">
-<b>Coste operativo estimado:</b> ~$0.03/documento
-usando AWS Lambda + S3 + modelos locales
-</p>
-      </div>
-      <div>
-        <p><b>Características clave:</b></p>
-        <ul class="small" style="margin:8px 0 0; padding-left:18px">
-          <li>Validación de código con compilación real (<span class="code">mvn verify</span>)</li>
-          <li>Detección de afirmaciones no verificadas → marca como <span class="code">[NEEDS_EVIDENCE]</span></li>
-          <li>Generación de ADRs, diagramas Mermaid y runbooks operativos</li>
-          <li>SBOM automático + firma de artefactos con Cosign</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div style="text-align:center; margin-top:16px">
-    <a class="lab-link" href="https://joaquinriosheredia.github.io/DAM-Java-Mastery" target="_blank" style="font-size:15px">
-      Ver documentación generada →
+  <div class="nav-cta">
+    <a href="mailto:j.r.sinbarreras@gmail.com" class="btn btn-primary" aria-label="Contactar por email">
+      Contactar
     </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <rect x="2" y="5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+        <rect x="2" y="9.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+        <rect x="2" y="13.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="top" aria-label="Presentación">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-fallback" id="hero-fallback" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge" id="hero-badge">
+      <span class="hero-badge-dot" aria-hidden="true"></span>
+      Disponible · Freelance & Full-time Junio 2026
+    </div>
+
+    <h1 class="hero-title" id="hero-title">
+      <span class="grad">JOAQUÍN<br>RÍOS HEREDIA</span>
+    </h1>
+
+    <p class="hero-sub" id="hero-sub">
+      <strong>Java Backend Engineer · AI & Distributed Systems</strong><br>
+      Sevilla / Málaga · 100% Remoto
+    </p>
+
+    <div class="hero-actions" id="hero-actions">
+      <a href="#labs" class="btn btn-primary">Ver Labs →</a>
+      <a href="https://github.com/Joaquinriosheredia" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+      <a href="https://linkedin.com/in/joaquinrios-ai-engineer" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+    </div>
+
+    <div class="hero-stats" id="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span class="accent">10</span></div>
+        <div class="hero-stat-label">Labs Ejecutables</div>
+      </div>
+      <div class="hero-divider" aria-hidden="true"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span class="accent">+105</span></div>
+        <div class="hero-stat-label">Docs Técnicos</div>
+      </div>
+      <div class="hero-divider" aria-hidden="true"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span class="cyan">4</span></div>
+        <div class="hero-stat-label">PRs Open Source</div>
+      </div>
+      <div class="hero-divider" aria-hidden="true"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span class="accent">Java</span></div>
+        <div class="hero-stat-label">21 LTS · Spring Boot 3</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span class="scroll-hint-label">Scroll</span>
+    <div class="scroll-hint-line"></div>
   </div>
 </section>
 
-<!-- OPEN SOURCE -->
-<section id="opensource" class="section">
-  <h2>🌍 Open Source Contributions</h2>
-  <div class="grid-2">
-    <!-- PR 1 — Observal -->
-    <div class="pr-card">
+<!-- ═══════════════ PROFILE ═══════════════ -->
+<div class="section-separator" aria-hidden="true"></div>
+<section class="profile-section reveal" aria-label="Perfil">
+  <div class="container">
+    <div class="profile-grid">
+      <div class="profile-avatar-wrap">
+        <img
+          class="profile-avatar"
+          src="https://raw.githubusercontent.com/Joaquinriosheredia/Proyecto_Git_Joaquin/main/joaquin.jpg"
+          alt="Foto de Joaquín Ríos Heredia"
+          width="120" height="120"
+          loading="lazy"
+        >
+        <div class="profile-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Open to work
+        </div>
+      </div>
       <div>
-        <div class="pr-repo">Observal <span style="font-size:12px; color:var(--muted); font-weight:400">(BlazeUp AI · AI Agent Registry)</span></div>
-        <div class="pr-desc">fix(lint): replace magic values with named constants in deps.py · Resuelve violaciones PLR2004 de ruff en el backend FastAPI</div>
-        <div class="pr-meta">PR #810 · FastAPI · Python · ruff linting</div>
-      </div>
-      <div style="text-align:right">
-        <span class="pr-status merged">✅ Merged</span>
-        <div class="small muted" style="margin-top:8px">Self-hosted AI registry</div>
-      </div>
-    </div>
-
-    <!-- PR 2 — langchain4j-spring Spring Boot 4 -->
-    <div class="pr-card">
-      <div>
-        <div class="pr-repo">langchain4j-spring</div>
-        <div class="pr-desc">feat: add Spring Boot 4 starter for Chroma embedding store · Auto-configuration, properties y bean para Spring Boot 4</div>
-        <div class="pr-meta">PR #194 · Spring Boot 4 · ChromaDB · auto-configuration</div>
-      </div>
-      <div style="text-align:right">
-        <span class="pr-status pending">⏳ Pending Review</span>
-        <div class="small muted" style="margin-top:8px">11k ⭐ · 450 forks</div>
-      </div>
-    </div>
-
-    <!-- PR 3 — langchain4j-spring Spring Boot 3 -->
-    <div class="pr-card">
-      <div>
-        <div class="pr-repo">langchain4j-spring</div>
-        <div class="pr-desc">Spring Boot Starter para ChromaDB: auto-configuration, ChromaEmbeddingStoreProperties, AutoConfiguration bean, tests incluidos</div>
-        <div class="pr-meta">PR #185 · +179 líneas · 3 archivos · Sigue patrón Milvus y Redis</div>
-      </div>
-      <div style="text-align:right">
-        <span class="pr-status pending">⏳ Pending Review</span>
-        <div class="small muted" style="margin-top:8px">11k ⭐ · 450 forks</div>
-      </div>
-    </div>
-
-    <!-- PR 4 — ollama4j -->
-    <div class="pr-card">
-      <div>
-        <div class="pr-repo">ollama4j</div>
-        <div class="pr-desc">Exponer model_info en ModelDetail: Map&lt;String,Object&gt; con @JsonProperty para acceso a context_length, embedding_length y arquitectura sin parsear JSON crudo</div>
-        <div class="pr-meta">PR #303 · +3 líneas · SonarQube ✅ · CodeRabbit ✅ · Mergeado en 3 días</div>
-      </div>
-      <div style="text-align:right">
-        <span class="pr-status merged">✅ Merged</span>
-        <div class="small muted" style="margin-top:8px">3k ⭐ · 210 forks</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STACK -->
-<section id="stack" class="section">
-  <h2>🛠️ Stack Técnico</h2>
-  <div class="stack-grid">
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">☕</span>
-        <div class="stack-title">Java 21</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Virtual Threads</div>
-        <div class="stack-item">Records</div>
-        <div class="stack-item">Structured Concurrency</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🐍</span>
-        <div class="stack-title">Python <span class="stack-badge">ADVANCED</span></div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Async/Await</div>
-        <div class="stack-item">Lark Parser</div>
-        <div class="stack-item">boto3</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🏛️</span>
-        <div class="stack-title">Arquitectura</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">DDD</div>
-        <div class="stack-item">Hexagonal</div>
-        <div class="stack-item">CQRS</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">☁️</span>
-        <div class="stack-title">AWS</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Lambda</div>
-        <div class="stack-item">S3</div>
-        <div class="stack-item">boto3</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🔐</span>
-        <div class="stack-title">Seguridad</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">JWT</div>
-        <div class="stack-item">OAuth2</div>
-        <div class="stack-item">Zero Trust</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">⚙️</span>
-        <div class="stack-title">SRE</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Kubernetes</div>
-        <div class="stack-item">Prometheus</div>
-        <div class="stack-item">OpenTelemetry</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🤖</span>
-        <div class="stack-title">IA</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Ollama</div>
-        <div class="stack-item">RAG</div>
-        <div class="stack-item">Multi-Agente</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🗄️</span>
-        <div class="stack-title">Data</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Kafka</div>
-        <div class="stack-item">PostgreSQL</div>
-        <div class="stack-item">Redis</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🧪</span>
-        <div class="stack-title">Quality</div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">Testcontainers</div>
-        <div class="stack-item">k6</div>
-        <div class="stack-item">Chaos Engineering</div>
-      </div>
-    </div>
-
-    <div class="stack-card">
-      <div class="stack-header">
-        <span class="stack-icon">🔧</span>
-        <div class="stack-title">DevTools <span class="stack-badge">NEW</span></div>
-      </div>
-      <div class="stack-items">
-        <div class="stack-item">testcontainers-doctor</div>
-        <div class="stack-item">Node.js CLI</div>
-        <div class="stack-item">npm published</div>
+        <h2 class="profile-name">Joaquín Ríos Heredia</h2>
+        <p class="profile-role">Java Backend Engineer (Java 21) · AI & Distributed Systems</p>
+        <p class="profile-bio">
+          Ingeniero backend centrado en sistemas distribuidos, observabilidad, resiliencia e integración de IA local.
+          Portfolio técnico construido mediante proyectos reales, tooling open source y laboratorios reproducibles orientados a producción.
+        </p>
+        <div class="profile-links">
+          <a href="mailto:j.r.sinbarreras@gmail.com" class="profile-link">✉️ j.r.sinbarreras@gmail.com</a>
+          <a href="https://github.com/Joaquinriosheredia" target="_blank" rel="noopener" class="profile-link">⭐ GitHub</a>
+          <a href="https://linkedin.com/in/joaquinrios-ai-engineer" target="_blank" rel="noopener" class="profile-link">💼 LinkedIn</a>
+          <a href="https://malt.es/profile/joaquinriosheredia" target="_blank" rel="noopener" class="profile-link">🔗 Malt</a>
+          <span class="profile-link" style="cursor:default">📍 Sevilla/Málaga</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════ DEVTOOLS ═══════════════ -->
+<div class="section-separator" aria-hidden="true"></div>
+<section id="devtools" class="section" aria-labelledby="devtools-title">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">DevTools Publicadas</div>
+      <h2 class="section-title" id="devtools-title">Tooling Open Source</h2>
+      <p class="section-desc">CLI publicada en npm después de depurar setups reales en WSL2 + Docker 29.</p>
+    </div>
+
+    <div class="npm-hero reveal">
+      <div class="npm-glow-corner" aria-hidden="true"></div>
+
+      <div>
+        <div class="npm-title-row">
+          <span class="npm-icon-big" aria-hidden="true">📦</span>
+          <span class="npm-pkg-name">testcontainers-doctor</span>
+        </div>
+        <p class="npm-desc">
+          CLI para diagnosticar entornos Testcontainers en segundos. Reduce el tiempo de diagnóstico de horas a segundos con 19 checks automáticos.
+        </p>
+        <div class="npm-install-block">
+          <span class="npm-install-prefix">$</span>
+          npm install -g testcontainers-doctor
+        </div>
+        <div class="npm-badges">
+          <span class="npm-badge">✅ 19 checks</span>
+          <span class="npm-badge">✅ Docker daemon</span>
+          <span class="npm-badge">✅ Java 21 + JAVA_HOME</span>
+          <span class="npm-badge">✅ Maven</span>
+          <span class="npm-badge">✅ PostgreSQL · Redis · Kafka · MySQL · MongoDB</span>
+          <span class="npm-badge">✅ Ryuk reaper</span>
+          <span class="npm-badge">✅ WSL2</span>
+          <span class="npm-badge">✅ JSON + exit codes CI/CD</span>
+          <span class="npm-badge">✅ Linux · macOS · WSL2</span>
+          <span class="npm-badge">✅ MIT License</span>
+        </div>
+        <div class="npm-links">
+          <a href="https://www.npmjs.com/package/testcontainers-doctor" target="_blank" rel="noopener" class="npm-link green">📦 npm →</a>
+          <a href="https://github.com/Joaquinriosheredia/testcontainers-doctor" target="_blank" rel="noopener" class="npm-link blue">⭐ GitHub →</a>
+        </div>
+      </div>
+
+      <div class="npm-result-card">
+        <div class="npm-terminal-header">
+          <span class="terminal-dot red" aria-hidden="true"></span>
+          <span class="terminal-dot yellow" aria-hidden="true"></span>
+          <span class="terminal-dot green" aria-hidden="true"></span>
+          <span class="terminal-title">testcontainers-doctor · WSL2 output</span>
+        </div>
+        <div class="terminal-output" role="region" aria-label="Terminal output">
+          <div><span class="t-prompt">$</span> testcontainers-doctor</div>
+          <div>&nbsp;</div>
+          <div><span class="t-pass">✓</span> <span class="t-label">Docker daemon</span> <span class="t-val">running</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-label">Docker version</span> <span class="t-val">29.0.1</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-label">JAVA_HOME</span> <span class="t-val">set · Java 21.0.2</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-label">Maven</span> <span class="t-val">3.9.6</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-label">Port 5432</span> <span class="t-val">available</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-label">Port 6379</span> <span class="t-val">available</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-label">Port 9092</span> <span class="t-val">available</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-label">Ryuk reaper</span> <span class="t-val">accessible</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-label">WSL2 integration</span> <span class="t-val">enabled</span></div>
+          <div><span class="t-warn">⚠</span> <span class="t-label">Buildx</span> <span class="t-val">optional plugin missing</span></div>
+          <div>&nbsp;</div>
+          <div><span class="t-pass">19 passed</span> · <span class="t-warn">1 warning</span> · <span class="t-pass">0 failed</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ LABS ═══════════════ -->
+<div class="section-separator" aria-hidden="true"></div>
+<section id="labs" class="section" aria-labelledby="labs-title">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Java Production Labs</div>
+      <h2 class="section-title" id="labs-title">10 Labs Ejecutables</h2>
+      <p class="section-desc">Spring Boot 3 + Java 21 · Clonable en 45 min. Cada lab incluye ADR, Testcontainers, JMH/k6, Chaos, Prometheus+Grafana.</p>
+    </div>
+
+    <div class="labs-header-card reveal">
+      <div class="labs-header-text">
+        <strong>Laboratorios orientados a producción</strong> — no tutoriales.<br>
+        Cada resultado está basado en ejecuciones reales con métricas verificadas, chaos testing y benchmarks reproducibles.
+      </div>
+      <div class="labs-header-meta">
+        <div class="labs-meta-item">
+          <div class="labs-meta-num">5</div>
+          <div class="labs-meta-label">Completados</div>
+        </div>
+        <div class="labs-meta-item">
+          <div class="labs-meta-num">5</div>
+          <div class="labs-meta-label">En progreso</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="labs-grid">
+
+      <!-- Lab 01 -->
+      <article class="lab-card done reveal">
+        <div class="lab-head">
+          <div>
+            <div class="lab-num">LAB 01</div>
+            <div class="lab-title">Virtual Threads</div>
+          </div>
+          <span class="lab-status done">Ejecutado</span>
+        </div>
+        <div class="lab-metrics">
+          <div class="lab-metric-big"><span class="highlight">7.4×</span> throughput</div>
+          <div class="lab-metric-sub">vs thread-pool tradicional · 200 VUs · 30s<br>p99: 5.817ms → 167ms · Pico exhaustion: <strong>13.9s</strong></div>
+        </div>
+        <div class="lab-tags">
+          <span class="tag">Spring Boot 3.2</span>
+          <span class="tag">Java 21 Loom</span>
+          <span class="tag">k6</span>
+        </div>
+        <div class="lab-footer">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/01_virtual_threads" target="_blank" rel="noopener">
+            Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Lab 02 -->
+      <article class="lab-card done reveal">
+        <div class="lab-head">
+          <div>
+            <div class="lab-num">LAB 02</div>
+            <div class="lab-title">Resilience4j</div>
+          </div>
+          <span class="lab-status done">Ejecutado</span>
+        </div>
+        <div class="lab-metrics">
+          <div class="lab-metric-big"><span class="green">0.00%</span> error rate</div>
+          <div class="lab-metric-sub">90.680 llamadas bloqueadas por Circuit Breaker<br>Fallback in-process: <strong>5ms</strong> · Recovery: <strong>5s</strong> · 159.482 requests</div>
+        </div>
+        <div class="lab-tags">
+          <span class="tag">Resilience4j</span>
+          <span class="tag">Circuit Breaker</span>
+          <span class="tag">k6</span>
+          <span class="tag">Chaos script</span>
+        </div>
+        <div class="lab-footer">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/02_resilience" target="_blank" rel="noopener">
+            Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Lab 03 -->
+      <article class="lab-card done reveal">
+        <div class="lab-head">
+          <div>
+            <div class="lab-num">LAB 03</div>
+            <div class="lab-title">Rate Limiter Redis</div>
+          </div>
+          <span class="lab-status done">Ejecutado</span>
+        </div>
+        <div class="lab-metrics">
+          <div class="lab-metric-big"><span class="cyan">460</span> req/s</div>
+          <div class="lab-metric-sub">Token Bucket distribuido · scripts Lua atómicos<br>p99: 4.55ms · 0% errores 5xx · Redis outage: <strong>&lt;1ms 503</strong></div>
+        </div>
+        <div class="lab-tags">
+          <span class="tag">Redis Lua</span>
+          <span class="tag">Resilience4j CB</span>
+          <span class="tag">Spring Data Redis</span>
+          <span class="tag">k6</span>
+        </div>
+        <div class="lab-footer">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/03_rate_limiter" target="_blank" rel="noopener">
+            Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Lab 04 -->
+      <article class="lab-card done reveal">
+        <div class="lab-head">
+          <div>
+            <div class="lab-num">LAB 04</div>
+            <div class="lab-title">Outbox + Kafka</div>
+          </div>
+          <span class="lab-status done">Ejecutado</span>
+        </div>
+        <div class="lab-metrics">
+          <div class="lab-metric-big"><span class="green">Zero</span> data loss</div>
+          <div class="lab-metric-sub">7.626 órdenes · 0 duplicados confirmados<br>Silent event loss detectado vía chaos · backoff 2ⁿ⁻¹s cap 60s</div>
+        </div>
+        <div class="lab-tags">
+          <span class="tag">Transactional Outbox</span>
+          <span class="tag">Kafka Producer</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Chaos Testing</span>
+        </div>
+        <div class="lab-footer">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/04_outbox_kafka" target="_blank" rel="noopener">
+            Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Lab 05 -->
+      <article class="lab-card done reveal">
+        <div class="lab-head">
+          <div>
+            <div class="lab-num">LAB 05</div>
+            <div class="lab-title">Saga Pattern</div>
+          </div>
+          <span class="lab-status done">Ejecutado</span>
+        </div>
+        <div class="lab-metrics">
+          <div class="lab-metric-big"><span class="highlight">71.8%</span> stuck</div>
+          <div class="lab-metric-sub">Race condition dual-write demostrada bajo carga<br>HTTP 200 OK silencioso → prueba empírica del Outbox Pattern</div>
+        </div>
+        <div class="lab-tags">
+          <span class="tag">Choreography Saga</span>
+          <span class="tag">Kafka KRaft</span>
+          <span class="tag">Dual-Write Analysis</span>
+        </div>
+        <div class="lab-footer">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/05_saga_pattern" target="_blank" rel="noopener">
+            Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Lab 06 -->
+      <article class="lab-card planned reveal">
+        <div class="lab-head">
+          <div>
+            <div class="lab-num">LAB 06</div>
+            <div class="lab-title">Redis vs Kafka</div>
+          </div>
+          <span class="lab-status planned">Planned</span>
+        </div>
+        <div class="lab-metrics">
+          <div class="lab-metric-big"><span class="cyan">40×</span> más rápido</div>
+          <div class="lab-metric-sub">~20.000 msg/s (Redis) vs ~500 msg/s (Kafka acks=all)<br>Redis speed vs Kafka durability tradeoff</div>
+        </div>
+        <div class="lab-tags">
+          <span class="tag">Redis Pub/Sub</span>
+          <span class="tag">Kafka</span>
+          <span class="tag">curl benchmark</span>
+        </div>
+        <div class="lab-footer">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/06_redis_vs_kafka" target="_blank" rel="noopener">
+            Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Lab 07 -->
+      <article class="lab-card done reveal">
+        <div class="lab-head">
+          <div>
+            <div class="lab-num">LAB 07</div>
+            <div class="lab-title">PostgreSQL Tuning</div>
+          </div>
+          <span class="lab-status done">Ejecutado</span>
+        </div>
+        <div class="lab-metrics">
+          <div class="lab-metric-big"><span class="highlight">26×</span> speedup</div>
+          <div class="lab-metric-sub">1.000.034 filas · Seq scan: 37ms → Index: <strong>1ms</strong><br>120× menos I/O · 12.268 → 102 buffer accesses</div>
+        </div>
+        <div class="lab-tags">
+          <span class="tag">PostgreSQL 16</span>
+          <span class="tag">Índice parcial</span>
+          <span class="tag">pg_stat_statements</span>
+          <span class="tag">EXPLAIN ANALYZE</span>
+        </div>
+        <div class="lab-footer">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/07_postgres_tuning" target="_blank" rel="noopener">
+            Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Lab 08 -->
+      <article class="lab-card planned reveal">
+        <div class="lab-head">
+          <div>
+            <div class="lab-num">LAB 08</div>
+            <div class="lab-title">Kafka Streams</div>
+          </div>
+          <span class="lab-status planned">Planned</span>
+        </div>
+        <div class="lab-metrics">
+          <div class="lab-metric-big"><span class="cyan">10K</span> events/s</div>
+          <div class="lab-metric-sub">5.000 events/s · lag &lt;500ms<br>10.000 events/s · lag &lt;1s · escala con particiones</div>
+        </div>
+        <div class="lab-tags">
+          <span class="tag">Kafka Streams</span>
+          <span class="tag">RocksDB</span>
+          <span class="tag">TopologyTestDriver</span>
+        </div>
+        <div class="lab-footer">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/08_kafka_streams" target="_blank" rel="noopener">
+            Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Lab 09 -->
+      <article class="lab-card planned reveal">
+        <div class="lab-head">
+          <div>
+            <div class="lab-num">LAB 09</div>
+            <div class="lab-title">Docker Optimization</div>
+          </div>
+          <span class="lab-status planned">Planned</span>
+        </div>
+        <div class="lab-metrics">
+          <div class="lab-metric-big"><span class="green">520→195MB</span></div>
+          <div class="lab-metric-sub">Rebuild: 3min → <strong>15s</strong> con layer caching<br>Multi-stage + distroless · Sin root user</div>
+        </div>
+        <div class="lab-tags">
+          <span class="tag">Docker BuildKit</span>
+          <span class="tag">Distroless</span>
+          <span class="tag">Multi-stage</span>
+        </div>
+        <div class="lab-footer">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/09_docker_optimization" target="_blank" rel="noopener">
+            Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Lab 10 -->
+      <article class="lab-card planned reveal">
+        <div class="lab-head">
+          <div>
+            <div class="lab-num">LAB 10</div>
+            <div class="lab-title">Kubernetes Autoscaling</div>
+          </div>
+          <span class="lab-status planned">Planned</span>
+        </div>
+        <div class="lab-metrics">
+          <div class="lab-metric-big">HPA <span class="cyan">Custom</span></div>
+          <div class="lab-metric-sub">20 VUs → scale up: <strong>4 pods</strong><br>Métricas custom Prometheus · Scale down tras 5min</div>
+        </div>
+        <div class="lab-tags">
+          <span class="tag">Kubernetes HPA</span>
+          <span class="tag">Prometheus Adapter</span>
+          <span class="tag">k6</span>
+        </div>
+        <div class="lab-footer">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/10_kubernetes_autoscaling" target="_blank" rel="noopener">
+            Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ JARVIS ═══════════════ -->
+<div class="section-separator" aria-hidden="true"></div>
+<section id="jarvis" class="section" aria-labelledby="jarvis-title">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Proyecto IA</div>
+      <h2 class="section-title" id="jarvis-title">JARVIS Runtime</h2>
+      <p class="section-desc">CLI AI con router de modelos local-first: Ollama prioridad, fallback cloud solo si falla.</p>
+    </div>
+
+    <div class="jarvis-grid">
+      <div class="terminal-card reveal-left">
+        <div class="terminal-bar">
+          <span class="terminal-dot red" aria-hidden="true"></span>
+          <span class="terminal-dot yellow" aria-hidden="true"></span>
+          <span class="terminal-dot green" aria-hidden="true"></span>
+          <span class="terminal-title">jarvis · CLI Python + Typer + Rich</span>
+        </div>
+        <div class="terminal-body" role="region" aria-label="JARVIS CLI demo">
+          <div><span class="t-prompt">$</span> jarvis ask "optimiza este SQL"</div>
+          <div>&nbsp;</div>
+          <div><span class="t-comment">[CLI Python + Typer + Rich]</span></div>
+          <div>&nbsp;</div>
+          <div><span class="t-key">→</span> Router de modelos</div>
+          <div>&nbsp;&nbsp;&nbsp;<span class="t-val">· Local: Ollama (prioridad)</span></div>
+          <div>&nbsp;&nbsp;&nbsp;<span class="t-label">· Cloud: OpenAI / Anthropic</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-label">(solo si local falla)</span></div>
+          <div>&nbsp;</div>
+          <div><span class="t-key">→</span> Memoria SQLite persistente</div>
+          <div><span class="t-key">→</span> Cost tracker en tiempo real</div>
+          <div><span class="t-key">→</span> Respuesta en terminal</div>
+          <div>&nbsp;</div>
+          <div><span class="t-pass">✓</span> <span class="t-val">Model: ollama/qwen2.5:7b</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-val">Cost: $0.000 (local)</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-val">Latency: 1.2s</span></div>
+        </div>
+      </div>
+
+      <div class="jarvis-features reveal-right">
+        <div class="jarvis-feature">
+          <div class="jarvis-feature-icon" aria-hidden="true">🏠</div>
+          <div>
+            <div class="jarvis-feature-title">Local-first</div>
+            <div class="jarvis-feature-desc">Ollama · zero coste por defecto. Fallback cloud solo cuando se necesita.</div>
+          </div>
+        </div>
+        <div class="jarvis-feature">
+          <div class="jarvis-feature-icon" aria-hidden="true">🧠</div>
+          <div>
+            <div class="jarvis-feature-title">Memoria persistente</div>
+            <div class="jarvis-feature-desc">SQLite · contexto entre sesiones · historial de conversaciones.</div>
+          </div>
+        </div>
+        <div class="jarvis-feature">
+          <div class="jarvis-feature-icon" aria-hidden="true">📊</div>
+          <div>
+            <div class="jarvis-feature-title">Cost tracking</div>
+            <div class="jarvis-feature-desc">Métricas de uso en tiempo real por modelo · visualización en terminal.</div>
+          </div>
+        </div>
+        <div class="jarvis-feature">
+          <div class="jarvis-feature-icon" aria-hidden="true">🧪</div>
+          <div>
+            <div class="jarvis-feature-title">18 pytest tests</div>
+            <div class="jarvis-feature-desc">Docker Compose incluido · <code>git clone → ./setup.sh → jarvis ask "hola"</code></div>
+          </div>
+        </div>
+
+        <div style="margin-top:8px; padding-top:16px; border-top:1px solid rgba(30,41,59,0.6);">
+          <div style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; font-weight:700; margin-bottom:10px;">Stack</div>
+          <div class="stack-pill">
+            <span class="stack-chip">Python</span>
+            <span class="stack-chip">Typer</span>
+            <span class="stack-chip">Rich</span>
+            <span class="stack-chip">Ollama</span>
+            <span class="stack-chip">OpenAI SDK</span>
+            <span class="stack-chip">SQLite</span>
+            <span class="stack-chip">Docker Compose</span>
+            <span class="stack-chip">pytest</span>
+          </div>
+          <div style="margin-top:16px;">
+            <a href="https://github.com/Joaquinriosheredia/jarvis-runtime" target="_blank" rel="noopener" class="lab-link">
+              Ver repositorio <span class="lab-link-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ AUTHORITY / PIPELINE ═══════════════ -->
+<div class="section-separator" aria-hidden="true"></div>
+<section id="authority" class="section" aria-labelledby="authority-title">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">AI Documentation Pipeline</div>
+      <h2 class="section-title" id="authority-title">AI Documentation Pipeline</h2>
+      <p class="section-desc">Pipeline automatizado para generación y validación de documentación técnica orientada a arquitecturas backend y sistemas distribuidos.</p>
+    </div>
+
+    <div class="pipeline-card reveal">
+      <p style="font-size:14px; color:var(--muted); line-height:1.6; max-width:720px; margin-bottom:24px;">
+        Combina análisis estructural, validación de código y despliegue automatizado en AWS.
+        Detección de afirmaciones no verificadas → marcadas como <code>[NEEDS_EVIDENCE]</code>.
+      </p>
+
+      <div class="pipeline-steps" role="list" aria-label="Etapas del pipeline">
+        <div class="pipeline-step" role="listitem">
+          <div class="pipeline-step-inner">
+            <div class="pipeline-icon-wrap" aria-hidden="true">📄</div>
+            <div class="pipeline-step-label">Input</div>
+            <div class="pipeline-step-desc">Documento Staff .md / .adoc</div>
+          </div>
+        </div>
+        <div class="pipeline-step" role="listitem">
+          <div class="pipeline-step-inner">
+            <div class="pipeline-icon-wrap" aria-hidden="true">🐍</div>
+            <div class="pipeline-step-label">Parser</div>
+            <div class="pipeline-step-desc">Authority Core Python + Lark</div>
+          </div>
+        </div>
+        <div class="pipeline-step" role="listitem">
+          <div class="pipeline-step-inner">
+            <div class="pipeline-icon-wrap" aria-hidden="true">🧠</div>
+            <div class="pipeline-step-label">IA Local</div>
+            <div class="pipeline-step-desc">Ollama + Qwen 7B GPU consumer</div>
+          </div>
+        </div>
+        <div class="pipeline-step" role="listitem">
+          <div class="pipeline-step-inner">
+            <div class="pipeline-icon-wrap" aria-hidden="true">🔍</div>
+            <div class="pipeline-step-label">Investigar</div>
+            <div class="pipeline-step-desc">Tavily API + Code Search</div>
+          </div>
+        </div>
+        <div class="pipeline-step" role="listitem">
+          <div class="pipeline-step-inner">
+            <div class="pipeline-icon-wrap" aria-hidden="true">⚖️</div>
+            <div class="pipeline-step-label">Auditar</div>
+            <div class="pipeline-step-desc">mvn verify + tests compilación real</div>
+          </div>
+        </div>
+        <div class="pipeline-step" role="listitem">
+          <div class="pipeline-step-inner">
+            <div class="pipeline-icon-wrap" aria-hidden="true">🎨</div>
+            <div class="pipeline-step-label">Render</div>
+            <div class="pipeline-step-desc">Markdown + Mermaid · Jinja2</div>
+          </div>
+        </div>
+        <div class="pipeline-step" role="listitem">
+          <div class="pipeline-step-inner">
+            <div class="pipeline-icon-wrap" aria-hidden="true">🚀</div>
+            <div class="pipeline-step-label">Publicar</div>
+            <div class="pipeline-step-desc">AWS Lambda + S3 + GitHub Actions</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipeline-metrics">
+        <div class="pipeline-metric">
+          <div class="pipeline-metric-val">+105</div>
+          <div class="pipeline-metric-desc">Documentos técnicos generados</div>
+        </div>
+        <div class="pipeline-metric">
+          <div class="pipeline-metric-val">mvn verify</div>
+          <div class="pipeline-metric-desc">Validación automática antes de publicar</div>
+        </div>
+        <div class="pipeline-metric">
+          <div class="pipeline-metric-val">~$0.03</div>
+          <div class="pipeline-metric-desc">Coste operativo estimado por documento</div>
+        </div>
+        <div class="pipeline-metric">
+          <div class="pipeline-metric-val">SBOM</div>
+          <div class="pipeline-metric-desc">Firma de artefactos automática con Cosign</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:28px;">
+        <a class="lab-link" href="https://joaquinriosheredia.github.io/DAM-Java-Mastery" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;">
+          Ver documentación generada <span class="lab-link-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ OPEN SOURCE ═══════════════ -->
+<div class="section-separator" aria-hidden="true"></div>
+<section id="opensource" class="section" aria-labelledby="os-title">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Contribuciones</div>
+      <h2 class="section-title" id="os-title">Open Source</h2>
+      <p class="section-desc">Contribuciones a proyectos activos con miles de estrellas. Código mergeado en producción.</p>
+    </div>
+
+    <div class="prs-grid">
+
+      <article class="pr-card reveal">
+        <div class="pr-head">
+          <div>
+            <div class="pr-repo">Observal <span class="pr-sub">(BlazeUp AI · AI Agent Registry)</span></div>
+          </div>
+          <span class="pr-badge merged">Merged</span>
+        </div>
+        <p class="pr-desc">fix(lint): replace magic values with named constants in deps.py — Resuelve violaciones PLR2004 de ruff en el backend FastAPI</p>
+        <div class="pr-meta">
+          <span>PR #810 · FastAPI · Python · ruff linting</span>
+          <span class="pr-stars">⭐ Self-hosted AI registry</span>
+        </div>
+      </article>
+
+      <article class="pr-card reveal">
+        <div class="pr-head">
+          <div>
+            <div class="pr-repo">langchain4j-spring</div>
+          </div>
+          <span class="pr-badge pending">Pending Review</span>
+        </div>
+        <p class="pr-desc">feat: add Spring Boot 4 starter for Chroma embedding store — Auto-configuration, properties y bean para Spring Boot 4</p>
+        <div class="pr-meta">
+          <span>PR #194 · Spring Boot 4 · ChromaDB</span>
+          <span class="pr-stars">⭐ 11k · 450 forks</span>
+        </div>
+      </article>
+
+      <article class="pr-card reveal">
+        <div class="pr-head">
+          <div>
+            <div class="pr-repo">langchain4j-spring</div>
+          </div>
+          <span class="pr-badge pending">Pending Review</span>
+        </div>
+        <p class="pr-desc">Spring Boot Starter para ChromaDB: auto-configuration, ChromaEmbeddingStoreProperties, AutoConfiguration bean, tests incluidos. +179 líneas · 3 archivos · patrón Milvus y Redis</p>
+        <div class="pr-meta">
+          <span>PR #185 · +179 líneas · 3 archivos</span>
+          <span class="pr-stars">⭐ 11k · 450 forks</span>
+        </div>
+      </article>
+
+      <article class="pr-card reveal">
+        <div class="pr-head">
+          <div>
+            <div class="pr-repo">ollama4j</div>
+          </div>
+          <span class="pr-badge merged">Merged</span>
+        </div>
+        <p class="pr-desc">Exponer model_info en ModelDetail: Map&lt;String,Object&gt; con @JsonProperty para acceso a context_length, embedding_length y arquitectura sin parsear JSON crudo. Mergeado en 3 días.</p>
+        <div class="pr-meta">
+          <span>PR #303 · +3 líneas · SonarQube ✅ · CodeRabbit ✅</span>
+          <span class="pr-stars">⭐ 3k · 210 forks</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ STACK ═══════════════ -->
+<div class="section-separator" aria-hidden="true"></div>
+<section id="stack" class="section" aria-labelledby="stack-title">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Tecnologías</div>
+      <h2 class="section-title" id="stack-title">Stack Técnico</h2>
+      <p class="section-desc">Tecnologías usadas en producción, no solo en tutoriales.</p>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-card reveal">
+        <div class="stack-top">
+          <span class="stack-icon" aria-hidden="true">☕</span>
+          <span class="stack-name">Java 21</span>
+        </div>
+        <div class="stack-items">
+          <div class="stack-item">Virtual Threads</div>
+          <div class="stack-item">Records</div>
+          <div class="stack-item">Structured Concurrency</div>
+        </div>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-top">
+          <span class="stack-icon" aria-hidden="true">🐍</span>
+          <span class="stack-name">Python <span class="stack-badge-new">Advanced</span></span>
+        </div>
+        <div class="stack-items">
+          <div class="stack-item">Async/Await</div>
+          <div class="stack-item">Lark Parser</div>
+          <div class="stack-item">boto3</div>
+        </div>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-top">
+          <span class="stack-icon" aria-hidden="true">🏛️</span>
+          <span class="stack-name">Arquitectura</span>
+        </div>
+        <div class="stack-items">
+          <div class="stack-item">DDD</div>
+          <div class="stack-item">Hexagonal</div>
+          <div class="stack-item">CQRS</div>
+        </div>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-top">
+          <span class="stack-icon" aria-hidden="true">☁️</span>
+          <span class="stack-name">AWS</span>
+        </div>
+        <div class="stack-items">
+          <div class="stack-item">Lambda</div>
+          <div class="stack-item">S3</div>
+          <div class="stack-item">boto3</div>
+        </div>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-top">
+          <span class="stack-icon" aria-hidden="true">🔐</span>
+          <span class="stack-name">Seguridad</span>
+        </div>
+        <div class="stack-items">
+          <div class="stack-item">JWT</div>
+          <div class="stack-item">OAuth2</div>
+          <div class="stack-item">Zero Trust</div>
+        </div>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-top">
+          <span class="stack-icon" aria-hidden="true">⚙️</span>
+          <span class="stack-name">SRE</span>
+        </div>
+        <div class="stack-items">
+          <div class="stack-item">Kubernetes</div>
+          <div class="stack-item">Prometheus</div>
+          <div class="stack-item">OpenTelemetry</div>
+        </div>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-top">
+          <span class="stack-icon" aria-hidden="true">🤖</span>
+          <span class="stack-name">IA</span>
+        </div>
+        <div class="stack-items">
+          <div class="stack-item">Ollama</div>
+          <div class="stack-item">RAG</div>
+          <div class="stack-item">Multi-Agente</div>
+        </div>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-top">
+          <span class="stack-icon" aria-hidden="true">🗄️</span>
+          <span class="stack-name">Data</span>
+        </div>
+        <div class="stack-items">
+          <div class="stack-item">Kafka</div>
+          <div class="stack-item">PostgreSQL</div>
+          <div class="stack-item">Redis</div>
+        </div>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-top">
+          <span class="stack-icon" aria-hidden="true">🧪</span>
+          <span class="stack-name">Quality</span>
+        </div>
+        <div class="stack-items">
+          <div class="stack-item">Testcontainers</div>
+          <div class="stack-item">k6</div>
+          <div class="stack-item">Chaos Engineering</div>
+        </div>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-top">
+          <span class="stack-icon" aria-hidden="true">🔧</span>
+          <span class="stack-name">DevTools <span class="stack-badge-new">New</span></span>
+        </div>
+        <div class="stack-items">
+          <div class="stack-item">testcontainers-doctor</div>
+          <div class="stack-item">Node.js CLI</div>
+          <div class="stack-item">npm published</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div class="section-separator" aria-hidden="true"></div>
 <footer>
-  <p>📍 Freelance inmediato · Full-time desde Junio 2026 · 100% Remoto / Presencial Sevilla o Málaga</p>
-  <p>
-    Disponible para backend engineering, platform engineering y AI infrastructure.
-  </p>
-  <p style="font-size:13px">
-    Portfolio técnico construido mediante proyectos propios y contribuciones open source.
-  </p>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <h2 class="footer-tagline">Construyamos algo<br>impresionante.</h2>
+        <p class="footer-desc">
+          Disponible para backend engineering, platform engineering y AI infrastructure.
+          Portfolio técnico construido mediante proyectos propios y contribuciones open source.
+        </p>
+        <div class="footer-availability">
+          <span class="status-dot" aria-hidden="true"></span>
+          Freelance inmediato · Full-time desde Junio 2026 · 100% Remoto / Presencial Sevilla o Málaga
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:j.r.sinbarreras@gmail.com" class="btn btn-primary">✉️ Contactar</a>
+        <a href="https://github.com/Joaquinriosheredia" target="_blank" rel="noopener" class="btn btn-ghost">GitHub →</a>
+        <a href="https://linkedin.com/in/joaquinrios-ai-engineer" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn →</a>
+        <a href="https://malt.es/profile/joaquinriosheredia" target="_blank" rel="noopener" class="btn btn-ghost">Malt →</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>© 2026 Joaquín Ríos Heredia</span>
+      <span>Built with Three.js · GSAP · Pure HTML/CSS</span>
+    </div>
+  </div>
 </footer>
 
-</div>
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
+
+<!-- Three.js from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
+<!-- GSAP + ScrollTrigger from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 <script>
-document.querySelectorAll('.sidebar a').forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+(function() {
+'use strict';
+
+/* ══════════════════════════════════
+   GSAP SETUP
+══════════════════════════════════ */
+gsap.registerPlugin(ScrollTrigger);
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ══════════════════════════════════
+   NAV: scroll state + mobile toggle
+══════════════════════════════════ */
+const nav = document.getElementById('main-nav');
+const navLinks = document.getElementById('nav-links');
+const navToggle = document.getElementById('nav-toggle');
+const allNavLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 40) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+}, { passive: true });
+
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open);
+});
+
+// Close mobile nav on link click
+navLinks.addEventListener('click', e => {
+  if (e.target.tagName === 'A') {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+// Active link tracking
+const sections = document.querySelectorAll('section[id], div[id="top"]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  allNavLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
+  });
+}, { passive: true });
+
+/* ══════════════════════════════════
+   HERO ANIMATION (GSAP)
+══════════════════════════════════ */
+if (!prefersReducedMotion) {
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  tl.to('#hero-badge',   { opacity: 1, y: 0, duration: 0.7, delay: 0.2 })
+    .to('#hero-title',   { opacity: 1, y: 0, duration: 0.9 }, '-=0.3')
+    .to('#hero-sub',     { opacity: 1, y: 0, duration: 0.7 }, '-=0.5')
+    .to('#hero-actions', { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
+    .to('#hero-stats',   { opacity: 1, y: 0, duration: 0.6 }, '-=0.3');
+}
+
+/* ══════════════════════════════════
+   SCROLL REVEAL (GSAP ScrollTrigger)
+══════════════════════════════════ */
+if (!prefersReducedMotion) {
+  const makeReveal = (selector, fromVars) => {
+    gsap.utils.toArray(selector).forEach(el => {
+      gsap.fromTo(el, { opacity: 0, ...fromVars }, {
+        opacity: 1, x: 0, y: 0, scale: 1,
+        duration: 0.75, ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el, start: 'top 88%', toggleActions: 'play none none none',
+        }
+      });
+    });
+  };
+
+  makeReveal('.reveal',       { y: 40 });
+  makeReveal('.reveal-left',  { x: -40 });
+  makeReveal('.reveal-right', { x: 40 });
+  makeReveal('.reveal-scale', { scale: 0.95, y: 10 });
+}
+
+/* ══════════════════════════════════
+   THREE.JS — MICROSERVICES GRAPH
+══════════════════════════════════ */
+(function initThree() {
+  const canvas = document.getElementById('hero-canvas');
+  const fallback = document.getElementById('hero-fallback');
+
+  // WebGL support check
+  try {
+    const testCanvas = document.createElement('canvas');
+    const gl = testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl');
+    if (!gl) throw new Error('no webgl');
+  } catch(e) {
+    canvas.style.display = 'none';
+    fallback.style.display = 'block';
+    return;
+  }
+
+  // Scene setup
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x020617, 0.035);
+
+  const W = canvas.offsetWidth, H = canvas.offsetHeight;
+  const camera = new THREE.PerspectiveCamera(65, W / H, 0.1, 200);
+  camera.position.set(0, 0, 55);
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' });
+  renderer.setSize(W, H);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setClearColor(0x020617, 1);
+
+  // ── CONSTANTS ──
+  const NODE_COUNT      = window.innerWidth < 768 ? 900 : 2000;
+  const SPREAD          = 60;
+  const CONNECTION_DIST = 8.5;
+  const MAX_CONNECTIONS = 3500;
+  const PULSE_COUNT     = 40;
+  const LAYERS          = 4;
+
+  // ── NODE POSITIONS ──
+  const positions  = new Float32Array(NODE_COUNT * 3);
+  const nodeColors = new Float32Array(NODE_COUNT * 3);
+  const nodeSizes  = new Float32Array(NODE_COUNT);
+  const nodeLayers = new Int32Array(NODE_COUNT);
+
+  const c1 = new THREE.Color(0x3B82F6); // blue
+  const c2 = new THREE.Color(0x06B6D4); // cyan
+  const c3 = new THREE.Color(0xa78bfa); // violet
+  const palette = [c1, c2, c3];
+
+  for (let i = 0; i < NODE_COUNT; i++) {
+    const layer = Math.floor(Math.random() * LAYERS);
+    nodeLayers[i] = layer;
+    const depth = (layer / (LAYERS - 1)) * 40 - 20;
+
+    positions[i*3]     = (Math.random() - 0.5) * SPREAD;
+    positions[i*3 + 1] = (Math.random() - 0.5) * SPREAD * 0.65;
+    positions[i*3 + 2] = depth + (Math.random() - 0.5) * 6;
+
+    const col = palette[Math.floor(Math.random() * palette.length)];
+    nodeColors[i*3]     = col.r;
+    nodeColors[i*3 + 1] = col.g;
+    nodeColors[i*3 + 2] = col.b;
+
+    nodeSizes[i] = Math.random() < 0.04 ? 3.5 : Math.random() < 0.15 ? 2.0 : 1.0 + Math.random() * 0.8;
+  }
+
+  // Node geometry
+  const nodeGeo = new THREE.BufferGeometry();
+  nodeGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  nodeGeo.setAttribute('color', new THREE.BufferAttribute(nodeColors, 3));
+  nodeGeo.setAttribute('size', new THREE.BufferAttribute(nodeSizes, 1));
+
+  const nodeMat = new THREE.ShaderMaterial({
+    uniforms: { time: { value: 0 } },
+    vertexShader: `
+      attribute float size;
+      attribute vec3 color;
+      varying vec3 vColor;
+      varying float vAlpha;
+      uniform float time;
+      void main() {
+        vColor = color;
+        vec4 mvPos = modelViewMatrix * vec4(position, 1.0);
+        float dist = -mvPos.z;
+        vAlpha = smoothstep(80.0, 5.0, dist);
+        gl_PointSize = size * (280.0 / dist);
+        gl_Position = projectionMatrix * mvPos;
+      }
+    `,
+    fragmentShader: `
+      varying vec3 vColor;
+      varying float vAlpha;
+      void main() {
+        vec2 uv = gl_PointCoord - 0.5;
+        float d = length(uv);
+        if (d > 0.5) discard;
+        float alpha = smoothstep(0.5, 0.1, d) * vAlpha;
+        gl_FragColor = vec4(vColor, alpha);
+      }
+    `,
+    transparent: true,
+    depthWrite: false,
+    vertexColors: true,
+    blending: THREE.AdditiveBlending,
+  });
+
+  const nodesMesh = new THREE.Points(nodeGeo, nodeMat);
+  scene.add(nodesMesh);
+
+  // ── BUILD CONNECTIONS ──
+  const edges = [];
+  for (let i = 0; i < NODE_COUNT && edges.length < MAX_CONNECTIONS; i++) {
+    const xi = positions[i*3], yi = positions[i*3+1], zi = positions[i*3+2];
+    let count = 0;
+    for (let j = i + 1; j < NODE_COUNT && count < 4 && edges.length < MAX_CONNECTIONS; j++) {
+      const dx = positions[j*3] - xi;
+      const dy = positions[j*3+1] - yi;
+      const dz = positions[j*3+2] - zi;
+      const dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
+      if (dist < CONNECTION_DIST) {
+        edges.push({ a: i, b: j, dist });
+        count++;
+      }
+    }
+  }
+
+  // Line geometry
+  const linePositions = new Float32Array(edges.length * 6);
+  const lineAlphas    = new Float32Array(edges.length * 2);
+
+  edges.forEach((e, i) => {
+    linePositions[i*6]   = positions[e.a*3];
+    linePositions[i*6+1] = positions[e.a*3+1];
+    linePositions[i*6+2] = positions[e.a*3+2];
+    linePositions[i*6+3] = positions[e.b*3];
+    linePositions[i*6+4] = positions[e.b*3+1];
+    linePositions[i*6+5] = positions[e.b*3+2];
+
+    const alpha = Math.max(0, 1 - e.dist / CONNECTION_DIST) * 0.35;
+    lineAlphas[i*2]   = alpha;
+    lineAlphas[i*2+1] = alpha;
+  });
+
+  const lineGeo = new THREE.BufferGeometry();
+  lineGeo.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+  lineGeo.setAttribute('alpha',    new THREE.BufferAttribute(lineAlphas, 1));
+
+  const lineMat = new THREE.ShaderMaterial({
+    uniforms: {},
+    vertexShader: `
+      attribute float alpha;
+      varying float vAlpha;
+      void main() {
+        vAlpha = alpha;
+        vec4 mvPos = modelViewMatrix * vec4(position, 1.0);
+        gl_Position = projectionMatrix * mvPos;
+      }
+    `,
+    fragmentShader: `
+      varying float vAlpha;
+      void main() {
+        gl_FragColor = vec4(0.24, 0.51, 0.96, vAlpha);
+      }
+    `,
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+  });
+
+  const linesMesh = new THREE.LineSegments(lineGeo, lineMat);
+  scene.add(linesMesh);
+
+  // ── PULSE PARTICLES (travel along edges) ──
+  const pulsePositions = new Float32Array(PULSE_COUNT * 3);
+  const pulseGeo = new THREE.BufferGeometry();
+  pulseGeo.setAttribute('position', new THREE.BufferAttribute(pulsePositions, 3));
+
+  const pulseMat = new THREE.ShaderMaterial({
+    uniforms: { time: { value: 0 } },
+    vertexShader: `
+      void main() {
+        vec4 mvPos = modelViewMatrix * vec4(position, 1.0);
+        gl_PointSize = 5.0 * (200.0 / -mvPos.z);
+        gl_Position = projectionMatrix * mvPos;
+      }
+    `,
+    fragmentShader: `
+      void main() {
+        vec2 uv = gl_PointCoord - 0.5;
+        float d = length(uv);
+        if (d > 0.5) discard;
+        float a = smoothstep(0.5, 0.0, d);
+        gl_FragColor = vec4(0.04, 0.71, 0.83, a * 0.9);
+      }
+    `,
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+  });
+
+  const pulsesMesh = new THREE.Points(pulseGeo, pulseMat);
+  scene.add(pulsesMesh);
+
+  // Pulse state
+  const pulseState = Array.from({ length: PULSE_COUNT }, () => {
+    const edgeIdx = Math.floor(Math.random() * edges.length);
+    return { edgeIdx, t: Math.random(), speed: 0.003 + Math.random() * 0.007 };
+  });
+
+  // ── MOUSE PARALLAX ──
+  const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+  window.addEventListener('mousemove', e => {
+    mouse.tx = (e.clientX / window.innerWidth  - 0.5) * 8;
+    mouse.ty = (e.clientY / window.innerHeight - 0.5) * -5;
+  }, { passive: true });
+
+  // Touch support
+  window.addEventListener('touchmove', e => {
+    const t = e.touches[0];
+    mouse.tx = (t.clientX / window.innerWidth  - 0.5) * 5;
+    mouse.ty = (t.clientY / window.innerHeight - 0.5) * -3;
+  }, { passive: true });
+
+  // ── RESIZE ──
+  window.addEventListener('resize', () => {
+    const w = canvas.offsetWidth, h = canvas.offsetHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  });
+
+  // ── SCROLL TRANSFORM ──
+  let scrollRatio = 0;
+  window.addEventListener('scroll', () => {
+    const heroH = document.querySelector('.hero').offsetHeight;
+    scrollRatio = Math.min(1, window.scrollY / heroH);
+  }, { passive: true });
+
+  // ── ANIMATION LOOP ──
+  let frame = 0;
+  let lastTime = 0;
+
+  function animate(time) {
+    const id = requestAnimationFrame(animate);
+
+    // Throttle to ~60fps
+    if (time - lastTime < 14) return;
+    lastTime = time;
+
+    const t = time * 0.001;
+    frame++;
+    nodeMat.uniforms.time.value = t;
+
+    // Mouse parallax (lerp)
+    mouse.x += (mouse.tx - mouse.x) * 0.04;
+    mouse.y += (mouse.ty - mouse.y) * 0.04;
+
+    // Camera: parallax + scroll transform
+    camera.position.x = mouse.x * 0.5;
+    camera.position.y = mouse.y * 0.4;
+    camera.position.z = 55 + scrollRatio * 20;
+
+    // Slow auto-rotation
+    nodesMesh.rotation.y = t * 0.015 + mouse.x * 0.01;
+    nodesMesh.rotation.x = t * 0.008 + mouse.y * 0.006;
+    linesMesh.rotation.y = nodesMesh.rotation.y;
+    linesMesh.rotation.x = nodesMesh.rotation.x;
+    pulsesMesh.rotation.y = nodesMesh.rotation.y;
+    pulsesMesh.rotation.x = nodesMesh.rotation.x;
+
+    // Scroll fade-out
+    const heroAlpha = Math.max(0, 1 - scrollRatio * 2.5);
+    renderer.domElement.style.opacity = heroAlpha;
+
+    // Pulse update
+    pulseState.forEach((p, i) => {
+      p.t += p.speed;
+      if (p.t > 1) {
+        p.t = 0;
+        p.edgeIdx = Math.floor(Math.random() * edges.length);
+        p.speed = 0.003 + Math.random() * 0.007;
+      }
+      const e = edges[p.edgeIdx];
+      const ax = positions[e.a*3],   ay = positions[e.a*3+1], az = positions[e.a*3+2];
+      const bx = positions[e.b*3],   by = positions[e.b*3+1], bz = positions[e.b*3+2];
+      pulsePositions[i*3]   = ax + (bx - ax) * p.t;
+      pulsePositions[i*3+1] = ay + (by - ay) * p.t;
+      pulsePositions[i*3+2] = az + (bz - az) * p.t;
+    });
+    pulseGeo.attributes.position.needsUpdate = true;
+
+    renderer.render(scene, camera);
+  }
+
+  // Pause when tab hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) lastTime = -Infinity;
+  });
+
+  if (!prefersReducedMotion) {
+    requestAnimationFrame(animate);
+  } else {
+    // Static render for reduced motion
+    renderer.render(scene, camera);
+  }
+})();
+
+/* ══════════════════════════════════
+   SMOOTH SCROLL for nav links
+══════════════════════════════════ */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
-      this.classList.add('active');
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     }
   });
 });
-const sections = document.querySelectorAll('.section');
-const navLinks = document.querySelectorAll('.sidebar a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(sec => {
-    const top = sec.offsetTop - 100;
-    if (pageYOffset >= top) current = sec.getAttribute('id');
-  });
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
-  });
-});
+
+})();
 </script>
 
 </body>
