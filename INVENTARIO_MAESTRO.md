@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-19 09:25:28
-**Ultimo commit:** 2de0baf feat(arch): asyncapi and event-driven architecture staff v4.0 - hito 114 (4 seconds ago)
-**Total de activos:** 124 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-20 08:18:36
+**Ultimo commit:** b3d2b21 feat(reactive): advanced backpressure reactive architectures staff v4.0 - hito 115 (5 seconds ago)
+**Total de activos:** 125 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -20,7 +20,7 @@
 | **06_Seguridad** | 7 | 13 | — |
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
-| **09_Frontend_Mobile** | 3 | 5 | — |
+| **09_Frontend_Mobile** | 4 | 6 | — |
 | **10_Vanguardia** | 10 | 13 | — |
 
 ---
@@ -160,6 +160,7 @@
 ### 📂 09_Frontend_Mobile
 
 - [Optimización de Rutas de Última Milla con Algoritmos Genéticos en Java](09_Frontend_Mobile/DOCUMENTACION_OptimizadorRutasGenetico.md) — 2026-04-17 14:31 (41.7KB)
+- [Backpressure Avanzado en Arquitecturas Reactivas con Java 21: Resilien](09_Frontend_Mobile/advanced_backpressure_reactive_architectures_STAFF.md) — 2026-05-20 08:18 (16.9KB)
 - [Internacionalización (i18n) Frontend con Soporte Multi-Idioma: Arquite](09_Frontend_Mobile/std_frontend:_internacionalización_(i18n)_con_soporte_multi-idioma_20260329_1514.md) — 2026-04-17 14:31 (29.7KB)
 - [Validación de Formularios en Tiempo Real con Expresiones Regulares y J](09_Frontend_Mobile/std_frontend:_validación_de_formularios_en_tiempo_real_con_expresiones_regulares_20260329_1436.md) — 2026-04-17 14:31 (30.1KB)
 
@@ -182,12 +183,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 124 |
-| Tamano total del repositorio | 4.2MB |
+| Total documentos tecnicos | 125 |
+| Tamano total del repositorio | 4.3MB |
 | Modulos activos | 10 |
-| Total commits | 645 |
+| Total commits | 648 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-19 09:25:28 |
+| Fecha | 2026-05-20 08:18:36 |
 
 ---
 
