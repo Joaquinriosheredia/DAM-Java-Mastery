@@ -1798,8 +1798,8 @@ code {
           <span class="lab-status done">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big"><span class="green">Zero</span> data loss</div>
-          <div class="lab-metric-sub">7.626 órdenes · 0 duplicados confirmados<br>Silent event loss detectado vía chaos · backoff 2ⁿ⁻¹s cap 60s</div>
+          <div class="lab-metric-big"><span class="cyan">163.8</span> req/s · <span class="green">0</span> pérdidas</div>
+          <div class="lab-metric-sub">Zero data loss bajo Kafka kill · drain rate +<strong>70%</strong> tras tuning<br>Bug de pérdida silenciosa encontrado y corregido vía chaos testing</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Transactional Outbox</span>
@@ -1840,22 +1840,22 @@ code {
       </article>
 
       <!-- Lab 06 -->
-      <article class="lab-card planned reveal">
+      <article class="lab-card done reveal">
         <div class="lab-head">
           <div>
             <div class="lab-num">LAB 06</div>
             <div class="lab-title">Redis vs Kafka</div>
           </div>
-          <span class="lab-status planned">Planned</span>
+          <span class="lab-status done">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big"><span class="cyan">40×</span> más rápido</div>
-          <div class="lab-metric-sub">~20.000 msg/s (Redis) vs ~500 msg/s (Kafka acks=all)<br>Redis speed vs Kafka durability tradeoff</div>
+          <div class="lab-metric-big"><span class="cyan">2.227</span> vs <span class="highlight">47.619</span> msg/s</div>
+          <div class="lab-metric-sub">Redis 100% pérdida en caída · Kafka 0% · replay completo<br>Asimetría de API: Redis RTT síncrono vs Kafka buffer async</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Redis Pub/Sub</span>
-          <span class="tag">Kafka</span>
-          <span class="tag">curl benchmark</span>
+          <span class="tag">Kafka KRaft</span>
+          <span class="tag">Fault Injection</span>
         </div>
         <div class="lab-footer">
           <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/06_redis_vs_kafka" target="_blank" rel="noopener">
@@ -1875,7 +1875,7 @@ code {
         </div>
         <div class="lab-metrics">
           <div class="lab-metric-big"><span class="highlight">26×</span> speedup</div>
-          <div class="lab-metric-sub">1.000.034 filas · Seq scan: 37ms → Index: <strong>1ms</strong><br>120× menos I/O · 12.268 → 102 buffer accesses</div>
+          <div class="lab-metric-sub">100K filas · 5% PENDING · Seq scan: 285ms → partial index: <strong>12ms</strong><br>Partial index on WHERE status = 'PENDING' · EXPLAIN ANALYZE en ADR-0001</div>
         </div>
         <div class="lab-tags">
           <span class="tag">PostgreSQL 16</span>
