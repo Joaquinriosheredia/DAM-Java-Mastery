@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-20 08:18:36
-**Ultimo commit:** b3d2b21 feat(reactive): advanced backpressure reactive architectures staff v4.0 - hito 115 (5 seconds ago)
-**Total de activos:** 125 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-22 13:03:45
+**Ultimo commit:** 35e02ec feat(perf): reproducible benchmarking in java systems staff v4.0 - hito 116 (2 seconds ago)
+**Total de activos:** 126 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
 | **09_Frontend_Mobile** | 4 | 6 | — |
-| **10_Vanguardia** | 10 | 13 | — |
+| **10_Vanguardia** | 11 | 14 | — |
 
 ---
 
@@ -176,6 +176,7 @@
 - [gRPC en Sistemas de Alto Rendimiento con Java 21: Optimización de Late](10_Vanguardia/grpc_high_performance_systems_STAFF.md) — 2026-05-01 08:25 (35.9KB)
 - [Ingeniería del Rendimiento: Benchmarking en Java 21 — Guía Staff Engin](10_Vanguardia/java_performance_engineering_benchmarking_STAFF.md) — 2026-05-02 12:35 (30.5KB)
 - [OWASP Top 10 Aplicado a Java 21: Seguridad, Vulnerabilidades y Mitigac](10_Vanguardia/owasp_top_10_java_security_STAFF.md) — 2026-05-06 07:56 (33.1KB)
+- [benchmarking_reproducible_en_sistemas_java](10_Vanguardia/reproducible_benchmarking_java_systems_STAFF.md) — 2026-05-22 13:03 (22.8KB)
 
 ---
 
@@ -183,12 +184,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 125 |
+| Total documentos tecnicos | 126 |
 | Tamano total del repositorio | 4.3MB |
 | Modulos activos | 10 |
-| Total commits | 648 |
+| Total commits | 651 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-20 08:18:36 |
+| Fecha | 2026-05-22 13:03:45 |
 
 ---
 
