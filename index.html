@@ -1618,7 +1618,7 @@ code {
     <div class="reveal">
       <div class="section-label">DevTools Publicadas</div>
       <h2 class="section-title" id="devtools-title">Tooling Open Source</h2>
-      <p class="section-desc">CLI publicada en npm después de depurar setups reales en WSL2 + Docker 29.</p>
+      <p class="section-desc">Herramientas CLI open source para el ecosistema Java. Diagnóstico de entornos Testcontainers y análisis estático de anti-patrones Spring Boot.</p>
     </div>
 
     <div class="npm-hero reveal">
@@ -1676,6 +1676,59 @@ code {
           <div><span class="t-warn">⚠</span> <span class="t-label">Buildx</span> <span class="t-val">optional plugin missing</span></div>
           <div>&nbsp;</div>
           <div><span class="t-pass">19 passed</span> · <span class="t-warn">1 warning</span> · <span class="t-pass">0 failed</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="npm-hero reveal" style="background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(20,10,42,0.8) 100%); border-color: rgba(139,92,246,0.25); margin-top: 32px;">
+      <div class="npm-glow-corner" style="background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);" aria-hidden="true"></div>
+
+      <div>
+        <div class="npm-title-row">
+          <span class="npm-icon-big" aria-hidden="true">🔍</span>
+          <span class="npm-pkg-name" style="color: #a78bfa;">java-vibe-guard</span>
+        </div>
+        <p class="npm-desc">
+          Analizador estático CLI para detectar anti-patrones de vibe coding en proyectos Java/Spring Boot. Detecta llamadas bloqueantes en listeners Kafka, violaciones de capas y endpoints sin logging estructurado.
+        </p>
+        <div class="npm-install-block">
+          <span class="npm-install-prefix">$</span>
+          node bin/cli.js ./your-project
+        </div>
+        <div class="npm-badges">
+          <span class="npm-badge">✅ 5 reglas AST</span>
+          <span class="npm-badge">✅ Blocking calls (.get(), sleep())</span>
+          <span class="npm-badge">✅ Layer violations (Controller→Repo)</span>
+          <span class="npm-badge">✅ Observability audit</span>
+          <span class="npm-badge">✅ --ignore flag</span>
+          <span class="npm-badge">✅ Exit codes CI/CD</span>
+          <span class="npm-badge">✅ Java 21 · Spring Boot 3</span>
+          <span class="npm-badge">✅ MIT License</span>
+        </div>
+        <div class="npm-links">
+          <a href="https://github.com/Joaquinriosheredia/java-vibe-guard" target="_blank" rel="noopener" class="npm-link blue">⭐ GitHub →</a>
+        </div>
+      </div>
+
+      <div class="npm-result-card" style="border-color: rgba(139,92,246,0.15);">
+        <div class="npm-terminal-header">
+          <span class="terminal-dot red" aria-hidden="true"></span>
+          <span class="terminal-dot yellow" aria-hidden="true"></span>
+          <span class="terminal-dot green" aria-hidden="true"></span>
+          <span class="terminal-title">java-vibe-guard · Java-Production-Labs scan</span>
+        </div>
+        <div class="terminal-output" role="region" aria-label="Terminal output">
+          <div><span class="t-prompt">$</span> node bin/cli.js ./Java-Production-Labs</div>
+          <div>&nbsp;</div>
+          <div><span class="t-comment">  java-vibe-guard  Scanning 127 Java files...</span></div>
+          <div>&nbsp;</div>
+          <div><span style="color:var(--danger)">✗ CRITICAL</span>  <span class="t-comment">blocking.js</span>    <span class="t-val">kafka.send().get() in @KafkaListener</span></div>
+          <div><span style="color:var(--warning)">⚠ MAJOR  </span>  <span class="t-comment">layers.js  </span>    <span class="t-val">OrderController → OrderRepository (×4)</span></div>
+          <div><span style="color:var(--warning)">⚠ MAJOR  </span>  <span class="t-comment">observability</span>  <span class="t-val">3 endpoints sin logging estructurado</span></div>
+          <div><span style="color:var(--text-2)">~ WARN   </span>  <span class="t-comment">blocking.js</span>    Thread.sleep() en non-test scope (×8)</div>
+          <div><span style="color:var(--text-2)">~ WARN   </span>  <span class="t-comment">layers.js  </span>    Controller → KafkaTemplate directa (×5)</div>
+          <div>&nbsp;</div>
+          <div><span style="color:var(--danger)">1 critical</span> · <span style="color:var(--warning)">9 major</span> · 50 warnings · <span style="color:var(--danger)">exit 1</span></div>
         </div>
       </div>
     </div>
