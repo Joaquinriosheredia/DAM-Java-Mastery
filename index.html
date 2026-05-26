@@ -1998,17 +1998,22 @@ code {
       </article>
 
       <!-- Lab 10 -->
-      <article class="lab-card planned reveal">
+      <article class="lab-card done reveal">
         <div class="lab-head">
           <div>
             <div class="lab-num">LAB 10</div>
             <div class="lab-title">Kubernetes Autoscaling</div>
           </div>
-          <span class="lab-status planned">Planned</span>
+          <span class="lab-status done">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big">HPA <span class="cyan">Custom</span></div>
-          <div class="lab-metric-sub">20 VUs → scale up: <strong>4 pods</strong><br>Métricas custom Prometheus · Scale down tras 5min</div>
+          <div class="lab-metric-big">CPU <span class="highlight">110m</span> (threshold: 350m)</div>
+          <div class="lab-metric-sub">
+            0% error rate con 1 solo pod durante toda la prueba<br>
+            <strong>Antipattern:</strong> CPU-based HPA es inservible con Virtual Threads (HPA nunca disparó)<br>
+            Recovery real: <strong>25s</strong> hasta readinessProbe (no 5s hasta Running)<br>
+            <strong>Solución:</strong> custom metrics HPA con <code>lab_active_requests_gauge</code>
+          </div>
         </div>
         <div class="lab-tags">
           <span class="tag">Kubernetes HPA</span>
