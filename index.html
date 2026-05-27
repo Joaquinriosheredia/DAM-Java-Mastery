@@ -1689,21 +1689,23 @@ code {
           <span class="npm-pkg-name" style="color: #a78bfa;">java-vibe-guard</span>
         </div>
         <p class="npm-desc">
-          Ecosistema anti-vibe-coding para Java/Spring Boot. Monorepo con dos módulos: <strong style="color:#a78bfa">CLI</strong> (analizador estático Node.js, 5 reglas de producción) y <strong style="color:#a78bfa">MCP server</strong> (Spring Boot 3.4, tool nativa integrada en Claude Code). Detecta el gap entre lo que el LLM declara y lo que realmente genera.
+          Production runtime guardrails for Spring Boot — CLI + MCP server integrado en Claude Code. Ya no es solo CLI — es un ecosistema de dos capas: CLI (npm) + MCP server (Spring Boot).
         </p>
         <div class="npm-install-block">
           <span class="npm-install-prefix">$</span>
           node cli/bin/cli.js ./project --ignore target,build
         </div>
         <div class="npm-badges">
-          <span class="npm-badge">✅ CLI + MCP server</span>
-          <span class="npm-badge">✅ Blocking calls en @Transactional / @KafkaListener</span>
-          <span class="npm-badge">✅ Layer violations (Controller→Repo)</span>
-          <span class="npm-badge">✅ Observability audit</span>
-          <span class="npm-badge">✅ Claude Code native (MCP)</span>
-          <span class="npm-badge">✅ Spring Boot 3.4 · Java 21</span>
-          <span class="npm-badge">✅ --ignore flag · Exit codes CI/CD</span>
-          <span class="npm-badge">✅ MIT License</span>
+          <span class="npm-badge">✅ CLI (npm) + MCP (Spring Boot)</span>
+          <span class="npm-badge">✅ MCP server: 7 reglas activas con AST real</span>
+          <span class="npm-badge">✅ 102 tests · 0 falsos positivos</span>
+          <span class="npm-badge">🛡️ VIBE-001 @Transactional+@Async</span>
+          <span class="npm-badge">🛡️ VIBE-002 Reactor .block()</span>
+          <span class="npm-badge">🛡️ VIBE-003 JPA N+1</span>
+          <span class="npm-badge">🛡️ VIBE-004 Virtual Threads misuse</span>
+          <span class="npm-badge">🛡️ VIBE-005 Connection pool starvation</span>
+          <span class="npm-badge">🛡️ VIBE-006 Kafka consumer hazards</span>
+          <span class="npm-badge">🛡️ VIBE-007 MDC context leak</span>
         </div>
         <div class="npm-links">
           <a href="https://github.com/Joaquinriosheredia/java-vibe-guard" target="_blank" rel="noopener" class="npm-link blue">⭐ GitHub →</a>
