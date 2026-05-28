@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-28 08:58:46
-**Ultimo commit:** 1d896bc feat(resilience): advanced circuit breaking and adaptive concurrency staff v4.0 - hito 117 (5 seconds ago)
-**Total de activos:** 127 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-28 09:52:06
+**Ultimo commit:** 8662d4c feat(perf): cold starts and serverless java optimization staff v4.0 - hito 118 (4 seconds ago)
+**Total de activos:** 128 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
 | **09_Frontend_Mobile** | 4 | 6 | — |
-| **10_Vanguardia** | 12 | 15 | — |
+| **10_Vanguardia** | 13 | 16 | — |
 
 ---
 
@@ -171,6 +171,7 @@
 - [Serialización Avanzada: JSON vs. Protobuf vs. Avro en Java 21 — Guía S](10_Vanguardia/advanced_serialization_json_protobuf_avro_STAFF.md) — 2026-05-08 08:14 (32.8KB)
 - [optimizacion_de_costes_en_cloud_aws](10_Vanguardia/aws_cloud_cost_optimization_FinOps_STAFF.md) — 2026-05-05 08:20 (28.7KB)
 - [CI/CD Completo con GitHub Actions en Java 21: Pipelines, Seguridad y O](10_Vanguardia/ci_cd_github_actions_pipeline_STAFF.md) — 2026-04-28 07:02 (26.8KB)
+- [Cold Starts y Optimización Serverless Java 21: Arquitectura, Init Phas](10_Vanguardia/cold_starts_serverless_java_optimization_STAFF.md) — 2026-05-28 09:51 (22.7KB)
 - [Testing de Contratos Consumer Driven Contracts en Java 21: Validación ](10_Vanguardia/consumer_driven_contracts_testing_STAFF.md) — 2026-05-08 08:24 (29.3KB)
 - [Migraciones de Base de Datos con Flyway y Liquibase en Java 21: Estrat](10_Vanguardia/database_migrations_flyway_liquibase_STAFF.md) — 2026-05-03 08:38 (30.0KB)
 - [GraalVM Native Image: Compilación AOT de Aplicaciones Spring Boot en J](10_Vanguardia/graalvm_native_image_compilacion_aot_java_21_STAFF.md) — 2026-04-17 14:31 (31.0KB)
@@ -185,12 +186,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 127 |
+| Total documentos tecnicos | 128 |
 | Tamano total del repositorio | 4.3MB |
 | Modulos activos | 10 |
-| Total commits | 654 |
+| Total commits | 657 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-28 08:58:46 |
+| Fecha | 2026-05-28 09:52:06 |
 
 ---
 
