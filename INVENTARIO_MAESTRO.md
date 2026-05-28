@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-22 13:03:45
-**Ultimo commit:** 35e02ec feat(perf): reproducible benchmarking in java systems staff v4.0 - hito 116 (2 seconds ago)
-**Total de activos:** 126 documentos tecnicos
+**Ultima sincronizacion:** 2026-05-28 08:58:46
+**Ultimo commit:** 1d896bc feat(resilience): advanced circuit breaking and adaptive concurrency staff v4.0 - hito 117 (5 seconds ago)
+**Total de activos:** 127 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
 | **09_Frontend_Mobile** | 4 | 6 | — |
-| **10_Vanguardia** | 11 | 14 | — |
+| **10_Vanguardia** | 12 | 15 | — |
 
 ---
 
@@ -167,6 +167,7 @@
 ### 📂 10_Vanguardia
 
 - [API Gateway Avanzado: Rate Limiting, Auth y Caching](10_Vanguardia/advanced_api_gateway_rate_limiting_auth_caching_STAFF.md) — 2026-05-12 09:41 (24.1KB)
+- [Circuit Breaking Avanzado y Adaptive Concurrency en Java 21: Resilienc](10_Vanguardia/advanced_circuit_breaking_adaptive_concurrency_STAFF.md) — 2026-05-28 08:58 (22.1KB)
 - [Serialización Avanzada: JSON vs. Protobuf vs. Avro en Java 21 — Guía S](10_Vanguardia/advanced_serialization_json_protobuf_avro_STAFF.md) — 2026-05-08 08:14 (32.8KB)
 - [optimizacion_de_costes_en_cloud_aws](10_Vanguardia/aws_cloud_cost_optimization_FinOps_STAFF.md) — 2026-05-05 08:20 (28.7KB)
 - [CI/CD Completo con GitHub Actions en Java 21: Pipelines, Seguridad y O](10_Vanguardia/ci_cd_github_actions_pipeline_STAFF.md) — 2026-04-28 07:02 (26.8KB)
@@ -184,12 +185,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 126 |
+| Total documentos tecnicos | 127 |
 | Tamano total del repositorio | 4.3MB |
 | Modulos activos | 10 |
-| Total commits | 651 |
+| Total commits | 654 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-22 13:03:45 |
+| Fecha | 2026-05-28 08:58:46 |
 
 ---
 
