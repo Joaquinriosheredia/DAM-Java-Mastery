@@ -1689,14 +1689,17 @@ code {
           <span class="npm-pkg-name" style="color: #a78bfa;">java-vibe-guard</span>
         </div>
         <p class="npm-desc">
-          Production runtime guardrails for Spring Boot — CLI + MCP server integrado en Claude Code. Ya no es solo CLI — es un ecosistema de dos capas: CLI (npm) + MCP server (Spring Boot).
+          Production runtime guardrails for Spring Boot. El ecosistema completo ahora tiene tres capas:<br>
+          1. <strong>CLI (npm)</strong> — análisis local y CI manual<br>
+          2. <strong>MCP server (Spring Boot)</strong> — integrado en Claude Code<br>
+          3. <strong>GitHub Action</strong> — CI/CD automático en cada PR
         </p>
         <div class="npm-install-block">
           <span class="npm-install-prefix">$</span>
           node cli/bin/cli.js ./project --ignore target,build
         </div>
         <div class="npm-badges">
-          <span class="npm-badge">✅ CLI (npm) + MCP (Spring Boot)</span>
+          <span class="npm-badge">✅ CLI + MCP + GitHub Action</span>
           <span class="npm-badge">✅ MCP server: 7 reglas activas con AST real</span>
           <span class="npm-badge">✅ 102 tests · 0 falsos positivos</span>
           <span class="npm-badge">🛡️ VIBE-001 @Transactional+@Async</span>
@@ -1712,28 +1715,47 @@ code {
         </div>
       </div>
 
-      <div class="npm-result-card" style="border-color: rgba(139,92,246,0.15);">
-        <div class="npm-terminal-header">
-          <span class="terminal-dot red" aria-hidden="true"></span>
-          <span class="terminal-dot yellow" aria-hidden="true"></span>
-          <span class="terminal-dot green" aria-hidden="true"></span>
-          <span class="terminal-title">java-vibe-guard-mcp · analyzeProject (Claude Code)</span>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="npm-result-card" style="border-color: rgba(139,92,246,0.15);">
+          <div class="npm-terminal-header">
+            <span class="terminal-dot red" aria-hidden="true"></span>
+            <span class="terminal-dot yellow" aria-hidden="true"></span>
+            <span class="terminal-dot green" aria-hidden="true"></span>
+            <span class="terminal-title">java-vibe-guard-mcp · analyzeProject (Claude Code)</span>
+          </div>
+          <div class="terminal-output" role="region" aria-label="Terminal output">
+            <div><span class="t-comment"># MCP tool — nativa en Claude Code</span></div>
+            <div><span class="t-prompt">&gt;</span> analyzeProject("/Java-Production-Labs")</div>
+            <div>&nbsp;</div>
+            <div><span class="t-comment">  Scanning 61 Java files...</span></div>
+            <div>&nbsp;</div>
+            <div><span style="color:var(--danger)">✗ CRITICAL</span>  <span class="t-comment">VIBE-001</span>  <span class="t-val">OutboxPublisher.java:83</span></div>
+            <div><span class="t-comment">            .get() inside @Transactional — DB conn held during async wait</span></div>
+            <div><span style="color:var(--danger)">✗ CRITICAL</span>  <span class="t-comment">VIBE-001</span>  <span class="t-val">OrderSagaOrchestrator.java:61</span></div>
+            <div><span class="t-comment">            .get() inside @Transactional — connection pool starvation</span></div>
+            <div><span style="color:var(--danger)">✗ CRITICAL</span>  <span class="t-comment">VIBE-001</span>  <span class="t-val">SagaOrderService.java:44</span></div>
+            <div><span class="t-comment">            .get() inside @Transactional — connection pool starvation</span></div>
+            <div><span class="t-comment">            ... +6 more CRITICAL</span></div>
+            <div>&nbsp;</div>
+            <div><span style="color:var(--danger)">9 critical</span> · <span class="t-val">61 files</span> · <span style="color:var(--danger)">isError: false</span></div>
+          </div>
         </div>
-        <div class="terminal-output" role="region" aria-label="Terminal output">
-          <div><span class="t-comment"># MCP tool — nativa en Claude Code</span></div>
-          <div><span class="t-prompt">&gt;</span> analyzeProject("/Java-Production-Labs")</div>
-          <div>&nbsp;</div>
-          <div><span class="t-comment">  Scanning 61 Java files...</span></div>
-          <div>&nbsp;</div>
-          <div><span style="color:var(--danger)">✗ CRITICAL</span>  <span class="t-comment">VIBE-001</span>  <span class="t-val">OutboxPublisher.java:83</span></div>
-          <div><span class="t-comment">            .get() inside @Transactional — DB conn held during async wait</span></div>
-          <div><span style="color:var(--danger)">✗ CRITICAL</span>  <span class="t-comment">VIBE-001</span>  <span class="t-val">OrderSagaOrchestrator.java:61</span></div>
-          <div><span class="t-comment">            .get() inside @Transactional — connection pool starvation</span></div>
-          <div><span style="color:var(--danger)">✗ CRITICAL</span>  <span class="t-comment">VIBE-001</span>  <span class="t-val">SagaOrderService.java:44</span></div>
-          <div><span class="t-comment">            .get() inside @Transactional — connection pool starvation</span></div>
-          <div><span class="t-comment">            ... +6 more CRITICAL</span></div>
-          <div>&nbsp;</div>
-          <div><span style="color:var(--danger)">9 critical</span> · <span class="t-val">61 files</span> · <span style="color:var(--danger)">isError: false</span></div>
+
+        <div class="npm-result-card" style="border-color: rgba(139,92,246,0.15);">
+          <div class="npm-terminal-header">
+            <span class="terminal-dot red" aria-hidden="true"></span>
+            <span class="terminal-dot yellow" aria-hidden="true"></span>
+            <span class="terminal-dot green" aria-hidden="true"></span>
+            <span class="terminal-title">✅ GitHub Action — CI/CD integration</span>
+          </div>
+          <div class="terminal-output" role="region" aria-label="GitHub Action integration">
+            <div><span class="t-comment"># Fails build on CRITICAL findings. Zero configuration required.</span></div>
+            <div>&nbsp;</div>
+            <div><span class="t-key">- uses</span>: <span class="t-val">Joaquinriosheredia/java-vibe-guard@v1</span></div>
+            <div>&nbsp;&nbsp;<span class="t-key">with</span>:</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">path</span>: <span class="t-val">'.'</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">fail-on</span>: <span class="t-val">'critical'</span></div>
+          </div>
         </div>
       </div>
     </div>
