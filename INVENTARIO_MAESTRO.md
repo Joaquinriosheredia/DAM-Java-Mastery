@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-05-28 09:52:06
-**Ultimo commit:** 8662d4c feat(perf): cold starts and serverless java optimization staff v4.0 - hito 118 (4 seconds ago)
-**Total de activos:** 128 documentos tecnicos
+**Ultima sincronizacion:** 2026-06-01 08:27:06
+**Ultimo commit:** 5bfc2c0 feat(arch): evolutionary compatibility between microservices staff v4.0 - hito 119 (3 seconds ago)
+**Total de activos:** 129 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 12 | 44 | — |
-| **02_Arquitectura** | 38 | 66 | — |
+| **02_Arquitectura** | 39 | 67 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 6 | 18 | — |
 | **05_SRE_DevOps** | 20 | 43 | — |
@@ -64,6 +64,7 @@
 - [Arquitectura Serverless Enterprise con Java 21: Escalabilidad, Observa](02_Arquitectura/enterprise_serverless_architecture_STAFF.md) — 2026-05-18 08:01 (25.7KB)
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21: ](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-16 11:25 (46.6KB)
 - [Event Sourcing y CQRS con Java 21 y Spring Boot: Inmutabilidad, Trazab](02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) — 2026-04-16 11:25 (47.0KB)
+- [Compatibilidad Evolutiva entre Microservicios — Guía Staff Engineer (E](02_Arquitectura/evolutionary_compatibility_microservices_STAFF.md) — 2026-06-01 08:26 (21.9KB)
 - [Arquitectura Fintech y Sistemas Transaccionales con Java 21: Patrón Sa](02_Arquitectura/fintech_transactional_systems_architecture_STAFF.md) — 2026-05-14 07:27 (22.3KB)
 - [Arquitectura E-commerce de Alta Escalabilidad con Java 21: Patrones Di](02_Arquitectura/high_scalability_ecommerce_architecture_STAFF.md) — 2026-05-13 07:37 (22.2KB)
 - [Idempotencia en Sistemas Distribuidos con Java 21: Patrones de Consist](02_Arquitectura/idempotencia_sistemas_distribuidos_STAFF.md) — 2026-04-18 13:20 (42.4KB)
@@ -186,12 +187,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 128 |
-| Tamano total del repositorio | 4.3MB |
+| Total documentos tecnicos | 129 |
+| Tamano total del repositorio | 4.4MB |
 | Modulos activos | 10 |
-| Total commits | 657 |
+| Total commits | 660 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-05-28 09:52:06 |
+| Fecha | 2026-06-01 08:27:06 |
 
 ---
 
