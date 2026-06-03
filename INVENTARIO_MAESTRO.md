@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-06-01 08:27:06
-**Ultimo commit:** 5bfc2c0 feat(arch): evolutionary compatibility between microservices staff v4.0 - hito 119 (3 seconds ago)
-**Total de activos:** 129 documentos tecnicos
+**Ultima sincronizacion:** 2026-06-03 18:18:58
+**Ultimo commit:** 7934f62 feat(data): data governance and lineage in data platforms staff v4.0 - hito 120 (5 seconds ago)
+**Total de activos:** 130 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
 | **09_Frontend_Mobile** | 4 | 6 | — |
-| **10_Vanguardia** | 13 | 16 | — |
+| **10_Vanguardia** | 14 | 17 | — |
 
 ---
 
@@ -174,6 +174,7 @@
 - [CI/CD Completo con GitHub Actions en Java 21: Pipelines, Seguridad y O](10_Vanguardia/ci_cd_github_actions_pipeline_STAFF.md) — 2026-04-28 07:02 (26.8KB)
 - [Cold Starts y Optimización Serverless Java 21: Arquitectura, Init Phas](10_Vanguardia/cold_starts_serverless_java_optimization_STAFF.md) — 2026-05-28 09:51 (22.7KB)
 - [Testing de Contratos Consumer Driven Contracts en Java 21: Validación ](10_Vanguardia/consumer_driven_contracts_testing_STAFF.md) — 2026-05-08 08:24 (29.3KB)
+- [Arquitectura de Data Governance y Lineage en Plataformas de Datos con ](10_Vanguardia/data_governance_lineage_data_platforms_STAFF.md) — 2026-06-03 18:18 (29.1KB)
 - [Migraciones de Base de Datos con Flyway y Liquibase en Java 21: Estrat](10_Vanguardia/database_migrations_flyway_liquibase_STAFF.md) — 2026-05-03 08:38 (30.0KB)
 - [GraalVM Native Image: Compilación AOT de Aplicaciones Spring Boot en J](10_Vanguardia/graalvm_native_image_compilacion_aot_java_21_STAFF.md) — 2026-04-17 14:31 (31.0KB)
 - [gRPC en Sistemas de Alto Rendimiento con Java 21: Optimización de Late](10_Vanguardia/grpc_high_performance_systems_STAFF.md) — 2026-05-01 08:25 (35.9KB)
@@ -187,12 +188,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 129 |
+| Total documentos tecnicos | 130 |
 | Tamano total del repositorio | 4.4MB |
 | Modulos activos | 10 |
-| Total commits | 660 |
+| Total commits | 664 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-06-01 08:27:06 |
+| Fecha | 2026-06-03 18:18:58 |
 
 ---
 
