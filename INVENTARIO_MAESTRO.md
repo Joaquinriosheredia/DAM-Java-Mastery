@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-06-05 06:34:42
-**Ultimo commit:** 9be6abf feat(arch): disaster recovery rpo rto and backup strategy staff v4.0 - hito 121 (4 seconds ago)
-**Total de activos:** 131 documentos tecnicos
+**Ultima sincronizacion:** 2026-06-08 21:45:01
+**Ultimo commit:** 04e06a0 feat(db): distributed caching redis hazelcast and ignite staff v4.0 - hito 122 (4 seconds ago)
+**Total de activos:** 132 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -15,7 +15,7 @@
 | **01_Java_Core** | 12 | 44 | — |
 | **02_Arquitectura** | 39 | 67 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
-| **04_Bases_de_Datos** | 6 | 18 | — |
+| **04_Bases_de_Datos** | 7 | 19 | — |
 | **05_SRE_DevOps** | 20 | 43 | — |
 | **06_Seguridad** | 7 | 13 | — |
 | **07_BigData_Streaming** | 8 | 21 | — |
@@ -96,6 +96,7 @@
 
 ### 📂 04_Bases_de_Datos
 
+- [Caché Distribuido con Redis, Hazelcast e Ignite en Java 21: Estrategia](04_Bases_de_Datos/distributed_caching_redis_hazelcast_ignite_STAFF.md) — 2026-06-08 21:44 (23.3KB)
 - [MongoDB con Java 21: Modelado de Documentos, Agregaciones Avanzadas y ](04_Bases_de_Datos/mongodb_con_java_21_modelado_de_documentos_y_agregaciones_avanzadas_STAFF.md) — 2026-04-17 14:31 (55.6KB)
 - [Optimización de JVM y Caché Distribuida con Redis y Java 21: Estrategi](04_Bases_de_Datos/optimizacion_jvm_y_cache_distribuida_redis_java_21_STAFF.md) — 2026-04-17 14:31 (50.0KB)
 - [PostgreSQL 17 Avanzado: Índices, Particionado y Optimización de Querie](04_Bases_de_Datos/postgresql_17_avanzado_indices_particionado_y_optimizacion_de_queries_STAFF.md) — 2026-04-17 14:31 (49.1KB)
@@ -189,12 +190,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 131 |
+| Total documentos tecnicos | 132 |
 | Tamano total del repositorio | 4.4MB |
 | Modulos activos | 10 |
-| Total commits | 667 |
+| Total commits | 670 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-06-05 06:34:42 |
+| Fecha | 2026-06-08 21:45:01 |
 
 ---
 
