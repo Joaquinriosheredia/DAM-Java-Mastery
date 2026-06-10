@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-06-10 07:28:02
-**Ultimo commit:** 80ea459 feat(observability): distributed tracing w3c trace context and b3 propagation staff v4.0 - hito 124 (5 seconds ago)
-**Total de activos:** 134 documentos tecnicos
+**Ultima sincronizacion:** 2026-06-10 07:40:53
+**Ultimo commit:** b20f5f4 feat(net): dns tls and load balancing in modern systems staff v4.0 - hito 125 (5 seconds ago)
+**Total de activos:** 135 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -17,7 +17,7 @@
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 7 | 19 | — |
 | **05_SRE_DevOps** | 20 | 43 | — |
-| **06_Seguridad** | 7 | 13 | — |
+| **06_Seguridad** | 8 | 14 | — |
 | **07_BigData_Streaming** | 8 | 21 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
 | **09_Frontend_Mobile** | 4 | 6 | — |
@@ -130,6 +130,7 @@
 ### 📂 06_Seguridad
 
 - [Seguridad en APIs: Rate Limit, API Keys y Prevención de Abuse con Java](06_Seguridad/api_security_rate_limiting_abuse_STAFF.md) — 2026-05-07 09:10 (35.9KB)
+- [DNS, TLS y Load Balancing en Sistemas Modernos con Java 21: Seguridad,](06_Seguridad/dns_tls_load_balancing_modern_systems_STAFF.md) — 2026-06-10 07:40 (22.5KB)
 - [Seguridad en Sistemas Event-Driven con Java 21: Autenticación, Autoriz](06_Seguridad/event_driven_systems_security_STAFF.md) — 2026-05-07 09:23 (33.0KB)
 - [JWT, OAuth2 y Zero Trust Security con Java 21 y Spring Security 6 — Gu](06_Seguridad/jwt_oauth2_y_zero_trust_security_con_java_21_STAFF.md) — 2026-04-17 14:31 (44.8KB)
 - [Seguridad Ofensiva y Auditoría de Microservicios con Java 21: Pentesti](06_Seguridad/seguridad_ofensiva_y_auditoria_de_microservicios_con_java_21_STAFF.md) — 2026-04-17 14:31 (35.1KB)
@@ -192,12 +193,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 134 |
+| Total documentos tecnicos | 135 |
 | Tamano total del repositorio | 4.5MB |
 | Modulos activos | 10 |
-| Total commits | 676 |
+| Total commits | 679 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-06-10 07:28:02 |
+| Fecha | 2026-06-10 07:40:53 |
 
 ---
 
