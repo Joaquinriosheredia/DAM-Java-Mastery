@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-06-10 07:40:53
-**Ultimo commit:** b20f5f4 feat(net): dns tls and load balancing in modern systems staff v4.0 - hito 125 (5 seconds ago)
-**Total de activos:** 135 documentos tecnicos
+**Ultima sincronizacion:** 2026-06-11 07:34:09
+**Ultimo commit:** 7123920 feat(arch): edge computing and modern distributed architectures staff v4.0 - hito 126 (4 seconds ago)
+**Total de activos:** 136 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -13,7 +13,7 @@
 | Modulo | Activos | Commits | Score SRE Prom. |
 |--------|---------|---------|-----------------|
 | **01_Java_Core** | 12 | 44 | — |
-| **02_Arquitectura** | 39 | 67 | — |
+| **02_Arquitectura** | 40 | 68 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 7 | 19 | — |
 | **05_SRE_DevOps** | 20 | 43 | — |
@@ -61,6 +61,7 @@
 - [Diseño de Sistemas Escalables Tipo FAANG: Arquitectura Distribuida, Re](02_Arquitectura/diseno_sistemas_escalables_faang_STAFF.md) — 2026-04-17 17:55 (27.2KB)
 - [Domain Events y Event Storming en Java 21: Arquitectura de Dominio Enr](02_Arquitectura/domain_events_event_storming_STAFF.md) — 2026-04-24 07:23 (35.5KB)
 - [Testing E2E en Microservicios con Java 21: Estrategias, Automatización](02_Arquitectura/e2e_testing_microservices_STAFF.md) — 2026-05-09 07:49 (14.9KB)
+- [Edge Computing y Arquitecturas Distribuidas Modernas con Java 21 — Guí](02_Arquitectura/edge_computing_modern_distributed_architectures_STAFF.md) — 2026-06-11 07:33 (23.4KB)
 - [Arquitectura Serverless Enterprise con Java 21: Escalabilidad, Observa](02_Arquitectura/enterprise_serverless_architecture_STAFF.md) — 2026-05-18 08:01 (25.7KB)
 - [Event-Driven Architecture y Transactional Outbox Pattern con Java 21: ](02_Arquitectura/event_driven_architecture_transactional_outbox_java_21_STAFF.md) — 2026-04-16 11:25 (46.6KB)
 - [Event Sourcing y CQRS con Java 21 y Spring Boot: Inmutabilidad, Trazab](02_Arquitectura/event_sourcing_y_cqrs_con_java_21_y_spring_boot_STAFF.md) — 2026-04-16 11:25 (47.0KB)
@@ -193,12 +194,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 135 |
+| Total documentos tecnicos | 136 |
 | Tamano total del repositorio | 4.5MB |
 | Modulos activos | 10 |
-| Total commits | 679 |
+| Total commits | 682 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-06-10 07:40:53 |
+| Fecha | 2026-06-11 07:34:09 |
 
 ---
 
