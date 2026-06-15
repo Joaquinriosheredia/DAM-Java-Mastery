@@ -1689,19 +1689,24 @@ code {
           <span class="npm-pkg-name" style="color: #a78bfa;">java-vibe-guard</span>
         </div>
         <p class="npm-desc">
-          Production runtime guardrails for Spring Boot. El ecosistema completo ahora tiene tres capas:<br>
-          1. <strong>CLI (npm)</strong> — análisis local y CI manual<br>
-          2. <strong>MCP server (Spring Boot)</strong> — integrado en Claude Code<br>
-          3. <strong>GitHub Action</strong> — CI/CD automático en cada PR
+          Defensa activa frente a anti-patrones en Spring Boot. El ecosistema OSS sigue un ciclo completo de fiabilidad:<br>
+          <strong style="color: #a78bfa;">Detect</strong> (CLI y MCP detectan fallos estáticos) → <strong style="color: #a78bfa;">Explain</strong> (diagnóstico de impacto) → <strong style="color: #a78bfa;">Verify</strong> (reproducción en runtime con Testcontainers) → <strong style="color: #a78bfa;">Evidence</strong> (pruebas empíricas).
         </p>
-        <div class="npm-install-block">
-          <span class="npm-install-prefix">$</span>
-          node cli/bin/cli.js ./project --ignore target,build
+        <div class="npm-install-block" style="display: flex; flex-direction: column; gap: 8px;">
+          <div>
+            <span class="npm-install-prefix">$</span>
+            npx java-vibe-guard ./your-spring-project
+          </div>
+          <div>
+            <span class="npm-install-prefix">$</span>
+            npx java-vibe-guard --verify VIBE-001
+          </div>
         </div>
         <div class="npm-badges">
           <span class="npm-badge">✅ CLI + MCP + GitHub Action</span>
           <span class="npm-badge">✅ MCP server: 7 reglas activas con AST real</span>
           <span class="npm-badge">✅ 102 tests · 0 falsos positivos</span>
+          <span class="npm-badge" style="border-color: rgba(139,92,246,0.5); background: rgba(139,92,246,0.15); color: #c084fc;">⚡ VIBE-001 reproducible --verify</span>
           <span class="npm-badge">🛡️ VIBE-001 @Transactional+@Async</span>
           <span class="npm-badge">🛡️ VIBE-002 Reactor .block()</span>
           <span class="npm-badge">🛡️ VIBE-003 JPA N+1</span>
@@ -1712,6 +1717,7 @@ code {
         </div>
         <div class="npm-links">
           <a href="https://github.com/Joaquinriosheredia/java-vibe-guard" target="_blank" rel="noopener" class="npm-link blue">⭐ GitHub →</a>
+          <a href="https://dev.to/joaquinriosheredia/from-warnings-to-evidence-reproducing-java-runtime-failures-with-testcontainers-4g5i" target="_blank" rel="noopener" class="npm-link green">📝 Artículo: From Warnings to Evidence →</a>
         </div>
       </div>
 
@@ -1746,15 +1752,20 @@ code {
             <span class="terminal-dot red" aria-hidden="true"></span>
             <span class="terminal-dot yellow" aria-hidden="true"></span>
             <span class="terminal-dot green" aria-hidden="true"></span>
-            <span class="terminal-title">✅ GitHub Action — CI/CD integration</span>
+            <span class="terminal-title">java-vibe-guard --verify VIBE-001</span>
           </div>
-          <div class="terminal-output" role="region" aria-label="GitHub Action integration">
-            <div><span class="t-comment"># Fails build on CRITICAL findings. Zero configuration required.</span></div>
+          <div class="terminal-output" role="region" aria-label="Terminal output">
+            <div><span class="t-prompt">$</span> npx java-vibe-guard --verify VIBE-001</div>
             <div>&nbsp;</div>
-            <div><span class="t-key">- uses</span>: <span class="t-val">Joaquinriosheredia/java-vibe-guard@v1</span></div>
-            <div>&nbsp;&nbsp;<span class="t-key">with</span>:</div>
-            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">path</span>: <span class="t-val">'.'</span></div>
-            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">fail-on</span>: <span class="t-val">'critical'</span></div>
+            <div><span class="t-pass">✓</span> <span class="t-label">Docker daemon</span> <span class="t-val">running</span></div>
+            <div><span class="t-pass">✓</span> <span class="t-label">Java 21</span> <span class="t-val">detected</span></div>
+            <div><span class="t-comment">  Running VIBE-001 verification...</span></div>
+            <div>&nbsp;</div>
+            <div><span class="t-pass">✓</span> <span class="t-label">Connection pool fully utilized</span> <span class="t-val">(100%)</span></div>
+            <div><span class="t-pass">✓</span> <span class="t-label">Requests blocked waiting for connections</span> <span class="t-val">(waiting: 12)</span></div>
+            <div><span class="t-pass">✓</span> <span class="t-label">Latency amplified under concurrency</span> <span class="t-val">(p95: 1243ms)</span></div>
+            <div>&nbsp;</div>
+            <div><span style="color:var(--success)">PASS</span> <span class="t-comment">Matches behavior in Lab #04</span></div>
           </div>
         </div>
       </div>
