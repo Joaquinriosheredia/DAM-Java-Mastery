@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-06-11 07:34:09
-**Ultimo commit:** 7123920 feat(arch): edge computing and modern distributed architectures staff v4.0 - hito 126 (4 seconds ago)
-**Total de activos:** 136 documentos tecnicos
+**Ultima sincronizacion:** 2026-06-16 11:12:34
+**Ultimo commit:** 90631b8 feat(streaming): event replay and state reconstruction with kafka staff v4.0 - hito 127 (5 seconds ago)
+**Total de activos:** 137 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -18,7 +18,7 @@
 | **04_Bases_de_Datos** | 7 | 19 | — |
 | **05_SRE_DevOps** | 20 | 43 | — |
 | **06_Seguridad** | 8 | 14 | — |
-| **07_BigData_Streaming** | 8 | 21 | — |
+| **07_BigData_Streaming** | 9 | 22 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
 | **09_Frontend_Mobile** | 4 | 6 | — |
 | **10_Vanguardia** | 17 | 20 | — |
@@ -145,6 +145,7 @@
 - [BigData ETL con Apache Spark y Java 21: Procesamiento Distribuido, Opt](07_BigData_Streaming/bigdata_etl_apache_spark_y_java_21_STAFF.md) — 2026-04-17 14:31 (35.6KB)
 - [CDC con Debezium y Kafka en Java 21: Arquitectura de Captura de Cambio](07_BigData_Streaming/cdc_debezium_kafka_streaming_STAFF.md) — 2026-04-28 06:55 (37.3KB)
 - [Data Mesh: Descentralización de la Propiedad del Dato con Java 21 — Gu](07_BigData_Streaming/data_mesh:_descentralización_de_la_propiedad_del_dato_STAFF.md) — 2026-04-17 14:31 (40.0KB)
+- [Event Replay y Reconstrucción de Estado con Kafka en Java 21: Resilien](07_BigData_Streaming/event_replay_state_reconstruction_kafka_STAFF.md) — 2026-06-16 11:12 (25.3KB)
 - [Exactly-Once Semantics en Kafka con Java 21: Garantías de Procesamient](07_BigData_Streaming/kafka_exactly_once_semantics_STAFF.md) — 2026-04-30 14:45 (35.6KB)
 - [Kafka Internals: Particiones, ISR y Replicación en Java 21 — Guía Staf](07_BigData_Streaming/kafka_internals_partitions_isr_replication_STAFF.md) — 2026-05-02 12:41 (36.0KB)
 - [Colas de Mensajes: RabbitMQ vs. Kafka en Arquitecturas Distribuidas co](07_BigData_Streaming/rabbitmq_vs_kafka_comparison_STAFF.md) — 2026-04-29 07:19 (29.2KB)
@@ -194,12 +195,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 136 |
+| Total documentos tecnicos | 137 |
 | Tamano total del repositorio | 4.5MB |
 | Modulos activos | 10 |
-| Total commits | 682 |
+| Total commits | 685 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-06-11 07:34:09 |
+| Fecha | 2026-06-16 11:12:34 |
 
 ---
 
