@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-06-17 11:18:30
-**Ultimo commit:** da58b28 feat(devops): feature flags and progressive delivery with unleash and launchdarkly staff v4.0 - hito 128 (5 seconds ago)
-**Total de activos:** 138 documentos tecnicos
+**Ultima sincronizacion:** 2026-06-17 11:26:18
+**Ultimo commit:** dd61148 feat(devops): finops and kubernetes cost allocation staff v4.0 - hito 129 (3 seconds ago)
+**Total de activos:** 139 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 40 | 68 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 7 | 19 | — |
-| **05_SRE_DevOps** | 20 | 43 | — |
+| **05_SRE_DevOps** | 21 | 44 | — |
 | **06_Seguridad** | 8 | 14 | — |
 | **07_BigData_Streaming** | 9 | 22 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
@@ -114,6 +114,7 @@
 - [Deadlocks en Producción: Detección, Prevención y Solución con Java 21 ](05_SRE_DevOps/deadlocks_produccion_deteccion_STAFF.md) — 2026-04-18 09:03 (30.2KB)
 - [Debugging en Producción: Thread Dumps, Heap Dumps y Profiling con Java](05_SRE_DevOps/debugging_produccion_dumps_STAFF.md) — 2026-04-17 17:03 (38.4KB)
 - [Docker Avanzado: Multi-stage Builds, Imágenes Distroless y Optimizació](05_SRE_DevOps/docker_avanzado_java_21_optimizacion_STAFF.md) — 2026-04-17 14:31 (35.8KB)
+- [FinOps y Kubernetes Cost Allocation en Java 21: Gobernanza, OpenCost y](05_SRE_DevOps/finops_kubernetes_cost_allocation_STAFF.md) — 2026-06-17 11:26 (20.2KB)
 - [Golden Signals: Monitorización Google SRE con Java 21 y Micrometer](05_SRE_DevOps/google_sre_golden_signals_STAFF.md) — 2026-05-01 08:02 (50.8KB)
 - [Infraestructura como Código (IaC) con AWS CDK y Java 21: Arquitectura ](05_SRE_DevOps/iac_aws_cdk_java_21_STAFF.md) — 2026-04-17 14:31 (40.8KB)
 - [Kubernetes Auto-Escalado y Service Mesh en 2026: HPA, VPA, KEDA e Isti](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-05-03 18:23 (43.2KB)
@@ -196,12 +197,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 138 |
+| Total documentos tecnicos | 139 |
 | Tamano total del repositorio | 4.6MB |
 | Modulos activos | 10 |
-| Total commits | 688 |
+| Total commits | 691 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-06-17 11:18:30 |
+| Fecha | 2026-06-17 11:26:18 |
 
 ---
 
