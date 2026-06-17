@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-06-16 11:12:34
-**Ultimo commit:** 90631b8 feat(streaming): event replay and state reconstruction with kafka staff v4.0 - hito 127 (5 seconds ago)
-**Total de activos:** 137 documentos tecnicos
+**Ultima sincronizacion:** 2026-06-17 11:18:30
+**Ultimo commit:** da58b28 feat(devops): feature flags and progressive delivery with unleash and launchdarkly staff v4.0 - hito 128 (5 seconds ago)
+**Total de activos:** 138 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 9 | 22 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
 | **09_Frontend_Mobile** | 4 | 6 | — |
-| **10_Vanguardia** | 17 | 20 | — |
+| **10_Vanguardia** | 18 | 21 | — |
 
 ---
 
@@ -183,6 +183,7 @@
 - [Disaster Recovery, RPO, RTO y Estrategia de Backup en Java 21 — Guía S](10_Vanguardia/disaster_recovery_rpo_rto_backup_strategy_STAFF.md) — 2026-06-05 06:34 (20.6KB)
 - [Distributed Locks y Coordinación Distribuida en Java 21: Resiliencia, ](10_Vanguardia/distributed_locks_coordination_systems_STAFF.md) — 2026-06-09 14:12 (23.2KB)
 - [Distributed Tracing: W3C Trace Context y B3 Propagation en Java 21 — G](10_Vanguardia/distributed_tracing_w3c_b3_propagation_STAFF.md) — 2026-06-10 07:27 (20.1KB)
+- [Feature Flags y Progressive Delivery con Unleash y LaunchDarkly en Jav](10_Vanguardia/feature_flags_progressive_delivery_unleash_launchdarkly_STAFF.md) — 2026-06-17 11:18 (19.0KB)
 - [GraalVM Native Image: Compilación AOT de Aplicaciones Spring Boot en J](10_Vanguardia/graalvm_native_image_compilacion_aot_java_21_STAFF.md) — 2026-04-17 14:31 (31.0KB)
 - [gRPC en Sistemas de Alto Rendimiento con Java 21: Optimización de Late](10_Vanguardia/grpc_high_performance_systems_STAFF.md) — 2026-05-01 08:25 (35.9KB)
 - [Ingeniería del Rendimiento: Benchmarking en Java 21 — Guía Staff Engin](10_Vanguardia/java_performance_engineering_benchmarking_STAFF.md) — 2026-05-02 12:35 (30.5KB)
@@ -195,12 +196,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 137 |
-| Tamano total del repositorio | 4.5MB |
+| Total documentos tecnicos | 138 |
+| Tamano total del repositorio | 4.6MB |
 | Modulos activos | 10 |
-| Total commits | 685 |
+| Total commits | 688 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-06-16 11:12:34 |
+| Fecha | 2026-06-17 11:18:30 |
 
 ---
 

@@ -1,7 +1,7 @@
 # ROADMAP — DAM-Java-Mastery
 # Temas pendientes ordenados por prioridad estratégica
 # Ejecutar con: racha2026 "tema"
-# Actualizado: 2026-05-03 (auto-sync ae-inventario)
+# Actualizado: 2026-06-17 (auto-sync ae-inventario)
 
 # ═══════════════════════════════════════════════════════════════
 # BLOQUE 1 — JAVA CORE (01_Java_Core/)
@@ -231,7 +231,7 @@
 - [ ] API Gateway como Producto: Kong vs AWS API GW vs Envoy/Traefik
 - [ ] Service Mesh: Istio, Linkerd, Cilium — decision arquitectonica
 - [ ] Event Catalog y Schema Governance con AsyncAPI
-- [ ] Feature Flags a escala: Unleash vs LaunchDarkly vs OpenFeature
+- [x] Feature Flags a escala: Unleash vs LaunchDarkly vs OpenFeature
 - [ ] Developer Portals: Backstage, service catalog, docs-like-code
 - [ ] Golden Paths: templates, starter kits, paved roads
 - [ ] Platform metrics: DORA, developer experience surveys, adoption
