@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-06-17 11:26:18
-**Ultimo commit:** dd61148 feat(devops): finops and kubernetes cost allocation staff v4.0 - hito 129 (3 seconds ago)
-**Total de activos:** 139 documentos tecnicos
+**Ultima sincronizacion:** 2026-06-19 11:14:28
+**Ultimo commit:** 325000d feat(devops): gitops with argocd and flux staff v4.0 - hito 130 (5 seconds ago)
+**Total de activos:** 140 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 40 | 68 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 7 | 19 | — |
-| **05_SRE_DevOps** | 21 | 44 | — |
+| **05_SRE_DevOps** | 22 | 45 | — |
 | **06_Seguridad** | 8 | 14 | — |
 | **07_BigData_Streaming** | 9 | 22 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
@@ -115,6 +115,7 @@
 - [Debugging en Producción: Thread Dumps, Heap Dumps y Profiling con Java](05_SRE_DevOps/debugging_produccion_dumps_STAFF.md) — 2026-04-17 17:03 (38.4KB)
 - [Docker Avanzado: Multi-stage Builds, Imágenes Distroless y Optimizació](05_SRE_DevOps/docker_avanzado_java_21_optimizacion_STAFF.md) — 2026-04-17 14:31 (35.8KB)
 - [FinOps y Kubernetes Cost Allocation en Java 21: Gobernanza, OpenCost y](05_SRE_DevOps/finops_kubernetes_cost_allocation_STAFF.md) — 2026-06-17 11:26 (20.2KB)
+- [GitOps con ArgoCD y Flux en Java 21: Despliegue Continuo, Reconciliaci](05_SRE_DevOps/gitops_argocd_flux_STAFF.md) — 2026-06-19 11:14 (20.0KB)
 - [Golden Signals: Monitorización Google SRE con Java 21 y Micrometer](05_SRE_DevOps/google_sre_golden_signals_STAFF.md) — 2026-05-01 08:02 (50.8KB)
 - [Infraestructura como Código (IaC) con AWS CDK y Java 21: Arquitectura ](05_SRE_DevOps/iac_aws_cdk_java_21_STAFF.md) — 2026-04-17 14:31 (40.8KB)
 - [Kubernetes Auto-Escalado y Service Mesh en 2026: HPA, VPA, KEDA e Isti](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-05-03 18:23 (43.2KB)
@@ -197,12 +198,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 139 |
+| Total documentos tecnicos | 140 |
 | Tamano total del repositorio | 4.6MB |
 | Modulos activos | 10 |
-| Total commits | 691 |
+| Total commits | 694 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-06-17 11:26:18 |
+| Fecha | 2026-06-19 11:14:28 |
 
 ---
 
