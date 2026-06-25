@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-06-22 12:39:15
-**Ultimo commit:** 344ab87 feat(streaming): grpc bidirectional streaming in low latency systems staff v4.0 - hito 131 (4 seconds ago)
-**Total de activos:** 141 documentos tecnicos
+**Ultima sincronizacion:** 2026-06-25 11:02:39
+**Ultimo commit:** 935fd73 feat(security): guardrails and llm applications security staff v4.0 - hito 132 (in the future)
+**Total de activos:** 142 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -17,7 +17,7 @@
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 7 | 19 | — |
 | **05_SRE_DevOps** | 22 | 45 | — |
-| **06_Seguridad** | 8 | 14 | — |
+| **06_Seguridad** | 9 | 15 | — |
 | **07_BigData_Streaming** | 10 | 23 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
 | **09_Frontend_Mobile** | 4 | 6 | — |
@@ -135,6 +135,7 @@
 - [Seguridad en APIs: Rate Limit, API Keys y Prevención de Abuse con Java](06_Seguridad/api_security_rate_limiting_abuse_STAFF.md) — 2026-05-07 09:10 (35.9KB)
 - [DNS, TLS y Load Balancing en Sistemas Modernos con Java 21: Seguridad,](06_Seguridad/dns_tls_load_balancing_modern_systems_STAFF.md) — 2026-06-10 07:40 (22.5KB)
 - [Seguridad en Sistemas Event-Driven con Java 21: Autenticación, Autoriz](06_Seguridad/event_driven_systems_security_STAFF.md) — 2026-05-07 09:23 (33.0KB)
+- [Guardrails y Seguridad en Aplicaciones LLM con Java 21: Prevención de ](06_Seguridad/guardrails_llm_applications_security_STAFF.md) — 2026-06-25 11:02 (17.0KB)
 - [JWT, OAuth2 y Zero Trust Security con Java 21 y Spring Security 6 — Gu](06_Seguridad/jwt_oauth2_y_zero_trust_security_con_java_21_STAFF.md) — 2026-04-17 14:31 (44.8KB)
 - [Seguridad Ofensiva y Auditoría de Microservicios con Java 21: Pentesti](06_Seguridad/seguridad_ofensiva_y_auditoria_de_microservicios_con_java_21_STAFF.md) — 2026-04-17 14:31 (35.1KB)
 - [Spring Security 6 Avanzado: Autorización Granular Método-a-Método y OA](06_Seguridad/spring_security_6_avanzado_metodo_a_metodo_oauth2_resource_server_STAFF.md) — 2026-04-17 14:31 (33.6KB)
@@ -199,12 +200,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 141 |
+| Total documentos tecnicos | 142 |
 | Tamano total del repositorio | 4.6MB |
 | Modulos activos | 10 |
-| Total commits | 697 |
+| Total commits | 700 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-06-22 12:39:15 |
+| Fecha | 2026-06-25 11:02:39 |
 
 ---
 
