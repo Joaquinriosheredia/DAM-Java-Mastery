@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-06-25 11:02:39
-**Ultimo commit:** 935fd73 feat(security): guardrails and llm applications security staff v4.0 - hito 132 (in the future)
-**Total de activos:** 142 documentos tecnicos
+**Ultima sincronizacion:** 2026-06-26 07:58:52
+**Ultimo commit:** 118248b feat(perf): heap vs offheap memory in java applications staff v4.0 - hito 133 (4 seconds ago)
+**Total de activos:** 143 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 10 | 23 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
 | **09_Frontend_Mobile** | 4 | 6 | — |
-| **10_Vanguardia** | 18 | 21 | — |
+| **10_Vanguardia** | 19 | 22 | — |
 
 ---
 
@@ -190,6 +190,7 @@
 - [Feature Flags y Progressive Delivery con Unleash y LaunchDarkly en Jav](10_Vanguardia/feature_flags_progressive_delivery_unleash_launchdarkly_STAFF.md) — 2026-06-17 11:18 (19.0KB)
 - [GraalVM Native Image: Compilación AOT de Aplicaciones Spring Boot en J](10_Vanguardia/graalvm_native_image_compilacion_aot_java_21_STAFF.md) — 2026-04-17 14:31 (31.0KB)
 - [gRPC en Sistemas de Alto Rendimiento con Java 21: Optimización de Late](10_Vanguardia/grpc_high_performance_systems_STAFF.md) — 2026-05-01 08:25 (35.9KB)
+- [Heap vs. Off-Heap Memory en Aplicaciones Java 21: Gestión de Memoria, ](10_Vanguardia/heap_vs_offheap_memory_java_applications_STAFF.md) — 2026-06-26 07:58 (17.3KB)
 - [Ingeniería del Rendimiento: Benchmarking en Java 21 — Guía Staff Engin](10_Vanguardia/java_performance_engineering_benchmarking_STAFF.md) — 2026-05-02 12:35 (30.5KB)
 - [OWASP Top 10 Aplicado a Java 21: Seguridad, Vulnerabilidades y Mitigac](10_Vanguardia/owasp_top_10_java_security_STAFF.md) — 2026-05-06 07:56 (33.1KB)
 - [benchmarking_reproducible_en_sistemas_java](10_Vanguardia/reproducible_benchmarking_java_systems_STAFF.md) — 2026-05-22 13:03 (22.8KB)
@@ -200,12 +201,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 142 |
+| Total documentos tecnicos | 143 |
 | Tamano total del repositorio | 4.6MB |
 | Modulos activos | 10 |
-| Total commits | 700 |
+| Total commits | 703 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-06-25 11:02:39 |
+| Fecha | 2026-06-26 07:58:52 |
 
 ---
 
