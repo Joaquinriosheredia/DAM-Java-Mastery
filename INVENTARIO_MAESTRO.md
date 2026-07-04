@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-07-04 11:24:43
-**Ultimo commit:** 8c329cb feat(streaming): kafka schema registry and avro schema evolution staff v4.0 - hito 136 (4 seconds ago)
-**Total de activos:** 146 documentos tecnicos
+**Ultima sincronizacion:** 2026-07-04 12:08:23
+**Ultimo commit:** 3f09667 feat(net): kernel bypass io_uring and modern networking staff v4.0 - hito 137 (3 seconds ago)
+**Total de activos:** 147 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -21,7 +21,7 @@
 | **07_BigData_Streaming** | 11 | 24 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
 | **09_Frontend_Mobile** | 4 | 6 | — |
-| **10_Vanguardia** | 20 | 23 | — |
+| **10_Vanguardia** | 21 | 24 | — |
 
 ---
 
@@ -195,6 +195,7 @@
 - [Heap vs. Off-Heap Memory en Aplicaciones Java 21: Gestión de Memoria, ](10_Vanguardia/heap_vs_offheap_memory_java_applications_STAFF.md) — 2026-06-26 07:58 (17.3KB)
 - [Identity Federation y Single Sign-On (SSO) en Java 21: OIDC, SAML, OAu](10_Vanguardia/identity_federation_single_sign_on_STAFF.md) — 2026-06-30 10:54 (17.6KB)
 - [Ingeniería del Rendimiento: Benchmarking en Java 21 — Guía Staff Engin](10_Vanguardia/java_performance_engineering_benchmarking_STAFF.md) — 2026-05-02 12:35 (30.5KB)
+- [Kernel Bypass, io_uring y Networking Moderno en Java 21: Ultra-Baja La](10_Vanguardia/kernel_bypass_io_uring_modern_networking_STAFF.md) — 2026-07-04 12:08 (18.8KB)
 - [OWASP Top 10 Aplicado a Java 21: Seguridad, Vulnerabilidades y Mitigac](10_Vanguardia/owasp_top_10_java_security_STAFF.md) — 2026-05-06 07:56 (33.1KB)
 - [benchmarking_reproducible_en_sistemas_java](10_Vanguardia/reproducible_benchmarking_java_systems_STAFF.md) — 2026-05-22 13:03 (22.8KB)
 
@@ -204,12 +205,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 146 |
+| Total documentos tecnicos | 147 |
 | Tamano total del repositorio | 4.7MB |
 | Modulos activos | 10 |
-| Total commits | 712 |
+| Total commits | 715 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-07-04 11:24:43 |
+| Fecha | 2026-07-04 12:08:23 |
 
 ---
 
