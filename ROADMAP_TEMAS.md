@@ -1,7 +1,7 @@
 # ROADMAP — DAM-Java-Mastery
 # Temas pendientes ordenados por prioridad estratégica
 # Ejecutar con: racha2026 "tema"
-# Actualizado: 2026-06-17 (auto-sync ae-inventario)
+# Actualizado: 2026-07-07 (auto-sync ae-inventario)
 
 # ═══════════════════════════════════════════════════════════════
 # BLOQUE 1 — JAVA CORE (01_Java_Core/)
@@ -169,7 +169,7 @@
 
 - [ ] Data Contracts: calidad en origen vs en destino, shift-left
 - [ ] Data Mesh: domain-oriented distributed data, federated governance
-- [ ] Lakehouse Architecture: Iceberg vs Delta Lake vs Hudi
+- [x] Lakehouse Architecture: Iceberg vs Delta Lake vs Hudi
 - [ ] Real-time Analytics: ClickHouse, Druid o Pinot con Java
 - [ ] Data Lineage y catalogo: Apache Atlas, DataHub, OpenLineage
 - [ ] Feature Stores: Feast, Tecton, MLflow para ML en produccion
