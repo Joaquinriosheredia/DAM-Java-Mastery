@@ -1,9 +1,9 @@
 # INVENTARIO MAESTRO DE ACTIVOS TECNICOS
 ## DAM-Java-Mastery — Staff Engineer Portfolio
 
-**Ultima sincronizacion:** 2026-07-04 12:08:23
-**Ultimo commit:** 3f09667 feat(net): kernel bypass io_uring and modern networking staff v4.0 - hito 137 (3 seconds ago)
-**Total de activos:** 147 documentos tecnicos
+**Ultima sincronizacion:** 2026-07-07 10:39:34
+**Ultimo commit:** dba3a85 feat(devops): kubernetes operators and control loops staff v4.0 - hito 138 (4 seconds ago)
+**Total de activos:** 148 documentos tecnicos
 **Repositorio:** github.com/Joaquinriosheredia/DAM-Java-Mastery
 
 ---
@@ -16,7 +16,7 @@
 | **02_Arquitectura** | 40 | 68 | — |
 | **03_Spring_Ecosystem** | 7 | 25 | — |
 | **04_Bases_de_Datos** | 7 | 19 | — |
-| **05_SRE_DevOps** | 22 | 45 | — |
+| **05_SRE_DevOps** | 23 | 46 | — |
 | **06_Seguridad** | 9 | 15 | — |
 | **07_BigData_Streaming** | 11 | 24 | — |
 | **08_IA_Agentes** | 8 | 14 | — |
@@ -121,6 +121,7 @@
 - [Infraestructura como Código (IaC) con AWS CDK y Java 21: Arquitectura ](05_SRE_DevOps/iac_aws_cdk_java_21_STAFF.md) — 2026-04-17 14:31 (40.8KB)
 - [Kubernetes Auto-Escalado y Service Mesh en 2026: HPA, VPA, KEDA e Isti](05_SRE_DevOps/kubernetes_auto-escalado_service_mesh_2026_STAFF.md) — 2026-05-03 18:23 (43.2KB)
 - [Networking en Kubernetes: Pods, Services e Ingress con Java 21 — Guía ](05_SRE_DevOps/kubernetes_networking_pods_services_ingress_STAFF.md) — 2026-05-04 09:18 (34.1KB)
+- [Kubernetes Operators y Control Loops en Java 21: Automatización Declar](05_SRE_DevOps/kubernetes_operators_control_loops_STAFF.md) — 2026-07-07 10:39 (22.2KB)
 - [Kubernetes Troubleshooting en Producción con Java 21: Diagnóstico, Mét](05_SRE_DevOps/kubernetes_troubleshooting_production_STAFF.md) — 2026-05-03 08:26 (34.7KB)
 - [Linux Gestión Avanzada de Procesos, Scheduling y Señales en Sistemas P](05_SRE_DevOps/linux_gestion_avanzada_de_procesos_scheduling_y_senales_en_sistemas_productivos_STAFF.md) — 2026-04-17 14:52 (34.5KB)
 - [Observabilidad Distribuida en Spring Boot 3.4 con OpenTelemetry y Graf](05_SRE_DevOps/observabilidad_metricas_trazas_STAFF.md) — 2026-04-25 09:08 (31.0KB)
@@ -205,12 +206,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Total documentos tecnicos | 147 |
+| Total documentos tecnicos | 148 |
 | Tamano total del repositorio | 4.7MB |
 | Modulos activos | 10 |
-| Total commits | 715 |
+| Total commits | 718 |
 | Generado por | Authority Engine v21.0 |
-| Fecha | 2026-07-04 12:08:23 |
+| Fecha | 2026-07-07 10:39:34 |
 
 ---
 
