@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Joaquín Ríos Heredia — Backend / AI Engineer</title>
 
-<meta name="description" content="Java Backend Engineer (Java 21) especializado en sistemas distribuidos, IA local y Cloud AWS. Portfolio con 10 labs ejecutables, +90 guías Staff y contribuciones open source.">
+<meta name="description" content="Java Backend Engineer (Java 21) especializado en sistemas distribuidos, IA local y Cloud AWS. Portfolio con 10 labs ejecutables, +150 guías Staff y contribuciones open source.">
 <meta name="keywords" content="Java 21, Spring Boot, Kubernetes, Kafka, AWS, AI Engineer, Distributed Systems, Backend, Staff Engineer, Testcontainers">
 <meta name="author" content="Joaquín Ríos Heredia">
 <meta name="robots" content="index, follow">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://joaquinriosheredia.github.io/DAM-Java-Mastery/">
 <meta property="og:title" content="Joaquín Ríos Heredia — Java Backend Engineer (Java 21)">
-<meta property="og:description" content="10 Java Production Labs · +90 guías Staff Engineer · AI & Distributed Systems · Open Source Contributor">
+<meta property="og:description" content="10 Java Production Labs · +150 guías Staff Engineer · AI & Distributed Systems · Open Source Contributor">
 <meta property="og:locale" content="es_ES">
 
 <meta name="theme-color" content="#020617">
@@ -1552,7 +1552,7 @@ code {
       </div>
       <div class="hero-divider" aria-hidden="true"></div>
       <div class="hero-stat">
-        <div class="hero-stat-num"><span class="accent">+105</span></div>
+        <div class="hero-stat-num"><span class="accent">+150</span></div>
         <div class="hero-stat-label">Docs Técnicos</div>
       </div>
       <div class="hero-divider" aria-hidden="true"></div>
@@ -2199,89 +2199,81 @@ code {
 <section id="authority" class="section" aria-labelledby="authority-title">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">AI Documentation Pipeline</div>
-      <h2 class="section-title" id="authority-title">AI Documentation Pipeline</h2>
-      <p class="section-desc">Pipeline automatizado para generación y validación de documentación técnica orientada a arquitecturas backend y sistemas distribuidos.</p>
+      <div class="section-label">Pipeline de documentación técnica orquestado con IA · Python</div>
+      <h2 class="section-title" id="authority-title">Authority Engine</h2>
+      <p class="section-desc">Pipeline multi-etapa para generar y validar documentación técnica mediante inferencia local con Ollama, investigación automatizada, scoring de calidad y publicación revisada por humano.</p>
     </div>
 
     <div class="pipeline-card reveal">
-      <p style="font-size:14px; color:var(--muted); line-height:1.6; max-width:720px; margin-bottom:24px;">
-        Combina análisis estructural, validación de código y despliegue automatizado en AWS.
-        Detección de afirmaciones no verificadas → marcadas como <code>[NEEDS_EVIDENCE]</code>.
-      </p>
-
       <div class="pipeline-steps" role="list" aria-label="Etapas del pipeline">
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
-            <div class="pipeline-icon-wrap" aria-hidden="true">📄</div>
-            <div class="pipeline-step-label">Input</div>
-            <div class="pipeline-step-desc">Documento Staff .md / .adoc</div>
-          </div>
-        </div>
-        <div class="pipeline-step" role="listitem">
-          <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">🐍</div>
-            <div class="pipeline-step-label">Parser</div>
-            <div class="pipeline-step-desc">Authority Core Python + Lark</div>
+            <div class="pipeline-step-label">Pipeline</div>
+            <div class="pipeline-step-desc">Python · procesamiento multi-etapa · automatización</div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">🧠</div>
-            <div class="pipeline-step-label">IA Local</div>
-            <div class="pipeline-step-desc">Ollama + Qwen 7B GPU consumer</div>
+            <div class="pipeline-step-label">IA local</div>
+            <div class="pipeline-step-desc">Ollama · Qwen 2.5 7B</div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">🔍</div>
             <div class="pipeline-step-label">Investigar</div>
-            <div class="pipeline-step-desc">Tavily API + Code Search</div>
+            <div class="pipeline-step-desc">Contexto técnico · fuentes externas · code search</div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">⚖️</div>
-            <div class="pipeline-step-label">Auditar</div>
-            <div class="pipeline-step-desc">mvn verify + tests compilación real</div>
+            <div class="pipeline-step-label">Quality Gate</div>
+            <div class="pipeline-step-desc">Scoring por sección · bloqueo de contenido que no alcanza los umbrales de calidad</div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
-            <div class="pipeline-icon-wrap" aria-hidden="true">🎨</div>
-            <div class="pipeline-step-label">Render</div>
-            <div class="pipeline-step-desc">Markdown + Mermaid · Jinja2</div>
+            <div class="pipeline-icon-wrap" aria-hidden="true">👤</div>
+            <div class="pipeline-step-label">Revisión</div>
+            <div class="pipeline-step-desc">Refinamiento humano antes de la publicación</div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">🚀</div>
             <div class="pipeline-step-label">Publicar</div>
-            <div class="pipeline-step-desc">AWS Lambda + S3 + GitHub Actions</div>
+            <div class="pipeline-step-desc">Generación y actualización automatizada del repositorio de documentación</div>
           </div>
         </div>
       </div>
 
+      <h3 style="font-size:15px; font-weight:700; color:#fff; margin-top:8px;">Evidencia de ingeniería</h3>
       <div class="pipeline-metrics">
         <div class="pipeline-metric">
-          <div class="pipeline-metric-val">+105</div>
-          <div class="pipeline-metric-desc">Documentos técnicos generados</div>
+          <div class="pipeline-metric-val">73 tests</div>
+          <div class="pipeline-metric-desc">Tests unitarios sobre la lógica de decisión central: scoring, clasificación, enrutamiento de secciones y generación de inventario.</div>
         </div>
         <div class="pipeline-metric">
-          <div class="pipeline-metric-val">mvn verify</div>
-          <div class="pipeline-metric-desc">Validación automática antes de publicar</div>
+          <div class="pipeline-metric-val">Auditoría de comportamiento</div>
+          <div class="pipeline-metric-desc">3 discrepancias de comportamiento identificadas y reproducidas mediante tests durante la fase de regresión; 2 corregidas y 1 documentada explícitamente como decisión del contrato de clasificación.</div>
         </div>
         <div class="pipeline-metric">
-          <div class="pipeline-metric-val">~$0.03</div>
-          <div class="pipeline-metric-desc">Coste operativo estimado por documento</div>
+          <div class="pipeline-metric-val">Fiabilidad</div>
+          <div class="pipeline-metric-desc">Aislamiento de grupos de procesos y timeouts para evitar procesos huérfanos en cadenas de subprocesos.</div>
         </div>
         <div class="pipeline-metric">
-          <div class="pipeline-metric-val">SBOM</div>
-          <div class="pipeline-metric-desc">Firma de artefactos automática con Cosign</div>
+          <div class="pipeline-metric-val">Reproducibilidad</div>
+          <div class="pipeline-metric-desc">Dependencias fijadas y resolución de rutas independiente del entorno, sin rutas específicas del entorno codificadas.</div>
         </div>
       </div>
 
-      <div style="text-align:center; margin-top:28px;">
+      <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; margin-top:28px;">
+        <a class="lab-link" href="https://github.com/Joaquinriosheredia/authority-engine" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;">
+          Ver código en GitHub <span class="lab-link-arrow" aria-hidden="true">→</span>
+        </a>
         <a class="lab-link" href="https://joaquinriosheredia.github.io/DAM-Java-Mastery" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;">
           Ver documentación generada <span class="lab-link-arrow" aria-hidden="true">→</span>
         </a>
@@ -2392,7 +2384,6 @@ code {
         </div>
         <div class="stack-items">
           <div class="stack-item">Async/Await</div>
-          <div class="stack-item">Lark Parser</div>
           <div class="stack-item">boto3</div>
         </div>
       </div>
@@ -2415,7 +2406,6 @@ code {
           <span class="stack-name">AWS</span>
         </div>
         <div class="stack-items">
-          <div class="stack-item">Lambda</div>
           <div class="stack-item">S3</div>
           <div class="stack-item">boto3</div>
         </div>
