@@ -2426,8 +2426,8 @@ code {
         <a class="lab-link" href="https://github.com/Joaquinriosheredia/authority-engine" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;" data-i18n="authority.26">
           Ver código en GitHub <span class="lab-link-arrow" aria-hidden="true">→</span>
         </a>
-        <a class="lab-link" href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;" data-i18n="authority.27">
-          Ver documentación generada (<span data-k>148</span> docs) <span class="lab-link-arrow" aria-hidden="true">→</span>
+        <a class="lab-link" href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;">
+          <span data-i18n="authority.27">Ver documentación generada (<span data-k>148</span> docs)</span> <span class="lab-link-arrow" aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -2649,9 +2649,9 @@ code {
           Disponible para backend engineering, platform engineering y AI infrastructure.
           Portfolio técnico construido mediante proyectos propios y contribuciones open source.
         </p>
-        <div class="footer-availability" data-i18n="footer.3">
+        <div class="footer-availability">
           <span class="status-dot" aria-hidden="true"></span>
-          Freelance inmediato · Full-time · <span data-k>100%</span> Remoto / Presencial Sevilla o Málaga
+          <span data-i18n="footer.3">Freelance inmediato · Full-time · <span data-k>100%</span> Remoto / Presencial Sevilla o Málaga</span>
         </div>
       </div>
       <div class="footer-links">
@@ -2840,7 +2840,7 @@ code {
   "authority.24": "Rutas resueltas desde {0}, con overrides por variables de entorno ({1}).",
   "authority.25": "Scripts Python locales que se invocan a mano: sin despliegue en la nube ni servicio en producción.",
   "authority.26": "Ver código en GitHub <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
-  "authority.27": "Ver documentación generada ({0} docs) <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "authority.27": "Ver documentación generada ({0} docs)",
   "opensource.1": "Contribuciones",
   "opensource.3": "Contribuciones a proyectos activos con miles de estrellas. Código mergeado en producción.",
   "opensource.6": "fix(lint): replace magic values with named constants in deps.py — Resuelve violaciones {0} de ruff en el backend FastAPI",
@@ -2858,7 +2858,7 @@ code {
   "stack.29": "Multi-Agente",
   "footer.1": "Construyamos algo<br>impresionante.",
   "footer.2": "Disponible para backend engineering, platform engineering y AI infrastructure. Portfolio técnico construido mediante proyectos propios y contribuciones open source.",
-  "footer.3": "<span class=\"status-dot\" aria-hidden=\"true\"><\/span> Freelance inmediato · Full-time · {0} Remoto / Presencial Sevilla o Málaga",
+  "footer.3": "Freelance inmediato · Full-time · {0} Remoto / Presencial Sevilla o Málaga",
   "footer.4": "✉️ Contactar",
   "nav.9.aria-label": "Navegación principal",
   "nav.10.aria-label": "Inicio",
@@ -3057,7 +3057,7 @@ code {
   "authority.24": "Paths resolved from {0}, with environment-variable overrides ({1}).",
   "authority.25": "Local Python scripts run by hand: no cloud deployment and no production service.",
   "authority.26": "View code on GitHub <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
-  "authority.27": "View generated documentation ({0} docs) <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "authority.27": "View generated documentation ({0} docs)",
   "authority.28.aria-label": "Pipeline stages",
   "opensource.1": "Contributions",
   "opensource.3": "Contributions to active projects with thousands of stars. Merged code in production.",
@@ -3076,7 +3076,7 @@ code {
   "stack.29": "Multi-Agent",
   "footer.1": "Let's build something<br>great.",
   "footer.2": "Available for backend engineering, platform engineering and AI infrastructure. Technical portfolio built from my own projects and open-source contributions.",
-  "footer.3": "<span class=\"status-dot\" aria-hidden=\"true\"><\/span> Freelance available immediately · Full-time · {0} remote / on-site in Seville or Málaga",
+  "footer.3": "Freelance available immediately · Full-time · {0} remote / on-site in Seville or Málaga",
   "footer.4": "✉️ Contact",
   "meta.title": "Joaquín Ríos Heredia — Backend / AI Engineer",
   "meta.description": "Java Backend Engineer (Java {0}) specialized in distributed systems, local AI and AWS cloud. Portfolio with {1} runnable labs, {2} Staff-level guides, vibe-guard (Java + Python), JARVIS and open-source contributions.",
@@ -3192,7 +3192,12 @@ code {
 })();
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
+<script type="module">
+  // Build modular de Three.js (versión fijada). Sin import map: un solo import con URL completa.
+  import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js';
+  window.THREE = THREE;
+  window.dispatchEvent(new Event('three:ready'));
+</script>
 <!-- GSAP + ScrollTrigger from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -3287,16 +3292,32 @@ if (!prefersReducedMotion) {
   const canvas = document.getElementById('hero-canvas');
   const fallback = document.getElementById('hero-fallback');
 
-  // WebGL support check
+  // Fallback visible hasta que el 3D pinte: cubre sin WebGL, Three.js sin cargar
+  // (CDN caído o bloqueado) y error al crear el renderer o compilar shaders.
+  // visibility (no display) para que el canvas conserve su tamaño al crear el renderer.
+  canvas.style.visibility = 'hidden';
+  fallback.style.display = 'block';
+
   try {
     const testCanvas = document.createElement('canvas');
-    const gl = testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl');
-    if (!gl) throw new Error('no webgl');
-  } catch(e) {
-    canvas.style.display = 'none';
-    fallback.style.display = 'block';
+    if (!(testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl'))) return;
+  } catch (e) {
     return;
   }
+
+  if (window.THREE) start();
+  else window.addEventListener('three:ready', start, { once: true });
+
+  function start() {
+    try {
+      startScene();
+    } catch (e) {
+      canvas.style.display = 'none';
+      fallback.style.display = 'block';
+    }
+  }
+
+  function startScene() {
 
   // Scene setup
   const scene = new THREE.Scene();
@@ -3306,13 +3327,15 @@ if (!prefersReducedMotion) {
   const camera = new THREE.PerspectiveCamera(65, W / H, 0.1, 200);
   camera.position.set(0, 0, 55);
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' });
+  // Móvil: menos nodos, sin antialias, pixel ratio ≤ 1.5 y 30 fps (el scroll iba a ~35 fps con CPU ×4)
+  const isMobile = window.innerWidth < 768;
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile, alpha: false, powerPreference: isMobile ? 'low-power' : 'high-performance' });
   renderer.setSize(W, H);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
   renderer.setClearColor(0x020617, 1);
 
   // ── CONSTANTS ──
-  const NODE_COUNT      = window.innerWidth < 768 ? 900 : 2000;
+  const NODE_COUNT      = isMobile ? 600 : 2000;
   const SPREAD          = 60;
   const CONNECTION_DIST = 8.5;
   const MAX_CONNECTIONS = 3500;
@@ -3357,7 +3380,6 @@ if (!prefersReducedMotion) {
     uniforms: { time: { value: 0 } },
     vertexShader: `
       attribute float size;
-      attribute vec3 color;
       varying vec3 vColor;
       varying float vAlpha;
       uniform float time;
@@ -3514,8 +3536,10 @@ if (!prefersReducedMotion) {
 
   // ── SCROLL TRANSFORM ──
   let scrollRatio = 0;
+  const heroEl = document.querySelector('.hero');
+  let heroH = heroEl.offsetHeight;
+  window.addEventListener('resize', () => { heroH = heroEl.offsetHeight; }, { passive: true });
   window.addEventListener('scroll', () => {
-    const heroH = document.querySelector('.hero').offsetHeight;
     scrollRatio = Math.min(1, window.scrollY / heroH);
   }, { passive: true });
 
@@ -3526,8 +3550,15 @@ if (!prefersReducedMotion) {
   function animate(time) {
     const id = requestAnimationFrame(animate);
 
-    // Throttle to ~60fps
-    if (time - lastTime < 14) return;
+    // Throttle: ~60fps en escritorio, ~30fps en móvil
+    if (time - lastTime < (isMobile ? 30 : 14)) return;
+
+    // Hero fuera de vista (opacidad 0): no renderizar
+    const heroAlpha = Math.max(0, 1 - scrollRatio * 2.5);
+    if (heroAlpha === 0) {
+      if (renderer.domElement.style.opacity !== '0') renderer.domElement.style.opacity = 0;
+      return;
+    }
     lastTime = time;
 
     const t = time * 0.001;
@@ -3552,7 +3583,6 @@ if (!prefersReducedMotion) {
     pulsesMesh.rotation.x = nodesMesh.rotation.x;
 
     // Scroll fade-out
-    const heroAlpha = Math.max(0, 1 - scrollRatio * 2.5);
     renderer.domElement.style.opacity = heroAlpha;
 
     // Pulse update
@@ -3580,11 +3610,18 @@ if (!prefersReducedMotion) {
     if (document.hidden) lastTime = -Infinity;
   });
 
+  // Primer frame (lanza si un shader no compila) antes de sustituir el fallback
+  renderer.render(scene, camera);
+  if (renderer.debug.checkShaderErrors && renderer.info.programs.some(p => p.diagnostics && !p.diagnostics.runnable)) {
+    throw new Error('shader error');
+  }
+  canvas.style.visibility = '';
+  fallback.style.display = 'none';
+
   if (!prefersReducedMotion) {
     requestAnimationFrame(animate);
-  } else {
-    // Static render for reduced motion
-    renderer.render(scene, camera);
+  }
+  // prefers-reduced-motion: se queda el frame estático
   }
 })();
 
