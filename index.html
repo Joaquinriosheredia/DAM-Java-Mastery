@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Joaquín Ríos Heredia — Backend / AI Engineer</title>
 
-<meta name="description" content="Java Backend Engineer (Java 21) especializado en sistemas distribuidos, IA local y Cloud AWS. Portfolio con 10 labs ejecutables, +150 guías Staff y contribuciones open source.">
+<meta name="description" content="Java Backend Engineer (Java 21) especializado en sistemas distribuidos, IA local y Cloud AWS. Portfolio con 10 labs ejecutables, 148 guías Staff, vibe-guard (Java + Python), JARVIS y contribuciones open source.">
 <meta name="keywords" content="Java 21, Spring Boot, Kubernetes, Kafka, AWS, AI Engineer, Distributed Systems, Backend, Staff Engineer, Testcontainers">
 <meta name="author" content="Joaquín Ríos Heredia">
 <meta name="robots" content="index, follow">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://joaquinriosheredia.github.io/DAM-Java-Mastery/">
 <meta property="og:title" content="Joaquín Ríos Heredia — Java Backend Engineer (Java 21)">
-<meta property="og:description" content="10 Java Production Labs · +150 guías Staff Engineer · AI & Distributed Systems · Open Source Contributor">
+<meta property="og:description" content="10 Java Production Labs · 148 guías Staff Engineer · vibe-guard · JARVIS · AI & Distributed Systems · Open Source Contributor">
 <meta property="og:locale" content="es_ES">
 
 <meta name="theme-color" content="#020617">
@@ -1412,6 +1412,30 @@ footer {
 /* ═══════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════
+   REPO CARDS (repos secundarios)
+═══════════════════════════════════════════ */
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+.repo-card {
+  display: block;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.3s, transform 0.3s var(--ease-out-expo);
+}
+.repo-card:hover { border-color: var(--border-hi); transform: translateY(-3px); }
+.repo-card-name { font-family: var(--font-mono); font-weight: 700; color: #fff; margin-bottom: 8px; }
+.repo-card-desc { font-size: 14px; color: var(--text-2); line-height: 1.6; }
+.repo-card-meta { margin-top: 12px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
 @media (max-width: 1024px) {
   .npm-hero { grid-template-columns: 1fr; }
   .jarvis-grid { grid-template-columns: 1fr; }
@@ -1497,7 +1521,7 @@ code {
   </a>
 
   <ul class="nav-links" id="nav-links" role="list">
-    <li><a href="#devtools">DevTools</a></li>
+    <li><a href="#devtools">vibe-guard</a></li>
     <li><a href="#labs">Labs</a></li>
     <li><a href="#jarvis">JARVIS</a></li>
     <li><a href="#authority">Pipeline</a></li>
@@ -1552,7 +1576,7 @@ code {
       </div>
       <div class="hero-divider" aria-hidden="true"></div>
       <div class="hero-stat">
-        <div class="hero-stat-num"><span class="accent">+150</span></div>
+        <div class="hero-stat-num"><span class="accent">148</span></div>
         <div class="hero-stat-label">Docs Técnicos</div>
       </div>
       <div class="hero-divider" aria-hidden="true"></div>
@@ -1611,17 +1635,225 @@ code {
   </div>
 </section>
 
-<!-- ═══════════════ DEVTOOLS ═══════════════ -->
+<!-- ═══════════════ VIBE-GUARD ═══════════════ -->
 <div class="section-separator" aria-hidden="true"></div>
 <section id="devtools" class="section" aria-labelledby="devtools-title">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">DevTools Publicadas</div>
-      <h2 class="section-title" id="devtools-title">Tooling Open Source</h2>
-      <p class="section-desc">Herramientas open source para el ecosistema Java. Diagnóstico de entornos Testcontainers, análisis estático de anti-patrones Spring Boot y MCP server integrado nativamente en Claude Code.</p>
+      <div class="section-label">Producto propio · Java + Python</div>
+      <h2 class="section-title" id="devtools-title">vibe-guard</h2>
+      <p class="section-desc">Detecta patrones que pueden pasar los tests y fallar en producción, sobre todo bajo carga, en backends <strong>Java/Spring</strong> y <strong>Python async</strong>. Son frecuentes en código generado con IA, pero no detecta autoría ni lo intenta. Cada hallazgo separa detección, impacto (medido o «documented mechanism») y reproducción. Estado actual: <strong>Fase 1 del roadmap, fiabilidad y precisión</strong>.</p>
     </div>
 
+    <!-- Arquitectura -->
     <div class="npm-hero reveal">
+      <div class="npm-glow-corner" aria-hidden="true"></div>
+      <div>
+        <div class="npm-title-row">
+          <span class="npm-icon-big" aria-hidden="true">🧭</span>
+          <span class="npm-pkg-name">vibe-guard scan</span>
+        </div>
+        <p class="npm-desc">
+          Un comando para los dos motores: detecta qué lenguajes hay en el árbol, ejecuta cada motor con su CLI publicada y da un solo informe (texto, JSON común <code>schemaVersion 1</code> o SARIF 2.1.0 con un run por motor) y un solo exit code. El SARIF de dos runs se probó en GitHub Code Scanning.
+        </p>
+        <div class="npm-badges">
+          <span class="npm-badge">🔒 vibe-guard-scan 0.2.0 · privado, no publicado</span>
+          <span class="npm-badge">🔒 vibe-guard · repo privado de coordinación (estado, decisiones, pre-registros)</span>
+          <span class="npm-badge">✅ Exclusiones por defecto de tests/fixtures/examples fuera de las raíces de código</span>
+          <span class="npm-badge">✅ La decisión de salida se recalcula con los hallazgos normalizados</span>
+        </div>
+      </div>
+
+      <div class="npm-result-card">
+        <div class="npm-terminal-header">
+          <span class="terminal-dot red" aria-hidden="true"></span>
+          <span class="terminal-dot yellow" aria-hidden="true"></span>
+          <span class="terminal-dot green" aria-hidden="true"></span>
+          <span class="terminal-title">arquitectura</span>
+        </div>
+        <div class="terminal-output" role="region" aria-label="Arquitectura de vibe-guard">
+          <div><span class="t-prompt">$</span> vibe-guard scan .</div>
+          <div>&nbsp;</div>
+          <div><span class="t-key">hay .java →</span> <span class="t-val">java-vibe-guard 2.4.0</span> <span class="t-comment">(npm)</span></div>
+          <div><span class="t-comment">            CLI Node, reglas por regex + --verify</span></div>
+          <div><span class="t-key">hay .py   →</span> <span class="t-val">pyvibe 0.14.0</span> <span class="t-comment">(PyPI)</span></div>
+          <div><span class="t-comment">            AST, PYVIBE-001…020</span></div>
+          <div>&nbsp;</div>
+          <div><span class="t-key">→</span> texto · JSON común · SARIF (2 runs)</div>
+          <div>&nbsp;</div>
+          <div><span class="t-comment"># Aparte, sin pasar por el wrapper:</span></div>
+          <div><span class="t-val">java-vibe-guard MCP</span> <span class="t-comment">(jar 2.0.0, VIBE-001…007)</span></div>
+          <div><span class="t-comment">  → analyzeProject dentro de Claude Code</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- java-vibe-guard -->
+    <div class="npm-hero reveal" style="background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(20,10,42,0.8) 100%); border-color: rgba(139,92,246,0.25); margin-top: 32px;">
+      <div class="npm-glow-corner" style="background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);" aria-hidden="true"></div>
+
+      <div>
+        <div class="npm-title-row">
+          <span class="npm-icon-big" aria-hidden="true">🛡️</span>
+          <span class="npm-pkg-name" style="color: #a78bfa;">java-vibe-guard</span>
+        </div>
+        <p class="npm-desc">
+          Motor Java/Spring Boot con dos motores distintos: un <strong style="color: #a78bfa;">CLI</strong> en Node (reglas por regex y heurísticas de contexto, sin AST ni resolución de tipos), con <code>--verify</code> y GitHub Action con SARIF, y un <strong style="color: #a78bfa;">servidor MCP</strong> en Spring Boot que expone <code>analyzeProject</code> como herramienta de Claude Code. npm 2.4.0 · jar MCP 2.0.0 · MIT.
+        </p>
+        <div class="npm-install-block" style="display: flex; flex-direction: column; gap: 8px;">
+          <div><span class="npm-install-prefix">$</span> npx java-vibe-guard ./your-spring-project</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.85em; color: var(--text-2);">
+            - uses: Joaquinriosheredia/java-vibe-guard@v2
+          </div>
+        </div>
+        <div class="npm-badges">
+          <span class="npm-badge">🛡️ CLI por defecto: blocking · blocking-kafka · reactor-block · kafka-send-timeout · transactions · layers · kafka</span>
+          <span class="npm-badge">🛡️ Opt-in: observability · async-returns-pending-future</span>
+          <span class="npm-badge">✅ MCP: 7 reglas (VIBE-001…007) · 148 tests</span>
+          <span class="npm-badge">✅ <code>--verify VIBE-001</code> reproduce el fallo en Spring Boot + PostgreSQL reales, en CI</span>
+          <span class="npm-badge">🧪 Experimentos pre-registrados: blocking · blocking-kafka · reactor-block</span>
+          <span class="npm-badge">📋 Los 3 candidatos «Found in the Wild» se retiraron tras auditoría contextual</span>
+        </div>
+        <div class="npm-links">
+          <a href="https://github.com/Joaquinriosheredia/java-vibe-guard" target="_blank" rel="noopener" class="npm-link blue">⭐ GitHub →</a>
+          <a href="https://www.npmjs.com/package/java-vibe-guard" target="_blank" rel="noopener" class="npm-link green">📦 npm →</a>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="npm-result-card" style="border-color: rgba(139,92,246,0.15);">
+          <div class="npm-terminal-header">
+            <span class="terminal-dot red" aria-hidden="true"></span>
+            <span class="terminal-dot yellow" aria-hidden="true"></span>
+            <span class="terminal-dot green" aria-hidden="true"></span>
+            <span class="terminal-title">medido en experimentos pre-registrados</span>
+          </div>
+          <div class="terminal-output" role="region" aria-label="Resultados medidos">
+            <div><span class="t-prompt">$</span> npx java-vibe-guard --verify VIBE-001</div>
+            <div><span class="t-pass">✓</span> <span class="t-label">pool HikariCP</span> <span class="t-val">≥ 95 % ocupado</span></div>
+            <div><span class="t-pass">✓</span> <span class="t-label">peticiones esperando conexión</span></div>
+            <div><span class="t-pass">✓</span> <span class="t-label">p95</span> <span class="t-val">≥ 800 ms</span></div>
+            <div>&nbsp;</div>
+            <div><span class="t-comment"># .toFuture().get() en el event loop (WebFlux)</span></div>
+            <div><span style="color:var(--danger)">✗</span> <span class="t-label">deadlock en 15/15 runs</span> <span class="t-val">0 respuestas</span></div>
+            <div>&nbsp;</div>
+            <div><span class="t-comment"># bloqueo en @KafkaListener, &gt; 600 ms/registro</span></div>
+            <div><span style="color:var(--danger)">✗</span> <span class="t-label">bucle de reprocesado</span> <span class="t-val">0 records/s, ~10 entregas c/u</span></div>
+          </div>
+        </div>
+
+        <div class="npm-result-card" style="border-color: rgba(139,92,246,0.15);">
+          <div class="npm-terminal-header">
+            <span class="terminal-dot red" aria-hidden="true"></span>
+            <span class="terminal-dot yellow" aria-hidden="true"></span>
+            <span class="terminal-dot green" aria-hidden="true"></span>
+            <span class="terminal-title">validate-public · CLI 2.0.0, commits fijados</span>
+          </div>
+          <div class="terminal-output" role="region" aria-label="Validación pública">
+            <div><span class="t-pass">✓</span> <span class="t-label">eugenp/tutorials</span> <span class="t-val">29,141 files</span></div>
+            <div><span class="t-pass">✓</span> <span class="t-label">spring-petclinic</span> <span class="t-val">77 files</span></div>
+            <div><span class="t-label">2,856 hallazgos</span> <span class="t-comment">· 20 critical · 220 major · 2,616 warning</span></div>
+            <div>&nbsp;</div>
+            <div><span class="t-comment"># Hallazgos reportados, no bugs confirmados:</span></div>
+            <div><span class="t-comment"># sin auditoría de precisión. No re-ejecutado con 2.4.0.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- python-vibe-guard -->
+    <div class="npm-hero reveal" style="background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(7,17,42,0.8) 100%); border-color: rgba(59,130,246,0.25); margin-top: 32px;">
+      <div class="npm-glow-corner" style="background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);" aria-hidden="true"></div>
+
+      <div>
+        <div class="npm-title-row">
+          <span class="npm-icon-big" aria-hidden="true">🐍</span>
+          <span class="npm-pkg-name" style="color: var(--primary);">python-vibe-guard</span>
+        </div>
+        <p class="npm-desc">
+          Motor Python (<code>pyvibe</code>): análisis AST puro con 20 reglas en tres familias, bloqueo del event loop, mal uso del ciclo de vida async y riesgos de concurrencia y estado. Busca patrones de código, no autoría. PyPI 0.14.0 · MIT.
+        </p>
+        <div class="npm-install-block">
+          <span class="npm-install-prefix">$</span>
+          pip install python-vibe-guard
+        </div>
+        <div class="npm-badges">
+          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);">🔍 20 reglas · PYVIBE-001…020</span>
+          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);">⚖️ Severidad por ruta: CRITICAL → WARNING en tests, scripts y examples</span>
+          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);">🔧 SARIF · baseline · <code>pyvibe explain</code> · <code>pyvibe audit</code> · pre-commit</span>
+          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);">⚙️ GitHub Action propia con subida a Code Scanning</span>
+        </div>
+        <div class="npm-links">
+          <a href="https://github.com/Joaquinriosheredia/python-vibe-guard" target="_blank" rel="noopener" class="npm-link blue">⭐ GitHub →</a>
+          <a href="https://pypi.org/project/python-vibe-guard/" target="_blank" rel="noopener" class="npm-link green">📦 PyPI →</a>
+          <a href="https://joaquinriosheredia.github.io/vibeguard-landing/" target="_blank" rel="noopener" class="npm-link green">🌐 Landing →</a>
+        </div>
+      </div>
+
+      <div class="npm-result-card" style="border-color: rgba(59,130,246,0.15);">
+        <div class="npm-terminal-header">
+          <span class="terminal-dot red" aria-hidden="true"></span>
+          <span class="terminal-dot yellow" aria-hidden="true"></span>
+          <span class="terminal-dot green" aria-hidden="true"></span>
+          <span class="terminal-title">precisión pre-registrada · test-corpus-1</span>
+        </div>
+        <div class="terminal-output" role="region" aria-label="Precisión medida">
+          <div><span class="t-comment"># python-vibe-guard 0.13.0 · 2026-10-14</span></div>
+          <div><span class="t-label">Precisión CRITICAL</span> <span class="t-val">0.7067</span></div>
+          <div><span class="t-label">Wilson 95 %</span> <span class="t-val">0.6294 – 0.7736</span></div>
+          <div><span class="t-label">Revisados</span> <span class="t-val">n = 150</span></div>
+          <div><span class="t-label">Objetivo</span> <span class="t-val">≥ 90 %</span> <span style="color:var(--danger)">✗ no cumplido</span></div>
+          <div>&nbsp;</div>
+          <div><span class="t-comment"># Probablemente optimista: 129 de 150 veredictos</span></div>
+          <div><span class="t-comment"># vienen de una primera revisión IA no verificada.</span></div>
+          <div><span class="t-comment"># Los arreglos de 0.14.0 se diseñaron mirando este</span></div>
+          <div><span class="t-comment"># corpus → ahora es corpus de desarrollo.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- vibe-guard-evaluation -->
+    <div class="npm-hero reveal" style="margin-top: 32px;">
+      <div class="npm-glow-corner" aria-hidden="true"></div>
+      <div>
+        <div class="npm-title-row">
+          <span class="npm-icon-big" aria-hidden="true">📐</span>
+          <span class="npm-pkg-name">vibe-guard-evaluation</span>
+        </div>
+        <p class="npm-desc">
+          Evaluaciones pre-registradas de los dos motores sobre repositorios nunca usados para ajustar sus reglas. Cada evaluación empieza con un <code>PREREGISTRATION.md</code> commiteado antes de buscar, seleccionar o ejecutar nada; las desviaciones van a <code>DEVIATIONS.md</code>. El código de terceros se cita por repositorio, commit fijado y archivo:línea.
+        </p>
+        <div class="npm-badges">
+          <span class="npm-badge">✗ test-corpus-1: ambos criterios pre-registrados NO cumplidos</span>
+          <span class="npm-badge">⏳ test-corpus-2: precisión por lenguaje, versiones congeladas, sin resultados todavía</span>
+          <span class="npm-badge">✅ Scripts de evaluación con tests (<code>node --test</code>) · MIT</span>
+        </div>
+        <div class="npm-links">
+          <a href="https://github.com/Joaquinriosheredia/vibe-guard-evaluation" target="_blank" rel="noopener" class="npm-link blue">⭐ GitHub →</a>
+        </div>
+      </div>
+
+      <div class="npm-result-card">
+        <div class="npm-terminal-header">
+          <span class="terminal-dot red" aria-hidden="true"></span>
+          <span class="terminal-dot yellow" aria-hidden="true"></span>
+          <span class="terminal-dot green" aria-hidden="true"></span>
+          <span class="terminal-title">test-corpus-1 · RESULTS.md</span>
+        </div>
+        <div class="terminal-output" role="region" aria-label="Resultados test-corpus-1">
+          <div><span class="t-comment"># Criterio 1 · precisión CRITICAL ≥ 90 %</span></div>
+          <div><span style="color:var(--danger)">✗</span> <span class="t-label">medido</span> <span class="t-val">0.7067</span></div>
+          <div>&nbsp;</div>
+          <div><span class="t-comment"># Criterio 2 · ruido por 1.000 archivos</span></div>
+          <div><span class="t-comment">#   límite: ≤ 5 CRITICAL y ≤ 20 WARNING</span></div>
+          <div><span style="color:var(--danger)">✗</span> <span class="t-label">Python</span> <span class="t-val">42.071 CRITICAL · 110.111 WARNING</span></div>
+          <div><span class="t-warn">⚠</span> <span class="t-label">Java</span> <span class="t-val">0.044 · 0.967</span> <span class="t-comment">(un solo CRITICAL)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- testcontainers-doctor -->
+    <div class="npm-hero reveal" style="margin-top: 32px;">
       <div class="npm-glow-corner" aria-hidden="true"></div>
 
       <div>
@@ -1630,23 +1862,19 @@ code {
           <span class="npm-pkg-name">testcontainers-doctor</span>
         </div>
         <p class="npm-desc">
-          CLI para diagnosticar entornos Testcontainers en segundos. Reduce el tiempo de diagnóstico de horas a segundos con 19 checks automáticos.
+          CLI que diagnostica el entorno de Testcontainers en unos segundos y dice qué falla y cómo arreglarlo. Es el preflight de <code>java-vibe-guard --verify</code>, que lo trae como dependencia npm. npm 1.0.0 · MIT.
         </p>
         <div class="npm-install-block">
           <span class="npm-install-prefix">$</span>
-          npm install -g testcontainers-doctor
+          npx testcontainers-doctor
         </div>
         <div class="npm-badges">
-          <span class="npm-badge">✅ 19 checks</span>
-          <span class="npm-badge">✅ Docker daemon</span>
-          <span class="npm-badge">✅ Java 21 + JAVA_HOME</span>
-          <span class="npm-badge">✅ Maven</span>
-          <span class="npm-badge">✅ PostgreSQL · Redis · Kafka · MySQL · MongoDB</span>
-          <span class="npm-badge">✅ Ryuk reaper</span>
-          <span class="npm-badge">✅ WSL2</span>
-          <span class="npm-badge">✅ JSON + exit codes CI/CD</span>
-          <span class="npm-badge">✅ Linux · macOS · WSL2</span>
-          <span class="npm-badge">✅ MIT License</span>
+          <span class="npm-badge">✅ Docker: daemon, socket, storage driver, memoria</span>
+          <span class="npm-badge">✅ Java: versión, JAVA_HOME, Maven, Gradle</span>
+          <span class="npm-badge">✅ Config: .testcontainers.properties, Ryuk, reuse</span>
+          <span class="npm-badge">✅ Red: DNS, Docker Hub, proxy</span>
+          <span class="npm-badge">✅ Entorno: WSL2, CI, ulimits, grupo docker</span>
+          <span class="npm-badge">✅ <code>--json</code> · <code>--check</code> · exit 1 si falla algún check</span>
         </div>
         <div class="npm-links">
           <a href="https://www.npmjs.com/package/testcontainers-doctor" target="_blank" rel="noopener" class="npm-link green">📦 npm →</a>
@@ -1659,152 +1887,36 @@ code {
           <span class="terminal-dot red" aria-hidden="true"></span>
           <span class="terminal-dot yellow" aria-hidden="true"></span>
           <span class="terminal-dot green" aria-hidden="true"></span>
-          <span class="terminal-title">testcontainers-doctor · WSL2 output</span>
+          <span class="terminal-title">salida real · WSL2, Docker 29 (extracto)</span>
         </div>
-        <div class="terminal-output" role="region" aria-label="Terminal output">
-          <div><span class="t-prompt">$</span> testcontainers-doctor</div>
+        <div class="terminal-output" role="region" aria-label="Salida de testcontainers-doctor">
+          <div><span class="t-prompt">$</span> npx testcontainers-doctor@1.0.0 --no-color</div>
           <div>&nbsp;</div>
-          <div><span class="t-pass">✓</span> <span class="t-label">Docker daemon</span> <span class="t-val">running</span></div>
-          <div><span class="t-pass">✓</span> <span class="t-label">Docker version</span> <span class="t-val">29.0.1</span></div>
-          <div><span class="t-pass">✓</span> <span class="t-label">JAVA_HOME</span> <span class="t-val">set · Java 21.0.2</span></div>
-          <div><span class="t-pass">✓</span> <span class="t-label">Maven</span> <span class="t-val">3.9.6</span></div>
-          <div><span class="t-pass">✓</span> <span class="t-label">Port 5432</span> <span class="t-val">available</span></div>
-          <div><span class="t-pass">✓</span> <span class="t-label">Port 6379</span> <span class="t-val">available</span></div>
-          <div><span class="t-pass">✓</span> <span class="t-label">Port 9092</span> <span class="t-val">available</span></div>
-          <div><span class="t-pass">✓</span> <span class="t-label">Ryuk reaper</span> <span class="t-val">accessible</span></div>
-          <div><span class="t-pass">✓</span> <span class="t-label">WSL2 integration</span> <span class="t-val">enabled</span></div>
-          <div><span class="t-warn">⚠</span> <span class="t-label">Buildx</span> <span class="t-val">optional plugin missing</span></div>
+          <div><span class="t-pass">✔</span> <span class="t-label">Docker daemon</span> <span class="t-val">Running (29.1.3)</span></div>
+          <div><span class="t-warn">⚠</span> <span class="t-label">Storage driver</span> <span class="t-val">overlayfs → overlay2</span></div>
+          <div><span class="t-pass">✔</span> <span class="t-label">Java version</span> <span class="t-val">major: 21</span></div>
+          <div><span class="t-pass">✔</span> <span class="t-label">Maven</span> <span class="t-val">3.8.7</span></div>
+          <div><span class="t-pass">✔</span> <span class="t-label">ryuk.disabled</span> <span class="t-val">Ryuk enabled</span></div>
+          <div><span class="t-pass">✔</span> <span class="t-label">Docker Hub</span> <span class="t-val">HTTP 401</span></div>
+          <div><span class="t-pass">✔</span> <span class="t-label">Platform</span> <span class="t-val">linux x64 (WSL2)</span></div>
           <div>&nbsp;</div>
-          <div><span class="t-pass">19 passed</span> · <span class="t-warn">1 warning</span> · <span class="t-pass">0 failed</span></div>
+          <div><span class="t-pass">19 passed</span> · <span class="t-warn">1 warnings</span> · <span class="t-pass">0 failed</span> · <span class="t-comment">8 info</span></div>
         </div>
       </div>
     </div>
 
-    <div class="npm-hero reveal" style="background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(20,10,42,0.8) 100%); border-color: rgba(139,92,246,0.25); margin-top: 32px;">
-      <div class="npm-glow-corner" style="background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);" aria-hidden="true"></div>
-
-      <div>
-        <div class="npm-title-row">
-          <span class="npm-icon-big" aria-hidden="true">🛡️</span>
-          <span class="npm-pkg-name" style="color: #a78bfa;">java-vibe-guard</span>
-        </div>
-        <p class="npm-desc">
-          Detección de anti-patrones de concurrencia, Kafka y transacciones en Spring Boot. Dos motores independientes: un
-          <strong style="color: #a78bfa;">CLI</strong> basado en heurísticas de texto — integrado como GitHub Action con
-          salida SARIF/GitHub Code Scanning — y un <strong style="color: #a78bfa;">MCP Server</strong> (Java) usable
-          directamente desde Claude Code. Ninguno de los dos usa resolución de tipos ni AST — es una limitación conocida
-          y documentada, no una capacidad oculta.
-        </p>
-        <div class="npm-install-block" style="display: flex; flex-direction: column; gap: 8px;">
-          <div>
-            <span class="npm-install-prefix">#</span>
-            GitHub Actions workflow — zero-config
-          </div>
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.85em; color: var(--text-2);">
-            - uses: Joaquinriosheredia/java-vibe-guard@v1.1.0
-          </div>
-        </div>
-        <div class="npm-badges">
-          <span class="npm-badge">✅ CLI (GitHub Action, SARIF) + MCP Server (Claude Code)</span>
-          <span class="npm-badge">✅ CLI: 8 reglas, cada una auditada contra la lógica real de detección</span>
-          <span class="npm-badge">✅ Pipeline de validación pública reproducible contra repos reales (commits fijados)</span>
-          <span class="npm-badge" style="border-color: rgba(139,92,246,0.5); background: rgba(139,92,246,0.15); color: #c084fc;">⚡ 1 hallazgo externo convertido en issue real (eugenp/tutorials #19304)</span>
-          <span class="npm-badge">🛡️ blocking / blocking-kafka — llamadas bloqueantes sin timeout</span>
-          <span class="npm-badge">🛡️ kafka / kafka-send-timeout — hazards de consumer y producer</span>
-          <span class="npm-badge">🛡️ transactions — @Transactional mal ubicado o con @Async</span>
-          <span class="npm-badge">🛡️ reactor-block — bloqueo en cadenas reactivas</span>
-          <span class="npm-badge">🛡️ layers / observability — arquitectura y trazabilidad</span>
-        </div>
-        <div class="npm-links">
-          <a href="https://github.com/Joaquinriosheredia/java-vibe-guard" target="_blank" rel="noopener" class="npm-link blue">⭐ GitHub →</a>
-          <a href="https://github.com/eugenp/tutorials/issues/19304" target="_blank" rel="noopener" class="npm-link green">🔗 Issue real: eugenp/tutorials #19304 →</a>
-        </div>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 20px;">
-        <div class="npm-result-card" style="border-color: rgba(139,92,246,0.15);">
-          <div class="npm-terminal-header">
-            <span class="terminal-dot red" aria-hidden="true"></span>
-            <span class="terminal-dot yellow" aria-hidden="true"></span>
-            <span class="terminal-dot green" aria-hidden="true"></span>
-            <span class="terminal-title">Real finding — eugenp/tutorials #19304</span>
-          </div>
-          <div class="terminal-output" role="region" aria-label="Terminal output">
-            <div><span class="t-comment"># Encontrado por el CLI, verificado manualmente antes de publicar</span></div>
-            <div><span style="color:var(--danger)">✗ CRITICAL</span>  <span class="t-comment">kafka-send-timeout</span>  <span class="t-val">KpiProducer.java:17</span></div>
-            <div><span class="t-comment">            kafkaTemplate.send(topic, message).get(); — sin timeout</span></div>
-            <div>&nbsp;</div>
-            <div><span class="t-comment"># No se asumió el resultado del scanner: se rastrearon los callers reales</span></div>
-            <div><span class="t-comment"># (solo tests de integración, sin caller de producción) antes de publicar</span></div>
-            <div>&nbsp;</div>
-            <div><span style="color:var(--success)">Issue abierto en eugenp/tutorials</span> <span class="t-comment">— repo público, ~35k ★</span></div>
-          </div>
-        </div>
-
-        <div class="npm-result-card" style="border-color: rgba(139,92,246,0.15);">
-          <div class="npm-terminal-header">
-            <span class="terminal-dot red" aria-hidden="true"></span>
-            <span class="terminal-dot yellow" aria-hidden="true"></span>
-            <span class="terminal-dot green" aria-hidden="true"></span>
-            <span class="terminal-title">validate-public — reproducibilidad verificada</span>
-          </div>
-          <div class="terminal-output" role="region" aria-label="Terminal output">
-            <div><span class="t-comment"># Pipeline propio: fetch → scan → aggregate, contra commits fijados</span></div>
-            <div><span class="t-pass">✓</span> <span class="t-label">eugenp/tutorials</span> <span class="t-val">29,141 files scanned</span></div>
-            <div><span class="t-pass">✓</span> <span class="t-label">spring-petclinic</span> <span class="t-val">77 files scanned</span></div>
-            <div>&nbsp;</div>
-            <div><span class="t-pass">✓</span> <span class="t-label">2 ejecuciones independientes</span> <span class="t-val">JSON byte-idéntico</span></div>
-            <div><span class="t-comment">  (salvo timestamps, verificado empíricamente)</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="npm-hero reveal" style="background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(7,17,42,0.8) 100%); border-color: rgba(59,130,246,0.25); margin-top: 32px;">
-      <div class="npm-glow-corner" style="background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);" aria-hidden="true"></div>
-
-      <div>
-        <div class="npm-title-row">
-          <span class="npm-icon-big" aria-hidden="true">🐍</span>
-          <span class="npm-pkg-name" style="color: var(--primary);">python-vibe-guard</span>
-        </div>
-        <p class="npm-desc" style="font-weight: 600; color: var(--text-2); margin-bottom: 8px;">
-          Runtime anti-pattern scanner for async Python
-        </p>
-        <p class="npm-desc">
-          Static analyzer that detects AI-generated code patterns that pass CI but fail under production load. Built from empirical research: scanned 902 real GitHub repositories, 178,557 files, 13,510 findings. Every rule audited manually for precision — when a rule had 95% false positive rate, it was redesigned from scratch and documented honestly as "Limited Scope" instead of hidden.
-        </p>
-        <div class="npm-badges">
-          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);">🔍 20 evidence-backed rules (event loop blocking, async lifecycle misuse, concurrency hazards)</span>
-          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);">✅ 331 tests, 0 documented false positives in CRITICAL severity</span>
-          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);">🧪 Validated against FastAPI, Celery, aiohttp, home-assistant/core</span>
-          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);">🔧 CLI + pre-commit hook + CI/CD integration</span>
-        </div>
-        <div class="npm-links">
-          <a href="https://github.com/Joaquinriosheredia/python-vibe-guard" target="_blank" rel="noopener" class="npm-link blue">⭐ GitHub →</a>
-          <a href="https://joaquinriosheredia.github.io/vibeguard-landing/" target="_blank" rel="noopener" class="npm-link green">🌐 Landing →</a>
-        </div>
-      </div>
-
-      <div class="npm-result-card" style="border-color: rgba(59,130,246,0.15);">
-        <div class="npm-terminal-header">
-          <span class="terminal-dot red" aria-hidden="true"></span>
-          <span class="terminal-dot yellow" aria-hidden="true"></span>
-          <span class="terminal-dot green" aria-hidden="true"></span>
-          <span class="terminal-title">python-vibe-guard · empirical research (902 repos)</span>
-        </div>
-        <div class="terminal-output" role="region" aria-label="Terminal output">
-          <div><span class="t-comment"># Empirical audit across 902 real GitHub repos</span></div>
-          <div>&nbsp;</div>
-          <div><span class="t-label">Repos scanned</span> <span class="t-val">902</span></div>
-          <div><span class="t-label">Files analyzed</span> <span class="t-val">95,678</span></div>
-          <div><span class="t-label">Findings</span> <span class="t-val">7,106</span></div>
-          <div><span class="t-label">Rules (manually audited)</span> <span class="t-val">20</span></div>
-          <div><span class="t-label">Tests</span> <span class="t-val">331</span></div>
-          <div>&nbsp;</div>
-          <div><span class="t-pass">0</span> <span class="t-comment">documented false positives in CRITICAL severity</span></div>
-        </div>
-      </div>
+    <!-- Repos satélite -->
+    <div class="repo-grid reveal">
+      <a class="repo-card" href="https://github.com/Joaquinriosheredia/java-vibe-guard-demo" target="_blank" rel="noopener">
+        <div class="repo-card-name">java-vibe-guard-demo</div>
+        <div class="repo-card-desc">4 archivos <code>.java</code> sin build tool (3 con bugs + <code>@EnableAsync</code>) que dan exactamente 3 CRITICAL con <code>npx java-vibe-guard@2.4.0 .</code>. El README trae la salida real y qué reporta cada motor, CLI y MCP.</div>
+        <div class="repo-card-meta">Java · MIT</div>
+      </a>
+      <a class="repo-card" href="https://github.com/Joaquinriosheredia/python-vibe-guard-action" target="_blank" rel="noopener">
+        <div class="repo-card-name">python-vibe-guard-action</div>
+        <div class="repo-card-desc">GitHub Action que instala python-vibe-guard desde PyPI, sube el SARIF a Code Scanning y falla el job según un umbral configurable (<code>critical</code> o <code>warning</code>).</div>
+        <div class="repo-card-meta">GitHub Action · v1 · MIT</div>
+      </a>
     </div>
   </div>
 </section>
@@ -1816,23 +1928,23 @@ code {
     <div class="reveal">
       <div class="section-label">Java Production Labs</div>
       <h2 class="section-title" id="labs-title">10 Labs Ejecutables</h2>
-      <p class="section-desc">Spring Boot 3 + Java 21 · Clonable en 45 min. Cada lab incluye ADR, Testcontainers, JMH/k6, Chaos, Prometheus+Grafana.</p>
+      <p class="section-desc">Diez labs autocontenidos de Spring Boot 3 + Java 21: arrancan en frío, se miden bajo carga y cada uno tiene un modo de fallo documentado. Cada cifra sale de un fichero de resultados versionado en el repo.</p>
     </div>
 
     <div class="labs-header-card reveal">
       <div class="labs-header-text">
-        <strong>Laboratorios orientados a producción</strong> — no tutoriales.<br>
-        Cada resultado está basado en ejecuciones reales con métricas verificadas, chaos testing y benchmarks reproducibles.<br>
-        <span style="color: var(--success); font-weight: 500; display: inline-block; margin-top: 4px;">✓ 7 bugs reales fueron detectados y corregidos mediante java-vibe-guard + security analysis.</span>
+        <strong>Laboratorios orientados a producción</strong>, no tutoriales.<br>
+        ADR, tests, benchmark, métricas y chaos en los 10 labs; Testcontainers con PostgreSQL, Redis y Kafka reales en los labs 03–07.<br>
+        <span style="color: var(--success); font-weight: 500; display: inline-block; margin-top: 4px;">✓ 7 arreglos encontrados con java-vibe-guard y una revisión de seguridad (2 de ellos son mejoras, no bugs).</span>
       </div>
       <div class="labs-header-meta">
         <div class="labs-meta-item">
-          <div class="labs-meta-num">5</div>
-          <div class="labs-meta-label">Completados</div>
+          <div class="labs-meta-num">10</div>
+          <div class="labs-meta-label">Ejecutados</div>
         </div>
         <div class="labs-meta-item">
-          <div class="labs-meta-num">5</div>
-          <div class="labs-meta-label">En progreso</div>
+          <div class="labs-meta-num">3</div>
+          <div class="labs-meta-label">Re-medidos oct 2026</div>
         </div>
       </div>
     </div>
@@ -1849,8 +1961,8 @@ code {
           <span class="lab-status done">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big"><span class="highlight">7.4×</span> throughput</div>
-          <div class="lab-metric-sub">vs thread-pool tradicional · 200 VUs · 30s<br>p99: 5.817ms → 167ms · Pico exhaustion: <strong>13.9s</strong></div>
+          <div class="lab-metric-big"><span class="highlight">207</span> vs 37 req/s</div>
+          <div class="lab-metric-sub">50 VUs · virtual threads vs pool de 20 platform threads · mediana de 5 runs<br>200 VUs: <strong>828</strong> vs 118 req/s · p99 con virtual threads ≈ 105 ms en ambas cargas</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Spring Boot 3.2</span>
@@ -1874,13 +1986,13 @@ code {
           <span class="lab-status done">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big"><span class="green">0.00%</span> error rate</div>
-          <div class="lab-metric-sub">90.680 llamadas bloqueadas por Circuit Breaker<br>Fallback in-process: <strong>5ms</strong> · Recovery: <strong>5s</strong> · 159.482 requests</div>
+          <div class="lab-metric-big"><span class="green">90.680</span> rechazadas</div>
+          <div class="lab-metric-sub">Llamadas rechazadas con el circuito OPEN (~27 s)<br>Recuperación automática ~5 s tras cesar el fallo (aprox.) · Bulkhead → CircuitBreaker → Retry</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Resilience4j</span>
           <span class="tag">Circuit Breaker</span>
-          <span class="tag">k6</span>
+          <span class="tag">Bulkhead</span>
           <span class="tag">Chaos script</span>
         </div>
         <div class="lab-footer">
@@ -1901,12 +2013,11 @@ code {
         </div>
         <div class="lab-metrics">
           <div class="lab-metric-big"><span class="cyan">460</span> req/s</div>
-          <div class="lab-metric-sub">Token Bucket distribuido · scripts Lua atómicos<br>p99: 4.55ms · 0% errores 5xx · Redis outage: <strong>&lt;1ms 503</strong></div>
+          <div class="lab-metric-sub">Token bucket distribuido en Redis · 89 % rechazadas con 429 (≈ 50 req/s permitidas)<br>p99: <strong>4.55 ms</strong> · con varias instancias de la app no está probado</div>
         </div>
         <div class="lab-tags">
-          <span class="tag">Redis Lua</span>
-          <span class="tag">Resilience4j CB</span>
-          <span class="tag">Spring Data Redis</span>
+          <span class="tag">Redis</span>
+          <span class="tag">Token bucket</span>
           <span class="tag">k6</span>
         </div>
         <div class="lab-footer">
@@ -1926,12 +2037,12 @@ code {
           <span class="lab-status done">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big"><span class="cyan">163.8</span> req/s · <span class="green">0</span> pérdidas</div>
-          <div class="lab-metric-sub">Zero data loss bajo Kafka kill · drain rate +<strong>70%</strong> tras tuning<br>Bug de pérdida silenciosa encontrado y corregido vía chaos testing</div>
+          <div class="lab-metric-big"><span class="cyan">163.8</span> req/s · <span class="green">0</span> FAILED</div>
+          <div class="lab-metric-sub">Tras matar Kafka: 0 eventos FAILED después del fix (antes, 5 de 91)<br>Bug encontrado vía chaos testing · drain: 88.9 → <strong>149.8</strong> eventos/s</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Transactional Outbox</span>
-          <span class="tag">Kafka Producer</span>
+          <span class="tag">Kafka</span>
           <span class="tag">PostgreSQL</span>
           <span class="tag">Chaos Testing</span>
         </div>
@@ -1953,11 +2064,11 @@ code {
         </div>
         <div class="lab-metrics">
           <div class="lab-metric-big"><span class="highlight">71.8%</span> stuck</div>
-          <div class="lab-metric-sub">Race condition dual-write demostrada bajo carga<br>HTTP 200 OK silencioso → prueba empírica del Outbox Pattern</div>
+          <div class="lab-metric-sub">1.165 / 1.622 órdenes en STARTED con 0 % de errores HTTP · race condition dual-write<br>Medido el 2026-05-15, antes de cambios posteriores del lab (no re-ejecutado)</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Choreography Saga</span>
-          <span class="tag">Kafka KRaft</span>
+          <span class="tag">Kafka</span>
           <span class="tag">Dual-Write Analysis</span>
         </div>
         <div class="lab-footer">
@@ -1978,11 +2089,11 @@ code {
         </div>
         <div class="lab-metrics">
           <div class="lab-metric-big"><span class="cyan">2.227</span> vs <span class="highlight">47.619</span> msg/s</div>
-          <div class="lab-metric-sub">Redis 100% pérdida en caída · Kafka 0% · replay completo<br>Asimetría de API: Redis RTT síncrono vs Kafka buffer async</div>
+          <div class="lab-metric-sub">Con el broker caído ambos pierden lo enviado (200/200); Kafka conserva y reproduce lo ya commiteado<br>La diferencia es asimetría de API (RTT síncrono vs buffer async), no velocidad</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Redis Pub/Sub</span>
-          <span class="tag">Kafka KRaft</span>
+          <span class="tag">Kafka</span>
           <span class="tag">Fault Injection</span>
         </div>
         <div class="lab-footer">
@@ -2002,13 +2113,12 @@ code {
           <span class="lab-status done">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big"><span class="highlight">26×</span> speedup</div>
-          <div class="lab-metric-sub">100K filas · 5% PENDING · Seq scan: 285ms → partial index: <strong>12ms</strong><br>Partial index on WHERE status = 'PENDING' · EXPLAIN ANALYZE en ADR-0001</div>
+          <div class="lab-metric-big"><span class="highlight">4.9×</span> índice parcial</div>
+          <div class="lab-metric-sub">100K filas · 5.084 PENDING · seq scan 7.45 ms → index scan <strong>1.52 ms</strong> (medianas de 10 runs)<br><code>EXPLAIN (ANALYZE, BUFFERS)</code> de ambos planes versionado</div>
         </div>
         <div class="lab-tags">
-          <span class="tag">PostgreSQL 16</span>
+          <span class="tag">PostgreSQL</span>
           <span class="tag">Índice parcial</span>
-          <span class="tag">pg_stat_statements</span>
           <span class="tag">EXPLAIN ANALYZE</span>
         </div>
         <div class="lab-footer">
@@ -2028,13 +2138,12 @@ code {
           <span class="lab-status done">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big"><span class="cyan">109.7</span> req/s</div>
-          <div class="lab-metric-sub">Baseline 46.8 req/s · p99=4ms · lag=0 · 6.3:1 aggregation<br>Recovery 195ms · Actuator false-positive detectado vía chaos</div>
+          <div class="lab-metric-big">p99 <span class="cyan">4 ms</span> · lag <span class="green">0</span></div>
+          <div class="lab-metric-sub">Streams en RUNNING &lt; 195 ms tras reiniciar Kafka, sin replay completo<br><code>actuator/health</code> da UP con Kafka caído: falso positivo detectado vía chaos</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Kafka Streams</span>
           <span class="tag">KRaft</span>
-          <span class="tag">TopologyTestDriver</span>
           <span class="tag">Chaos Testing</span>
         </div>
         <div class="lab-footer">
@@ -2054,13 +2163,13 @@ code {
           <span class="lab-status done">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big"><span class="green">233 → 79MB</span> (−66.1%)</div>
-          <div class="lab-metric-sub">Startup: 2917ms → <strong>2445ms</strong> (−472ms) · CI Rebuild: 10s → <strong>3-5s</strong> (4-8× speedup)<br>ZGC heap pre-reserva ok · Seguridad: root → nonroot (65532)</div>
+          <div class="lab-metric-big"><span class="green">247 → 94 MB</span> (−62%)</div>
+          <div class="lab-metric-sub">Imagen comprimida · root → <strong>non-root</strong> (appuser) · JRE Alpine, layered JAR<br>Mismo arranque (2.13 vs 2.15 s); el rebuild de solo código no es más rápido en esta máquina</div>
         </div>
         <div class="lab-tags">
-          <span class="tag">Docker BuildKit</span>
-          <span class="tag">Distroless</span>
           <span class="tag">Multi-stage</span>
+          <span class="tag">Layered JAR</span>
+          <span class="tag">JRE Alpine</span>
         </div>
         <div class="lab-footer">
           <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/09_docker_optimization" target="_blank" rel="noopener">
@@ -2079,17 +2188,12 @@ code {
           <span class="lab-status done">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big">CPU <span class="highlight">110m</span> (threshold: 350m)</div>
-          <div class="lab-metric-sub">
-            0% error rate con 1 solo pod durante toda la prueba<br>
-            <strong>Antipattern:</strong> CPU-based HPA es inservible con Virtual Threads (HPA nunca disparó)<br>
-            Recovery real: <strong>25s</strong> hasta readinessProbe (no 5s hasta Running)<br>
-            <strong>Solución:</strong> custom metrics HPA con <code>lab_active_requests_gauge</code>
-          </div>
+          <div class="lab-metric-big">CPU <span class="highlight">~110m</span> · HPA sin escalar</div>
+          <div class="lab-metric-sub">50 VUs con sleep de 200 ms: el HPA solo-CPU (objetivo 140m) no escaló · 0 % errores con 1 pod<br>HPA con la métrica custom <code>lab_active_requests_gauge</code> definido pero no ejecutado</div>
         </div>
         <div class="lab-tags">
-          <span class="tag">Kubernetes HPA</span>
-          <span class="tag">Prometheus Adapter</span>
+          <span class="tag">Kubernetes HPA v2</span>
+          <span class="tag">Prometheus</span>
           <span class="tag">k6</span>
         </div>
         <div class="lab-footer">
@@ -2108,9 +2212,9 @@ code {
 <section id="jarvis" class="section" aria-labelledby="jarvis-title">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Proyecto IA</div>
-      <h2 class="section-title" id="jarvis-title">JARVIS Runtime</h2>
-      <p class="section-desc">CLI AI con router de modelos local-first: Ollama prioridad, fallback cloud solo si falla.</p>
+      <div class="section-label">Proyecto IA · asistente de voz</div>
+      <h2 class="section-title" id="jarvis-title">JARVIS</h2>
+      <p class="section-desc">Asistente de voz personal en español para Windows: escucha por micrófono, decide qué capa debe responder y actúa con 46 tools (correo, calendario, archivos, música, git, tests y visión) detrás de un gate de permisos.</p>
     </div>
 
     <div class="jarvis-grid">
@@ -2119,55 +2223,56 @@ code {
           <span class="terminal-dot red" aria-hidden="true"></span>
           <span class="terminal-dot yellow" aria-hidden="true"></span>
           <span class="terminal-dot green" aria-hidden="true"></span>
-          <span class="terminal-title">jarvis · CLI Python + Typer + Rich</span>
+          <span class="terminal-title">jarvis-voice-platform · un turno</span>
         </div>
-        <div class="terminal-body" role="region" aria-label="JARVIS CLI demo">
-          <div><span class="t-prompt">$</span> jarvis ask "optimiza este SQL"</div>
+        <div class="terminal-body" role="region" aria-label="Flujo de un turno de JARVIS">
+          <div><span class="t-key">🎙</span> Micrófono → <span class="t-val">Whisper local</span> <span class="t-comment">(umbral de confianza)</span></div>
           <div>&nbsp;</div>
-          <div><span class="t-comment">[CLI Python + Typer + Rich]</span></div>
+          <div><span class="t-key">→</span> Router de 3 capas</div>
+          <div>&nbsp;&nbsp;&nbsp;<span class="t-val">· atajo</span> <span class="t-comment">tool directa, sin LLM</span></div>
+          <div>&nbsp;&nbsp;&nbsp;<span class="t-val">· local</span> <span class="t-comment">qwen2.5:3b en Ollama</span></div>
+          <div>&nbsp;&nbsp;&nbsp;<span class="t-val">· claude</span> <span class="t-comment">Claude Haiku 4.5 en streaming</span></div>
           <div>&nbsp;</div>
-          <div><span class="t-key">→</span> Router de modelos</div>
-          <div>&nbsp;&nbsp;&nbsp;<span class="t-val">· Local: Ollama (prioridad)</span></div>
-          <div>&nbsp;&nbsp;&nbsp;<span class="t-label">· Cloud: OpenAI / Anthropic</span></div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-label">(solo si local falla)</span></div>
+          <div><span class="t-key">→</span> tool_use → <span class="t-val">gate de permisos</span></div>
+          <div>&nbsp;&nbsp;&nbsp;<span class="t-comment">"confirmo envío" leído del micrófono,</span></div>
+          <div>&nbsp;&nbsp;&nbsp;<span class="t-comment">un solo uso, caduca a los 120 s</span></div>
           <div>&nbsp;</div>
-          <div><span class="t-key">→</span> Memoria SQLite persistente</div>
-          <div><span class="t-key">→</span> Cost tracker en tiempo real</div>
-          <div><span class="t-key">→</span> Respuesta en terminal</div>
+          <div><span class="t-key">→</span> TTS por frases <span class="t-comment">(Piper · ElevenLabs opcional)</span></div>
+          <div><span class="t-key">→</span> UI Electron vía WebSocket local</div>
           <div>&nbsp;</div>
-          <div><span class="t-pass">✓</span> <span class="t-val">Model: ollama/qwen2.5:7b</span></div>
-          <div><span class="t-pass">✓</span> <span class="t-val">Cost: $0.000 (local)</span></div>
-          <div><span class="t-pass">✓</span> <span class="t-val">Latency: 1.2s</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-val">Ran 634 tests ... OK</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-val">Evals: ruta 60/60 · tool 60/60 · gate 60/60</span></div>
+          <div><span class="t-comment">  (la métrica tool usa un mock del modelo)</span></div>
         </div>
       </div>
 
       <div class="jarvis-features reveal-right">
         <div class="jarvis-feature">
-          <div class="jarvis-feature-icon" aria-hidden="true">🏠</div>
+          <div class="jarvis-feature-icon" aria-hidden="true">🔐</div>
           <div>
-            <div class="jarvis-feature-title">Local-first</div>
-            <div class="jarvis-feature-desc">Ollama · zero coste por defecto. Fallback cloud solo cuando se necesita.</div>
+            <div class="jarvis-feature-title">46 tools con gate de 4 niveles</div>
+            <div class="jarvis-feature-desc">22 READ · 3 WRITE · 17 EXTERNAL · 5 DESTRUCTIVE. Las acciones irreversibles y las capturas de pantalla piden la frase exacta por voz; el modelo no puede fabricarla.</div>
           </div>
         </div>
         <div class="jarvis-feature">
-          <div class="jarvis-feature-icon" aria-hidden="true">🧠</div>
+          <div class="jarvis-feature-icon" aria-hidden="true">🛡️</div>
           <div>
-            <div class="jarvis-feature-title">Memoria persistente</div>
-            <div class="jarvis-feature-desc">SQLite · contexto entre sesiones · historial de conversaciones.</div>
+            <div class="jarvis-feature-title">Defensa ante prompt injection</div>
+            <div class="jarvis-feature-desc">Destinatario resuelto por el sistema, no por el modelo · allowlist de proyectos · git sin shell ni hooks · secretos redactados antes de llegar al modelo · WebSocket solo en 127.0.0.1.</div>
           </div>
         </div>
         <div class="jarvis-feature">
           <div class="jarvis-feature-icon" aria-hidden="true">📊</div>
           <div>
-            <div class="jarvis-feature-title">Cost tracking</div>
-            <div class="jarvis-feature-desc">Métricas de uso en tiempo real por modelo · visualización en terminal.</div>
+            <div class="jarvis-feature-title">Observabilidad por turno</div>
+            <div class="jarvis-feature-desc">Latencia por fase, tokens con caché y coste estimado en un log JSONL con replay (p50/p95). Turnos privados: solo metadatos.</div>
           </div>
         </div>
         <div class="jarvis-feature">
           <div class="jarvis-feature-icon" aria-hidden="true">🧪</div>
           <div>
-            <div class="jarvis-feature-title">18 pytest tests</div>
-            <div class="jarvis-feature-desc">Docker Compose incluido · <code>git clone → ./setup.sh → jarvis ask "hola"</code></div>
+            <div class="jarvis-feature-title">CI en GitHub Actions</div>
+            <div class="jarvis-feature-desc">Tests con mocks en Windows sin red ni claves · <code>doctor.py --json</code> · escaneo de secretos con gitleaks.</div>
           </div>
         </div>
 
@@ -2175,21 +2280,30 @@ code {
           <div style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; font-weight:700; margin-bottom:10px;">Stack</div>
           <div class="stack-pill">
             <span class="stack-chip">Python</span>
-            <span class="stack-chip">Typer</span>
-            <span class="stack-chip">Rich</span>
+            <span class="stack-chip">Electron</span>
+            <span class="stack-chip">Claude Haiku 4.5</span>
             <span class="stack-chip">Ollama</span>
-            <span class="stack-chip">OpenAI SDK</span>
-            <span class="stack-chip">SQLite</span>
-            <span class="stack-chip">Docker Compose</span>
-            <span class="stack-chip">pytest</span>
+            <span class="stack-chip">Whisper</span>
+            <span class="stack-chip">Piper</span>
+            <span class="stack-chip">Gmail / Calendar API</span>
+            <span class="stack-chip">unittest</span>
           </div>
-          <div style="margin-top:16px;">
-            <a href="https://github.com/Joaquinriosheredia/jarvis-runtime" target="_blank" rel="noopener" class="lab-link">
+          <p style="margin-top:14px; font-size:13px; color:var(--muted); line-height:1.6;">Límites conocidos: solo Windows, un usuario y una máquina; cuando el router elige Claude, lo dicho y lo que leen las tools se envía a la API de Anthropic.</p>
+          <div style="margin-top:12px;">
+            <a href="https://github.com/Joaquinriosheredia/jarvis-voice-platform" target="_blank" rel="noopener" class="lab-link">
               Ver repositorio <span class="lab-link-arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="repo-grid reveal">
+      <a class="repo-card" href="https://github.com/Joaquinriosheredia/jarvis-runtime" target="_blank" rel="noopener">
+        <div class="repo-card-name">jarvis-runtime</div>
+        <div class="repo-card-desc">CLI local-first: responde con qwen2.5:7b en Ollama y solo llama a OpenAI para prompts complejos si hay API key. Historial en SQLite (<code>jarvis history</code>) y tokens y coste acumulados (<code>jarvis usage</code>). Se instala con Docker y <code>./setup.sh</code>.</div>
+        <div class="repo-card-meta">Python · Ollama · SQLite · MIT</div>
+      </a>
     </div>
   </div>
 </section>
@@ -2224,58 +2338,59 @@ code {
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">🔍</div>
             <div class="pipeline-step-label">Investigar</div>
-            <div class="pipeline-step-desc">Contexto técnico · fuentes externas · code search</div>
+            <div class="pipeline-step-desc">Hacker News · GitHub Search · Tavily (opcional)</div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">⚖️</div>
             <div class="pipeline-step-label">Quality Gate</div>
-            <div class="pipeline-step-desc">Scoring por sección · bloqueo de contenido que no alcanza los umbrales de calidad</div>
+            <div class="pipeline-step-desc">Auditor automático por sección · umbrales 70 / 72 sobre 100</div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">👤</div>
             <div class="pipeline-step-label">Revisión</div>
-            <div class="pipeline-step-desc">Refinamiento humano antes de la publicación</div>
+            <div class="pipeline-step-desc">Corrección manual con <code>cure.py</code> (human-in-the-loop)</div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">🚀</div>
             <div class="pipeline-step-label">Publicar</div>
-            <div class="pipeline-step-desc">Generación y actualización automatizada del repositorio de documentación</div>
+            <div class="pipeline-step-desc">git commit/push al repo de contenidos si el documento pasa</div>
           </div>
         </div>
       </div>
 
-      <h3 style="font-size:15px; font-weight:700; color:#fff; margin-top:8px;">Evidencia de ingeniería</h3>
+      <h3 style="font-size:15px; font-weight:700; color:#fff; margin-top:8px;">Comportamiento ante fallos</h3>
       <div class="pipeline-metrics">
         <div class="pipeline-metric">
-          <div class="pipeline-metric-val">73 tests</div>
-          <div class="pipeline-metric-desc">Tests unitarios sobre la lógica de decisión central: scoring, clasificación, enrutamiento de secciones y generación de inventario.</div>
+          <div class="pipeline-metric-val">Fallo de sección = no se publica</div>
+          <div class="pipeline-metric-desc">Si Ollama falla, la sección puntúa 0, cuenta en la media y bloquea la auto-publicación (ADR-002). Es el escenario cubierto por test automatizado.</div>
         </div>
         <div class="pipeline-metric">
-          <div class="pipeline-metric-val">Auditoría de comportamiento</div>
-          <div class="pipeline-metric-desc">3 discrepancias de comportamiento identificadas y reproducidas mediante tests durante la fase de regresión; 2 corregidas y 1 documentada explícitamente como decisión del contrato de clasificación.</div>
+          <div class="pipeline-metric-val">Timeouts en git</div>
+          <div class="pipeline-metric-desc">30 s para pull/add/commit y 60 s para push; un <code>TimeoutExpired</code> aborta la publicación con log (ADR-003).</div>
         </div>
         <div class="pipeline-metric">
-          <div class="pipeline-metric-val">Fiabilidad</div>
-          <div class="pipeline-metric-desc">Aislamiento de grupos de procesos y timeouts para evitar procesos huérfanos en cadenas de subprocesos.</div>
+          <div class="pipeline-metric-val">Sin procesos huérfanos</div>
+          <div class="pipeline-metric-desc">El orquestador mata el grupo de procesos entero (<code>killpg</code>) y el lock solo se libera ante un proceso muerto confirmado (ADR-003).</div>
         </div>
         <div class="pipeline-metric">
-          <div class="pipeline-metric-val">Reproducibilidad</div>
-          <div class="pipeline-metric-desc">Dependencias fijadas y resolución de rutas independiente del entorno, sin rutas específicas del entorno codificadas.</div>
+          <div class="pipeline-metric-val">Rutas portables</div>
+          <div class="pipeline-metric-desc">Rutas resueltas desde <code>Path(__file__)</code>, con overrides por variables de entorno (ADR-004).</div>
         </div>
       </div>
+      <p style="margin-top:16px; font-size:13px; color:var(--muted); text-align:center;">Scripts Python locales que se invocan a mano: sin despliegue en la nube ni servicio en producción.</p>
 
       <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; margin-top:28px;">
         <a class="lab-link" href="https://github.com/Joaquinriosheredia/authority-engine" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;">
           Ver código en GitHub <span class="lab-link-arrow" aria-hidden="true">→</span>
         </a>
-        <a class="lab-link" href="https://joaquinriosheredia.github.io/DAM-Java-Mastery" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;">
-          Ver documentación generada <span class="lab-link-arrow" aria-hidden="true">→</span>
+        <a class="lab-link" href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;">
+          Ver documentación generada (148 docs) <span class="lab-link-arrow" aria-hidden="true">→</span>
         </a>
       </div>
     </div>

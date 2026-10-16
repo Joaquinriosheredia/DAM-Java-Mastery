@@ -3,7 +3,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Joaquín_Ríos_Heredia-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/joaquinrios-dev-strategist/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Web-blue?style=flat&logo=github)](https://joaquinriosheredia.github.io/DAM-Java-Mastery/)
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-lightgrey?style=flat&logo=github)](https://github.com/Joaquinriosheredia)
-![Docs](https://img.shields.io/badge/Staff_Docs-47-green?style=flat)
+![Docs](https://img.shields.io/badge/Staff_Docs-148-green?style=flat)
 ![Score](https://img.shields.io/badge/Quality_Score-99%2F100-brightgreen?style=flat)
 ![Open Source](https://img.shields.io/badge/LangChain4j-Contributor-orange?style=flat)
 
@@ -30,7 +30,7 @@ Zero manual intervention — single command deployment
 **Stack:** Python 3.12 · Ollama · Qwen 7b · AWS Lambda · S3 · boto3 · Tavily API · GitHub Actions
 
 **Key metrics:**
-- 47 Staff Engineer documents published
+- 148 Staff Engineer documents published
 - Average quality score: 99/100
 - GPU optimisation: 7.48 → 48.55 tok/s (6x)
 - Full automation: local generation → S3 → GitHub with a single command
@@ -167,7 +167,7 @@ Zero manual intervention — single command deployment
 
 | Metric | Value |
 |--------|-------|
-| Staff Engineer documents | 47 |
+| Staff Engineer documents | 148 |
 | Modules with content | 9 / 10 |
 | Average quality score | 99 / 100 |
 | GPU optimisation | 7.48 → 48.55 tok/s (6x) |
