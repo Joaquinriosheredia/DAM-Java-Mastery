@@ -3192,7 +3192,12 @@ code {
 })();
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script type="module">
+  // Build modular de Three.js (versión fijada). Sin import map: un solo import con URL completa.
+  import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js';
+  window.THREE = THREE;
+  window.dispatchEvent(new Event('three:ready'));
+</script>
 <!-- GSAP + ScrollTrigger from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -3287,16 +3292,32 @@ if (!prefersReducedMotion) {
   const canvas = document.getElementById('hero-canvas');
   const fallback = document.getElementById('hero-fallback');
 
-  // WebGL support check
+  // Fallback visible hasta que el 3D pinte: cubre sin WebGL, Three.js sin cargar
+  // (CDN caído o bloqueado) y error al crear el renderer o compilar shaders.
+  // visibility (no display) para que el canvas conserve su tamaño al crear el renderer.
+  canvas.style.visibility = 'hidden';
+  fallback.style.display = 'block';
+
   try {
     const testCanvas = document.createElement('canvas');
-    const gl = testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl');
-    if (!gl) throw new Error('no webgl');
-  } catch(e) {
-    canvas.style.display = 'none';
-    fallback.style.display = 'block';
+    if (!(testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl'))) return;
+  } catch (e) {
     return;
   }
+
+  if (window.THREE) start();
+  else window.addEventListener('three:ready', start, { once: true });
+
+  function start() {
+    try {
+      startScene();
+    } catch (e) {
+      canvas.style.display = 'none';
+      fallback.style.display = 'block';
+    }
+  }
+
+  function startScene() {
 
   // Scene setup
   const scene = new THREE.Scene();
@@ -3306,13 +3327,15 @@ if (!prefersReducedMotion) {
   const camera = new THREE.PerspectiveCamera(65, W / H, 0.1, 200);
   camera.position.set(0, 0, 55);
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' });
+  // Móvil: menos nodos, sin antialias, pixel ratio ≤ 1.5 y 30 fps (el scroll iba a ~35 fps con CPU ×4)
+  const isMobile = window.innerWidth < 768;
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile, alpha: false, powerPreference: isMobile ? 'low-power' : 'high-performance' });
   renderer.setSize(W, H);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
   renderer.setClearColor(0x020617, 1);
 
   // ── CONSTANTS ──
-  const NODE_COUNT      = window.innerWidth < 768 ? 900 : 2000;
+  const NODE_COUNT      = isMobile ? 600 : 2000;
   const SPREAD          = 60;
   const CONNECTION_DIST = 8.5;
   const MAX_CONNECTIONS = 3500;
@@ -3513,8 +3536,10 @@ if (!prefersReducedMotion) {
 
   // ── SCROLL TRANSFORM ──
   let scrollRatio = 0;
+  const heroEl = document.querySelector('.hero');
+  let heroH = heroEl.offsetHeight;
+  window.addEventListener('resize', () => { heroH = heroEl.offsetHeight; }, { passive: true });
   window.addEventListener('scroll', () => {
-    const heroH = document.querySelector('.hero').offsetHeight;
     scrollRatio = Math.min(1, window.scrollY / heroH);
   }, { passive: true });
 
@@ -3525,8 +3550,15 @@ if (!prefersReducedMotion) {
   function animate(time) {
     const id = requestAnimationFrame(animate);
 
-    // Throttle to ~60fps
-    if (time - lastTime < 14) return;
+    // Throttle: ~60fps en escritorio, ~30fps en móvil
+    if (time - lastTime < (isMobile ? 30 : 14)) return;
+
+    // Hero fuera de vista (opacidad 0): no renderizar
+    const heroAlpha = Math.max(0, 1 - scrollRatio * 2.5);
+    if (heroAlpha === 0) {
+      if (renderer.domElement.style.opacity !== '0') renderer.domElement.style.opacity = 0;
+      return;
+    }
     lastTime = time;
 
     const t = time * 0.001;
@@ -3551,7 +3583,6 @@ if (!prefersReducedMotion) {
     pulsesMesh.rotation.x = nodesMesh.rotation.x;
 
     // Scroll fade-out
-    const heroAlpha = Math.max(0, 1 - scrollRatio * 2.5);
     renderer.domElement.style.opacity = heroAlpha;
 
     // Pulse update
@@ -3579,11 +3610,18 @@ if (!prefersReducedMotion) {
     if (document.hidden) lastTime = -Infinity;
   });
 
+  // Primer frame (lanza si un shader no compila) antes de sustituir el fallback
+  renderer.render(scene, camera);
+  if (renderer.debug.checkShaderErrors && renderer.info.programs.some(p => p.diagnostics && !p.diagnostics.runnable)) {
+    throw new Error('shader error');
+  }
+  canvas.style.visibility = '';
+  fallback.style.display = 'none';
+
   if (!prefersReducedMotion) {
     requestAnimationFrame(animate);
-  } else {
-    // Static render for reduced motion
-    renderer.render(scene, camera);
+  }
+  // prefers-reduced-motion: se queda el frame estático
   }
 })();
 
