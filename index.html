@@ -2426,8 +2426,8 @@ code {
         <a class="lab-link" href="https://github.com/Joaquinriosheredia/authority-engine" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;" data-i18n="authority.26">
           Ver código en GitHub <span class="lab-link-arrow" aria-hidden="true">→</span>
         </a>
-        <a class="lab-link" href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;" data-i18n="authority.27">
-          Ver documentación generada (<span data-k>148</span> docs) <span class="lab-link-arrow" aria-hidden="true">→</span>
+        <a class="lab-link" href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;">
+          <span data-i18n="authority.27">Ver documentación generada (<span data-k>148</span> docs)</span> <span class="lab-link-arrow" aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -2649,9 +2649,9 @@ code {
           Disponible para backend engineering, platform engineering y AI infrastructure.
           Portfolio técnico construido mediante proyectos propios y contribuciones open source.
         </p>
-        <div class="footer-availability" data-i18n="footer.3">
+        <div class="footer-availability">
           <span class="status-dot" aria-hidden="true"></span>
-          Freelance inmediato · Full-time · <span data-k>100%</span> Remoto / Presencial Sevilla o Málaga
+          <span data-i18n="footer.3">Freelance inmediato · Full-time · <span data-k>100%</span> Remoto / Presencial Sevilla o Málaga</span>
         </div>
       </div>
       <div class="footer-links">
@@ -2840,7 +2840,7 @@ code {
   "authority.24": "Rutas resueltas desde {0}, con overrides por variables de entorno ({1}).",
   "authority.25": "Scripts Python locales que se invocan a mano: sin despliegue en la nube ni servicio en producción.",
   "authority.26": "Ver código en GitHub <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
-  "authority.27": "Ver documentación generada ({0} docs) <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "authority.27": "Ver documentación generada ({0} docs)",
   "opensource.1": "Contribuciones",
   "opensource.3": "Contribuciones a proyectos activos con miles de estrellas. Código mergeado en producción.",
   "opensource.6": "fix(lint): replace magic values with named constants in deps.py — Resuelve violaciones {0} de ruff en el backend FastAPI",
@@ -2858,7 +2858,7 @@ code {
   "stack.29": "Multi-Agente",
   "footer.1": "Construyamos algo<br>impresionante.",
   "footer.2": "Disponible para backend engineering, platform engineering y AI infrastructure. Portfolio técnico construido mediante proyectos propios y contribuciones open source.",
-  "footer.3": "<span class=\"status-dot\" aria-hidden=\"true\"><\/span> Freelance inmediato · Full-time · {0} Remoto / Presencial Sevilla o Málaga",
+  "footer.3": "Freelance inmediato · Full-time · {0} Remoto / Presencial Sevilla o Málaga",
   "footer.4": "✉️ Contactar",
   "nav.9.aria-label": "Navegación principal",
   "nav.10.aria-label": "Inicio",
@@ -3057,7 +3057,7 @@ code {
   "authority.24": "Paths resolved from {0}, with environment-variable overrides ({1}).",
   "authority.25": "Local Python scripts run by hand: no cloud deployment and no production service.",
   "authority.26": "View code on GitHub <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
-  "authority.27": "View generated documentation ({0} docs) <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "authority.27": "View generated documentation ({0} docs)",
   "authority.28.aria-label": "Pipeline stages",
   "opensource.1": "Contributions",
   "opensource.3": "Contributions to active projects with thousands of stars. Merged code in production.",
@@ -3076,7 +3076,7 @@ code {
   "stack.29": "Multi-Agent",
   "footer.1": "Let's build something<br>great.",
   "footer.2": "Available for backend engineering, platform engineering and AI infrastructure. Technical portfolio built from my own projects and open-source contributions.",
-  "footer.3": "<span class=\"status-dot\" aria-hidden=\"true\"><\/span> Freelance available immediately · Full-time · {0} remote / on-site in Seville or Málaga",
+  "footer.3": "Freelance available immediately · Full-time · {0} remote / on-site in Seville or Málaga",
   "footer.4": "✉️ Contact",
   "meta.title": "Joaquín Ríos Heredia — Backend / AI Engineer",
   "meta.description": "Java Backend Engineer (Java {0}) specialized in distributed systems, local AI and AWS cloud. Portfolio with {1} runnable labs, {2} Staff-level guides, vibe-guard (Java + Python), JARVIS and open-source contributions.",
@@ -3192,7 +3192,7 @@ code {
 })();
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <!-- GSAP + ScrollTrigger from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -3357,7 +3357,6 @@ if (!prefersReducedMotion) {
     uniforms: { time: { value: 0 } },
     vertexShader: `
       attribute float size;
-      attribute vec3 color;
       varying vec3 vColor;
       varying float vAlpha;
       uniform float time;
