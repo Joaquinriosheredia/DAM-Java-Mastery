@@ -1436,6 +1436,38 @@ footer {
 .repo-card-desc { font-size: 14px; color: var(--text-2); line-height: 1.6; }
 .repo-card-meta { margin-top: 12px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
 
+/* ═══════════════════════════════════════════
+   LANGUAGE SWITCH
+═══════════════════════════════════════════ */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.lang-switch[hidden] { display: none; }
+.lang-btn {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  padding: 6px 8px;
+  min-width: 36px;
+  min-height: 36px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.lang-btn:hover { color: var(--text); }
+.lang-btn[aria-pressed="true"] { color: #fff; border-color: var(--border-hi); }
+.lang-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.lang-sep { color: var(--muted); }
+
+/* Las tarjetas reveal-left/right empiezan a ±40px: sin esto crean scroll horizontal en móvil */
+#jarvis { overflow-x: clip; }
+
 @media (max-width: 1024px) {
   .npm-hero { grid-template-columns: 1fr; }
   .jarvis-grid { grid-template-columns: 1fr; }
@@ -1514,8 +1546,8 @@ code {
 <body>
 
 <!-- ═══════════════ NAVIGATION ═══════════════ -->
-<nav class="nav" id="main-nav" role="navigation" aria-label="Navegación principal">
-  <a href="#top" class="nav-logo" aria-label="Inicio">
+<nav class="nav" id="main-nav" role="navigation" aria-label="Navegación principal" data-i18n-aria-label="nav.9.aria-label">
+  <a href="#top" class="nav-logo" aria-label="Inicio" data-i18n-aria-label="nav.10.aria-label">
     <span class="nav-logo-dot" aria-hidden="true"></span>
     JRH
   </a>
@@ -1530,10 +1562,15 @@ code {
   </ul>
 
   <div class="nav-cta">
-    <a href="mailto:j.r.sinbarreras@gmail.com" class="btn btn-primary" aria-label="Contactar por email">
+    <div class="lang-switch" id="lang-switch" role="group" aria-label="Idioma" data-i18n-aria-label="lang.group" hidden>
+      <button type="button" class="lang-btn" data-lang="es" lang="es" aria-label="Español" aria-pressed="true">ES</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button type="button" class="lang-btn" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+    </div>
+    <a href="mailto:j.r.sinbarreras@gmail.com" class="btn btn-primary" aria-label="Contactar por email" data-i18n="nav.8" data-i18n-aria-label="nav.11.aria-label">
       Contactar
     </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links" data-i18n-aria-label="nav.12.aria-label">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
         <rect x="2" y="5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
         <rect x="2" y="9.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
@@ -1544,27 +1581,27 @@ code {
 </nav>
 
 <!-- ═══════════════ HERO ═══════════════ -->
-<section class="hero" id="top" aria-label="Presentación">
+<section class="hero" id="top" aria-label="Presentación" data-i18n-aria-label="top.13.aria-label">
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-fallback" id="hero-fallback" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <div class="hero-badge" id="hero-badge">
+    <div class="hero-badge" id="hero-badge" data-i18n="top.1">
       <span class="hero-badge-dot" aria-hidden="true"></span>
-      Disponible · Freelance & Full-time Junio 2026
+      Disponible · Freelance y full-time
     </div>
 
     <h1 class="hero-title" id="hero-title">
       <span class="grad">JOAQUÍN<br>RÍOS HEREDIA</span>
     </h1>
 
-    <p class="hero-sub" id="hero-sub">
+    <p class="hero-sub" id="hero-sub" data-i18n="top.3">
       <strong>Java Backend Engineer · AI & Distributed Systems</strong><br>
-      Sevilla / Málaga · 100% Remoto
+      Sevilla / Málaga · <span data-k>100%</span> Remoto
     </p>
 
     <div class="hero-actions" id="hero-actions">
-      <a href="#labs" class="btn btn-primary">Ver Labs →</a>
+      <a href="#labs" class="btn btn-primary" data-i18n="top.4">Ver Labs →</a>
       <a href="https://github.com/Joaquinriosheredia" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
       <a href="https://linkedin.com/in/joaquinrios-ai-engineer" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
     </div>
@@ -1572,17 +1609,17 @@ code {
     <div class="hero-stats" id="hero-stats">
       <div class="hero-stat">
         <div class="hero-stat-num"><span class="accent">10</span></div>
-        <div class="hero-stat-label">Labs Ejecutables</div>
+        <div class="hero-stat-label" data-i18n="top.7">Labs Ejecutables</div>
       </div>
       <div class="hero-divider" aria-hidden="true"></div>
       <div class="hero-stat">
         <div class="hero-stat-num"><span class="accent">148</span></div>
-        <div class="hero-stat-label">Docs Técnicos</div>
+        <div class="hero-stat-label" data-i18n="top.8">Docs Técnicos</div>
       </div>
       <div class="hero-divider" aria-hidden="true"></div>
       <div class="hero-stat">
         <div class="hero-stat-num"><span class="cyan">4</span></div>
-        <div class="hero-stat-label">PRs Open Source</div>
+        <div class="hero-stat-label" data-i18n="top.9">PRs Open Source</div>
       </div>
       <div class="hero-divider" aria-hidden="true"></div>
       <div class="hero-stat">
@@ -1600,7 +1637,7 @@ code {
 
 <!-- ═══════════════ PROFILE ═══════════════ -->
 <div class="section-separator" aria-hidden="true"></div>
-<section class="profile-section reveal" aria-label="Perfil">
+<section class="profile-section reveal" aria-label="Perfil" data-i18n-aria-label="profile.10.aria-label">
   <div class="container">
     <div class="profile-grid">
       <div class="profile-avatar-wrap">
@@ -1610,7 +1647,7 @@ code {
           alt="Foto de Joaquín Ríos Heredia"
           width="120" height="120"
           loading="lazy"
-        >
+         data-i18n-alt="profile.11.alt">
         <div class="profile-status">
           <span class="status-dot" aria-hidden="true"></span>
           Open to work
@@ -1619,7 +1656,7 @@ code {
       <div>
         <h2 class="profile-name">Joaquín Ríos Heredia</h2>
         <p class="profile-role">Java Backend Engineer (Java 21) · AI & Distributed Systems</p>
-        <p class="profile-bio">
+        <p class="profile-bio" data-i18n="profile.4">
           Ingeniero backend centrado en sistemas distribuidos, observabilidad, resiliencia e integración de IA local.
           Portfolio técnico construido mediante proyectos reales, tooling open source y laboratorios reproducibles orientados a producción.
         </p>
@@ -1628,7 +1665,7 @@ code {
           <a href="https://github.com/Joaquinriosheredia" target="_blank" rel="noopener" class="profile-link">⭐ GitHub</a>
           <a href="https://linkedin.com/in/joaquinrios-ai-engineer" target="_blank" rel="noopener" class="profile-link">💼 LinkedIn</a>
           <a href="https://malt.es/profile/joaquinriosheredia" target="_blank" rel="noopener" class="profile-link">🔗 Malt</a>
-          <span class="profile-link" style="cursor:default">📍 Sevilla/Málaga</span>
+          <span class="profile-link" style="cursor:default" data-i18n="profile.9">📍 Sevilla/Málaga</span>
         </div>
       </div>
     </div>
@@ -1640,9 +1677,9 @@ code {
 <section id="devtools" class="section" aria-labelledby="devtools-title">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Producto propio · Java + Python</div>
+      <div class="section-label" data-i18n="devtools.1">Producto propio · Java + Python</div>
       <h2 class="section-title" id="devtools-title">vibe-guard</h2>
-      <p class="section-desc">Detecta patrones que pueden pasar los tests y fallar en producción, sobre todo bajo carga, en backends <strong>Java/Spring</strong> y <strong>Python async</strong>. Son frecuentes en código generado con IA, pero no detecta autoría ni lo intenta. Cada hallazgo separa detección, impacto (medido o «documented mechanism») y reproducción. Estado actual: <strong>Fase 1 del roadmap, fiabilidad y precisión</strong>.</p>
+      <p class="section-desc" data-i18n="devtools.3">Detecta patrones que pueden pasar los tests y fallar en producción, sobre todo bajo carga, en backends <strong>Java/Spring</strong> y <strong>Python async</strong>. Son frecuentes en código generado con IA, pero no detecta autoría ni lo intenta. Cada hallazgo separa detección, impacto (medido o «documented mechanism») y reproducción. Estado actual: <strong>Fase <span data-k>1</span> del roadmap, fiabilidad y precisión</strong>.</p>
     </div>
 
     <!-- Arquitectura -->
@@ -1653,14 +1690,14 @@ code {
           <span class="npm-icon-big" aria-hidden="true">🧭</span>
           <span class="npm-pkg-name">vibe-guard scan</span>
         </div>
-        <p class="npm-desc">
-          Un comando para los dos motores: detecta qué lenguajes hay en el árbol, ejecuta cada motor con su CLI publicada y da un solo informe (texto, JSON común <code>schemaVersion 1</code> o SARIF 2.1.0 con un run por motor) y un solo exit code. El SARIF de dos runs se probó en GitHub Code Scanning.
+        <p class="npm-desc" data-i18n="devtools.5">
+          Un comando para los dos motores: detecta qué lenguajes hay en el árbol, ejecuta cada motor con su CLI publicada y da un solo informe (texto, JSON común <code data-k>schemaVersion 1</code> o SARIF <span data-k>2.1.0</span> con un run por motor) y un solo exit code. El SARIF de dos runs se probó en GitHub Code Scanning.
         </p>
         <div class="npm-badges">
-          <span class="npm-badge">🔒 vibe-guard-scan 0.2.0 · privado, no publicado</span>
-          <span class="npm-badge">🔒 vibe-guard · repo privado de coordinación (estado, decisiones, pre-registros)</span>
-          <span class="npm-badge">✅ Exclusiones por defecto de tests/fixtures/examples fuera de las raíces de código</span>
-          <span class="npm-badge">✅ La decisión de salida se recalcula con los hallazgos normalizados</span>
+          <span class="npm-badge" data-i18n="devtools.6">🔒 vibe-guard-scan <span data-k>0.2.0</span> · privado, no publicado</span>
+          <span class="npm-badge" data-i18n="devtools.7">🔒 vibe-guard · repo privado de coordinación (estado, decisiones, pre-registros)</span>
+          <span class="npm-badge" data-i18n="devtools.8">✅ Exclusiones por defecto de tests/fixtures/examples fuera de las raíces de código</span>
+          <span class="npm-badge" data-i18n="devtools.9">✅ La decisión de salida se recalcula con los hallazgos normalizados</span>
         </div>
       </div>
 
@@ -1669,21 +1706,21 @@ code {
           <span class="terminal-dot red" aria-hidden="true"></span>
           <span class="terminal-dot yellow" aria-hidden="true"></span>
           <span class="terminal-dot green" aria-hidden="true"></span>
-          <span class="terminal-title">arquitectura</span>
+          <span class="terminal-title" data-i18n="devtools.10">arquitectura</span>
         </div>
-        <div class="terminal-output" role="region" aria-label="Arquitectura de vibe-guard">
+        <div class="terminal-output" role="region" aria-label="Arquitectura de vibe-guard" data-i18n-aria-label="devtools.132.aria-label">
           <div><span class="t-prompt">$</span> vibe-guard scan .</div>
           <div>&nbsp;</div>
-          <div><span class="t-key">hay .java →</span> <span class="t-val">java-vibe-guard 2.4.0</span> <span class="t-comment">(npm)</span></div>
-          <div><span class="t-comment">            CLI Node, reglas por regex + --verify</span></div>
-          <div><span class="t-key">hay .py   →</span> <span class="t-val">pyvibe 0.14.0</span> <span class="t-comment">(PyPI)</span></div>
+          <div><span class="t-key" data-i18n="devtools.12">hay .java →</span> <span class="t-val">java-vibe-guard 2.4.0</span> <span class="t-comment">(npm)</span></div>
+          <div><span class="t-comment" data-i18n="devtools.15">            CLI Node, reglas por regex + --verify</span></div>
+          <div><span class="t-key" data-i18n="devtools.16">hay .py   →</span> <span class="t-val">pyvibe 0.14.0</span> <span class="t-comment">(PyPI)</span></div>
           <div><span class="t-comment">            AST, PYVIBE-001…020</span></div>
           <div>&nbsp;</div>
-          <div><span class="t-key">→</span> texto · JSON común · SARIF (2 runs)</div>
+          <div data-i18n="devtools.20"><span class="t-key">→</span> texto · JSON común · SARIF (<span data-k>2</span> runs)</div>
           <div>&nbsp;</div>
-          <div><span class="t-comment"># Aparte, sin pasar por el wrapper:</span></div>
+          <div><span class="t-comment" data-i18n="devtools.21"># Aparte, sin pasar por el wrapper:</span></div>
           <div><span class="t-val">java-vibe-guard MCP</span> <span class="t-comment">(jar 2.0.0, VIBE-001…007)</span></div>
-          <div><span class="t-comment">  → analyzeProject dentro de Claude Code</span></div>
+          <div><span class="t-comment" data-i18n="devtools.24">  → analyzeProject dentro de Claude Code</span></div>
         </div>
       </div>
     </div>
@@ -1697,8 +1734,8 @@ code {
           <span class="npm-icon-big" aria-hidden="true">🛡️</span>
           <span class="npm-pkg-name" style="color: #a78bfa;">java-vibe-guard</span>
         </div>
-        <p class="npm-desc">
-          Motor Java/Spring Boot con dos motores distintos: un <strong style="color: #a78bfa;">CLI</strong> en Node (reglas por regex y heurísticas de contexto, sin AST ni resolución de tipos), con <code>--verify</code> y GitHub Action con SARIF, y un <strong style="color: #a78bfa;">servidor MCP</strong> en Spring Boot que expone <code>analyzeProject</code> como herramienta de Claude Code. npm 2.4.0 · jar MCP 2.0.0 · MIT.
+        <p class="npm-desc" data-i18n="devtools.26">
+          Motor Java/Spring Boot con dos motores distintos: un <strong style="color: #a78bfa;">CLI</strong> en Node (reglas por regex y heurísticas de contexto, sin AST ni resolución de tipos), con <code data-k>--verify</code> y GitHub Action con SARIF, y un <strong style="color: #a78bfa;">servidor MCP</strong> en Spring Boot que expone <code data-k>analyzeProject</code> como herramienta de Claude Code. npm <span data-k>2.4.0</span> · jar MCP <span data-k>2.0.0</span> · MIT.
         </p>
         <div class="npm-install-block" style="display: flex; flex-direction: column; gap: 8px;">
           <div><span class="npm-install-prefix">$</span> npx java-vibe-guard ./your-spring-project</div>
@@ -1707,12 +1744,12 @@ code {
           </div>
         </div>
         <div class="npm-badges">
-          <span class="npm-badge">🛡️ CLI por defecto: blocking · blocking-kafka · reactor-block · kafka-send-timeout · transactions · layers · kafka</span>
+          <span class="npm-badge" data-i18n="devtools.29">🛡️ CLI por defecto: blocking · blocking-kafka · reactor-block · kafka-send-timeout · transactions · layers · kafka</span>
           <span class="npm-badge">🛡️ Opt-in: observability · async-returns-pending-future</span>
-          <span class="npm-badge">✅ MCP: 7 reglas (VIBE-001…007) · 148 tests</span>
-          <span class="npm-badge">✅ <code>--verify VIBE-001</code> reproduce el fallo en Spring Boot + PostgreSQL reales, en CI</span>
-          <span class="npm-badge">🧪 Experimentos pre-registrados: blocking · blocking-kafka · reactor-block</span>
-          <span class="npm-badge">📋 Los 3 candidatos «Found in the Wild» se retiraron tras auditoría contextual</span>
+          <span class="npm-badge" data-i18n="devtools.31">✅ MCP: <span data-k>7</span> reglas (<span data-k>VIBE-001</span>…<span data-k>007</span>) · <span data-k>148</span> tests</span>
+          <span class="npm-badge" data-i18n="devtools.32">✅ <code data-k>--verify VIBE-001</code> reproduce el fallo en Spring Boot + PostgreSQL reales, en CI</span>
+          <span class="npm-badge" data-i18n="devtools.33">🧪 Experimentos pre-registrados: blocking · blocking-kafka · reactor-block</span>
+          <span class="npm-badge" data-i18n="devtools.34">📋 Los <span data-k>3</span> candidatos «Found in the Wild» se retiraron tras auditoría contextual</span>
         </div>
         <div class="npm-links">
           <a href="https://github.com/Joaquinriosheredia/java-vibe-guard" target="_blank" rel="noopener" class="npm-link blue">⭐ GitHub →</a>
@@ -1726,19 +1763,19 @@ code {
             <span class="terminal-dot red" aria-hidden="true"></span>
             <span class="terminal-dot yellow" aria-hidden="true"></span>
             <span class="terminal-dot green" aria-hidden="true"></span>
-            <span class="terminal-title">medido en experimentos pre-registrados</span>
+            <span class="terminal-title" data-i18n="devtools.37">medido en experimentos pre-registrados</span>
           </div>
-          <div class="terminal-output" role="region" aria-label="Resultados medidos">
+          <div class="terminal-output" role="region" aria-label="Resultados medidos" data-i18n-aria-label="devtools.133.aria-label">
             <div><span class="t-prompt">$</span> npx java-vibe-guard --verify VIBE-001</div>
-            <div><span class="t-pass">✓</span> <span class="t-label">pool HikariCP</span> <span class="t-val">≥ 95 % ocupado</span></div>
-            <div><span class="t-pass">✓</span> <span class="t-label">peticiones esperando conexión</span></div>
+            <div><span class="t-pass">✓</span> <span class="t-label">pool HikariCP</span> <span class="t-val" data-i18n="devtools.40">≥ <span data-k>95</span> % ocupado</span></div>
+            <div><span class="t-pass">✓</span> <span class="t-label" data-i18n="devtools.41">peticiones esperando conexión</span></div>
             <div><span class="t-pass">✓</span> <span class="t-label">p95</span> <span class="t-val">≥ 800 ms</span></div>
             <div>&nbsp;</div>
-            <div><span class="t-comment"># .toFuture().get() en el event loop (WebFlux)</span></div>
-            <div><span style="color:var(--danger)">✗</span> <span class="t-label">deadlock en 15/15 runs</span> <span class="t-val">0 respuestas</span></div>
+            <div><span class="t-comment" data-i18n="devtools.44"># .toFuture().get() en el event loop (WebFlux)</span></div>
+            <div><span style="color:var(--danger)">✗</span> <span class="t-label" data-i18n="devtools.45">deadlock en <span data-k>15/15</span> runs</span> <span class="t-val" data-i18n="devtools.46"><span data-k>0</span> respuestas</span></div>
             <div>&nbsp;</div>
-            <div><span class="t-comment"># bloqueo en @KafkaListener, &gt; 600 ms/registro</span></div>
-            <div><span style="color:var(--danger)">✗</span> <span class="t-label">bucle de reprocesado</span> <span class="t-val">0 records/s, ~10 entregas c/u</span></div>
+            <div><span class="t-comment" data-i18n="devtools.47"># bloqueo en @KafkaListener, &gt; <span data-k>600</span> ms/registro</span></div>
+            <div><span style="color:var(--danger)">✗</span> <span class="t-label" data-i18n="devtools.48">bucle de reprocesado</span> <span class="t-val" data-i18n="devtools.49"><span data-k>0</span> records/s, <span data-k>~10</span> entregas c/u</span></div>
           </div>
         </div>
 
@@ -1747,15 +1784,15 @@ code {
             <span class="terminal-dot red" aria-hidden="true"></span>
             <span class="terminal-dot yellow" aria-hidden="true"></span>
             <span class="terminal-dot green" aria-hidden="true"></span>
-            <span class="terminal-title">validate-public · CLI 2.0.0, commits fijados</span>
+            <span class="terminal-title" data-i18n="devtools.50">validate-public · CLI <span data-k>2.0.0</span>, commits fijados</span>
           </div>
-          <div class="terminal-output" role="region" aria-label="Validación pública">
-            <div><span class="t-pass">✓</span> <span class="t-label">eugenp/tutorials</span> <span class="t-val">29,141 files</span></div>
+          <div class="terminal-output" role="region" aria-label="Validación pública" data-i18n-aria-label="devtools.134.aria-label">
+            <div><span class="t-pass">✓</span> <span class="t-label">eugenp/tutorials</span> <span class="t-val">29 141 files</span></div>
             <div><span class="t-pass">✓</span> <span class="t-label">spring-petclinic</span> <span class="t-val">77 files</span></div>
-            <div><span class="t-label">2,856 hallazgos</span> <span class="t-comment">· 20 critical · 220 major · 2,616 warning</span></div>
+            <div><span class="t-label" data-i18n="devtools.55"><span data-k>2 856</span> hallazgos</span> <span class="t-comment">· 20 critical · 220 major · 2 616 warning</span></div>
             <div>&nbsp;</div>
-            <div><span class="t-comment"># Hallazgos reportados, no bugs confirmados:</span></div>
-            <div><span class="t-comment"># sin auditoría de precisión. No re-ejecutado con 2.4.0.</span></div>
+            <div><span class="t-comment" data-i18n="devtools.57"># Hallazgos reportados, no bugs confirmados:</span></div>
+            <div><span class="t-comment" data-i18n="devtools.58"># sin auditoría de precisión. No re-ejecutado con <span data-k>2.4.0</span>.</span></div>
           </div>
         </div>
       </div>
@@ -1770,18 +1807,18 @@ code {
           <span class="npm-icon-big" aria-hidden="true">🐍</span>
           <span class="npm-pkg-name" style="color: var(--primary);">python-vibe-guard</span>
         </div>
-        <p class="npm-desc">
-          Motor Python (<code>pyvibe</code>): análisis AST puro con 20 reglas en tres familias, bloqueo del event loop, mal uso del ciclo de vida async y riesgos de concurrencia y estado. Busca patrones de código, no autoría. PyPI 0.14.0 · MIT.
+        <p class="npm-desc" data-i18n="devtools.60">
+          Motor Python (<code data-k>pyvibe</code>): análisis AST puro con <span data-k>20</span> reglas en tres familias, bloqueo del event loop, mal uso del ciclo de vida async y riesgos de concurrencia y estado. Busca patrones de código, no autoría. PyPI <span data-k>0.14.0</span> · MIT.
         </p>
         <div class="npm-install-block">
           <span class="npm-install-prefix">$</span>
           pip install python-vibe-guard
         </div>
         <div class="npm-badges">
-          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);">🔍 20 reglas · PYVIBE-001…020</span>
-          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);">⚖️ Severidad por ruta: CRITICAL → WARNING en tests, scripts y examples</span>
+          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);" data-i18n="devtools.62">🔍 <span data-k>20</span> reglas · <span data-k>PYVIBE-001</span>…<span data-k>020</span></span>
+          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);" data-i18n="devtools.63">⚖️ Severidad por ruta: CRITICAL → WARNING en tests, scripts y examples</span>
           <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);">🔧 SARIF · baseline · <code>pyvibe explain</code> · <code>pyvibe audit</code> · pre-commit</span>
-          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);">⚙️ GitHub Action propia con subida a Code Scanning</span>
+          <span class="npm-badge" style="border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--primary);" data-i18n="devtools.65">⚙️ GitHub Action propia con subida a Code Scanning</span>
         </div>
         <div class="npm-links">
           <a href="https://github.com/Joaquinriosheredia/python-vibe-guard" target="_blank" rel="noopener" class="npm-link blue">⭐ GitHub →</a>
@@ -1795,19 +1832,19 @@ code {
           <span class="terminal-dot red" aria-hidden="true"></span>
           <span class="terminal-dot yellow" aria-hidden="true"></span>
           <span class="terminal-dot green" aria-hidden="true"></span>
-          <span class="terminal-title">precisión pre-registrada · test-corpus-1</span>
+          <span class="terminal-title" data-i18n="devtools.69">precisión pre-registrada · <span data-k>test-corpus-1</span></span>
         </div>
-        <div class="terminal-output" role="region" aria-label="Precisión medida">
+        <div class="terminal-output" role="region" aria-label="Precisión medida" data-i18n-aria-label="devtools.135.aria-label">
           <div><span class="t-comment"># python-vibe-guard 0.13.0 · 2026-10-14</span></div>
-          <div><span class="t-label">Precisión CRITICAL</span> <span class="t-val">0.7067</span></div>
+          <div><span class="t-label" data-i18n="devtools.71">Precisión CRITICAL</span> <span class="t-val">0.7067</span></div>
           <div><span class="t-label">Wilson 95 %</span> <span class="t-val">0.6294 – 0.7736</span></div>
-          <div><span class="t-label">Revisados</span> <span class="t-val">n = 150</span></div>
-          <div><span class="t-label">Objetivo</span> <span class="t-val">≥ 90 %</span> <span style="color:var(--danger)">✗ no cumplido</span></div>
+          <div><span class="t-label" data-i18n="devtools.73">Revisados</span> <span class="t-val">n = 150</span></div>
+          <div><span class="t-label" data-i18n="devtools.75">Objetivo</span> <span class="t-val">≥ 90 %</span> <span style="color:var(--danger)" data-i18n="devtools.76">✗ no cumplido</span></div>
           <div>&nbsp;</div>
-          <div><span class="t-comment"># Probablemente optimista: 129 de 150 veredictos</span></div>
-          <div><span class="t-comment"># vienen de una primera revisión IA no verificada.</span></div>
-          <div><span class="t-comment"># Los arreglos de 0.14.0 se diseñaron mirando este</span></div>
-          <div><span class="t-comment"># corpus → ahora es corpus de desarrollo.</span></div>
+          <div><span class="t-comment" data-i18n="devtools.77"># Probablemente optimista: <span data-k>129</span> de <span data-k>150</span> veredictos</span></div>
+          <div><span class="t-comment" data-i18n="devtools.78"># vienen de una primera revisión IA no verificada.</span></div>
+          <div><span class="t-comment" data-i18n="devtools.79"># Los arreglos de <span data-k>0.14.0</span> se diseñaron mirando este</span></div>
+          <div><span class="t-comment" data-i18n="devtools.80"># corpus → ahora es corpus de desarrollo.</span></div>
         </div>
       </div>
     </div>
@@ -1820,13 +1857,13 @@ code {
           <span class="npm-icon-big" aria-hidden="true">📐</span>
           <span class="npm-pkg-name">vibe-guard-evaluation</span>
         </div>
-        <p class="npm-desc">
-          Evaluaciones pre-registradas de los dos motores sobre repositorios nunca usados para ajustar sus reglas. Cada evaluación empieza con un <code>PREREGISTRATION.md</code> commiteado antes de buscar, seleccionar o ejecutar nada; las desviaciones van a <code>DEVIATIONS.md</code>. El código de terceros se cita por repositorio, commit fijado y archivo:línea.
+        <p class="npm-desc" data-i18n="devtools.82">
+          Evaluaciones pre-registradas de los dos motores sobre repositorios nunca usados para ajustar sus reglas. Cada evaluación empieza con un <code data-k>PREREGISTRATION.md</code> commiteado antes de buscar, seleccionar o ejecutar nada; las desviaciones van a <code data-k>DEVIATIONS.md</code>. El código de terceros se cita por repositorio, commit fijado y archivo:línea.
         </p>
         <div class="npm-badges">
-          <span class="npm-badge">✗ test-corpus-1: ambos criterios pre-registrados NO cumplidos</span>
-          <span class="npm-badge">⏳ test-corpus-2: precisión por lenguaje, versiones congeladas, sin resultados todavía</span>
-          <span class="npm-badge">✅ Scripts de evaluación con tests (<code>node --test</code>) · MIT</span>
+          <span class="npm-badge" data-i18n="devtools.83">✗ <span data-k>test-corpus-1</span>: ambos criterios pre-registrados NO cumplidos</span>
+          <span class="npm-badge" data-i18n="devtools.84">⏳ <span data-k>test-corpus-2</span>: precisión por lenguaje, versiones congeladas, sin resultados todavía</span>
+          <span class="npm-badge" data-i18n="devtools.85">✅ Scripts de evaluación con tests (<code data-k>node --test</code>) · MIT</span>
         </div>
         <div class="npm-links">
           <a href="https://github.com/Joaquinriosheredia/vibe-guard-evaluation" target="_blank" rel="noopener" class="npm-link blue">⭐ GitHub →</a>
@@ -1840,14 +1877,14 @@ code {
           <span class="terminal-dot green" aria-hidden="true"></span>
           <span class="terminal-title">test-corpus-1 · RESULTS.md</span>
         </div>
-        <div class="terminal-output" role="region" aria-label="Resultados test-corpus-1">
-          <div><span class="t-comment"># Criterio 1 · precisión CRITICAL ≥ 90 %</span></div>
-          <div><span style="color:var(--danger)">✗</span> <span class="t-label">medido</span> <span class="t-val">0.7067</span></div>
+        <div class="terminal-output" role="region" aria-label="Resultados test-corpus-1" data-i18n-aria-label="devtools.136.aria-label">
+          <div><span class="t-comment" data-i18n="devtools.88"># Criterio <span data-k>1</span> · precisión CRITICAL ≥ <span data-k>90</span> %</span></div>
+          <div><span style="color:var(--danger)">✗</span> <span class="t-label" data-i18n="devtools.89">medido</span> <span class="t-val">0.7067</span></div>
           <div>&nbsp;</div>
-          <div><span class="t-comment"># Criterio 2 · ruido por 1.000 archivos</span></div>
-          <div><span class="t-comment">#   límite: ≤ 5 CRITICAL y ≤ 20 WARNING</span></div>
+          <div><span class="t-comment" data-i18n="devtools.90"># Criterio <span data-k>2</span> · ruido por <span data-k>1 000</span> archivos</span></div>
+          <div><span class="t-comment" data-i18n="devtools.91">#   límite: ≤ <span data-k>5</span> CRITICAL y ≤ <span data-k>20</span> WARNING</span></div>
           <div><span style="color:var(--danger)">✗</span> <span class="t-label">Python</span> <span class="t-val">42.071 CRITICAL · 110.111 WARNING</span></div>
-          <div><span class="t-warn">⚠</span> <span class="t-label">Java</span> <span class="t-val">0.044 · 0.967</span> <span class="t-comment">(un solo CRITICAL)</span></div>
+          <div><span class="t-warn">⚠</span> <span class="t-label">Java</span> <span class="t-val">0.044 · 0.967</span> <span class="t-comment" data-i18n="devtools.95">(un solo CRITICAL)</span></div>
         </div>
       </div>
     </div>
@@ -1861,20 +1898,20 @@ code {
           <span class="npm-icon-big" aria-hidden="true">📦</span>
           <span class="npm-pkg-name">testcontainers-doctor</span>
         </div>
-        <p class="npm-desc">
-          CLI que diagnostica el entorno de Testcontainers en unos segundos y dice qué falla y cómo arreglarlo. Es el preflight de <code>java-vibe-guard --verify</code>, que lo trae como dependencia npm. npm 1.0.0 · MIT.
+        <p class="npm-desc" data-i18n="devtools.97">
+          CLI que diagnostica el entorno de Testcontainers en unos segundos y dice qué falla y cómo arreglarlo. Es el preflight de <code data-k>java-vibe-guard --verify</code>, que lo trae como dependencia npm. npm <span data-k>1.0.0</span> · MIT.
         </p>
         <div class="npm-install-block">
           <span class="npm-install-prefix">$</span>
           npx testcontainers-doctor
         </div>
         <div class="npm-badges">
-          <span class="npm-badge">✅ Docker: daemon, socket, storage driver, memoria</span>
-          <span class="npm-badge">✅ Java: versión, JAVA_HOME, Maven, Gradle</span>
+          <span class="npm-badge" data-i18n="devtools.99">✅ Docker: daemon, socket, storage driver, memoria</span>
+          <span class="npm-badge" data-i18n="devtools.100">✅ Java: versión, JAVA_HOME, Maven, Gradle</span>
           <span class="npm-badge">✅ Config: .testcontainers.properties, Ryuk, reuse</span>
-          <span class="npm-badge">✅ Red: DNS, Docker Hub, proxy</span>
-          <span class="npm-badge">✅ Entorno: WSL2, CI, ulimits, grupo docker</span>
-          <span class="npm-badge">✅ <code>--json</code> · <code>--check</code> · exit 1 si falla algún check</span>
+          <span class="npm-badge" data-i18n="devtools.102">✅ Red: DNS, Docker Hub, proxy</span>
+          <span class="npm-badge" data-i18n="devtools.103">✅ Entorno: <span data-k>WSL2</span>, CI, ulimits, grupo docker</span>
+          <span class="npm-badge" data-i18n="devtools.104">✅ <code data-k>--json</code> · <code data-k>--check</code> · exit <span data-k>1</span> si falla algún check</span>
         </div>
         <div class="npm-links">
           <a href="https://www.npmjs.com/package/testcontainers-doctor" target="_blank" rel="noopener" class="npm-link green">📦 npm →</a>
@@ -1887,9 +1924,9 @@ code {
           <span class="terminal-dot red" aria-hidden="true"></span>
           <span class="terminal-dot yellow" aria-hidden="true"></span>
           <span class="terminal-dot green" aria-hidden="true"></span>
-          <span class="terminal-title">salida real · WSL2, Docker 29 (extracto)</span>
+          <span class="terminal-title" data-i18n="devtools.107">salida real · <span data-k>WSL2</span>, Docker <span data-k>29</span> (extracto)</span>
         </div>
-        <div class="terminal-output" role="region" aria-label="Salida de testcontainers-doctor">
+        <div class="terminal-output" role="region" aria-label="Salida de testcontainers-doctor" data-i18n-aria-label="devtools.137.aria-label">
           <div><span class="t-prompt">$</span> npx testcontainers-doctor@1.0.0 --no-color</div>
           <div>&nbsp;</div>
           <div><span class="t-pass">✔</span> <span class="t-label">Docker daemon</span> <span class="t-val">Running (29.1.3)</span></div>
@@ -1909,12 +1946,12 @@ code {
     <div class="repo-grid reveal">
       <a class="repo-card" href="https://github.com/Joaquinriosheredia/java-vibe-guard-demo" target="_blank" rel="noopener">
         <div class="repo-card-name">java-vibe-guard-demo</div>
-        <div class="repo-card-desc">4 archivos <code>.java</code> sin build tool (3 con bugs + <code>@EnableAsync</code>) que dan exactamente 3 CRITICAL con <code>npx java-vibe-guard@2.4.0 .</code>. El README trae la salida real y qué reporta cada motor, CLI y MCP.</div>
+        <div class="repo-card-desc" data-i18n="devtools.127"><span data-k>4</span> archivos <code data-k>.java</code> sin build tool (<span data-k>3</span> con bugs + <code data-k>@EnableAsync</code>) que dan exactamente <span data-k>3</span> CRITICAL con <code data-k>npx java-vibe-guard@2.4.0 .</code>. El README trae la salida real y qué reporta cada motor, CLI y MCP.</div>
         <div class="repo-card-meta">Java · MIT</div>
       </a>
       <a class="repo-card" href="https://github.com/Joaquinriosheredia/python-vibe-guard-action" target="_blank" rel="noopener">
         <div class="repo-card-name">python-vibe-guard-action</div>
-        <div class="repo-card-desc">GitHub Action que instala python-vibe-guard desde PyPI, sube el SARIF a Code Scanning y falla el job según un umbral configurable (<code>critical</code> o <code>warning</code>).</div>
+        <div class="repo-card-desc" data-i18n="devtools.130">GitHub Action que instala python-vibe-guard desde PyPI, sube el SARIF a Code Scanning y falla el job según un umbral configurable (<code data-k>critical</code> o <code data-k>warning</code>).</div>
         <div class="repo-card-meta">GitHub Action · v1 · MIT</div>
       </a>
     </div>
@@ -1927,24 +1964,24 @@ code {
   <div class="container">
     <div class="reveal">
       <div class="section-label">Java Production Labs</div>
-      <h2 class="section-title" id="labs-title">10 Labs Ejecutables</h2>
-      <p class="section-desc">Diez labs autocontenidos de Spring Boot 3 + Java 21: arrancan en frío, se miden bajo carga y cada uno tiene un modo de fallo documentado. Cada cifra sale de un fichero de resultados versionado en el repo.</p>
+      <h2 class="section-title" id="labs-title" data-i18n="labs.2"><span data-k>10</span> Labs Ejecutables</h2>
+      <p class="section-desc" data-i18n="labs.3">Diez labs autocontenidos de Spring Boot <span data-k>3</span> + Java <span data-k>21</span>: arrancan en frío, se miden bajo carga y cada uno tiene un modo de fallo documentado. Cada cifra sale de un fichero de resultados versionado en el repo.</p>
     </div>
 
     <div class="labs-header-card reveal">
-      <div class="labs-header-text">
+      <div class="labs-header-text" data-i18n="labs.4">
         <strong>Laboratorios orientados a producción</strong>, no tutoriales.<br>
-        ADR, tests, benchmark, métricas y chaos en los 10 labs; Testcontainers con PostgreSQL, Redis y Kafka reales en los labs 03–07.<br>
-        <span style="color: var(--success); font-weight: 500; display: inline-block; margin-top: 4px;">✓ 7 arreglos encontrados con java-vibe-guard y una revisión de seguridad (2 de ellos son mejoras, no bugs).</span>
+        ADR, tests, benchmark, métricas y chaos en los <span data-k>10</span> labs; Testcontainers con PostgreSQL, Redis y Kafka reales en los labs <span data-k>03</span>–<span data-k>07</span>.<br>
+        <span style="color: var(--success); font-weight: 500; display: inline-block; margin-top: 4px;">✓ <span data-k>7</span> arreglos encontrados con java-vibe-guard y una revisión de seguridad (<span data-k>2</span> de ellos son mejoras, no bugs).</span>
       </div>
       <div class="labs-header-meta">
         <div class="labs-meta-item">
           <div class="labs-meta-num">10</div>
-          <div class="labs-meta-label">Ejecutados</div>
+          <div class="labs-meta-label" data-i18n="labs.5">Ejecutados</div>
         </div>
         <div class="labs-meta-item">
           <div class="labs-meta-num">3</div>
-          <div class="labs-meta-label">Re-medidos oct 2026</div>
+          <div class="labs-meta-label" data-i18n="labs.6">Re-medidos oct <span data-k>2026</span></div>
         </div>
       </div>
     </div>
@@ -1958,11 +1995,11 @@ code {
             <div class="lab-num">LAB 01</div>
             <div class="lab-title">Virtual Threads</div>
           </div>
-          <span class="lab-status done">Ejecutado</span>
+          <span class="lab-status done" data-i18n="labs.9">Ejecutado</span>
         </div>
         <div class="lab-metrics">
           <div class="lab-metric-big"><span class="highlight">207</span> vs 37 req/s</div>
-          <div class="lab-metric-sub">50 VUs · virtual threads vs pool de 20 platform threads · mediana de 5 runs<br>200 VUs: <strong>828</strong> vs 118 req/s · p99 con virtual threads ≈ 105 ms en ambas cargas</div>
+          <div class="lab-metric-sub" data-i18n="labs.11"><span data-k>50</span> VUs · virtual threads vs pool de <span data-k>20</span> platform threads · mediana de <span data-k>5</span> runs<br><span data-k>200</span> VUs: <strong><span data-k>828</span></strong> vs <span data-k>118</span> req/s · <span data-k>p99</span> con virtual threads ≈ <span data-k>105</span> ms en ambas cargas</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Spring Boot 3.2</span>
@@ -1970,7 +2007,7 @@ code {
           <span class="tag">k6</span>
         </div>
         <div class="lab-footer">
-          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/01_virtual_threads" target="_blank" rel="noopener">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/01_virtual_threads" target="_blank" rel="noopener" data-i18n="labs.15">
             Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -1983,11 +2020,11 @@ code {
             <div class="lab-num">LAB 02</div>
             <div class="lab-title">Resilience4j</div>
           </div>
-          <span class="lab-status done">Ejecutado</span>
+          <span class="lab-status done" data-i18n="labs.18">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big"><span class="green">90.680</span> rechazadas</div>
-          <div class="lab-metric-sub">Llamadas rechazadas con el circuito OPEN (~27 s)<br>Recuperación automática ~5 s tras cesar el fallo (aprox.) · Bulkhead → CircuitBreaker → Retry</div>
+          <div class="lab-metric-big" data-i18n="labs.19"><span class="green"><span data-k>90 680</span></span> rechazadas</div>
+          <div class="lab-metric-sub" data-i18n="labs.20">Llamadas rechazadas con el circuito OPEN (<span data-k>~27</span> s)<br>Recuperación automática <span data-k>~5</span> s tras cesar el fallo (aprox.) · Bulkhead → CircuitBreaker → Retry</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Resilience4j</span>
@@ -1996,7 +2033,7 @@ code {
           <span class="tag">Chaos script</span>
         </div>
         <div class="lab-footer">
-          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/02_resilience" target="_blank" rel="noopener">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/02_resilience" target="_blank" rel="noopener" data-i18n="labs.25">
             Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -2009,11 +2046,11 @@ code {
             <div class="lab-num">LAB 03</div>
             <div class="lab-title">Rate Limiter Redis</div>
           </div>
-          <span class="lab-status done">Ejecutado</span>
+          <span class="lab-status done" data-i18n="labs.28">Ejecutado</span>
         </div>
         <div class="lab-metrics">
           <div class="lab-metric-big"><span class="cyan">460</span> req/s</div>
-          <div class="lab-metric-sub">Token bucket distribuido en Redis · 89 % rechazadas con 429 (≈ 50 req/s permitidas)<br>p99: <strong>4.55 ms</strong> · con varias instancias de la app no está probado</div>
+          <div class="lab-metric-sub" data-i18n="labs.30">Token bucket distribuido en Redis · <span data-k>89</span> % rechazadas con <span data-k>429</span> (≈ <span data-k>50</span> req/s permitidas)<br><span data-k>p99</span>: <strong><span data-k>4.55</span> ms</strong> · con varias instancias de la app no está probado</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Redis</span>
@@ -2021,7 +2058,7 @@ code {
           <span class="tag">k6</span>
         </div>
         <div class="lab-footer">
-          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/03_rate_limiter" target="_blank" rel="noopener">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/03_rate_limiter" target="_blank" rel="noopener" data-i18n="labs.34">
             Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -2034,11 +2071,11 @@ code {
             <div class="lab-num">LAB 04</div>
             <div class="lab-title">Outbox + Kafka</div>
           </div>
-          <span class="lab-status done">Ejecutado</span>
+          <span class="lab-status done" data-i18n="labs.37">Ejecutado</span>
         </div>
         <div class="lab-metrics">
           <div class="lab-metric-big"><span class="cyan">163.8</span> req/s · <span class="green">0</span> FAILED</div>
-          <div class="lab-metric-sub">Tras matar Kafka: 0 eventos FAILED después del fix (antes, 5 de 91)<br>Bug encontrado vía chaos testing · drain: 88.9 → <strong>149.8</strong> eventos/s</div>
+          <div class="lab-metric-sub" data-i18n="labs.39">Tras matar Kafka: <span data-k>0</span> eventos FAILED después del fix (antes, <span data-k>5</span> de <span data-k>91</span>)<br>Bug encontrado vía chaos testing · drain: <span data-k>88.9</span> → <strong><span data-k>149.8</span></strong> eventos/s</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Transactional Outbox</span>
@@ -2047,7 +2084,7 @@ code {
           <span class="tag">Chaos Testing</span>
         </div>
         <div class="lab-footer">
-          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/04_outbox_kafka" target="_blank" rel="noopener">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/04_outbox_kafka" target="_blank" rel="noopener" data-i18n="labs.44">
             Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -2060,11 +2097,11 @@ code {
             <div class="lab-num">LAB 05</div>
             <div class="lab-title">Saga Pattern</div>
           </div>
-          <span class="lab-status done">Ejecutado</span>
+          <span class="lab-status done" data-i18n="labs.47">Ejecutado</span>
         </div>
         <div class="lab-metrics">
           <div class="lab-metric-big"><span class="highlight">71.8%</span> stuck</div>
-          <div class="lab-metric-sub">1.165 / 1.622 órdenes en STARTED con 0 % de errores HTTP · race condition dual-write<br>Medido el 2026-05-15, antes de cambios posteriores del lab (no re-ejecutado)</div>
+          <div class="lab-metric-sub" data-i18n="labs.49"><span data-k>1 165</span> / <span data-k>1 622</span> órdenes en STARTED con <span data-k>0</span> % de errores HTTP · race condition dual-write<br>Medido el <span data-k>2026-05-15</span>, antes de cambios posteriores del lab (no re-ejecutado)</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Choreography Saga</span>
@@ -2072,7 +2109,7 @@ code {
           <span class="tag">Dual-Write Analysis</span>
         </div>
         <div class="lab-footer">
-          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/05_saga_pattern" target="_blank" rel="noopener">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/05_saga_pattern" target="_blank" rel="noopener" data-i18n="labs.53">
             Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -2085,11 +2122,11 @@ code {
             <div class="lab-num">LAB 06</div>
             <div class="lab-title">Redis vs Kafka</div>
           </div>
-          <span class="lab-status done">Ejecutado</span>
+          <span class="lab-status done" data-i18n="labs.56">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big"><span class="cyan">2.227</span> vs <span class="highlight">47.619</span> msg/s</div>
-          <div class="lab-metric-sub">Con el broker caído ambos pierden lo enviado (200/200); Kafka conserva y reproduce lo ya commiteado<br>La diferencia es asimetría de API (RTT síncrono vs buffer async), no velocidad</div>
+          <div class="lab-metric-big"><span class="cyan">2 227</span> vs <span class="highlight">47 619</span> msg/s</div>
+          <div class="lab-metric-sub" data-i18n="labs.58">Con el broker caído ambos pierden lo enviado (<span data-k>200/200</span>); Kafka conserva y reproduce lo ya commiteado<br>La diferencia es asimetría de API (RTT síncrono vs buffer async), no velocidad</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Redis Pub/Sub</span>
@@ -2097,7 +2134,7 @@ code {
           <span class="tag">Fault Injection</span>
         </div>
         <div class="lab-footer">
-          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/06_redis_vs_kafka" target="_blank" rel="noopener">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/06_redis_vs_kafka" target="_blank" rel="noopener" data-i18n="labs.62">
             Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -2110,19 +2147,19 @@ code {
             <div class="lab-num">LAB 07</div>
             <div class="lab-title">PostgreSQL Tuning</div>
           </div>
-          <span class="lab-status done">Ejecutado</span>
+          <span class="lab-status done" data-i18n="labs.65">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big"><span class="highlight">4.9×</span> índice parcial</div>
-          <div class="lab-metric-sub">100K filas · 5.084 PENDING · seq scan 7.45 ms → index scan <strong>1.52 ms</strong> (medianas de 10 runs)<br><code>EXPLAIN (ANALYZE, BUFFERS)</code> de ambos planes versionado</div>
+          <div class="lab-metric-big" data-i18n="labs.66"><span class="highlight"><span data-k>4.9×</span></span> índice parcial</div>
+          <div class="lab-metric-sub" data-i18n="labs.67"><span data-k>100K</span> filas · <span data-k>5 084</span> PENDING · seq scan <span data-k>7.45</span> ms → index scan <strong><span data-k>1.52</span> ms</strong> (medianas de <span data-k>10</span> runs)<br><code data-k>EXPLAIN (ANALYZE, BUFFERS)</code> de ambos planes versionado</div>
         </div>
         <div class="lab-tags">
           <span class="tag">PostgreSQL</span>
-          <span class="tag">Índice parcial</span>
+          <span class="tag" data-i18n="labs.69">Índice parcial</span>
           <span class="tag">EXPLAIN ANALYZE</span>
         </div>
         <div class="lab-footer">
-          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/07_postgres_tuning" target="_blank" rel="noopener">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/07_postgres_tuning" target="_blank" rel="noopener" data-i18n="labs.71">
             Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -2135,11 +2172,11 @@ code {
             <div class="lab-num">LAB 08</div>
             <div class="lab-title">Kafka Streams</div>
           </div>
-          <span class="lab-status done">Ejecutado</span>
+          <span class="lab-status done" data-i18n="labs.74">Ejecutado</span>
         </div>
         <div class="lab-metrics">
           <div class="lab-metric-big">p99 <span class="cyan">4 ms</span> · lag <span class="green">0</span></div>
-          <div class="lab-metric-sub">Streams en RUNNING &lt; 195 ms tras reiniciar Kafka, sin replay completo<br><code>actuator/health</code> da UP con Kafka caído: falso positivo detectado vía chaos</div>
+          <div class="lab-metric-sub" data-i18n="labs.76">Streams en RUNNING &lt; <span data-k>195</span> ms tras reiniciar Kafka, sin replay completo<br><code data-k>actuator/health</code> da UP con Kafka caído: falso positivo detectado vía chaos</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Kafka Streams</span>
@@ -2147,7 +2184,7 @@ code {
           <span class="tag">Chaos Testing</span>
         </div>
         <div class="lab-footer">
-          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/08_kafka_streams" target="_blank" rel="noopener">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/08_kafka_streams" target="_blank" rel="noopener" data-i18n="labs.80">
             Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -2160,11 +2197,11 @@ code {
             <div class="lab-num">LAB 09</div>
             <div class="lab-title">Docker Optimization</div>
           </div>
-          <span class="lab-status done">Ejecutado</span>
+          <span class="lab-status done" data-i18n="labs.83">Ejecutado</span>
         </div>
         <div class="lab-metrics">
           <div class="lab-metric-big"><span class="green">247 → 94 MB</span> (−62%)</div>
-          <div class="lab-metric-sub">Imagen comprimida · root → <strong>non-root</strong> (appuser) · JRE Alpine, layered JAR<br>Mismo arranque (2.13 vs 2.15 s); el rebuild de solo código no es más rápido en esta máquina</div>
+          <div class="lab-metric-sub" data-i18n="labs.85">Imagen comprimida · root → <strong>non-root</strong> (appuser) · JRE Alpine, layered JAR<br>Mismo arranque (<span data-k>2.13</span> vs <span data-k>2.15</span> s); el rebuild de solo código no es más rápido en esta máquina</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Multi-stage</span>
@@ -2172,7 +2209,7 @@ code {
           <span class="tag">JRE Alpine</span>
         </div>
         <div class="lab-footer">
-          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/09_docker_optimization" target="_blank" rel="noopener">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/09_docker_optimization" target="_blank" rel="noopener" data-i18n="labs.89">
             Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -2185,11 +2222,11 @@ code {
             <div class="lab-num">LAB 10</div>
             <div class="lab-title">Kubernetes Autoscaling</div>
           </div>
-          <span class="lab-status done">Ejecutado</span>
+          <span class="lab-status done" data-i18n="labs.92">Ejecutado</span>
         </div>
         <div class="lab-metrics">
-          <div class="lab-metric-big">CPU <span class="highlight">~110m</span> · HPA sin escalar</div>
-          <div class="lab-metric-sub">50 VUs con sleep de 200 ms: el HPA solo-CPU (objetivo 140m) no escaló · 0 % errores con 1 pod<br>HPA con la métrica custom <code>lab_active_requests_gauge</code> definido pero no ejecutado</div>
+          <div class="lab-metric-big" data-i18n="labs.93">CPU <span class="highlight"><span data-k>~110m</span></span> · HPA sin escalar</div>
+          <div class="lab-metric-sub" data-i18n="labs.94"><span data-k>50</span> VUs con sleep de <span data-k>200</span> ms: el HPA solo-CPU (objetivo <span data-k>140m</span>) no escaló · <span data-k>0</span> % errores con <span data-k>1</span> pod<br>HPA con la métrica custom <code data-k>lab_active_requests_gauge</code> definido pero no ejecutado</div>
         </div>
         <div class="lab-tags">
           <span class="tag">Kubernetes HPA v2</span>
@@ -2197,7 +2234,7 @@ code {
           <span class="tag">k6</span>
         </div>
         <div class="lab-footer">
-          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/10_kubernetes_autoscaling" target="_blank" rel="noopener">
+          <a class="lab-link" href="https://github.com/Joaquinriosheredia/Java-Production-Labs/tree/main/10_kubernetes_autoscaling" target="_blank" rel="noopener" data-i18n="labs.98">
             Ver código <span class="lab-link-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -2212,9 +2249,9 @@ code {
 <section id="jarvis" class="section" aria-labelledby="jarvis-title">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Proyecto IA · asistente de voz</div>
+      <div class="section-label" data-i18n="jarvis.1">Proyecto IA · asistente de voz</div>
       <h2 class="section-title" id="jarvis-title">JARVIS</h2>
-      <p class="section-desc">Asistente de voz personal en español para Windows: escucha por micrófono, decide qué capa debe responder y actúa con 46 tools (correo, calendario, archivos, música, git, tests y visión) detrás de un gate de permisos.</p>
+      <p class="section-desc" data-i18n="jarvis.3">Asistente de voz personal en español para Windows: escucha por micrófono, decide qué capa debe responder y actúa con <span data-k>46</span> tools (correo, calendario, archivos, música, git, tests y visión) detrás de un gate de permisos.</p>
     </div>
 
     <div class="jarvis-grid">
@@ -2223,26 +2260,26 @@ code {
           <span class="terminal-dot red" aria-hidden="true"></span>
           <span class="terminal-dot yellow" aria-hidden="true"></span>
           <span class="terminal-dot green" aria-hidden="true"></span>
-          <span class="terminal-title">jarvis-voice-platform · un turno</span>
+          <span class="terminal-title" data-i18n="jarvis.4">jarvis-voice-platform · un turno</span>
         </div>
-        <div class="terminal-body" role="region" aria-label="Flujo de un turno de JARVIS">
-          <div><span class="t-key">🎙</span> Micrófono → <span class="t-val">Whisper local</span> <span class="t-comment">(umbral de confianza)</span></div>
+        <div class="terminal-body" role="region" aria-label="Flujo de un turno de JARVIS" data-i18n-aria-label="jarvis.43.aria-label">
+          <div data-i18n="jarvis.5"><span class="t-key">🎙</span> Micrófono → <span class="t-val">Whisper local</span> <span class="t-comment">(umbral de confianza)</span></div>
           <div>&nbsp;</div>
-          <div><span class="t-key">→</span> Router de 3 capas</div>
-          <div>&nbsp;&nbsp;&nbsp;<span class="t-val">· atajo</span> <span class="t-comment">tool directa, sin LLM</span></div>
-          <div>&nbsp;&nbsp;&nbsp;<span class="t-val">· local</span> <span class="t-comment">qwen2.5:3b en Ollama</span></div>
-          <div>&nbsp;&nbsp;&nbsp;<span class="t-val">· claude</span> <span class="t-comment">Claude Haiku 4.5 en streaming</span></div>
+          <div data-i18n="jarvis.6"><span class="t-key">→</span> Router de <span data-k>3</span> capas</div>
+          <div>&nbsp;&nbsp;&nbsp;<span class="t-val" data-i18n="jarvis.7">· atajo</span> <span class="t-comment" data-i18n="jarvis.8">tool directa, sin LLM</span></div>
+          <div>&nbsp;&nbsp;&nbsp;<span class="t-val">· local</span> <span class="t-comment" data-i18n="jarvis.10"><span data-k>qwen2.5:3b</span> en Ollama</span></div>
+          <div>&nbsp;&nbsp;&nbsp;<span class="t-val">· claude</span> <span class="t-comment" data-i18n="jarvis.12">Claude Haiku <span data-k>4.5</span> en streaming</span></div>
           <div>&nbsp;</div>
-          <div><span class="t-key">→</span> tool_use → <span class="t-val">gate de permisos</span></div>
-          <div>&nbsp;&nbsp;&nbsp;<span class="t-comment">"confirmo envío" leído del micrófono,</span></div>
-          <div>&nbsp;&nbsp;&nbsp;<span class="t-comment">un solo uso, caduca a los 120 s</span></div>
+          <div data-i18n="jarvis.13"><span class="t-key">→</span> tool_use → <span class="t-val">gate de permisos</span></div>
+          <div>&nbsp;&nbsp;&nbsp;<span class="t-comment" data-i18n="jarvis.14">"confirmo envío" leído del micrófono,</span></div>
+          <div>&nbsp;&nbsp;&nbsp;<span class="t-comment" data-i18n="jarvis.15">un solo uso, caduca a los <span data-k>120</span> s</span></div>
           <div>&nbsp;</div>
-          <div><span class="t-key">→</span> TTS por frases <span class="t-comment">(Piper · ElevenLabs opcional)</span></div>
-          <div><span class="t-key">→</span> UI Electron vía WebSocket local</div>
+          <div data-i18n="jarvis.16"><span class="t-key">→</span> TTS por frases <span class="t-comment">(Piper · ElevenLabs opcional)</span></div>
+          <div data-i18n="jarvis.17"><span class="t-key">→</span> UI Electron vía WebSocket local</div>
           <div>&nbsp;</div>
           <div><span class="t-pass">✓</span> <span class="t-val">Ran 634 tests ... OK</span></div>
-          <div><span class="t-pass">✓</span> <span class="t-val">Evals: ruta 60/60 · tool 60/60 · gate 60/60</span></div>
-          <div><span class="t-comment">  (la métrica tool usa un mock del modelo)</span></div>
+          <div><span class="t-pass">✓</span> <span class="t-val" data-i18n="jarvis.19">Evals: ruta <span data-k>60/60</span> · tool <span data-k>60/60</span> · gate <span data-k>60/60</span></span></div>
+          <div><span class="t-comment" data-i18n="jarvis.20">  (la métrica tool usa un mock del modelo)</span></div>
         </div>
       </div>
 
@@ -2250,29 +2287,29 @@ code {
         <div class="jarvis-feature">
           <div class="jarvis-feature-icon" aria-hidden="true">🔐</div>
           <div>
-            <div class="jarvis-feature-title">46 tools con gate de 4 niveles</div>
-            <div class="jarvis-feature-desc">22 READ · 3 WRITE · 17 EXTERNAL · 5 DESTRUCTIVE. Las acciones irreversibles y las capturas de pantalla piden la frase exacta por voz; el modelo no puede fabricarla.</div>
+            <div class="jarvis-feature-title" data-i18n="jarvis.21"><span data-k>46</span> tools con gate de <span data-k>4</span> niveles</div>
+            <div class="jarvis-feature-desc" data-i18n="jarvis.22"><span data-k>22</span> READ · <span data-k>3</span> WRITE · <span data-k>17</span> EXTERNAL · <span data-k>5</span> DESTRUCTIVE. Las acciones irreversibles y las capturas de pantalla piden la frase exacta por voz; el modelo no puede fabricarla.</div>
           </div>
         </div>
         <div class="jarvis-feature">
           <div class="jarvis-feature-icon" aria-hidden="true">🛡️</div>
           <div>
-            <div class="jarvis-feature-title">Defensa ante prompt injection</div>
-            <div class="jarvis-feature-desc">Destinatario resuelto por el sistema, no por el modelo · allowlist de proyectos · git sin shell ni hooks · secretos redactados antes de llegar al modelo · WebSocket solo en 127.0.0.1.</div>
+            <div class="jarvis-feature-title" data-i18n="jarvis.23">Defensa ante prompt injection</div>
+            <div class="jarvis-feature-desc" data-i18n="jarvis.24">Destinatario resuelto por el sistema, no por el modelo · allowlist de proyectos · git sin shell ni hooks · secretos redactados antes de llegar al modelo · WebSocket solo en <span data-k>127.0.0.1</span>.</div>
           </div>
         </div>
         <div class="jarvis-feature">
           <div class="jarvis-feature-icon" aria-hidden="true">📊</div>
           <div>
-            <div class="jarvis-feature-title">Observabilidad por turno</div>
-            <div class="jarvis-feature-desc">Latencia por fase, tokens con caché y coste estimado en un log JSONL con replay (p50/p95). Turnos privados: solo metadatos.</div>
+            <div class="jarvis-feature-title" data-i18n="jarvis.25">Observabilidad por turno</div>
+            <div class="jarvis-feature-desc" data-i18n="jarvis.26">Latencia por fase, tokens con caché y coste estimado en un log JSONL con replay (<span data-k>p50/p95</span>). Turnos privados: solo metadatos.</div>
           </div>
         </div>
         <div class="jarvis-feature">
           <div class="jarvis-feature-icon" aria-hidden="true">🧪</div>
           <div>
-            <div class="jarvis-feature-title">CI en GitHub Actions</div>
-            <div class="jarvis-feature-desc">Tests con mocks en Windows sin red ni claves · <code>doctor.py --json</code> · escaneo de secretos con gitleaks.</div>
+            <div class="jarvis-feature-title" data-i18n="jarvis.27">CI en GitHub Actions</div>
+            <div class="jarvis-feature-desc" data-i18n="jarvis.28">Tests con mocks en Windows sin red ni claves · <code data-k>doctor.py --json</code> · escaneo de secretos con gitleaks.</div>
           </div>
         </div>
 
@@ -2288,9 +2325,9 @@ code {
             <span class="stack-chip">Gmail / Calendar API</span>
             <span class="stack-chip">unittest</span>
           </div>
-          <p style="margin-top:14px; font-size:13px; color:var(--muted); line-height:1.6;">Límites conocidos: solo Windows, un usuario y una máquina; cuando el router elige Claude, lo dicho y lo que leen las tools se envía a la API de Anthropic.</p>
+          <p style="margin-top:14px; font-size:13px; color:var(--muted); line-height:1.6;" data-i18n="jarvis.38">Límites conocidos: solo Windows, un usuario y una máquina; cuando el router elige Claude, lo dicho y lo que leen las tools se envía a la API de Anthropic.</p>
           <div style="margin-top:12px;">
-            <a href="https://github.com/Joaquinriosheredia/jarvis-voice-platform" target="_blank" rel="noopener" class="lab-link">
+            <a href="https://github.com/Joaquinriosheredia/jarvis-voice-platform" target="_blank" rel="noopener" class="lab-link" data-i18n="jarvis.39">
               Ver repositorio <span class="lab-link-arrow" aria-hidden="true">→</span>
             </a>
           </div>
@@ -2301,7 +2338,7 @@ code {
     <div class="repo-grid reveal">
       <a class="repo-card" href="https://github.com/Joaquinriosheredia/jarvis-runtime" target="_blank" rel="noopener">
         <div class="repo-card-name">jarvis-runtime</div>
-        <div class="repo-card-desc">CLI local-first: responde con qwen2.5:7b en Ollama y solo llama a OpenAI para prompts complejos si hay API key. Historial en SQLite (<code>jarvis history</code>) y tokens y coste acumulados (<code>jarvis usage</code>). Se instala con Docker y <code>./setup.sh</code>.</div>
+        <div class="repo-card-desc" data-i18n="jarvis.41">CLI local-first: responde con <span data-k>qwen2.5:7b</span> en Ollama y solo llama a OpenAI para prompts complejos si hay API key. Historial en SQLite (<code data-k>jarvis history</code>) y tokens y coste acumulados (<code data-k>jarvis usage</code>). Se instala con Docker y <code data-k>./setup.sh</code>.</div>
         <div class="repo-card-meta">Python · Ollama · SQLite · MIT</div>
       </a>
     </div>
@@ -2313,84 +2350,84 @@ code {
 <section id="authority" class="section" aria-labelledby="authority-title">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Pipeline de documentación técnica orquestado con IA · Python</div>
+      <div class="section-label" data-i18n="authority.1">Pipeline de documentación técnica orquestado con IA · Python</div>
       <h2 class="section-title" id="authority-title">Authority Engine</h2>
-      <p class="section-desc">Pipeline multi-etapa para generar y validar documentación técnica mediante inferencia local con Ollama, investigación automatizada, scoring de calidad y publicación revisada por humano.</p>
+      <p class="section-desc" data-i18n="authority.3">Pipeline multi-etapa para generar y validar documentación técnica mediante inferencia local con Ollama, investigación automatizada, scoring de calidad y publicación revisada por humano.</p>
     </div>
 
     <div class="pipeline-card reveal">
-      <div class="pipeline-steps" role="list" aria-label="Etapas del pipeline">
+      <div class="pipeline-steps" role="list" aria-label="Etapas del pipeline" data-i18n-aria-label="authority.28.aria-label">
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">🐍</div>
             <div class="pipeline-step-label">Pipeline</div>
-            <div class="pipeline-step-desc">Python · procesamiento multi-etapa · automatización</div>
+            <div class="pipeline-step-desc" data-i18n="authority.5">Python · procesamiento multi-etapa · automatización</div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">🧠</div>
-            <div class="pipeline-step-label">IA local</div>
+            <div class="pipeline-step-label" data-i18n="authority.6">IA local</div>
             <div class="pipeline-step-desc">Ollama · Qwen 2.5 7B</div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">🔍</div>
-            <div class="pipeline-step-label">Investigar</div>
-            <div class="pipeline-step-desc">Hacker News · GitHub Search · Tavily (opcional)</div>
+            <div class="pipeline-step-label" data-i18n="authority.8">Investigar</div>
+            <div class="pipeline-step-desc" data-i18n="authority.9">Hacker News · GitHub Search · Tavily (opcional)</div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">⚖️</div>
             <div class="pipeline-step-label">Quality Gate</div>
-            <div class="pipeline-step-desc">Auditor automático por sección · umbrales 70 / 72 sobre 100</div>
+            <div class="pipeline-step-desc" data-i18n="authority.11">Auditor automático por sección · umbrales <span data-k>70</span> / <span data-k>72</span> sobre <span data-k>100</span></div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">👤</div>
-            <div class="pipeline-step-label">Revisión</div>
-            <div class="pipeline-step-desc">Corrección manual con <code>cure.py</code> (human-in-the-loop)</div>
+            <div class="pipeline-step-label" data-i18n="authority.12">Revisión</div>
+            <div class="pipeline-step-desc" data-i18n="authority.13">Corrección manual con <code data-k>cure.py</code> (human-in-the-loop)</div>
           </div>
         </div>
         <div class="pipeline-step" role="listitem">
           <div class="pipeline-step-inner">
             <div class="pipeline-icon-wrap" aria-hidden="true">🚀</div>
-            <div class="pipeline-step-label">Publicar</div>
-            <div class="pipeline-step-desc">git commit/push al repo de contenidos si el documento pasa</div>
+            <div class="pipeline-step-label" data-i18n="authority.14">Publicar</div>
+            <div class="pipeline-step-desc" data-i18n="authority.15">git commit/push al repo de contenidos si el documento pasa</div>
           </div>
         </div>
       </div>
 
-      <h3 style="font-size:15px; font-weight:700; color:#fff; margin-top:8px;">Comportamiento ante fallos</h3>
+      <h3 style="font-size:15px; font-weight:700; color:#fff; margin-top:8px;" data-i18n="authority.16">Comportamiento ante fallos</h3>
       <div class="pipeline-metrics">
         <div class="pipeline-metric">
-          <div class="pipeline-metric-val">Fallo de sección = no se publica</div>
-          <div class="pipeline-metric-desc">Si Ollama falla, la sección puntúa 0, cuenta en la media y bloquea la auto-publicación (ADR-002). Es el escenario cubierto por test automatizado.</div>
+          <div class="pipeline-metric-val" data-i18n="authority.17">Fallo de sección = no se publica</div>
+          <div class="pipeline-metric-desc" data-i18n="authority.18">Si Ollama falla, la sección puntúa <span data-k>0</span>, cuenta en la media y bloquea la auto-publicación (<span data-k>ADR-002</span>). Es el escenario cubierto por test automatizado.</div>
         </div>
         <div class="pipeline-metric">
-          <div class="pipeline-metric-val">Timeouts en git</div>
-          <div class="pipeline-metric-desc">30 s para pull/add/commit y 60 s para push; un <code>TimeoutExpired</code> aborta la publicación con log (ADR-003).</div>
+          <div class="pipeline-metric-val" data-i18n="authority.19">Timeouts en git</div>
+          <div class="pipeline-metric-desc" data-i18n="authority.20"><span data-k>30</span> s para pull/add/commit y <span data-k>60</span> s para push; un <code data-k>TimeoutExpired</code> aborta la publicación con log (<span data-k>ADR-003</span>).</div>
         </div>
         <div class="pipeline-metric">
-          <div class="pipeline-metric-val">Sin procesos huérfanos</div>
-          <div class="pipeline-metric-desc">El orquestador mata el grupo de procesos entero (<code>killpg</code>) y el lock solo se libera ante un proceso muerto confirmado (ADR-003).</div>
+          <div class="pipeline-metric-val" data-i18n="authority.21">Sin procesos huérfanos</div>
+          <div class="pipeline-metric-desc" data-i18n="authority.22">El orquestador mata el grupo de procesos entero (<code data-k>killpg</code>) y el lock solo se libera ante un proceso muerto confirmado (<span data-k>ADR-003</span>).</div>
         </div>
         <div class="pipeline-metric">
-          <div class="pipeline-metric-val">Rutas portables</div>
-          <div class="pipeline-metric-desc">Rutas resueltas desde <code>Path(__file__)</code>, con overrides por variables de entorno (ADR-004).</div>
+          <div class="pipeline-metric-val" data-i18n="authority.23">Rutas portables</div>
+          <div class="pipeline-metric-desc" data-i18n="authority.24">Rutas resueltas desde <code data-k>Path(__file__)</code>, con overrides por variables de entorno (<span data-k>ADR-004</span>).</div>
         </div>
       </div>
-      <p style="margin-top:16px; font-size:13px; color:var(--muted); text-align:center;">Scripts Python locales que se invocan a mano: sin despliegue en la nube ni servicio en producción.</p>
+      <p style="margin-top:16px; font-size:13px; color:var(--muted); text-align:center;" data-i18n="authority.25">Scripts Python locales que se invocan a mano: sin despliegue en la nube ni servicio en producción.</p>
 
       <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; margin-top:28px;">
-        <a class="lab-link" href="https://github.com/Joaquinriosheredia/authority-engine" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;">
+        <a class="lab-link" href="https://github.com/Joaquinriosheredia/authority-engine" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;" data-i18n="authority.26">
           Ver código en GitHub <span class="lab-link-arrow" aria-hidden="true">→</span>
         </a>
-        <a class="lab-link" href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;">
-          Ver documentación generada (148 docs) <span class="lab-link-arrow" aria-hidden="true">→</span>
+        <a class="lab-link" href="https://github.com/Joaquinriosheredia/DAM-Java-Mastery" target="_blank" rel="noopener" style="font-size:15px; justify-content:center;" data-i18n="authority.27">
+          Ver documentación generada (<span data-k>148</span> docs) <span class="lab-link-arrow" aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -2402,9 +2439,9 @@ code {
 <section id="opensource" class="section" aria-labelledby="os-title">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Contribuciones</div>
+      <div class="section-label" data-i18n="opensource.1">Contribuciones</div>
       <h2 class="section-title" id="os-title">Open Source</h2>
-      <p class="section-desc">Contribuciones a proyectos activos con miles de estrellas. Código mergeado en producción.</p>
+      <p class="section-desc" data-i18n="opensource.3">Contribuciones a proyectos activos con miles de estrellas. Código mergeado en producción.</p>
     </div>
 
     <div class="prs-grid">
@@ -2416,7 +2453,7 @@ code {
           </div>
           <span class="pr-badge merged">Merged</span>
         </div>
-        <p class="pr-desc">fix(lint): replace magic values with named constants in deps.py — Resuelve violaciones PLR2004 de ruff en el backend FastAPI</p>
+        <p class="pr-desc" data-i18n="opensource.6">fix(lint): replace magic values with named constants in deps.py — Resuelve violaciones <span data-k>PLR2004</span> de ruff en el backend FastAPI</p>
         <div class="pr-meta">
           <span>PR #810 · FastAPI · Python · ruff linting</span>
           <span class="pr-stars">⭐ Self-hosted AI registry</span>
@@ -2430,7 +2467,7 @@ code {
           </div>
           <span class="pr-badge pending">Pending Review</span>
         </div>
-        <p class="pr-desc">feat: add Spring Boot 4 starter for Chroma embedding store — Auto-configuration, properties y bean para Spring Boot 4</p>
+        <p class="pr-desc" data-i18n="opensource.11">feat: add Spring Boot <span data-k>4</span> starter for Chroma embedding store — Auto-configuration, properties y bean para Spring Boot <span data-k>4</span></p>
         <div class="pr-meta">
           <span>PR #194 · Spring Boot 4 · ChromaDB</span>
           <span class="pr-stars">⭐ 11k · 450 forks</span>
@@ -2444,9 +2481,9 @@ code {
           </div>
           <span class="pr-badge pending">Pending Review</span>
         </div>
-        <p class="pr-desc">Spring Boot Starter para ChromaDB: auto-configuration, ChromaEmbeddingStoreProperties, AutoConfiguration bean, tests incluidos. +179 líneas · 3 archivos · patrón Milvus y Redis</p>
+        <p class="pr-desc" data-i18n="opensource.16">Spring Boot Starter para ChromaDB: auto-configuration, ChromaEmbeddingStoreProperties, AutoConfiguration bean, tests incluidos. <span data-k>+179</span> líneas · <span data-k>3</span> archivos · patrón Milvus y Redis</p>
         <div class="pr-meta">
-          <span>PR #185 · +179 líneas · 3 archivos</span>
+          <span data-i18n="opensource.17">PR #<span data-k>185</span> · <span data-k>+179</span> líneas · <span data-k>3</span> archivos</span>
           <span class="pr-stars">⭐ 11k · 450 forks</span>
         </div>
       </article>
@@ -2458,9 +2495,9 @@ code {
           </div>
           <span class="pr-badge merged">Merged</span>
         </div>
-        <p class="pr-desc">Exponer model_info en ModelDetail: Map&lt;String,Object&gt; con @JsonProperty para acceso a context_length, embedding_length y arquitectura sin parsear JSON crudo. Mergeado en 3 días.</p>
+        <p class="pr-desc" data-i18n="opensource.21">Exponer model_info en ModelDetail: Map&lt;String,Object&gt; con @JsonProperty para acceso a context_length, embedding_length y arquitectura sin parsear JSON crudo. Mergeado en <span data-k>3</span> días.</p>
         <div class="pr-meta">
-          <span>PR #303 · +3 líneas · SonarQube ✅ · CodeRabbit ✅</span>
+          <span data-i18n="opensource.22">PR #<span data-k>303</span> · <span data-k>+3</span> líneas · SonarQube ✅ · CodeRabbit ✅</span>
           <span class="pr-stars">⭐ 3k · 210 forks</span>
         </div>
       </article>
@@ -2474,9 +2511,9 @@ code {
 <section id="stack" class="section" aria-labelledby="stack-title">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Tecnologías</div>
-      <h2 class="section-title" id="stack-title">Stack Técnico</h2>
-      <p class="section-desc">Tecnologías usadas en producción, no solo en tutoriales.</p>
+      <div class="section-label" data-i18n="stack.1">Tecnologías</div>
+      <h2 class="section-title" id="stack-title" data-i18n="stack.2">Stack Técnico</h2>
+      <p class="section-desc" data-i18n="stack.3">Tecnologías usadas en producción, no solo en tutoriales.</p>
     </div>
 
     <div class="stack-grid">
@@ -2506,7 +2543,7 @@ code {
       <div class="stack-card reveal">
         <div class="stack-top">
           <span class="stack-icon" aria-hidden="true">🏛️</span>
-          <span class="stack-name">Arquitectura</span>
+          <span class="stack-name" data-i18n="stack.11">Arquitectura</span>
         </div>
         <div class="stack-items">
           <div class="stack-item">DDD</div>
@@ -2529,7 +2566,7 @@ code {
       <div class="stack-card reveal">
         <div class="stack-top">
           <span class="stack-icon" aria-hidden="true">🔐</span>
-          <span class="stack-name">Seguridad</span>
+          <span class="stack-name" data-i18n="stack.18">Seguridad</span>
         </div>
         <div class="stack-items">
           <div class="stack-item">JWT</div>
@@ -2553,12 +2590,12 @@ code {
       <div class="stack-card reveal">
         <div class="stack-top">
           <span class="stack-icon" aria-hidden="true">🤖</span>
-          <span class="stack-name">IA</span>
+          <span class="stack-name" data-i18n="stack.26">IA</span>
         </div>
         <div class="stack-items">
           <div class="stack-item">Ollama</div>
           <div class="stack-item">RAG</div>
-          <div class="stack-item">Multi-Agente</div>
+          <div class="stack-item" data-i18n="stack.29">Multi-Agente</div>
         </div>
       </div>
 
@@ -2607,18 +2644,18 @@ code {
   <div class="container">
     <div class="footer-inner">
       <div>
-        <h2 class="footer-tagline">Construyamos algo<br>impresionante.</h2>
-        <p class="footer-desc">
+        <h2 class="footer-tagline" data-i18n="footer.1">Construyamos algo<br>impresionante.</h2>
+        <p class="footer-desc" data-i18n="footer.2">
           Disponible para backend engineering, platform engineering y AI infrastructure.
           Portfolio técnico construido mediante proyectos propios y contribuciones open source.
         </p>
-        <div class="footer-availability">
+        <div class="footer-availability" data-i18n="footer.3">
           <span class="status-dot" aria-hidden="true"></span>
-          Freelance inmediato · Full-time desde Junio 2026 · 100% Remoto / Presencial Sevilla o Málaga
+          Freelance inmediato · Full-time · <span data-k>100%</span> Remoto / Presencial Sevilla o Málaga
         </div>
       </div>
       <div class="footer-links">
-        <a href="mailto:j.r.sinbarreras@gmail.com" class="btn btn-primary">✉️ Contactar</a>
+        <a href="mailto:j.r.sinbarreras@gmail.com" class="btn btn-primary" data-i18n="footer.4">✉️ Contactar</a>
         <a href="https://github.com/Joaquinriosheredia" target="_blank" rel="noopener" class="btn btn-ghost">GitHub →</a>
         <a href="https://linkedin.com/in/joaquinrios-ai-engineer" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn →</a>
         <a href="https://malt.es/profile/joaquinriosheredia" target="_blank" rel="noopener" class="btn btn-ghost">Malt →</a>
@@ -2634,6 +2671,527 @@ code {
 <!-- ═══════════════ SCRIPTS ═══════════════ -->
 
 <!-- Three.js from CDN -->
+<script>
+/* ═══════════════ I18N (ES / EN) ═══════════════
+   El HTML lleva el español; sin JS se ve tal cual.
+   Cifras, versiones, <code> y enlaces viven en el HTML (data-k) y se
+   reinsertan en los huecos {n} de cada plantilla: el diccionario no los contiene. */
+(function () {
+  var I18N = {
+ "es": {
+  "nav.8": "Contactar",
+  "top.1": "<span class=\"hero-badge-dot\" aria-hidden=\"true\"><\/span> Disponible · Freelance y full-time",
+  "top.3": "<strong>Java Backend Engineer · AI & Distributed Systems<\/strong><br> Sevilla / Málaga · {0} Remoto",
+  "top.4": "Ver Labs →",
+  "top.7": "Labs Ejecutables",
+  "top.8": "Docs Técnicos",
+  "top.9": "PRs Open Source",
+  "profile.4": "Ingeniero backend centrado en sistemas distribuidos, observabilidad, resiliencia e integración de IA local. Portfolio técnico construido mediante proyectos reales, tooling open source y laboratorios reproducibles orientados a producción.",
+  "profile.9": "📍 Sevilla/Málaga",
+  "devtools.1": "Producto propio · Java + Python",
+  "devtools.3": "Detecta patrones que pueden pasar los tests y fallar en producción, sobre todo bajo carga, en backends <strong>Java/Spring<\/strong> y <strong>Python async<\/strong>. Son frecuentes en código generado con IA, pero no detecta autoría ni lo intenta. Cada hallazgo separa detección, impacto (medido o «documented mechanism») y reproducción. Estado actual: <strong>Fase {0} del roadmap, fiabilidad y precisión<\/strong>.",
+  "devtools.5": "Un comando para los dos motores: detecta qué lenguajes hay en el árbol, ejecuta cada motor con su CLI publicada y da un solo informe (texto, JSON común {0} o SARIF {1} con un run por motor) y un solo exit code. El SARIF de dos runs se probó en GitHub Code Scanning.",
+  "devtools.6": "🔒 vibe-guard-scan {0} · privado, no publicado",
+  "devtools.7": "🔒 vibe-guard · repo privado de coordinación (estado, decisiones, pre-registros)",
+  "devtools.8": "✅ Exclusiones por defecto de tests/fixtures/examples fuera de las raíces de código",
+  "devtools.9": "✅ La decisión de salida se recalcula con los hallazgos normalizados",
+  "devtools.10": "arquitectura",
+  "devtools.12": "hay .java →",
+  "devtools.15": "CLI Node, reglas por regex + --verify",
+  "devtools.16": "hay .py →",
+  "devtools.20": "<span class=\"t-key\">→<\/span> texto · JSON común · SARIF ({0} runs)",
+  "devtools.21": "# Aparte, sin pasar por el wrapper:",
+  "devtools.24": "→ analyzeProject dentro de Claude Code",
+  "devtools.26": "Motor Java/Spring Boot con dos motores distintos: un <strong style=\"color: #a78bfa;\">CLI<\/strong> en Node (reglas por regex y heurísticas de contexto, sin AST ni resolución de tipos), con {0} y GitHub Action con SARIF, y un <strong style=\"color: #a78bfa;\">servidor MCP<\/strong> en Spring Boot que expone {1} como herramienta de Claude Code. npm {2} · jar MCP {3} · MIT.",
+  "devtools.29": "🛡️ CLI por defecto: blocking · blocking-kafka · reactor-block · kafka-send-timeout · transactions · layers · kafka",
+  "devtools.31": "✅ MCP: {0} reglas ({1}…{2}) · {3} tests",
+  "devtools.32": "✅ {0} reproduce el fallo en Spring Boot + PostgreSQL reales, en CI",
+  "devtools.33": "🧪 Experimentos pre-registrados: blocking · blocking-kafka · reactor-block",
+  "devtools.34": "📋 Los {0} candidatos «Found in the Wild» se retiraron tras auditoría contextual",
+  "devtools.37": "medido en experimentos pre-registrados",
+  "devtools.40": "≥ {0} % ocupado",
+  "devtools.41": "peticiones esperando conexión",
+  "devtools.44": "# .toFuture().get() en el event loop (WebFlux)",
+  "devtools.45": "deadlock en {0} runs",
+  "devtools.46": "{0} respuestas",
+  "devtools.47": "# bloqueo en @KafkaListener, &gt; {0} ms/registro",
+  "devtools.48": "bucle de reprocesado",
+  "devtools.49": "{0} records/s, {1} entregas c/u",
+  "devtools.50": "validate-public · CLI {0}, commits fijados",
+  "devtools.55": "{0} hallazgos",
+  "devtools.57": "# Hallazgos reportados, no bugs confirmados:",
+  "devtools.58": "# sin auditoría de precisión. No re-ejecutado con {0}.",
+  "devtools.60": "Motor Python ({0}): análisis AST puro con {1} reglas en tres familias, bloqueo del event loop, mal uso del ciclo de vida async y riesgos de concurrencia y estado. Busca patrones de código, no autoría. PyPI {2} · MIT.",
+  "devtools.62": "🔍 {0} reglas · {1}…{2}",
+  "devtools.63": "⚖️ Severidad por ruta: CRITICAL → WARNING en tests, scripts y examples",
+  "devtools.65": "⚙️ GitHub Action propia con subida a Code Scanning",
+  "devtools.69": "precisión pre-registrada · {0}",
+  "devtools.71": "Precisión CRITICAL",
+  "devtools.73": "Revisados",
+  "devtools.75": "Objetivo",
+  "devtools.76": "✗ no cumplido",
+  "devtools.77": "# Probablemente optimista: {0} de {1} veredictos",
+  "devtools.78": "# vienen de una primera revisión IA no verificada.",
+  "devtools.79": "# Los arreglos de {0} se diseñaron mirando este",
+  "devtools.80": "# corpus → ahora es corpus de desarrollo.",
+  "devtools.82": "Evaluaciones pre-registradas de los dos motores sobre repositorios nunca usados para ajustar sus reglas. Cada evaluación empieza con un {0} commiteado antes de buscar, seleccionar o ejecutar nada; las desviaciones van a {1}. El código de terceros se cita por repositorio, commit fijado y archivo:línea.",
+  "devtools.83": "✗ {0}: ambos criterios pre-registrados NO cumplidos",
+  "devtools.84": "⏳ {0}: precisión por lenguaje, versiones congeladas, sin resultados todavía",
+  "devtools.85": "✅ Scripts de evaluación con tests ({0}) · MIT",
+  "devtools.88": "# Criterio {0} · precisión CRITICAL ≥ {1} %",
+  "devtools.89": "medido",
+  "devtools.90": "# Criterio {0} · ruido por {1} archivos",
+  "devtools.91": "# límite: ≤ {0} CRITICAL y ≤ {1} WARNING",
+  "devtools.95": "(un solo CRITICAL)",
+  "devtools.97": "CLI que diagnostica el entorno de Testcontainers en unos segundos y dice qué falla y cómo arreglarlo. Es el preflight de {0}, que lo trae como dependencia npm. npm {1} · MIT.",
+  "devtools.99": "✅ Docker: daemon, socket, storage driver, memoria",
+  "devtools.100": "✅ Java: versión, JAVA_HOME, Maven, Gradle",
+  "devtools.102": "✅ Red: DNS, Docker Hub, proxy",
+  "devtools.103": "✅ Entorno: {0}, CI, ulimits, grupo docker",
+  "devtools.104": "✅ {0} · {1} · exit {2} si falla algún check",
+  "devtools.107": "salida real · {0}, Docker {1} (extracto)",
+  "devtools.127": "{0} archivos {1} sin build tool ({2} con bugs + {3}) que dan exactamente {4} CRITICAL con {5}. El README trae la salida real y qué reporta cada motor, CLI y MCP.",
+  "devtools.130": "GitHub Action que instala python-vibe-guard desde PyPI, sube el SARIF a Code Scanning y falla el job según un umbral configurable ({0} o {1}).",
+  "labs.2": "{0} Labs Ejecutables",
+  "labs.3": "Diez labs autocontenidos de Spring Boot {0} + Java {1}: arrancan en frío, se miden bajo carga y cada uno tiene un modo de fallo documentado. Cada cifra sale de un fichero de resultados versionado en el repo.",
+  "labs.4": "<strong>Laboratorios orientados a producción<\/strong>, no tutoriales.<br> ADR, tests, benchmark, métricas y chaos en los {0} labs; Testcontainers con PostgreSQL, Redis y Kafka reales en los labs {1}–{2}.<br> <span style=\"color: var(--success); font-weight: 500; display: inline-block; margin-top: 4px;\">✓ {3} arreglos encontrados con java-vibe-guard y una revisión de seguridad ({4} de ellos son mejoras, no bugs).<\/span>",
+  "labs.5": "Ejecutados",
+  "labs.6": "Re-medidos oct {0}",
+  "labs.9": "Ejecutado",
+  "labs.11": "{0} VUs · virtual threads vs pool de {1} platform threads · mediana de {2} runs<br>{3} VUs: <strong>{4}<\/strong> vs {5} req/s · {6} con virtual threads ≈ {7} ms en ambas cargas",
+  "labs.15": "Ver código <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.18": "Ejecutado",
+  "labs.19": "<span class=\"green\">{0}<\/span> rechazadas",
+  "labs.20": "Llamadas rechazadas con el circuito OPEN ({0} s)<br>Recuperación automática {1} s tras cesar el fallo (aprox.) · Bulkhead → CircuitBreaker → Retry",
+  "labs.25": "Ver código <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.28": "Ejecutado",
+  "labs.30": "Token bucket distribuido en Redis · {0} % rechazadas con {1} (≈ {2} req/s permitidas)<br>{3}: <strong>{4} ms<\/strong> · con varias instancias de la app no está probado",
+  "labs.34": "Ver código <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.37": "Ejecutado",
+  "labs.39": "Tras matar Kafka: {0} eventos FAILED después del fix (antes, {1} de {2})<br>Bug encontrado vía chaos testing · drain: {3} → <strong>{4}<\/strong> eventos/s",
+  "labs.44": "Ver código <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.47": "Ejecutado",
+  "labs.49": "{0} / {1} órdenes en STARTED con {2} % de errores HTTP · race condition dual-write<br>Medido el {3}, antes de cambios posteriores del lab (no re-ejecutado)",
+  "labs.53": "Ver código <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.56": "Ejecutado",
+  "labs.58": "Con el broker caído ambos pierden lo enviado ({0}); Kafka conserva y reproduce lo ya commiteado<br>La diferencia es asimetría de API (RTT síncrono vs buffer async), no velocidad",
+  "labs.62": "Ver código <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.65": "Ejecutado",
+  "labs.66": "<span class=\"highlight\">{0}<\/span> índice parcial",
+  "labs.67": "{0} filas · {1} PENDING · seq scan {2} ms → index scan <strong>{3} ms<\/strong> (medianas de {4} runs)<br>{5} de ambos planes versionado",
+  "labs.69": "Índice parcial",
+  "labs.71": "Ver código <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.74": "Ejecutado",
+  "labs.76": "Streams en RUNNING &lt; {0} ms tras reiniciar Kafka, sin replay completo<br>{1} da UP con Kafka caído: falso positivo detectado vía chaos",
+  "labs.80": "Ver código <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.83": "Ejecutado",
+  "labs.85": "Imagen comprimida · root → <strong>non-root<\/strong> (appuser) · JRE Alpine, layered JAR<br>Mismo arranque ({0} vs {1} s); el rebuild de solo código no es más rápido en esta máquina",
+  "labs.89": "Ver código <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.92": "Ejecutado",
+  "labs.93": "CPU <span class=\"highlight\">{0}<\/span> · HPA sin escalar",
+  "labs.94": "{0} VUs con sleep de {1} ms: el HPA solo-CPU (objetivo {2}) no escaló · {3} % errores con {4} pod<br>HPA con la métrica custom {5} definido pero no ejecutado",
+  "labs.98": "Ver código <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "jarvis.1": "Proyecto IA · asistente de voz",
+  "jarvis.3": "Asistente de voz personal en español para Windows: escucha por micrófono, decide qué capa debe responder y actúa con {0} tools (correo, calendario, archivos, música, git, tests y visión) detrás de un gate de permisos.",
+  "jarvis.4": "jarvis-voice-platform · un turno",
+  "jarvis.5": "<span class=\"t-key\">🎙<\/span> Micrófono → <span class=\"t-val\">Whisper local<\/span> <span class=\"t-comment\">(umbral de confianza)<\/span>",
+  "jarvis.6": "<span class=\"t-key\">→<\/span> Router de {0} capas",
+  "jarvis.7": "· atajo",
+  "jarvis.8": "tool directa, sin LLM",
+  "jarvis.10": "{0} en Ollama",
+  "jarvis.12": "Claude Haiku {0} en streaming",
+  "jarvis.13": "<span class=\"t-key\">→<\/span> tool_use → <span class=\"t-val\">gate de permisos<\/span>",
+  "jarvis.14": "\"confirmo envío\" leído del micrófono,",
+  "jarvis.15": "un solo uso, caduca a los {0} s",
+  "jarvis.16": "<span class=\"t-key\">→<\/span> TTS por frases <span class=\"t-comment\">(Piper · ElevenLabs opcional)<\/span>",
+  "jarvis.17": "<span class=\"t-key\">→<\/span> UI Electron vía WebSocket local",
+  "jarvis.19": "Evals: ruta {0} · tool {1} · gate {2}",
+  "jarvis.20": "(la métrica tool usa un mock del modelo)",
+  "jarvis.21": "{0} tools con gate de {1} niveles",
+  "jarvis.22": "{0} READ · {1} WRITE · {2} EXTERNAL · {3} DESTRUCTIVE. Las acciones irreversibles y las capturas de pantalla piden la frase exacta por voz; el modelo no puede fabricarla.",
+  "jarvis.23": "Defensa ante prompt injection",
+  "jarvis.24": "Destinatario resuelto por el sistema, no por el modelo · allowlist de proyectos · git sin shell ni hooks · secretos redactados antes de llegar al modelo · WebSocket solo en {0}.",
+  "jarvis.25": "Observabilidad por turno",
+  "jarvis.26": "Latencia por fase, tokens con caché y coste estimado en un log JSONL con replay ({0}). Turnos privados: solo metadatos.",
+  "jarvis.27": "CI en GitHub Actions",
+  "jarvis.28": "Tests con mocks en Windows sin red ni claves · {0} · escaneo de secretos con gitleaks.",
+  "jarvis.38": "Límites conocidos: solo Windows, un usuario y una máquina; cuando el router elige Claude, lo dicho y lo que leen las tools se envía a la API de Anthropic.",
+  "jarvis.39": "Ver repositorio <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "jarvis.41": "CLI local-first: responde con {0} en Ollama y solo llama a OpenAI para prompts complejos si hay API key. Historial en SQLite ({1}) y tokens y coste acumulados ({2}). Se instala con Docker y {3}.",
+  "authority.1": "Pipeline de documentación técnica orquestado con IA · Python",
+  "authority.3": "Pipeline multi-etapa para generar y validar documentación técnica mediante inferencia local con Ollama, investigación automatizada, scoring de calidad y publicación revisada por humano.",
+  "authority.5": "Python · procesamiento multi-etapa · automatización",
+  "authority.6": "IA local",
+  "authority.8": "Investigar",
+  "authority.9": "Hacker News · GitHub Search · Tavily (opcional)",
+  "authority.11": "Auditor automático por sección · umbrales {0} / {1} sobre {2}",
+  "authority.12": "Revisión",
+  "authority.13": "Corrección manual con {0} (human-in-the-loop)",
+  "authority.14": "Publicar",
+  "authority.15": "git commit/push al repo de contenidos si el documento pasa",
+  "authority.16": "Comportamiento ante fallos",
+  "authority.17": "Fallo de sección = no se publica",
+  "authority.18": "Si Ollama falla, la sección puntúa {0}, cuenta en la media y bloquea la auto-publicación ({1}). Es el escenario cubierto por test automatizado.",
+  "authority.19": "Timeouts en git",
+  "authority.20": "{0} s para pull/add/commit y {1} s para push; un {2} aborta la publicación con log ({3}).",
+  "authority.21": "Sin procesos huérfanos",
+  "authority.22": "El orquestador mata el grupo de procesos entero ({0}) y el lock solo se libera ante un proceso muerto confirmado ({1}).",
+  "authority.23": "Rutas portables",
+  "authority.24": "Rutas resueltas desde {0}, con overrides por variables de entorno ({1}).",
+  "authority.25": "Scripts Python locales que se invocan a mano: sin despliegue en la nube ni servicio en producción.",
+  "authority.26": "Ver código en GitHub <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "authority.27": "Ver documentación generada ({0} docs) <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "opensource.1": "Contribuciones",
+  "opensource.3": "Contribuciones a proyectos activos con miles de estrellas. Código mergeado en producción.",
+  "opensource.6": "fix(lint): replace magic values with named constants in deps.py — Resuelve violaciones {0} de ruff en el backend FastAPI",
+  "opensource.11": "feat: add Spring Boot {0} starter for Chroma embedding store — Auto-configuration, properties y bean para Spring Boot {1}",
+  "opensource.16": "Spring Boot Starter para ChromaDB: auto-configuration, ChromaEmbeddingStoreProperties, AutoConfiguration bean, tests incluidos. {0} líneas · {1} archivos · patrón Milvus y Redis",
+  "opensource.17": "PR #{0} · {1} líneas · {2} archivos",
+  "opensource.21": "Exponer model_info en ModelDetail: Map&lt;String,Object&gt; con @JsonProperty para acceso a context_length, embedding_length y arquitectura sin parsear JSON crudo. Mergeado en {0} días.",
+  "opensource.22": "PR #{0} · {1} líneas · SonarQube ✅ · CodeRabbit ✅",
+  "stack.1": "Tecnologías",
+  "stack.2": "Stack Técnico",
+  "stack.3": "Tecnologías usadas en producción, no solo en tutoriales.",
+  "stack.11": "Arquitectura",
+  "stack.18": "Seguridad",
+  "stack.26": "IA",
+  "stack.29": "Multi-Agente",
+  "footer.1": "Construyamos algo<br>impresionante.",
+  "footer.2": "Disponible para backend engineering, platform engineering y AI infrastructure. Portfolio técnico construido mediante proyectos propios y contribuciones open source.",
+  "footer.3": "<span class=\"status-dot\" aria-hidden=\"true\"><\/span> Freelance inmediato · Full-time · {0} Remoto / Presencial Sevilla o Málaga",
+  "footer.4": "✉️ Contactar",
+  "nav.9.aria-label": "Navegación principal",
+  "nav.10.aria-label": "Inicio",
+  "nav.11.aria-label": "Contactar por email",
+  "nav.12.aria-label": "Abrir menú",
+  "top.13.aria-label": "Presentación",
+  "profile.10.aria-label": "Perfil",
+  "profile.11.alt": "Foto de Joaquín Ríos Heredia",
+  "devtools.132.aria-label": "Arquitectura de vibe-guard",
+  "devtools.133.aria-label": "Resultados medidos",
+  "devtools.134.aria-label": "Validación pública",
+  "devtools.135.aria-label": "Precisión medida",
+  "devtools.136.aria-label": "Resultados test-corpus-1",
+  "devtools.137.aria-label": "Salida de testcontainers-doctor",
+  "jarvis.43.aria-label": "Flujo de un turno de JARVIS",
+  "authority.28.aria-label": "Etapas del pipeline",
+  "meta.title": "Joaquín Ríos Heredia — Backend / AI Engineer",
+  "meta.description": "Java Backend Engineer (Java {0}) especializado en sistemas distribuidos, IA local y Cloud AWS. Portfolio con {1} labs ejecutables, {2} guías Staff, vibe-guard (Java + Python), JARVIS y contribuciones open source.",
+  "meta.og_title": "Joaquín Ríos Heredia — Java Backend Engineer (Java {0})",
+  "meta.og_description": "{0} Java Production Labs · {1} guías Staff Engineer · vibe-guard · JARVIS · AI & Distributed Systems · Open Source Contributor",
+  "lang.group": "Idioma"
+ },
+ "en": {
+  "nav.8": "Contact",
+  "nav.9.aria-label": "Main navigation",
+  "nav.10.aria-label": "Home",
+  "nav.11.aria-label": "Contact by email",
+  "nav.12.aria-label": "Open menu",
+  "top.1": "<span class=\"hero-badge-dot\" aria-hidden=\"true\"><\/span> Available · Freelance &amp; full-time",
+  "top.3": "<strong>Java Backend Engineer · AI & Distributed Systems<\/strong><br> Seville / Málaga · {0} Remote",
+  "top.4": "View Labs →",
+  "top.7": "Runnable Labs",
+  "top.8": "Technical Docs",
+  "top.9": "Open Source PRs",
+  "top.13.aria-label": "Introduction",
+  "profile.4": "Backend engineer focused on distributed systems, observability, resilience and local AI integration. Technical portfolio built from real projects, open-source tooling and reproducible, production-oriented labs.",
+  "profile.9": "📍 Seville/Málaga",
+  "profile.10.aria-label": "Profile",
+  "profile.11.alt": "Photo of Joaquín Ríos Heredia",
+  "devtools.1": "Own product · Java + Python",
+  "devtools.3": "Detects patterns that can pass the tests and fail in production, especially under load, in <strong>Java/Spring<\/strong> and <strong>async Python<\/strong> backends. They are common in AI-generated code too, but it does not detect authorship and does not try to. Each finding keeps detection, impact (measured or «documented mechanism») and reproduction apart. Current status: <strong>roadmap Phase {0}, reliability and precision<\/strong>.",
+  "devtools.5": "One command for both engines: it detects which languages the tree contains, runs each engine through its published CLI and returns a single report (text, a common JSON {0} or SARIF {1} with one run per engine) and a single exit code. The two-run SARIF was tested on GitHub Code Scanning.",
+  "devtools.6": "🔒 vibe-guard-scan {0} · private, not published",
+  "devtools.7": "🔒 vibe-guard · private coordination repo (status, decisions, pre-registrations)",
+  "devtools.8": "✅ Default exclusion of tests/fixtures/examples outside the source roots",
+  "devtools.9": "✅ The exit decision is recomputed from the normalized findings",
+  "devtools.10": "architecture",
+  "devtools.12": "has .java →",
+  "devtools.15": "Node CLI, regex rules + --verify",
+  "devtools.16": "has .py   →",
+  "devtools.20": "<span class=\"t-key\">→<\/span> text · common JSON · SARIF ({0} runs)",
+  "devtools.21": "# Separately, not through the wrapper:",
+  "devtools.24": "→ analyzeProject inside Claude Code",
+  "devtools.26": "Java/Spring Boot engine made of two distinct engines: a <strong style=\"color: #a78bfa;\">CLI<\/strong> in Node (regex rules and context heuristics, no AST or type resolution), with {0} and a GitHub Action with SARIF, and a <strong style=\"color: #a78bfa;\">MCP server<\/strong> in Spring Boot that exposes {1} as a Claude Code tool. npm {2} · MCP jar {3} · MIT.",
+  "devtools.29": "🛡️ CLI default: blocking · blocking-kafka · reactor-block · kafka-send-timeout · transactions · layers · kafka",
+  "devtools.31": "✅ MCP: {0} rules ({1}…{2}) · {3} tests",
+  "devtools.32": "✅ {0} reproduces the failure on a real Spring Boot + PostgreSQL app, in CI",
+  "devtools.33": "🧪 Pre-registered experiments: blocking · blocking-kafka · reactor-block",
+  "devtools.34": "📋 All {0} «Found in the Wild» candidates were retracted after contextual audit",
+  "devtools.37": "measured in pre-registered experiments",
+  "devtools.40": "≥ {0} % in use",
+  "devtools.41": "requests waiting for a connection",
+  "devtools.44": "# .toFuture().get() on the event loop (WebFlux)",
+  "devtools.45": "deadlock in {0} runs",
+  "devtools.46": "{0} responses",
+  "devtools.47": "# blocking in @KafkaListener, &gt; {0} ms/record",
+  "devtools.48": "reprocessing loop",
+  "devtools.49": "{0} records/s, {1} deliveries each",
+  "devtools.50": "validate-public · CLI {0}, pinned commits",
+  "devtools.55": "{0} findings",
+  "devtools.57": "# Findings reported, not confirmed bugs:",
+  "devtools.58": "# no precision audit. Not re-run with {0}.",
+  "devtools.60": "Python engine ({0}): pure AST analysis with {1} rules in three families: event loop blocking, async lifecycle misuse, and concurrency and state hazards. It looks for code patterns, not authorship. PyPI {2} · MIT.",
+  "devtools.62": "🔍 {0} rules · {1}…{2}",
+  "devtools.63": "⚖️ Path-based severity: CRITICAL → WARNING in tests, scripts and examples",
+  "devtools.65": "⚙️ Own GitHub Action with upload to Code Scanning",
+  "devtools.69": "pre-registered precision · {0}",
+  "devtools.71": "CRITICAL precision",
+  "devtools.73": "Reviewed",
+  "devtools.75": "Target",
+  "devtools.76": "✗ not met",
+  "devtools.77": "# Probably optimistic: {0} of {1} verdicts",
+  "devtools.78": "# come from a first AI review, not verified.",
+  "devtools.79": "# The {0} fixes were designed looking at this",
+  "devtools.80": "# corpus → it is now a development set.",
+  "devtools.82": "Pre-registered evaluations of both engines on repositories never used to tune their rules. Each evaluation starts with a {0} committed before any search, selection or run; departures go to {1}. Third-party code is cited by repository, pinned commit and file:line.",
+  "devtools.83": "✗ {0}: both pre-registered criteria NOT met",
+  "devtools.84": "⏳ {0}: precision per language, frozen versions, no results yet",
+  "devtools.85": "✅ Evaluation scripts with tests ({0}) · MIT",
+  "devtools.88": "# Criterion {0} · CRITICAL precision ≥ {1} %",
+  "devtools.89": "measured",
+  "devtools.90": "# Criterion {0} · noise per {1} files",
+  "devtools.91": "# limit: ≤ {0} CRITICAL and ≤ {1} WARNING",
+  "devtools.95": "(a single CRITICAL)",
+  "devtools.97": "CLI that diagnoses your Testcontainers environment in a few seconds and tells you what is wrong and how to fix it. It is the preflight of {0}, which ships it as an npm dependency. npm {1} · MIT.",
+  "devtools.99": "✅ Docker: daemon, socket, storage driver, memory",
+  "devtools.100": "✅ Java: version, JAVA_HOME, Maven, Gradle",
+  "devtools.102": "✅ Network: DNS, Docker Hub, proxy",
+  "devtools.103": "✅ Environment: {0}, CI, ulimits, docker group",
+  "devtools.104": "✅ {0} · {1} · exit {2} if any check fails",
+  "devtools.107": "real output · {0}, Docker {1} (excerpt)",
+  "devtools.127": "{0} plain {1} files with no build tool ({2} with bugs + {3}) that produce exactly {4} CRITICAL with {5}. The README includes the real output and what each engine, CLI and MCP, reports.",
+  "devtools.130": "GitHub Action that installs python-vibe-guard from PyPI, uploads the SARIF to Code Scanning and fails the job on a configurable threshold ({0} or {1}).",
+  "devtools.132.aria-label": "vibe-guard architecture",
+  "devtools.133.aria-label": "Measured results",
+  "devtools.134.aria-label": "Public validation",
+  "devtools.135.aria-label": "Measured precision",
+  "devtools.136.aria-label": "test-corpus-1 results",
+  "devtools.137.aria-label": "testcontainers-doctor output",
+  "labs.2": "{0} Runnable Labs",
+  "labs.3": "Ten self-contained Spring Boot {0} + Java {1} labs: runnable from cold start, measured under load, each with a documented failure mode. Every figure comes from a results file versioned in the repo.",
+  "labs.4": "<strong>Production-oriented labs<\/strong>, not tutorials.<br> ADRs, tests, benchmarks, metrics and chaos testing in all {0} labs; Testcontainers against real PostgreSQL, Redis and Kafka in labs {1}–{2}.<br> <span style=\"color: var(--success); font-weight: 500; display: inline-block; margin-top: 4px;\">✓ {3} fixes found with java-vibe-guard and a security review ({4} of them are improvements, not bugs).<\/span>",
+  "labs.5": "Executed",
+  "labs.6": "Re-measured Oct {0}",
+  "labs.9": "Executed",
+  "labs.18": "Executed",
+  "labs.28": "Executed",
+  "labs.37": "Executed",
+  "labs.47": "Executed",
+  "labs.56": "Executed",
+  "labs.65": "Executed",
+  "labs.74": "Executed",
+  "labs.83": "Executed",
+  "labs.92": "Executed",
+  "labs.11": "{0} VUs · virtual threads vs a pool of {1} platform threads · median of {2} runs<br>{3} VUs: <strong>{4}<\/strong> vs {5} req/s · virtual-thread {6} ≈ {7} ms at both loads",
+  "labs.19": "<span class=\"green\">{0}<\/span> rejected",
+  "labs.20": "Calls rejected while the circuit was OPEN ({0} s)<br>Automatic recovery {1} s after the failure cleared (approximate) · Bulkhead → CircuitBreaker → Retry",
+  "labs.30": "Distributed token bucket in Redis · {0} % rejected with {1} (≈ {2} req/s allowed)<br>{3}: <strong>{4} ms<\/strong> · not tested with several app instances",
+  "labs.39": "After killing Kafka: {0} events left FAILED after the fix (before: {1} of {2})<br>Bug found through chaos testing · drain: {3} → <strong>{4}<\/strong> events/s",
+  "labs.49": "{0} / {1} orders stuck in STARTED with {2} % HTTP errors · dual-write race condition<br>Measured on {3}, before later changes to the lab (not re-run)",
+  "labs.58": "With the broker down, both lose what is sent ({0}); Kafka keeps and replays what was already committed<br>The gap is an API asymmetry (synchronous RTT vs async buffer), not a speed claim",
+  "labs.66": "<span class=\"highlight\">{0}<\/span> partial index",
+  "labs.67": "{0} rows · {1} PENDING · seq scan {2} ms → index scan <strong>{3} ms<\/strong> (medians of {4} runs)<br>{5} of both plans versioned",
+  "labs.69": "Partial index",
+  "labs.76": "Streams back to RUNNING &lt; {0} ms after the Kafka restart, no full replay<br>{1} reports UP with Kafka down: false positive found through chaos testing",
+  "labs.85": "Compressed image · root → <strong>non-root<\/strong> (appuser) · JRE Alpine, layered JAR<br>Same startup ({0} vs {1} s); the code-only rebuild is not faster on this machine",
+  "labs.93": "CPU <span class=\"highlight\">{0}<\/span> · HPA did not scale",
+  "labs.94": "{0} VUs with a {1} ms sleep: the CPU-only HPA (target {2}) did not scale up · {3} % errors with {4} pod<br>HPA on the custom metric {5} defined but not run",
+  "labs.15": "View code <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.25": "View code <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.34": "View code <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.44": "View code <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.53": "View code <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.62": "View code <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.71": "View code <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.80": "View code <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.89": "View code <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "labs.98": "View code <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "jarvis.1": "AI project · voice assistant",
+  "jarvis.3": "Personal Spanish-language voice assistant for Windows: it listens through the microphone, decides which layer should answer and acts with {0} tools (email, calendar, files, music, git, tests and vision) behind a permission gate.",
+  "jarvis.4": "jarvis-voice-platform · one turn",
+  "jarvis.5": "<span class=\"t-key\">🎙<\/span> Microphone → <span class=\"t-val\">local Whisper<\/span> <span class=\"t-comment\">(confidence threshold)<\/span>",
+  "jarvis.6": "<span class=\"t-key\">→<\/span> {0}-layer router",
+  "jarvis.7": "· shortcut",
+  "jarvis.8": "direct tool, no LLM",
+  "jarvis.10": "{0} on Ollama",
+  "jarvis.12": "Claude Haiku {0}, streaming",
+  "jarvis.13": "<span class=\"t-key\">→<\/span> tool_use → <span class=\"t-val\">permission gate<\/span>",
+  "jarvis.14": "\"confirmo envío\" read from the microphone,",
+  "jarvis.15": "single use, expires after {0} s",
+  "jarvis.16": "<span class=\"t-key\">→<\/span> sentence-by-sentence TTS <span class=\"t-comment\">(Piper · optional ElevenLabs)<\/span>",
+  "jarvis.17": "<span class=\"t-key\">→<\/span> Electron UI over a local WebSocket",
+  "jarvis.19": "Evals: route {0} · tool {1} · gate {2}",
+  "jarvis.20": "(the tool metric uses a mocked model)",
+  "jarvis.21": "{0} tools behind a {1}-level gate",
+  "jarvis.22": "{0} READ · {1} WRITE · {2} EXTERNAL · {3} DESTRUCTIVE. Irreversible actions and screenshots require the exact phrase spoken aloud; the model cannot fabricate it.",
+  "jarvis.23": "Prompt-injection defenses",
+  "jarvis.24": "Recipient resolved by the system, not the model · project allowlist · git without shell or hooks · secrets redacted before reaching the model · WebSocket only on {0}.",
+  "jarvis.25": "Per-turn observability",
+  "jarvis.26": "Per-phase latency, cached tokens and estimated cost in a JSONL log with replay ({0}). Private turns: metadata only.",
+  "jarvis.27": "CI on GitHub Actions",
+  "jarvis.28": "Mocked tests on Windows with no network or keys · {0} · secret scanning with gitleaks.",
+  "jarvis.38": "Known limits: Windows only, single user and single machine; when the router picks Claude, what you say and what the tools read is sent to the Anthropic API.",
+  "jarvis.39": "View repository <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "jarvis.41": "Local-first CLI: answers with {0} on Ollama and only calls OpenAI for complex prompts when an API key is set. History in SQLite ({1}) plus accumulated tokens and cost ({2}). Installs with Docker and {3}.",
+  "jarvis.43.aria-label": "Flow of one JARVIS turn",
+  "authority.1": "AI-orchestrated technical documentation pipeline · Python",
+  "authority.3": "Multi-stage pipeline that generates and validates technical documentation with local Ollama inference, automated research, quality scoring and human-reviewed publishing.",
+  "authority.5": "Python · multi-stage processing · automation",
+  "authority.6": "Local AI",
+  "authority.8": "Research",
+  "authority.9": "Hacker News · GitHub Search · Tavily (optional)",
+  "authority.11": "Automated per-section auditor · thresholds {0} / {1} out of {2}",
+  "authority.12": "Review",
+  "authority.13": "Manual correction with {0} (human-in-the-loop)",
+  "authority.14": "Publish",
+  "authority.15": "git commit/push to the content repo if the document passes",
+  "authority.16": "Failure behavior",
+  "authority.17": "Section failure = no publish",
+  "authority.18": "If Ollama fails, the section scores {0}, counts in the average and blocks auto-publishing ({1}). This is the scenario covered by an automated test.",
+  "authority.19": "Git timeouts",
+  "authority.20": "{0} s for pull/add/commit and {1} s for push; a {2} aborts publishing with a log entry ({3}).",
+  "authority.21": "No orphaned processes",
+  "authority.22": "The orchestrator kills the whole process group ({0}) and the lock is only cleared on a confirmed dead process ({1}).",
+  "authority.23": "Portable paths",
+  "authority.24": "Paths resolved from {0}, with environment-variable overrides ({1}).",
+  "authority.25": "Local Python scripts run by hand: no cloud deployment and no production service.",
+  "authority.26": "View code on GitHub <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "authority.27": "View generated documentation ({0} docs) <span class=\"lab-link-arrow\" aria-hidden=\"true\">→<\/span>",
+  "authority.28.aria-label": "Pipeline stages",
+  "opensource.1": "Contributions",
+  "opensource.3": "Contributions to active projects with thousands of stars. Merged code in production.",
+  "opensource.6": "fix(lint): replace magic values with named constants in deps.py — Fixes ruff {0} violations in the FastAPI backend",
+  "opensource.11": "feat: add Spring Boot {0} starter for Chroma embedding store — Auto-configuration, properties and bean for Spring Boot {1}",
+  "opensource.16": "Spring Boot starter for ChromaDB: auto-configuration, ChromaEmbeddingStoreProperties, AutoConfiguration bean, tests included. {0} lines · {1} files · follows the Milvus and Redis pattern",
+  "opensource.17": "PR #{0} · {1} lines · {2} files",
+  "opensource.21": "Exposes model_info in ModelDetail: Map&lt;String,Object&gt; with @JsonProperty to access context_length, embedding_length and architecture without parsing raw JSON. Merged in {0} days.",
+  "opensource.22": "PR #{0} · {1} lines · SonarQube ✅ · CodeRabbit ✅",
+  "stack.1": "Technologies",
+  "stack.2": "Tech Stack",
+  "stack.3": "Technologies used in production, not just in tutorials.",
+  "stack.11": "Architecture",
+  "stack.18": "Security",
+  "stack.26": "AI",
+  "stack.29": "Multi-Agent",
+  "footer.1": "Let's build something<br>great.",
+  "footer.2": "Available for backend engineering, platform engineering and AI infrastructure. Technical portfolio built from my own projects and open-source contributions.",
+  "footer.3": "<span class=\"status-dot\" aria-hidden=\"true\"><\/span> Freelance available immediately · Full-time · {0} remote / on-site in Seville or Málaga",
+  "footer.4": "✉️ Contact",
+  "meta.title": "Joaquín Ríos Heredia — Backend / AI Engineer",
+  "meta.description": "Java Backend Engineer (Java {0}) specialized in distributed systems, local AI and AWS cloud. Portfolio with {1} runnable labs, {2} Staff-level guides, vibe-guard (Java + Python), JARVIS and open-source contributions.",
+  "meta.og_title": "Joaquín Ríos Heredia — Java Backend Engineer (Java {0})",
+  "meta.og_description": "{0} Java Production Labs · {1} Staff Engineer guides · vibe-guard · JARVIS · AI & Distributed Systems · Open Source Contributor",
+  "lang.group": "Language"
+ }
+};
+  var LANGS = ['es', 'en'];
+  var OG_LOCALE = { es: 'es_ES', en: 'en_US' };
+  var NUM = /[\w.,:\/%×+\-−~≈]*\d(?:[\w.,:\/%×+\-−]| (?=\d))*/g;
+  var current = 'es';
+
+  function keptOf(unit) {
+    var list = [];
+    (function rec(n) {
+      for (var c = n.firstElementChild; c; c = c.nextElementSibling) {
+        if (c.hasAttribute('data-k')) list.push(c); else rec(c);
+      }
+    })(unit);
+    return list;
+  }
+
+  var units = Array.prototype.map.call(document.querySelectorAll('[data-i18n]'), function (el) {
+    return { el: el, key: el.getAttribute('data-i18n'), kept: keptOf(el) };
+  });
+
+  var ATTRS = ['aria-label', 'alt', 'title'];
+  var attrUnits = [];
+  ATTRS.forEach(function (attr) {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-' + attr + ']'), function (el) {
+      attrUnits.push({ el: el, attr: attr, key: el.getAttribute('data-i18n-' + attr) });
+    });
+  });
+
+  function numbersOf(text) {
+    return (text.match(NUM) || []).map(function (t) { return t.replace(/[.,:\/]+$/, ''); });
+  }
+  function fill(tpl, values) {
+    return tpl.replace(/\{(\d+)\}/g, function (_, i) { return values[+i]; });
+  }
+
+  // Metadatos: las cifras salen del contenido original en español del HTML.
+  var metas = [
+    { key: 'meta.title', get: function () { return document.title; }, set: function (v) { document.title = v; } }
+  ];
+  [['meta.description', 'meta[name="description"]'],
+   ['meta.og_title', 'meta[property="og:title"]'],
+   ['meta.og_description', 'meta[property="og:description"]']].forEach(function (m) {
+    var el = document.querySelector(m[1]);
+    if (el) metas.push({ key: m[0], get: function () { return el.content; }, set: function (v) { el.content = v; } });
+  });
+  metas.forEach(function (m) { m.nums = numbersOf(m.get()); });
+  var ogLocale = document.querySelector('meta[property="og:locale"]');
+
+  function render(unit, tpl) {
+    unit.el.innerHTML = tpl.replace(/\{(\d+)\}/g, '<i data-slot="$1"></i>');
+    Array.prototype.forEach.call(unit.el.querySelectorAll('i[data-slot]'), function (slot) {
+      var node = unit.kept[+slot.getAttribute('data-slot')];
+      if (node) slot.parentNode.replaceChild(node, slot); else slot.parentNode.removeChild(slot);
+    });
+  }
+
+  function apply(lang) {
+    var dict = I18N[lang];
+    units.forEach(function (u) { if (dict[u.key] != null) render(u, dict[u.key]); });
+    attrUnits.forEach(function (a) { if (dict[a.key] != null) a.el.setAttribute(a.attr, dict[a.key]); });
+    metas.forEach(function (m) { if (dict[m.key] != null) m.set(fill(dict[m.key], m.nums)); });
+    document.documentElement.lang = lang;
+    if (ogLocale) ogLocale.content = OG_LOCALE[lang];
+    Array.prototype.forEach.call(document.querySelectorAll('.lang-btn'), function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang));
+    });
+    current = lang;
+  }
+
+  function setLang(lang, persist) {
+    if (LANGS.indexOf(lang) < 0) return;
+    if (lang !== current) apply(lang);
+    if (!persist) return;
+    try { localStorage.setItem('lang', lang); } catch (e) { /* almacenamiento bloqueado */ }
+    try {
+      var url = new URL(location.href);
+      if (url.searchParams.has('lang')) {
+        url.searchParams.set('lang', lang);
+        history.replaceState(null, '', url);
+      }
+    } catch (e) { /* URL/history no disponibles */ }
+  }
+
+  function initialLang() {
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (LANGS.indexOf(q) >= 0) return q;
+    } catch (e) { /* sin URLSearchParams */ }
+    try {
+      var s = localStorage.getItem('lang');
+      if (LANGS.indexOf(s) >= 0) return s;
+    } catch (e) { /* almacenamiento bloqueado */ }
+    var nav = (navigator.language || 'es').toLowerCase();
+    return nav.indexOf('es') === 0 ? 'es' : 'en';
+  }
+
+  var sw = document.getElementById('lang-switch');
+  if (sw) {
+    sw.hidden = false;
+    sw.addEventListener('click', function (e) {
+      var b = e.target.closest('.lang-btn');
+      if (b) setLang(b.getAttribute('data-lang'), true);
+    });
+  }
+  setLang(initialLang(), false);
+})();
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
 <!-- GSAP + ScrollTrigger from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
