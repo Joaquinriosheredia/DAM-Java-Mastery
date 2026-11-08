@@ -1468,6 +1468,100 @@ footer {
 /* Las tarjetas reveal-left/right empiezan a ±40px: sin esto crean scroll horizontal en móvil */
 #jarvis { overflow-x: clip; }
 
+/* ===================== Flujos animados =====================
+   Mismos tokens que el resto: --bg-2, --border, --text*, --muted,
+   --font-mono y el acento de la sección (data-theme). */
+.flow-card {
+  --acc: var(--primary); --acc-rgb: 59,130,246;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+  gap: clamp(20px, 4vw, 48px);
+  align-items: center;
+  margin: 20px 0 32px;
+  padding: clamp(20px, 3.5vw, 36px);
+  background: linear-gradient(145deg, var(--bg-2), #080d1a);
+  border: 1px solid rgba(var(--acc-rgb), 0.22);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+.flow-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 60% at 85% 40%, rgba(var(--acc-rgb), 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.flow-card[data-theme="green"]  { --acc: var(--success); --acc-rgb: 34,197,94; }
+.flow-card[data-theme="violet"] { --acc: #a78bfa;        --acc-rgb: 139,92,246; }
+.flow-card[data-theme="cyan"]   { --acc: var(--cyan);    --acc-rgb: 6,182,212; }
+.flow-card[data-theme="blue"]   { --acc: var(--primary); --acc-rgb: 59,130,246; }
+
+.flow-text, .flow-canvas { position: relative; min-width: 0; }
+.flow-term { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.flow-title { font-size: clamp(18px, 2.2vw, 22px); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin: 0 0 6px; }
+.flow-cap { color: var(--text-2); font-size: 14px; line-height: 1.6; margin: 0 0 16px; }
+.flow-cap code, .flow-steps code { font-family: var(--font-mono); font-size: 0.92em; color: var(--acc); }
+.flow-steps { margin: 0; padding-left: 22px; color: var(--text-2); font-size: 13.5px; line-height: 1.7; }
+.flow-steps li { padding-left: 4px; transition: color 0.3s; }
+.flow-steps li::marker { color: var(--acc); font-family: var(--font-mono); font-weight: 600; }
+.flow-steps li.is-on { color: var(--text); }
+.flow-replay {
+  margin-top: 18px;
+  font: 600 11px var(--font-mono);
+  letter-spacing: 0.04em;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: rgba(var(--acc-rgb), 0.1);
+  border: 1px solid rgba(var(--acc-rgb), 0.25);
+  color: var(--acc);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.flow-replay:hover { background: rgba(var(--acc-rgb), 0.18); border-color: rgba(var(--acc-rgb), 0.45); }
+.flow-replay:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+.flow-scn { font-family: var(--font-mono); font-size: 12px; color: var(--acc); min-height: 1.6em; margin: 0 0 8px; text-align: center; }
+.flow-scn:not(:empty)::before { content: '▸ '; opacity: 0.7; }
+.flow-canvas svg { display: block; width: 100%; max-width: 440px; height: auto; margin: 0 auto; overflow: visible; }
+
+.flow-canvas .fn rect { fill: rgba(15,23,42,0.92); stroke: var(--border); stroke-width: 1.2; transition: stroke 0.35s, fill 0.35s; }
+.flow-canvas .fn text { fill: var(--text); font-family: var(--font-sans); font-size: 13px; font-weight: 600; text-anchor: middle; }
+.flow-canvas .fn text.sub { font-family: var(--font-mono); font-size: 10.5px; font-weight: 400; fill: var(--muted); }
+.flow-canvas .fn.start rect { fill: rgba(var(--acc-rgb), 0.14); stroke: rgba(var(--acc-rgb), 0.55); }
+.flow-canvas .fn.on rect { stroke: var(--acc); stroke-width: 1.8; filter: url(#flow-glow); }
+.flow-canvas .fn.ok.done rect { fill: rgba(34,197,94,0.12); stroke: var(--success); }
+.flow-canvas .fn.bad.done rect { fill: rgba(239,68,68,0.12); stroke: var(--danger); }
+.flow-canvas .fe { stroke: rgba(100,116,139,0.35); stroke-width: 1.5; fill: none; transition: stroke 0.3s; }
+.flow-canvas .fe.bad { stroke-dasharray: 4 4; }
+.flow-canvas .fe.on { stroke: var(--acc); stroke-width: 2.2; }
+.flow-canvas .fe.ok.on { stroke: var(--success); }
+.flow-canvas .fe.bad.on { stroke: var(--danger); }
+.flow-canvas .fl { font-family: var(--font-mono); font-size: 10.5px; fill: var(--muted); text-anchor: middle; }
+.flow-canvas .fp { fill: var(--acc); }
+.flow-canvas .fh { fill: var(--acc); opacity: 0.25; }
+
+.flow-group { margin-top: 56px; }
+.flow-group-title { font-size: clamp(20px, 2.6vw, 26px); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin: 6px 0 0; }
+
+/* Authority Engine: los pasos existentes se encienden en orden */
+.pipeline-step.is-active .pipeline-icon-wrap {
+  background: rgba(59,130,246,0.18);
+  border-color: rgba(59,130,246,0.75);
+  box-shadow: 0 0 24px rgba(59,130,246,0.35);
+  transform: translateY(-3px);
+}
+.pipeline-step.is-done .pipeline-icon-wrap { border-color: rgba(59,130,246,0.45); }
+.pipeline-step.is-done .pipeline-step-inner::before { background: linear-gradient(to right, var(--primary), rgba(59,130,246,0.45)); }
+
+@media (max-width: 860px) {
+  .flow-card { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-canvas .fn rect, .flow-canvas .fe, .flow-steps li { transition: none; }
+  .flow-canvas .fp, .flow-canvas .fh { display: none; }
+  .pipeline-step.is-active .pipeline-icon-wrap { transform: none; }
+}
+
 @media (max-width: 1024px) {
   .npm-hero { grid-template-columns: 1fr; }
   .jarvis-grid { grid-template-columns: 1fr; }
@@ -1679,7 +1773,7 @@ code {
     <div class="reveal">
       <div class="section-label" data-i18n="devtools.1">Producto propio · Java + Python</div>
       <h2 class="section-title" id="devtools-title">vibe-guard</h2>
-      <p class="section-desc" data-i18n="devtools.3">Detecta patrones que pueden pasar los tests y fallar en producción, sobre todo bajo carga, en backends <strong>Java/Spring</strong> y <strong>Python async</strong>. Son frecuentes en código generado con IA, pero no detecta autoría ni lo intenta. Cada hallazgo separa detección, impacto (medido o «documented mechanism») y reproducción. Estado actual: <strong>Fase <span data-k>1</span> del roadmap, fiabilidad y precisión</strong>.</p>
+      <p class="section-desc" data-i18n="devtools.3">Detecta patrones que pueden pasar los tests y fallar en producción, sobre todo bajo carga, en backends <strong>Java/Spring</strong> y <strong>Python async</strong>. Son frecuentes en código generado con IA, pero no detecta autoría ni lo intenta. Cada hallazgo separa detección, impacto (medido o «documented mechanism») y reproducción. Estado actual: <strong>versiones públicas congeladas; desarrollo posterior privado</strong>.</p>
     </div>
 
     <!-- Arquitectura -->
@@ -1691,10 +1785,10 @@ code {
           <span class="npm-pkg-name">vibe-guard scan</span>
         </div>
         <p class="npm-desc" data-i18n="devtools.5">
-          Un comando para los dos motores: detecta qué lenguajes hay en el árbol, ejecuta cada motor con su CLI publicada y da un solo informe (texto, JSON común <code data-k>schemaVersion 1</code> o SARIF <span data-k>2.1.0</span> con un run por motor) y un solo exit code. El SARIF de dos runs se probó en GitHub Code Scanning.
+          Un comando para los dos motores: detecta qué lenguajes hay en el árbol, ejecuta cada motor con su CLI y da un solo informe (texto, JSON común <code data-k>schemaVersion 1</code> o SARIF <span data-k>2.1.0</span> con un run por motor) y un solo exit code. El SARIF de dos runs se probó en GitHub Code Scanning.
         </p>
         <div class="npm-badges">
-          <span class="npm-badge" data-i18n="devtools.6">🔒 vibe-guard-scan <span data-k>0.2.0</span> · privado, no publicado</span>
+          <span class="npm-badge" data-i18n="devtools.6">🔒 vibe-guard-scan · privado, no publicado</span>
           <span class="npm-badge" data-i18n="devtools.7">🔒 vibe-guard · repo privado de coordinación (estado, decisiones, pre-registros)</span>
           <span class="npm-badge" data-i18n="devtools.8">✅ Exclusiones por defecto de tests/fixtures/examples fuera de las raíces de código</span>
           <span class="npm-badge" data-i18n="devtools.9">✅ La decisión de salida se recalcula con los hallazgos normalizados</span>
@@ -1711,9 +1805,9 @@ code {
         <div class="terminal-output" role="region" aria-label="Arquitectura de vibe-guard" data-i18n-aria-label="devtools.132.aria-label">
           <div><span class="t-prompt">$</span> vibe-guard scan .</div>
           <div>&nbsp;</div>
-          <div><span class="t-key" data-i18n="devtools.12">hay .java →</span> <span class="t-val">java-vibe-guard 2.4.0</span> <span class="t-comment">(npm)</span></div>
+          <div><span class="t-key" data-i18n="devtools.12">hay .java →</span> <span class="t-val">java-vibe-guard</span> <span class="t-comment">(npm)</span></div>
           <div><span class="t-comment" data-i18n="devtools.15">            CLI Node, reglas por regex + --verify</span></div>
-          <div><span class="t-key" data-i18n="devtools.16">hay .py   →</span> <span class="t-val">pyvibe 0.14.0</span> <span class="t-comment">(PyPI)</span></div>
+          <div><span class="t-key" data-i18n="devtools.16">hay .py   →</span> <span class="t-val">pyvibe</span> <span class="t-comment">(PyPI)</span></div>
           <div><span class="t-comment">            AST, PYVIBE-001…020</span></div>
           <div>&nbsp;</div>
           <div data-i18n="devtools.20"><span class="t-key">→</span> texto · JSON común · SARIF (<span data-k>2</span> runs)</div>
@@ -1722,6 +1816,28 @@ code {
           <div><span class="t-val">java-vibe-guard MCP</span> <span class="t-comment">(jar 2.0.0, VIBE-001…007)</span></div>
           <div><span class="t-comment" data-i18n="devtools.24">  → analyzeProject dentro de Claude Code</span></div>
         </div>
+      </div>
+    </div>
+
+    <!-- flujo animado: vg-scan -->
+    <div class="flow-card reveal" data-flow="vg-scan" data-theme="green">
+      <div class="flow-text">
+        <div class="flow-term" aria-hidden="true">
+          <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span>
+          <span class="terminal-title">flow · vibe-guard scan</span>
+        </div>
+        <h3 class="flow-title" data-i18n="flow.vg-scan.title">Así fluye un escaneo</h3>
+        <p class="flow-cap" data-i18n="flow.vg-scan.cap">Un comando, dos motores y un informe común.</p>
+        <ol class="flow-steps">
+          <li data-i18n="flow.vg-scan.s1">Detecta qué lenguajes hay en el árbol</li>
+          <li data-i18n="flow.vg-scan.s2">Ejecuta cada motor con su CLI</li>
+          <li data-i18n="flow.vg-scan.s3">Unifica los hallazgos en un solo informe</li>
+          <li data-i18n="flow.vg-scan.s4">Sale en texto, JSON o SARIF</li>
+        </ol>
+        <button class="flow-replay" type="button" data-i18n="flow.replay">Repetir</button>
+      </div>
+      <div class="flow-canvas">
+        <p class="flow-scn" aria-live="polite"></p>
       </div>
     </div>
 
@@ -1798,6 +1914,28 @@ code {
       </div>
     </div>
 
+    <!-- flujo animado: verify -->
+    <div class="flow-card reveal" data-flow="verify" data-theme="violet">
+      <div class="flow-text">
+        <div class="flow-term" aria-hidden="true">
+          <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span>
+          <span class="terminal-title">flow · java-vibe-guard --verify</span>
+        </div>
+        <h3 class="flow-title" data-i18n="flow.verify.title">Así se verifica una regla</h3>
+        <p class="flow-cap" data-i18n="flow.verify.cap"><code>--verify</code> reproduce el fallo en una app real antes de darlo por bueno.</p>
+        <ol class="flow-steps">
+          <li data-i18n="flow.verify.s1">Parte de la regla y su anti-patrón</li>
+          <li data-i18n="flow.verify.s2">Levanta Spring Boot y PostgreSQL en contenedores</li>
+          <li data-i18n="flow.verify.s3">Observa <span data-k>3</span> métricas bajo carga</li>
+          <li data-i18n="flow.verify.s4">Solo cuenta como reproducido si se cumplen las <span data-k>3</span></li>
+        </ol>
+        <button class="flow-replay" type="button" data-i18n="flow.replay">Repetir</button>
+      </div>
+      <div class="flow-canvas">
+        <p class="flow-scn" aria-live="polite"></p>
+      </div>
+    </div>
+
     <!-- python-vibe-guard -->
     <div class="npm-hero reveal" style="background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(7,17,42,0.8) 100%); border-color: rgba(59,130,246,0.25); margin-top: 32px;">
       <div class="npm-glow-corner" style="background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);" aria-hidden="true"></div>
@@ -1849,6 +1987,29 @@ code {
       </div>
     </div>
 
+    <!-- flujo animado: pyvibe -->
+    <div class="flow-card reveal" data-flow="pyvibe" data-theme="blue">
+      <div class="flow-text">
+        <div class="flow-term" aria-hidden="true">
+          <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span>
+          <span class="terminal-title">flow · pyvibe</span>
+        </div>
+        <h3 class="flow-title" data-i18n="flow.pyvibe.title">Así analiza pyvibe un fichero</h3>
+        <p class="flow-cap" data-i18n="flow.pyvibe.cap">Análisis AST puro: lee el código, no lo ejecuta.</p>
+        <ol class="flow-steps">
+          <li data-i18n="flow.pyvibe.s1">Parsea el fichero con el módulo <code>ast</code></li>
+          <li data-i18n="flow.pyvibe.s2">Aplica <span data-k>20</span> reglas independientes</li>
+          <li data-i18n="flow.pyvibe.s3">Rebaja CRITICAL a WARNING en tests y scripts</li>
+          <li data-i18n="flow.pyvibe.s4">Respeta supresiones y baseline</li>
+          <li data-i18n="flow.pyvibe.s5">Termina con exit <span data-k>1</span> si hay hallazgos nuevos</li>
+        </ol>
+        <button class="flow-replay" type="button" data-i18n="flow.replay">Repetir</button>
+      </div>
+      <div class="flow-canvas">
+        <p class="flow-scn" aria-live="polite"></p>
+      </div>
+    </div>
+
     <!-- vibe-guard-evaluation -->
     <div class="npm-hero reveal" style="margin-top: 32px;">
       <div class="npm-glow-corner" aria-hidden="true"></div>
@@ -1862,7 +2023,7 @@ code {
         </p>
         <div class="npm-badges">
           <span class="npm-badge" data-i18n="devtools.83">✗ <span data-k>test-corpus-1</span>: ambos criterios pre-registrados NO cumplidos</span>
-          <span class="npm-badge" data-i18n="devtools.84">⏳ <span data-k>test-corpus-2</span>: precisión por lenguaje, versiones congeladas, sin resultados todavía</span>
+          <span class="npm-badge" data-i18n="devtools.84">✗ test-corpus-2, 3 y 4: objetivo de precisión ≥ 90 % no cumplido. Python 66 → 77 → 85 %; Java 67 → 67 (n = 24) → 32 %. Revisión, corpus y versiones distintos: comparación orientativa</span>
           <span class="npm-badge" data-i18n="devtools.85">✅ Scripts de evaluación con tests (<code data-k>node --test</code>) · MIT</span>
         </div>
         <div class="npm-links">
@@ -1886,6 +2047,28 @@ code {
           <div><span style="color:var(--danger)">✗</span> <span class="t-label">Python</span> <span class="t-val">42.071 CRITICAL · 110.111 WARNING</span></div>
           <div><span class="t-warn">⚠</span> <span class="t-label">Java</span> <span class="t-val">0.044 · 0.967</span> <span class="t-comment" data-i18n="devtools.95">(un solo CRITICAL)</span></div>
         </div>
+      </div>
+    </div>
+
+    <!-- flujo animado: eval -->
+    <div class="flow-card reveal" data-flow="eval" data-theme="green">
+      <div class="flow-text">
+        <div class="flow-term" aria-hidden="true">
+          <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span>
+          <span class="terminal-title">flow · vibe-guard-evaluation</span>
+        </div>
+        <h3 class="flow-title" data-i18n="flow.eval.title">Evaluación pre-registrada</h3>
+        <p class="flow-cap" data-i18n="flow.eval.cap">Los criterios se fijan antes de ver un solo resultado.</p>
+        <ol class="flow-steps">
+          <li data-i18n="flow.eval.s1">Commit del preregistro antes de buscar o ejecutar</li>
+          <li data-i18n="flow.eval.s2">Selecciona repos que no sirvieron para ajustar reglas</li>
+          <li data-i18n="flow.eval.s3">Ejecuta los motores con versiones congeladas</li>
+          <li data-i18n="flow.eval.s4">Documenta cualquier desviación en <code>DEVIATIONS.md</code></li>
+        </ol>
+        <button class="flow-replay" type="button" data-i18n="flow.replay">Repetir</button>
+      </div>
+      <div class="flow-canvas">
+        <p class="flow-scn" aria-live="polite"></p>
       </div>
     </div>
 
@@ -2241,6 +2424,53 @@ code {
       </article>
 
     </div>
+    <div class="flow-group reveal">
+      <div class="section-label" data-i18n="flow.labs.label">Flujos de datos</div>
+      <h3 class="flow-group-title" data-i18n="flow.labs.h">Cómo se mueven los eventos</h3>
+    </div>
+    <!-- flujo animado: outbox -->
+    <div class="flow-card reveal" data-flow="outbox" data-theme="blue">
+      <div class="flow-text">
+        <div class="flow-term" aria-hidden="true">
+          <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span>
+          <span class="terminal-title">flow · 04_outbox_kafka</span>
+        </div>
+        <h3 class="flow-title" data-i18n="flow.outbox.title">Lab <span data-k>04</span> · Transactional Outbox</h3>
+        <p class="flow-cap" data-i18n="flow.outbox.cap">Pedido y evento se guardan en la misma transacción.</p>
+        <ol class="flow-steps">
+          <li data-i18n="flow.outbox.s1">Pedido y evento, un solo <code>COMMIT</code></li>
+          <li data-i18n="flow.outbox.s2">El cliente recibe <span data-k>201</span> sin esperar a Kafka</li>
+          <li data-i18n="flow.outbox.s3">El poller publica los PENDING y los marca PUBLISHED</li>
+          <li data-i18n="flow.outbox.s4">Con Kafka caído, el evento espera en la tabla</li>
+        </ol>
+        <button class="flow-replay" type="button" data-i18n="flow.replay">Repetir</button>
+      </div>
+      <div class="flow-canvas">
+        <p class="flow-scn" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <!-- flujo animado: saga -->
+    <div class="flow-card reveal" data-flow="saga" data-theme="blue">
+      <div class="flow-text">
+        <div class="flow-term" aria-hidden="true">
+          <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span>
+          <span class="terminal-title">flow · 05_saga_pattern</span>
+        </div>
+        <h3 class="flow-title" data-i18n="flow.saga.title">Lab <span data-k>05</span> · Saga con compensación</h3>
+        <p class="flow-cap" data-i18n="flow.saga.cap">Si falla un paso, los anteriores se deshacen con eventos.</p>
+        <ol class="flow-steps">
+          <li data-i18n="flow.saga.s1">Cada servicio escucha un topic y responde con otro evento</li>
+          <li data-i18n="flow.saga.s2">Si el pago falla, el pedido se cancela</li>
+          <li data-i18n="flow.saga.s3">Si falla el inventario, se reembolsa el pago y se cancela</li>
+        </ol>
+        <button class="flow-replay" type="button" data-i18n="flow.replay">Repetir</button>
+      </div>
+      <div class="flow-canvas">
+        <p class="flow-scn" aria-live="polite"></p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -2332,6 +2562,28 @@ code {
             </a>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- flujo animado: jarvis -->
+    <div class="flow-card reveal" data-flow="jarvis" data-theme="cyan">
+      <div class="flow-text">
+        <div class="flow-term" aria-hidden="true">
+          <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span>
+          <span class="terminal-title">flow · jarvis-voice-platform</span>
+        </div>
+        <h3 class="flow-title" data-i18n="flow.jarvis.title">Así viaja un turno de voz</h3>
+        <p class="flow-cap" data-i18n="flow.jarvis.cap">Router de <span data-k>3</span> capas y gate de permisos antes de tocar una tool.</p>
+        <ol class="flow-steps">
+          <li data-i18n="flow.jarvis.s1">Whisper transcribe con umbral de confianza</li>
+          <li data-i18n="flow.jarvis.s2">El router elige: atajo, modelo local o Claude</li>
+          <li data-i18n="flow.jarvis.s3">Si Claude pide una tool, pasa por el gate</li>
+          <li data-i18n="flow.jarvis.s4">Responde por voz y en la UI</li>
+        </ol>
+        <button class="flow-replay" type="button" data-i18n="flow.replay">Repetir</button>
+      </div>
+      <div class="flow-canvas">
+        <p class="flow-scn" aria-live="polite"></p>
       </div>
     </div>
 
@@ -2689,9 +2941,9 @@ code {
   "profile.4": "Ingeniero backend centrado en sistemas distribuidos, observabilidad, resiliencia e integración de IA local. Portfolio técnico construido mediante proyectos reales, tooling open source y laboratorios reproducibles orientados a producción.",
   "profile.9": "📍 Sevilla/Málaga",
   "devtools.1": "Producto propio · Java + Python",
-  "devtools.3": "Detecta patrones que pueden pasar los tests y fallar en producción, sobre todo bajo carga, en backends <strong>Java/Spring<\/strong> y <strong>Python async<\/strong>. Son frecuentes en código generado con IA, pero no detecta autoría ni lo intenta. Cada hallazgo separa detección, impacto (medido o «documented mechanism») y reproducción. Estado actual: <strong>Fase {0} del roadmap, fiabilidad y precisión<\/strong>.",
-  "devtools.5": "Un comando para los dos motores: detecta qué lenguajes hay en el árbol, ejecuta cada motor con su CLI publicada y da un solo informe (texto, JSON común {0} o SARIF {1} con un run por motor) y un solo exit code. El SARIF de dos runs se probó en GitHub Code Scanning.",
-  "devtools.6": "🔒 vibe-guard-scan {0} · privado, no publicado",
+  "devtools.3": "Detecta patrones que pueden pasar los tests y fallar en producción, sobre todo bajo carga, en backends <strong>Java/Spring<\/strong> y <strong>Python async<\/strong>. Son frecuentes en código generado con IA, pero no detecta autoría ni lo intenta. Cada hallazgo separa detección, impacto (medido o «documented mechanism») y reproducción. Estado actual: <strong>versiones públicas congeladas; desarrollo posterior privado<\/strong>.",
+  "devtools.5": "Un comando para los dos motores: detecta qué lenguajes hay en el árbol, ejecuta cada motor con su CLI y da un solo informe (texto, JSON común {0} o SARIF {1} con un run por motor) y un solo exit code. El SARIF de dos runs se probó en GitHub Code Scanning.",
+  "devtools.6": "🔒 vibe-guard-scan · privado, no publicado",
   "devtools.7": "🔒 vibe-guard · repo privado de coordinación (estado, decisiones, pre-registros)",
   "devtools.8": "✅ Exclusiones por defecto de tests/fixtures/examples fuera de las raíces de código",
   "devtools.9": "✅ La decisión de salida se recalcula con los hallazgos normalizados",
@@ -2736,7 +2988,7 @@ code {
   "devtools.80": "# corpus → ahora es corpus de desarrollo.",
   "devtools.82": "Evaluaciones pre-registradas de los dos motores sobre repositorios nunca usados para ajustar sus reglas. Cada evaluación empieza con un {0} commiteado antes de buscar, seleccionar o ejecutar nada; las desviaciones van a {1}. El código de terceros se cita por repositorio, commit fijado y archivo:línea.",
   "devtools.83": "✗ {0}: ambos criterios pre-registrados NO cumplidos",
-  "devtools.84": "⏳ {0}: precisión por lenguaje, versiones congeladas, sin resultados todavía",
+  "devtools.84": "✗ test-corpus-2, 3 y 4: objetivo de precisión ≥ 90 % no cumplido. Python 66 → 77 → 85 %; Java 67 → 67 (n = 24) → 32 %. Revisión, corpus y versiones distintos: comparación orientativa",
   "devtools.85": "✅ Scripts de evaluación con tests ({0}) · MIT",
   "devtools.88": "# Criterio {0} · precisión CRITICAL ≥ {1} %",
   "devtools.89": "medido",
@@ -2879,7 +3131,52 @@ code {
   "meta.description": "Java Backend Engineer (Java {0}) especializado en sistemas distribuidos, IA local y Cloud AWS. Portfolio con {1} labs ejecutables, {2} guías Staff, vibe-guard (Java + Python), JARVIS y contribuciones open source.",
   "meta.og_title": "Joaquín Ríos Heredia — Java Backend Engineer (Java {0})",
   "meta.og_description": "{0} Java Production Labs · {1} guías Staff Engineer · vibe-guard · JARVIS · AI & Distributed Systems · Open Source Contributor",
-  "lang.group": "Idioma"
+  "lang.group": "Idioma",
+  "flow.replay": "Repetir",
+  "flow.labs.label": "Flujos de datos",
+  "flow.labs.h": "Cómo se mueven los eventos",
+  "flow.vg-scan.s1": "Detecta qué lenguajes hay en el árbol",
+  "flow.vg-scan.s2": "Ejecuta cada motor con su CLI",
+  "flow.vg-scan.s3": "Unifica los hallazgos en un solo informe",
+  "flow.vg-scan.s4": "Sale en texto, JSON o SARIF",
+  "flow.vg-scan.title": "Así fluye un escaneo",
+  "flow.vg-scan.cap": "Un comando, dos motores y un informe común.",
+  "flow.verify.s1": "Parte de la regla y su anti-patrón",
+  "flow.verify.s2": "Levanta Spring Boot y PostgreSQL en contenedores",
+  "flow.verify.s3": "Observa {0} métricas bajo carga",
+  "flow.verify.s4": "Solo cuenta como reproducido si se cumplen las {0}",
+  "flow.verify.title": "Así se verifica una regla",
+  "flow.verify.cap": "<code>--verify<\/code> reproduce el fallo en una app real antes de darlo por bueno.",
+  "flow.pyvibe.s1": "Parsea el fichero con el módulo <code>ast<\/code>",
+  "flow.pyvibe.s2": "Aplica {0} reglas independientes",
+  "flow.pyvibe.s3": "Rebaja CRITICAL a WARNING en tests y scripts",
+  "flow.pyvibe.s4": "Respeta supresiones y baseline",
+  "flow.pyvibe.s5": "Termina con exit {0} si hay hallazgos nuevos",
+  "flow.pyvibe.title": "Así analiza pyvibe un fichero",
+  "flow.pyvibe.cap": "Análisis AST puro: lee el código, no lo ejecuta.",
+  "flow.eval.s1": "Commit del preregistro antes de buscar o ejecutar",
+  "flow.eval.s2": "Selecciona repos que no sirvieron para ajustar reglas",
+  "flow.eval.s3": "Ejecuta los motores con versiones congeladas",
+  "flow.eval.s4": "Documenta cualquier desviación en <code>DEVIATIONS.md<\/code>",
+  "flow.eval.title": "Evaluación pre-registrada",
+  "flow.eval.cap": "Los criterios se fijan antes de ver un solo resultado.",
+  "flow.outbox.s1": "Pedido y evento, un solo <code>COMMIT<\/code>",
+  "flow.outbox.s2": "El cliente recibe {0} sin esperar a Kafka",
+  "flow.outbox.s3": "El poller publica los PENDING y los marca PUBLISHED",
+  "flow.outbox.s4": "Con Kafka caído, el evento espera en la tabla",
+  "flow.outbox.title": "Lab {0} · Transactional Outbox",
+  "flow.outbox.cap": "Pedido y evento se guardan en la misma transacción.",
+  "flow.saga.s1": "Cada servicio escucha un topic y responde con otro evento",
+  "flow.saga.s2": "Si el pago falla, el pedido se cancela",
+  "flow.saga.s3": "Si falla el inventario, se reembolsa el pago y se cancela",
+  "flow.saga.title": "Lab {0} · Saga con compensación",
+  "flow.saga.cap": "Si falla un paso, los anteriores se deshacen con eventos.",
+  "flow.jarvis.s1": "Whisper transcribe con umbral de confianza",
+  "flow.jarvis.s2": "El router elige: atajo, modelo local o Claude",
+  "flow.jarvis.s3": "Si Claude pide una tool, pasa por el gate",
+  "flow.jarvis.s4": "Responde por voz y en la UI",
+  "flow.jarvis.title": "Así viaja un turno de voz",
+  "flow.jarvis.cap": "Router de {0} capas y gate de permisos antes de tocar una tool."
  },
  "en": {
   "nav.8": "Contact",
@@ -2899,9 +3196,9 @@ code {
   "profile.10.aria-label": "Profile",
   "profile.11.alt": "Photo of Joaquín Ríos Heredia",
   "devtools.1": "Own product · Java + Python",
-  "devtools.3": "Detects patterns that can pass the tests and fail in production, especially under load, in <strong>Java/Spring<\/strong> and <strong>async Python<\/strong> backends. They are common in AI-generated code too, but it does not detect authorship and does not try to. Each finding keeps detection, impact (measured or «documented mechanism») and reproduction apart. Current status: <strong>roadmap Phase {0}, reliability and precision<\/strong>.",
-  "devtools.5": "One command for both engines: it detects which languages the tree contains, runs each engine through its published CLI and returns a single report (text, a common JSON {0} or SARIF {1} with one run per engine) and a single exit code. The two-run SARIF was tested on GitHub Code Scanning.",
-  "devtools.6": "🔒 vibe-guard-scan {0} · private, not published",
+  "devtools.3": "Detects patterns that can pass the tests and fail in production, especially under load, in <strong>Java/Spring<\/strong> and <strong>async Python<\/strong> backends. They are common in AI-generated code too, but it does not detect authorship and does not try to. Each finding keeps detection, impact (measured or «documented mechanism») and reproduction apart. Current status: <strong>public versions frozen; further development is private<\/strong>.",
+  "devtools.5": "One command for both engines: it detects which languages the tree contains, runs each engine through its CLI and returns a single report (text, a common JSON {0} or SARIF {1} with one run per engine) and a single exit code. The two-run SARIF was tested on GitHub Code Scanning.",
+  "devtools.6": "🔒 vibe-guard-scan · private, not published",
   "devtools.7": "🔒 vibe-guard · private coordination repo (status, decisions, pre-registrations)",
   "devtools.8": "✅ Default exclusion of tests/fixtures/examples outside the source roots",
   "devtools.9": "✅ The exit decision is recomputed from the normalized findings",
@@ -2946,7 +3243,7 @@ code {
   "devtools.80": "# corpus → it is now a development set.",
   "devtools.82": "Pre-registered evaluations of both engines on repositories never used to tune their rules. Each evaluation starts with a {0} committed before any search, selection or run; departures go to {1}. Third-party code is cited by repository, pinned commit and file:line.",
   "devtools.83": "✗ {0}: both pre-registered criteria NOT met",
-  "devtools.84": "⏳ {0}: precision per language, frozen versions, no results yet",
+  "devtools.84": "✗ test-corpus-2, 3 and 4: ≥ 90 % precision target not met. Python 66 → 77 → 85 %; Java 67 → 67 (n = 24) → 32 %. Different review, corpora and versions: indicative comparison",
   "devtools.85": "✅ Evaluation scripts with tests ({0}) · MIT",
   "devtools.88": "# Criterion {0} · CRITICAL precision ≥ {1} %",
   "devtools.89": "measured",
@@ -3082,7 +3379,52 @@ code {
   "meta.description": "Java Backend Engineer (Java {0}) specialized in distributed systems, local AI and AWS cloud. Portfolio with {1} runnable labs, {2} Staff-level guides, vibe-guard (Java + Python), JARVIS and open-source contributions.",
   "meta.og_title": "Joaquín Ríos Heredia — Java Backend Engineer (Java {0})",
   "meta.og_description": "{0} Java Production Labs · {1} Staff Engineer guides · vibe-guard · JARVIS · AI & Distributed Systems · Open Source Contributor",
-  "lang.group": "Language"
+  "lang.group": "Language",
+  "flow.replay": "Replay",
+  "flow.labs.label": "Data flows",
+  "flow.labs.h": "How the events move",
+  "flow.vg-scan.s1": "Detects which languages the tree contains",
+  "flow.vg-scan.s2": "Runs each engine through its CLI",
+  "flow.vg-scan.s3": "Merges the findings into a single report",
+  "flow.vg-scan.s4": "Outputs text, JSON or SARIF",
+  "flow.vg-scan.title": "How a scan flows",
+  "flow.vg-scan.cap": "One command, two engines, one shared report.",
+  "flow.verify.s1": "Starts from the rule and its anti-pattern",
+  "flow.verify.s2": "Starts Spring Boot and PostgreSQL in containers",
+  "flow.verify.s3": "Watches {0} metrics under load",
+  "flow.verify.s4": "It only counts as reproduced if all {0} hold",
+  "flow.verify.title": "How a rule gets verified",
+  "flow.verify.cap": "<code>--verify<\/code> reproduces the failure in a real app before claiming it.",
+  "flow.pyvibe.s1": "Parses the file with the <code>ast<\/code> module",
+  "flow.pyvibe.s2": "Applies {0} independent rules",
+  "flow.pyvibe.s3": "Downgrades CRITICAL to WARNING in tests and scripts",
+  "flow.pyvibe.s4": "Honours suppressions and the baseline",
+  "flow.pyvibe.s5": "Exits with code {0} on new findings",
+  "flow.pyvibe.title": "How pyvibe analyses a file",
+  "flow.pyvibe.cap": "Pure AST analysis: it reads the code, never runs it.",
+  "flow.eval.s1": "Commit the pre-registration before searching or running",
+  "flow.eval.s2": "Picks repos never used to tune the rules",
+  "flow.eval.s3": "Runs the engines with frozen versions",
+  "flow.eval.s4": "Logs any deviation in <code>DEVIATIONS.md<\/code>",
+  "flow.eval.title": "Pre-registered evaluation",
+  "flow.eval.cap": "Criteria are fixed before seeing a single result.",
+  "flow.outbox.s1": "Order and event, one single <code>COMMIT<\/code>",
+  "flow.outbox.s2": "The client gets {0} without waiting for Kafka",
+  "flow.outbox.s3": "The poller publishes PENDING rows and marks them PUBLISHED",
+  "flow.outbox.s4": "With Kafka down, the event waits in the table",
+  "flow.outbox.title": "Lab {0} · Transactional Outbox",
+  "flow.outbox.cap": "Order and event are saved in the same transaction.",
+  "flow.saga.s1": "Each service listens to a topic and answers with an event",
+  "flow.saga.s2": "If payment fails, the order is cancelled",
+  "flow.saga.s3": "If inventory fails, the payment is refunded and the order cancelled",
+  "flow.saga.title": "Lab {0} · Saga with compensation",
+  "flow.saga.cap": "If a step fails, earlier steps are undone with events.",
+  "flow.jarvis.s1": "Whisper transcribes with a confidence threshold",
+  "flow.jarvis.s2": "The router picks: shortcut, local model or Claude",
+  "flow.jarvis.s3": "If Claude asks for a tool, it goes through the gate",
+  "flow.jarvis.s4": "Replies by voice and in the UI",
+  "flow.jarvis.title": "How a voice turn travels",
+  "flow.jarvis.cap": "A {0}-layer router and a permission gate before any tool runs."
  }
 };
   var LANGS = ['es', 'en'];
@@ -3605,5 +3947,361 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 })();
 </script>
 
+<script>
+/* ===================== Flujos animados =====================
+   Cada flujo sale de un README o ADR público. Las etiquetas del
+   diagrama van en ES/EN y se redibujan cuando cambia <html lang>. */
+(function () {
+  'use strict';
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.flow-card[data-flow]'));
+  var pipeline = document.querySelector('#authority .pipeline-steps');
+  if (!cards.length && !pipeline) return;
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
+  var W = 400, BW = 124, BH = 50;
+
+  // [es, en] o un texto igual en los dos idiomas
+  var DATA = {
+    'vg-scan': {
+      h: 420,
+      nodes: [
+        { id: 's', x: 200, y: 30,  l: ['vibe-guard scan .'], k: 'start' },
+        { id: 'd', x: 200, y: 115, l: [['Detecta lenguajes', 'Detects languages'], ['del árbol de código', 'in the source tree']] },
+        { id: 'j', x: 75,  y: 215, l: ['java-vibe-guard', '.java · CLI'] },
+        { id: 'p', x: 325, y: 215, l: ['pyvibe', '.py · AST'] },
+        { id: 'r', x: 200, y: 310, l: [['Informe unificado', 'Unified report'], 'schemaVersion 1'] },
+        { id: 'o', x: 200, y: 390, l: [['texto · JSON · SARIF', 'text · JSON · SARIF']], k: 'ok' }
+      ],
+      edges: [['s', 'd'], ['d', 'j', '.java'], ['d', 'p', '.py'], ['j', 'r'], ['p', 'r'], ['r', 'o']],
+      sc: [
+        { n: ['Repo Spring Boot', 'Spring Boot repo'], p: ['s', 'd', 'j', 'r', 'o'] },
+        { n: ['Repo FastAPI', 'FastAPI repo'], p: ['s', 'd', 'p', 'r', 'o'] }
+      ]
+    },
+    'verify': {
+      h: 450,
+      nodes: [
+        { id: 's', x: 200, y: 30, l: ['VIBE-001', ['.get() en @Transactional', '.get() in @Transactional']], k: 'start' },
+        { id: 'a', x: 200, y: 115, l: [['Levanta Spring Boot + PostgreSQL', 'Starts Spring Boot + PostgreSQL'], ['contenedores reales', 'real containers']] },
+        { id: 'o1', x: 70, y: 215, l: ['Pool HikariCP', ['≥ 95 % ocupado', '≥ 95 % busy']] },
+        { id: 'o2', x: 200, y: 215, l: [['Cola de espera', 'Waiting queue'], ['sin conexión libre', 'no free connection']] },
+        { id: 'o3', x: 330, y: 215, l: [['p95 de latencia', 'p95 latency'], '≥ 800 ms'] },
+        { id: 'q', x: 200, y: 315, l: [['¿Se cumplen las tres?', 'All three hold?']] },
+        { id: 'y', x: 75, y: 410, l: [['Reproducido', 'Reproduced'], ['confirmado', 'confirmed']], k: 'ok' },
+        { id: 'n', x: 325, y: 410, l: [['No reproducido', 'Not reproduced'], ['no se sostiene', 'does not hold']], k: 'bad' }
+      ],
+      edges: [['s', 'a'], ['a', 'o1'], ['a', 'o2'], ['a', 'o3'], ['o1', 'q'], ['o2', 'q'], ['o3', 'q'],
+              ['q', 'y', ['sí', 'yes'], 'ok'], ['q', 'n', 'no', 'bad']],
+      // las tres métricas se observan a la vez: el recorrido las enciende juntas
+      together: { o2: ['o1', 'o3'] },
+      sc: [
+        { n: ['Se reproduce', 'Reproduced'], p: ['s', 'a', 'o2', 'q', 'y'] },
+        { n: ['No se reproduce', 'Not reproduced'], p: ['s', 'a', 'o2', 'q', 'n'] }
+      ]
+    },
+    'pyvibe': {
+      h: 660,
+      nodes: [
+        { id: 'a', x: 200, y: 30,  l: [['Fichero .py', '.py file'], ['del árbol de código', 'from the source tree']], k: 'start' },
+        { id: 'b', x: 200, y: 115, l: [['Parseo AST', 'AST parse'], ['módulo ast, sin ejecutar', 'ast module, no execution']] },
+        { id: 'c', x: 200, y: 200, l: [['20 reglas PYVIBE', '20 PYVIBE rules'], ['un NodeVisitor por regla', 'one NodeVisitor per rule']] },
+        { id: 'd', x: 200, y: 285, l: [['Severidad por ruta', 'Path-based severity'], ['CRITICAL → WARNING en tests', 'CRITICAL → WARNING in tests']] },
+        { id: 'e', x: 200, y: 370, l: [['Supresiones', 'Suppressions'], ['comentario inline · pyvibe.toml', 'inline comment · pyvibe.toml']] },
+        { id: 'f', x: 200, y: 455, l: ['Baseline', ['solo hallazgos nuevos', 'new findings only']] },
+        { id: 'g', x: 200, y: 540, l: [['Salida', 'Output'], ['texto · JSON · SARIF', 'text · JSON · SARIF']] },
+        { id: 'h', x: 200, y: 625, l: ['CI', ['exit 1 si hay hallazgos nuevos', 'exit 1 on new findings']], k: 'ok' }
+      ],
+      edges: [['a', 'b'], ['b', 'c'], ['c', 'd'], ['d', 'e'], ['e', 'f'], ['f', 'g'], ['g', 'h']],
+      sc: [{ n: ['Un fichero con hallazgo', 'A file with a finding'], p: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] }]
+    },
+    'eval': {
+      h: 440,
+      nodes: [
+        { id: 'pr', x: 200, y: 30,  l: [['Preregistro', 'Pre-registration'], ['PREREGISTRATION.md · commit previo', 'PREREGISTRATION.md · committed first']], k: 'start' },
+        { id: 'se', x: 200, y: 120, l: [['Selección de repos', 'Repo selection'], ['ajena a las reglas', 'unseen by the rules']] },
+        { id: 'ru', x: 200, y: 210, l: [['Ejecutar motores', 'Run engines'], ['versiones congeladas', 'frozen versions']] },
+        { id: 'rv', x: 75,  y: 310, l: [['Revisión manual', 'Manual review'], ['precisión medida', 'measured precision']] },
+        { id: 'dv', x: 325, y: 310, l: ['DEVIATIONS.md', ['si algo se desvía', 'if anything deviates']], k: 'bad' },
+        { id: 'rs', x: 200, y: 400, l: ['RESULTS.md'], k: 'ok' }
+      ],
+      edges: [['pr', 'se'], ['se', 'ru'], ['ru', 'rv'], ['ru', 'dv', ['desviación', 'deviation'], 'bad'], ['rv', 'rs'], ['dv', 'rs', '', 'bad']],
+      sc: [
+        { n: ['Sin desviaciones', 'No deviations'], p: ['pr', 'se', 'ru', 'rv', 'rs'] },
+        { n: ['Con desviación documentada', 'With a logged deviation'], p: ['pr', 'se', 'ru', 'dv', 'rs'] }
+      ]
+    },
+    'jarvis': {
+      h: 640,
+      nodes: [
+        { id: 'm',  x: 200, y: 30,  l: [['Micrófono', 'Microphone']], k: 'start' },
+        { id: 'w',  x: 200, y: 110, l: [['Whisper local', 'Local Whisper'], ['umbral de confianza', 'confidence threshold']] },
+        { id: 'r',  x: 200, y: 190, l: [['Router de 3 capas', '3-layer router']] },
+        { id: 'at', x: 70,  y: 290, l: [['Atajo', 'Shortcut'], ['tool directa · sin LLM', 'direct tool · no LLM']] },
+        { id: 'ol', x: 200, y: 290, l: ['Local', 'qwen2.5 · Ollama'] },
+        { id: 'cl', x: 330, y: 290, l: ['Claude', 'streaming + tools'] },
+        { id: 'gt', x: 330, y: 375, l: [['Gate de permisos', 'Permission gate']] },
+        { id: 'tl', x: 330, y: 455, l: ['Tools'] },
+        { id: 'tt', x: 200, y: 540, l: [['TTS por frases', 'Sentence TTS'], 'Piper · ElevenLabs'] },
+        { id: 'sp', x: 200, y: 620, l: [['Altavoz + UI', 'Speaker + UI']], k: 'ok' }
+      ],
+      edges: [['m', 'w'], ['w', 'r'], ['r', 'at', ['atajo', 'shortcut']], ['r', 'ol', 'local'], ['r', 'cl', 'claude'],
+              ['cl', 'gt', 'tool_use'], ['gt', 'tl', ['permitido', 'allowed']], ['at', 'tt'], ['ol', 'tt'],
+              ['tl', 'tt', ['resultado', 'result']], ['tt', 'sp']],
+      sc: [
+        { n: ['Atajo: «qué hora es»', 'Shortcut: “what time is it”'], p: ['m', 'w', 'r', 'at', 'tt', 'sp'] },
+        { n: ['Pregunta general', 'General question'], p: ['m', 'w', 'r', 'ol', 'tt', 'sp'] },
+        { n: ['Necesita una tool', 'Needs a tool'], p: ['m', 'w', 'r', 'cl', 'gt', 'tl', 'tt', 'sp'] }
+      ]
+    },
+    'saga': {
+      h: 590,
+      nodes: [
+        { id: 'po', x: 200, y: 30,  l: ['POST /saga/orders'], k: 'start' },
+        { id: 'oc', x: 200, y: 110, l: ['OrderCreated', '→ Kafka'] },
+        { id: 'pa', x: 200, y: 190, l: ['PaymentService'] },
+        { id: 'in', x: 70,  y: 290, l: ['InventoryService'] },
+        { id: 'pf', x: 330, y: 290, l: ['PaymentFailed', '→ Kafka'], k: 'bad' },
+        { id: 'ir', x: 70,  y: 380, l: ['InventoryReserved'] },
+        { id: 'if', x: 215, y: 380, l: ['InventoryFailed'], k: 'bad' },
+        { id: 'rf', x: 215, y: 465, l: ['PaymentRefunded'] },
+        { id: 'ok', x: 70,  y: 550, l: ['OrderCompleted ✓'], k: 'ok' },
+        { id: 'ca', x: 300, y: 550, l: ['OrderCancelled', 'COMPENSATED'], k: 'bad' }
+      ],
+      edges: [['po', 'oc'], ['oc', 'pa'], ['pa', 'in', ['aprobado', 'approved'], 'ok'], ['pa', 'pf', ['fallo', 'failed'], 'bad'],
+              ['in', 'ir', 'ok', 'ok'], ['ir', 'ok', '', 'ok'], ['in', 'if', ['fallo', 'failed'], 'bad'],
+              ['if', 'rf', '', 'bad'], ['rf', 'ca', '', 'bad'], ['pf', 'ca', '', 'bad']],
+      sc: [
+        { n: ['Todo bien', 'All good'], p: ['po', 'oc', 'pa', 'in', 'ir', 'ok'] },
+        { n: ['Falla el pago', 'Payment fails'], p: ['po', 'oc', 'pa', 'pf', 'ca'] },
+        { n: ['Falla el inventario', 'Inventory fails'], p: ['po', 'oc', 'pa', 'in', 'if', 'rf', 'ca'] }
+      ]
+    },
+    'outbox': {
+      h: 590,
+      nodes: [
+        { id: 'rq', x: 200, y: 30,  l: ['POST /orders'], k: 'start' },
+        { id: 'tx', x: 200, y: 115, l: ['BEGIN · INSERT orders', 'INSERT outbox_events PENDING'] },
+        { id: 'cm', x: 200, y: 200, l: ['COMMIT'] },
+        { id: 'rs', x: 75,  y: 300, l: ['201 Created', ['al cliente', 'to the client']], k: 'ok' },
+        { id: 'po', x: 325, y: 300, l: [['Poller lee PENDING', 'Poller reads PENDING']] },
+        { id: 'kf', x: 325, y: 385, l: ['publish → Kafka', 'OrderCreated'] },
+        { id: 'up', x: 325, y: 470, l: ['UPDATE → PUBLISHED'], k: 'ok' },
+        { id: 'kd', x: 325, y: 555, l: [['Kafka caído', 'Kafka down'], ['queda en outbox', 'stays in outbox']], k: 'bad' }
+      ],
+      edges: [['rq', 'tx'], ['tx', 'cm'], ['cm', 'rs'], ['cm', 'po'], ['po', 'kf'], ['kf', 'up', 'ok', 'ok'], ['kf', 'kd', ['caído', 'down'], 'bad']],
+      sc: [
+        { n: ['Camino feliz', 'Happy path'], p: ['rq', 'tx', 'cm', 'rs'] },
+        { n: ['Publicación al broker', 'Publish to broker'], p: ['rq', 'tx', 'cm', 'po', 'kf', 'up'] },
+        { n: ['Kafka caído', 'Kafka down'], p: ['rq', 'tx', 'cm', 'po', 'kf', 'kd'] }
+      ]
+    }
+  };
+
+  function lang() { return (document.documentElement.lang || 'es').indexOf('en') === 0 ? 1 : 0; }
+  function tr(v) { return Array.isArray(v) ? v[lang()] : v; }
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  // Un único filtro de brillo para todos los diagramas
+  (function () {
+    var s = el('svg', { width: 0, height: 0, 'aria-hidden': 'true', focusable: 'false', style: 'position:absolute;width:0;height:0' });
+    var f = el('filter', { id: 'flow-glow', x: '-30%', y: '-30%', width: '160%', height: '160%' }, el('defs', {}, s));
+    el('feGaussianBlur', { stdDeviation: '3', result: 'b' }, f);
+    var m = el('feMerge', {}, f); el('feMergeNode', { in: 'b' }, m); el('feMergeNode', { in: 'SourceGraphic' }, m);
+    document.body.appendChild(s);
+  })();
+
+  function draw(R) {
+    var d = R.d, card = R.card;
+    if (R.svg) R.svg.remove();
+    var steps = Array.prototype.map.call(card.querySelectorAll('.flow-steps li'), function (li) { return li.textContent.trim(); });
+    var title = (card.querySelector('.flow-title') || {}).textContent || '';
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + d.h, role: 'img', 'aria-label': title + ': ' + steps.join('. ') });
+    R.canvas.appendChild(svg);
+    var byId = {}; d.nodes.forEach(function (n) { byId[n.id] = n; });
+    var edges = {};
+    d.edges.forEach(function (e) {
+      var A = byId[e[0]], B = byId[e[1]];
+      var x1 = A.x, y1 = A.y + BH / 2, x2 = B.x, y2 = B.y - BH / 2;
+      edges[e[0] + '>' + e[1]] = el('path', { d: 'M' + x1 + ' ' + y1 + ' L' + x2 + ' ' + y2, class: 'fe' + (e[3] ? ' ' + e[3] : '') }, svg);
+      var lbl = tr(e[2] || '');
+      if (lbl) el('text', { x: (x1 + x2) / 2 + (x1 === x2 ? 12 : 0), y: (y1 + y2) / 2 - 4, class: 'fl' }, svg).textContent = lbl;
+    });
+    var nodes = {};
+    d.nodes.forEach(function (n) {
+      var g = el('g', { class: 'fn' + (n.k ? ' ' + n.k : '') }, svg);
+      el('rect', { x: n.x - BW / 2, y: n.y - BH / 2, width: BW, height: BH, rx: 10 }, g);
+      var top = n.y - (n.l.length - 1) * 8;
+      n.l.forEach(function (line, i) {
+        el('text', { x: n.x, y: top + i * 16 + 4, class: i ? 'sub' : '' }, g).textContent = tr(line);
+      });
+      g._n = n;
+      nodes[n.id] = g;
+    });
+    var dot = el('g', { transform: 'translate(-40,-40)' }, svg);
+    el('circle', { class: 'fh', r: 11 }, dot);
+    el('circle', { class: 'fp', r: 5, filter: 'url(#flow-glow)' }, dot);
+    R.svg = svg; R.nodes = nodes; R.edges = edges; R.dot = dot; R.byId = byId;
+    fit(R);
+  }
+
+  // Cada caja crece hasta su texto; si comparte fila, se queda en BW y el texto se comprime
+  function fit(R) {
+    var rows = {};
+    R.d.nodes.forEach(function (n) { (rows[n.y] = rows[n.y] || []).push(n); });
+    Object.keys(R.nodes).forEach(function (id) {
+      var g = R.nodes[id], n = g._n, rect = g.querySelector('rect');
+      var texts = Array.prototype.slice.call(g.querySelectorAll('text'));
+      texts.forEach(function (tx) { tx.removeAttribute('textLength'); tx.removeAttribute('lengthAdjust'); });
+      var need = Math.max.apply(null, texts.map(function (tx) { return tx.getComputedTextLength(); })) + 24;
+      var max = rows[n.y].length > 1 ? BW : Math.min(W - 16, 2 * Math.min(n.x, W - n.x) - 8);
+      var w = Math.max(BW, Math.min(need, max));
+      rect.setAttribute('x', n.x - w / 2); rect.setAttribute('width', w);
+      texts.forEach(function (tx) {
+        if (tx.getComputedTextLength() > w - 14) { tx.setAttribute('textLength', w - 14); tx.setAttribute('lengthAdjust', 'spacingAndGlyphs'); }
+      });
+    });
+  }
+
+  function reset(R) {
+    Object.keys(R.nodes).forEach(function (k) { R.nodes[k].classList.remove('on', 'done'); });
+    Object.keys(R.edges).forEach(function (k) { R.edges[k].classList.remove('on'); });
+    R.dot.setAttribute('transform', 'translate(-40,-40)');
+  }
+
+  function along(R, path, ms, token) {
+    return new Promise(function (res) {
+      var len = path.getTotalLength(), t0 = performance.now();
+      (function tick(now) {
+        if (token !== R.token) return res();
+        var k = Math.min(1, (now - t0) / ms);
+        var e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;   // easeInOutQuad
+        var pt = path.getPointAtLength(len * e);
+        R.dot.setAttribute('transform', 'translate(' + pt.x + ',' + pt.y + ')');
+        if (k < 1) requestAnimationFrame(tick); else res();
+      })(t0);
+    });
+  }
+
+  function light(R, id) {
+    R.nodes[id].classList.add('on');
+    var n = R.byId[id];
+    if (n.k === 'ok' || n.k === 'bad') R.nodes[id].classList.add('done');
+    ((R.d.together || {})[id] || []).forEach(function (o) { R.nodes[o].classList.add('on'); });
+  }
+
+  async function play(R, sc, token) {
+    reset(R);
+    R.scn.textContent = tr(sc.n);
+    var first = R.byId[sc.p[0]];
+    light(R, sc.p[0]);
+    R.dot.setAttribute('transform', 'translate(' + first.x + ',' + first.y + ')');
+    await sleep(450);
+    for (var i = 0; i < sc.p.length - 1; i++) {
+      if (token !== R.token) return;
+      var a = sc.p[i], b = sc.p[i + 1];
+      var path = R.edges[a + '>' + b] || R.edges[b + '>' + a];
+      if (path) {
+        path.classList.add('on');
+        await along(R, path, 620, token);
+      }
+      if (token !== R.token) return;
+      light(R, b);
+      await sleep(300);
+    }
+    await sleep(1700);
+  }
+
+  function still(R) {
+    reset(R);
+    var sc = R.d.sc[0];
+    R.scn.textContent = tr(sc.n);
+    sc.p.forEach(function (id, i) {
+      light(R, id);
+      var b = sc.p[i + 1];
+      var p = b && (R.edges[id + '>' + b] || R.edges[b + '>' + id]);
+      if (p) p.classList.add('on');
+    });
+    R.dot.style.display = 'none';
+  }
+
+  async function loop(R) {
+    if (reduce) { still(R); return; }
+    if (R.running) return;
+    R.running = true;
+    var token = ++R.token, i = 0;
+    while (token === R.token) {
+      await play(R, R.d.sc[i % R.d.sc.length], token);
+      i++;
+      if (token !== R.token) break;
+      reset(R);
+      await sleep(500);
+    }
+    if (token === R.token) R.running = false;
+  }
+  function stop(R) { R.token++; R.running = false; }
+
+  var flows = cards.map(function (card) {
+    var d = DATA[card.getAttribute('data-flow')];
+    if (!d) return null;
+    var R = { card: card, d: d, canvas: card.querySelector('.flow-canvas'), scn: card.querySelector('.flow-scn'), token: 0, running: false, visible: false };
+    draw(R);
+    var btn = card.querySelector('.flow-replay');
+    if (btn) btn.addEventListener('click', function () { stop(R); draw(R); loop(R); });
+    return R;
+  }).filter(Boolean);
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var R = flows.filter(function (f) { return f.card === e.target; })[0];
+        if (!R) return;
+        R.visible = e.isIntersecting;
+        if (e.isIntersecting) loop(R); else stop(R);
+      });
+    }, { threshold: 0.3 });
+    flows.forEach(function (R) { io.observe(R.card); });
+  } else {
+    flows.forEach(loop);
+  }
+
+  // Cambio de idioma: el sistema i18n actualiza <html lang>; redibujamos las etiquetas
+  new MutationObserver(function () {
+    flows.forEach(function (R) { stop(R); draw(R); if (R.visible || reduce) loop(R); });
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+
+  // Las fuentes web cambian el ancho del texto: reajustar las cajas al cargar
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { flows.forEach(fit); });
+
+  // Authority Engine: los pasos del pipeline se encienden en orden
+  if (pipeline && !reduce && 'IntersectionObserver' in window) {
+    var steps = Array.prototype.slice.call(pipeline.querySelectorAll('.pipeline-step'));
+    var timer = null, idx = 0;
+    var tick = function () {
+      steps.forEach(function (s, i) {
+        s.classList.toggle('is-active', i === idx);
+        s.classList.toggle('is-done', i < idx);
+      });
+      idx = idx >= steps.length ? 0 : idx + 1;
+    };
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !timer) { idx = 0; tick(); timer = setInterval(tick, 900); }
+        if (!e.isIntersecting && timer) {
+          clearInterval(timer); timer = null;
+          steps.forEach(function (s) { s.classList.remove('is-active', 'is-done'); });
+        }
+      });
+    }, { threshold: 0.4 }).observe(pipeline);
+  }
+})();
+
+</script>
 </body>
 </html>
